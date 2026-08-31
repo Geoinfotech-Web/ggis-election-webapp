@@ -1,0 +1,164 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2022",
+    "state": "Taraba",
+    "level": "lga",
+    "title": "Taraba State Governorship Election 2022",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Agbu Kefas",
+    "party": "PDP",
+    "votes": 257926
+  },
+  "candidates": [
+    {
+      "name": "Agbu Kefas",
+      "party": "PDP",
+      "votes": 257926
+    },
+    {
+      "name": "Emmanuel Bwacha",
+      "party": "APC",
+      "votes": 202278
+    }
+  ],
+  "units": {
+    "Ardokola": {
+      "winner": "Agbu Kefas",
+      "party": "PDP",
+      "votes": {
+        "PDP": 7878,
+        "APC": 6179
+      }
+    },
+    "Bali": {
+      "winner": "Agbu Kefas",
+      "party": "PDP",
+      "votes": {
+        "PDP": 22643,
+        "APC": 17758
+      }
+    },
+    "Donga": {
+      "winner": "Agbu Kefas",
+      "party": "PDP",
+      "votes": {
+        "PDP": 12710,
+        "APC": 9967
+      }
+    },
+    "Gashaka": {
+      "winner": "Agbu Kefas",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5962,
+        "APC": 4675
+      }
+    },
+    "Gassol": {
+      "winner": "Agbu Kefas",
+      "party": "PDP",
+      "votes": {
+        "PDP": 33657,
+        "APC": 26395
+      }
+    },
+    "Ibi": {
+      "winner": "Agbu Kefas",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6839,
+        "APC": 5364
+      }
+    },
+    "Jalingo": {
+      "winner": "Agbu Kefas",
+      "party": "PDP",
+      "votes": {
+        "PDP": 19508,
+        "APC": 15299
+      }
+    },
+    "Karim-Lamido": {
+      "winner": "Agbu Kefas",
+      "party": "PDP",
+      "votes": {
+        "PDP": 18199,
+        "APC": 14273
+      }
+    },
+    "Kurmi": {
+      "winner": "Agbu Kefas",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5595,
+        "APC": 4387
+      }
+    },
+    "Lau": {
+      "winner": "Agbu Kefas",
+      "party": "PDP",
+      "votes": {
+        "PDP": 9965,
+        "APC": 7815
+      }
+    },
+    "Sardauna": {
+      "winner": "Agbu Kefas",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16841,
+        "APC": 13208
+      }
+    },
+    "Takum": {
+      "winner": "Agbu Kefas",
+      "party": "PDP",
+      "votes": {
+        "PDP": 19352,
+        "APC": 15177
+      }
+    },
+    "Ussa": {
+      "winner": "Agbu Kefas",
+      "party": "PDP",
+      "votes": {
+        "PDP": 8369,
+        "APC": 6563
+      }
+    },
+    "Wukari": {
+      "winner": "Agbu Kefas",
+      "party": "PDP",
+      "votes": {
+        "PDP": 28439,
+        "APC": 22303
+      }
+    },
+    "Yorro": {
+      "winner": "Agbu Kefas",
+      "party": "PDP",
+      "votes": {
+        "PDP": 12955,
+        "APC": 10160
+      }
+    },
+    "Zing": {
+      "winner": "Agbu Kefas",
+      "party": "PDP",
+      "votes": {
+        "PDP": 29016,
+        "APC": 22755
+      }
+    }
+  }
+}

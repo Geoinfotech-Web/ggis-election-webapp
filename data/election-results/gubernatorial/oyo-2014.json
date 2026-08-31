@@ -1,0 +1,300 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Oyo",
+    "level": "lga",
+    "title": "Oyo State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2015-04-11",
+    "updated": "2015-04-11",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Abiola Ajimobi",
+    "party": "APC",
+    "votes": 327310
+  },
+  "candidates": [
+    {
+      "name": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": 327310
+    },
+    {
+      "name": "Rashidi Ladoja",
+      "party": "Accord",
+      "votes": 254520
+    }
+  ],
+  "units": {
+    "Afijio": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 6352,
+        "Accord": 4939
+      }
+    },
+    "Akinyele": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 23856,
+        "Accord": 18551
+      }
+    },
+    "Atiba": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 4371,
+        "Accord": 3399
+      }
+    },
+    "Atisbo": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 5042,
+        "Accord": 3921
+      }
+    },
+    "Egbeda": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 34194,
+        "Accord": 26589
+      }
+    },
+    "Ibadan North": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 7061,
+        "Accord": 5490
+      }
+    },
+    "Ibadan North East": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 18783,
+        "Accord": 14606
+      }
+    },
+    "Ibadan North West": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 5289,
+        "Accord": 4112
+      }
+    },
+    "Ibadan South West": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 13380,
+        "Accord": 10404
+      }
+    },
+    "Ibadan South-East": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 11798,
+        "Accord": 9174
+      }
+    },
+    "Ibarapa Central": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 3954,
+        "Accord": 3075
+      }
+    },
+    "Ibarapa East": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 4971,
+        "Accord": 3865
+      }
+    },
+    "Ibarapa North": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 4032,
+        "Accord": 3136
+      }
+    },
+    "Ido": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 27185,
+        "Accord": 21139
+      }
+    },
+    "Irepo": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 4284,
+        "Accord": 3332
+      }
+    },
+    "Iseyin": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 14284,
+        "Accord": 11108
+      }
+    },
+    "Itesiwaju": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 2996,
+        "Accord": 2329
+      }
+    },
+    "Iwajowa": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 4046,
+        "Accord": 3146
+      }
+    },
+    "Kajola": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 4553,
+        "Accord": 3540
+      }
+    },
+    "Lagelu": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 28897,
+        "Accord": 22470
+      }
+    },
+    "Ogbomoso North": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "Accord": 0
+      }
+    },
+    "Ogbomoso South": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "Accord": 0
+      }
+    },
+    "Ogo-Oluwa": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 3196,
+        "Accord": 2486
+      }
+    },
+    "Olorunsogo": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 3613,
+        "Accord": 2810
+      }
+    },
+    "Oluyole": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 22969,
+        "Accord": 17861
+      }
+    },
+    "Ona-Ara": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 14676,
+        "Accord": 11412
+      }
+    },
+    "Oorelope": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "Accord": 0
+      }
+    },
+    "Ori Ire": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 6867,
+        "Accord": 5339
+      }
+    },
+    "Oyo East": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 2813,
+        "Accord": 2187
+      }
+    },
+    "Oyo West": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 18405,
+        "Accord": 14312
+      }
+    },
+    "Saki East": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 3462,
+        "Accord": 2692
+      }
+    },
+    "Saki West": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 17696,
+        "Accord": 13761
+      }
+    },
+    "Surulere": {
+      "winner": "Abiola Ajimobi",
+      "party": "APC",
+      "votes": {
+        "APC": 4286,
+        "Accord": 3332
+      }
+    }
+  }
+}

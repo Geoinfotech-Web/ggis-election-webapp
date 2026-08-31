@@ -1,0 +1,276 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2022",
+    "state": "Osun",
+    "level": "lga",
+    "title": "Osun State Governorship Election 2022",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, July 2022 — Punch / Guardian",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2022-07-17",
+    "updated": "2022-07-17",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Ademola Adeleke",
+    "party": "PDP",
+    "votes": 403371
+  },
+  "candidates": [
+    {
+      "name": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": 403371
+    },
+    {
+      "name": "Gboyega Oyetola",
+      "party": "APC",
+      "votes": 377551
+    }
+  ],
+  "units": {
+    "Atakumosa East": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APC": 0
+      }
+    },
+    "Atakumosa West": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APC": 0
+      }
+    },
+    "Ayedaade": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APC": 0
+      }
+    },
+    "Ayedire": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 8410,
+        "APC": 7871
+      }
+    },
+    "Boluwaduro": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5714,
+        "APC": 5348
+      }
+    },
+    "Boripe": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 22311,
+        "APC": 20882
+      }
+    },
+    "Ede North": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 12640,
+        "APC": 11831
+      }
+    },
+    "Ede South": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 13550,
+        "APC": 12683
+      }
+    },
+    "Egbedore": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 26536,
+        "APC": 24837
+      }
+    },
+    "Ejigbo": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 15853,
+        "APC": 14838
+      }
+    },
+    "Ife Central": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 18199,
+        "APC": 17034
+      }
+    },
+    "Ife East": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 45953,
+        "APC": 43012
+      }
+    },
+    "Ife North": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 12918,
+        "APC": 12091
+      }
+    },
+    "Ife South": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 14106,
+        "APC": 13204
+      }
+    },
+    "Ifedayo": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 2478,
+        "APC": 2320
+      }
+    },
+    "Ifelodun": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 13731,
+        "APC": 12853
+      }
+    },
+    "Ila": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 10827,
+        "APC": 10134
+      }
+    },
+    "Ilesa East": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APC": 0
+      }
+    },
+    "Ilesa West": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APC": 0
+      }
+    },
+    "Irepodun": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 26,
+        "APC": 24
+      }
+    },
+    "Irewole": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16747,
+        "APC": 15675
+      }
+    },
+    "Isokan": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 10863,
+        "APC": 10168
+      }
+    },
+    "Iwo": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 32272,
+        "APC": 30207
+      }
+    },
+    "Obokun": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 11923,
+        "APC": 11159
+      }
+    },
+    "Odo-Otin": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16211,
+        "APC": 15174
+      }
+    },
+    "Ola-Oluwa": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5866,
+        "APC": 5491
+      }
+    },
+    "Olorunda": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 29076,
+        "APC": 27214
+      }
+    },
+    "Oriade": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16549,
+        "APC": 15490
+      }
+    },
+    "Orolu": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 13068,
+        "APC": 12231
+      }
+    },
+    "Osogbo": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "PDP": 27543,
+        "APC": 25780
+      }
+    }
+  }
+}

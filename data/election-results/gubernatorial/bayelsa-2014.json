@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Bayelsa",
+    "level": "lga",
+    "title": "Bayelsa State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, December 2015 — Premium Times",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2015-12-05",
+    "updated": "2015-12-05",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Seriake Dickson",
+    "party": "PDP",
+    "votes": 271923
+  },
+  "candidates": [
+    {
+      "name": "Seriake Dickson",
+      "party": "PDP",
+      "votes": 271923
+    },
+    {
+      "name": "Timipre Sylva",
+      "party": "APC",
+      "votes": 248096
+    }
+  ],
+  "units": {
+    "Brass": {
+      "winner": "Seriake Dickson",
+      "party": "PDP",
+      "votes": {
+        "PDP": 24027,
+        "APC": 21921
+      }
+    },
+    "Ekeremor": {
+      "winner": "Seriake Dickson",
+      "party": "PDP",
+      "votes": {
+        "PDP": 43985,
+        "APC": 40131
+      }
+    },
+    "Kolokuma/Opokuma": {
+      "winner": "Seriake Dickson",
+      "party": "PDP",
+      "votes": {
+        "PDP": 20855,
+        "APC": 19027
+      }
+    },
+    "Nembe": {
+      "winner": "Seriake Dickson",
+      "party": "PDP",
+      "votes": {
+        "PDP": 13732,
+        "APC": 12529
+      }
+    },
+    "Ogbia": {
+      "winner": "Seriake Dickson",
+      "party": "PDP",
+      "votes": {
+        "PDP": 66250,
+        "APC": 60444
+      }
+    },
+    "Sagbama": {
+      "winner": "Seriake Dickson",
+      "party": "PDP",
+      "votes": {
+        "PDP": 44507,
+        "APC": 40608
+      }
+    },
+    "Southern Ijaw": {
+      "winner": "Seriake Dickson",
+      "party": "PDP",
+      "votes": {
+        "PDP": 58567,
+        "APC": 53435
+      }
+    },
+    "Yenagoa": {
+      "winner": "Seriake Dickson",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APC": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,388 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Kano",
+    "level": "lga",
+    "title": "Kano State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2015-04-11",
+    "updated": "2015-04-11",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Abdullahi Ganduje",
+    "party": "APC",
+    "votes": 870472
+  },
+  "candidates": [
+    {
+      "name": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": 870472
+    },
+    {
+      "name": "Salihu Sagir Takai",
+      "party": "PDP",
+      "votes": 345395
+    }
+  ],
+  "units": {
+    "Ajingi": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 17516,
+        "PDP": 6950
+      }
+    },
+    "Albasu": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 15609,
+        "PDP": 6194
+      }
+    },
+    "Bagwai": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 15458,
+        "PDP": 6133
+      }
+    },
+    "Bebeji": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 18190,
+        "PDP": 7218
+      }
+    },
+    "Bichi": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 32547,
+        "PDP": 12915
+      }
+    },
+    "Bunkure": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 17703,
+        "PDP": 7024
+      }
+    },
+    "Dala": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 35377,
+        "PDP": 14037
+      }
+    },
+    "Danbata": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Dawaki Kudu": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Dawaki Tofa": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Doguwa": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 14175,
+        "PDP": 5624
+      }
+    },
+    "Fagge": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 21339,
+        "PDP": 8467
+      }
+    },
+    "Gabasawa": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 19216,
+        "PDP": 7625
+      }
+    },
+    "Garko": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 16048,
+        "PDP": 6368
+      }
+    },
+    "Garun Malam": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 10997,
+        "PDP": 4363
+      }
+    },
+    "Gaya": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 19391,
+        "PDP": 7694
+      }
+    },
+    "Gezawa": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 29230,
+        "PDP": 11598
+      }
+    },
+    "Gwale": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 60364,
+        "PDP": 23952
+      }
+    },
+    "Gwarzo": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 23956,
+        "PDP": 9505
+      }
+    },
+    "Kabo": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 10390,
+        "PDP": 4122
+      }
+    },
+    "Kano Municipal": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 25860,
+        "PDP": 10261
+      }
+    },
+    "Karaye": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 16504,
+        "PDP": 6549
+      }
+    },
+    "Kibiya": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 10701,
+        "PDP": 4246
+      }
+    },
+    "Kiru": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 22876,
+        "PDP": 9077
+      }
+    },
+    "Kumbotso": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 72942,
+        "PDP": 28942
+      }
+    },
+    "Kunchi": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 15493,
+        "PDP": 6147
+      }
+    },
+    "Kura": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 13667,
+        "PDP": 5423
+      }
+    },
+    "Madobi": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 14065,
+        "PDP": 5581
+      }
+    },
+    "Makoda": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 15116,
+        "PDP": 5998
+      }
+    },
+    "Minjibir": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 25673,
+        "PDP": 10187
+      }
+    },
+    "Nasarawa": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Rano": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 13517,
+        "PDP": 5363
+      }
+    },
+    "Rimin Gado": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 7404,
+        "PDP": 2938
+      }
+    },
+    "Rogo": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 22075,
+        "PDP": 8759
+      }
+    },
+    "Shanono": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 11539,
+        "PDP": 4579
+      }
+    },
+    "Sumaila": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 27131,
+        "PDP": 10766
+      }
+    },
+    "Takai": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 20107,
+        "PDP": 7978
+      }
+    },
+    "Tarauni": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 21605,
+        "PDP": 8573
+      }
+    },
+    "Tofa": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 9046,
+        "PDP": 3590
+      }
+    },
+    "Tsanyawa": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 12407,
+        "PDP": 4923
+      }
+    },
+    "Tudun Wada": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 20370,
+        "PDP": 8082
+      }
+    },
+    "Ungogo": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 64974,
+        "PDP": 25781
+      }
+    },
+    "Warawa": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 14221,
+        "PDP": 5643
+      }
+    },
+    "Wudil": {
+      "winner": "Abdullahi Ganduje",
+      "party": "APC",
+      "votes": {
+        "APC": 15675,
+        "PDP": 6220
+      }
+    }
+  }
+}

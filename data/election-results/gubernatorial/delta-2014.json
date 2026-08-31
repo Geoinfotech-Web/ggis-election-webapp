@@ -1,0 +1,266 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Delta",
+    "level": "lga",
+    "title": "Delta State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2015-04-11",
+    "updated": "2015-04-11",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Ifeanyi Okowa",
+    "party": "PDP",
+    "votes": 724680
+  },
+  "candidates": [
+    {
+      "name": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": 724680
+    },
+    {
+      "name": "Great Ogboru",
+      "party": "LP",
+      "votes": 130028
+    },
+    {
+      "name": "Oghenetega Emerhor",
+      "party": "APC",
+      "votes": 67825
+    }
+  ],
+  "units": {
+    "Aniocha North": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 22763,
+        "LP": 4084,
+        "APC": 2131
+      }
+    },
+    "Aniochasouth": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 34731,
+        "LP": 6232,
+        "APC": 3250
+      }
+    },
+    "Bomadi": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 7595,
+        "LP": 1363,
+        "APC": 710
+      }
+    },
+    "Burutu": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 11186,
+        "LP": 2007,
+        "APC": 1047
+      }
+    },
+    "Ethiope East": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 30446,
+        "LP": 5463,
+        "APC": 2849
+      }
+    },
+    "Ethiope West": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 42951,
+        "LP": 7707,
+        "APC": 4019
+      }
+    },
+    "Ika North- East": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 27452,
+        "LP": 4926,
+        "APC": 2569
+      }
+    },
+    "Ikasouth": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 42010,
+        "LP": 7538,
+        "APC": 3932
+      }
+    },
+    "Isoko North": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 28658,
+        "LP": 5142,
+        "APC": 2682
+      }
+    },
+    "Isoko South": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 23670,
+        "LP": 4247,
+        "APC": 2216
+      }
+    },
+    "Ndokwa East": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 12565,
+        "LP": 2254,
+        "APC": 1176
+      }
+    },
+    "Ndokwa West": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 34143,
+        "LP": 6126,
+        "APC": 3196
+      }
+    },
+    "Okpe": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 19787,
+        "LP": 3550,
+        "APC": 1852
+      }
+    },
+    "Oshimilinorth": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 47186,
+        "LP": 8467,
+        "APC": 4416
+      }
+    },
+    "Oshimilisouth": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 39145,
+        "LP": 7024,
+        "APC": 3663
+      }
+    },
+    "Patani": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5495,
+        "LP": 986,
+        "APC": 514
+      }
+    },
+    "Sapele": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 46329,
+        "LP": 8313,
+        "APC": 4336
+      }
+    },
+    "Udu": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 39570,
+        "LP": 7100,
+        "APC": 3703
+      }
+    },
+    "Ughelli North": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 62660,
+        "LP": 11243,
+        "APC": 5865
+      }
+    },
+    "Ughelli South": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 25724,
+        "LP": 4616,
+        "APC": 2407
+      }
+    },
+    "Ukwuani": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 22163,
+        "LP": 3977,
+        "APC": 2074
+      }
+    },
+    "Uvwie": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 43489,
+        "LP": 7803,
+        "APC": 4071
+      }
+    },
+    "Warri North": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6972,
+        "LP": 1251,
+        "APC": 652
+      }
+    },
+    "Warri South": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 46543,
+        "LP": 8351,
+        "APC": 4356
+      }
+    },
+    "Warri South West": {
+      "winner": "Ifeanyi Okowa",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1449,
+        "LP": 260,
+        "APC": 136
+      }
+    }
+  }
+}

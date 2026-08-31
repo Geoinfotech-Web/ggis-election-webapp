@@ -1,0 +1,164 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Kwara",
+    "level": "lga",
+    "title": "Kwara State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2015-04-11",
+    "updated": "2015-04-11",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Abdulfatah Ahmed",
+    "party": "PDP",
+    "votes": 306866
+  },
+  "candidates": [
+    {
+      "name": "Abdulfatah Ahmed",
+      "party": "PDP",
+      "votes": 306866
+    },
+    {
+      "name": "Lada Musa",
+      "party": "APC",
+      "votes": 201424
+    }
+  ],
+  "units": {
+    "Asa": {
+      "winner": "Abdulfatah Ahmed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16639,
+        "APC": 10921
+      }
+    },
+    "Baruten": {
+      "winner": "Abdulfatah Ahmed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 32675,
+        "APC": 21447
+      }
+    },
+    "Edu": {
+      "winner": "Abdulfatah Ahmed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 15356,
+        "APC": 10079
+      }
+    },
+    "Ekiti": {
+      "winner": "Abdulfatah Ahmed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 3928,
+        "APC": 2578
+      }
+    },
+    "Ifelodun": {
+      "winner": "Abdulfatah Ahmed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 14305,
+        "APC": 9390
+      }
+    },
+    "Ilorin East": {
+      "winner": "Abdulfatah Ahmed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 85526,
+        "APC": 56138
+      }
+    },
+    "Ilorin-South": {
+      "winner": "Abdulfatah Ahmed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 7636,
+        "APC": 5013
+      }
+    },
+    "Ilorin-West": {
+      "winner": "Abdulfatah Ahmed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 42145,
+        "APC": 27664
+      }
+    },
+    "Irepodun": {
+      "winner": "Abdulfatah Ahmed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 12805,
+        "APC": 8405
+      }
+    },
+    "Isin": {
+      "winner": "Abdulfatah Ahmed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 3889,
+        "APC": 2552
+      }
+    },
+    "Kaiama": {
+      "winner": "Abdulfatah Ahmed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 24027,
+        "APC": 15771
+      }
+    },
+    "Moro": {
+      "winner": "Abdulfatah Ahmed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 17528,
+        "APC": 11506
+      }
+    },
+    "Offa": {
+      "winner": "Abdulfatah Ahmed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 15493,
+        "APC": 10170
+      }
+    },
+    "Okeero": {
+      "winner": "Abdulfatah Ahmed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 4111,
+        "APC": 2698
+      }
+    },
+    "Oyun": {
+      "winner": "Abdulfatah Ahmed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 10802,
+        "APC": 7091
+      }
+    },
+    "Patigi": {
+      "winner": "Abdulfatah Ahmed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APC": 0
+      }
+    }
+  }
+}

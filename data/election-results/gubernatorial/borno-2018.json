@@ -1,0 +1,252 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2018",
+    "state": "Borno",
+    "level": "lga",
+    "title": "Borno State Governorship Election 2018",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2019 — Premium Times",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2019-03-09",
+    "updated": "2019-03-09",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Babagana Umara Zulum",
+    "party": "APC",
+    "votes": 1175440
+  },
+  "candidates": [
+    {
+      "name": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": 1175440
+    },
+    {
+      "name": "Mohammad Imam",
+      "party": "PDP",
+      "votes": 66115
+    }
+  ],
+  "units": {
+    "Abadam": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 32298,
+        "PDP": 1817
+      }
+    },
+    "Askira / Uba": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 66858,
+        "PDP": 3761
+      }
+    },
+    "Bama": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 59582,
+        "PDP": 3351
+      }
+    },
+    "Bayo": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 40205,
+        "PDP": 2261
+      }
+    },
+    "Biu": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 68939,
+        "PDP": 3878
+      }
+    },
+    "Chibok": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 28293,
+        "PDP": 1591
+      }
+    },
+    "Damboa": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 45429,
+        "PDP": 2555
+      }
+    },
+    "Dikwa": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 24322,
+        "PDP": 1368
+      }
+    },
+    "Gubio": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 40887,
+        "PDP": 2300
+      }
+    },
+    "Guzamala": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 30389,
+        "PDP": 1709
+      }
+    },
+    "Gwoza": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 65705,
+        "PDP": 3696
+      }
+    },
+    "Hawul": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 60316,
+        "PDP": 3393
+      }
+    },
+    "Jere": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 106046,
+        "PDP": 5965
+      }
+    },
+    "Kaga": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 31142,
+        "PDP": 1752
+      }
+    },
+    "Kala Balge": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 15986,
+        "PDP": 899
+      }
+    },
+    "Konduga": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 46330,
+        "PDP": 2606
+      }
+    },
+    "Kukawa": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 32503,
+        "PDP": 1828
+      }
+    },
+    "Kwaya / Kusar": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 31574,
+        "PDP": 1776
+      }
+    },
+    "Mafa": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 33560,
+        "PDP": 1888
+      }
+    },
+    "Magumeri": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 64722,
+        "PDP": 3640
+      }
+    },
+    "Maiduguri M. C.": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Marte": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 36861,
+        "PDP": 2073
+      }
+    },
+    "Mobbar": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 45798,
+        "PDP": 2576
+      }
+    },
+    "Monguno": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 44449,
+        "PDP": 2500
+      }
+    },
+    "Ngala": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 34551,
+        "PDP": 1943
+      }
+    },
+    "Nganzai": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 34135,
+        "PDP": 1920
+      }
+    },
+    "Shani": {
+      "winner": "Babagana Umara Zulum",
+      "party": "APC",
+      "votes": {
+        "APC": 54562,
+        "PDP": 3069
+      }
+    }
+  }
+}

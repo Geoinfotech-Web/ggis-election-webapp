@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Gombe",
+    "level": "lga",
+    "title": "Gombe State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2015-04-11",
+    "updated": "2015-04-11",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Ibrahim Dankwambo",
+    "party": "PDP",
+    "votes": 361245
+  },
+  "candidates": [
+    {
+      "name": "Ibrahim Dankwambo",
+      "party": "PDP",
+      "votes": 361245
+    },
+    {
+      "name": "Inuwa Yahaya",
+      "party": "APC",
+      "votes": 334178
+    }
+  ],
+  "units": {
+    "Akko": {
+      "winner": "Ibrahim Dankwambo",
+      "party": "PDP",
+      "votes": {
+        "PDP": 87675,
+        "APC": 81106
+      }
+    },
+    "Balanga": {
+      "winner": "Ibrahim Dankwambo",
+      "party": "PDP",
+      "votes": {
+        "PDP": 34359,
+        "APC": 31785
+      }
+    },
+    "Billiri": {
+      "winner": "Ibrahim Dankwambo",
+      "party": "PDP",
+      "votes": {
+        "PDP": 28451,
+        "APC": 26320
+      }
+    },
+    "Dukku": {
+      "winner": "Ibrahim Dankwambo",
+      "party": "PDP",
+      "votes": {
+        "PDP": 41015,
+        "APC": 37941
+      }
+    },
+    "Funakaye": {
+      "winner": "Ibrahim Dankwambo",
+      "party": "PDP",
+      "votes": {
+        "PDP": 33149,
+        "APC": 30666
+      }
+    },
+    "Gombe": {
+      "winner": "Ibrahim Dankwambo",
+      "party": "PDP",
+      "votes": {
+        "PDP": 45670,
+        "APC": 42249
+      }
+    },
+    "Kaltungo": {
+      "winner": "Ibrahim Dankwambo",
+      "party": "PDP",
+      "votes": {
+        "PDP": 27966,
+        "APC": 25870
+      }
+    },
+    "Kwami": {
+      "winner": "Ibrahim Dankwambo",
+      "party": "PDP",
+      "votes": {
+        "PDP": 47996,
+        "APC": 44399
+      }
+    },
+    "Nafada": {
+      "winner": "Ibrahim Dankwambo",
+      "party": "PDP",
+      "votes": {
+        "PDP": 14963,
+        "APC": 13841
+      }
+    },
+    "Shongom": {
+      "winner": "Ibrahim Dankwambo",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APC": 0
+      }
+    },
+    "Yalmaltu/ Deba": {
+      "winner": "Ibrahim Dankwambo",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APC": 0
+      }
+    }
+  }
+}

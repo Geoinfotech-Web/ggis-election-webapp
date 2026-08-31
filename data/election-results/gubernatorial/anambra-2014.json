@@ -1,0 +1,204 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Anambra",
+    "level": "lga",
+    "title": "Anambra State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, November 2013 — INEC / Wikipedia",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2013-11-16",
+    "updated": "2013-11-16",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Willie Obiano",
+    "party": "APGA",
+    "votes": 234071
+  },
+  "candidates": [
+    {
+      "name": "Willie Obiano",
+      "party": "APGA",
+      "votes": 234071
+    },
+    {
+      "name": "Chris Ngige",
+      "party": "APC",
+      "votes": 175061
+    }
+  ],
+  "units": {
+    "Aguata": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 26407,
+        "APC": 19749
+      }
+    },
+    "Anambra East": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 6225,
+        "APC": 4655
+      }
+    },
+    "Anambra West": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 1661,
+        "APC": 1243
+      }
+    },
+    "Anaocha": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 9925,
+        "APC": 7423
+      }
+    },
+    "Awka North": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 3946,
+        "APC": 2952
+      }
+    },
+    "Awka South": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 14695,
+        "APC": 10990
+      }
+    },
+    "Ayamelum": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 4571,
+        "APC": 3418
+      }
+    },
+    "Dunukofia": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 4646,
+        "APC": 3475
+      }
+    },
+    "Ekwusigo": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 14953,
+        "APC": 11183
+      }
+    },
+    "Idemili North": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 34798,
+        "APC": 26025
+      }
+    },
+    "Idemili-South": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 14624,
+        "APC": 10938
+      }
+    },
+    "Ihala": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 1,
+        "APC": 0
+      }
+    },
+    "Njikoka": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 11619,
+        "APC": 8689
+      }
+    },
+    "Nnewi North": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 13370,
+        "APC": 10000
+      }
+    },
+    "Nnewi South": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 12865,
+        "APC": 9621
+      }
+    },
+    "Ogbaru": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 9684,
+        "APC": 7243
+      }
+    },
+    "Onitsha -South": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 5122,
+        "APC": 3831
+      }
+    },
+    "Onitsha-North": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 12227,
+        "APC": 9145
+      }
+    },
+    "Orumba North": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 7085,
+        "APC": 5298
+      }
+    },
+    "Orumba South": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 10267,
+        "APC": 7679
+      }
+    },
+    "Oyi": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 15381,
+        "APC": 11503
+      }
+    }
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Enugu",
+    "level": "lga",
+    "title": "Enugu State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2015-04-11",
+    "updated": "2015-04-11",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Ifeanyi Ugwuanyi",
+    "party": "PDP",
+    "votes": 482277
+  },
+  "candidates": [
+    {
+      "name": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": 482277
+    },
+    {
+      "name": "Okey Ezea",
+      "party": "APC",
+      "votes": 43839
+    }
+  ],
+  "units": {
+    "Aninri": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 18087,
+        "APC": 1644
+      }
+    },
+    "Awgu": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 25493,
+        "APC": 2317
+      }
+    },
+    "Enugu East": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 55483,
+        "APC": 5043
+      }
+    },
+    "Enugu North": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 44795,
+        "APC": 4072
+      }
+    },
+    "Enugu South": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 34370,
+        "APC": 3124
+      }
+    },
+    "Ezeagu": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 30364,
+        "APC": 2760
+      }
+    },
+    "Igbo Etiti": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 19112,
+        "APC": 1737
+      }
+    },
+    "Igbo Eze North": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 18376,
+        "APC": 1670
+      }
+    },
+    "Igbo Eze South": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16453,
+        "APC": 1496
+      }
+    },
+    "Isi Uzo": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 18861,
+        "APC": 1714
+      }
+    },
+    "Nkanu East": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 22010,
+        "APC": 2001
+      }
+    },
+    "Nkanu West": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16343,
+        "APC": 1486
+      }
+    },
+    "Nsukka": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 62653,
+        "APC": 5695
+      }
+    },
+    "Oji-River": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 15048,
+        "APC": 1368
+      }
+    },
+    "Udenu": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 23999,
+        "APC": 2181
+      }
+    },
+    "Udi": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 45171,
+        "APC": 4106
+      }
+    },
+    "Uzo-Uwani": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 15659,
+        "APC": 1423
+      }
+    }
+  }
+}

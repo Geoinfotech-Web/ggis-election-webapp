@@ -1,0 +1,172 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2026",
+    "state": "Yobe",
+    "level": "lga",
+    "title": "Yobe State Governorship Election 2026",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Mai Mala Buni",
+    "party": "APC",
+    "votes": 317113
+  },
+  "candidates": [
+    {
+      "name": "Mai Mala Buni",
+      "party": "APC",
+      "votes": 317113
+    },
+    {
+      "name": "Sharif Abdullahi",
+      "party": "PDP",
+      "votes": 124259
+    }
+  ],
+  "units": {
+    "Bade": {
+      "winner": "Mai Mala Buni",
+      "party": "APC",
+      "votes": {
+        "APC": 15732,
+        "PDP": 6165
+      }
+    },
+    "Bursari": {
+      "winner": "Mai Mala Buni",
+      "party": "APC",
+      "votes": {
+        "APC": 13152,
+        "PDP": 5153
+      }
+    },
+    "Damaturu": {
+      "winner": "Mai Mala Buni",
+      "party": "APC",
+      "votes": {
+        "APC": 25220,
+        "PDP": 9883
+      }
+    },
+    "Fika": {
+      "winner": "Mai Mala Buni",
+      "party": "APC",
+      "votes": {
+        "APC": 21535,
+        "PDP": 8439
+      }
+    },
+    "Fune": {
+      "winner": "Mai Mala Buni",
+      "party": "APC",
+      "votes": {
+        "APC": 26835,
+        "PDP": 10515
+      }
+    },
+    "Geidam": {
+      "winner": "Mai Mala Buni",
+      "party": "APC",
+      "votes": {
+        "APC": 20304,
+        "PDP": 7956
+      }
+    },
+    "Gujba": {
+      "winner": "Mai Mala Buni",
+      "party": "APC",
+      "votes": {
+        "APC": 22302,
+        "PDP": 8739
+      }
+    },
+    "Gulani": {
+      "winner": "Mai Mala Buni",
+      "party": "APC",
+      "votes": {
+        "APC": 20041,
+        "PDP": 7853
+      }
+    },
+    "Jakusko": {
+      "winner": "Mai Mala Buni",
+      "party": "APC",
+      "votes": {
+        "APC": 16288,
+        "PDP": 6383
+      }
+    },
+    "Karasawa": {
+      "winner": "Mai Mala Buni",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Machina": {
+      "winner": "Mai Mala Buni",
+      "party": "APC",
+      "votes": {
+        "APC": 10181,
+        "PDP": 3990
+      }
+    },
+    "Nangere": {
+      "winner": "Mai Mala Buni",
+      "party": "APC",
+      "votes": {
+        "APC": 19452,
+        "PDP": 7622
+      }
+    },
+    "Nguru": {
+      "winner": "Mai Mala Buni",
+      "party": "APC",
+      "votes": {
+        "APC": 15405,
+        "PDP": 6036
+      }
+    },
+    "Potiskum": {
+      "winner": "Mai Mala Buni",
+      "party": "APC",
+      "votes": {
+        "APC": 41742,
+        "PDP": 16356
+      }
+    },
+    "Tarmuwa": {
+      "winner": "Mai Mala Buni",
+      "party": "APC",
+      "votes": {
+        "APC": 12452,
+        "PDP": 4879
+      }
+    },
+    "Yunusari": {
+      "winner": "Mai Mala Buni",
+      "party": "APC",
+      "votes": {
+        "APC": 19968,
+        "PDP": 7824
+      }
+    },
+    "Yusufari": {
+      "winner": "Mai Mala Buni",
+      "party": "APC",
+      "votes": {
+        "APC": 16504,
+        "PDP": 6467
+      }
+    }
+  }
+}

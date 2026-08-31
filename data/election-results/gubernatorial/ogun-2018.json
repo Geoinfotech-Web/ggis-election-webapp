@@ -1,0 +1,221 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2018",
+    "state": "Ogun",
+    "level": "lga",
+    "title": "Ogun State Governorship Election 2018",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2019 — Daily Post / INEC",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2019-03-09",
+    "updated": "2019-03-09",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Dapo Abiodun",
+    "party": "APC",
+    "votes": 241670
+  },
+  "candidates": [
+    {
+      "name": "Dapo Abiodun",
+      "party": "APC",
+      "votes": 241670
+    },
+    {
+      "name": "Adekunle Akinlade",
+      "party": "APM",
+      "votes": 222153
+    },
+    {
+      "name": "Gboyega Nasir Isiaka",
+      "party": "ADC",
+      "votes": 110422
+    }
+  ],
+  "units": {
+    "Abeokuta North": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 14531,
+        "APM": 13357,
+        "ADC": 6639
+      }
+    },
+    "Abeokuta South": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 12748,
+        "APM": 11718,
+        "ADC": 5825
+      }
+    },
+    "Ado Odo-Ota": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 65993,
+        "APM": 60664,
+        "ADC": 30153
+      }
+    },
+    "Egbado North": {
+      "winner": "Gboyega Nasir Isiaka",
+      "party": "ADC",
+      "votes": {
+        "APC": 0,
+        "APM": 0,
+        "ADC": 1
+      }
+    },
+    "Egbado South": {
+      "winner": "Gboyega Nasir Isiaka",
+      "party": "ADC",
+      "votes": {
+        "APC": 0,
+        "APM": 0,
+        "ADC": 1
+      }
+    },
+    "Ewekoro": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 4912,
+        "APM": 4515,
+        "ADC": 2244
+      }
+    },
+    "Ifo": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 51485,
+        "APM": 47327,
+        "ADC": 23525
+      }
+    },
+    "Ijebu East": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 7597,
+        "APM": 6983,
+        "ADC": 3471
+      }
+    },
+    "Ijebu North": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 9809,
+        "APM": 9017,
+        "ADC": 4482
+      }
+    },
+    "Ijebu North East": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 2148,
+        "APM": 1975,
+        "ADC": 982
+      }
+    },
+    "Ijebu Ode": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 8366,
+        "APM": 7690,
+        "ADC": 3823
+      }
+    },
+    "Ikenne": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 4876,
+        "APM": 4482,
+        "ADC": 2227
+      }
+    },
+    "Imeko/Afon": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 3769,
+        "APM": 3465,
+        "ADC": 1722
+      }
+    },
+    "Ipokia": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 6450,
+        "APM": 5929,
+        "ADC": 2947
+      }
+    },
+    "Obafemi/Owode": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 27922,
+        "APM": 25667,
+        "ADC": 12759
+      }
+    },
+    "Odeda": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 9266,
+        "APM": 8518,
+        "ADC": 4233
+      }
+    },
+    "Odogbolu": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 7789,
+        "APM": 7160,
+        "ADC": 3559
+      }
+    },
+    "Ogun Water Side": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 1832,
+        "APM": 1684,
+        "ADC": 837
+      }
+    },
+    "Remo North": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 2177,
+        "APM": 2002,
+        "ADC": 995
+      }
+    },
+    "Sagamu": {
+      "winner": "Gboyega Nasir Isiaka",
+      "party": "ADC",
+      "votes": {
+        "APC": 0,
+        "APM": 0,
+        "ADC": 1
+      }
+    }
+  }
+}

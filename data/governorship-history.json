@@ -1,0 +1,2864 @@
+{
+  "2014": {
+    "Abia": {
+      "candidates": [
+        {
+          "name": "Okezie Ikpeazu",
+          "party": "PDP",
+          "votes": 264713
+        },
+        {
+          "name": "Alex Otti",
+          "party": "APGA",
+          "votes": 180882
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Adamawa": {
+      "candidates": [
+        {
+          "name": "Mohammed Umar Jibrilla",
+          "party": "APC",
+          "votes": 362329
+        },
+        {
+          "name": "Bindo Umaru Jibrilla",
+          "party": "PDP",
+          "votes": 327476
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Akwa Ibom": {
+      "candidates": [
+        {
+          "name": "Udom Emmanuel",
+          "party": "PDP",
+          "votes": 470075
+        },
+        {
+          "name": "Bassey Albert",
+          "party": "APC",
+          "votes": 248120
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Anambra": {
+      "candidates": [
+        {
+          "name": "Willie Obiano",
+          "party": "APGA",
+          "votes": 234071
+        },
+        {
+          "name": "Chris Ngige",
+          "party": "APC",
+          "votes": 175061
+        }
+      ],
+      "source": "INEC declared results, November 2013 — INEC / Wikipedia",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2013-11-16",
+      "sourced": true
+    },
+    "Bauchi": {
+      "candidates": [
+        {
+          "name": "Mohammed Abubakar",
+          "party": "APC",
+          "votes": 533239
+        },
+        {
+          "name": "Isa Yuguda",
+          "party": "PDP",
+          "votes": 466302
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Bayelsa": {
+      "candidates": [
+        {
+          "name": "Seriake Dickson",
+          "party": "PDP",
+          "votes": 271923
+        },
+        {
+          "name": "Timipre Sylva",
+          "party": "APC",
+          "votes": 248096
+        }
+      ],
+      "source": "INEC declared results, December 2015 — Premium Times",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-12-05",
+      "sourced": true
+    },
+    "Benue": {
+      "candidates": [
+        {
+          "name": "Samuel Ortom",
+          "party": "APC",
+          "votes": 422582
+        },
+        {
+          "name": "Gabriel Suswam",
+          "party": "PDP",
+          "votes": 313867
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Borno": {
+      "candidates": [
+        {
+          "name": "Kashim Shettima",
+          "party": "APC",
+          "votes": 480146
+        },
+        {
+          "name": "Gambo Lawan",
+          "party": "PDP",
+          "votes": 128018
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Cross River": {
+      "candidates": [
+        {
+          "name": "Ben Ayade",
+          "party": "PDP",
+          "votes": 342016
+        },
+        {
+          "name": "Bassey Otu",
+          "party": "APC",
+          "votes": 118111
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Delta": {
+      "candidates": [
+        {
+          "name": "Ifeanyi Okowa",
+          "party": "PDP",
+          "votes": 724680
+        },
+        {
+          "name": "Great Ogboru",
+          "party": "LP",
+          "votes": 130028
+        },
+        {
+          "name": "Oghenetega Emerhor",
+          "party": "APC",
+          "votes": 67825
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Ebonyi": {
+      "candidates": [
+        {
+          "name": "Dave Umahi",
+          "party": "PDP",
+          "votes": 289867
+        },
+        {
+          "name": "Edward Nkwegu",
+          "party": "LP",
+          "votes": 124817
+        },
+        {
+          "name": "Julius Ucha",
+          "party": "APC",
+          "votes": 27583
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Edo": {
+      "candidates": [
+        {
+          "name": "Adams Oshiomhole",
+          "party": "APC",
+          "votes": 319986
+        },
+        {
+          "name": "Osagie Ize-Iyamu",
+          "party": "PDP",
+          "votes": 253369
+        }
+      ],
+      "source": "INEC declared results, September 2016 — INEC",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2016-09-28",
+      "sourced": true
+    },
+    "Ekiti": {
+      "candidates": [
+        {
+          "name": "Ayodele Fayose",
+          "party": "PDP",
+          "votes": 203090
+        },
+        {
+          "name": "Kayode Fayemi",
+          "party": "APC",
+          "votes": 120433
+        },
+        {
+          "name": "Opeyemi Bamidele",
+          "party": "LP",
+          "votes": 18135
+        }
+      ],
+      "source": "INEC LGA collation centres — The Cable / Vanguard reporting official returns, 21 June 2014",
+      "collated": true
+    },
+    "Enugu": {
+      "candidates": [
+        {
+          "name": "Ifeanyi Ugwuanyi",
+          "party": "PDP",
+          "votes": 482277
+        },
+        {
+          "name": "Okey Ezea",
+          "party": "APC",
+          "votes": 43839
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Gombe": {
+      "candidates": [
+        {
+          "name": "Ibrahim Dankwambo",
+          "party": "PDP",
+          "votes": 361245
+        },
+        {
+          "name": "Inuwa Yahaya",
+          "party": "APC",
+          "votes": 334178
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Imo": {
+      "candidates": [
+        {
+          "name": "Rochas Okorocha",
+          "party": "APC",
+          "votes": 416996
+        },
+        {
+          "name": "Emeka Ihedioha",
+          "party": "PDP",
+          "votes": 320705
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Jigawa": {
+      "candidates": [
+        {
+          "name": "Badaru Abubakar",
+          "party": "APC",
+          "votes": 644048
+        },
+        {
+          "name": "Aminu Ibrahim Ringim",
+          "party": "PDP",
+          "votes": 462110
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Kaduna": {
+      "candidates": [
+        {
+          "name": "Nasir el-Rufai",
+          "party": "APC",
+          "votes": 1117635
+        },
+        {
+          "name": "Mukhtar Ramalan Yero",
+          "party": "PDP",
+          "votes": 485833
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Kano": {
+      "candidates": [
+        {
+          "name": "Abdullahi Ganduje",
+          "party": "APC",
+          "votes": 870472
+        },
+        {
+          "name": "Salihu Sagir Takai",
+          "party": "PDP",
+          "votes": 345395
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Katsina": {
+      "candidates": [
+        {
+          "name": "Aminu Masari",
+          "party": "APC",
+          "votes": 943085
+        },
+        {
+          "name": "Musa Nashuni",
+          "party": "PDP",
+          "votes": 476768
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Kebbi": {
+      "candidates": [
+        {
+          "name": "Atiku Bagudu",
+          "party": "APC",
+          "votes": 477376
+        },
+        {
+          "name": "Sarkin Bello",
+          "party": "PDP",
+          "votes": 293443
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Kogi": {
+      "candidates": [
+        {
+          "name": "Yahaya Bello",
+          "party": "APC",
+          "votes": 406222
+        },
+        {
+          "name": "Musa Wada",
+          "party": "PDP",
+          "votes": 189704
+        }
+      ],
+      "source": "INEC declared results, November 2015 — Vanguard",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-11-21",
+      "sourced": true
+    },
+    "Kwara": {
+      "candidates": [
+        {
+          "name": "Abdulfatah Ahmed",
+          "party": "PDP",
+          "votes": 306866
+        },
+        {
+          "name": "Lada Musa",
+          "party": "APC",
+          "votes": 201424
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Lagos": {
+      "candidates": [
+        {
+          "name": "Akinwunmi Ambode",
+          "party": "APC",
+          "votes": 811994
+        },
+        {
+          "name": "Jimi Agbaje",
+          "party": "PDP",
+          "votes": 659788
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Nasarawa": {
+      "candidates": [
+        {
+          "name": "Umaru Tanko Al-Makura",
+          "party": "APC",
+          "votes": 309746
+        },
+        {
+          "name": "Labaran Maku",
+          "party": "APGA",
+          "votes": 178983
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Niger": {
+      "candidates": [
+        {
+          "name": "Abubakar Bello",
+          "party": "APC",
+          "votes": 593702
+        },
+        {
+          "name": "Umar Nasko",
+          "party": "PDP",
+          "votes": 239772
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Ogun": {
+      "candidates": [
+        {
+          "name": "Ibikunle Amosun",
+          "party": "APC",
+          "votes": 306988
+        },
+        {
+          "name": "Gboyega Nasir Isiaka",
+          "party": "PDP",
+          "votes": 201440
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Ondo": {
+      "candidates": [
+        {
+          "name": "Olusegun Mimiko",
+          "party": "LP",
+          "votes": 367901
+        },
+        {
+          "name": "Olusola Oke",
+          "party": "ACN",
+          "votes": 275901
+        }
+      ],
+      "source": "INEC declared results, October 2012 — INEC",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2012-10-20",
+      "sourced": true
+    },
+    "Osun": {
+      "candidates": [
+        {
+          "name": "Rauf Aregbesola",
+          "party": "APC",
+          "votes": 394684
+        },
+        {
+          "name": "Olusola Adeyeye",
+          "party": "PDP",
+          "votes": 304376
+        },
+        {
+          "name": "Iyiola Omisore",
+          "party": "SDP",
+          "votes": 128889
+        }
+      ],
+      "source": "INEC declared results, August 2014 — Punch / Guardian",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2014-08-09",
+      "sourced": true
+    },
+    "Oyo": {
+      "candidates": [
+        {
+          "name": "Abiola Ajimobi",
+          "party": "APC",
+          "votes": 327310
+        },
+        {
+          "name": "Rashidi Ladoja",
+          "party": "Accord",
+          "votes": 254520
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Plateau": {
+      "candidates": [
+        {
+          "name": "Simon Lalong",
+          "party": "APC",
+          "votes": 537050
+        },
+        {
+          "name": "Gyang Chung",
+          "party": "PDP",
+          "votes": 361614
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Rivers": {
+      "candidates": [
+        {
+          "name": "Nyesom Wike",
+          "party": "PDP",
+          "votes": 692588
+        },
+        {
+          "name": "Dakuku Peterside",
+          "party": "APC",
+          "votes": 106659
+        }
+      ],
+      "source": "INEC declared results, April 2015 — Channels TV / Punch",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Sokoto": {
+      "candidates": [
+        {
+          "name": "Aliyu Wamakko",
+          "party": "APC",
+          "votes": 487180
+        },
+        {
+          "name": "Aminu Tambuwal",
+          "party": "PDP",
+          "votes": 361604
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Taraba": {
+      "candidates": [
+        {
+          "name": "Darius Ishaku",
+          "party": "PDP",
+          "votes": 369651
+        },
+        {
+          "name": "Danbaba Suntai",
+          "party": "PDP",
+          "votes": 275621
+        }
+      ],
+      "source": "INEC declared results, April 2015 (supplementary) — Premium Times",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-25",
+      "sourced": true
+    },
+    "Yobe": {
+      "candidates": [
+        {
+          "name": "Ibrahim Geidam",
+          "party": "APC",
+          "votes": 334847
+        },
+        {
+          "name": "Adamu Maina Waziri",
+          "party": "PDP",
+          "votes": 179700
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    },
+    "Zamfara": {
+      "candidates": [
+        {
+          "name": "Abdulaziz Yari",
+          "party": "APC",
+          "votes": 716964
+        },
+        {
+          "name": "Mahmud Shinkafi",
+          "party": "PDP",
+          "votes": 201938
+        }
+      ],
+      "source": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2015-04-11",
+      "sourced": true
+    }
+  },
+  "2018": {
+    "Abia": {
+      "candidates": [
+        {
+          "name": "Okezie Ikpeazu",
+          "party": "PDP",
+          "votes": 261127
+        },
+        {
+          "name": "Uchechukwu Sampson Ogah",
+          "party": "APC",
+          "votes": 99574
+        },
+        {
+          "name": "Alex Otti",
+          "party": "APGA",
+          "votes": 64366
+        }
+      ],
+      "source": "INEC declared results, March 2019 — INEC / Wikipedia",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Adamawa": {
+      "candidates": [
+        {
+          "name": "Ahmadu Umaru Fintiri",
+          "party": "PDP",
+          "votes": 376552
+        },
+        {
+          "name": "Bindo Jibrilla",
+          "party": "APC",
+          "votes": 336386
+        },
+        {
+          "name": "Abdul-Aziz Nyako",
+          "party": "ADC",
+          "votes": 113237
+        }
+      ],
+      "source": "INEC declared results (incl. supplementary), March 2019 — Daily Trust",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Akwa Ibom": {
+      "candidates": [
+        {
+          "name": "Udom Emmanuel",
+          "party": "PDP",
+          "votes": 519712
+        },
+        {
+          "name": "Nsima Ekere",
+          "party": "APC",
+          "votes": 171978
+        }
+      ],
+      "source": "INEC declared results, March 2019 — Channels TV",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Anambra": {
+      "candidates": [
+        {
+          "name": "Willie Obiano",
+          "party": "APGA",
+          "votes": 234071
+        },
+        {
+          "name": "Tony Nwoye",
+          "party": "APC",
+          "votes": 98752
+        },
+        {
+          "name": "Oseloka Obaze",
+          "party": "PDP",
+          "votes": 70293
+        }
+      ],
+      "source": "INEC declared results, November 2017 — Punch / Guardian",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2017-11-18",
+      "sourced": true
+    },
+    "Bauchi": {
+      "candidates": [
+        {
+          "name": "Bala Mohammed",
+          "party": "PDP",
+          "votes": 515113
+        },
+        {
+          "name": "Mohammed Abdullahi Abubakar",
+          "party": "APC",
+          "votes": 500625
+        }
+      ],
+      "source": "INEC declared results (incl. supplementary), March 2019 — Daily Trust",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Bayelsa": {
+      "candidates": [
+        {
+          "name": "David Lyon",
+          "party": "APC",
+          "votes": 352552
+        },
+        {
+          "name": "Douye Diri",
+          "party": "PDP",
+          "votes": 143172
+        }
+      ],
+      "source": "INEC declared results, November 2019 — THISDAYLIVE",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-11-16",
+      "sourced": true
+    },
+    "Benue": {
+      "candidates": [
+        {
+          "name": "Samuel Ortom",
+          "party": "PDP",
+          "votes": 434473
+        },
+        {
+          "name": "Emmanuel Jime",
+          "party": "APC",
+          "votes": 345155
+        }
+      ],
+      "source": "INEC declared results (incl. supplementary), March 2019 — THISDAYLIVE",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Borno": {
+      "candidates": [
+        {
+          "name": "Babagana Umara Zulum",
+          "party": "APC",
+          "votes": 1175440
+        },
+        {
+          "name": "Mohammad Imam",
+          "party": "PDP",
+          "votes": 66115
+        }
+      ],
+      "source": "INEC declared results, March 2019 — Premium Times",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Cross River": {
+      "candidates": [
+        {
+          "name": "Ben Ayade",
+          "party": "PDP",
+          "votes": 381484
+        },
+        {
+          "name": "John Owan Enoh",
+          "party": "APC",
+          "votes": 131161
+        }
+      ],
+      "source": "INEC declared results, March 2019 — INEC",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Delta": {
+      "candidates": [
+        {
+          "name": "Ifeanyi Okowa",
+          "party": "PDP",
+          "votes": 925274
+        },
+        {
+          "name": "Great Ogboru",
+          "party": "APC",
+          "votes": 215938
+        }
+      ],
+      "source": "INEC declared results, March 2019 — INEC",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Ebonyi": {
+      "candidates": [
+        {
+          "name": "Dave Umahi",
+          "party": "PDP",
+          "votes": 393043
+        },
+        {
+          "name": "Sonni Ogbuoji",
+          "party": "APC",
+          "votes": 81703
+        }
+      ],
+      "source": "INEC declared results, March 2019 — Independent Newspapers",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Edo": {
+      "candidates": [
+        {
+          "name": "Godwin Obaseki",
+          "party": "APC",
+          "votes": 319483
+        },
+        {
+          "name": "Osagie Ize-Iyamu",
+          "party": "PDP",
+          "votes": 253173
+        }
+      ],
+      "source": "INEC declared results, September 2016 — INEC",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2016-09-28",
+      "sourced": true
+    },
+    "Ekiti": {
+      "candidates": [
+        {
+          "name": "Kayode Fayemi",
+          "party": "APC",
+          "votes": 197459
+        },
+        {
+          "name": "Kolapo Olushola",
+          "party": "PDP",
+          "votes": 178121
+        },
+        {
+          "name": "Opeyemi Bamidele",
+          "party": "LP",
+          "votes": 9205
+        }
+      ],
+      "source": "INEC LGA collation centres — Tribune Online / Vanguard reporting official returns, 14 July 2018",
+      "collated": true
+    },
+    "Enugu": {
+      "candidates": [
+        {
+          "name": "Ifeanyi Ugwuanyi",
+          "party": "PDP",
+          "votes": 449935
+        },
+        {
+          "name": "Ayogu Eze",
+          "party": "APC",
+          "votes": 10423
+        },
+        {
+          "name": "Nwankpa Emmanuel Benedict",
+          "party": "APGA",
+          "votes": 2547
+        }
+      ],
+      "source": "INEC declared results, March 2019 — INEC / Wikipedia",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Gombe": {
+      "candidates": [
+        {
+          "name": "Muhammad Inuwa Yahaya",
+          "party": "APC",
+          "votes": 364179
+        },
+        {
+          "name": "Usman Bayero Nafada",
+          "party": "PDP",
+          "votes": 222868
+        }
+      ],
+      "source": "INEC declared results, March 2019 — Punch / INEC",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Imo": {
+      "candidates": [
+        {
+          "name": "Emeka Ihedioha",
+          "party": "PDP",
+          "votes": 273404
+        },
+        {
+          "name": "Uche Nwosu",
+          "party": "AA",
+          "votes": 190364
+        },
+        {
+          "name": "Ifeanyi Ararume",
+          "party": "APGA",
+          "votes": 114676
+        }
+      ],
+      "source": "INEC declared results, March 2019 — Punch",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Jigawa": {
+      "candidates": [
+        {
+          "name": "Mohammed Badaru Abubakar",
+          "party": "APC",
+          "votes": 810933
+        },
+        {
+          "name": "Aminu Ibrahim Ringim",
+          "party": "PDP",
+          "votes": 288356
+        }
+      ],
+      "source": "INEC declared results, March 2019 — Daily Post",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Kaduna": {
+      "candidates": [
+        {
+          "name": "Nasir Ahmad el-Rufai",
+          "party": "APC",
+          "votes": 1045427
+        },
+        {
+          "name": "Isah Ashiru",
+          "party": "PDP",
+          "votes": 814168
+        },
+        {
+          "name": "Haruna Saeed",
+          "party": "SDP",
+          "votes": 9828
+        }
+      ],
+      "source": "INEC declared results, March 2019 — Daily Trust / Guardian",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Kano": {
+      "candidates": [
+        {
+          "name": "Abdullahi Ganduje",
+          "party": "APC",
+          "votes": 1033695
+        },
+        {
+          "name": "Abba Kabir Yusuf",
+          "party": "PDP",
+          "votes": 1024713
+        }
+      ],
+      "source": "INEC declared results (incl. supplementary), March 2019 — Punch",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Katsina": {
+      "candidates": [
+        {
+          "name": "Aminu Bello Masari",
+          "party": "APC",
+          "votes": 1178864
+        },
+        {
+          "name": "Garba Yakubu Lado",
+          "party": "PDP",
+          "votes": 488621
+        }
+      ],
+      "source": "INEC declared results, March 2019 — Daily Trust",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Kebbi": {
+      "candidates": [
+        {
+          "name": "Abubakar Atiku Bagudu",
+          "party": "APC",
+          "votes": 673717
+        },
+        {
+          "name": "Isa Mohammed Galaudu",
+          "party": "PDP",
+          "votes": 106633
+        }
+      ],
+      "source": "INEC declared results, March 2019 — Daily Post",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Kogi": {
+      "candidates": [
+        {
+          "name": "Yahaya Bello",
+          "party": "APC",
+          "votes": 406222
+        },
+        {
+          "name": "Musa Wada",
+          "party": "PDP",
+          "votes": 189704
+        }
+      ],
+      "source": "INEC declared results, November 2019 — Vanguard",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-11-16",
+      "sourced": true
+    },
+    "Kwara": {
+      "candidates": [
+        {
+          "name": "Abdulrahman Abdulrazaq",
+          "party": "APC",
+          "votes": 331546
+        },
+        {
+          "name": "Razak Atunwa",
+          "party": "PDP",
+          "votes": 114754
+        }
+      ],
+      "source": "INEC declared results, March 2019 — INEC",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Lagos": {
+      "candidates": [
+        {
+          "name": "Babajide Sanwo-Olu",
+          "party": "APC",
+          "votes": 739445
+        },
+        {
+          "name": "Jimi Agbaje",
+          "party": "PDP",
+          "votes": 206141
+        }
+      ],
+      "source": "INEC declared results, March 2019 — Punch / Guardian",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Nasarawa": {
+      "candidates": [
+        {
+          "name": "Abdullahi Sule",
+          "party": "APC",
+          "votes": 327229
+        },
+        {
+          "name": "David Ombugadu",
+          "party": "PDP",
+          "votes": 184281
+        },
+        {
+          "name": "Labaran Maku",
+          "party": "APGA",
+          "votes": 132784
+        }
+      ],
+      "source": "INEC declared results, March 2019 — INEC",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Niger": {
+      "candidates": [
+        {
+          "name": "Abubakar Sani Bello",
+          "party": "APC",
+          "votes": 526412
+        },
+        {
+          "name": "Umar Nasko",
+          "party": "PDP",
+          "votes": 298065
+        }
+      ],
+      "source": "INEC declared results, March 2019 — Ripples Nigeria",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Ogun": {
+      "candidates": [
+        {
+          "name": "Dapo Abiodun",
+          "party": "APC",
+          "votes": 241670
+        },
+        {
+          "name": "Adekunle Akinlade",
+          "party": "APM",
+          "votes": 222153
+        },
+        {
+          "name": "Gboyega Nasir Isiaka",
+          "party": "ADC",
+          "votes": 110422
+        }
+      ],
+      "source": "INEC declared results, March 2019 — Daily Post / INEC",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Ondo": {
+      "candidates": [
+        {
+          "name": "Oluwarotimi Akeredolu",
+          "party": "APC",
+          "votes": 244842
+        },
+        {
+          "name": "Eyitayo Jegede",
+          "party": "PDP",
+          "votes": 150380
+        },
+        {
+          "name": "Olusola Oke",
+          "party": "AD",
+          "votes": 126889
+        }
+      ],
+      "source": "INEC declared results, November 2016 — Channels TV / Punch",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2016-11-26",
+      "sourced": true
+    },
+    "Osun": {
+      "candidates": [
+        {
+          "name": "Gboyega Oyetola",
+          "party": "APC",
+          "votes": 254345
+        },
+        {
+          "name": "Ademola Adeleke",
+          "party": "PDP",
+          "votes": 254698
+        },
+        {
+          "name": "Iyiola Omisore",
+          "party": "SDP",
+          "votes": 128889
+        }
+      ],
+      "source": "INEC LGA collation centres — Daily Post Nigeria reporting official returns, 22 September 2018 (first ballot)",
+      "collated": true
+    },
+    "Oyo": {
+      "candidates": [
+        {
+          "name": "Seyi Makinde",
+          "party": "PDP",
+          "votes": 515621
+        },
+        {
+          "name": "Adebayo Adelabu",
+          "party": "APC",
+          "votes": 357982
+        }
+      ],
+      "source": "INEC declared results, March 2019 — INEC",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Plateau": {
+      "candidates": [
+        {
+          "name": "Simon Lalong",
+          "party": "APC",
+          "votes": 595582
+        },
+        {
+          "name": "Jeremiah Useni",
+          "party": "PDP",
+          "votes": 546813
+        }
+      ],
+      "source": "INEC declared results (incl. supplementary), March 2019 — Punch",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Rivers": {
+      "candidates": [
+        {
+          "name": "Nyesom Wike",
+          "party": "PDP",
+          "votes": 886264
+        },
+        {
+          "name": "Biokpomabo Awara",
+          "party": "AAC",
+          "votes": 173859
+        }
+      ],
+      "source": "INEC declared results, April 2019 — Channels TV / Punch",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-04-03",
+      "sourced": true
+    },
+    "Sokoto": {
+      "candidates": [
+        {
+          "name": "Aminu Tambuwal",
+          "party": "PDP",
+          "votes": 512002
+        },
+        {
+          "name": "Ahmad Aliyu",
+          "party": "APC",
+          "votes": 511660
+        }
+      ],
+      "source": "INEC declared results (incl. supplementary), March 2019 — Punch / Vanguard",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Taraba": {
+      "candidates": [
+        {
+          "name": "Darius Ishaku",
+          "party": "PDP",
+          "votes": 520433
+        },
+        {
+          "name": "Sani Abubakar Danladi",
+          "party": "APC",
+          "votes": 362735
+        }
+      ],
+      "source": "INEC declared results, March 2019 — INEC / Premium Times",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Yobe": {
+      "candidates": [
+        {
+          "name": "Mai Mala Buni",
+          "party": "APC",
+          "votes": 444013
+        },
+        {
+          "name": "Umar Iliya Damagum",
+          "party": "PDP",
+          "votes": 95703
+        }
+      ],
+      "source": "INEC declared results, March 2019 — Daily Trust",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    },
+    "Zamfara": {
+      "candidates": [
+        {
+          "name": "Bello Matawalle",
+          "party": "PDP",
+          "votes": 189452
+        },
+        {
+          "name": "Mukhtar Shehu Idris",
+          "party": "APC",
+          "votes": 534541
+        }
+      ],
+      "source": "INEC declared results, May 2019 — Channels TV / INEC",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2019-03-09",
+      "sourced": true
+    }
+  },
+  "2022": {
+    "Abia": {
+      "candidates": [
+        {
+          "name": "Alex Otti",
+          "party": "LP",
+          "votes": 175467
+        },
+        {
+          "name": "Okey Ahiwe",
+          "party": "PDP",
+          "votes": 88529
+        },
+        {
+          "name": "Ikechi Emenike",
+          "party": "APC",
+          "votes": 24091
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-22",
+      "sourced": true
+    },
+    "Adamawa": {
+      "candidates": [
+        {
+          "name": "Ahmadu Umaru Fintiri",
+          "party": "PDP",
+          "votes": 430861
+        },
+        {
+          "name": "Aishatu Dahiru Ahmed",
+          "party": "APC",
+          "votes": 398788
+        }
+      ],
+      "source": "INEC declared results (incl. supplementary), April 2023 — Channels TV / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-04-18",
+      "sourced": true
+    },
+    "Akwa Ibom": {
+      "candidates": [
+        {
+          "name": "Umo Eno",
+          "party": "PDP",
+          "votes": 354348
+        },
+        {
+          "name": "Bassey Albert Akpan",
+          "party": "YPP",
+          "votes": 136262
+        },
+        {
+          "name": "Akan Udofia",
+          "party": "APC",
+          "votes": 129602
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Anambra": {
+      "candidates": [
+        {
+          "name": "Charles Soludo",
+          "party": "APGA",
+          "votes": 112229
+        },
+        {
+          "name": "Valentine Ozigbo",
+          "party": "PDP",
+          "votes": 53807
+        },
+        {
+          "name": "Andy Uba",
+          "party": "APC",
+          "votes": 43285
+        }
+      ],
+      "source": "INEC declared results, November 2021 — THISDAYLIVE / Guardian",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2021-11-10",
+      "sourced": true
+    },
+    "Bauchi": {
+      "candidates": [
+        {
+          "name": "Bala Mohammed",
+          "party": "PDP",
+          "votes": 525280
+        },
+        {
+          "name": "Sadique Abubakar",
+          "party": "APC",
+          "votes": 432275
+        },
+        {
+          "name": "Halliru Dauda Jika",
+          "party": "NNPP",
+          "votes": 60496
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Bayelsa": {
+      "candidates": [
+        {
+          "name": "Douye Diri",
+          "party": "PDP",
+          "votes": 175196
+        },
+        {
+          "name": "Timipre Sylva",
+          "party": "APC",
+          "votes": 110108
+        },
+        {
+          "name": "Udengs Eradiri",
+          "party": "LP",
+          "votes": 905
+        }
+      ],
+      "source": "INEC declared results, November 2023 — Daily Trust / Punch",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-11-13",
+      "sourced": true
+    },
+    "Benue": {
+      "candidates": [
+        {
+          "name": "Hyacinth Alia",
+          "party": "APC",
+          "votes": 473933
+        },
+        {
+          "name": "Titus Uba",
+          "party": "PDP",
+          "votes": 223913
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Borno": {
+      "candidates": [
+        {
+          "name": "Babagana Umara Zulum",
+          "party": "APC",
+          "votes": 545542
+        },
+        {
+          "name": "Mohammed Ali Jajari",
+          "party": "PDP",
+          "votes": 82147
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Cross River": {
+      "candidates": [
+        {
+          "name": "Bassey Otu",
+          "party": "APC",
+          "votes": 258619
+        },
+        {
+          "name": "Sandy Onor",
+          "party": "PDP",
+          "votes": 179636
+        },
+        {
+          "name": "Patrick Dakum",
+          "party": "LP",
+          "votes": 5957
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Delta": {
+      "candidates": [
+        {
+          "name": "Sheriff Oborevwori",
+          "party": "PDP",
+          "votes": 350234
+        },
+        {
+          "name": "Ovie Omo-Agege",
+          "party": "APC",
+          "votes": 240229
+        },
+        {
+          "name": "Ken Pela",
+          "party": "LP",
+          "votes": 48027
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Ebonyi": {
+      "candidates": [
+        {
+          "name": "Francis Nwifuru",
+          "party": "APC",
+          "votes": 199131
+        },
+        {
+          "name": "Ifeanyichukwu Odii",
+          "party": "PDP",
+          "votes": 80191
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Edo": {
+      "candidates": [
+        {
+          "name": "Godwin Obaseki",
+          "party": "PDP",
+          "votes": 307955
+        },
+        {
+          "name": "Osagie Ize-Iyamu",
+          "party": "APC",
+          "votes": 223619
+        }
+      ],
+      "source": "INEC declared results, September 2020 — INEC / Channels TV",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2020-09-20",
+      "sourced": true
+    },
+    "Ekiti": {
+      "candidates": [
+        {
+          "name": "Biodun Oyebanji",
+          "party": "APC",
+          "votes": 187057
+        },
+        {
+          "name": "Segun Oni",
+          "party": "SDP",
+          "votes": 82211
+        },
+        {
+          "name": "Bisi Kolawole",
+          "party": "PDP",
+          "votes": 67457
+        }
+      ],
+      "source": "INEC LGA collation centres — Wikipedia / The Eagle Online reporting official returns, 18 June 2022",
+      "collated": true
+    },
+    "Enugu": {
+      "candidates": [
+        {
+          "name": "Peter Mbah",
+          "party": "PDP",
+          "votes": 160895
+        },
+        {
+          "name": "Chijioke Edeoga",
+          "party": "LP",
+          "votes": 157552
+        },
+        {
+          "name": "Uche Nnaji",
+          "party": "APC",
+          "votes": 14575
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Gombe": {
+      "candidates": [
+        {
+          "name": "Muhammad Inuwa Yahaya",
+          "party": "APC",
+          "votes": 342821
+        },
+        {
+          "name": "Mu'azu Kumo",
+          "party": "PDP",
+          "votes": 233131
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Imo": {
+      "candidates": [
+        {
+          "name": "Hope Uzodimma",
+          "party": "APC",
+          "votes": 540308
+        },
+        {
+          "name": "Samuel Anyanwu",
+          "party": "PDP",
+          "votes": 71503
+        },
+        {
+          "name": "Athan Achonu",
+          "party": "LP",
+          "votes": 64081
+        }
+      ],
+      "source": "INEC declared results, November 2023 — Daily Trust / Punch",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-11-12",
+      "sourced": true
+    },
+    "Jigawa": {
+      "candidates": [
+        {
+          "name": "Umar Namadi",
+          "party": "APC",
+          "votes": 618449
+        },
+        {
+          "name": "Mustapha Lamido",
+          "party": "PDP",
+          "votes": 368726
+        },
+        {
+          "name": "Aminu Ibrahim Ringim",
+          "party": "NNPP",
+          "votes": 37156
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Kaduna": {
+      "candidates": [
+        {
+          "name": "Uba Sani",
+          "party": "APC",
+          "votes": 730002
+        },
+        {
+          "name": "Isah Ashiru",
+          "party": "PDP",
+          "votes": 719196
+        },
+        {
+          "name": "Jonathan Asake",
+          "party": "LP",
+          "votes": 58283
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Kano": {
+      "candidates": [
+        {
+          "name": "Abba Kabir Yusuf",
+          "party": "NNPP",
+          "votes": 1019602
+        },
+        {
+          "name": "Nasir Yusuf Gawuna",
+          "party": "APC",
+          "votes": 890705
+        },
+        {
+          "name": "Sadiq Wali",
+          "party": "PDP",
+          "votes": 15957
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Katsina": {
+      "candidates": [
+        {
+          "name": "Dikko Umaru Radda",
+          "party": "APC",
+          "votes": 859892
+        },
+        {
+          "name": "Garba Yakubu Lado",
+          "party": "PDP",
+          "votes": 486620
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Kebbi": {
+      "candidates": [
+        {
+          "name": "Nasir Idris",
+          "party": "APC",
+          "votes": 409225
+        },
+        {
+          "name": "Samai'la Yombe",
+          "party": "PDP",
+          "votes": 360940
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Kogi": {
+      "candidates": [
+        {
+          "name": "Usman Ododo",
+          "party": "APC",
+          "votes": 446237
+        },
+        {
+          "name": "Murtala Ajaka",
+          "party": "SDP",
+          "votes": 259052
+        },
+        {
+          "name": "Dino Melaye",
+          "party": "PDP",
+          "votes": 46362
+        }
+      ],
+      "source": "INEC declared results, November 2023 — Daily Trust / Punch",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-11-12",
+      "sourced": true
+    },
+    "Kwara": {
+      "candidates": [
+        {
+          "name": "Abdulrahman Abdulrazaq",
+          "party": "APC",
+          "votes": 273424
+        },
+        {
+          "name": "Shuaib Abdullahi Yaman",
+          "party": "PDP",
+          "votes": 155490
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Lagos": {
+      "candidates": [
+        {
+          "name": "Babajide Sanwo-Olu",
+          "party": "APC",
+          "votes": 762134
+        },
+        {
+          "name": "Gbadebo Rhodes-Vivour",
+          "party": "LP",
+          "votes": 312329
+        },
+        {
+          "name": "Abdul-Azeez Olajide Adediran",
+          "party": "PDP",
+          "votes": 62449
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Nasarawa": {
+      "candidates": [
+        {
+          "name": "Abdullahi Sule",
+          "party": "APC",
+          "votes": 347209
+        },
+        {
+          "name": "David Ombugadu",
+          "party": "PDP",
+          "votes": 283016
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Niger": {
+      "candidates": [
+        {
+          "name": "Mohammed Umar Bago",
+          "party": "APC",
+          "votes": 469896
+        },
+        {
+          "name": "Isah Liman Kantigi",
+          "party": "PDP",
+          "votes": 387476
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Ogun": {
+      "candidates": [
+        {
+          "name": "Dapo Abiodun",
+          "party": "APC",
+          "votes": 276298
+        },
+        {
+          "name": "Oladipupo Adebutu",
+          "party": "PDP",
+          "votes": 262383
+        },
+        {
+          "name": "Olubiyi Otegbeye",
+          "party": "ADC",
+          "votes": 94754
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Ondo": {
+      "candidates": [
+        {
+          "name": "Oluwarotimi Akeredolu",
+          "party": "APC",
+          "votes": 292830
+        },
+        {
+          "name": "Eyitayo Jegede",
+          "party": "PDP",
+          "votes": 195791
+        },
+        {
+          "name": "Agboola Ajayi",
+          "party": "ZLP",
+          "votes": 68833
+        }
+      ],
+      "source": "INEC declared results, October 2020 — Channels TV / Punch",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2020-10-11",
+      "sourced": true
+    },
+    "Osun": {
+      "candidates": [
+        {
+          "name": "Ademola Adeleke",
+          "party": "PDP",
+          "votes": 403371
+        },
+        {
+          "name": "Gboyega Oyetola",
+          "party": "APC",
+          "votes": 377551
+        }
+      ],
+      "source": "INEC declared results, July 2022 — Punch / Guardian",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2022-07-17",
+      "sourced": true
+    },
+    "Oyo": {
+      "candidates": [
+        {
+          "name": "Seyi Makinde",
+          "party": "PDP",
+          "votes": 563756
+        },
+        {
+          "name": "Teslim Folarin",
+          "party": "APC",
+          "votes": 256685
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Plateau": {
+      "candidates": [
+        {
+          "name": "Caleb Mutfwang",
+          "party": "PDP",
+          "votes": 525299
+        },
+        {
+          "name": "Nentanwe Yilwatda",
+          "party": "APC",
+          "votes": 481370
+        },
+        {
+          "name": "Patrick Dakum",
+          "party": "LP",
+          "votes": 60310
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Rivers": {
+      "candidates": [
+        {
+          "name": "Siminalayi Fubara",
+          "party": "PDP",
+          "votes": 302614
+        },
+        {
+          "name": "Tonye Cole",
+          "party": "APC",
+          "votes": 95274
+        },
+        {
+          "name": "Magnus Abe",
+          "party": "SDP",
+          "votes": 22224
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Sokoto": {
+      "candidates": [
+        {
+          "name": "Ahmad Aliyu",
+          "party": "APC",
+          "votes": 453661
+        },
+        {
+          "name": "Saidu Umar",
+          "party": "PDP",
+          "votes": 404632
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Taraba": {
+      "candidates": [
+        {
+          "name": "Agbu Kefas",
+          "party": "PDP",
+          "votes": 257926
+        },
+        {
+          "name": "Emmanuel Bwacha",
+          "party": "APC",
+          "votes": 202278
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Yobe": {
+      "candidates": [
+        {
+          "name": "Mai Mala Buni",
+          "party": "APC",
+          "votes": 317113
+        },
+        {
+          "name": "Sharif Abdullahi",
+          "party": "PDP",
+          "votes": 124259
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Zamfara": {
+      "candidates": [
+        {
+          "name": "Dauda Lawal",
+          "party": "PDP",
+          "votes": 377726
+        },
+        {
+          "name": "Bello Matawalle",
+          "party": "APC",
+          "votes": 311976
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    }
+  },
+  "2026": {
+    "Abia": {
+      "candidates": [
+        {
+          "name": "Alex Otti",
+          "party": "LP",
+          "votes": 175467
+        },
+        {
+          "name": "Okey Ahiwe",
+          "party": "PDP",
+          "votes": 88529
+        },
+        {
+          "name": "Ikechi Emenike",
+          "party": "APC",
+          "votes": 24091
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-22",
+      "sourced": true
+    },
+    "Adamawa": {
+      "candidates": [
+        {
+          "name": "Ahmadu Umaru Fintiri",
+          "party": "PDP",
+          "votes": 430861
+        },
+        {
+          "name": "Aishatu Dahiru Ahmed",
+          "party": "APC",
+          "votes": 398788
+        }
+      ],
+      "source": "INEC declared results (incl. supplementary), April 2023 — Channels TV / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-04-18",
+      "sourced": true
+    },
+    "Akwa Ibom": {
+      "candidates": [
+        {
+          "name": "Umo Eno",
+          "party": "PDP",
+          "votes": 354348
+        },
+        {
+          "name": "Bassey Albert Akpan",
+          "party": "YPP",
+          "votes": 136262
+        },
+        {
+          "name": "Akan Udofia",
+          "party": "APC",
+          "votes": 129602
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Anambra": {
+      "candidates": [
+        {
+          "name": "Charles Soludo",
+          "party": "APGA",
+          "votes": 112229
+        },
+        {
+          "name": "Valentine Ozigbo",
+          "party": "PDP",
+          "votes": 53807
+        },
+        {
+          "name": "Andy Uba",
+          "party": "APC",
+          "votes": 43285
+        }
+      ],
+      "source": "INEC declared results, November 2021 — THISDAYLIVE / Guardian",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2021-11-10",
+      "sourced": true
+    },
+    "Bauchi": {
+      "candidates": [
+        {
+          "name": "Bala Mohammed",
+          "party": "PDP",
+          "votes": 525280
+        },
+        {
+          "name": "Sadique Abubakar",
+          "party": "APC",
+          "votes": 432275
+        },
+        {
+          "name": "Halliru Dauda Jika",
+          "party": "NNPP",
+          "votes": 60496
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Bayelsa": {
+      "candidates": [
+        {
+          "name": "Douye Diri",
+          "party": "PDP",
+          "votes": 175196
+        },
+        {
+          "name": "Timipre Sylva",
+          "party": "APC",
+          "votes": 110108
+        },
+        {
+          "name": "Udengs Eradiri",
+          "party": "LP",
+          "votes": 905
+        }
+      ],
+      "source": "INEC declared results, November 2023 — Daily Trust / Punch",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-11-13",
+      "sourced": true
+    },
+    "Benue": {
+      "candidates": [
+        {
+          "name": "Hyacinth Alia",
+          "party": "APC",
+          "votes": 473933
+        },
+        {
+          "name": "Titus Uba",
+          "party": "PDP",
+          "votes": 223913
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Borno": {
+      "candidates": [
+        {
+          "name": "Babagana Umara Zulum",
+          "party": "APC",
+          "votes": 545542
+        },
+        {
+          "name": "Mohammed Ali Jajari",
+          "party": "PDP",
+          "votes": 82147
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Cross River": {
+      "candidates": [
+        {
+          "name": "Bassey Otu",
+          "party": "APC",
+          "votes": 258619
+        },
+        {
+          "name": "Sandy Onor",
+          "party": "PDP",
+          "votes": 179636
+        },
+        {
+          "name": "Patrick Dakum",
+          "party": "LP",
+          "votes": 5957
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Delta": {
+      "candidates": [
+        {
+          "name": "Sheriff Oborevwori",
+          "party": "PDP",
+          "votes": 350234
+        },
+        {
+          "name": "Ovie Omo-Agege",
+          "party": "APC",
+          "votes": 240229
+        },
+        {
+          "name": "Ken Pela",
+          "party": "LP",
+          "votes": 48027
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Ebonyi": {
+      "candidates": [
+        {
+          "name": "Francis Nwifuru",
+          "party": "APC",
+          "votes": 199131
+        },
+        {
+          "name": "Ifeanyichukwu Odii",
+          "party": "PDP",
+          "votes": 80191
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Edo": {
+      "candidates": [
+        {
+          "name": "Monday Okpebholo",
+          "party": "APC",
+          "votes": 291667
+        },
+        {
+          "name": "Asue Ighodalo",
+          "party": "PDP",
+          "votes": 247274
+        },
+        {
+          "name": "Olumide Akpata",
+          "party": "LP",
+          "votes": 22763
+        }
+      ],
+      "source": "INEC declared results, September 2024 — Channels TV / Vanguard",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2024-09-22",
+      "sourced": true
+    },
+    "Ekiti": {
+      "candidates": [
+        {
+          "name": "Biodun Oyebanji",
+          "party": "APC",
+          "votes": 187057
+        },
+        {
+          "name": "Segun Oni",
+          "party": "SDP",
+          "votes": 82211
+        },
+        {
+          "name": "Bisi Kolawole",
+          "party": "PDP",
+          "votes": 67457
+        }
+      ],
+      "source": "INEC LGA collation centres — Wikipedia / The Eagle Online, June 2022",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2022-06-18",
+      "sourced": true
+    },
+    "Enugu": {
+      "candidates": [
+        {
+          "name": "Peter Mbah",
+          "party": "PDP",
+          "votes": 160895
+        },
+        {
+          "name": "Chijioke Edeoga",
+          "party": "LP",
+          "votes": 157552
+        },
+        {
+          "name": "Uche Nnaji",
+          "party": "APC",
+          "votes": 14575
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Gombe": {
+      "candidates": [
+        {
+          "name": "Muhammad Inuwa Yahaya",
+          "party": "APC",
+          "votes": 342821
+        },
+        {
+          "name": "Mu'azu Kumo",
+          "party": "PDP",
+          "votes": 233131
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Imo": {
+      "candidates": [
+        {
+          "name": "Hope Uzodimma",
+          "party": "APC",
+          "votes": 540308
+        },
+        {
+          "name": "Samuel Anyanwu",
+          "party": "PDP",
+          "votes": 71503
+        },
+        {
+          "name": "Athan Achonu",
+          "party": "LP",
+          "votes": 64081
+        }
+      ],
+      "source": "INEC declared results, November 2023 — Daily Trust / Punch",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-11-12",
+      "sourced": true
+    },
+    "Jigawa": {
+      "candidates": [
+        {
+          "name": "Umar Namadi",
+          "party": "APC",
+          "votes": 618449
+        },
+        {
+          "name": "Mustapha Lamido",
+          "party": "PDP",
+          "votes": 368726
+        },
+        {
+          "name": "Aminu Ibrahim Ringim",
+          "party": "NNPP",
+          "votes": 37156
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Kaduna": {
+      "candidates": [
+        {
+          "name": "Uba Sani",
+          "party": "APC",
+          "votes": 730002
+        },
+        {
+          "name": "Isah Ashiru",
+          "party": "PDP",
+          "votes": 719196
+        },
+        {
+          "name": "Jonathan Asake",
+          "party": "LP",
+          "votes": 58283
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Kano": {
+      "candidates": [
+        {
+          "name": "Abba Kabir Yusuf",
+          "party": "NNPP",
+          "votes": 1019602
+        },
+        {
+          "name": "Nasir Yusuf Gawuna",
+          "party": "APC",
+          "votes": 890705
+        },
+        {
+          "name": "Sadiq Wali",
+          "party": "PDP",
+          "votes": 15957
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Katsina": {
+      "candidates": [
+        {
+          "name": "Dikko Umaru Radda",
+          "party": "APC",
+          "votes": 859892
+        },
+        {
+          "name": "Garba Yakubu Lado",
+          "party": "PDP",
+          "votes": 486620
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Kebbi": {
+      "candidates": [
+        {
+          "name": "Nasir Idris",
+          "party": "APC",
+          "votes": 409225
+        },
+        {
+          "name": "Samai'la Yombe",
+          "party": "PDP",
+          "votes": 360940
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Kogi": {
+      "candidates": [
+        {
+          "name": "Usman Ododo",
+          "party": "APC",
+          "votes": 446237
+        },
+        {
+          "name": "Murtala Ajaka",
+          "party": "SDP",
+          "votes": 259052
+        },
+        {
+          "name": "Dino Melaye",
+          "party": "PDP",
+          "votes": 46362
+        }
+      ],
+      "source": "INEC declared results, November 2023 — Daily Trust / Punch",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-11-12",
+      "sourced": true
+    },
+    "Kwara": {
+      "candidates": [
+        {
+          "name": "Abdulrahman Abdulrazaq",
+          "party": "APC",
+          "votes": 273424
+        },
+        {
+          "name": "Shuaib Abdullahi Yaman",
+          "party": "PDP",
+          "votes": 155490
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Lagos": {
+      "candidates": [
+        {
+          "name": "Babajide Sanwo-Olu",
+          "party": "APC",
+          "votes": 762134
+        },
+        {
+          "name": "Gbadebo Rhodes-Vivour",
+          "party": "LP",
+          "votes": 312329
+        },
+        {
+          "name": "Abdul-Azeez Olajide Adediran",
+          "party": "PDP",
+          "votes": 62449
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Nasarawa": {
+      "candidates": [
+        {
+          "name": "Abdullahi Sule",
+          "party": "APC",
+          "votes": 347209
+        },
+        {
+          "name": "David Ombugadu",
+          "party": "PDP",
+          "votes": 283016
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Niger": {
+      "candidates": [
+        {
+          "name": "Mohammed Umar Bago",
+          "party": "APC",
+          "votes": 469896
+        },
+        {
+          "name": "Isah Liman Kantigi",
+          "party": "PDP",
+          "votes": 387476
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Ogun": {
+      "candidates": [
+        {
+          "name": "Dapo Abiodun",
+          "party": "APC",
+          "votes": 276298
+        },
+        {
+          "name": "Oladipupo Adebutu",
+          "party": "PDP",
+          "votes": 262383
+        },
+        {
+          "name": "Olubiyi Otegbeye",
+          "party": "ADC",
+          "votes": 94754
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Ondo": {
+      "candidates": [
+        {
+          "name": "Oluwarotimi Akeredolu",
+          "party": "APC",
+          "votes": 292830
+        },
+        {
+          "name": "Eyitayo Jegede",
+          "party": "PDP",
+          "votes": 195791
+        },
+        {
+          "name": "Agboola Ajayi",
+          "party": "ZLP",
+          "votes": 68833
+        }
+      ],
+      "source": "INEC declared results, October 2020 — Channels TV / Punch",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2020-10-11",
+      "sourced": true
+    },
+    "Osun": {
+      "candidates": [
+        {
+          "name": "Ademola Adeleke",
+          "party": "PDP",
+          "votes": 403371
+        },
+        {
+          "name": "Gboyega Oyetola",
+          "party": "APC",
+          "votes": 377551
+        }
+      ],
+      "source": "INEC declared results, July 2022 — Punch / Guardian",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2022-07-17",
+      "sourced": true
+    },
+    "Oyo": {
+      "candidates": [
+        {
+          "name": "Seyi Makinde",
+          "party": "PDP",
+          "votes": 563756
+        },
+        {
+          "name": "Teslim Folarin",
+          "party": "APC",
+          "votes": 256685
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Plateau": {
+      "candidates": [
+        {
+          "name": "Caleb Mutfwang",
+          "party": "PDP",
+          "votes": 525299
+        },
+        {
+          "name": "Nentanwe Yilwatda",
+          "party": "APC",
+          "votes": 481370
+        },
+        {
+          "name": "Patrick Dakum",
+          "party": "LP",
+          "votes": 60310
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Rivers": {
+      "candidates": [
+        {
+          "name": "Siminalayi Fubara",
+          "party": "PDP",
+          "votes": 302614
+        },
+        {
+          "name": "Tonye Cole",
+          "party": "APC",
+          "votes": 95274
+        },
+        {
+          "name": "Magnus Abe",
+          "party": "SDP",
+          "votes": 22224
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Sokoto": {
+      "candidates": [
+        {
+          "name": "Ahmad Aliyu",
+          "party": "APC",
+          "votes": 453661
+        },
+        {
+          "name": "Saidu Umar",
+          "party": "PDP",
+          "votes": 404632
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Taraba": {
+      "candidates": [
+        {
+          "name": "Agbu Kefas",
+          "party": "PDP",
+          "votes": 257926
+        },
+        {
+          "name": "Emmanuel Bwacha",
+          "party": "APC",
+          "votes": 202278
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Yobe": {
+      "candidates": [
+        {
+          "name": "Mai Mala Buni",
+          "party": "APC",
+          "votes": 317113
+        },
+        {
+          "name": "Sharif Abdullahi",
+          "party": "PDP",
+          "votes": 124259
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    },
+    "Zamfara": {
+      "candidates": [
+        {
+          "name": "Dauda Lawal",
+          "party": "PDP",
+          "votes": 377726
+        },
+        {
+          "name": "Bello Matawalle",
+          "party": "APC",
+          "votes": 311976
+        }
+      ],
+      "source": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+      "sourceUrl": "https://www.inecnigeria.org/",
+      "electionDate": "2023-03-20",
+      "sourced": true
+    }
+  }
+}

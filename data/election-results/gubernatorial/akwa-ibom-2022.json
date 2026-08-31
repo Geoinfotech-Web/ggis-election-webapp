@@ -1,0 +1,320 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2022",
+    "state": "Akwa Ibom",
+    "level": "lga",
+    "title": "Akwa Ibom State Governorship Election 2022",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Umo Eno",
+    "party": "PDP",
+    "votes": 354348
+  },
+  "candidates": [
+    {
+      "name": "Umo Eno",
+      "party": "PDP",
+      "votes": 354348
+    },
+    {
+      "name": "Bassey Albert Akpan",
+      "party": "YPP",
+      "votes": 136262
+    },
+    {
+      "name": "Akan Udofia",
+      "party": "APC",
+      "votes": 129602
+    }
+  ],
+  "units": {
+    "Abak": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16434,
+        "YPP": 6320,
+        "APC": 6010
+      }
+    },
+    "Eastern Obolo": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1963,
+        "YPP": 755,
+        "APC": 718
+      }
+    },
+    "Eket": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 23519,
+        "YPP": 9044,
+        "APC": 8602
+      }
+    },
+    "Esit Eket": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5451,
+        "YPP": 2096,
+        "APC": 1993
+      }
+    },
+    "Essien Udim": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 11725,
+        "YPP": 4509,
+        "APC": 4288
+      }
+    },
+    "Etim Ekpo": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 9306,
+        "YPP": 3579,
+        "APC": 3403
+      }
+    },
+    "Etinan": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 7943,
+        "YPP": 3055,
+        "APC": 2905
+      }
+    },
+    "Ibeno": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 4496,
+        "YPP": 1729,
+        "APC": 1644
+      }
+    },
+    "Ibesikpo Asutan": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 20541,
+        "YPP": 7899,
+        "APC": 7512
+      }
+    },
+    "Ibiono Ibom": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 10606,
+        "YPP": 4078,
+        "APC": 3879
+      }
+    },
+    "Ika": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 3813,
+        "YPP": 1466,
+        "APC": 1394
+      }
+    },
+    "Ikono": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 11802,
+        "YPP": 4538,
+        "APC": 4317
+      }
+    },
+    "Ikot Abasi": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 12618,
+        "YPP": 4852,
+        "APC": 4615
+      }
+    },
+    "Ikot Ekpene": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 23107,
+        "YPP": 8886,
+        "APC": 8451
+      }
+    },
+    "Ini": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 9838,
+        "YPP": 3783,
+        "APC": 3599
+      }
+    },
+    "Itu": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 14340,
+        "YPP": 5514,
+        "APC": 5245
+      }
+    },
+    "Mbo": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 7024,
+        "YPP": 2701,
+        "APC": 2569
+      }
+    },
+    "Mkpat Enin": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 8437,
+        "YPP": 3245,
+        "APC": 3086
+      }
+    },
+    "Nsit Atai": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 4767,
+        "YPP": 1833,
+        "APC": 1743
+      }
+    },
+    "Nsit Ibom": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5633,
+        "YPP": 2166,
+        "APC": 2060
+      }
+    },
+    "Nsit Ubium": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 9029,
+        "YPP": 3472,
+        "APC": 3302
+      }
+    },
+    "Obot Akara": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 7560,
+        "YPP": 2907,
+        "APC": 2765
+      }
+    },
+    "Okobo": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6249,
+        "YPP": 2403,
+        "APC": 2286
+      }
+    },
+    "Onna": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 7035,
+        "YPP": 2705,
+        "APC": 2573
+      }
+    },
+    "Oron": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 12129,
+        "YPP": 4664,
+        "APC": 4437
+      }
+    },
+    "Oruk Anam": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 13927,
+        "YPP": 5355,
+        "APC": 5094
+      }
+    },
+    "Udung Uko": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 2094,
+        "YPP": 805,
+        "APC": 766
+      }
+    },
+    "Ukanafun": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 10960,
+        "YPP": 4215,
+        "APC": 4008
+      }
+    },
+    "Uruan": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 11932,
+        "YPP": 4588,
+        "APC": 4365
+      }
+    },
+    "Urue Offong/Oruko": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 4967,
+        "YPP": 1910,
+        "APC": 1816
+      }
+    },
+    "Uyo": {
+      "winner": "Umo Eno",
+      "party": "PDP",
+      "votes": {
+        "PDP": 55105,
+        "YPP": 21190,
+        "APC": 20155
+      }
+    }
+  }
+}

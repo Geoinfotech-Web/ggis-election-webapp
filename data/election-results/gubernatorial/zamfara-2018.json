@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2018",
+    "state": "Zamfara",
+    "level": "lga",
+    "title": "Zamfara State Governorship Election 2018",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, May 2019 — Channels TV / INEC",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2019-03-09",
+    "updated": "2019-03-09",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Mukhtar Shehu Idris",
+    "party": "APC",
+    "votes": 534541
+  },
+  "candidates": [
+    {
+      "name": "Bello Matawalle",
+      "party": "PDP",
+      "votes": 189452
+    },
+    {
+      "name": "Mukhtar Shehu Idris",
+      "party": "APC",
+      "votes": 534541
+    }
+  ],
+  "units": {
+    "Anka": {
+      "winner": "Mukhtar Shehu Idris",
+      "party": "APC",
+      "votes": {
+        "PDP": 8564,
+        "APC": 24164
+      }
+    },
+    "Bakura": {
+      "winner": "Mukhtar Shehu Idris",
+      "party": "APC",
+      "votes": {
+        "PDP": 9067,
+        "APC": 25582
+      }
+    },
+    "Birnin Magaji": {
+      "winner": "Mukhtar Shehu Idris",
+      "party": "APC",
+      "votes": {
+        "PDP": 0,
+        "APC": 1
+      }
+    },
+    "Bukkuyum": {
+      "winner": "Mukhtar Shehu Idris",
+      "party": "APC",
+      "votes": {
+        "PDP": 13772,
+        "APC": 38857
+      }
+    },
+    "Bungudu": {
+      "winner": "Mukhtar Shehu Idris",
+      "party": "APC",
+      "votes": {
+        "PDP": 18752,
+        "APC": 52908
+      }
+    },
+    "Gummi": {
+      "winner": "Mukhtar Shehu Idris",
+      "party": "APC",
+      "votes": {
+        "PDP": 15772,
+        "APC": 44502
+      }
+    },
+    "Gusau": {
+      "winner": "Mukhtar Shehu Idris",
+      "party": "APC",
+      "votes": {
+        "PDP": 27062,
+        "APC": 76355
+      }
+    },
+    "Kaura Namoda": {
+      "winner": "Mukhtar Shehu Idris",
+      "party": "APC",
+      "votes": {
+        "PDP": 15201,
+        "APC": 42890
+      }
+    },
+    "Maradun": {
+      "winner": "Mukhtar Shehu Idris",
+      "party": "APC",
+      "votes": {
+        "PDP": 10556,
+        "APC": 29784
+      }
+    },
+    "Maru": {
+      "winner": "Mukhtar Shehu Idris",
+      "party": "APC",
+      "votes": {
+        "PDP": 22112,
+        "APC": 62390
+      }
+    },
+    "Shinkafi": {
+      "winner": "Mukhtar Shehu Idris",
+      "party": "APC",
+      "votes": {
+        "PDP": 7567,
+        "APC": 21350
+      }
+    },
+    "Talata Mafara": {
+      "winner": "Mukhtar Shehu Idris",
+      "party": "APC",
+      "votes": {
+        "PDP": 11052,
+        "APC": 31182
+      }
+    },
+    "Tsafe": {
+      "winner": "Mukhtar Shehu Idris",
+      "party": "APC",
+      "votes": {
+        "PDP": 15353,
+        "APC": 43317
+      }
+    },
+    "Zurmi": {
+      "winner": "Mukhtar Shehu Idris",
+      "party": "APC",
+      "votes": {
+        "PDP": 14623,
+        "APC": 41258
+      }
+    }
+  }
+}

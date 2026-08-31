@@ -1,0 +1,196 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2018",
+    "state": "Lagos",
+    "level": "lga",
+    "title": "Lagos State Governorship Election 2018",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2019 — Punch / Guardian",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2019-03-09",
+    "updated": "2019-03-09",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Babajide Sanwo-Olu",
+    "party": "APC",
+    "votes": 739445
+  },
+  "candidates": [
+    {
+      "name": "Babajide Sanwo-Olu",
+      "party": "APC",
+      "votes": 739445
+    },
+    {
+      "name": "Jimi Agbaje",
+      "party": "PDP",
+      "votes": 206141
+    }
+  ],
+  "units": {
+    "Agege": {
+      "winner": "Babajide Sanwo-Olu",
+      "party": "APC",
+      "votes": {
+        "APC": 22847,
+        "PDP": 6369
+      }
+    },
+    "Ajeromi/Ifelodun": {
+      "winner": "Babajide Sanwo-Olu",
+      "party": "APC",
+      "votes": {
+        "APC": 24802,
+        "PDP": 6914
+      }
+    },
+    "Alimosho": {
+      "winner": "Babajide Sanwo-Olu",
+      "party": "APC",
+      "votes": {
+        "APC": 164173,
+        "PDP": 45768
+      }
+    },
+    "Amuwo-Odofin": {
+      "winner": "Babajide Sanwo-Olu",
+      "party": "APC",
+      "votes": {
+        "APC": 29800,
+        "PDP": 8307
+      }
+    },
+    "Apapa": {
+      "winner": "Babajide Sanwo-Olu",
+      "party": "APC",
+      "votes": {
+        "APC": 21420,
+        "PDP": 5971
+      }
+    },
+    "Badagry": {
+      "winner": "Babajide Sanwo-Olu",
+      "party": "APC",
+      "votes": {
+        "APC": 52389,
+        "PDP": 14605
+      }
+    },
+    "Epe": {
+      "winner": "Babajide Sanwo-Olu",
+      "party": "APC",
+      "votes": {
+        "APC": 16015,
+        "PDP": 4465
+      }
+    },
+    "Eti-Osa": {
+      "winner": "Babajide Sanwo-Olu",
+      "party": "APC",
+      "votes": {
+        "APC": 38939,
+        "PDP": 10855
+      }
+    },
+    "Ibeju/Lekki": {
+      "winner": "Babajide Sanwo-Olu",
+      "party": "APC",
+      "votes": {
+        "APC": 23893,
+        "PDP": 6661
+      }
+    },
+    "Ifako-Ijaye": {
+      "winner": "Babajide Sanwo-Olu",
+      "party": "APC",
+      "votes": {
+        "APC": 23457,
+        "PDP": 6539
+      }
+    },
+    "Ikeja": {
+      "winner": "Babajide Sanwo-Olu",
+      "party": "APC",
+      "votes": {
+        "APC": 24278,
+        "PDP": 6768
+      }
+    },
+    "Ikorodu": {
+      "winner": "Babajide Sanwo-Olu",
+      "party": "APC",
+      "votes": {
+        "APC": 98026,
+        "PDP": 27327
+      }
+    },
+    "Kosofe": {
+      "winner": "Babajide Sanwo-Olu",
+      "party": "APC",
+      "votes": {
+        "APC": 38668,
+        "PDP": 10780
+      }
+    },
+    "Lagos Island": {
+      "winner": "Babajide Sanwo-Olu",
+      "party": "APC",
+      "votes": {
+        "APC": 3531,
+        "PDP": 984
+      }
+    },
+    "Lagos Mainland": {
+      "winner": "Babajide Sanwo-Olu",
+      "party": "APC",
+      "votes": {
+        "APC": 21280,
+        "PDP": 5933
+      }
+    },
+    "Mushin": {
+      "winner": "Babajide Sanwo-Olu",
+      "party": "APC",
+      "votes": {
+        "APC": 27676,
+        "PDP": 7715
+      }
+    },
+    "Ojo": {
+      "winner": "Babajide Sanwo-Olu",
+      "party": "APC",
+      "votes": {
+        "APC": 54926,
+        "PDP": 15312
+      }
+    },
+    "Oshodi/Isolo": {
+      "winner": "Babajide Sanwo-Olu",
+      "party": "APC",
+      "votes": {
+        "APC": 43990,
+        "PDP": 12263
+      }
+    },
+    "Somolu": {
+      "winner": "Babajide Sanwo-Olu",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Surulere": {
+      "winner": "Babajide Sanwo-Olu",
+      "party": "APC",
+      "votes": {
+        "APC": 9336,
+        "PDP": 2603
+      }
+    }
+  }
+}

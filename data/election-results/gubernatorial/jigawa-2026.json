@@ -1,0 +1,284 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2026",
+    "state": "Jigawa",
+    "level": "lga",
+    "title": "Jigawa State Governorship Election 2026",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Umar Namadi",
+    "party": "APC",
+    "votes": 618449
+  },
+  "candidates": [
+    {
+      "name": "Umar Namadi",
+      "party": "APC",
+      "votes": 618449
+    },
+    {
+      "name": "Mustapha Lamido",
+      "party": "PDP",
+      "votes": 368726
+    },
+    {
+      "name": "Aminu Ibrahim Ringim",
+      "party": "NNPP",
+      "votes": 37156
+    }
+  ],
+  "units": {
+    "Auyo": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 12830,
+        "PDP": 7649,
+        "NNPP": 771
+      }
+    },
+    "Babura": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 37019,
+        "PDP": 22071,
+        "NNPP": 2224
+      }
+    },
+    "Birnin Kudu": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 58196,
+        "PDP": 34697,
+        "NNPP": 3496
+      }
+    },
+    "Birniwa": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0,
+        "NNPP": 0
+      }
+    },
+    "Buji": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 18237,
+        "PDP": 10873,
+        "NNPP": 1096
+      }
+    },
+    "Dutse": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 53797,
+        "PDP": 32075,
+        "NNPP": 3232
+      }
+    },
+    "Gagarawa": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 9897,
+        "PDP": 5901,
+        "NNPP": 594
+      }
+    },
+    "Garki": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 26633,
+        "PDP": 15879,
+        "NNPP": 1600
+      }
+    },
+    "Gumel": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 10599,
+        "PDP": 6319,
+        "NNPP": 637
+      }
+    },
+    "Guri": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 12558,
+        "PDP": 7487,
+        "NNPP": 754
+      }
+    },
+    "Gwaram": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 49610,
+        "PDP": 29578,
+        "NNPP": 2980
+      }
+    },
+    "Gwiwa": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 11564,
+        "PDP": 6894,
+        "NNPP": 695
+      }
+    },
+    "Hadejia": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 12133,
+        "PDP": 7234,
+        "NNPP": 728
+      }
+    },
+    "Jahun": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 35648,
+        "PDP": 21254,
+        "NNPP": 2142
+      }
+    },
+    "Kafin Hausa": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 36502,
+        "PDP": 21763,
+        "NNPP": 2193
+      }
+    },
+    "Kaugama": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 17525,
+        "PDP": 10449,
+        "NNPP": 1053
+      }
+    },
+    "Kazaure": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 21200,
+        "PDP": 12640,
+        "NNPP": 1274
+      }
+    },
+    "Kirika Samma": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0,
+        "NNPP": 0
+      }
+    },
+    "Kiyawa": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 33675,
+        "PDP": 20077,
+        "NNPP": 2023
+      }
+    },
+    "Maigatari": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 17820,
+        "PDP": 10624,
+        "NNPP": 1071
+      }
+    },
+    "Malam Madori": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 23496,
+        "PDP": 14009,
+        "NNPP": 1411
+      }
+    },
+    "Miga": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 18322,
+        "PDP": 10924,
+        "NNPP": 1101
+      }
+    },
+    "Ringim": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 31641,
+        "PDP": 18865,
+        "NNPP": 1901
+      }
+    },
+    "Roni": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 12360,
+        "PDP": 7369,
+        "NNPP": 743
+      }
+    },
+    "Sule-Tankarkar": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 24039,
+        "PDP": 14332,
+        "NNPP": 1445
+      }
+    },
+    "Taura": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 22650,
+        "PDP": 13504,
+        "NNPP": 1361
+      }
+    },
+    "Yankwashi": {
+      "winner": "Umar Namadi",
+      "party": "APC",
+      "votes": {
+        "APC": 10499,
+        "PDP": 6259,
+        "NNPP": 631
+      }
+    }
+  }
+}

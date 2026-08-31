@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2026",
+    "state": "Ebonyi",
+    "level": "lga",
+    "title": "Ebonyi State Governorship Election 2026",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Francis Nwifuru",
+    "party": "APC",
+    "votes": 199131
+  },
+  "candidates": [
+    {
+      "name": "Francis Nwifuru",
+      "party": "APC",
+      "votes": 199131
+    },
+    {
+      "name": "Ifeanyichukwu Odii",
+      "party": "PDP",
+      "votes": 80191
+    }
+  ],
+  "units": {
+    "Abakaliki": {
+      "winner": "Francis Nwifuru",
+      "party": "APC",
+      "votes": {
+        "APC": 15047,
+        "PDP": 6060
+      }
+    },
+    "Afikpo North": {
+      "winner": "Francis Nwifuru",
+      "party": "APC",
+      "votes": {
+        "APC": 12911,
+        "PDP": 5200
+      }
+    },
+    "Afikpo South": {
+      "winner": "Francis Nwifuru",
+      "party": "APC",
+      "votes": {
+        "APC": 7030,
+        "PDP": 2831
+      }
+    },
+    "Ebonyi": {
+      "winner": "Francis Nwifuru",
+      "party": "APC",
+      "votes": {
+        "APC": 24392,
+        "PDP": 9823
+      }
+    },
+    "Ezza North": {
+      "winner": "Francis Nwifuru",
+      "party": "APC",
+      "votes": {
+        "APC": 7458,
+        "PDP": 3004
+      }
+    },
+    "Ezza South": {
+      "winner": "Francis Nwifuru",
+      "party": "APC",
+      "votes": {
+        "APC": 8027,
+        "PDP": 3232
+      }
+    },
+    "Ikwo": {
+      "winner": "Francis Nwifuru",
+      "party": "APC",
+      "votes": {
+        "APC": 25524,
+        "PDP": 10278
+      }
+    },
+    "Ishielu": {
+      "winner": "Francis Nwifuru",
+      "party": "APC",
+      "votes": {
+        "APC": 9912,
+        "PDP": 3991
+      }
+    },
+    "Ivo": {
+      "winner": "Francis Nwifuru",
+      "party": "APC",
+      "votes": {
+        "APC": 10328,
+        "PDP": 4159
+      }
+    },
+    "Izzi": {
+      "winner": "Francis Nwifuru",
+      "party": "APC",
+      "votes": {
+        "APC": 34955,
+        "PDP": 14076
+      }
+    },
+    "Ohaozara": {
+      "winner": "Francis Nwifuru",
+      "party": "APC",
+      "votes": {
+        "APC": 13934,
+        "PDP": 5611
+      }
+    },
+    "Ohaukwu": {
+      "winner": "Francis Nwifuru",
+      "party": "APC",
+      "votes": {
+        "APC": 16984,
+        "PDP": 6839
+      }
+    },
+    "Onicha": {
+      "winner": "Francis Nwifuru",
+      "party": "APC",
+      "votes": {
+        "APC": 12631,
+        "PDP": 5086
+      }
+    }
+  }
+}

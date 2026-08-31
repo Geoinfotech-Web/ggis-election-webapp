@@ -1,0 +1,204 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Kogi",
+    "level": "lga",
+    "title": "Kogi State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, November 2015 — Vanguard",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2015-11-21",
+    "updated": "2015-11-21",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Yahaya Bello",
+    "party": "APC",
+    "votes": 406222
+  },
+  "candidates": [
+    {
+      "name": "Yahaya Bello",
+      "party": "APC",
+      "votes": 406222
+    },
+    {
+      "name": "Musa Wada",
+      "party": "PDP",
+      "votes": 189704
+    }
+  ],
+  "units": {
+    "Adavi": {
+      "winner": "Yahaya Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 40471,
+        "PDP": 18900
+      }
+    },
+    "Ajaokuta": {
+      "winner": "Yahaya Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 16920,
+        "PDP": 7901
+      }
+    },
+    "Ankpa": {
+      "winner": "Yahaya Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 38708,
+        "PDP": 18076
+      }
+    },
+    "Bassa": {
+      "winner": "Yahaya Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 15726,
+        "PDP": 7344
+      }
+    },
+    "Dekina": {
+      "winner": "Yahaya Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 59160,
+        "PDP": 27628
+      }
+    },
+    "Ibaji": {
+      "winner": "Yahaya Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 9877,
+        "PDP": 4612
+      }
+    },
+    "Idah": {
+      "winner": "Yahaya Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 5241,
+        "PDP": 2448
+      }
+    },
+    "Igalamela/Odolu": {
+      "winner": "Yahaya Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 23567,
+        "PDP": 11005
+      }
+    },
+    "Ijumu": {
+      "winner": "Yahaya Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 14974,
+        "PDP": 6993
+      }
+    },
+    "Kabba/Bunu": {
+      "winner": "Yahaya Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 21147,
+        "PDP": 9876
+      }
+    },
+    "Kogi . K. K.": {
+      "winner": "Yahaya Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Lokoja": {
+      "winner": "Yahaya Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 36818,
+        "PDP": 17194
+      }
+    },
+    "Mopa Moro": {
+      "winner": "Yahaya Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Ofu": {
+      "winner": "Yahaya Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 23916,
+        "PDP": 11169
+      }
+    },
+    "Ogori Mangogo": {
+      "winner": "Yahaya Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Okehi": {
+      "winner": "Yahaya Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 7395,
+        "PDP": 3453
+      }
+    },
+    "Okene": {
+      "winner": "Yahaya Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 28433,
+        "PDP": 13278
+      }
+    },
+    "Olamaboro": {
+      "winner": "Yahaya Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 31159,
+        "PDP": 14551
+      }
+    },
+    "Omala": {
+      "winner": "Yahaya Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 14355,
+        "PDP": 6704
+      }
+    },
+    "Yagba East": {
+      "winner": "Yahaya Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 9957,
+        "PDP": 4650
+      }
+    },
+    "Yagba West": {
+      "winner": "Yahaya Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 8398,
+        "PDP": 3922
+      }
+    }
+  }
+}

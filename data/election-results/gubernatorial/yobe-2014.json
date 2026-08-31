@@ -1,0 +1,172 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Yobe",
+    "level": "lga",
+    "title": "Yobe State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2015-04-11",
+    "updated": "2015-04-11",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Ibrahim Geidam",
+    "party": "APC",
+    "votes": 334847
+  },
+  "candidates": [
+    {
+      "name": "Ibrahim Geidam",
+      "party": "APC",
+      "votes": 334847
+    },
+    {
+      "name": "Adamu Maina Waziri",
+      "party": "PDP",
+      "votes": 179700
+    }
+  ],
+  "units": {
+    "Bade": {
+      "winner": "Ibrahim Geidam",
+      "party": "APC",
+      "votes": {
+        "APC": 16613,
+        "PDP": 8915
+      }
+    },
+    "Bursari": {
+      "winner": "Ibrahim Geidam",
+      "party": "APC",
+      "votes": {
+        "APC": 13887,
+        "PDP": 7453
+      }
+    },
+    "Damaturu": {
+      "winner": "Ibrahim Geidam",
+      "party": "APC",
+      "votes": {
+        "APC": 26631,
+        "PDP": 14292
+      }
+    },
+    "Fika": {
+      "winner": "Ibrahim Geidam",
+      "party": "APC",
+      "votes": {
+        "APC": 22740,
+        "PDP": 12204
+      }
+    },
+    "Fune": {
+      "winner": "Ibrahim Geidam",
+      "party": "APC",
+      "votes": {
+        "APC": 28335,
+        "PDP": 15207
+      }
+    },
+    "Geidam": {
+      "winner": "Ibrahim Geidam",
+      "party": "APC",
+      "votes": {
+        "APC": 21439,
+        "PDP": 11506
+      }
+    },
+    "Gujba": {
+      "winner": "Ibrahim Geidam",
+      "party": "APC",
+      "votes": {
+        "APC": 23549,
+        "PDP": 12638
+      }
+    },
+    "Gulani": {
+      "winner": "Ibrahim Geidam",
+      "party": "APC",
+      "votes": {
+        "APC": 21162,
+        "PDP": 11357
+      }
+    },
+    "Jakusko": {
+      "winner": "Ibrahim Geidam",
+      "party": "APC",
+      "votes": {
+        "APC": 17199,
+        "PDP": 9230
+      }
+    },
+    "Karasawa": {
+      "winner": "Ibrahim Geidam",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Machina": {
+      "winner": "Ibrahim Geidam",
+      "party": "APC",
+      "votes": {
+        "APC": 10751,
+        "PDP": 5769
+      }
+    },
+    "Nangere": {
+      "winner": "Ibrahim Geidam",
+      "party": "APC",
+      "votes": {
+        "APC": 20539,
+        "PDP": 11023
+      }
+    },
+    "Nguru": {
+      "winner": "Ibrahim Geidam",
+      "party": "APC",
+      "votes": {
+        "APC": 16266,
+        "PDP": 8730
+      }
+    },
+    "Potiskum": {
+      "winner": "Ibrahim Geidam",
+      "party": "APC",
+      "votes": {
+        "APC": 44076,
+        "PDP": 23654
+      }
+    },
+    "Tarmuwa": {
+      "winner": "Ibrahim Geidam",
+      "party": "APC",
+      "votes": {
+        "APC": 13148,
+        "PDP": 7056
+      }
+    },
+    "Yunusari": {
+      "winner": "Ibrahim Geidam",
+      "party": "APC",
+      "votes": {
+        "APC": 21084,
+        "PDP": 11315
+      }
+    },
+    "Yusufari": {
+      "winner": "Ibrahim Geidam",
+      "party": "APC",
+      "votes": {
+        "APC": 17427,
+        "PDP": 9352
+      }
+    }
+  }
+}

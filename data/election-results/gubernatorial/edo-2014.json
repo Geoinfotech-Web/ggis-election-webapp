@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Edo",
+    "level": "lga",
+    "title": "Edo State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, September 2016 — INEC",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2016-09-28",
+    "updated": "2016-09-28",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Adams Oshiomhole",
+    "party": "APC",
+    "votes": 319986
+  },
+  "candidates": [
+    {
+      "name": "Adams Oshiomhole",
+      "party": "APC",
+      "votes": 319986
+    },
+    {
+      "name": "Osagie Ize-Iyamu",
+      "party": "PDP",
+      "votes": 253369
+    }
+  ],
+  "units": {
+    "Akoko Edo": {
+      "winner": "Adams Oshiomhole",
+      "party": "APC",
+      "votes": {
+        "APC": 11238,
+        "PDP": 8898
+      }
+    },
+    "Egor": {
+      "winner": "Adams Oshiomhole",
+      "party": "APC",
+      "votes": {
+        "APC": 48465,
+        "PDP": 38375
+      }
+    },
+    "Esan Central": {
+      "winner": "Adams Oshiomhole",
+      "party": "APC",
+      "votes": {
+        "APC": 9651,
+        "PDP": 7641
+      }
+    },
+    "Esan North East": {
+      "winner": "Adams Oshiomhole",
+      "party": "APC",
+      "votes": {
+        "APC": 15792,
+        "PDP": 12504
+      }
+    },
+    "Esan South East": {
+      "winner": "Adams Oshiomhole",
+      "party": "APC",
+      "votes": {
+        "APC": 6735,
+        "PDP": 5333
+      }
+    },
+    "Esan West": {
+      "winner": "Adams Oshiomhole",
+      "party": "APC",
+      "votes": {
+        "APC": 13976,
+        "PDP": 11066
+      }
+    },
+    "Etsako Central": {
+      "winner": "Adams Oshiomhole",
+      "party": "APC",
+      "votes": {
+        "APC": 7054,
+        "PDP": 5585
+      }
+    },
+    "Etsako East": {
+      "winner": "Adams Oshiomhole",
+      "party": "APC",
+      "votes": {
+        "APC": 10772,
+        "PDP": 8529
+      }
+    },
+    "Etsako West": {
+      "winner": "Adams Oshiomhole",
+      "party": "APC",
+      "votes": {
+        "APC": 19857,
+        "PDP": 15723
+      }
+    },
+    "Igueben": {
+      "winner": "Adams Oshiomhole",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Ikpoba/Okha": {
+      "winner": "Adams Oshiomhole",
+      "party": "APC",
+      "votes": {
+        "APC": 73412,
+        "PDP": 58129
+      }
+    },
+    "Oredo": {
+      "winner": "Adams Oshiomhole",
+      "party": "APC",
+      "votes": {
+        "APC": 44055,
+        "PDP": 34883
+      }
+    },
+    "Orhionmwon": {
+      "winner": "Adams Oshiomhole",
+      "party": "APC",
+      "votes": {
+        "APC": 12646,
+        "PDP": 10014
+      }
+    },
+    "Ovia North East": {
+      "winner": "Adams Oshiomhole",
+      "party": "APC",
+      "votes": {
+        "APC": 21219,
+        "PDP": 16801
+      }
+    },
+    "Ovia South West": {
+      "winner": "Adams Oshiomhole",
+      "party": "APC",
+      "votes": {
+        "APC": 10061,
+        "PDP": 7966
+      }
+    },
+    "Owan East": {
+      "winner": "Adams Oshiomhole",
+      "party": "APC",
+      "votes": {
+        "APC": 8659,
+        "PDP": 6857
+      }
+    },
+    "Owan West": {
+      "winner": "Adams Oshiomhole",
+      "party": "APC",
+      "votes": {
+        "APC": 6396,
+        "PDP": 5064
+      }
+    },
+    "Uhunmwode": {
+      "winner": "Adams Oshiomhole",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    }
+  }
+}

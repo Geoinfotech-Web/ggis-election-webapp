@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2018",
+    "state": "Ekiti",
+    "level": "lga",
+    "title": "Ekiti State Governorship Election 2018",
+    "source": "INEC collated results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC LGA collation centres — Tribune Online / Vanguard reporting official returns, 14 July 2018",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "updated": "2018-07-14",
+    "collated": true
+  },
+  "winner": {
+    "name": "Kayode Fayemi",
+    "party": "APC",
+    "votes": 197459
+  },
+  "candidates": [
+    {
+      "name": "Kayode Fayemi",
+      "party": "APC",
+      "votes": 197459
+    },
+    {
+      "name": "Kolapo Olushola",
+      "party": "PDP",
+      "votes": 178121
+    },
+    {
+      "name": "Opeyemi Bamidele",
+      "party": "LP",
+      "votes": 9205
+    }
+  ],
+  "units": {
+    "Ado": {
+      "winner": "Kolapo Olushola",
+      "party": "PDP",
+      "votes": {
+        "APC": 28111,
+        "PDP": 32810
+      }
+    },
+    "Ekiti East": {
+      "winner": "Kayode Fayemi",
+      "party": "APC",
+      "votes": {
+        "APC": 12778,
+        "PDP": 11564
+      }
+    },
+    "Ekiti South West": {
+      "winner": "Kayode Fayemi",
+      "party": "APC",
+      "votes": {
+        "APC": 11015,
+        "PDP": 8423
+      }
+    },
+    "Ekiti West": {
+      "winner": "Kayode Fayemi",
+      "party": "APC",
+      "votes": {
+        "APC": 12648,
+        "PDP": 10137
+      }
+    },
+    "Emure": {
+      "winner": "Kolapo Olushola",
+      "party": "PDP",
+      "votes": {
+        "APC": 7048,
+        "PDP": 7121
+      }
+    },
+    "Efon": {
+      "winner": "Kolapo Olushola",
+      "party": "PDP",
+      "votes": {
+        "APC": 5028,
+        "PDP": 5192
+      }
+    },
+    "Gbonyin": {
+      "winner": "Kayode Fayemi",
+      "party": "APC",
+      "votes": {
+        "APC": 11498,
+        "PDP": 8027
+      }
+    },
+    "Ido/Osi": {
+      "winner": "Kayode Fayemi",
+      "party": "APC",
+      "votes": {
+        "APC": 12342,
+        "PDP": 11145
+      }
+    },
+    "Ijero": {
+      "winner": "Kayode Fayemi",
+      "party": "APC",
+      "votes": {
+        "APC": 14192,
+        "PDP": 11077
+      }
+    },
+    "Ikere": {
+      "winner": "Kolapo Olushola",
+      "party": "PDP",
+      "votes": {
+        "APC": 11515,
+        "PDP": 17183
+      }
+    },
+    "Ikole": {
+      "winner": "Kayode Fayemi",
+      "party": "APC",
+      "votes": {
+        "APC": 14522,
+        "PDP": 13961
+      }
+    },
+    "Ilejemeje": {
+      "winner": "Kayode Fayemi",
+      "party": "APC",
+      "votes": {
+        "APC": 4153,
+        "PDP": 3937
+      }
+    },
+    "Irepodun/Ifelodun": {
+      "winner": "Kayode Fayemi",
+      "party": "APC",
+      "votes": {
+        "APC": 13869,
+        "PDP": 11456
+      }
+    },
+    "Ise/Orun": {
+      "winner": "Kayode Fayemi",
+      "party": "APC",
+      "votes": {
+        "APC": 11908,
+        "PDP": 6297
+      }
+    },
+    "Moba": {
+      "winner": "Kayode Fayemi",
+      "party": "APC",
+      "votes": {
+        "APC": 11837,
+        "PDP": 8520
+      }
+    },
+    "Oye": {
+      "winner": "Kayode Fayemi",
+      "party": "APC",
+      "votes": {
+        "APC": 14995,
+        "PDP": 11271
+      }
+    }
+  }
+}

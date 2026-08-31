@@ -1,0 +1,220 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2018",
+    "state": "Sokoto",
+    "level": "lga",
+    "title": "Sokoto State Governorship Election 2018",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results (incl. supplementary), March 2019 — Punch / Vanguard",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2019-03-09",
+    "updated": "2019-03-09",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Aminu Tambuwal",
+    "party": "PDP",
+    "votes": 512002
+  },
+  "candidates": [
+    {
+      "name": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": 512002
+    },
+    {
+      "name": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": 511660
+    }
+  ],
+  "units": {
+    "Binji": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 9687,
+        "APC": 9680
+      }
+    },
+    "Bodinga": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 36713,
+        "APC": 36689
+      }
+    },
+    "Dange/Shuni": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 46052,
+        "APC": 46021
+      }
+    },
+    "Gada": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 35563,
+        "APC": 35539
+      }
+    },
+    "Goronyo": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 20589,
+        "APC": 20576
+      }
+    },
+    "Gudu": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 14134,
+        "APC": 14124
+      }
+    },
+    "Gwadabawa": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 25472,
+        "APC": 25455
+      }
+    },
+    "Illela": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 25798,
+        "APC": 25781
+      }
+    },
+    "Isa": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 18331,
+        "APC": 18318
+      }
+    },
+    "Kebbe": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 8578,
+        "APC": 8572
+      }
+    },
+    "Kware": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 24368,
+        "APC": 24351
+      }
+    },
+    "Rabah": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16013,
+        "APC": 16003
+      }
+    },
+    "S/Birni": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APC": 0
+      }
+    },
+    "Shagari": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 19263,
+        "APC": 19250
+      }
+    },
+    "Silame": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 10062,
+        "APC": 10055
+      }
+    },
+    "Sokoto North": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 27270,
+        "APC": 27251
+      }
+    },
+    "Sokoto South": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 38767,
+        "APC": 38741
+      }
+    },
+    "Tambuwal": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 26745,
+        "APC": 26727
+      }
+    },
+    "Tangaza": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16198,
+        "APC": 16188
+      }
+    },
+    "Tureta": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 9387,
+        "APC": 9381
+      }
+    },
+    "Wamakko": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 53086,
+        "APC": 53050
+      }
+    },
+    "Wurno": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 17888,
+        "APC": 17877
+      }
+    },
+    "Yabo": {
+      "winner": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 12039,
+        "APC": 12030
+      }
+    }
+  }
+}

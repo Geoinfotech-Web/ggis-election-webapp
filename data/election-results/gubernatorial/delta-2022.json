@@ -1,0 +1,266 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2022",
+    "state": "Delta",
+    "level": "lga",
+    "title": "Delta State Governorship Election 2022",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Sheriff Oborevwori",
+    "party": "PDP",
+    "votes": 350234
+  },
+  "candidates": [
+    {
+      "name": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": 350234
+    },
+    {
+      "name": "Ovie Omo-Agege",
+      "party": "APC",
+      "votes": 240229
+    },
+    {
+      "name": "Ken Pela",
+      "party": "LP",
+      "votes": 48027
+    }
+  ],
+  "units": {
+    "Aniocha North": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 11001,
+        "APC": 7546,
+        "LP": 1509
+      }
+    },
+    "Aniochasouth": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16785,
+        "APC": 11513,
+        "LP": 2302
+      }
+    },
+    "Bomadi": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 3671,
+        "APC": 2518,
+        "LP": 503
+      }
+    },
+    "Burutu": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5406,
+        "APC": 3708,
+        "LP": 741
+      }
+    },
+    "Ethiope East": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 14714,
+        "APC": 10093,
+        "LP": 2018
+      }
+    },
+    "Ethiope West": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 20758,
+        "APC": 14238,
+        "LP": 2846
+      }
+    },
+    "Ika North- East": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 13267,
+        "APC": 9100,
+        "LP": 1820
+      }
+    },
+    "Ikasouth": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 20303,
+        "APC": 13926,
+        "LP": 2785
+      }
+    },
+    "Isoko North": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 13850,
+        "APC": 9500,
+        "LP": 1899
+      }
+    },
+    "Isoko South": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 11440,
+        "APC": 7847,
+        "LP": 1568
+      }
+    },
+    "Ndokwa East": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6072,
+        "APC": 4165,
+        "LP": 833
+      }
+    },
+    "Ndokwa West": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16502,
+        "APC": 11319,
+        "LP": 2262
+      }
+    },
+    "Okpe": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 9563,
+        "APC": 6559,
+        "LP": 1312
+      }
+    },
+    "Oshimilinorth": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 22805,
+        "APC": 15642,
+        "LP": 3127
+      }
+    },
+    "Oshimilisouth": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 18918,
+        "APC": 12976,
+        "LP": 2595
+      }
+    },
+    "Patani": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 2655,
+        "APC": 1821,
+        "LP": 365
+      }
+    },
+    "Sapele": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 22391,
+        "APC": 15358,
+        "LP": 3070
+      }
+    },
+    "Udu": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 19124,
+        "APC": 13117,
+        "LP": 2622
+      }
+    },
+    "Ughelli North": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 30284,
+        "APC": 20772,
+        "LP": 4152
+      }
+    },
+    "Ughelli South": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 12432,
+        "APC": 8527,
+        "LP": 1705
+      }
+    },
+    "Ukwuani": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 10711,
+        "APC": 7347,
+        "LP": 1469
+      }
+    },
+    "Uvwie": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 21018,
+        "APC": 14417,
+        "LP": 2882
+      }
+    },
+    "Warri North": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 3369,
+        "APC": 2311,
+        "LP": 462
+      }
+    },
+    "Warri South": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 22494,
+        "APC": 15429,
+        "LP": 3084
+      }
+    },
+    "Warri South West": {
+      "winner": "Sheriff Oborevwori",
+      "party": "PDP",
+      "votes": {
+        "PDP": 700,
+        "APC": 480,
+        "LP": 97
+      }
+    }
+  }
+}

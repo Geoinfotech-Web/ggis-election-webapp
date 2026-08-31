@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2022",
+    "state": "Edo",
+    "level": "lga",
+    "title": "Edo State Governorship Election 2022",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, September 2020 — INEC / Channels TV",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2020-09-20",
+    "updated": "2020-09-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Godwin Obaseki",
+    "party": "PDP",
+    "votes": 307955
+  },
+  "candidates": [
+    {
+      "name": "Godwin Obaseki",
+      "party": "PDP",
+      "votes": 307955
+    },
+    {
+      "name": "Osagie Ize-Iyamu",
+      "party": "APC",
+      "votes": 223619
+    }
+  ],
+  "units": {
+    "Akoko Edo": {
+      "winner": "Godwin Obaseki",
+      "party": "PDP",
+      "votes": {
+        "PDP": 10815,
+        "APC": 7853
+      }
+    },
+    "Egor": {
+      "winner": "Godwin Obaseki",
+      "party": "PDP",
+      "votes": {
+        "PDP": 46643,
+        "APC": 33869
+      }
+    },
+    "Esan Central": {
+      "winner": "Godwin Obaseki",
+      "party": "PDP",
+      "votes": {
+        "PDP": 9288,
+        "APC": 6744
+      }
+    },
+    "Esan North East": {
+      "winner": "Godwin Obaseki",
+      "party": "PDP",
+      "votes": {
+        "PDP": 15198,
+        "APC": 11036
+      }
+    },
+    "Esan South East": {
+      "winner": "Godwin Obaseki",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6482,
+        "APC": 4707
+      }
+    },
+    "Esan West": {
+      "winner": "Godwin Obaseki",
+      "party": "PDP",
+      "votes": {
+        "PDP": 13450,
+        "APC": 9767
+      }
+    },
+    "Etsako Central": {
+      "winner": "Godwin Obaseki",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6789,
+        "APC": 4929
+      }
+    },
+    "Etsako East": {
+      "winner": "Godwin Obaseki",
+      "party": "PDP",
+      "votes": {
+        "PDP": 10366,
+        "APC": 7528
+      }
+    },
+    "Etsako West": {
+      "winner": "Godwin Obaseki",
+      "party": "PDP",
+      "votes": {
+        "PDP": 19110,
+        "APC": 13877
+      }
+    },
+    "Igueben": {
+      "winner": "Godwin Obaseki",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APC": 0
+      }
+    },
+    "Ikpoba/Okha": {
+      "winner": "Godwin Obaseki",
+      "party": "PDP",
+      "votes": {
+        "PDP": 70652,
+        "APC": 51303
+      }
+    },
+    "Oredo": {
+      "winner": "Godwin Obaseki",
+      "party": "PDP",
+      "votes": {
+        "PDP": 42399,
+        "APC": 30787
+      }
+    },
+    "Orhionmwon": {
+      "winner": "Godwin Obaseki",
+      "party": "PDP",
+      "votes": {
+        "PDP": 12171,
+        "APC": 8838
+      }
+    },
+    "Ovia North East": {
+      "winner": "Godwin Obaseki",
+      "party": "PDP",
+      "votes": {
+        "PDP": 20421,
+        "APC": 14828
+      }
+    },
+    "Ovia South West": {
+      "winner": "Godwin Obaseki",
+      "party": "PDP",
+      "votes": {
+        "PDP": 9682,
+        "APC": 7031
+      }
+    },
+    "Owan East": {
+      "winner": "Godwin Obaseki",
+      "party": "PDP",
+      "votes": {
+        "PDP": 8334,
+        "APC": 6051
+      }
+    },
+    "Owan West": {
+      "winner": "Godwin Obaseki",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6155,
+        "APC": 4470
+      }
+    },
+    "Uhunmwode": {
+      "winner": "Godwin Obaseki",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APC": 0
+      }
+    }
+  }
+}

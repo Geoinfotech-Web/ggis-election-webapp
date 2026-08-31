@@ -1,0 +1,252 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2018",
+    "state": "Jigawa",
+    "level": "lga",
+    "title": "Jigawa State Governorship Election 2018",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2019 — Daily Post",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2019-03-09",
+    "updated": "2019-03-09",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Mohammed Badaru Abubakar",
+    "party": "APC",
+    "votes": 810933
+  },
+  "candidates": [
+    {
+      "name": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": 810933
+    },
+    {
+      "name": "Aminu Ibrahim Ringim",
+      "party": "PDP",
+      "votes": 288356
+    }
+  ],
+  "units": {
+    "Auyo": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 16823,
+        "PDP": 5982
+      }
+    },
+    "Babura": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 48541,
+        "PDP": 17260
+      }
+    },
+    "Birnin Kudu": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 76308,
+        "PDP": 27134
+      }
+    },
+    "Birniwa": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Buji": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 23913,
+        "PDP": 8503
+      }
+    },
+    "Dutse": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 70541,
+        "PDP": 25084
+      }
+    },
+    "Gagarawa": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 12977,
+        "PDP": 4615
+      }
+    },
+    "Garki": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 34922,
+        "PDP": 12418
+      }
+    },
+    "Gumel": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 13897,
+        "PDP": 4942
+      }
+    },
+    "Guri": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 16466,
+        "PDP": 5855
+      }
+    },
+    "Gwaram": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 65050,
+        "PDP": 23131
+      }
+    },
+    "Gwiwa": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 15162,
+        "PDP": 5392
+      }
+    },
+    "Hadejia": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 15908,
+        "PDP": 5657
+      }
+    },
+    "Jahun": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 46743,
+        "PDP": 16621
+      }
+    },
+    "Kafin Hausa": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 47863,
+        "PDP": 17019
+      }
+    },
+    "Kaugama": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 22980,
+        "PDP": 8171
+      }
+    },
+    "Kazaure": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 27798,
+        "PDP": 9885
+      }
+    },
+    "Kirika Samma": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Kiyawa": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 44155,
+        "PDP": 15701
+      }
+    },
+    "Maigatari": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 23366,
+        "PDP": 8309
+      }
+    },
+    "Malam Madori": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 30809,
+        "PDP": 10955
+      }
+    },
+    "Miga": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 24025,
+        "PDP": 8543
+      }
+    },
+    "Ringim": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 41489,
+        "PDP": 14753
+      }
+    },
+    "Roni": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 16208,
+        "PDP": 5763
+      }
+    },
+    "Sule-Tankarkar": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 31521,
+        "PDP": 11209
+      }
+    },
+    "Taura": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 29699,
+        "PDP": 10561
+      }
+    },
+    "Yankwashi": {
+      "winner": "Mohammed Badaru Abubakar",
+      "party": "APC",
+      "votes": {
+        "APC": 13766,
+        "PDP": 4895
+      }
+    }
+  }
+}

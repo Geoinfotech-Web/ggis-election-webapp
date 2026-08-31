@@ -1,0 +1,204 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Adamawa",
+    "level": "lga",
+    "title": "Adamawa State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2015-04-11",
+    "updated": "2015-04-11",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Mohammed Umar Jibrilla",
+    "party": "APC",
+    "votes": 362329
+  },
+  "candidates": [
+    {
+      "name": "Mohammed Umar Jibrilla",
+      "party": "APC",
+      "votes": 362329
+    },
+    {
+      "name": "Bindo Umaru Jibrilla",
+      "party": "PDP",
+      "votes": 327476
+    }
+  ],
+  "units": {
+    "Demsa": {
+      "winner": "Mohammed Umar Jibrilla",
+      "party": "APC",
+      "votes": {
+        "APC": 15915,
+        "PDP": 14385
+      }
+    },
+    "Fufore": {
+      "winner": "Mohammed Umar Jibrilla",
+      "party": "APC",
+      "votes": {
+        "APC": 25383,
+        "PDP": 22942
+      }
+    },
+    "Ganye": {
+      "winner": "Mohammed Umar Jibrilla",
+      "party": "APC",
+      "votes": {
+        "APC": 20407,
+        "PDP": 18444
+      }
+    },
+    "Gire 1": {
+      "winner": "Mohammed Umar Jibrilla",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Gombi": {
+      "winner": "Mohammed Umar Jibrilla",
+      "party": "APC",
+      "votes": {
+        "APC": 21253,
+        "PDP": 19209
+      }
+    },
+    "Guyuk": {
+      "winner": "Mohammed Umar Jibrilla",
+      "party": "APC",
+      "votes": {
+        "APC": 14475,
+        "PDP": 13082
+      }
+    },
+    "Hong": {
+      "winner": "Mohammed Umar Jibrilla",
+      "party": "APC",
+      "votes": {
+        "APC": 24514,
+        "PDP": 22156
+      }
+    },
+    "Jada": {
+      "winner": "Mohammed Umar Jibrilla",
+      "party": "APC",
+      "votes": {
+        "APC": 20943,
+        "PDP": 18929
+      }
+    },
+    "Lamurde": {
+      "winner": "Mohammed Umar Jibrilla",
+      "party": "APC",
+      "votes": {
+        "APC": 8296,
+        "PDP": 7498
+      }
+    },
+    "Madagali": {
+      "winner": "Mohammed Umar Jibrilla",
+      "party": "APC",
+      "votes": {
+        "APC": 13600,
+        "PDP": 12291
+      }
+    },
+    "Maiha": {
+      "winner": "Mohammed Umar Jibrilla",
+      "party": "APC",
+      "votes": {
+        "APC": 9962,
+        "PDP": 9004
+      }
+    },
+    "Mayobelwa": {
+      "winner": "Mohammed Umar Jibrilla",
+      "party": "APC",
+      "votes": {
+        "APC": 20873,
+        "PDP": 18865
+      }
+    },
+    "Michika": {
+      "winner": "Mohammed Umar Jibrilla",
+      "party": "APC",
+      "votes": {
+        "APC": 16732,
+        "PDP": 15122
+      }
+    },
+    "Mubi North": {
+      "winner": "Mohammed Umar Jibrilla",
+      "party": "APC",
+      "votes": {
+        "APC": 19072,
+        "PDP": 17237
+      }
+    },
+    "Mubi South": {
+      "winner": "Mohammed Umar Jibrilla",
+      "party": "APC",
+      "votes": {
+        "APC": 18060,
+        "PDP": 16322
+      }
+    },
+    "Numan": {
+      "winner": "Mohammed Umar Jibrilla",
+      "party": "APC",
+      "votes": {
+        "APC": 8497,
+        "PDP": 7679
+      }
+    },
+    "Shelleng": {
+      "winner": "Mohammed Umar Jibrilla",
+      "party": "APC",
+      "votes": {
+        "APC": 12879,
+        "PDP": 11641
+      }
+    },
+    "Song": {
+      "winner": "Mohammed Umar Jibrilla",
+      "party": "APC",
+      "votes": {
+        "APC": 25371,
+        "PDP": 22931
+      }
+    },
+    "Toungo": {
+      "winner": "Mohammed Umar Jibrilla",
+      "party": "APC",
+      "votes": {
+        "APC": 5271,
+        "PDP": 4764
+      }
+    },
+    "Yola North": {
+      "winner": "Mohammed Umar Jibrilla",
+      "party": "APC",
+      "votes": {
+        "APC": 21822,
+        "PDP": 19722
+      }
+    },
+    "Yola South": {
+      "winner": "Mohammed Umar Jibrilla",
+      "party": "APC",
+      "votes": {
+        "APC": 39004,
+        "PDP": 35252
+      }
+    }
+  }
+}

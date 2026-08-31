@@ -1,0 +1,172 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Abia",
+    "level": "lga",
+    "title": "Abia State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2015-04-11",
+    "updated": "2015-04-11",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Okezie Ikpeazu",
+    "party": "PDP",
+    "votes": 264713
+  },
+  "candidates": [
+    {
+      "name": "Okezie Ikpeazu",
+      "party": "PDP",
+      "votes": 264713
+    },
+    {
+      "name": "Alex Otti",
+      "party": "APGA",
+      "votes": 180882
+    }
+  ],
+  "units": {
+    "Aba North": {
+      "winner": "Okezie Ikpeazu",
+      "party": "PDP",
+      "votes": {
+        "PDP": 21258,
+        "APGA": 14526
+      }
+    },
+    "Aba South": {
+      "winner": "Okezie Ikpeazu",
+      "party": "PDP",
+      "votes": {
+        "PDP": 32879,
+        "APGA": 22466
+      }
+    },
+    "Arochukwu": {
+      "winner": "Okezie Ikpeazu",
+      "party": "PDP",
+      "votes": {
+        "PDP": 12656,
+        "APGA": 8648
+      }
+    },
+    "Bende": {
+      "winner": "Okezie Ikpeazu",
+      "party": "PDP",
+      "votes": {
+        "PDP": 20451,
+        "APGA": 13974
+      }
+    },
+    "Ikwuano": {
+      "winner": "Okezie Ikpeazu",
+      "party": "PDP",
+      "votes": {
+        "PDP": 13273,
+        "APGA": 9070
+      }
+    },
+    "Isiala Ngwa North": {
+      "winner": "Okezie Ikpeazu",
+      "party": "PDP",
+      "votes": {
+        "PDP": 20044,
+        "APGA": 13697
+      }
+    },
+    "Isiala Ngwa South": {
+      "winner": "Okezie Ikpeazu",
+      "party": "PDP",
+      "votes": {
+        "PDP": 23135,
+        "APGA": 15808
+      }
+    },
+    "Isuikwuato": {
+      "winner": "Okezie Ikpeazu",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16075,
+        "APGA": 10985
+      }
+    },
+    "Obingwa": {
+      "winner": "Okezie Ikpeazu",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APGA": 0
+      }
+    },
+    "Ohafia": {
+      "winner": "Okezie Ikpeazu",
+      "party": "PDP",
+      "votes": {
+        "PDP": 17258,
+        "APGA": 11793
+      }
+    },
+    "Osisioma": {
+      "winner": "Okezie Ikpeazu",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APGA": 0
+      }
+    },
+    "Ugwunagbo": {
+      "winner": "Okezie Ikpeazu",
+      "party": "PDP",
+      "votes": {
+        "PDP": 7491,
+        "APGA": 5119
+      }
+    },
+    "Ukwa East": {
+      "winner": "Okezie Ikpeazu",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5834,
+        "APGA": 3987
+      }
+    },
+    "Ukwa West": {
+      "winner": "Okezie Ikpeazu",
+      "party": "PDP",
+      "votes": {
+        "PDP": 9240,
+        "APGA": 6313
+      }
+    },
+    "Umuahia North": {
+      "winner": "Okezie Ikpeazu",
+      "party": "PDP",
+      "votes": {
+        "PDP": 26640,
+        "APGA": 18204
+      }
+    },
+    "Umuahia South": {
+      "winner": "Okezie Ikpeazu",
+      "party": "PDP",
+      "votes": {
+        "PDP": 19400,
+        "APGA": 13257
+      }
+    },
+    "Umunneochi": {
+      "winner": "Okezie Ikpeazu",
+      "party": "PDP",
+      "votes": {
+        "PDP": 19078,
+        "APGA": 13036
+      }
+    }
+  }
+}

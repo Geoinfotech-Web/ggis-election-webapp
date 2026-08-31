@@ -1,0 +1,236 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2018",
+    "state": "Niger",
+    "level": "lga",
+    "title": "Niger State Governorship Election 2018",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2019 — Ripples Nigeria",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2019-03-09",
+    "updated": "2019-03-09",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Abubakar Sani Bello",
+    "party": "APC",
+    "votes": 526412
+  },
+  "candidates": [
+    {
+      "name": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": 526412
+    },
+    {
+      "name": "Umar Nasko",
+      "party": "PDP",
+      "votes": 298065
+    }
+  ],
+  "units": {
+    "Agaie": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 9588,
+        "PDP": 5429
+      }
+    },
+    "Agwara": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 8870,
+        "PDP": 5023
+      }
+    },
+    "Bida": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 18125,
+        "PDP": 10262
+      }
+    },
+    "Borgu": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 32686,
+        "PDP": 18507
+      }
+    },
+    "Bosso": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 22975,
+        "PDP": 13009
+      }
+    },
+    "Chanchaga": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 35264,
+        "PDP": 19967
+      }
+    },
+    "Edatti": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Gbako": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 14126,
+        "PDP": 7998
+      }
+    },
+    "Gurara": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 8498,
+        "PDP": 4812
+      }
+    },
+    "Katcha": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 14748,
+        "PDP": 8350
+      }
+    },
+    "Kontagora": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 22204,
+        "PDP": 12572
+      }
+    },
+    "Lapai": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 18902,
+        "PDP": 10702
+      }
+    },
+    "Lavun": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 18151,
+        "PDP": 10277
+      }
+    },
+    "Magama": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 27972,
+        "PDP": 15839
+      }
+    },
+    "Mariga": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 35238,
+        "PDP": 19952
+      }
+    },
+    "Mashegu": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 62799,
+        "PDP": 35558
+      }
+    },
+    "Mokwa": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 23557,
+        "PDP": 13338
+      }
+    },
+    "Munya": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 8254,
+        "PDP": 4673
+      }
+    },
+    "Paikoro": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 19766,
+        "PDP": 11192
+      }
+    },
+    "Rafi": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 25866,
+        "PDP": 14646
+      }
+    },
+    "Rijau": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 20466,
+        "PDP": 11589
+      }
+    },
+    "Shiroro": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 26344,
+        "PDP": 14917
+      }
+    },
+    "Suleja": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 35750,
+        "PDP": 20243
+      }
+    },
+    "Tafa": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 6101,
+        "PDP": 3455
+      }
+    },
+    "Wushishi": {
+      "winner": "Abubakar Sani Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 10163,
+        "PDP": 5755
+      }
+    }
+  }
+}

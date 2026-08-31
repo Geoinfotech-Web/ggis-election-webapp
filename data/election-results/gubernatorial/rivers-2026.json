@@ -1,0 +1,248 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2026",
+    "state": "Rivers",
+    "level": "lga",
+    "title": "Rivers State Governorship Election 2026",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Siminalayi Fubara",
+    "party": "PDP",
+    "votes": 302614
+  },
+  "candidates": [
+    {
+      "name": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": 302614
+    },
+    {
+      "name": "Tonye Cole",
+      "party": "APC",
+      "votes": 95274
+    },
+    {
+      "name": "Magnus Abe",
+      "party": "SDP",
+      "votes": 22224
+    }
+  ],
+  "units": {
+    "Abua-Odual": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 4833,
+        "APC": 1521,
+        "SDP": 355
+      }
+    },
+    "Ahoada East": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 13989,
+        "APC": 4404,
+        "SDP": 1028
+      }
+    },
+    "Ahoada West": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 4373,
+        "APC": 1377,
+        "SDP": 321
+      }
+    },
+    "Akuku Toru": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1062,
+        "APC": 334,
+        "SDP": 78
+      }
+    },
+    "Andoni": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 4712,
+        "APC": 1484,
+        "SDP": 346
+      }
+    },
+    "Asari-Toru": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1814,
+        "APC": 571,
+        "SDP": 134
+      }
+    },
+    "Bonny": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6533,
+        "APC": 2057,
+        "SDP": 479
+      }
+    },
+    "Degema": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 3983,
+        "APC": 1254,
+        "SDP": 293
+      }
+    },
+    "Eleme": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 14700,
+        "APC": 4628,
+        "SDP": 1080
+      }
+    },
+    "Emohua": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APC": 0,
+        "SDP": 0
+      }
+    },
+    "Etche": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 27945,
+        "APC": 8798,
+        "SDP": 2052
+      }
+    },
+    "Gokana": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 9461,
+        "APC": 2979,
+        "SDP": 695
+      }
+    },
+    "Ikwerre": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 22341,
+        "APC": 7034,
+        "SDP": 1640
+      }
+    },
+    "Khana": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 18615,
+        "APC": 5861,
+        "SDP": 1367
+      }
+    },
+    "Obio/Akpor": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 89082,
+        "APC": 28046,
+        "SDP": 6543
+      }
+    },
+    "Ogba/Egbema/Ndoni": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 23553,
+        "APC": 7415,
+        "SDP": 1730
+      }
+    },
+    "Ogu/Bolo": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 927,
+        "APC": 292,
+        "SDP": 68
+      }
+    },
+    "Okrika": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6412,
+        "APC": 2019,
+        "SDP": 470
+      }
+    },
+    "Omuma": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APC": 0,
+        "SDP": 0
+      }
+    },
+    "Opobo/Nekoro": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APC": 0,
+        "SDP": 0
+      }
+    },
+    "Oyigbo": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 15544,
+        "APC": 4894,
+        "SDP": 1142
+      }
+    },
+    "Port Harcourt": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 29430,
+        "APC": 9266,
+        "SDP": 2161
+      }
+    },
+    "Tai": {
+      "winner": "Siminalayi Fubara",
+      "party": "PDP",
+      "votes": {
+        "PDP": 3303,
+        "APC": 1040,
+        "SDP": 243
+      }
+    }
+  }
+}

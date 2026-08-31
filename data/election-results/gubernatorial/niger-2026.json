@@ -1,0 +1,236 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2026",
+    "state": "Niger",
+    "level": "lga",
+    "title": "Niger State Governorship Election 2026",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Mohammed Umar Bago",
+    "party": "APC",
+    "votes": 469896
+  },
+  "candidates": [
+    {
+      "name": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": 469896
+    },
+    {
+      "name": "Isah Liman Kantigi",
+      "party": "PDP",
+      "votes": 387476
+    }
+  ],
+  "units": {
+    "Agaie": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 8559,
+        "PDP": 7058
+      }
+    },
+    "Agwara": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 7918,
+        "PDP": 6529
+      }
+    },
+    "Bida": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 16178,
+        "PDP": 13341
+      }
+    },
+    "Borgu": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 29177,
+        "PDP": 24059
+      }
+    },
+    "Bosso": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 20508,
+        "PDP": 16911
+      }
+    },
+    "Chanchaga": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 31478,
+        "PDP": 25957
+      }
+    },
+    "Edatti": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Gbako": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 12609,
+        "PDP": 10398
+      }
+    },
+    "Gurara": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 7586,
+        "PDP": 6255
+      }
+    },
+    "Katcha": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 13164,
+        "PDP": 10855
+      }
+    },
+    "Kontagora": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 19820,
+        "PDP": 16344
+      }
+    },
+    "Lapai": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 16872,
+        "PDP": 13913
+      }
+    },
+    "Lavun": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 16202,
+        "PDP": 13360
+      }
+    },
+    "Magama": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 24969,
+        "PDP": 20590
+      }
+    },
+    "Mariga": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 31454,
+        "PDP": 25937
+      }
+    },
+    "Mashegu": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 56057,
+        "PDP": 46225
+      }
+    },
+    "Mokwa": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 21028,
+        "PDP": 17339
+      }
+    },
+    "Munya": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 7368,
+        "PDP": 6075
+      }
+    },
+    "Paikoro": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 17644,
+        "PDP": 14549
+      }
+    },
+    "Rafi": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 23089,
+        "PDP": 19040
+      }
+    },
+    "Rijau": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 18269,
+        "PDP": 15065
+      }
+    },
+    "Shiroro": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 23516,
+        "PDP": 19391
+      }
+    },
+    "Suleja": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 31912,
+        "PDP": 26315
+      }
+    },
+    "Tafa": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 5446,
+        "PDP": 4491
+      }
+    },
+    "Wushishi": {
+      "winner": "Mohammed Umar Bago",
+      "party": "APC",
+      "votes": {
+        "APC": 9072,
+        "PDP": 7481
+      }
+    }
+  }
+}

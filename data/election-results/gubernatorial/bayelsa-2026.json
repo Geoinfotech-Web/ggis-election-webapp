@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2026",
+    "state": "Bayelsa",
+    "level": "lga",
+    "title": "Bayelsa State Governorship Election 2026",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, November 2023 — Daily Trust / Punch",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-11-13",
+    "updated": "2023-11-13",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Douye Diri",
+    "party": "PDP",
+    "votes": 175196
+  },
+  "candidates": [
+    {
+      "name": "Douye Diri",
+      "party": "PDP",
+      "votes": 175196
+    },
+    {
+      "name": "Timipre Sylva",
+      "party": "APC",
+      "votes": 110108
+    },
+    {
+      "name": "Udengs Eradiri",
+      "party": "LP",
+      "votes": 905
+    }
+  ],
+  "units": {
+    "Brass": {
+      "winner": "Douye Diri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 15480,
+        "APC": 9729,
+        "LP": 80
+      }
+    },
+    "Ekeremor": {
+      "winner": "Douye Diri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 28339,
+        "APC": 17811,
+        "LP": 146
+      }
+    },
+    "Kolokuma/Opokuma": {
+      "winner": "Douye Diri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 13436,
+        "APC": 8444,
+        "LP": 70
+      }
+    },
+    "Nembe": {
+      "winner": "Douye Diri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 8848,
+        "APC": 5561,
+        "LP": 45
+      }
+    },
+    "Ogbia": {
+      "winner": "Douye Diri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 42684,
+        "APC": 26826,
+        "LP": 220
+      }
+    },
+    "Sagbama": {
+      "winner": "Douye Diri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 28676,
+        "APC": 18022,
+        "LP": 148
+      }
+    },
+    "Southern Ijaw": {
+      "winner": "Douye Diri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 37734,
+        "APC": 23715,
+        "LP": 195
+      }
+    },
+    "Yenagoa": {
+      "winner": "Douye Diri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APC": 0,
+        "LP": 0
+      }
+    }
+  }
+}

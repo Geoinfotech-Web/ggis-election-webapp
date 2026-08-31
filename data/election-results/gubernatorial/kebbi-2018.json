@@ -1,0 +1,204 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2018",
+    "state": "Kebbi",
+    "level": "lga",
+    "title": "Kebbi State Governorship Election 2018",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2019 — Daily Post",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2019-03-09",
+    "updated": "2019-03-09",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Abubakar Atiku Bagudu",
+    "party": "APC",
+    "votes": 673717
+  },
+  "candidates": [
+    {
+      "name": "Abubakar Atiku Bagudu",
+      "party": "APC",
+      "votes": 673717
+    },
+    {
+      "name": "Isa Mohammed Galaudu",
+      "party": "PDP",
+      "votes": 106633
+    }
+  ],
+  "units": {
+    "Aliero": {
+      "winner": "Abubakar Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Arewa": {
+      "winner": "Abubakar Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Argungu": {
+      "winner": "Abubakar Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 45286,
+        "PDP": 7168
+      }
+    },
+    "Augie": {
+      "winner": "Abubakar Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 21498,
+        "PDP": 3403
+      }
+    },
+    "Bagudo": {
+      "winner": "Abubakar Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Birnin Kebbi": {
+      "winner": "Abubakar Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 83965,
+        "PDP": 13290
+      }
+    },
+    "Bunza": {
+      "winner": "Abubakar Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 33192,
+        "PDP": 5253
+      }
+    },
+    "Dandi": {
+      "winner": "Abubakar Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 29874,
+        "PDP": 4728
+      }
+    },
+    "Fakai": {
+      "winner": "Abubakar Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 27127,
+        "PDP": 4293
+      }
+    },
+    "Gwandu": {
+      "winner": "Abubakar Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 40370,
+        "PDP": 6390
+      }
+    },
+    "Jega": {
+      "winner": "Abubakar Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 38689,
+        "PDP": 6124
+      }
+    },
+    "Kalgo": {
+      "winner": "Abubakar Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 22203,
+        "PDP": 3514
+      }
+    },
+    "Koko/Besse": {
+      "winner": "Abubakar Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 33893,
+        "PDP": 5364
+      }
+    },
+    "Maiyama": {
+      "winner": "Abubakar Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 38968,
+        "PDP": 6168
+      }
+    },
+    "Ngaski": {
+      "winner": "Abubakar Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 25696,
+        "PDP": 4067
+      }
+    },
+    "Sakaba": {
+      "winner": "Abubakar Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 26390,
+        "PDP": 4177
+      }
+    },
+    "Shanga": {
+      "winner": "Abubakar Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 36400,
+        "PDP": 5761
+      }
+    },
+    "Suru": {
+      "winner": "Abubakar Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 37797,
+        "PDP": 5982
+      }
+    },
+    "Wasagu/Danko": {
+      "winner": "Abubakar Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 67036,
+        "PDP": 10610
+      }
+    },
+    "Yauri": {
+      "winner": "Abubakar Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 20214,
+        "PDP": 3199
+      }
+    },
+    "Zuru": {
+      "winner": "Abubakar Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 45118,
+        "PDP": 7141
+      }
+    }
+  }
+}

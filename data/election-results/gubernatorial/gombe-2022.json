@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2022",
+    "state": "Gombe",
+    "level": "lga",
+    "title": "Gombe State Governorship Election 2022",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Muhammad Inuwa Yahaya",
+    "party": "APC",
+    "votes": 342821
+  },
+  "candidates": [
+    {
+      "name": "Muhammad Inuwa Yahaya",
+      "party": "APC",
+      "votes": 342821
+    },
+    {
+      "name": "Mu'azu Kumo",
+      "party": "PDP",
+      "votes": 233131
+    }
+  ],
+  "units": {
+    "Akko": {
+      "winner": "Muhammad Inuwa Yahaya",
+      "party": "APC",
+      "votes": {
+        "APC": 83204,
+        "PDP": 56581
+      }
+    },
+    "Balanga": {
+      "winner": "Muhammad Inuwa Yahaya",
+      "party": "APC",
+      "votes": {
+        "APC": 32607,
+        "PDP": 22174
+      }
+    },
+    "Billiri": {
+      "winner": "Muhammad Inuwa Yahaya",
+      "party": "APC",
+      "votes": {
+        "APC": 27001,
+        "PDP": 18361
+      }
+    },
+    "Dukku": {
+      "winner": "Muhammad Inuwa Yahaya",
+      "party": "APC",
+      "votes": {
+        "APC": 38923,
+        "PDP": 26469
+      }
+    },
+    "Funakaye": {
+      "winner": "Muhammad Inuwa Yahaya",
+      "party": "APC",
+      "votes": {
+        "APC": 31459,
+        "PDP": 21393
+      }
+    },
+    "Gombe": {
+      "winner": "Muhammad Inuwa Yahaya",
+      "party": "APC",
+      "votes": {
+        "APC": 43341,
+        "PDP": 29473
+      }
+    },
+    "Kaltungo": {
+      "winner": "Muhammad Inuwa Yahaya",
+      "party": "APC",
+      "votes": {
+        "APC": 26540,
+        "PDP": 18048
+      }
+    },
+    "Kwami": {
+      "winner": "Muhammad Inuwa Yahaya",
+      "party": "APC",
+      "votes": {
+        "APC": 45548,
+        "PDP": 30974
+      }
+    },
+    "Nafada": {
+      "winner": "Muhammad Inuwa Yahaya",
+      "party": "APC",
+      "votes": {
+        "APC": 14199,
+        "PDP": 9656
+      }
+    },
+    "Shongom": {
+      "winner": "Muhammad Inuwa Yahaya",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Yalmaltu/ Deba": {
+      "winner": "Muhammad Inuwa Yahaya",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    }
+  }
+}

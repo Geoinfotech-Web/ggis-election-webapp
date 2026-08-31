@@ -1,0 +1,308 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2022",
+    "state": "Katsina",
+    "level": "lga",
+    "title": "Katsina State Governorship Election 2022",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Dikko Umaru Radda",
+    "party": "APC",
+    "votes": 859892
+  },
+  "candidates": [
+    {
+      "name": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": 859892
+    },
+    {
+      "name": "Garba Yakubu Lado",
+      "party": "PDP",
+      "votes": 486620
+    }
+  ],
+  "units": {
+    "Bakori": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 36358,
+        "PDP": 20576
+      }
+    },
+    "Batagarawa": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 29941,
+        "PDP": 16944
+      }
+    },
+    "Batsari": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 31317,
+        "PDP": 17722
+      }
+    },
+    "Baure": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 29947,
+        "PDP": 16947
+      }
+    },
+    "Bindawa": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 28587,
+        "PDP": 16177
+      }
+    },
+    "Charanchi": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 23053,
+        "PDP": 13046
+      }
+    },
+    "Dan Musa": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 22034,
+        "PDP": 12470
+      }
+    },
+    "Dandume": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 20660,
+        "PDP": 11692
+      }
+    },
+    "Danja": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 20518,
+        "PDP": 11611
+      }
+    },
+    "Daura": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 13579,
+        "PDP": 7685
+      }
+    },
+    "Dutsi": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 11355,
+        "PDP": 6426
+      }
+    },
+    "Dutsin-Ma": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 32486,
+        "PDP": 18384
+      }
+    },
+    "Faskari": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 30156,
+        "PDP": 17065
+      }
+    },
+    "Funtua": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 41341,
+        "PDP": 23395
+      }
+    },
+    "Ingawa": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 22045,
+        "PDP": 12476
+      }
+    },
+    "Jibia": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 27076,
+        "PDP": 15323
+      }
+    },
+    "Kafur": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 34941,
+        "PDP": 19774
+      }
+    },
+    "Kaita": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 26760,
+        "PDP": 15143
+      }
+    },
+    "Kankara": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 37433,
+        "PDP": 21184
+      }
+    },
+    "Kankia": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 21193,
+        "PDP": 11993
+      }
+    },
+    "Katsina": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 68237,
+        "PDP": 38616
+      }
+    },
+    "Kurfi": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 18875,
+        "PDP": 10681
+      }
+    },
+    "Kusada": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 12201,
+        "PDP": 6904
+      }
+    },
+    "Mai'adua": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 18014,
+        "PDP": 10195
+      }
+    },
+    "Malufashi": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Mani": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 32784,
+        "PDP": 18552
+      }
+    },
+    "Mashi": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 32701,
+        "PDP": 18505
+      }
+    },
+    "Matazu": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 16754,
+        "PDP": 9482
+      }
+    },
+    "Musawa": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 18928,
+        "PDP": 10711
+      }
+    },
+    "Rimi": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 32105,
+        "PDP": 18169
+      }
+    },
+    "Sabuwa": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 15493,
+        "PDP": 8767
+      }
+    },
+    "Safana": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 24709,
+        "PDP": 13983
+      }
+    },
+    "Sandamu": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 10948,
+        "PDP": 6196
+      }
+    },
+    "Zango": {
+      "winner": "Dikko Umaru Radda",
+      "party": "APC",
+      "votes": {
+        "APC": 17362,
+        "PDP": 9826
+      }
+    }
+  }
+}

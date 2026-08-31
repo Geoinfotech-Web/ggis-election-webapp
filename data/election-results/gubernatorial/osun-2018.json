@@ -1,0 +1,309 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2018",
+    "state": "Osun",
+    "level": "lga",
+    "title": "Osun State Governorship Election 2018",
+    "source": "INEC collated results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC LGA collation centres — Daily Post Nigeria reporting official returns, 22 September 2018 (first ballot)",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "updated": "2018-09-22",
+    "collated": true
+  },
+  "winner": {
+    "name": "Ademola Adeleke",
+    "party": "PDP",
+    "votes": 254698
+  },
+  "candidates": [
+    {
+      "name": "Gboyega Oyetola",
+      "party": "APC",
+      "votes": 254345
+    },
+    {
+      "name": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": 254698
+    },
+    {
+      "name": "Iyiola Omisore",
+      "party": "SDP",
+      "votes": 128889
+    }
+  ],
+  "units": {
+    "Boluwaduro": {
+      "winner": "Gboyega Oyetola",
+      "party": "APC",
+      "votes": {
+        "APC": 3843,
+        "PDP": 3779,
+        "SDP": 1766
+      }
+    },
+    "Atakumosa West": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "APC": 5019,
+        "PDP": 5401,
+        "SDP": 1570
+      }
+    },
+    "Ifedayo": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "APC": 3182,
+        "PDP": 3374,
+        "SDP": 1377
+      }
+    },
+    "Ede South": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "APC": 4512,
+        "PDP": 16693,
+        "SDP": 855
+      }
+    },
+    "Orolu": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "APC": 5442,
+        "PDP": 7776,
+        "SDP": 2043
+      }
+    },
+    "Obokun": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "APC": 7229,
+        "PDP": 10859,
+        "SDP": 1907
+      }
+    },
+    "Ilesa East": {
+      "winner": "Gboyega Oyetola",
+      "party": "APC",
+      "votes": {
+        "APC": 9790,
+        "PDP": 8244,
+        "SDP": 3620
+      }
+    },
+    "Boripe": {
+      "winner": "Gboyega Oyetola",
+      "party": "APC",
+      "votes": {
+        "APC": 11655,
+        "PDP": 6892,
+        "SDP": 2730
+      }
+    },
+    "Ilesa West": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "APC": 7251,
+        "PDP": 8286,
+        "SDP": 2408
+      }
+    },
+    "Oriade": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "APC": 9778,
+        "PDP": 10109,
+        "SDP": 2265
+      }
+    },
+    "Irepodun": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "APC": 6517,
+        "PDP": 8058,
+        "SDP": 4856
+      }
+    },
+    "Ila": {
+      "winner": "Gboyega Oyetola",
+      "party": "APC",
+      "votes": {
+        "APC": 8403,
+        "PDP": 8241,
+        "SDP": 3134
+      }
+    },
+    "Isokan": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "APC": 7297,
+        "PDP": 9048,
+        "SDP": 3460
+      }
+    },
+    "Odo-Otin": {
+      "winner": "Gboyega Oyetola",
+      "party": "APC",
+      "votes": {
+        "APC": 9996,
+        "PDP": 9879,
+        "SDP": 2941
+      }
+    },
+    "Ayedaade": {
+      "winner": "Gboyega Oyetola",
+      "party": "APC",
+      "votes": {
+        "APC": 10861,
+        "PDP": 9836,
+        "SDP": 2967
+      }
+    },
+    "Atakumosa East": {
+      "winner": "Gboyega Oyetola",
+      "party": "APC",
+      "votes": {
+        "APC": 7073,
+        "PDP": 5218,
+        "SDP": 2140
+      }
+    },
+    "Ede North": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "APC": 7025,
+        "PDP": 18745,
+        "SDP": 1382
+      }
+    },
+    "Ifelodun": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "APC": 9882,
+        "PDP": 12269,
+        "SDP": 1970
+      }
+    },
+    "Ayedire": {
+      "winner": "Gboyega Oyetola",
+      "party": "APC",
+      "votes": {
+        "APC": 5474,
+        "PDP": 5133,
+        "SDP": 2396
+      }
+    },
+    "Ife North": {
+      "winner": "Gboyega Oyetola",
+      "party": "APC",
+      "votes": {
+        "APC": 6527,
+        "PDP": 5486,
+        "SDP": 5158
+      }
+    },
+    "Ejigbo": {
+      "winner": "Gboyega Oyetola",
+      "party": "APC",
+      "votes": {
+        "APC": 14779,
+        "PDP": 4803,
+        "SDP": 4803
+      }
+    },
+    "Egbedore": {
+      "winner": "Gboyega Oyetola",
+      "party": "APC",
+      "votes": {
+        "APC": 7354,
+        "PDP": 7231,
+        "SDP": 3367
+      }
+    },
+    "Ife Central": {
+      "winner": "Iyiola Omisore",
+      "party": "SDP",
+      "votes": {
+        "APC": 6957,
+        "PDP": 3200,
+        "SDP": 20494
+      }
+    },
+    "Irewole": {
+      "winner": "Ademola Adeleke",
+      "party": "PDP",
+      "votes": {
+        "APC": 10049,
+        "PDP": 13848,
+        "SDP": 1142
+      }
+    },
+    "Olorunda": {
+      "winner": "Gboyega Oyetola",
+      "party": "APC",
+      "votes": {
+        "APC": 16254,
+        "PDP": 9850,
+        "SDP": 7061
+      }
+    },
+    "Ola-Oluwa": {
+      "winner": "Gboyega Oyetola",
+      "party": "APC",
+      "votes": {
+        "APC": 5025,
+        "PDP": 4026,
+        "SDP": 2104
+      }
+    },
+    "Ife South": {
+      "winner": "Gboyega Oyetola",
+      "party": "APC",
+      "votes": {
+        "APC": 7223,
+        "PDP": 4872,
+        "SDP": 6151
+      }
+    },
+    "Ife East": {
+      "winner": "Iyiola Omisore",
+      "party": "SDP",
+      "votes": {
+        "APC": 8925,
+        "PDP": 6608,
+        "SDP": 17643
+      }
+    },
+    "Iwo": {
+      "winner": "Gboyega Oyetola",
+      "party": "APC",
+      "votes": {
+        "APC": 7644,
+        "PDP": 6122,
+        "SDP": 4153
+      }
+    },
+    "Osogbo": {
+      "winner": "Gboyega Oyetola",
+      "party": "APC",
+      "votes": {
+        "APC": 23379,
+        "PDP": 14499,
+        "SDP": 10188
+      }
+    }
+  }
+}

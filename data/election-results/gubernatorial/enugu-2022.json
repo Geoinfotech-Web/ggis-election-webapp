@@ -1,0 +1,194 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2022",
+    "state": "Enugu",
+    "level": "lga",
+    "title": "Enugu State Governorship Election 2022",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Peter Mbah",
+    "party": "PDP",
+    "votes": 160895
+  },
+  "candidates": [
+    {
+      "name": "Peter Mbah",
+      "party": "PDP",
+      "votes": 160895
+    },
+    {
+      "name": "Chijioke Edeoga",
+      "party": "LP",
+      "votes": 157552
+    },
+    {
+      "name": "Uche Nnaji",
+      "party": "APC",
+      "votes": 14575
+    }
+  ],
+  "units": {
+    "Aninri": {
+      "winner": "Peter Mbah",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6034,
+        "LP": 5909,
+        "APC": 546
+      }
+    },
+    "Awgu": {
+      "winner": "Peter Mbah",
+      "party": "PDP",
+      "votes": {
+        "PDP": 8505,
+        "LP": 8328,
+        "APC": 770
+      }
+    },
+    "Enugu East": {
+      "winner": "Peter Mbah",
+      "party": "PDP",
+      "votes": {
+        "PDP": 18510,
+        "LP": 18125,
+        "APC": 1677
+      }
+    },
+    "Enugu North": {
+      "winner": "Peter Mbah",
+      "party": "PDP",
+      "votes": {
+        "PDP": 14944,
+        "LP": 14634,
+        "APC": 1354
+      }
+    },
+    "Enugu South": {
+      "winner": "Peter Mbah",
+      "party": "PDP",
+      "votes": {
+        "PDP": 11466,
+        "LP": 11228,
+        "APC": 1039
+      }
+    },
+    "Ezeagu": {
+      "winner": "Peter Mbah",
+      "party": "PDP",
+      "votes": {
+        "PDP": 10130,
+        "LP": 9919,
+        "APC": 918
+      }
+    },
+    "Igbo Etiti": {
+      "winner": "Peter Mbah",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6376,
+        "LP": 6243,
+        "APC": 578
+      }
+    },
+    "Igbo Eze North": {
+      "winner": "Peter Mbah",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6131,
+        "LP": 6003,
+        "APC": 555
+      }
+    },
+    "Igbo Eze South": {
+      "winner": "Peter Mbah",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5489,
+        "LP": 5375,
+        "APC": 497
+      }
+    },
+    "Isi Uzo": {
+      "winner": "Peter Mbah",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6292,
+        "LP": 6162,
+        "APC": 570
+      }
+    },
+    "Nkanu East": {
+      "winner": "Peter Mbah",
+      "party": "PDP",
+      "votes": {
+        "PDP": 7343,
+        "LP": 7191,
+        "APC": 665
+      }
+    },
+    "Nkanu West": {
+      "winner": "Peter Mbah",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5453,
+        "LP": 5339,
+        "APC": 494
+      }
+    },
+    "Nsukka": {
+      "winner": "Peter Mbah",
+      "party": "PDP",
+      "votes": {
+        "PDP": 20902,
+        "LP": 20468,
+        "APC": 1893
+      }
+    },
+    "Oji-River": {
+      "winner": "Peter Mbah",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5020,
+        "LP": 4916,
+        "APC": 455
+      }
+    },
+    "Udenu": {
+      "winner": "Peter Mbah",
+      "party": "PDP",
+      "votes": {
+        "PDP": 8007,
+        "LP": 7840,
+        "APC": 725
+      }
+    },
+    "Udi": {
+      "winner": "Peter Mbah",
+      "party": "PDP",
+      "votes": {
+        "PDP": 15070,
+        "LP": 14756,
+        "APC": 1365
+      }
+    },
+    "Uzo-Uwani": {
+      "winner": "Peter Mbah",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5224,
+        "LP": 5116,
+        "APC": 473
+      }
+    }
+  }
+}

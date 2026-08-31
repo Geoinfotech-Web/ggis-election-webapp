@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2018",
+    "state": "Anambra",
+    "level": "lga",
+    "title": "Anambra State Governorship Election 2018",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, November 2017 — Punch / Guardian",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2017-11-18",
+    "updated": "2017-11-18",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Willie Obiano",
+    "party": "APGA",
+    "votes": 234071
+  },
+  "candidates": [
+    {
+      "name": "Willie Obiano",
+      "party": "APGA",
+      "votes": 234071
+    },
+    {
+      "name": "Tony Nwoye",
+      "party": "APC",
+      "votes": 98752
+    },
+    {
+      "name": "Oseloka Obaze",
+      "party": "PDP",
+      "votes": 70293
+    }
+  ],
+  "units": {
+    "Aguata": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 26406,
+        "APC": 11141,
+        "PDP": 7930
+      }
+    },
+    "Anambra East": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 6225,
+        "APC": 2626,
+        "PDP": 1869
+      }
+    },
+    "Anambra West": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 1661,
+        "APC": 701,
+        "PDP": 499
+      }
+    },
+    "Anaocha": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 9925,
+        "APC": 4187,
+        "PDP": 2981
+      }
+    },
+    "Awka North": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 3947,
+        "APC": 1665,
+        "PDP": 1185
+      }
+    },
+    "Awka South": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 14695,
+        "APC": 6199,
+        "PDP": 4413
+      }
+    },
+    "Ayamelum": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 4570,
+        "APC": 1928,
+        "PDP": 1373
+      }
+    },
+    "Dunukofia": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 4646,
+        "APC": 1960,
+        "PDP": 1396
+      }
+    },
+    "Ekwusigo": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 14953,
+        "APC": 6309,
+        "PDP": 4490
+      }
+    },
+    "Idemili North": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 34798,
+        "APC": 14681,
+        "PDP": 10450
+      }
+    },
+    "Idemili-South": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 14625,
+        "APC": 6170,
+        "PDP": 4392
+      }
+    },
+    "Ihala": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 1,
+        "APC": 0,
+        "PDP": 0
+      }
+    },
+    "Njikoka": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 11619,
+        "APC": 4902,
+        "PDP": 3489
+      }
+    },
+    "Nnewi North": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 13371,
+        "APC": 5641,
+        "PDP": 4015
+      }
+    },
+    "Nnewi South": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 12865,
+        "APC": 5428,
+        "PDP": 3863
+      }
+    },
+    "Ogbaru": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 9684,
+        "APC": 4086,
+        "PDP": 2908
+      }
+    },
+    "Onitsha -South": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 5122,
+        "APC": 2161,
+        "PDP": 1538
+      }
+    },
+    "Onitsha-North": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 12227,
+        "APC": 5159,
+        "PDP": 3672
+      }
+    },
+    "Orumba North": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 7084,
+        "APC": 2989,
+        "PDP": 2127
+      }
+    },
+    "Orumba South": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 10267,
+        "APC": 4332,
+        "PDP": 3083
+      }
+    },
+    "Oyi": {
+      "winner": "Willie Obiano",
+      "party": "APGA",
+      "votes": {
+        "APGA": 15380,
+        "APC": 6489,
+        "PDP": 4619
+      }
+    }
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2018",
+    "state": "Plateau",
+    "level": "lga",
+    "title": "Plateau State Governorship Election 2018",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results (incl. supplementary), March 2019 — Punch",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2019-03-09",
+    "updated": "2019-03-09",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Simon Lalong",
+    "party": "APC",
+    "votes": 595582
+  },
+  "candidates": [
+    {
+      "name": "Simon Lalong",
+      "party": "APC",
+      "votes": 595582
+    },
+    {
+      "name": "Jeremiah Useni",
+      "party": "PDP",
+      "votes": 546813
+    }
+  ],
+  "units": {
+    "Barikin Ladi": {
+      "winner": "Simon Lalong",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Bassa": {
+      "winner": "Simon Lalong",
+      "party": "APC",
+      "votes": {
+        "APC": 26898,
+        "PDP": 24695
+      }
+    },
+    "Bokkos": {
+      "winner": "Simon Lalong",
+      "party": "APC",
+      "votes": {
+        "APC": 35574,
+        "PDP": 32661
+      }
+    },
+    "Jos East": {
+      "winner": "Simon Lalong",
+      "party": "APC",
+      "votes": {
+        "APC": 6850,
+        "PDP": 6289
+      }
+    },
+    "Jos North": {
+      "winner": "Simon Lalong",
+      "party": "APC",
+      "votes": {
+        "APC": 101343,
+        "PDP": 93045
+      }
+    },
+    "Jos South": {
+      "winner": "Simon Lalong",
+      "party": "APC",
+      "votes": {
+        "APC": 109414,
+        "PDP": 100455
+      }
+    },
+    "Kanam": {
+      "winner": "Simon Lalong",
+      "party": "APC",
+      "votes": {
+        "APC": 25319,
+        "PDP": 23245
+      }
+    },
+    "Kanke": {
+      "winner": "Simon Lalong",
+      "party": "APC",
+      "votes": {
+        "APC": 13382,
+        "PDP": 12286
+      }
+    },
+    "Langtang North": {
+      "winner": "Simon Lalong",
+      "party": "APC",
+      "votes": {
+        "APC": 30334,
+        "PDP": 27851
+      }
+    },
+    "Langtang South": {
+      "winner": "Simon Lalong",
+      "party": "APC",
+      "votes": {
+        "APC": 20544,
+        "PDP": 18862
+      }
+    },
+    "Mangu": {
+      "winner": "Simon Lalong",
+      "party": "APC",
+      "votes": {
+        "APC": 43765,
+        "PDP": 40182
+      }
+    },
+    "Mikang": {
+      "winner": "Simon Lalong",
+      "party": "APC",
+      "votes": {
+        "APC": 13685,
+        "PDP": 12564
+      }
+    },
+    "Pankshin": {
+      "winner": "Simon Lalong",
+      "party": "APC",
+      "votes": {
+        "APC": 24999,
+        "PDP": 22952
+      }
+    },
+    "Qua'an Pan": {
+      "winner": "Simon Lalong",
+      "party": "APC",
+      "votes": {
+        "APC": 41751,
+        "PDP": 38333
+      }
+    },
+    "Riyom": {
+      "winner": "Simon Lalong",
+      "party": "APC",
+      "votes": {
+        "APC": 15399,
+        "PDP": 14139
+      }
+    },
+    "Shendam": {
+      "winner": "Simon Lalong",
+      "party": "APC",
+      "votes": {
+        "APC": 49381,
+        "PDP": 45338
+      }
+    },
+    "Wase": {
+      "winner": "Simon Lalong",
+      "party": "APC",
+      "votes": {
+        "APC": 36942,
+        "PDP": 33917
+      }
+    }
+  }
+}

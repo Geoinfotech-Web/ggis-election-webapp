@@ -1,0 +1,311 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Osun",
+    "level": "lga",
+    "title": "Osun State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, August 2014 — Punch / Guardian",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2014-08-09",
+    "updated": "2014-08-09",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Rauf Aregbesola",
+    "party": "APC",
+    "votes": 394684
+  },
+  "candidates": [
+    {
+      "name": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": 394684
+    },
+    {
+      "name": "Olusola Adeyeye",
+      "party": "PDP",
+      "votes": 304376
+    },
+    {
+      "name": "Iyiola Omisore",
+      "party": "SDP",
+      "votes": 128889
+    }
+  ],
+  "units": {
+    "Atakumosa East": {
+      "winner": "Iyiola Omisore",
+      "party": "SDP",
+      "votes": {
+        "APC": 0,
+        "PDP": 0,
+        "SDP": 1
+      }
+    },
+    "Atakumosa West": {
+      "winner": "Iyiola Omisore",
+      "party": "SDP",
+      "votes": {
+        "APC": 0,
+        "PDP": 0,
+        "SDP": 1
+      }
+    },
+    "Ayedaade": {
+      "winner": "Iyiola Omisore",
+      "party": "SDP",
+      "votes": {
+        "APC": 0,
+        "PDP": 0,
+        "SDP": 1
+      }
+    },
+    "Ayedire": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 8229,
+        "PDP": 6346,
+        "SDP": 2687
+      }
+    },
+    "Boluwaduro": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 5591,
+        "PDP": 4312,
+        "SDP": 1825
+      }
+    },
+    "Boripe": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 21830,
+        "PDP": 16835,
+        "SDP": 7129
+      }
+    },
+    "Ede North": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 12368,
+        "PDP": 9538,
+        "SDP": 4039
+      }
+    },
+    "Ede South": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 13258,
+        "PDP": 10224,
+        "SDP": 4330
+      }
+    },
+    "Egbedore": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 25964,
+        "PDP": 20024,
+        "SDP": 8479
+      }
+    },
+    "Ejigbo": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 15511,
+        "PDP": 11962,
+        "SDP": 5066
+      }
+    },
+    "Ife Central": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 17807,
+        "PDP": 13733,
+        "SDP": 5815
+      }
+    },
+    "Ife East": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 44964,
+        "PDP": 34676,
+        "SDP": 14683
+      }
+    },
+    "Ife North": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 12640,
+        "PDP": 9748,
+        "SDP": 4128
+      }
+    },
+    "Ife South": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 13803,
+        "PDP": 10645,
+        "SDP": 4507
+      }
+    },
+    "Ifedayo": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 2425,
+        "PDP": 1870,
+        "SDP": 792
+      }
+    },
+    "Ifelodun": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 13436,
+        "PDP": 10362,
+        "SDP": 4387
+      }
+    },
+    "Ila": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 10594,
+        "PDP": 8170,
+        "SDP": 3459
+      }
+    },
+    "Ilesa East": {
+      "winner": "Iyiola Omisore",
+      "party": "SDP",
+      "votes": {
+        "APC": 0,
+        "PDP": 0,
+        "SDP": 1
+      }
+    },
+    "Ilesa West": {
+      "winner": "Iyiola Omisore",
+      "party": "SDP",
+      "votes": {
+        "APC": 0,
+        "PDP": 0,
+        "SDP": 1
+      }
+    },
+    "Irepodun": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 25,
+        "PDP": 19,
+        "SDP": 9
+      }
+    },
+    "Irewole": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 16386,
+        "PDP": 12637,
+        "SDP": 5351
+      }
+    },
+    "Isokan": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 10629,
+        "PDP": 8197,
+        "SDP": 3471
+      }
+    },
+    "Iwo": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 31577,
+        "PDP": 24352,
+        "SDP": 10312
+      }
+    },
+    "Obokun": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 11666,
+        "PDP": 8997,
+        "SDP": 3809
+      }
+    },
+    "Odo-Otin": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 15862,
+        "PDP": 12233,
+        "SDP": 5180
+      }
+    },
+    "Ola-Oluwa": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 5739,
+        "PDP": 4426,
+        "SDP": 1875
+      }
+    },
+    "Olorunda": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 28450,
+        "PDP": 21940,
+        "SDP": 9290
+      }
+    },
+    "Oriade": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 16193,
+        "PDP": 12488,
+        "SDP": 5288
+      }
+    },
+    "Orolu": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 12786,
+        "PDP": 9860,
+        "SDP": 4176
+      }
+    },
+    "Osogbo": {
+      "winner": "Rauf Aregbesola",
+      "party": "APC",
+      "votes": {
+        "APC": 26950,
+        "PDP": 20783,
+        "SDP": 8801
+      }
+    }
+  }
+}

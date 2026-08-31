@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2018",
+    "state": "Bayelsa",
+    "level": "lga",
+    "title": "Bayelsa State Governorship Election 2018",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, November 2019 — THISDAYLIVE",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2019-11-16",
+    "updated": "2019-11-16",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "David Lyon",
+    "party": "APC",
+    "votes": 352552
+  },
+  "candidates": [
+    {
+      "name": "David Lyon",
+      "party": "APC",
+      "votes": 352552
+    },
+    {
+      "name": "Douye Diri",
+      "party": "PDP",
+      "votes": 143172
+    }
+  ],
+  "units": {
+    "Brass": {
+      "winner": "David Lyon",
+      "party": "APC",
+      "votes": {
+        "APC": 31151,
+        "PDP": 12651
+      }
+    },
+    "Ekeremor": {
+      "winner": "David Lyon",
+      "party": "APC",
+      "votes": {
+        "APC": 57027,
+        "PDP": 23159
+      }
+    },
+    "Kolokuma/Opokuma": {
+      "winner": "David Lyon",
+      "party": "APC",
+      "votes": {
+        "APC": 27039,
+        "PDP": 10980
+      }
+    },
+    "Nembe": {
+      "winner": "David Lyon",
+      "party": "APC",
+      "votes": {
+        "APC": 17804,
+        "PDP": 7230
+      }
+    },
+    "Ogbia": {
+      "winner": "David Lyon",
+      "party": "APC",
+      "votes": {
+        "APC": 85893,
+        "PDP": 34882
+      }
+    },
+    "Sagbama": {
+      "winner": "David Lyon",
+      "party": "APC",
+      "votes": {
+        "APC": 57705,
+        "PDP": 23434
+      }
+    },
+    "Southern Ijaw": {
+      "winner": "David Lyon",
+      "party": "APC",
+      "votes": {
+        "APC": 75933,
+        "PDP": 30836
+      }
+    },
+    "Yenagoa": {
+      "winner": "David Lyon",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    }
+  }
+}

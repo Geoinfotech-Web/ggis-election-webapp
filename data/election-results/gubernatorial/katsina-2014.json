@@ -1,0 +1,308 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Katsina",
+    "level": "lga",
+    "title": "Katsina State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2015-04-11",
+    "updated": "2015-04-11",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Aminu Masari",
+    "party": "APC",
+    "votes": 943085
+  },
+  "candidates": [
+    {
+      "name": "Aminu Masari",
+      "party": "APC",
+      "votes": 943085
+    },
+    {
+      "name": "Musa Nashuni",
+      "party": "PDP",
+      "votes": 476768
+    }
+  ],
+  "units": {
+    "Bakori": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 39876,
+        "PDP": 20159
+      }
+    },
+    "Batagarawa": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 32837,
+        "PDP": 16601
+      }
+    },
+    "Batsari": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 34346,
+        "PDP": 17364
+      }
+    },
+    "Baure": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 32844,
+        "PDP": 16604
+      }
+    },
+    "Bindawa": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 31352,
+        "PDP": 15850
+      }
+    },
+    "Charanchi": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 25284,
+        "PDP": 12782
+      }
+    },
+    "Dan Musa": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 24166,
+        "PDP": 12217
+      }
+    },
+    "Dandume": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 22659,
+        "PDP": 11455
+      }
+    },
+    "Danja": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 22503,
+        "PDP": 11376
+      }
+    },
+    "Daura": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 14893,
+        "PDP": 7529
+      }
+    },
+    "Dutsi": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 12453,
+        "PDP": 6296
+      }
+    },
+    "Dutsin-Ma": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 35629,
+        "PDP": 18012
+      }
+    },
+    "Faskari": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 33073,
+        "PDP": 16720
+      }
+    },
+    "Funtua": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 45341,
+        "PDP": 22921
+      }
+    },
+    "Ingawa": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 24179,
+        "PDP": 12223
+      }
+    },
+    "Jibia": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 29696,
+        "PDP": 15012
+      }
+    },
+    "Kafur": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 38322,
+        "PDP": 19373
+      }
+    },
+    "Kaita": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 29349,
+        "PDP": 14837
+      }
+    },
+    "Kankara": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 41054,
+        "PDP": 20755
+      }
+    },
+    "Kankia": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 23243,
+        "PDP": 11751
+      }
+    },
+    "Katsina": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 74839,
+        "PDP": 37834
+      }
+    },
+    "Kurfi": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 20701,
+        "PDP": 10465
+      }
+    },
+    "Kusada": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 13381,
+        "PDP": 6765
+      }
+    },
+    "Mai'adua": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 19758,
+        "PDP": 9988
+      }
+    },
+    "Malufashi": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Mani": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 35955,
+        "PDP": 18177
+      }
+    },
+    "Mashi": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 35864,
+        "PDP": 18131
+      }
+    },
+    "Matazu": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 18375,
+        "PDP": 9290
+      }
+    },
+    "Musawa": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 20759,
+        "PDP": 10495
+      }
+    },
+    "Rimi": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 35211,
+        "PDP": 17801
+      }
+    },
+    "Sabuwa": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 16992,
+        "PDP": 8590
+      }
+    },
+    "Safana": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 27100,
+        "PDP": 13700
+      }
+    },
+    "Sandamu": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 12008,
+        "PDP": 6070
+      }
+    },
+    "Zango": {
+      "winner": "Aminu Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 19042,
+        "PDP": 9627
+      }
+    }
+  }
+}

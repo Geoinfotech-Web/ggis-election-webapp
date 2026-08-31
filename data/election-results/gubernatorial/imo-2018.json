@@ -1,0 +1,284 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2018",
+    "state": "Imo",
+    "level": "lga",
+    "title": "Imo State Governorship Election 2018",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2019 — Punch",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2019-03-09",
+    "updated": "2019-03-09",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Emeka Ihedioha",
+    "party": "PDP",
+    "votes": 273404
+  },
+  "candidates": [
+    {
+      "name": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": 273404
+    },
+    {
+      "name": "Uche Nwosu",
+      "party": "AA",
+      "votes": 190364
+    },
+    {
+      "name": "Ifeanyi Ararume",
+      "party": "APGA",
+      "votes": 114676
+    }
+  ],
+  "units": {
+    "Aboh Mbaise": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 12302,
+        "AA": 8566,
+        "APGA": 5160
+      }
+    },
+    "Ahiazu Mbaise": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 10284,
+        "AA": 7161,
+        "APGA": 4314
+      }
+    },
+    "Ehime Mbano": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 9905,
+        "AA": 6897,
+        "APGA": 4154
+      }
+    },
+    "Ezinihitte Mbaise": {
+      "winner": "Ifeanyi Ararume",
+      "party": "APGA",
+      "votes": {
+        "PDP": 0,
+        "AA": 0,
+        "APGA": 1
+      }
+    },
+    "Ideato North": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16743,
+        "AA": 11658,
+        "APGA": 7023
+      }
+    },
+    "Ideato South": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5602,
+        "AA": 3901,
+        "APGA": 2350
+      }
+    },
+    "Ihitte/Uboma": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5644,
+        "AA": 3930,
+        "APGA": 2368
+      }
+    },
+    "Ikeduru": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 15352,
+        "AA": 10689,
+        "APGA": 6440
+      }
+    },
+    "Isiala Mbano": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 19306,
+        "AA": 13442,
+        "APGA": 8097
+      }
+    },
+    "Isu": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 7084,
+        "AA": 4933,
+        "APGA": 2971
+      }
+    },
+    "Mbaitoli": {
+      "winner": "Ifeanyi Ararume",
+      "party": "APGA",
+      "votes": {
+        "PDP": 0,
+        "AA": 0,
+        "APGA": 1
+      }
+    },
+    "Ngor Okpala": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 11690,
+        "AA": 8139,
+        "APGA": 4903
+      }
+    },
+    "Njaba": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 10628,
+        "AA": 7400,
+        "APGA": 4458
+      }
+    },
+    "Nkwerre": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 4805,
+        "AA": 3345,
+        "APGA": 2015
+      }
+    },
+    "Nwangele": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 9736,
+        "AA": 6779,
+        "APGA": 4084
+      }
+    },
+    "Obowo": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 9126,
+        "AA": 6354,
+        "APGA": 3827
+      }
+    },
+    "Oguta": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5843,
+        "AA": 4068,
+        "APGA": 2451
+      }
+    },
+    "Ohaji/Egbema": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 13821,
+        "AA": 9623,
+        "APGA": 5798
+      }
+    },
+    "Okigwe": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 9539,
+        "AA": 6642,
+        "APGA": 4001
+      }
+    },
+    "Onuimo": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5521,
+        "AA": 3844,
+        "APGA": 2315
+      }
+    },
+    "Orlu": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16589,
+        "AA": 11550,
+        "APGA": 6958
+      }
+    },
+    "Orsu": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 9265,
+        "AA": 6451,
+        "APGA": 3887
+      }
+    },
+    "Oru West": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 10209,
+        "AA": 7108,
+        "APGA": 4283
+      }
+    },
+    "Oru-East": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 11406,
+        "AA": 7942,
+        "APGA": 4784
+      }
+    },
+    "Owerri Municipal": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 11555,
+        "AA": 8045,
+        "APGA": 4846
+      }
+    },
+    "Owerri North": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16482,
+        "AA": 11476,
+        "APGA": 6913
+      }
+    },
+    "Owerri West": {
+      "winner": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": {
+        "PDP": 14965,
+        "AA": 10420,
+        "APGA": 6276
+      }
+    }
+  }
+}

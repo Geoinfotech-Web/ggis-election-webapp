@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2018",
+    "state": "Ebonyi",
+    "level": "lga",
+    "title": "Ebonyi State Governorship Election 2018",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2019 — Independent Newspapers",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2019-03-09",
+    "updated": "2019-03-09",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Dave Umahi",
+    "party": "PDP",
+    "votes": 393043
+  },
+  "candidates": [
+    {
+      "name": "Dave Umahi",
+      "party": "PDP",
+      "votes": 393043
+    },
+    {
+      "name": "Sonni Ogbuoji",
+      "party": "APC",
+      "votes": 81703
+    }
+  ],
+  "units": {
+    "Abakaliki": {
+      "winner": "Dave Umahi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 29701,
+        "APC": 6174
+      }
+    },
+    "Afikpo North": {
+      "winner": "Dave Umahi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 25484,
+        "APC": 5298
+      }
+    },
+    "Afikpo South": {
+      "winner": "Dave Umahi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 13876,
+        "APC": 2885
+      }
+    },
+    "Ebonyi": {
+      "winner": "Dave Umahi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 48145,
+        "APC": 10008
+      }
+    },
+    "Ezza North": {
+      "winner": "Dave Umahi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 14722,
+        "APC": 3060
+      }
+    },
+    "Ezza South": {
+      "winner": "Dave Umahi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 15843,
+        "APC": 3293
+      }
+    },
+    "Ikwo": {
+      "winner": "Dave Umahi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 50378,
+        "APC": 10472
+      }
+    },
+    "Ishielu": {
+      "winner": "Dave Umahi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 19563,
+        "APC": 4067
+      }
+    },
+    "Ivo": {
+      "winner": "Dave Umahi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 20385,
+        "APC": 4237
+      }
+    },
+    "Izzi": {
+      "winner": "Dave Umahi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 68993,
+        "APC": 14342
+      }
+    },
+    "Ohaozara": {
+      "winner": "Dave Umahi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 27502,
+        "APC": 5717
+      }
+    },
+    "Ohaukwu": {
+      "winner": "Dave Umahi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 33522,
+        "APC": 6968
+      }
+    },
+    "Onicha": {
+      "winner": "Dave Umahi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 24931,
+        "APC": 5182
+      }
+    }
+  }
+}

@@ -1,0 +1,437 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2026",
+    "state": "Kano",
+    "level": "lga",
+    "title": "Kano State Governorship Election 2026",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Abba Kabir Yusuf",
+    "party": "NNPP",
+    "votes": 1019602
+  },
+  "candidates": [
+    {
+      "name": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": 1019602
+    },
+    {
+      "name": "Nasir Yusuf Gawuna",
+      "party": "APC",
+      "votes": 890705
+    },
+    {
+      "name": "Sadiq Wali",
+      "party": "PDP",
+      "votes": 15957
+    }
+  ],
+  "units": {
+    "Ajingi": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 20517,
+        "APC": 17923,
+        "PDP": 321
+      }
+    },
+    "Albasu": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 18283,
+        "APC": 15972,
+        "PDP": 286
+      }
+    },
+    "Bagwai": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 18105,
+        "APC": 15816,
+        "PDP": 284
+      }
+    },
+    "Bebeji": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 21307,
+        "APC": 18613,
+        "PDP": 334
+      }
+    },
+    "Bichi": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 38123,
+        "APC": 33304,
+        "PDP": 597
+      }
+    },
+    "Bunkure": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 20735,
+        "APC": 18114,
+        "PDP": 325
+      }
+    },
+    "Dala": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 41437,
+        "APC": 36199,
+        "PDP": 649
+      }
+    },
+    "Danbata": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 1,
+        "APC": 0,
+        "PDP": 0
+      }
+    },
+    "Dawaki Kudu": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 1,
+        "APC": 0,
+        "PDP": 0
+      }
+    },
+    "Dawaki Tofa": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 1,
+        "APC": 0,
+        "PDP": 0
+      }
+    },
+    "Doguwa": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 16603,
+        "APC": 14504,
+        "PDP": 259
+      }
+    },
+    "Fagge": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 24995,
+        "APC": 21835,
+        "PDP": 391
+      }
+    },
+    "Gabasawa": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 22508,
+        "APC": 19663,
+        "PDP": 352
+      }
+    },
+    "Garko": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 18798,
+        "APC": 16422,
+        "PDP": 294
+      }
+    },
+    "Garun Malam": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 12881,
+        "APC": 11253,
+        "PDP": 201
+      }
+    },
+    "Gaya": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 22713,
+        "APC": 19842,
+        "PDP": 356
+      }
+    },
+    "Gezawa": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 34238,
+        "APC": 29909,
+        "PDP": 536
+      }
+    },
+    "Gwale": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 70705,
+        "APC": 61767,
+        "PDP": 1107
+      }
+    },
+    "Gwarzo": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 28060,
+        "APC": 24512,
+        "PDP": 439
+      }
+    },
+    "Kabo": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 12169,
+        "APC": 10631,
+        "PDP": 191
+      }
+    },
+    "Kano Municipal": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 30290,
+        "APC": 26461,
+        "PDP": 474
+      }
+    },
+    "Karaye": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 19332,
+        "APC": 16888,
+        "PDP": 303
+      }
+    },
+    "Kibiya": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 12534,
+        "APC": 10949,
+        "PDP": 196
+      }
+    },
+    "Kiru": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 26795,
+        "APC": 23408,
+        "PDP": 419
+      }
+    },
+    "Kumbotso": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 85438,
+        "APC": 74637,
+        "PDP": 1337
+      }
+    },
+    "Kunchi": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 18147,
+        "APC": 15853,
+        "PDP": 284
+      }
+    },
+    "Kura": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 16008,
+        "APC": 13984,
+        "PDP": 251
+      }
+    },
+    "Madobi": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 16474,
+        "APC": 14392,
+        "PDP": 258
+      }
+    },
+    "Makoda": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 17706,
+        "APC": 15467,
+        "PDP": 277
+      }
+    },
+    "Minjibir": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 30072,
+        "APC": 26270,
+        "PDP": 471
+      }
+    },
+    "Nasarawa": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 1,
+        "APC": 0,
+        "PDP": 0
+      }
+    },
+    "Rano": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 15832,
+        "APC": 13830,
+        "PDP": 248
+      }
+    },
+    "Rimin Gado": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 8673,
+        "APC": 7576,
+        "PDP": 136
+      }
+    },
+    "Rogo": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 25857,
+        "APC": 22588,
+        "PDP": 404
+      }
+    },
+    "Shanono": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 13517,
+        "APC": 11808,
+        "PDP": 211
+      }
+    },
+    "Sumaila": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 31780,
+        "APC": 27763,
+        "PDP": 497
+      }
+    },
+    "Takai": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 23551,
+        "APC": 20574,
+        "PDP": 369
+      }
+    },
+    "Tarauni": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 25307,
+        "APC": 22107,
+        "PDP": 396
+      }
+    },
+    "Tofa": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 10596,
+        "APC": 9257,
+        "PDP": 166
+      }
+    },
+    "Tsanyawa": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 14533,
+        "APC": 12696,
+        "PDP": 227
+      }
+    },
+    "Tudun Wada": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 23859,
+        "APC": 20843,
+        "PDP": 373
+      }
+    },
+    "Ungogo": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 76106,
+        "APC": 66484,
+        "PDP": 1191
+      }
+    },
+    "Warawa": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 16658,
+        "APC": 14552,
+        "PDP": 260
+      }
+    },
+    "Wudil": {
+      "winner": "Abba Kabir Yusuf",
+      "party": "NNPP",
+      "votes": {
+        "NNPP": 18360,
+        "APC": 16039,
+        "PDP": 288
+      }
+    }
+  }
+}

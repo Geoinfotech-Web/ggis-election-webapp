@@ -1,0 +1,204 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2026",
+    "state": "Kebbi",
+    "level": "lga",
+    "title": "Kebbi State Governorship Election 2026",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Nasir Idris",
+    "party": "APC",
+    "votes": 409225
+  },
+  "candidates": [
+    {
+      "name": "Nasir Idris",
+      "party": "APC",
+      "votes": 409225
+    },
+    {
+      "name": "Samai'la Yombe",
+      "party": "PDP",
+      "votes": 360940
+    }
+  ],
+  "units": {
+    "Aliero": {
+      "winner": "Nasir Idris",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Arewa": {
+      "winner": "Nasir Idris",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Argungu": {
+      "winner": "Nasir Idris",
+      "party": "APC",
+      "votes": {
+        "APC": 27507,
+        "PDP": 24262
+      }
+    },
+    "Augie": {
+      "winner": "Nasir Idris",
+      "party": "APC",
+      "votes": {
+        "APC": 13058,
+        "PDP": 11518
+      }
+    },
+    "Bagudo": {
+      "winner": "Nasir Idris",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Birnin Kebbi": {
+      "winner": "Nasir Idris",
+      "party": "APC",
+      "votes": {
+        "APC": 51001,
+        "PDP": 44984
+      }
+    },
+    "Bunza": {
+      "winner": "Nasir Idris",
+      "party": "APC",
+      "votes": {
+        "APC": 20161,
+        "PDP": 17782
+      }
+    },
+    "Dandi": {
+      "winner": "Nasir Idris",
+      "party": "APC",
+      "votes": {
+        "APC": 18146,
+        "PDP": 16005
+      }
+    },
+    "Fakai": {
+      "winner": "Nasir Idris",
+      "party": "APC",
+      "votes": {
+        "APC": 16477,
+        "PDP": 14533
+      }
+    },
+    "Gwandu": {
+      "winner": "Nasir Idris",
+      "party": "APC",
+      "votes": {
+        "APC": 24522,
+        "PDP": 21628
+      }
+    },
+    "Jega": {
+      "winner": "Nasir Idris",
+      "party": "APC",
+      "votes": {
+        "APC": 23500,
+        "PDP": 20728
+      }
+    },
+    "Kalgo": {
+      "winner": "Nasir Idris",
+      "party": "APC",
+      "votes": {
+        "APC": 13486,
+        "PDP": 11895
+      }
+    },
+    "Koko/Besse": {
+      "winner": "Nasir Idris",
+      "party": "APC",
+      "votes": {
+        "APC": 20587,
+        "PDP": 18158
+      }
+    },
+    "Maiyama": {
+      "winner": "Nasir Idris",
+      "party": "APC",
+      "votes": {
+        "APC": 23670,
+        "PDP": 20877
+      }
+    },
+    "Ngaski": {
+      "winner": "Nasir Idris",
+      "party": "APC",
+      "votes": {
+        "APC": 15608,
+        "PDP": 13767
+      }
+    },
+    "Sakaba": {
+      "winner": "Nasir Idris",
+      "party": "APC",
+      "votes": {
+        "APC": 16030,
+        "PDP": 14138
+      }
+    },
+    "Shanga": {
+      "winner": "Nasir Idris",
+      "party": "APC",
+      "votes": {
+        "APC": 22110,
+        "PDP": 19501
+      }
+    },
+    "Suru": {
+      "winner": "Nasir Idris",
+      "party": "APC",
+      "votes": {
+        "APC": 22958,
+        "PDP": 20250
+      }
+    },
+    "Wasagu/Danko": {
+      "winner": "Nasir Idris",
+      "party": "APC",
+      "votes": {
+        "APC": 40719,
+        "PDP": 35914
+      }
+    },
+    "Yauri": {
+      "winner": "Nasir Idris",
+      "party": "APC",
+      "votes": {
+        "APC": 12278,
+        "PDP": 10830
+      }
+    },
+    "Zuru": {
+      "winner": "Nasir Idris",
+      "party": "APC",
+      "votes": {
+        "APC": 27405,
+        "PDP": 24172
+      }
+    }
+  }
+}

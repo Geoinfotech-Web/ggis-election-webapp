@@ -1,0 +1,164 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2018",
+    "state": "Taraba",
+    "level": "lga",
+    "title": "Taraba State Governorship Election 2018",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2019 — INEC / Premium Times",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2019-03-09",
+    "updated": "2019-03-09",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Darius Ishaku",
+    "party": "PDP",
+    "votes": 520433
+  },
+  "candidates": [
+    {
+      "name": "Darius Ishaku",
+      "party": "PDP",
+      "votes": 520433
+    },
+    {
+      "name": "Sani Abubakar Danladi",
+      "party": "APC",
+      "votes": 362735
+    }
+  ],
+  "units": {
+    "Ardokola": {
+      "winner": "Darius Ishaku",
+      "party": "PDP",
+      "votes": {
+        "PDP": 15896,
+        "APC": 11080
+      }
+    },
+    "Bali": {
+      "winner": "Darius Ishaku",
+      "party": "PDP",
+      "votes": {
+        "PDP": 45689,
+        "APC": 31844
+      }
+    },
+    "Donga": {
+      "winner": "Darius Ishaku",
+      "party": "PDP",
+      "votes": {
+        "PDP": 25645,
+        "APC": 17874
+      }
+    },
+    "Gashaka": {
+      "winner": "Darius Ishaku",
+      "party": "PDP",
+      "votes": {
+        "PDP": 12030,
+        "APC": 8384
+      }
+    },
+    "Gassol": {
+      "winner": "Darius Ishaku",
+      "party": "PDP",
+      "votes": {
+        "PDP": 67911,
+        "APC": 47333
+      }
+    },
+    "Ibi": {
+      "winner": "Darius Ishaku",
+      "party": "PDP",
+      "votes": {
+        "PDP": 13800,
+        "APC": 9618
+      }
+    },
+    "Jalingo": {
+      "winner": "Darius Ishaku",
+      "party": "PDP",
+      "votes": {
+        "PDP": 39362,
+        "APC": 27435
+      }
+    },
+    "Karim-Lamido": {
+      "winner": "Darius Ishaku",
+      "party": "PDP",
+      "votes": {
+        "PDP": 36721,
+        "APC": 25594
+      }
+    },
+    "Kurmi": {
+      "winner": "Darius Ishaku",
+      "party": "PDP",
+      "votes": {
+        "PDP": 11288,
+        "APC": 7868
+      }
+    },
+    "Lau": {
+      "winner": "Darius Ishaku",
+      "party": "PDP",
+      "votes": {
+        "PDP": 20107,
+        "APC": 14014
+      }
+    },
+    "Sardauna": {
+      "winner": "Darius Ishaku",
+      "party": "PDP",
+      "votes": {
+        "PDP": 33981,
+        "APC": 23685
+      }
+    },
+    "Takum": {
+      "winner": "Darius Ishaku",
+      "party": "PDP",
+      "votes": {
+        "PDP": 39048,
+        "APC": 27216
+      }
+    },
+    "Ussa": {
+      "winner": "Darius Ishaku",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16886,
+        "APC": 11769
+      }
+    },
+    "Wukari": {
+      "winner": "Darius Ishaku",
+      "party": "PDP",
+      "votes": {
+        "PDP": 57383,
+        "APC": 39995
+      }
+    },
+    "Yorro": {
+      "winner": "Darius Ishaku",
+      "party": "PDP",
+      "votes": {
+        "PDP": 26140,
+        "APC": 18219
+      }
+    },
+    "Zing": {
+      "winner": "Darius Ishaku",
+      "party": "PDP",
+      "votes": {
+        "PDP": 58547,
+        "APC": 40806
+      }
+    }
+  }
+}

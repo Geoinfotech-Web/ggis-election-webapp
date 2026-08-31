@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2026",
+    "state": "Edo",
+    "level": "lga",
+    "title": "Edo State Governorship Election 2026",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, September 2024 — Channels TV / Vanguard",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2024-09-22",
+    "updated": "2024-09-22",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Monday Okpebholo",
+    "party": "APC",
+    "votes": 291667
+  },
+  "candidates": [
+    {
+      "name": "Monday Okpebholo",
+      "party": "APC",
+      "votes": 291667
+    },
+    {
+      "name": "Asue Ighodalo",
+      "party": "PDP",
+      "votes": 247274
+    },
+    {
+      "name": "Olumide Akpata",
+      "party": "LP",
+      "votes": 22763
+    }
+  ],
+  "units": {
+    "Akoko Edo": {
+      "winner": "Monday Okpebholo",
+      "party": "APC",
+      "votes": {
+        "APC": 10243,
+        "PDP": 8684,
+        "LP": 800
+      }
+    },
+    "Egor": {
+      "winner": "Monday Okpebholo",
+      "party": "APC",
+      "votes": {
+        "APC": 44176,
+        "PDP": 37452,
+        "LP": 3447
+      }
+    },
+    "Esan Central": {
+      "winner": "Monday Okpebholo",
+      "party": "APC",
+      "votes": {
+        "APC": 8797,
+        "PDP": 7458,
+        "LP": 686
+      }
+    },
+    "Esan North East": {
+      "winner": "Monday Okpebholo",
+      "party": "APC",
+      "votes": {
+        "APC": 14394,
+        "PDP": 12203,
+        "LP": 1124
+      }
+    },
+    "Esan South East": {
+      "winner": "Monday Okpebholo",
+      "party": "APC",
+      "votes": {
+        "APC": 6139,
+        "PDP": 5205,
+        "LP": 479
+      }
+    },
+    "Esan West": {
+      "winner": "Monday Okpebholo",
+      "party": "APC",
+      "votes": {
+        "APC": 12739,
+        "PDP": 10800,
+        "LP": 994
+      }
+    },
+    "Etsako Central": {
+      "winner": "Monday Okpebholo",
+      "party": "APC",
+      "votes": {
+        "APC": 6429,
+        "PDP": 5451,
+        "LP": 502
+      }
+    },
+    "Etsako East": {
+      "winner": "Monday Okpebholo",
+      "party": "APC",
+      "votes": {
+        "APC": 9819,
+        "PDP": 8324,
+        "LP": 766
+      }
+    },
+    "Etsako West": {
+      "winner": "Monday Okpebholo",
+      "party": "APC",
+      "votes": {
+        "APC": 18100,
+        "PDP": 15345,
+        "LP": 1412
+      }
+    },
+    "Igueben": {
+      "winner": "Monday Okpebholo",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0,
+        "LP": 0
+      }
+    },
+    "Ikpoba/Okha": {
+      "winner": "Monday Okpebholo",
+      "party": "APC",
+      "votes": {
+        "APC": 66915,
+        "PDP": 56730,
+        "LP": 5223
+      }
+    },
+    "Oredo": {
+      "winner": "Monday Okpebholo",
+      "party": "APC",
+      "votes": {
+        "APC": 40156,
+        "PDP": 34044,
+        "LP": 3134
+      }
+    },
+    "Orhionmwon": {
+      "winner": "Monday Okpebholo",
+      "party": "APC",
+      "votes": {
+        "APC": 11527,
+        "PDP": 9773,
+        "LP": 900
+      }
+    },
+    "Ovia North East": {
+      "winner": "Monday Okpebholo",
+      "party": "APC",
+      "votes": {
+        "APC": 19341,
+        "PDP": 16397,
+        "LP": 1509
+      }
+    },
+    "Ovia South West": {
+      "winner": "Monday Okpebholo",
+      "party": "APC",
+      "votes": {
+        "APC": 9171,
+        "PDP": 7775,
+        "LP": 715
+      }
+    },
+    "Owan East": {
+      "winner": "Monday Okpebholo",
+      "party": "APC",
+      "votes": {
+        "APC": 7893,
+        "PDP": 6692,
+        "LP": 616
+      }
+    },
+    "Owan West": {
+      "winner": "Monday Okpebholo",
+      "party": "APC",
+      "votes": {
+        "APC": 5830,
+        "PDP": 4942,
+        "LP": 455
+      }
+    },
+    "Uhunmwode": {
+      "winner": "Monday Okpebholo",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0,
+        "LP": 0
+      }
+    }
+  }
+}

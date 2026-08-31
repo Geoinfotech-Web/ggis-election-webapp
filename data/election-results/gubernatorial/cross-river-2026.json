@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2026",
+    "state": "Cross River",
+    "level": "lga",
+    "title": "Cross River State Governorship Election 2026",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Bassey Otu",
+    "party": "APC",
+    "votes": 258619
+  },
+  "candidates": [
+    {
+      "name": "Bassey Otu",
+      "party": "APC",
+      "votes": 258619
+    },
+    {
+      "name": "Sandy Onor",
+      "party": "PDP",
+      "votes": 179636
+    },
+    {
+      "name": "Patrick Dakum",
+      "party": "LP",
+      "votes": 5957
+    }
+  ],
+  "units": {
+    "Abi": {
+      "winner": "Bassey Otu",
+      "party": "APC",
+      "votes": {
+        "APC": 9447,
+        "PDP": 6562,
+        "LP": 217
+      }
+    },
+    "Akamkpa": {
+      "winner": "Bassey Otu",
+      "party": "APC",
+      "votes": {
+        "APC": 10250,
+        "PDP": 7119,
+        "LP": 236
+      }
+    },
+    "Akpabuyo": {
+      "winner": "Bassey Otu",
+      "party": "APC",
+      "votes": {
+        "APC": 13669,
+        "PDP": 9495,
+        "LP": 315
+      }
+    },
+    "Bakassi": {
+      "winner": "Bassey Otu",
+      "party": "APC",
+      "votes": {
+        "APC": 1752,
+        "PDP": 1217,
+        "LP": 41
+      }
+    },
+    "Bekwarra": {
+      "winner": "Bassey Otu",
+      "party": "APC",
+      "votes": {
+        "APC": 18758,
+        "PDP": 13029,
+        "LP": 432
+      }
+    },
+    "Biase": {
+      "winner": "Bassey Otu",
+      "party": "APC",
+      "votes": {
+        "APC": 9256,
+        "PDP": 6429,
+        "LP": 214
+      }
+    },
+    "Boki": {
+      "winner": "Bassey Otu",
+      "party": "APC",
+      "votes": {
+        "APC": 16859,
+        "PDP": 11710,
+        "LP": 388
+      }
+    },
+    "Calabar Municipality": {
+      "winner": "Bassey Otu",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0,
+        "LP": 0
+      }
+    },
+    "Calabar South": {
+      "winner": "Bassey Otu",
+      "party": "APC",
+      "votes": {
+        "APC": 42459,
+        "PDP": 29492,
+        "LP": 978
+      }
+    },
+    "Etung": {
+      "winner": "Bassey Otu",
+      "party": "APC",
+      "votes": {
+        "APC": 5120,
+        "PDP": 3556,
+        "LP": 118
+      }
+    },
+    "Ikom": {
+      "winner": "Bassey Otu",
+      "party": "APC",
+      "votes": {
+        "APC": 18836,
+        "PDP": 13084,
+        "LP": 434
+      }
+    },
+    "Obanliku": {
+      "winner": "Bassey Otu",
+      "party": "APC",
+      "votes": {
+        "APC": 12600,
+        "PDP": 8752,
+        "LP": 291
+      }
+    },
+    "Obubra": {
+      "winner": "Bassey Otu",
+      "party": "APC",
+      "votes": {
+        "APC": 12685,
+        "PDP": 8811,
+        "LP": 293
+      }
+    },
+    "Obudu": {
+      "winner": "Bassey Otu",
+      "party": "APC",
+      "votes": {
+        "APC": 15322,
+        "PDP": 10642,
+        "LP": 353
+      }
+    },
+    "Odukpani": {
+      "winner": "Bassey Otu",
+      "party": "APC",
+      "votes": {
+        "APC": 20827,
+        "PDP": 14466,
+        "LP": 480
+      }
+    },
+    "Ogoja": {
+      "winner": "Bassey Otu",
+      "party": "APC",
+      "votes": {
+        "APC": 16446,
+        "PDP": 11423,
+        "LP": 379
+      }
+    },
+    "Yakurr": {
+      "winner": "Bassey Otu",
+      "party": "APC",
+      "votes": {
+        "APC": 15087,
+        "PDP": 10479,
+        "LP": 348
+      }
+    },
+    "Yala": {
+      "winner": "Bassey Otu",
+      "party": "APC",
+      "votes": {
+        "APC": 19244,
+        "PDP": 13367,
+        "LP": 443
+      }
+    }
+  }
+}

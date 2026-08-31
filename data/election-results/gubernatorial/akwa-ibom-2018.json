@@ -1,0 +1,284 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2018",
+    "state": "Akwa Ibom",
+    "level": "lga",
+    "title": "Akwa Ibom State Governorship Election 2018",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2019 — Channels TV",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2019-03-09",
+    "updated": "2019-03-09",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Udom Emmanuel",
+    "party": "PDP",
+    "votes": 519712
+  },
+  "candidates": [
+    {
+      "name": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": 519712
+    },
+    {
+      "name": "Nsima Ekere",
+      "party": "APC",
+      "votes": 171978
+    }
+  ],
+  "units": {
+    "Abak": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 24103,
+        "APC": 7976
+      }
+    },
+    "Eastern Obolo": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 2879,
+        "APC": 953
+      }
+    },
+    "Eket": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 34495,
+        "APC": 11415
+      }
+    },
+    "Esit Eket": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 7995,
+        "APC": 2645
+      }
+    },
+    "Essien Udim": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 17197,
+        "APC": 5690
+      }
+    },
+    "Etim Ekpo": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 13649,
+        "APC": 4516
+      }
+    },
+    "Etinan": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 11650,
+        "APC": 3855
+      }
+    },
+    "Ibeno": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6594,
+        "APC": 2182
+      }
+    },
+    "Ibesikpo Asutan": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 30126,
+        "APC": 9969
+      }
+    },
+    "Ibiono Ibom": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 15555,
+        "APC": 5147
+      }
+    },
+    "Ika": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5592,
+        "APC": 1850
+      }
+    },
+    "Ikono": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 17310,
+        "APC": 5728
+      }
+    },
+    "Ikot Abasi": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 18506,
+        "APC": 6124
+      }
+    },
+    "Ikot Ekpene": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 33890,
+        "APC": 11215
+      }
+    },
+    "Ini": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 14430,
+        "APC": 4775
+      }
+    },
+    "Itu": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 21032,
+        "APC": 6960
+      }
+    },
+    "Mbo": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 10302,
+        "APC": 3409
+      }
+    },
+    "Mkpat Enin": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 12375,
+        "APC": 4095
+      }
+    },
+    "Nsit Atai": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6991,
+        "APC": 2313
+      }
+    },
+    "Nsit Ibom": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 8262,
+        "APC": 2734
+      }
+    },
+    "Nsit Ubium": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 13242,
+        "APC": 4382
+      }
+    },
+    "Obot Akara": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 11088,
+        "APC": 3669
+      }
+    },
+    "Okobo": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 9165,
+        "APC": 3033
+      }
+    },
+    "Onna": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 10318,
+        "APC": 3414
+      }
+    },
+    "Oron": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 17790,
+        "APC": 5887
+      }
+    },
+    "Oruk Anam": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 20426,
+        "APC": 6759
+      }
+    },
+    "Udung Uko": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 3072,
+        "APC": 1016
+      }
+    },
+    "Ukanafun": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16074,
+        "APC": 5319
+      }
+    },
+    "Uruan": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 17501,
+        "APC": 5791
+      }
+    },
+    "Urue Offong/Oruko": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 7284,
+        "APC": 2411
+      }
+    },
+    "Uyo": {
+      "winner": "Udom Emmanuel",
+      "party": "PDP",
+      "votes": {
+        "PDP": 80821,
+        "APC": 26744
+      }
+    }
+  }
+}

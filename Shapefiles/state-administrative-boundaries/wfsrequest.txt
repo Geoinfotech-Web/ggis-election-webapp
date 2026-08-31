@@ -1,0 +1,1 @@
+http://geoserver.grid3.gov.ng/geoserver/GRIDMaster/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=GRIDMaster:u_boundary_states&outputFormat=SHAPE-ZIP

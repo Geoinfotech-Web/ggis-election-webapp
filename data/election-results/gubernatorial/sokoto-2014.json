@@ -1,0 +1,220 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Sokoto",
+    "level": "lga",
+    "title": "Sokoto State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2015-04-11",
+    "updated": "2015-04-11",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Aliyu Wamakko",
+    "party": "APC",
+    "votes": 487180
+  },
+  "candidates": [
+    {
+      "name": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": 487180
+    },
+    {
+      "name": "Aminu Tambuwal",
+      "party": "PDP",
+      "votes": 361604
+    }
+  ],
+  "units": {
+    "Binji": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 9217,
+        "PDP": 6842
+      }
+    },
+    "Bodinga": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 34933,
+        "PDP": 25929
+      }
+    },
+    "Dange/Shuni": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 43819,
+        "PDP": 32524
+      }
+    },
+    "Gada": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 33839,
+        "PDP": 25116
+      }
+    },
+    "Goronyo": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 19591,
+        "PDP": 14541
+      }
+    },
+    "Gudu": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 13449,
+        "PDP": 9982
+      }
+    },
+    "Gwadabawa": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 24237,
+        "PDP": 17990
+      }
+    },
+    "Illela": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 24547,
+        "PDP": 18220
+      }
+    },
+    "Isa": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 17442,
+        "PDP": 12946
+      }
+    },
+    "Kebbe": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 8162,
+        "PDP": 6058
+      }
+    },
+    "Kware": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 23186,
+        "PDP": 17210
+      }
+    },
+    "Rabah": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 15237,
+        "PDP": 11309
+      }
+    },
+    "S/Birni": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Shagari": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 18329,
+        "PDP": 13604
+      }
+    },
+    "Silame": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 9574,
+        "PDP": 7106
+      }
+    },
+    "Sokoto North": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 25948,
+        "PDP": 19259
+      }
+    },
+    "Sokoto South": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 36888,
+        "PDP": 27379
+      }
+    },
+    "Tambuwal": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 25448,
+        "PDP": 18889
+      }
+    },
+    "Tangaza": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 15413,
+        "PDP": 11440
+      }
+    },
+    "Tureta": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 8932,
+        "PDP": 6630
+      }
+    },
+    "Wamakko": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 50512,
+        "PDP": 37492
+      }
+    },
+    "Wurno": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 17021,
+        "PDP": 12634
+      }
+    },
+    "Yabo": {
+      "winner": "Aliyu Wamakko",
+      "party": "APC",
+      "votes": {
+        "APC": 11455,
+        "PDP": 8502
+      }
+    }
+  }
+}

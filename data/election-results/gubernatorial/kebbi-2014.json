@@ -1,0 +1,204 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Kebbi",
+    "level": "lga",
+    "title": "Kebbi State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2015-04-11",
+    "updated": "2015-04-11",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Atiku Bagudu",
+    "party": "APC",
+    "votes": 477376
+  },
+  "candidates": [
+    {
+      "name": "Atiku Bagudu",
+      "party": "APC",
+      "votes": 477376
+    },
+    {
+      "name": "Sarkin Bello",
+      "party": "PDP",
+      "votes": 293443
+    }
+  ],
+  "units": {
+    "Aliero": {
+      "winner": "Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Arewa": {
+      "winner": "Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Argungu": {
+      "winner": "Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 32088,
+        "PDP": 19725
+      }
+    },
+    "Augie": {
+      "winner": "Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 15233,
+        "PDP": 9364
+      }
+    },
+    "Bagudo": {
+      "winner": "Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Birnin Kebbi": {
+      "winner": "Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 59495,
+        "PDP": 36572
+      }
+    },
+    "Bunza": {
+      "winner": "Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 23518,
+        "PDP": 14457
+      }
+    },
+    "Dandi": {
+      "winner": "Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 21168,
+        "PDP": 13012
+      }
+    },
+    "Fakai": {
+      "winner": "Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 19221,
+        "PDP": 11815
+      }
+    },
+    "Gwandu": {
+      "winner": "Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 28605,
+        "PDP": 17584
+      }
+    },
+    "Jega": {
+      "winner": "Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 27414,
+        "PDP": 16851
+      }
+    },
+    "Kalgo": {
+      "winner": "Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 15732,
+        "PDP": 9671
+      }
+    },
+    "Koko/Besse": {
+      "winner": "Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 24016,
+        "PDP": 14762
+      }
+    },
+    "Maiyama": {
+      "winner": "Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 27612,
+        "PDP": 16973
+      }
+    },
+    "Ngaski": {
+      "winner": "Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 18208,
+        "PDP": 11192
+      }
+    },
+    "Sakaba": {
+      "winner": "Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 18699,
+        "PDP": 11495
+      }
+    },
+    "Shanga": {
+      "winner": "Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 25792,
+        "PDP": 15854
+      }
+    },
+    "Suru": {
+      "winner": "Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 26781,
+        "PDP": 16463
+      }
+    },
+    "Wasagu/Danko": {
+      "winner": "Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 47500,
+        "PDP": 29198
+      }
+    },
+    "Yauri": {
+      "winner": "Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 14323,
+        "PDP": 8804
+      }
+    },
+    "Zuru": {
+      "winner": "Atiku Bagudu",
+      "party": "APC",
+      "votes": {
+        "APC": 31969,
+        "PDP": 19652
+      }
+    }
+  }
+}

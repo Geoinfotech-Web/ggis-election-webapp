@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Zamfara",
+    "level": "lga",
+    "title": "Zamfara State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2015-04-11",
+    "updated": "2015-04-11",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Abdulaziz Yari",
+    "party": "APC",
+    "votes": 716964
+  },
+  "candidates": [
+    {
+      "name": "Abdulaziz Yari",
+      "party": "APC",
+      "votes": 716964
+    },
+    {
+      "name": "Mahmud Shinkafi",
+      "party": "PDP",
+      "votes": 201938
+    }
+  ],
+  "units": {
+    "Anka": {
+      "winner": "Abdulaziz Yari",
+      "party": "APC",
+      "votes": {
+        "APC": 32410,
+        "PDP": 9129
+      }
+    },
+    "Bakura": {
+      "winner": "Abdulaziz Yari",
+      "party": "APC",
+      "votes": {
+        "APC": 34313,
+        "PDP": 9664
+      }
+    },
+    "Birnin Magaji": {
+      "winner": "Abdulaziz Yari",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Bukkuyum": {
+      "winner": "Abdulaziz Yari",
+      "party": "APC",
+      "votes": {
+        "APC": 52118,
+        "PDP": 14679
+      }
+    },
+    "Bungudu": {
+      "winner": "Abdulaziz Yari",
+      "party": "APC",
+      "votes": {
+        "APC": 70964,
+        "PDP": 19988
+      }
+    },
+    "Gummi": {
+      "winner": "Abdulaziz Yari",
+      "party": "APC",
+      "votes": {
+        "APC": 59688,
+        "PDP": 16812
+      }
+    },
+    "Gusau": {
+      "winner": "Abdulaziz Yari",
+      "party": "APC",
+      "votes": {
+        "APC": 102413,
+        "PDP": 28845
+      }
+    },
+    "Kaura Namoda": {
+      "winner": "Abdulaziz Yari",
+      "party": "APC",
+      "votes": {
+        "APC": 57527,
+        "PDP": 16203
+      }
+    },
+    "Maradun": {
+      "winner": "Abdulaziz Yari",
+      "party": "APC",
+      "votes": {
+        "APC": 39948,
+        "PDP": 11252
+      }
+    },
+    "Maru": {
+      "winner": "Abdulaziz Yari",
+      "party": "APC",
+      "votes": {
+        "APC": 83682,
+        "PDP": 23569
+      }
+    },
+    "Shinkafi": {
+      "winner": "Abdulaziz Yari",
+      "party": "APC",
+      "votes": {
+        "APC": 28636,
+        "PDP": 8066
+      }
+    },
+    "Talata Mafara": {
+      "winner": "Abdulaziz Yari",
+      "party": "APC",
+      "votes": {
+        "APC": 41824,
+        "PDP": 11780
+      }
+    },
+    "Tsafe": {
+      "winner": "Abdulaziz Yari",
+      "party": "APC",
+      "votes": {
+        "APC": 58101,
+        "PDP": 16364
+      }
+    },
+    "Zurmi": {
+      "winner": "Abdulaziz Yari",
+      "party": "APC",
+      "votes": {
+        "APC": 55339,
+        "PDP": 15586
+      }
+    }
+  }
+}

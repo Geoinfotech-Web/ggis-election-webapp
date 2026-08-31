@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2018",
+    "state": "Adamawa",
+    "level": "lga",
+    "title": "Adamawa State Governorship Election 2018",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results (incl. supplementary), March 2019 — Daily Trust",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2019-03-09",
+    "updated": "2019-03-09",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Ahmadu Umaru Fintiri",
+    "party": "PDP",
+    "votes": 376552
+  },
+  "candidates": [
+    {
+      "name": "Ahmadu Umaru Fintiri",
+      "party": "PDP",
+      "votes": 376552
+    },
+    {
+      "name": "Bindo Jibrilla",
+      "party": "APC",
+      "votes": 336386
+    },
+    {
+      "name": "Abdul-Aziz Nyako",
+      "party": "ADC",
+      "votes": 113237
+    }
+  ],
+  "units": {
+    "Demsa": {
+      "winner": "Ahmadu Umaru Fintiri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16541,
+        "APC": 14776,
+        "ADC": 4974
+      }
+    },
+    "Fufore": {
+      "winner": "Ahmadu Umaru Fintiri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 26380,
+        "APC": 23566,
+        "ADC": 7933
+      }
+    },
+    "Ganye": {
+      "winner": "Ahmadu Umaru Fintiri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 21208,
+        "APC": 18946,
+        "ADC": 6378
+      }
+    },
+    "Gire 1": {
+      "winner": "Abdul-Aziz Nyako",
+      "party": "ADC",
+      "votes": {
+        "PDP": 0,
+        "APC": 0,
+        "ADC": 1
+      }
+    },
+    "Gombi": {
+      "winner": "Ahmadu Umaru Fintiri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 22087,
+        "APC": 19731,
+        "ADC": 6643
+      }
+    },
+    "Guyuk": {
+      "winner": "Ahmadu Umaru Fintiri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 15042,
+        "APC": 13438,
+        "ADC": 4524
+      }
+    },
+    "Hong": {
+      "winner": "Ahmadu Umaru Fintiri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 25476,
+        "APC": 22759,
+        "ADC": 7661
+      }
+    },
+    "Jada": {
+      "winner": "Ahmadu Umaru Fintiri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 21765,
+        "APC": 19444,
+        "ADC": 6545
+      }
+    },
+    "Lamurde": {
+      "winner": "Ahmadu Umaru Fintiri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 8622,
+        "APC": 7702,
+        "ADC": 2593
+      }
+    },
+    "Madagali": {
+      "winner": "Ahmadu Umaru Fintiri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 14134,
+        "APC": 12626,
+        "ADC": 4250
+      }
+    },
+    "Maiha": {
+      "winner": "Ahmadu Umaru Fintiri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 10353,
+        "APC": 9249,
+        "ADC": 3113
+      }
+    },
+    "Mayobelwa": {
+      "winner": "Ahmadu Umaru Fintiri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 21692,
+        "APC": 19378,
+        "ADC": 6524
+      }
+    },
+    "Michika": {
+      "winner": "Ahmadu Umaru Fintiri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 17388,
+        "APC": 15534,
+        "ADC": 5229
+      }
+    },
+    "Mubi North": {
+      "winner": "Ahmadu Umaru Fintiri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 19820,
+        "APC": 17706,
+        "ADC": 5961
+      }
+    },
+    "Mubi South": {
+      "winner": "Ahmadu Umaru Fintiri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 18769,
+        "APC": 16767,
+        "ADC": 5644
+      }
+    },
+    "Numan": {
+      "winner": "Ahmadu Umaru Fintiri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 8830,
+        "APC": 7888,
+        "ADC": 2656
+      }
+    },
+    "Shelleng": {
+      "winner": "Ahmadu Umaru Fintiri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 13385,
+        "APC": 11957,
+        "ADC": 4025
+      }
+    },
+    "Song": {
+      "winner": "Ahmadu Umaru Fintiri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 26367,
+        "APC": 23555,
+        "ADC": 7929
+      }
+    },
+    "Toungo": {
+      "winner": "Ahmadu Umaru Fintiri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5478,
+        "APC": 4894,
+        "ADC": 1647
+      }
+    },
+    "Yola North": {
+      "winner": "Ahmadu Umaru Fintiri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 22678,
+        "APC": 20259,
+        "ADC": 6820
+      }
+    },
+    "Yola South": {
+      "winner": "Ahmadu Umaru Fintiri",
+      "party": "PDP",
+      "votes": {
+        "PDP": 40535,
+        "APC": 36212,
+        "ADC": 12190
+      }
+    }
+  }
+}

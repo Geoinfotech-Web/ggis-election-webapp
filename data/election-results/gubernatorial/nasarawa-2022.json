@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2022",
+    "state": "Nasarawa",
+    "level": "lga",
+    "title": "Nasarawa State Governorship Election 2022",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Abdullahi Sule",
+    "party": "APC",
+    "votes": 347209
+  },
+  "candidates": [
+    {
+      "name": "Abdullahi Sule",
+      "party": "APC",
+      "votes": 347209
+    },
+    {
+      "name": "David Ombugadu",
+      "party": "PDP",
+      "votes": 283016
+    }
+  ],
+  "units": {
+    "Akwanga": {
+      "winner": "Abdullahi Sule",
+      "party": "APC",
+      "votes": {
+        "APC": 9284,
+        "PDP": 7567
+      }
+    },
+    "Awe": {
+      "winner": "Abdullahi Sule",
+      "party": "APC",
+      "votes": {
+        "APC": 16694,
+        "PDP": 13608
+      }
+    },
+    "Doma": {
+      "winner": "Abdullahi Sule",
+      "party": "APC",
+      "votes": {
+        "APC": 96700,
+        "PDP": 78821
+      }
+    },
+    "Karu": {
+      "winner": "Abdullahi Sule",
+      "party": "APC",
+      "votes": {
+        "APC": 65802,
+        "PDP": 53637
+      }
+    },
+    "Keana": {
+      "winner": "Abdullahi Sule",
+      "party": "APC",
+      "votes": {
+        "APC": 10550,
+        "PDP": 8599
+      }
+    },
+    "Keffi": {
+      "winner": "Abdullahi Sule",
+      "party": "APC",
+      "votes": {
+        "APC": 17593,
+        "PDP": 14341
+      }
+    },
+    "Kokona": {
+      "winner": "Abdullahi Sule",
+      "party": "APC",
+      "votes": {
+        "APC": 21406,
+        "PDP": 17449
+      }
+    },
+    "Lafia": {
+      "winner": "Abdullahi Sule",
+      "party": "APC",
+      "votes": {
+        "APC": 21944,
+        "PDP": 17887
+      }
+    },
+    "Nasarawa": {
+      "winner": "Abdullahi Sule",
+      "party": "APC",
+      "votes": {
+        "APC": 30503,
+        "PDP": 24863
+      }
+    },
+    "Nasarawa Eggon": {
+      "winner": "Abdullahi Sule",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Obi": {
+      "winner": "Abdullahi Sule",
+      "party": "APC",
+      "votes": {
+        "APC": 23506,
+        "PDP": 19160
+      }
+    },
+    "Toto": {
+      "winner": "Abdullahi Sule",
+      "party": "APC",
+      "votes": {
+        "APC": 12088,
+        "PDP": 9853
+      }
+    },
+    "Wamba": {
+      "winner": "Abdullahi Sule",
+      "party": "APC",
+      "votes": {
+        "APC": 21140,
+        "PDP": 17231
+      }
+    }
+  }
+}

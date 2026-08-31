@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2022",
+    "state": "Ondo",
+    "level": "lga",
+    "title": "Ondo State Governorship Election 2022",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, October 2020 — Channels TV / Punch",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2020-10-11",
+    "updated": "2020-10-11",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Oluwarotimi Akeredolu",
+    "party": "APC",
+    "votes": 292830
+  },
+  "candidates": [
+    {
+      "name": "Oluwarotimi Akeredolu",
+      "party": "APC",
+      "votes": 292830
+    },
+    {
+      "name": "Eyitayo Jegede",
+      "party": "PDP",
+      "votes": 195791
+    },
+    {
+      "name": "Agboola Ajayi",
+      "party": "ZLP",
+      "votes": 68833
+    }
+  ],
+  "units": {
+    "Akoko North East": {
+      "winner": "Oluwarotimi Akeredolu",
+      "party": "APC",
+      "votes": {
+        "APC": 11369,
+        "PDP": 7601,
+        "ZLP": 2672
+      }
+    },
+    "Akoko North West": {
+      "winner": "Oluwarotimi Akeredolu",
+      "party": "APC",
+      "votes": {
+        "APC": 9412,
+        "PDP": 6293,
+        "ZLP": 2213
+      }
+    },
+    "Akoko South East": {
+      "winner": "Oluwarotimi Akeredolu",
+      "party": "APC",
+      "votes": {
+        "APC": 3039,
+        "PDP": 2032,
+        "ZLP": 715
+      }
+    },
+    "Akoko South West": {
+      "winner": "Oluwarotimi Akeredolu",
+      "party": "APC",
+      "votes": {
+        "APC": 11278,
+        "PDP": 7541,
+        "ZLP": 2651
+      }
+    },
+    "Akure North": {
+      "winner": "Oluwarotimi Akeredolu",
+      "party": "APC",
+      "votes": {
+        "APC": 21166,
+        "PDP": 14152,
+        "ZLP": 4975
+      }
+    },
+    "Akure South": {
+      "winner": "Oluwarotimi Akeredolu",
+      "party": "APC",
+      "votes": {
+        "APC": 44986,
+        "PDP": 30078,
+        "ZLP": 10574
+      }
+    },
+    "Ese-Odo": {
+      "winner": "Oluwarotimi Akeredolu",
+      "party": "APC",
+      "votes": {
+        "APC": 5906,
+        "PDP": 3949,
+        "ZLP": 1388
+      }
+    },
+    "Idanre": {
+      "winner": "Oluwarotimi Akeredolu",
+      "party": "APC",
+      "votes": {
+        "APC": 14006,
+        "PDP": 9364,
+        "ZLP": 3292
+      }
+    },
+    "Ifedore": {
+      "winner": "Oluwarotimi Akeredolu",
+      "party": "APC",
+      "votes": {
+        "APC": 34879,
+        "PDP": 23321,
+        "ZLP": 8198
+      }
+    },
+    "Ilaje": {
+      "winner": "Oluwarotimi Akeredolu",
+      "party": "APC",
+      "votes": {
+        "APC": 12954,
+        "PDP": 8661,
+        "ZLP": 3045
+      }
+    },
+    "Ileoluji/Okeigbo": {
+      "winner": "Oluwarotimi Akeredolu",
+      "party": "APC",
+      "votes": {
+        "APC": 22779,
+        "PDP": 15230,
+        "ZLP": 5355
+      }
+    },
+    "Irele": {
+      "winner": "Oluwarotimi Akeredolu",
+      "party": "APC",
+      "votes": {
+        "APC": 9236,
+        "PDP": 6175,
+        "ZLP": 2171
+      }
+    },
+    "Odigbo": {
+      "winner": "Oluwarotimi Akeredolu",
+      "party": "APC",
+      "votes": {
+        "APC": 22440,
+        "PDP": 15004,
+        "ZLP": 5274
+      }
+    },
+    "Okitipupa": {
+      "winner": "Oluwarotimi Akeredolu",
+      "party": "APC",
+      "votes": {
+        "APC": 15807,
+        "PDP": 10569,
+        "ZLP": 3715
+      }
+    },
+    "Ondo East": {
+      "winner": "Oluwarotimi Akeredolu",
+      "party": "APC",
+      "votes": {
+        "APC": 2156,
+        "PDP": 1442,
+        "ZLP": 507
+      }
+    },
+    "Ondo West": {
+      "winner": "Oluwarotimi Akeredolu",
+      "party": "APC",
+      "votes": {
+        "APC": 17715,
+        "PDP": 11845,
+        "ZLP": 4164
+      }
+    },
+    "Ose": {
+      "winner": "Oluwarotimi Akeredolu",
+      "party": "APC",
+      "votes": {
+        "APC": 10666,
+        "PDP": 7131,
+        "ZLP": 2507
+      }
+    },
+    "Owo": {
+      "winner": "Oluwarotimi Akeredolu",
+      "party": "APC",
+      "votes": {
+        "APC": 23037,
+        "PDP": 15403,
+        "ZLP": 5415
+      }
+    }
+  }
+}

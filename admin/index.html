@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Sign In | Election GIS Dashboard</title>
+    <style>
+      :root {
+        --ink: #f6fbf8;
+        --muted: #b8cbc2;
+        --panel: rgba(7, 24, 21, 0.86);
+        --panel-border: rgba(255, 255, 255, 0.14);
+        --green: #19a86b;
+        --deep: #04100d;
+        --gold: #dca73a;
+        --danger: #ff8f8f;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+        background:
+          linear-gradient(90deg, rgba(4, 16, 13, 0.94), rgba(4, 16, 13, 0.72)),
+          radial-gradient(circle at 24% 20%, rgba(25, 168, 107, 0.18), transparent 32%),
+          linear-gradient(135deg, #03100d, #092019 48%, #051411);
+        overflow-x: hidden;
+      }
+
+      body::before {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        content: "";
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 48px 48px;
+        mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.9), transparent 78%);
+      }
+
+      .login-shell {
+        min-height: 100vh;
+        width: min(1120px, calc(100% - 40px));
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 420px;
+        align-items: center;
+        gap: 58px;
+        padding: 48px 0;
+      }
+
+      .login-copy {
+        max-width: 620px;
+      }
+
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        min-height: 32px;
+        padding: 8px 14px;
+        border: 1px solid rgba(25, 168, 107, 0.48);
+        border-radius: 6px;
+        color: #dff9e7;
+        background: rgba(25, 168, 107, 0.16);
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 22px 0 18px;
+        font-size: clamp(2.4rem, 5vw, 4.75rem);
+        line-height: 0.95;
+        letter-spacing: 0;
+      }
+
+      .login-copy p {
+        max-width: 520px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.05rem;
+        line-height: 1.7;
+      }
+
+      .map-lines {
+        width: min(540px, 100%);
+        height: 160px;
+        margin-top: 34px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        background:
+          linear-gradient(115deg, transparent 0 18%, rgba(220, 167, 58, 0.28) 18.5% 19.5%, transparent 20%),
+          linear-gradient(26deg, transparent 0 38%, rgba(25, 168, 107, 0.36) 38.5% 39.5%, transparent 40%),
+          linear-gradient(153deg, transparent 0 58%, rgba(255, 255, 255, 0.18) 58.5% 59.5%, transparent 60%),
+          rgba(255, 255, 255, 0.03);
+      }
+
+      .login-card {
+        width: 100%;
+        padding: 30px;
+        border: 1px solid var(--panel-border);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.36);
+        backdrop-filter: blur(18px);
+      }
+
+      .card-title {
+        margin-bottom: 24px;
+      }
+
+      .card-title strong {
+        display: block;
+        font-size: 1.35rem;
+      }
+
+      .card-title span {
+        display: block;
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      form {
+        display: grid;
+        gap: 16px;
+      }
+
+      label {
+        display: grid;
+        gap: 8px;
+        color: #d8e6df;
+        font-size: 0.86rem;
+        font-weight: 700;
+      }
+
+      input,
+      button {
+        width: 100%;
+        min-height: 48px;
+        border-radius: 6px;
+        font: inherit;
+      }
+
+      input {
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        color: var(--ink);
+        background: rgba(255, 255, 255, 0.07);
+        padding: 0 14px;
+        outline: none;
+      }
+
+      input:focus {
+        border-color: rgba(25, 168, 107, 0.78);
+        box-shadow: 0 0 0 3px rgba(25, 168, 107, 0.18);
+      }
+
+      button {
+        margin-top: 4px;
+        border: 0;
+        color: #04100d;
+        background: linear-gradient(135deg, var(--green), #84d56b);
+        cursor: pointer;
+        font-weight: 800;
+      }
+
+      button:disabled {
+        cursor: wait;
+        opacity: 0.76;
+      }
+
+      .error-message {
+        min-height: 22px;
+        margin: 14px 0 0;
+        color: var(--danger);
+        font-size: 0.9rem;
+        line-height: 1.45;
+      }
+
+      .back-link {
+        display: inline-flex;
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 860px) {
+        .login-shell {
+          grid-template-columns: 1fr;
+          gap: 32px;
+          align-items: start;
+          padding: 34px 0;
+        }
+
+        .login-card {
+          max-width: 520px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="login-shell">
+      <section class="login-copy" aria-labelledby="loginTitle">
+        <span class="kicker">Protected GIS Console</span>
+        <h1 id="loginTitle">Admin access</h1>
+        <p>
+          Sign in to manage election dashboard data, uploads, and editorial controls from the
+          protected admin workspace.
+        </p>
+        <div class="map-lines" aria-hidden="true"></div>
+      </section>
+
+      <section class="login-card" aria-label="Admin login form">
+        <div class="card-title">
+          <strong>Sign in</strong>
+          <span>Use your administrator credentials.</span>
+        </div>
+
+        <form id="adminLoginForm">
+          <label for="username">
+            Username
+            <input id="username" name="username" type="text" autocomplete="username" required />
+          </label>
+
+          <label for="password">
+            Password
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+            />
+          </label>
+
+          <button id="signInButton" type="submit">Sign In</button>
+        </form>
+
+        <p id="loginError" class="error-message" role="alert" aria-live="polite"></p>
+        <a class="back-link" href="/">Back to dashboard</a>
+      </section>
+    </main>
+
+    <script>
+      (async () => {
+        const token = sessionStorage.getItem('admin_token');
+        if (token) {
+          try {
+            const response = await fetch('/api/admin/verify', {
+              headers: { Authorization: `Bearer ${token}` },
+            });
+            if (response.ok) {
+              window.location.replace('/admin/dashboard.html');
+              return;
+            }
+          } catch {
+            sessionStorage.removeItem('admin_token');
+          }
+        }
+      })();
+
+      const form = document.getElementById('adminLoginForm');
+      const errorMessage = document.getElementById('loginError');
+      const signInButton = document.getElementById('signInButton');
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        errorMessage.textContent = '';
+        signInButton.disabled = true;
+        signInButton.textContent = 'Signing In...';
+
+        const username = form.username.value.trim();
+        const password = form.password.value;
+
+        try {
+          const response = await fetch('/api/admin/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password }),
+          });
+
+          const result = await response.json().catch(() => ({}));
+
+          if (!response.ok || !result.success || !result.token) {
+            throw new Error(result.error || 'Login failed. Check your credentials and try again.');
+          }
+
+          sessionStorage.setItem('admin_token', result.token);
+          window.location.href = '/admin/dashboard.html';
+        } catch (error) {
+          errorMessage.textContent = error.message || 'Login failed. Please try again.';
+        } finally {
+          signInButton.disabled = false;
+          signInButton.textContent = 'Sign In';
+        }
+      });
+    </script>
+  </body>
+</html>

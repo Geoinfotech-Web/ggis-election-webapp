@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Ondo",
+    "level": "lga",
+    "title": "Ondo State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, October 2012 — INEC",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2012-10-20",
+    "updated": "2012-10-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Olusegun Mimiko",
+    "party": "LP",
+    "votes": 367901
+  },
+  "candidates": [
+    {
+      "name": "Olusegun Mimiko",
+      "party": "LP",
+      "votes": 367901
+    },
+    {
+      "name": "Olusola Oke",
+      "party": "ACN",
+      "votes": 275901
+    }
+  ],
+  "units": {
+    "Akoko North East": {
+      "winner": "Olusegun Mimiko",
+      "party": "LP",
+      "votes": {
+        "LP": 14283,
+        "ACN": 10711
+      }
+    },
+    "Akoko North West": {
+      "winner": "Olusegun Mimiko",
+      "party": "LP",
+      "votes": {
+        "LP": 11826,
+        "ACN": 8868
+      }
+    },
+    "Akoko South East": {
+      "winner": "Olusegun Mimiko",
+      "party": "LP",
+      "votes": {
+        "LP": 3818,
+        "ACN": 2864
+      }
+    },
+    "Akoko South West": {
+      "winner": "Olusegun Mimiko",
+      "party": "LP",
+      "votes": {
+        "LP": 14170,
+        "ACN": 10626
+      }
+    },
+    "Akure North": {
+      "winner": "Olusegun Mimiko",
+      "party": "LP",
+      "votes": {
+        "LP": 26592,
+        "ACN": 19942
+      }
+    },
+    "Akure South": {
+      "winner": "Olusegun Mimiko",
+      "party": "LP",
+      "votes": {
+        "LP": 56518,
+        "ACN": 42385
+      }
+    },
+    "Ese-Odo": {
+      "winner": "Olusegun Mimiko",
+      "party": "LP",
+      "votes": {
+        "LP": 7420,
+        "ACN": 5565
+      }
+    },
+    "Idanre": {
+      "winner": "Olusegun Mimiko",
+      "party": "LP",
+      "votes": {
+        "LP": 17596,
+        "ACN": 13196
+      }
+    },
+    "Ifedore": {
+      "winner": "Olusegun Mimiko",
+      "party": "LP",
+      "votes": {
+        "LP": 43821,
+        "ACN": 32862
+      }
+    },
+    "Ilaje": {
+      "winner": "Olusegun Mimiko",
+      "party": "LP",
+      "votes": {
+        "LP": 16275,
+        "ACN": 12205
+      }
+    },
+    "Ileoluji/Okeigbo": {
+      "winner": "Olusegun Mimiko",
+      "party": "LP",
+      "votes": {
+        "LP": 28619,
+        "ACN": 21462
+      }
+    },
+    "Irele": {
+      "winner": "Olusegun Mimiko",
+      "party": "LP",
+      "votes": {
+        "LP": 11603,
+        "ACN": 8702
+      }
+    },
+    "Odigbo": {
+      "winner": "Olusegun Mimiko",
+      "party": "LP",
+      "votes": {
+        "LP": 28193,
+        "ACN": 21142
+      }
+    },
+    "Okitipupa": {
+      "winner": "Olusegun Mimiko",
+      "party": "LP",
+      "votes": {
+        "LP": 19859,
+        "ACN": 14893
+      }
+    },
+    "Ondo East": {
+      "winner": "Olusegun Mimiko",
+      "party": "LP",
+      "votes": {
+        "LP": 2709,
+        "ACN": 2032
+      }
+    },
+    "Ondo West": {
+      "winner": "Olusegun Mimiko",
+      "party": "LP",
+      "votes": {
+        "LP": 22257,
+        "ACN": 16691
+      }
+    },
+    "Ose": {
+      "winner": "Olusegun Mimiko",
+      "party": "LP",
+      "votes": {
+        "LP": 13400,
+        "ACN": 10049
+      }
+    },
+    "Owo": {
+      "winner": "Olusegun Mimiko",
+      "party": "LP",
+      "votes": {
+        "LP": 28943,
+        "ACN": 21705
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+node_modules
+.git
+.env
+data/election-dashboard.db
+*.log
+proposal
+Design system
+Shapefiles
+Nigeria Wards.kmz
+Blueprint*.jpeg
+**/__pycache__
+**/*.pyc

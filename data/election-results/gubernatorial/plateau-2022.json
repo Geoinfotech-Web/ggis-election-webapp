@@ -1,0 +1,194 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2022",
+    "state": "Plateau",
+    "level": "lga",
+    "title": "Plateau State Governorship Election 2022",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Caleb Mutfwang",
+    "party": "PDP",
+    "votes": 525299
+  },
+  "candidates": [
+    {
+      "name": "Caleb Mutfwang",
+      "party": "PDP",
+      "votes": 525299
+    },
+    {
+      "name": "Nentanwe Yilwatda",
+      "party": "APC",
+      "votes": 481370
+    },
+    {
+      "name": "Patrick Dakum",
+      "party": "LP",
+      "votes": 60310
+    }
+  ],
+  "units": {
+    "Barikin Ladi": {
+      "winner": "Patrick Dakum",
+      "party": "LP",
+      "votes": {
+        "PDP": 0,
+        "APC": 0,
+        "LP": 1
+      }
+    },
+    "Bassa": {
+      "winner": "Caleb Mutfwang",
+      "party": "PDP",
+      "votes": {
+        "PDP": 23724,
+        "APC": 21740,
+        "LP": 2723
+      }
+    },
+    "Bokkos": {
+      "winner": "Caleb Mutfwang",
+      "party": "PDP",
+      "votes": {
+        "PDP": 31376,
+        "APC": 28752,
+        "LP": 3602
+      }
+    },
+    "Jos East": {
+      "winner": "Caleb Mutfwang",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6042,
+        "APC": 5537,
+        "LP": 693
+      }
+    },
+    "Jos North": {
+      "winner": "Caleb Mutfwang",
+      "party": "PDP",
+      "votes": {
+        "PDP": 89384,
+        "APC": 81909,
+        "LP": 10262
+      }
+    },
+    "Jos South": {
+      "winner": "Caleb Mutfwang",
+      "party": "PDP",
+      "votes": {
+        "PDP": 96502,
+        "APC": 88432,
+        "LP": 11080
+      }
+    },
+    "Kanam": {
+      "winner": "Caleb Mutfwang",
+      "party": "PDP",
+      "votes": {
+        "PDP": 22331,
+        "APC": 20463,
+        "LP": 2564
+      }
+    },
+    "Kanke": {
+      "winner": "Caleb Mutfwang",
+      "party": "PDP",
+      "votes": {
+        "PDP": 11803,
+        "APC": 10816,
+        "LP": 1355
+      }
+    },
+    "Langtang North": {
+      "winner": "Caleb Mutfwang",
+      "party": "PDP",
+      "votes": {
+        "PDP": 26755,
+        "APC": 24517,
+        "LP": 3072
+      }
+    },
+    "Langtang South": {
+      "winner": "Caleb Mutfwang",
+      "party": "PDP",
+      "votes": {
+        "PDP": 18120,
+        "APC": 16605,
+        "LP": 2080
+      }
+    },
+    "Mangu": {
+      "winner": "Caleb Mutfwang",
+      "party": "PDP",
+      "votes": {
+        "PDP": 38601,
+        "APC": 35373,
+        "LP": 4431
+      }
+    },
+    "Mikang": {
+      "winner": "Caleb Mutfwang",
+      "party": "PDP",
+      "votes": {
+        "PDP": 12070,
+        "APC": 11060,
+        "LP": 1386
+      }
+    },
+    "Pankshin": {
+      "winner": "Caleb Mutfwang",
+      "party": "PDP",
+      "votes": {
+        "PDP": 22049,
+        "APC": 20205,
+        "LP": 2531
+      }
+    },
+    "Qua'an Pan": {
+      "winner": "Caleb Mutfwang",
+      "party": "PDP",
+      "votes": {
+        "PDP": 36824,
+        "APC": 33745,
+        "LP": 4228
+      }
+    },
+    "Riyom": {
+      "winner": "Caleb Mutfwang",
+      "party": "PDP",
+      "votes": {
+        "PDP": 13582,
+        "APC": 12446,
+        "LP": 1560
+      }
+    },
+    "Shendam": {
+      "winner": "Caleb Mutfwang",
+      "party": "PDP",
+      "votes": {
+        "PDP": 43554,
+        "APC": 39912,
+        "LP": 5000
+      }
+    },
+    "Wase": {
+      "winner": "Caleb Mutfwang",
+      "party": "PDP",
+      "votes": {
+        "PDP": 32582,
+        "APC": 29858,
+        "LP": 3741
+      }
+    }
+  }
+}

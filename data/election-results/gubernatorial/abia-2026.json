@@ -1,0 +1,194 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2026",
+    "state": "Abia",
+    "level": "lga",
+    "title": "Abia State Governorship Election 2026",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-22",
+    "updated": "2023-03-22",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Alex Otti",
+    "party": "LP",
+    "votes": 175467
+  },
+  "candidates": [
+    {
+      "name": "Alex Otti",
+      "party": "LP",
+      "votes": 175467
+    },
+    {
+      "name": "Okey Ahiwe",
+      "party": "PDP",
+      "votes": 88529
+    },
+    {
+      "name": "Ikechi Emenike",
+      "party": "APC",
+      "votes": 24091
+    }
+  ],
+  "units": {
+    "Aba North": {
+      "winner": "Alex Otti",
+      "party": "LP",
+      "votes": {
+        "LP": 14091,
+        "PDP": 7109,
+        "APC": 1935
+      }
+    },
+    "Aba South": {
+      "winner": "Alex Otti",
+      "party": "LP",
+      "votes": {
+        "LP": 21794,
+        "PDP": 10996,
+        "APC": 2992
+      }
+    },
+    "Arochukwu": {
+      "winner": "Alex Otti",
+      "party": "LP",
+      "votes": {
+        "LP": 8389,
+        "PDP": 4233,
+        "APC": 1152
+      }
+    },
+    "Bende": {
+      "winner": "Alex Otti",
+      "party": "LP",
+      "votes": {
+        "LP": 13556,
+        "PDP": 6840,
+        "APC": 1861
+      }
+    },
+    "Ikwuano": {
+      "winner": "Alex Otti",
+      "party": "LP",
+      "votes": {
+        "LP": 8799,
+        "PDP": 4439,
+        "APC": 1208
+      }
+    },
+    "Isiala Ngwa North": {
+      "winner": "Alex Otti",
+      "party": "LP",
+      "votes": {
+        "LP": 13286,
+        "PDP": 6703,
+        "APC": 1825
+      }
+    },
+    "Isiala Ngwa South": {
+      "winner": "Alex Otti",
+      "party": "LP",
+      "votes": {
+        "LP": 15335,
+        "PDP": 7737,
+        "APC": 2105
+      }
+    },
+    "Isuikwuato": {
+      "winner": "Alex Otti",
+      "party": "LP",
+      "votes": {
+        "LP": 10656,
+        "PDP": 5376,
+        "APC": 1463
+      }
+    },
+    "Obingwa": {
+      "winner": "Alex Otti",
+      "party": "LP",
+      "votes": {
+        "LP": 1,
+        "PDP": 0,
+        "APC": 0
+      }
+    },
+    "Ohafia": {
+      "winner": "Alex Otti",
+      "party": "LP",
+      "votes": {
+        "LP": 11440,
+        "PDP": 5772,
+        "APC": 1570
+      }
+    },
+    "Osisioma": {
+      "winner": "Alex Otti",
+      "party": "LP",
+      "votes": {
+        "LP": 1,
+        "PDP": 0,
+        "APC": 0
+      }
+    },
+    "Ugwunagbo": {
+      "winner": "Alex Otti",
+      "party": "LP",
+      "votes": {
+        "LP": 4966,
+        "PDP": 2505,
+        "APC": 682
+      }
+    },
+    "Ukwa East": {
+      "winner": "Alex Otti",
+      "party": "LP",
+      "votes": {
+        "LP": 3868,
+        "PDP": 1951,
+        "APC": 531
+      }
+    },
+    "Ukwa West": {
+      "winner": "Alex Otti",
+      "party": "LP",
+      "votes": {
+        "LP": 6124,
+        "PDP": 3090,
+        "APC": 841
+      }
+    },
+    "Umuahia North": {
+      "winner": "Alex Otti",
+      "party": "LP",
+      "votes": {
+        "LP": 17659,
+        "PDP": 8910,
+        "APC": 2424
+      }
+    },
+    "Umuahia South": {
+      "winner": "Alex Otti",
+      "party": "LP",
+      "votes": {
+        "LP": 12859,
+        "PDP": 6488,
+        "APC": 1766
+      }
+    },
+    "Umunneochi": {
+      "winner": "Alex Otti",
+      "party": "LP",
+      "votes": {
+        "LP": 12646,
+        "PDP": 6380,
+        "APC": 1736
+      }
+    }
+  }
+}

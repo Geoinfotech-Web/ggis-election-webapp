@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2026",
+    "state": "Ekiti",
+    "level": "lga",
+    "title": "Ekiti State Governorship Election 2026",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "updated": "2026-06-21"
+  },
+  "winner": { "name": "Biodun Oyebanji", "party": "APC", "votes": 319224 },
+  "candidates": [
+    { "name": "Biodun Oyebanji", "party": "APC", "votes": 319224 },
+    { "name": "Oluwole Oluyede", "party": "PDP", "votes": 40543 },
+    { "name": "Oluwadare Bejide", "party": "ADC", "votes": 12872 }
+  ],
+  "units": {
+    "Ado": { "winner": "Biodun Oyebanji", "party": "APC", "votes": { "APC": 38026, "PDP": 3817, "ADC": 1054 } },
+    "Ekiti South West": { "winner": "Biodun Oyebanji", "party": "APC", "votes": { "APC": 14705, "PDP": 1800, "ADC": 1076 } },
+    "Efon": { "winner": "Biodun Oyebanji", "party": "APC", "votes": { "APC": 8742, "PDP": 2051, "ADC": 201 } },
+    "Emure": { "winner": "Biodun Oyebanji", "party": "APC", "votes": { "APC": 14325, "PDP": 851, "ADC": 732 } },
+    "Ido/Osi": { "winner": "Biodun Oyebanji", "party": "APC", "votes": { "APC": 17901, "PDP": 1449, "ADC": 561 } },
+    "Ekiti West": { "winner": "Biodun Oyebanji", "party": "APC", "votes": { "APC": 28258, "PDP": 3644, "ADC": 674 } },
+    "Ijero": { "winner": "Biodun Oyebanji", "party": "APC", "votes": { "APC": 25506, "PDP": 2479, "ADC": 2026 } },
+    "Ikere": { "winner": "Biodun Oyebanji", "party": "APC", "votes": { "APC": 11116, "PDP": 9892, "ADC": 245 } },
+    "Ilejemeje": { "winner": "Biodun Oyebanji", "party": "APC", "votes": { "APC": 8984, "PDP": 1243, "ADC": 579 } },
+    "Ise/Orun": { "winner": "Biodun Oyebanji", "party": "APC", "votes": { "APC": 12908, "PDP": 1627, "ADC": 365 } },
+    "Oye": { "winner": "Biodun Oyebanji", "party": "APC", "votes": { "APC": 18975, "PDP": 2891, "ADC": 998 } },
+    "Moba": { "winner": "Biodun Oyebanji", "party": "APC", "votes": { "APC": 20500, "PDP": 1572, "ADC": 994 } },
+    "Gbonyin": { "winner": "Biodun Oyebanji", "party": "APC", "votes": { "APC": 17133, "PDP": 1563, "ADC": 314 } },
+    "Ikole": { "winner": "Biodun Oyebanji", "party": "APC", "votes": { "APC": 26508, "PDP": 750, "ADC": 812 } },
+    "Irepodun/Ifelodun": { "winner": "Biodun Oyebanji", "party": "APC", "votes": { "APC": 29278, "PDP": 2119, "ADC": 511 } },
+    "Ekiti East": { "winner": "Biodun Oyebanji", "party": "APC", "votes": { "APC": 26359, "PDP": 2795, "ADC": 1730 } }
+  }
+}

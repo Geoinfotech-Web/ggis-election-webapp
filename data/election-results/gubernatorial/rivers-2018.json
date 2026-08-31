@@ -1,0 +1,220 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2018",
+    "state": "Rivers",
+    "level": "lga",
+    "title": "Rivers State Governorship Election 2018",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, April 2019 — Channels TV / Punch",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2019-04-03",
+    "updated": "2019-04-03",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Nyesom Wike",
+    "party": "PDP",
+    "votes": 886264
+  },
+  "candidates": [
+    {
+      "name": "Nyesom Wike",
+      "party": "PDP",
+      "votes": 886264
+    },
+    {
+      "name": "Biokpomabo Awara",
+      "party": "AAC",
+      "votes": 173859
+    }
+  ],
+  "units": {
+    "Abua-Odual": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 14153,
+        "AAC": 2777
+      }
+    },
+    "Ahoada East": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 40970,
+        "AAC": 8037
+      }
+    },
+    "Ahoada West": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 12808,
+        "AAC": 2512
+      }
+    },
+    "Akuku Toru": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 3109,
+        "AAC": 610
+      }
+    },
+    "Andoni": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 13802,
+        "AAC": 2708
+      }
+    },
+    "Asari-Toru": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5314,
+        "AAC": 1042
+      }
+    },
+    "Bonny": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 19131,
+        "AAC": 3753
+      }
+    },
+    "Degema": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 11666,
+        "AAC": 2288
+      }
+    },
+    "Eleme": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 43052,
+        "AAC": 8445
+      }
+    },
+    "Emohua": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "AAC": 0
+      }
+    },
+    "Etche": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 81843,
+        "AAC": 16055
+      }
+    },
+    "Gokana": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 27710,
+        "AAC": 5436
+      }
+    },
+    "Ikwerre": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 65429,
+        "AAC": 12835
+      }
+    },
+    "Khana": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 54519,
+        "AAC": 10695
+      }
+    },
+    "Obio/Akpor": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 260896,
+        "AAC": 51180
+      }
+    },
+    "Ogba/Egbema/Ndoni": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 68979,
+        "AAC": 13532
+      }
+    },
+    "Ogu/Bolo": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 2715,
+        "AAC": 533
+      }
+    },
+    "Okrika": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 18778,
+        "AAC": 3684
+      }
+    },
+    "Omuma": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "AAC": 0
+      }
+    },
+    "Opobo/Nekoro": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "AAC": 0
+      }
+    },
+    "Oyigbo": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 45524,
+        "AAC": 8931
+      }
+    },
+    "Port Harcourt": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 86191,
+        "AAC": 16908
+      }
+    },
+    "Tai": {
+      "winner": "Nyesom Wike",
+      "party": "PDP",
+      "votes": {
+        "PDP": 9676,
+        "AAC": 1898
+      }
+    }
+  }
+}

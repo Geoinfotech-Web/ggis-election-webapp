@@ -1,0 +1,183 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2022",
+    "state": "Ekiti",
+    "level": "lga",
+    "title": "Ekiti State Governorship Election 2022",
+    "source": "INEC collated results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC LGA collation centres — Wikipedia / The Eagle Online reporting official returns, 18 June 2022",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "updated": "2022-06-18",
+    "collated": true
+  },
+  "winner": {
+    "name": "Biodun Oyebanji",
+    "party": "APC",
+    "votes": 187057
+  },
+  "candidates": [
+    {
+      "name": "Biodun Oyebanji",
+      "party": "APC",
+      "votes": 187057
+    },
+    {
+      "name": "Segun Oni",
+      "party": "SDP",
+      "votes": 82211
+    },
+    {
+      "name": "Bisi Kolawole",
+      "party": "PDP",
+      "votes": 67457
+    }
+  ],
+  "units": {
+    "Ado": {
+      "winner": "Biodun Oyebanji",
+      "party": "APC",
+      "votes": {
+        "APC": 23831,
+        "PDP": 7575,
+        "SDP": 15214
+      }
+    },
+    "Efon": {
+      "winner": "Bisi Kolawole",
+      "party": "PDP",
+      "votes": {
+        "APC": 4012,
+        "PDP": 6303,
+        "SDP": 339
+      }
+    },
+    "Ekiti East": {
+      "winner": "Biodun Oyebanji",
+      "party": "APC",
+      "votes": {
+        "APC": 12099,
+        "PDP": 5230,
+        "SDP": 4982
+      }
+    },
+    "Ekiti South West": {
+      "winner": "Biodun Oyebanji",
+      "party": "APC",
+      "votes": {
+        "APC": 9679,
+        "PDP": 4474,
+        "SDP": 4577
+      }
+    },
+    "Ekiti West": {
+      "winner": "Biodun Oyebanji",
+      "party": "APC",
+      "votes": {
+        "APC": 15322,
+        "PDP": 3386,
+        "SDP": 3863
+      }
+    },
+    "Emure": {
+      "winner": "Biodun Oyebanji",
+      "party": "APC",
+      "votes": {
+        "APC": 7728,
+        "PDP": 2610,
+        "SDP": 3445
+      }
+    },
+    "Gbonyin": {
+      "winner": "Biodun Oyebanji",
+      "party": "APC",
+      "votes": {
+        "APC": 11247,
+        "PDP": 3947,
+        "SDP": 4059
+      }
+    },
+    "Ido/Osi": {
+      "winner": "Biodun Oyebanji",
+      "party": "APC",
+      "votes": {
+        "APC": 10321,
+        "PDP": 2871,
+        "SDP": 9489
+      }
+    },
+    "Ijero": {
+      "winner": "Biodun Oyebanji",
+      "party": "APC",
+      "votes": {
+        "APC": 13754,
+        "PDP": 4897,
+        "SDP": 5006
+      }
+    },
+    "Ikere": {
+      "winner": "Biodun Oyebanji",
+      "party": "APC",
+      "votes": {
+        "APC": 12086,
+        "PDP": 3789,
+        "SDP": 1943
+      }
+    },
+    "Ikole": {
+      "winner": "Biodun Oyebanji",
+      "party": "APC",
+      "votes": {
+        "APC": 16417,
+        "PDP": 6266,
+        "SDP": 5736
+      }
+    },
+    "Ilejemeje": {
+      "winner": "Biodun Oyebanji",
+      "party": "APC",
+      "votes": {
+        "APC": 4357,
+        "PDP": 1157,
+        "SDP": 2344
+      }
+    },
+    "Irepodun/Ifelodun": {
+      "winner": "Biodun Oyebanji",
+      "party": "APC",
+      "votes": {
+        "APC": 13125,
+        "PDP": 4712,
+        "SDP": 5010
+      }
+    },
+    "Ise/Orun": {
+      "winner": "Biodun Oyebanji",
+      "party": "APC",
+      "votes": {
+        "APC": 8074,
+        "PDP": 2588,
+        "SDP": 5909
+      }
+    },
+    "Moba": {
+      "winner": "Biodun Oyebanji",
+      "party": "APC",
+      "votes": {
+        "APC": 11609,
+        "PDP": 3530,
+        "SDP": 4904
+      }
+    },
+    "Oye": {
+      "winner": "Biodun Oyebanji",
+      "party": "APC",
+      "votes": {
+        "APC": 13396,
+        "PDP": 4122,
+        "SDP": 3591
+      }
+    }
+  }
+}

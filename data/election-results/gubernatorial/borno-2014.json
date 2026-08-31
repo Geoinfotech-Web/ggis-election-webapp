@@ -1,0 +1,252 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Borno",
+    "level": "lga",
+    "title": "Borno State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2015-04-11",
+    "updated": "2015-04-11",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Kashim Shettima",
+    "party": "APC",
+    "votes": 480146
+  },
+  "candidates": [
+    {
+      "name": "Kashim Shettima",
+      "party": "APC",
+      "votes": 480146
+    },
+    {
+      "name": "Gambo Lawan",
+      "party": "PDP",
+      "votes": 128018
+    }
+  ],
+  "units": {
+    "Abadam": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 13193,
+        "PDP": 3518
+      }
+    },
+    "Askira / Uba": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 27310,
+        "PDP": 7282
+      }
+    },
+    "Bama": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 24338,
+        "PDP": 6489
+      }
+    },
+    "Bayo": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 16423,
+        "PDP": 4379
+      }
+    },
+    "Biu": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 28161,
+        "PDP": 7508
+      }
+    },
+    "Chibok": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 11557,
+        "PDP": 3081
+      }
+    },
+    "Damboa": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 18556,
+        "PDP": 4948
+      }
+    },
+    "Dikwa": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 9935,
+        "PDP": 2649
+      }
+    },
+    "Gubio": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 16702,
+        "PDP": 4453
+      }
+    },
+    "Guzamala": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 12413,
+        "PDP": 3310
+      }
+    },
+    "Gwoza": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 26839,
+        "PDP": 7156
+      }
+    },
+    "Hawul": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 24638,
+        "PDP": 6569
+      }
+    },
+    "Jere": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 43318,
+        "PDP": 11549
+      }
+    },
+    "Kaga": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 12721,
+        "PDP": 3392
+      }
+    },
+    "Kala Balge": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 6530,
+        "PDP": 1741
+      }
+    },
+    "Konduga": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 18925,
+        "PDP": 5046
+      }
+    },
+    "Kukawa": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 13276,
+        "PDP": 3540
+      }
+    },
+    "Kwaya / Kusar": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 12897,
+        "PDP": 3439
+      }
+    },
+    "Mafa": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 13709,
+        "PDP": 3655
+      }
+    },
+    "Magumeri": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 26437,
+        "PDP": 7049
+      }
+    },
+    "Maiduguri M. C.": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Marte": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 15057,
+        "PDP": 4015
+      }
+    },
+    "Mobbar": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 18707,
+        "PDP": 4988
+      }
+    },
+    "Monguno": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 18156,
+        "PDP": 4841
+      }
+    },
+    "Ngala": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 14113,
+        "PDP": 3763
+      }
+    },
+    "Nganzai": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 13943,
+        "PDP": 3718
+      }
+    },
+    "Shani": {
+      "winner": "Kashim Shettima",
+      "party": "APC",
+      "votes": {
+        "APC": 22288,
+        "PDP": 5942
+      }
+    }
+  }
+}

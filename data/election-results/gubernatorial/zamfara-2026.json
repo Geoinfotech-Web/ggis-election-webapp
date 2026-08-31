@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2026",
+    "state": "Zamfara",
+    "level": "lga",
+    "title": "Zamfara State Governorship Election 2026",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Dauda Lawal",
+    "party": "PDP",
+    "votes": 377726
+  },
+  "candidates": [
+    {
+      "name": "Dauda Lawal",
+      "party": "PDP",
+      "votes": 377726
+    },
+    {
+      "name": "Bello Matawalle",
+      "party": "APC",
+      "votes": 311976
+    }
+  ],
+  "units": {
+    "Anka": {
+      "winner": "Dauda Lawal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 17075,
+        "APC": 14103
+      }
+    },
+    "Bakura": {
+      "winner": "Dauda Lawal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 18077,
+        "APC": 14931
+      }
+    },
+    "Birnin Magaji": {
+      "winner": "Dauda Lawal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APC": 0
+      }
+    },
+    "Bukkuyum": {
+      "winner": "Dauda Lawal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 27458,
+        "APC": 22678
+      }
+    },
+    "Bungudu": {
+      "winner": "Dauda Lawal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 37387,
+        "APC": 30879
+      }
+    },
+    "Gummi": {
+      "winner": "Dauda Lawal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 31446,
+        "APC": 25973
+      }
+    },
+    "Gusau": {
+      "winner": "Dauda Lawal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 53955,
+        "APC": 44564
+      }
+    },
+    "Kaura Namoda": {
+      "winner": "Dauda Lawal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 30308,
+        "APC": 25032
+      }
+    },
+    "Maradun": {
+      "winner": "Dauda Lawal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 21046,
+        "APC": 17383
+      }
+    },
+    "Maru": {
+      "winner": "Dauda Lawal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 44087,
+        "APC": 36413
+      }
+    },
+    "Shinkafi": {
+      "winner": "Dauda Lawal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 15087,
+        "APC": 12461
+      }
+    },
+    "Talata Mafara": {
+      "winner": "Dauda Lawal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 22035,
+        "APC": 18199
+      }
+    },
+    "Tsafe": {
+      "winner": "Dauda Lawal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 30610,
+        "APC": 25282
+      }
+    },
+    "Zurmi": {
+      "winner": "Dauda Lawal",
+      "party": "PDP",
+      "votes": {
+        "PDP": 29154,
+        "APC": 24080
+      }
+    }
+  }
+}

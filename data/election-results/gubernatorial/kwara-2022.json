@@ -1,0 +1,164 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2022",
+    "state": "Kwara",
+    "level": "lga",
+    "title": "Kwara State Governorship Election 2022",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Abdulrahman Abdulrazaq",
+    "party": "APC",
+    "votes": 273424
+  },
+  "candidates": [
+    {
+      "name": "Abdulrahman Abdulrazaq",
+      "party": "APC",
+      "votes": 273424
+    },
+    {
+      "name": "Shuaib Abdullahi Yaman",
+      "party": "PDP",
+      "votes": 155490
+    }
+  ],
+  "units": {
+    "Asa": {
+      "winner": "Abdulrahman Abdulrazaq",
+      "party": "APC",
+      "votes": {
+        "APC": 14825,
+        "PDP": 8431
+      }
+    },
+    "Baruten": {
+      "winner": "Abdulrahman Abdulrazaq",
+      "party": "APC",
+      "votes": {
+        "APC": 29114,
+        "PDP": 16557
+      }
+    },
+    "Edu": {
+      "winner": "Abdulrahman Abdulrazaq",
+      "party": "APC",
+      "votes": {
+        "APC": 13682,
+        "PDP": 7781
+      }
+    },
+    "Ekiti": {
+      "winner": "Abdulrahman Abdulrazaq",
+      "party": "APC",
+      "votes": {
+        "APC": 3500,
+        "PDP": 1990
+      }
+    },
+    "Ifelodun": {
+      "winner": "Abdulrahman Abdulrazaq",
+      "party": "APC",
+      "votes": {
+        "APC": 12746,
+        "PDP": 7249
+      }
+    },
+    "Ilorin East": {
+      "winner": "Abdulrahman Abdulrazaq",
+      "party": "APC",
+      "votes": {
+        "APC": 76206,
+        "PDP": 43336
+      }
+    },
+    "Ilorin-South": {
+      "winner": "Abdulrahman Abdulrazaq",
+      "party": "APC",
+      "votes": {
+        "APC": 6804,
+        "PDP": 3870
+      }
+    },
+    "Ilorin-West": {
+      "winner": "Abdulrahman Abdulrazaq",
+      "party": "APC",
+      "votes": {
+        "APC": 37552,
+        "PDP": 21355
+      }
+    },
+    "Irepodun": {
+      "winner": "Abdulrahman Abdulrazaq",
+      "party": "APC",
+      "votes": {
+        "APC": 11410,
+        "PDP": 6488
+      }
+    },
+    "Isin": {
+      "winner": "Abdulrahman Abdulrazaq",
+      "party": "APC",
+      "votes": {
+        "APC": 3465,
+        "PDP": 1970
+      }
+    },
+    "Kaiama": {
+      "winner": "Abdulrahman Abdulrazaq",
+      "party": "APC",
+      "votes": {
+        "APC": 21408,
+        "PDP": 12175
+      }
+    },
+    "Moro": {
+      "winner": "Abdulrahman Abdulrazaq",
+      "party": "APC",
+      "votes": {
+        "APC": 15618,
+        "PDP": 8882
+      }
+    },
+    "Offa": {
+      "winner": "Abdulrahman Abdulrazaq",
+      "party": "APC",
+      "votes": {
+        "APC": 13805,
+        "PDP": 7851
+      }
+    },
+    "Okeero": {
+      "winner": "Abdulrahman Abdulrazaq",
+      "party": "APC",
+      "votes": {
+        "APC": 3663,
+        "PDP": 2083
+      }
+    },
+    "Oyun": {
+      "winner": "Abdulrahman Abdulrazaq",
+      "party": "APC",
+      "votes": {
+        "APC": 9625,
+        "PDP": 5474
+      }
+    },
+    "Patigi": {
+      "winner": "Abdulrahman Abdulrazaq",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    }
+  }
+}

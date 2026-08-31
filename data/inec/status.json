@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "lastRunAt": "2026-08-31T09:44:13.286Z",
+  "lastSuccessAt": "2026-08-31T09:44:15.714Z",
+  "source": "local-fallback",
+  "sourceUrls": [
+    "https://www.inecnigeria.org/pvc-statistics/",
+    "https://www.inecelectionresults.ng/"
+  ],
+  "error": "https://www.inecnigeria.org/pvc-statistics/ returned 404",
+  "pdfCount": 0,
+  "notes": "Seeded from local population-pvc-data.json (state registered voters and PVC collection). INEC website fetch failed: https://www.inecnigeria.org/pvc-statistics/ returned 404 Cached IReV public homepage (unofficial PU vote portal — not PVC)."
+}

@@ -1,0 +1,308 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2018",
+    "state": "Katsina",
+    "level": "lga",
+    "title": "Katsina State Governorship Election 2018",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2019 — Daily Trust",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2019-03-09",
+    "updated": "2019-03-09",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Aminu Bello Masari",
+    "party": "APC",
+    "votes": 1178864
+  },
+  "candidates": [
+    {
+      "name": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": 1178864
+    },
+    {
+      "name": "Garba Yakubu Lado",
+      "party": "PDP",
+      "votes": 488621
+    }
+  ],
+  "units": {
+    "Bakori": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 49846,
+        "PDP": 20660
+      }
+    },
+    "Batagarawa": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 41047,
+        "PDP": 17014
+      }
+    },
+    "Batsari": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 42933,
+        "PDP": 17795
+      }
+    },
+    "Baure": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 41055,
+        "PDP": 17017
+      }
+    },
+    "Bindawa": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 39190,
+        "PDP": 16244
+      }
+    },
+    "Charanchi": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 31605,
+        "PDP": 13100
+      }
+    },
+    "Dan Musa": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 30207,
+        "PDP": 12521
+      }
+    },
+    "Dandume": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 28324,
+        "PDP": 11740
+      }
+    },
+    "Danja": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 28129,
+        "PDP": 11659
+      }
+    },
+    "Daura": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 18616,
+        "PDP": 7716
+      }
+    },
+    "Dutsi": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 15567,
+        "PDP": 6452
+      }
+    },
+    "Dutsin-Ma": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 44536,
+        "PDP": 18460
+      }
+    },
+    "Faskari": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 41342,
+        "PDP": 17136
+      }
+    },
+    "Funtua": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 56676,
+        "PDP": 23492
+      }
+    },
+    "Ingawa": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 30223,
+        "PDP": 12527
+      }
+    },
+    "Jibia": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 37120,
+        "PDP": 15386
+      }
+    },
+    "Kafur": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 47903,
+        "PDP": 19855
+      }
+    },
+    "Kaita": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 36686,
+        "PDP": 15206
+      }
+    },
+    "Kankara": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 51318,
+        "PDP": 21271
+      }
+    },
+    "Kankia": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 29054,
+        "PDP": 12043
+      }
+    },
+    "Katsina": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 93549,
+        "PDP": 38775
+      }
+    },
+    "Kurfi": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 25877,
+        "PDP": 10725
+      }
+    },
+    "Kusada": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 16726,
+        "PDP": 6933
+      }
+    },
+    "Mai'adua": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 24697,
+        "PDP": 10236
+      }
+    },
+    "Malufashi": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Mani": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 44944,
+        "PDP": 18629
+      }
+    },
+    "Mashi": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 44830,
+        "PDP": 18582
+      }
+    },
+    "Matazu": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 22969,
+        "PDP": 9521
+      }
+    },
+    "Musawa": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 25949,
+        "PDP": 10756
+      }
+    },
+    "Rimi": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 44015,
+        "PDP": 18243
+      }
+    },
+    "Sabuwa": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 21240,
+        "PDP": 8803
+      }
+    },
+    "Safana": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 33875,
+        "PDP": 14040
+      }
+    },
+    "Sandamu": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 15010,
+        "PDP": 6221
+      }
+    },
+    "Zango": {
+      "winner": "Aminu Bello Masari",
+      "party": "APC",
+      "votes": {
+        "APC": 23803,
+        "PDP": 9866
+      }
+    }
+  }
+}

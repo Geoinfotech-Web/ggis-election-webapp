@@ -1,0 +1,29 @@
+name: election-dashboard
+
+services:
+  app:
+    build: .
+    container_name: election-dashboard-app
+    ports:
+      - "3010:3010"
+    volumes:
+      - ./data/election-results:/app/data/election-results
+      - ./data/boundaries:/app/data/boundaries
+      - ./data/governorship-history.json:/app/data/governorship-history.json:ro
+      - ./Shapefiles:/app/Shapefiles:ro
+      - ./public:/app/public
+      - ./admin:/app/admin
+      - ./scripts:/app/scripts:ro
+      - ./lga-normalize.js:/app/lga-normalize.js:ro
+      - ./election-results-data.js:/app/election-results-data.js:ro
+      - election-db:/app/data/db
+    environment:
+      PORT: "3010"
+      ELECTION_DB_PATH: /app/data/db/election-dashboard.db
+      ELECTION_RESULTS_DIR: /app/data/election-results
+      BOUNDARIES_DIR: /app/data/boundaries
+      SQLITE_JOURNAL_MODE: DELETE
+    restart: unless-stopped
+
+volumes:
+  election-db:

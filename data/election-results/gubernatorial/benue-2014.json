@@ -1,0 +1,220 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Benue",
+    "level": "lga",
+    "title": "Benue State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2015-04-11",
+    "updated": "2015-04-11",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Samuel Ortom",
+    "party": "APC",
+    "votes": 422582
+  },
+  "candidates": [
+    {
+      "name": "Samuel Ortom",
+      "party": "APC",
+      "votes": 422582
+    },
+    {
+      "name": "Gabriel Suswam",
+      "party": "PDP",
+      "votes": 313867
+    }
+  ],
+  "units": {
+    "Ado": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 9591,
+        "PDP": 7124
+      }
+    },
+    "Agatu": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 9572,
+        "PDP": 7110
+      }
+    },
+    "Apa": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 15458,
+        "PDP": 11481
+      }
+    },
+    "Buruku": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 20083,
+        "PDP": 14917
+      }
+    },
+    "Gboko": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 36071,
+        "PDP": 26792
+      }
+    },
+    "Guma": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 13586,
+        "PDP": 10091
+      }
+    },
+    "Gwer East": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 17069,
+        "PDP": 12678
+      }
+    },
+    "Gwer West": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 9845,
+        "PDP": 7313
+      }
+    },
+    "Katsina-Ala": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 40517,
+        "PDP": 30093
+      }
+    },
+    "Konshisha": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 18885,
+        "PDP": 14027
+      }
+    },
+    "Kwande": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 36878,
+        "PDP": 27390
+      }
+    },
+    "Logo": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 28517,
+        "PDP": 21181
+      }
+    },
+    "Makurdi": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 47736,
+        "PDP": 35456
+      }
+    },
+    "Obi": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 8868,
+        "PDP": 6586
+      }
+    },
+    "Ogbadibo": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 12133,
+        "PDP": 9011
+      }
+    },
+    "Ohimini": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 8916,
+        "PDP": 6622
+      }
+    },
+    "Oju": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 12136,
+        "PDP": 9014
+      }
+    },
+    "Okpokwu": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 13038,
+        "PDP": 9684
+      }
+    },
+    "Otukpo": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Tarka": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 5253,
+        "PDP": 3902
+      }
+    },
+    "Ukum": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 33465,
+        "PDP": 24855
+      }
+    },
+    "Ushongo": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 12239,
+        "PDP": 9090
+      }
+    },
+    "Vandeikya": {
+      "winner": "Samuel Ortom",
+      "party": "APC",
+      "votes": {
+        "APC": 12725,
+        "PDP": 9452
+      }
+    }
+  }
+}

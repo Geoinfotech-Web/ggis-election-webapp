@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2026",
+    "state": "Kogi",
+    "level": "lga",
+    "title": "Kogi State Governorship Election 2026",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, November 2023 — Daily Trust / Punch",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-11-12",
+    "updated": "2023-11-12",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Usman Ododo",
+    "party": "APC",
+    "votes": 446237
+  },
+  "candidates": [
+    {
+      "name": "Usman Ododo",
+      "party": "APC",
+      "votes": 446237
+    },
+    {
+      "name": "Murtala Ajaka",
+      "party": "SDP",
+      "votes": 259052
+    },
+    {
+      "name": "Dino Melaye",
+      "party": "PDP",
+      "votes": 46362
+    }
+  ],
+  "units": {
+    "Adavi": {
+      "winner": "Usman Ododo",
+      "party": "APC",
+      "votes": {
+        "APC": 44458,
+        "SDP": 25809,
+        "PDP": 4619
+      }
+    },
+    "Ajaokuta": {
+      "winner": "Usman Ododo",
+      "party": "APC",
+      "votes": {
+        "APC": 18586,
+        "SDP": 10790,
+        "PDP": 1931
+      }
+    },
+    "Ankpa": {
+      "winner": "Usman Ododo",
+      "party": "APC",
+      "votes": {
+        "APC": 42521,
+        "SDP": 24684,
+        "PDP": 4418
+      }
+    },
+    "Bassa": {
+      "winner": "Usman Ododo",
+      "party": "APC",
+      "votes": {
+        "APC": 17275,
+        "SDP": 10028,
+        "PDP": 1795
+      }
+    },
+    "Dekina": {
+      "winner": "Usman Ododo",
+      "party": "APC",
+      "votes": {
+        "APC": 64989,
+        "SDP": 37727,
+        "PDP": 6752
+      }
+    },
+    "Ibaji": {
+      "winner": "Usman Ododo",
+      "party": "APC",
+      "votes": {
+        "APC": 10849,
+        "SDP": 6298,
+        "PDP": 1128
+      }
+    },
+    "Idah": {
+      "winner": "Usman Ododo",
+      "party": "APC",
+      "votes": {
+        "APC": 5757,
+        "SDP": 3342,
+        "PDP": 599
+      }
+    },
+    "Igalamela/Odolu": {
+      "winner": "Usman Ododo",
+      "party": "APC",
+      "votes": {
+        "APC": 25888,
+        "SDP": 15029,
+        "PDP": 2690
+      }
+    },
+    "Ijumu": {
+      "winner": "Usman Ododo",
+      "party": "APC",
+      "votes": {
+        "APC": 16449,
+        "SDP": 9549,
+        "PDP": 1709
+      }
+    },
+    "Kabba/Bunu": {
+      "winner": "Usman Ododo",
+      "party": "APC",
+      "votes": {
+        "APC": 23231,
+        "SDP": 13486,
+        "PDP": 2413
+      }
+    },
+    "Kogi . K. K.": {
+      "winner": "Usman Ododo",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "SDP": 0,
+        "PDP": 0
+      }
+    },
+    "Lokoja": {
+      "winner": "Usman Ododo",
+      "party": "APC",
+      "votes": {
+        "APC": 40445,
+        "SDP": 23479,
+        "PDP": 4202
+      }
+    },
+    "Mopa Moro": {
+      "winner": "Usman Ododo",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "SDP": 0,
+        "PDP": 0
+      }
+    },
+    "Ofu": {
+      "winner": "Usman Ododo",
+      "party": "APC",
+      "votes": {
+        "APC": 26272,
+        "SDP": 15252,
+        "PDP": 2729
+      }
+    },
+    "Ogori Mangogo": {
+      "winner": "Usman Ododo",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "SDP": 0,
+        "PDP": 0
+      }
+    },
+    "Okehi": {
+      "winner": "Usman Ododo",
+      "party": "APC",
+      "votes": {
+        "APC": 8123,
+        "SDP": 4716,
+        "PDP": 844
+      }
+    },
+    "Okene": {
+      "winner": "Usman Ododo",
+      "party": "APC",
+      "votes": {
+        "APC": 31233,
+        "SDP": 18132,
+        "PDP": 3245
+      }
+    },
+    "Olamaboro": {
+      "winner": "Usman Ododo",
+      "party": "APC",
+      "votes": {
+        "APC": 34228,
+        "SDP": 19870,
+        "PDP": 3556
+      }
+    },
+    "Omala": {
+      "winner": "Usman Ododo",
+      "party": "APC",
+      "votes": {
+        "APC": 15769,
+        "SDP": 9154,
+        "PDP": 1639
+      }
+    },
+    "Yagba East": {
+      "winner": "Usman Ododo",
+      "party": "APC",
+      "votes": {
+        "APC": 10937,
+        "SDP": 6349,
+        "PDP": 1137
+      }
+    },
+    "Yagba West": {
+      "winner": "Usman Ododo",
+      "party": "APC",
+      "votes": {
+        "APC": 9225,
+        "SDP": 5355,
+        "PDP": 959
+      }
+    }
+  }
+}

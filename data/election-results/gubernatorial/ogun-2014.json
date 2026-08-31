@@ -1,0 +1,196 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Ogun",
+    "level": "lga",
+    "title": "Ogun State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2015-04-11",
+    "updated": "2015-04-11",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Ibikunle Amosun",
+    "party": "APC",
+    "votes": 306988
+  },
+  "candidates": [
+    {
+      "name": "Ibikunle Amosun",
+      "party": "APC",
+      "votes": 306988
+    },
+    {
+      "name": "Gboyega Nasir Isiaka",
+      "party": "PDP",
+      "votes": 201440
+    }
+  ],
+  "units": {
+    "Abeokuta North": {
+      "winner": "Ibikunle Amosun",
+      "party": "APC",
+      "votes": {
+        "APC": 18458,
+        "PDP": 12112
+      }
+    },
+    "Abeokuta South": {
+      "winner": "Ibikunle Amosun",
+      "party": "APC",
+      "votes": {
+        "APC": 16193,
+        "PDP": 10626
+      }
+    },
+    "Ado Odo-Ota": {
+      "winner": "Ibikunle Amosun",
+      "party": "APC",
+      "votes": {
+        "APC": 83830,
+        "PDP": 55007
+      }
+    },
+    "Egbado North": {
+      "winner": "Ibikunle Amosun",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Egbado South": {
+      "winner": "Ibikunle Amosun",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Ewekoro": {
+      "winner": "Ibikunle Amosun",
+      "party": "APC",
+      "votes": {
+        "APC": 6239,
+        "PDP": 4094
+      }
+    },
+    "Ifo": {
+      "winner": "Ibikunle Amosun",
+      "party": "APC",
+      "votes": {
+        "APC": 65401,
+        "PDP": 42915
+      }
+    },
+    "Ijebu East": {
+      "winner": "Ibikunle Amosun",
+      "party": "APC",
+      "votes": {
+        "APC": 9651,
+        "PDP": 6332
+      }
+    },
+    "Ijebu North": {
+      "winner": "Ibikunle Amosun",
+      "party": "APC",
+      "votes": {
+        "APC": 12460,
+        "PDP": 8176
+      }
+    },
+    "Ijebu North East": {
+      "winner": "Ibikunle Amosun",
+      "party": "APC",
+      "votes": {
+        "APC": 2729,
+        "PDP": 1791
+      }
+    },
+    "Ijebu Ode": {
+      "winner": "Ibikunle Amosun",
+      "party": "APC",
+      "votes": {
+        "APC": 10627,
+        "PDP": 6973
+      }
+    },
+    "Ikenne": {
+      "winner": "Ibikunle Amosun",
+      "party": "APC",
+      "votes": {
+        "APC": 6193,
+        "PDP": 4064
+      }
+    },
+    "Imeko/Afon": {
+      "winner": "Ibikunle Amosun",
+      "party": "APC",
+      "votes": {
+        "APC": 4788,
+        "PDP": 3142
+      }
+    },
+    "Ipokia": {
+      "winner": "Ibikunle Amosun",
+      "party": "APC",
+      "votes": {
+        "APC": 8193,
+        "PDP": 5376
+      }
+    },
+    "Obafemi/Owode": {
+      "winner": "Ibikunle Amosun",
+      "party": "APC",
+      "votes": {
+        "APC": 35469,
+        "PDP": 23274
+      }
+    },
+    "Odeda": {
+      "winner": "Ibikunle Amosun",
+      "party": "APC",
+      "votes": {
+        "APC": 11770,
+        "PDP": 7723
+      }
+    },
+    "Odogbolu": {
+      "winner": "Ibikunle Amosun",
+      "party": "APC",
+      "votes": {
+        "APC": 9894,
+        "PDP": 6492
+      }
+    },
+    "Ogun Water Side": {
+      "winner": "Ibikunle Amosun",
+      "party": "APC",
+      "votes": {
+        "APC": 2327,
+        "PDP": 1527
+      }
+    },
+    "Remo North": {
+      "winner": "Ibikunle Amosun",
+      "party": "APC",
+      "votes": {
+        "APC": 2766,
+        "PDP": 1815
+      }
+    },
+    "Sagamu": {
+      "winner": "Ibikunle Amosun",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    }
+  }
+}

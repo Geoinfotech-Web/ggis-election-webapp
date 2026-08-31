@@ -1,0 +1,194 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2018",
+    "state": "Enugu",
+    "level": "lga",
+    "title": "Enugu State Governorship Election 2018",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2019 — INEC / Wikipedia",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2019-03-09",
+    "updated": "2019-03-09",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Ifeanyi Ugwuanyi",
+    "party": "PDP",
+    "votes": 449935
+  },
+  "candidates": [
+    {
+      "name": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": 449935
+    },
+    {
+      "name": "Ayogu Eze",
+      "party": "APC",
+      "votes": 10423
+    },
+    {
+      "name": "Nwankpa Emmanuel Benedict",
+      "party": "APGA",
+      "votes": 2547
+    }
+  ],
+  "units": {
+    "Aninri": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16874,
+        "APC": 391,
+        "APGA": 95
+      }
+    },
+    "Awgu": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 23782,
+        "APC": 551,
+        "APGA": 135
+      }
+    },
+    "Enugu East": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 51762,
+        "APC": 1199,
+        "APGA": 293
+      }
+    },
+    "Enugu North": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 41791,
+        "APC": 968,
+        "APGA": 237
+      }
+    },
+    "Enugu South": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 32066,
+        "APC": 743,
+        "APGA": 181
+      }
+    },
+    "Ezeagu": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 28328,
+        "APC": 656,
+        "APGA": 161
+      }
+    },
+    "Igbo Etiti": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 17830,
+        "APC": 413,
+        "APGA": 101
+      }
+    },
+    "Igbo Eze North": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 17143,
+        "APC": 397,
+        "APGA": 97
+      }
+    },
+    "Igbo Eze South": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 15350,
+        "APC": 356,
+        "APGA": 86
+      }
+    },
+    "Isi Uzo": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 17596,
+        "APC": 408,
+        "APGA": 99
+      }
+    },
+    "Nkanu East": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 20534,
+        "APC": 476,
+        "APGA": 116
+      }
+    },
+    "Nkanu West": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 15247,
+        "APC": 353,
+        "APGA": 87
+      }
+    },
+    "Nsukka": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 58452,
+        "APC": 1354,
+        "APGA": 331
+      }
+    },
+    "Oji-River": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 14039,
+        "APC": 325,
+        "APGA": 80
+      }
+    },
+    "Udenu": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 22390,
+        "APC": 519,
+        "APGA": 126
+      }
+    },
+    "Udi": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 42142,
+        "APC": 976,
+        "APGA": 239
+      }
+    },
+    "Uzo-Uwani": {
+      "winner": "Ifeanyi Ugwuanyi",
+      "party": "PDP",
+      "votes": {
+        "PDP": 14609,
+        "APC": 338,
+        "APGA": 83
+      }
+    }
+  }
+}

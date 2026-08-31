@@ -1,0 +1,284 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2026",
+    "state": "Imo",
+    "level": "lga",
+    "title": "Imo State Governorship Election 2026",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, November 2023 — Daily Trust / Punch",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-11-12",
+    "updated": "2023-11-12",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Hope Uzodimma",
+    "party": "APC",
+    "votes": 540308
+  },
+  "candidates": [
+    {
+      "name": "Hope Uzodimma",
+      "party": "APC",
+      "votes": 540308
+    },
+    {
+      "name": "Samuel Anyanwu",
+      "party": "PDP",
+      "votes": 71503
+    },
+    {
+      "name": "Athan Achonu",
+      "party": "LP",
+      "votes": 64081
+    }
+  ],
+  "units": {
+    "Aboh Mbaise": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 24311,
+        "PDP": 3217,
+        "LP": 2884
+      }
+    },
+    "Ahiazu Mbaise": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 20325,
+        "PDP": 2690,
+        "LP": 2410
+      }
+    },
+    "Ehime Mbano": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 19574,
+        "PDP": 2590,
+        "LP": 2322
+      }
+    },
+    "Ezinihitte Mbaise": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0,
+        "LP": 0
+      }
+    },
+    "Ideato North": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 33089,
+        "PDP": 4379,
+        "LP": 3924
+      }
+    },
+    "Ideato South": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 11072,
+        "PDP": 1465,
+        "LP": 1313
+      }
+    },
+    "Ihitte/Uboma": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 11155,
+        "PDP": 1476,
+        "LP": 1323
+      }
+    },
+    "Ikeduru": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 30340,
+        "PDP": 4015,
+        "LP": 3598
+      }
+    },
+    "Isiala Mbano": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 38152,
+        "PDP": 5049,
+        "LP": 4525
+      }
+    },
+    "Isu": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 14000,
+        "PDP": 1853,
+        "LP": 1660
+      }
+    },
+    "Mbaitoli": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0,
+        "LP": 0
+      }
+    },
+    "Ngor Okpala": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 23101,
+        "PDP": 3057,
+        "LP": 2740
+      }
+    },
+    "Njaba": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 21003,
+        "PDP": 2780,
+        "LP": 2491
+      }
+    },
+    "Nkwerre": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 9495,
+        "PDP": 1257,
+        "LP": 1126
+      }
+    },
+    "Nwangele": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 19242,
+        "PDP": 2546,
+        "LP": 2282
+      }
+    },
+    "Obowo": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 18034,
+        "PDP": 2387,
+        "LP": 2138
+      }
+    },
+    "Oguta": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 11547,
+        "PDP": 1528,
+        "LP": 1370
+      }
+    },
+    "Ohaji/Egbema": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 27315,
+        "PDP": 3615,
+        "LP": 3239
+      }
+    },
+    "Okigwe": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 18851,
+        "PDP": 2495,
+        "LP": 2236
+      }
+    },
+    "Onuimo": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 10910,
+        "PDP": 1444,
+        "LP": 1294
+      }
+    },
+    "Orlu": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 32783,
+        "PDP": 4338,
+        "LP": 3888
+      }
+    },
+    "Orsu": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 18311,
+        "PDP": 2423,
+        "LP": 2172
+      }
+    },
+    "Oru West": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 20176,
+        "PDP": 2670,
+        "LP": 2393
+      }
+    },
+    "Oru-East": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 22541,
+        "PDP": 2983,
+        "LP": 2673
+      }
+    },
+    "Owerri Municipal": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 22835,
+        "PDP": 3022,
+        "LP": 2708
+      }
+    },
+    "Owerri North": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 32572,
+        "PDP": 4311,
+        "LP": 3863
+      }
+    },
+    "Owerri West": {
+      "winner": "Hope Uzodimma",
+      "party": "APC",
+      "votes": {
+        "APC": 29574,
+        "PDP": 3914,
+        "LP": 3507
+      }
+    }
+  }
+}

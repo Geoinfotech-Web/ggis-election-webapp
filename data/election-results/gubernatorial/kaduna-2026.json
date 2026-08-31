@@ -1,0 +1,248 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2026",
+    "state": "Kaduna",
+    "level": "lga",
+    "title": "Kaduna State Governorship Election 2026",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Uba Sani",
+    "party": "APC",
+    "votes": 730002
+  },
+  "candidates": [
+    {
+      "name": "Uba Sani",
+      "party": "APC",
+      "votes": 730002
+    },
+    {
+      "name": "Isah Ashiru",
+      "party": "PDP",
+      "votes": 719196
+    },
+    {
+      "name": "Jonathan Asake",
+      "party": "LP",
+      "votes": 58283
+    }
+  ],
+  "units": {
+    "Birnin Gwari": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 37182,
+        "PDP": 36632,
+        "LP": 2968
+      }
+    },
+    "Chikun": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 59527,
+        "PDP": 58646,
+        "LP": 4752
+      }
+    },
+    "Giwa": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 32002,
+        "PDP": 31529,
+        "LP": 2555
+      }
+    },
+    "Igabi": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 69944,
+        "PDP": 68909,
+        "LP": 5584
+      }
+    },
+    "Ikara": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 29203,
+        "PDP": 28771,
+        "LP": 2331
+      }
+    },
+    "Jaba": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 13300,
+        "PDP": 13103,
+        "LP": 1062
+      }
+    },
+    "Jema'a": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 21869,
+        "PDP": 21545,
+        "LP": 1746
+      }
+    },
+    "Kachia": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 28663,
+        "PDP": 28239,
+        "LP": 2289
+      }
+    },
+    "Kaduna North": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 26497,
+        "PDP": 26105,
+        "LP": 2115
+      }
+    },
+    "Kaduna South": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 25838,
+        "PDP": 25456,
+        "LP": 2063
+      }
+    },
+    "Kagarko": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 25964,
+        "PDP": 25579,
+        "LP": 2073
+      }
+    },
+    "Kajuru": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 15554,
+        "PDP": 15324,
+        "LP": 1242
+      }
+    },
+    "Kaura": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 14125,
+        "PDP": 13916,
+        "LP": 1127
+      }
+    },
+    "Kauru": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 28478,
+        "PDP": 28057,
+        "LP": 2274
+      }
+    },
+    "Kubau": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 44108,
+        "PDP": 43455,
+        "LP": 3522
+      }
+    },
+    "Kudan": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 13789,
+        "PDP": 13585,
+        "LP": 1101
+      }
+    },
+    "Lere": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 47081,
+        "PDP": 46385,
+        "LP": 3759
+      }
+    },
+    "Makarfi": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 27237,
+        "PDP": 26834,
+        "LP": 2175
+      }
+    },
+    "Sabon Gari": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 27136,
+        "PDP": 26734,
+        "LP": 2167
+      }
+    },
+    "Sanga": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 18128,
+        "PDP": 17860,
+        "LP": 1447
+      }
+    },
+    "Soba": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 45942,
+        "PDP": 45261,
+        "LP": 3668
+      }
+    },
+    "Zangon Kataf": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 30539,
+        "PDP": 30087,
+        "LP": 2439
+      }
+    },
+    "Zaria": {
+      "winner": "Uba Sani",
+      "party": "APC",
+      "votes": {
+        "APC": 47895,
+        "PDP": 47186,
+        "LP": 3824
+      }
+    }
+  }
+}

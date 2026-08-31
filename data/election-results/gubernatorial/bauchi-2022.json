@@ -1,0 +1,221 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2022",
+    "state": "Bauchi",
+    "level": "lga",
+    "title": "Bauchi State Governorship Election 2022",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Bala Mohammed",
+    "party": "PDP",
+    "votes": 525280
+  },
+  "candidates": [
+    {
+      "name": "Bala Mohammed",
+      "party": "PDP",
+      "votes": 525280
+    },
+    {
+      "name": "Sadique Abubakar",
+      "party": "APC",
+      "votes": 432275
+    },
+    {
+      "name": "Halliru Dauda Jika",
+      "party": "NNPP",
+      "votes": 60496
+    }
+  ],
+  "units": {
+    "Alkaleri": {
+      "winner": "Bala Mohammed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 30792,
+        "APC": 25340,
+        "NNPP": 3547
+      }
+    },
+    "Bauchi": {
+      "winner": "Bala Mohammed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 94055,
+        "APC": 77402,
+        "NNPP": 10832
+      }
+    },
+    "Bogoro": {
+      "winner": "Bala Mohammed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6242,
+        "APC": 5137,
+        "NNPP": 718
+      }
+    },
+    "Dambam": {
+      "winner": "Bala Mohammed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 15894,
+        "APC": 13080,
+        "NNPP": 1830
+      }
+    },
+    "Darazo": {
+      "winner": "Bala Mohammed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 31832,
+        "APC": 26196,
+        "NNPP": 3666
+      }
+    },
+    "Dass": {
+      "winner": "Bala Mohammed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5845,
+        "APC": 4810,
+        "NNPP": 674
+      }
+    },
+    "Gamawa": {
+      "winner": "Bala Mohammed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 27563,
+        "APC": 22683,
+        "NNPP": 3175
+      }
+    },
+    "Ganjuwa": {
+      "winner": "Bala Mohammed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 41899,
+        "APC": 34480,
+        "NNPP": 4825
+      }
+    },
+    "Giade": {
+      "winner": "Bala Mohammed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16511,
+        "APC": 13588,
+        "NNPP": 1901
+      }
+    },
+    "Itas/Gadau": {
+      "winner": "Bala Mohammed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 22913,
+        "APC": 18856,
+        "NNPP": 2639
+      }
+    },
+    "Jama'are": {
+      "winner": "Bala Mohammed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6665,
+        "APC": 5485,
+        "NNPP": 767
+      }
+    },
+    "Katagum": {
+      "winner": "Bala Mohammed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 43272,
+        "APC": 35610,
+        "NNPP": 4984
+      }
+    },
+    "Kirfi": {
+      "winner": "Bala Mohammed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 14440,
+        "APC": 11884,
+        "NNPP": 1663
+      }
+    },
+    "Misau": {
+      "winner": "Bala Mohammed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 21604,
+        "APC": 17778,
+        "NNPP": 2488
+      }
+    },
+    "Ningi": {
+      "winner": "Bala Mohammed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 34205,
+        "APC": 28149,
+        "NNPP": 3939
+      }
+    },
+    "Shira": {
+      "winner": "Bala Mohammed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 25626,
+        "APC": 21089,
+        "NNPP": 2952
+      }
+    },
+    "Tafawa Balewa": {
+      "winner": "Bala Mohammed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 19055,
+        "APC": 15681,
+        "NNPP": 2194
+      }
+    },
+    "Toro": {
+      "winner": "Bala Mohammed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 36334,
+        "APC": 29901,
+        "NNPP": 4184
+      }
+    },
+    "Warji": {
+      "winner": "Bala Mohammed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 8566,
+        "APC": 7049,
+        "NNPP": 986
+      }
+    },
+    "Zaki": {
+      "winner": "Bala Mohammed",
+      "party": "PDP",
+      "votes": {
+        "PDP": 21968,
+        "APC": 18078,
+        "NNPP": 2530
+      }
+    }
+  }
+}

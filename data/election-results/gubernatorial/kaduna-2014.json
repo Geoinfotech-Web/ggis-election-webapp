@@ -1,0 +1,220 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Kaduna",
+    "level": "lga",
+    "title": "Kaduna State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2015-04-11",
+    "updated": "2015-04-11",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Nasir el-Rufai",
+    "party": "APC",
+    "votes": 1117635
+  },
+  "candidates": [
+    {
+      "name": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": 1117635
+    },
+    {
+      "name": "Mukhtar Ramalan Yero",
+      "party": "PDP",
+      "votes": 485833
+    }
+  ],
+  "units": {
+    "Birnin Gwari": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 56926,
+        "PDP": 24745
+      }
+    },
+    "Chikun": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 91136,
+        "PDP": 39616
+      }
+    },
+    "Giwa": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 48996,
+        "PDP": 21298
+      }
+    },
+    "Igabi": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 107085,
+        "PDP": 46549
+      }
+    },
+    "Ikara": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 44709,
+        "PDP": 19435
+      }
+    },
+    "Jaba": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 20362,
+        "PDP": 8852
+      }
+    },
+    "Jema'a": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 33481,
+        "PDP": 14554
+      }
+    },
+    "Kachia": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 43884,
+        "PDP": 19076
+      }
+    },
+    "Kaduna North": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 40567,
+        "PDP": 17634
+      }
+    },
+    "Kaduna South": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 39558,
+        "PDP": 17196
+      }
+    },
+    "Kagarko": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 39751,
+        "PDP": 17279
+      }
+    },
+    "Kajuru": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 23813,
+        "PDP": 10352
+      }
+    },
+    "Kaura": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 21625,
+        "PDP": 9401
+      }
+    },
+    "Kauru": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 43600,
+        "PDP": 18953
+      }
+    },
+    "Kubau": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 67529,
+        "PDP": 29355
+      }
+    },
+    "Kudan": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 21111,
+        "PDP": 9177
+      }
+    },
+    "Lere": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 72082,
+        "PDP": 31334
+      }
+    },
+    "Makarfi": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 41701,
+        "PDP": 18127
+      }
+    },
+    "Sabon Gari": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 41545,
+        "PDP": 18060
+      }
+    },
+    "Sanga": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 27754,
+        "PDP": 12065
+      }
+    },
+    "Soba": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 70337,
+        "PDP": 30575
+      }
+    },
+    "Zangon Kataf": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 46756,
+        "PDP": 20325
+      }
+    },
+    "Zaria": {
+      "winner": "Nasir el-Rufai",
+      "party": "APC",
+      "votes": {
+        "APC": 73328,
+        "PDP": 31875
+      }
+    }
+  }
+}

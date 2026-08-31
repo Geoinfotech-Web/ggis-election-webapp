@@ -1,0 +1,220 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2026",
+    "state": "Sokoto",
+    "level": "lga",
+    "title": "Sokoto State Governorship Election 2026",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Ahmad Aliyu",
+    "party": "APC",
+    "votes": 453661
+  },
+  "candidates": [
+    {
+      "name": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": 453661
+    },
+    {
+      "name": "Saidu Umar",
+      "party": "PDP",
+      "votes": 404632
+    }
+  ],
+  "units": {
+    "Binji": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 8583,
+        "PDP": 7655
+      }
+    },
+    "Bodinga": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 32530,
+        "PDP": 29014
+      }
+    },
+    "Dange/Shuni": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 40804,
+        "PDP": 36395
+      }
+    },
+    "Gada": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 31511,
+        "PDP": 28105
+      }
+    },
+    "Goronyo": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 18243,
+        "PDP": 16272
+      }
+    },
+    "Gudu": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 12523,
+        "PDP": 11170
+      }
+    },
+    "Gwadabawa": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 22570,
+        "PDP": 20130
+      }
+    },
+    "Illela": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 22858,
+        "PDP": 20388
+      }
+    },
+    "Isa": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 16242,
+        "PDP": 14487
+      }
+    },
+    "Kebbe": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 7600,
+        "PDP": 6779
+      }
+    },
+    "Kware": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 21591,
+        "PDP": 19258
+      }
+    },
+    "Rabah": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 14189,
+        "PDP": 12655
+      }
+    },
+    "S/Birni": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Shagari": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 17068,
+        "PDP": 15223
+      }
+    },
+    "Silame": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 8915,
+        "PDP": 7952
+      }
+    },
+    "Sokoto North": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 24162,
+        "PDP": 21551
+      }
+    },
+    "Sokoto South": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 34350,
+        "PDP": 30637
+      }
+    },
+    "Tambuwal": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 23697,
+        "PDP": 21136
+      }
+    },
+    "Tangaza": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 14353,
+        "PDP": 12801
+      }
+    },
+    "Tureta": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 8317,
+        "PDP": 7419
+      }
+    },
+    "Wamakko": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 47037,
+        "PDP": 41953
+      }
+    },
+    "Wurno": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 15851,
+        "PDP": 14137
+      }
+    },
+    "Yabo": {
+      "winner": "Ahmad Aliyu",
+      "party": "APC",
+      "votes": {
+        "APC": 10667,
+        "PDP": 9514
+      }
+    }
+  }
+}

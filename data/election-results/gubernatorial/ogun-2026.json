@@ -1,0 +1,221 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2026",
+    "state": "Ogun",
+    "level": "lga",
+    "title": "Ogun State Governorship Election 2026",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Dapo Abiodun",
+    "party": "APC",
+    "votes": 276298
+  },
+  "candidates": [
+    {
+      "name": "Dapo Abiodun",
+      "party": "APC",
+      "votes": 276298
+    },
+    {
+      "name": "Oladipupo Adebutu",
+      "party": "PDP",
+      "votes": 262383
+    },
+    {
+      "name": "Olubiyi Otegbeye",
+      "party": "ADC",
+      "votes": 94754
+    }
+  ],
+  "units": {
+    "Abeokuta North": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 16613,
+        "PDP": 15776,
+        "ADC": 5697
+      }
+    },
+    "Abeokuta South": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 14574,
+        "PDP": 13840,
+        "ADC": 4999
+      }
+    },
+    "Ado Odo-Ota": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 75449,
+        "PDP": 71649,
+        "ADC": 25875
+      }
+    },
+    "Egbado North": {
+      "winner": "Olubiyi Otegbeye",
+      "party": "ADC",
+      "votes": {
+        "APC": 0,
+        "PDP": 0,
+        "ADC": 1
+      }
+    },
+    "Egbado South": {
+      "winner": "Olubiyi Otegbeye",
+      "party": "ADC",
+      "votes": {
+        "APC": 0,
+        "PDP": 0,
+        "ADC": 1
+      }
+    },
+    "Ewekoro": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 5616,
+        "PDP": 5333,
+        "ADC": 1925
+      }
+    },
+    "Ifo": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 58863,
+        "PDP": 55898,
+        "ADC": 20186
+      }
+    },
+    "Ijebu East": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 8685,
+        "PDP": 8248,
+        "ADC": 2979
+      }
+    },
+    "Ijebu North": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 11214,
+        "PDP": 10650,
+        "ADC": 3846
+      }
+    },
+    "Ijebu North East": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 2456,
+        "PDP": 2332,
+        "ADC": 843
+      }
+    },
+    "Ijebu Ode": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 9565,
+        "PDP": 9083,
+        "ADC": 3280
+      }
+    },
+    "Ikenne": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 5574,
+        "PDP": 5293,
+        "ADC": 1912
+      }
+    },
+    "Imeko/Afon": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 4309,
+        "PDP": 4092,
+        "ADC": 1478
+      }
+    },
+    "Ipokia": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 7374,
+        "PDP": 7003,
+        "ADC": 2529
+      }
+    },
+    "Obafemi/Owode": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 31923,
+        "PDP": 30316,
+        "ADC": 10948
+      }
+    },
+    "Odeda": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 10593,
+        "PDP": 10060,
+        "ADC": 3633
+      }
+    },
+    "Odogbolu": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 8905,
+        "PDP": 8456,
+        "ADC": 3054
+      }
+    },
+    "Ogun Water Side": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 2095,
+        "PDP": 1989,
+        "ADC": 718
+      }
+    },
+    "Remo North": {
+      "winner": "Dapo Abiodun",
+      "party": "APC",
+      "votes": {
+        "APC": 2489,
+        "PDP": 2364,
+        "ADC": 854
+      }
+    },
+    "Sagamu": {
+      "winner": "Olubiyi Otegbeye",
+      "party": "ADC",
+      "votes": {
+        "APC": 0,
+        "PDP": 0,
+        "ADC": 1
+      }
+    }
+  }
+}

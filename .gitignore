@@ -1,0 +1,26 @@
+# dependencies
+node_modules/
+
+# environments
+.venv/
+.env
+.tools
+
+# secrets — DO NOT COMMIT
+credentials.json
+client_secret_*.json
+token.json
+admin-settings.json
+
+# logs
+server.err.log
+server.out.log
+server.log
+
+# large binary/data
+NGA_adm.zip
+data/election-dashboard.db
+data/election-dashboard.db-shm
+data/election-dashboard.db-wal
+data/boundaries/uploads/**/*.zip
+*.kmz

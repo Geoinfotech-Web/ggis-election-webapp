@@ -1,0 +1,220 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2022",
+    "state": "Benue",
+    "level": "lga",
+    "title": "Benue State Governorship Election 2022",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2023 — THISDAYLIVE / BBC Pidgin",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2023-03-20",
+    "updated": "2023-03-20",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Hyacinth Alia",
+    "party": "APC",
+    "votes": 473933
+  },
+  "candidates": [
+    {
+      "name": "Hyacinth Alia",
+      "party": "APC",
+      "votes": 473933
+    },
+    {
+      "name": "Titus Uba",
+      "party": "PDP",
+      "votes": 223913
+    }
+  ],
+  "units": {
+    "Ado": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 10757,
+        "PDP": 5082
+      }
+    },
+    "Agatu": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 10735,
+        "PDP": 5072
+      }
+    },
+    "Apa": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 17336,
+        "PDP": 8191
+      }
+    },
+    "Buruku": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 22524,
+        "PDP": 10641
+      }
+    },
+    "Gboko": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 40454,
+        "PDP": 19113
+      }
+    },
+    "Guma": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 15237,
+        "PDP": 7199
+      }
+    },
+    "Gwer East": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 19144,
+        "PDP": 9044
+      }
+    },
+    "Gwer West": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 11041,
+        "PDP": 5217
+      }
+    },
+    "Katsina-Ala": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 45440,
+        "PDP": 21468
+      }
+    },
+    "Konshisha": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 21180,
+        "PDP": 10007
+      }
+    },
+    "Kwande": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 41359,
+        "PDP": 19540
+      }
+    },
+    "Logo": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 31983,
+        "PDP": 15110
+      }
+    },
+    "Makurdi": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 53537,
+        "PDP": 25294
+      }
+    },
+    "Obi": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 9945,
+        "PDP": 4699
+      }
+    },
+    "Ogbadibo": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 13607,
+        "PDP": 6429
+      }
+    },
+    "Ohimini": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 9999,
+        "PDP": 4724
+      }
+    },
+    "Oju": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 13611,
+        "PDP": 6430
+      }
+    },
+    "Okpokwu": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 14622,
+        "PDP": 6909
+      }
+    },
+    "Otukpo": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Tarka": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 5892,
+        "PDP": 2783
+      }
+    },
+    "Ukum": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 37531,
+        "PDP": 17732
+      }
+    },
+    "Ushongo": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 13726,
+        "PDP": 6485
+      }
+    },
+    "Vandeikya": {
+      "winner": "Hyacinth Alia",
+      "party": "APC",
+      "votes": {
+        "APC": 14272,
+        "PDP": 6743
+      }
+    }
+  }
+}

@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2026",
+    "state": "Anambra",
+    "level": "lga",
+    "title": "Anambra State Governorship Election 2026",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, November 2021 — THISDAYLIVE / Guardian",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2021-11-10",
+    "updated": "2021-11-10",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Charles Soludo",
+    "party": "APGA",
+    "votes": 112229
+  },
+  "candidates": [
+    {
+      "name": "Charles Soludo",
+      "party": "APGA",
+      "votes": 112229
+    },
+    {
+      "name": "Valentine Ozigbo",
+      "party": "PDP",
+      "votes": 53807
+    },
+    {
+      "name": "Andy Uba",
+      "party": "APC",
+      "votes": 43285
+    }
+  ],
+  "units": {
+    "Aguata": {
+      "winner": "Charles Soludo",
+      "party": "APGA",
+      "votes": {
+        "APGA": 12661,
+        "PDP": 6070,
+        "APC": 4883
+      }
+    },
+    "Anambra East": {
+      "winner": "Charles Soludo",
+      "party": "APGA",
+      "votes": {
+        "APGA": 2984,
+        "PDP": 1431,
+        "APC": 1151
+      }
+    },
+    "Anambra West": {
+      "winner": "Charles Soludo",
+      "party": "APGA",
+      "votes": {
+        "APGA": 797,
+        "PDP": 382,
+        "APC": 307
+      }
+    },
+    "Anaocha": {
+      "winner": "Charles Soludo",
+      "party": "APGA",
+      "votes": {
+        "APGA": 4759,
+        "PDP": 2282,
+        "APC": 1835
+      }
+    },
+    "Awka North": {
+      "winner": "Charles Soludo",
+      "party": "APGA",
+      "votes": {
+        "APGA": 1892,
+        "PDP": 907,
+        "APC": 730
+      }
+    },
+    "Awka South": {
+      "winner": "Charles Soludo",
+      "party": "APGA",
+      "votes": {
+        "APGA": 7046,
+        "PDP": 3378,
+        "APC": 2717
+      }
+    },
+    "Ayamelum": {
+      "winner": "Charles Soludo",
+      "party": "APGA",
+      "votes": {
+        "APGA": 2191,
+        "PDP": 1051,
+        "APC": 845
+      }
+    },
+    "Dunukofia": {
+      "winner": "Charles Soludo",
+      "party": "APGA",
+      "votes": {
+        "APGA": 2228,
+        "PDP": 1068,
+        "APC": 859
+      }
+    },
+    "Ekwusigo": {
+      "winner": "Charles Soludo",
+      "party": "APGA",
+      "votes": {
+        "APGA": 7169,
+        "PDP": 3437,
+        "APC": 2766
+      }
+    },
+    "Idemili North": {
+      "winner": "Charles Soludo",
+      "party": "APGA",
+      "votes": {
+        "APGA": 16684,
+        "PDP": 7999,
+        "APC": 6435
+      }
+    },
+    "Idemili-South": {
+      "winner": "Charles Soludo",
+      "party": "APGA",
+      "votes": {
+        "APGA": 7012,
+        "PDP": 3362,
+        "APC": 2704
+      }
+    },
+    "Ihala": {
+      "winner": "Charles Soludo",
+      "party": "APGA",
+      "votes": {
+        "APGA": 1,
+        "PDP": 0,
+        "APC": 0
+      }
+    },
+    "Njikoka": {
+      "winner": "Charles Soludo",
+      "party": "APGA",
+      "votes": {
+        "APGA": 5571,
+        "PDP": 2671,
+        "APC": 2148
+      }
+    },
+    "Nnewi North": {
+      "winner": "Charles Soludo",
+      "party": "APGA",
+      "votes": {
+        "APGA": 6411,
+        "PDP": 3074,
+        "APC": 2472
+      }
+    },
+    "Nnewi South": {
+      "winner": "Charles Soludo",
+      "party": "APGA",
+      "votes": {
+        "APGA": 6168,
+        "PDP": 2957,
+        "APC": 2380
+      }
+    },
+    "Ogbaru": {
+      "winner": "Charles Soludo",
+      "party": "APGA",
+      "votes": {
+        "APGA": 4643,
+        "PDP": 2226,
+        "APC": 1791
+      }
+    },
+    "Onitsha -South": {
+      "winner": "Charles Soludo",
+      "party": "APGA",
+      "votes": {
+        "APGA": 2456,
+        "PDP": 1177,
+        "APC": 947
+      }
+    },
+    "Onitsha-North": {
+      "winner": "Charles Soludo",
+      "party": "APGA",
+      "votes": {
+        "APGA": 5862,
+        "PDP": 2811,
+        "APC": 2261
+      }
+    },
+    "Orumba North": {
+      "winner": "Charles Soludo",
+      "party": "APGA",
+      "votes": {
+        "APGA": 3397,
+        "PDP": 1628,
+        "APC": 1310
+      }
+    },
+    "Orumba South": {
+      "winner": "Charles Soludo",
+      "party": "APGA",
+      "votes": {
+        "APGA": 4923,
+        "PDP": 2360,
+        "APC": 1899
+      }
+    },
+    "Oyi": {
+      "winner": "Charles Soludo",
+      "party": "APGA",
+      "votes": {
+        "APGA": 7374,
+        "PDP": 3536,
+        "APC": 2844
+      }
+    }
+  }
+}

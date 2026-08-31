@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Sign In | Election Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/eid.css" />
+  </head>
+  <body class="eid eid-login" data-theme="dark">
+    <main class="eid-login-card">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+        <div class="eid-brand-mark"><span class="msi" style="font-size:20px">admin_panel_settings</span></div>
+        <div>
+          <div style="font-size:13px;font-weight:600">Election Intelligence</div>
+          <div style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)">Admin console</div>
+        </div>
+      </div>
+      <span class="eid-kicker">Restricted</span>
+      <h1>Sign in to Admin</h1>
+      <p>Use the recognised Google account to manage dashboard data, Drive sources and publication.</p>
+      <a class="primary-action" href="/auth/google">Continue with Google</a>
+      <a class="subtle-link" href="/admin/index.html">Sign in with username &amp; password</a>
+      <a class="subtle-link" href="index.html#/welcome">Back to dashboard</a>
+    </main>
+    <script>
+      (function () {
+        const theme = localStorage.getItem("electionDashboardTheme") === "light" ? "light" : "dark";
+        document.documentElement.dataset.theme = theme;
+        document.body.dataset.theme = theme;
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,300 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2018",
+    "state": "Oyo",
+    "level": "lga",
+    "title": "Oyo State Governorship Election 2018",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, March 2019 — INEC",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2019-03-09",
+    "updated": "2019-03-09",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Seyi Makinde",
+    "party": "PDP",
+    "votes": 515621
+  },
+  "candidates": [
+    {
+      "name": "Seyi Makinde",
+      "party": "PDP",
+      "votes": 515621
+    },
+    {
+      "name": "Adebayo Adelabu",
+      "party": "APC",
+      "votes": 357982
+    }
+  ],
+  "units": {
+    "Afijio": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 10007,
+        "APC": 6947
+      }
+    },
+    "Akinyele": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 37581,
+        "APC": 26092
+      }
+    },
+    "Atiba": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6886,
+        "APC": 4780
+      }
+    },
+    "Atisbo": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 7943,
+        "APC": 5514
+      }
+    },
+    "Egbeda": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 53866,
+        "APC": 37398
+      }
+    },
+    "Ibadan North": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 11123,
+        "APC": 7722
+      }
+    },
+    "Ibadan North East": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 29590,
+        "APC": 20543
+      }
+    },
+    "Ibadan North West": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 8332,
+        "APC": 5784
+      }
+    },
+    "Ibadan South West": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 21077,
+        "APC": 14634
+      }
+    },
+    "Ibadan South-East": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 18586,
+        "APC": 12903
+      }
+    },
+    "Ibarapa Central": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6229,
+        "APC": 4324
+      }
+    },
+    "Ibarapa East": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 7830,
+        "APC": 5437
+      }
+    },
+    "Ibarapa North": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6353,
+        "APC": 4410
+      }
+    },
+    "Ido": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 42825,
+        "APC": 29732
+      }
+    },
+    "Irepo": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6749,
+        "APC": 4686
+      }
+    },
+    "Iseyin": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 22502,
+        "APC": 15623
+      }
+    },
+    "Itesiwaju": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 4719,
+        "APC": 3276
+      }
+    },
+    "Iwajowa": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6374,
+        "APC": 4425
+      }
+    },
+    "Kajola": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 7172,
+        "APC": 4979
+      }
+    },
+    "Lagelu": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 45522,
+        "APC": 31605
+      }
+    },
+    "Ogbomoso North": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APC": 0
+      }
+    },
+    "Ogbomoso South": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APC": 0
+      }
+    },
+    "Ogo-Oluwa": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5036,
+        "APC": 3496
+      }
+    },
+    "Olorunsogo": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5692,
+        "APC": 3951
+      }
+    },
+    "Oluyole": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 36184,
+        "APC": 25121
+      }
+    },
+    "Ona-Ara": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 23120,
+        "APC": 16051
+      }
+    },
+    "Oorelope": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APC": 0
+      }
+    },
+    "Ori Ire": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 10818,
+        "APC": 7510
+      }
+    },
+    "Oyo East": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 4431,
+        "APC": 3077
+      }
+    },
+    "Oyo West": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 28994,
+        "APC": 20130
+      }
+    },
+    "Saki East": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 5454,
+        "APC": 3786
+      }
+    },
+    "Saki West": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 27878,
+        "APC": 19355
+      }
+    },
+    "Surulere": {
+      "winner": "Seyi Makinde",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6752,
+        "APC": 4687
+      }
+    }
+  }
+}

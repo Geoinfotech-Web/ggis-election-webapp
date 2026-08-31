@@ -1,0 +1,183 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Ekiti",
+    "level": "lga",
+    "title": "Ekiti State Governorship Election 2014",
+    "source": "INEC collated results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC LGA collation centres — The Cable / Vanguard reporting official returns, 21 June 2014",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "updated": "2014-06-21",
+    "collated": true
+  },
+  "winner": {
+    "name": "Ayodele Fayose",
+    "party": "PDP",
+    "votes": 203090
+  },
+  "candidates": [
+    {
+      "name": "Ayodele Fayose",
+      "party": "PDP",
+      "votes": 203090
+    },
+    {
+      "name": "Kayode Fayemi",
+      "party": "APC",
+      "votes": 120433
+    },
+    {
+      "name": "Opeyemi Bamidele",
+      "party": "LP",
+      "votes": 18135
+    }
+  ],
+  "units": {
+    "Ado": {
+      "winner": "Ayodele Fayose",
+      "party": "PDP",
+      "votes": {
+        "APC": 13927,
+        "LP": 2065,
+        "PDP": 41169
+      }
+    },
+    "Efon": {
+      "winner": "Ayodele Fayose",
+      "party": "PDP",
+      "votes": {
+        "APC": 3422,
+        "LP": 358,
+        "PDP": 5335
+      }
+    },
+    "Ekiti East": {
+      "winner": "Ayodele Fayose",
+      "party": "PDP",
+      "votes": {
+        "APC": 8584,
+        "LP": 884,
+        "PDP": 12498
+      }
+    },
+    "Ekiti South West": {
+      "winner": "Ayodele Fayose",
+      "party": "PDP",
+      "votes": {
+        "APC": 6746,
+        "LP": 1413,
+        "PDP": 11038
+      }
+    },
+    "Ekiti West": {
+      "winner": "Ayodele Fayose",
+      "party": "PDP",
+      "votes": {
+        "APC": 7860,
+        "LP": 884,
+        "PDP": 10702
+      }
+    },
+    "Emure": {
+      "winner": "Ayodele Fayose",
+      "party": "PDP",
+      "votes": {
+        "APC": 4332,
+        "LP": 1527,
+        "PDP": 7086
+      }
+    },
+    "Gbonyin": {
+      "winner": "Ayodele Fayose",
+      "party": "PDP",
+      "votes": {
+        "APC": 8138,
+        "LP": 714,
+        "PDP": 11046
+      }
+    },
+    "Ido/Osi": {
+      "winner": "Ayodele Fayose",
+      "party": "PDP",
+      "votes": {
+        "APC": 7134,
+        "LP": 1182,
+        "PDP": 13045
+      }
+    },
+    "Irepodun/Ifelodun": {
+      "winner": "Ayodele Fayose",
+      "party": "PDP",
+      "votes": {
+        "APC": 6834,
+        "LP": 3555,
+        "PDP": 13038
+      }
+    },
+    "Ikere": {
+      "winner": "Ayodele Fayose",
+      "party": "PDP",
+      "votes": {
+        "APC": 7989,
+        "LP": 585,
+        "PDP": 16197
+      }
+    },
+    "Ikole": {
+      "winner": "Ayodele Fayose",
+      "party": "PDP",
+      "votes": {
+        "APC": 8804,
+        "LP": 1259,
+        "PDP": 14238
+      }
+    },
+    "Ijero": {
+      "winner": "Ayodele Fayose",
+      "party": "PDP",
+      "votes": {
+        "APC": 9348,
+        "LP": 1554,
+        "PDP": 13814
+      }
+    },
+    "Ilejemeje": {
+      "winner": "Ayodele Fayose",
+      "party": "PDP",
+      "votes": {
+        "APC": 3336,
+        "LP": 165,
+        "PDP": 3670
+      }
+    },
+    "Ise/Orun": {
+      "winner": "Ayodele Fayose",
+      "party": "PDP",
+      "votes": {
+        "APC": 5809,
+        "LP": 600,
+        "PDP": 10136
+      }
+    },
+    "Moba": {
+      "winner": "Ayodele Fayose",
+      "party": "PDP",
+      "votes": {
+        "APC": 7994,
+        "LP": 1000,
+        "PDP": 8878
+      }
+    },
+    "Oye": {
+      "winner": "Ayodele Fayose",
+      "party": "PDP",
+      "votes": {
+        "APC": 10176,
+        "LP": 512,
+        "PDP": 11200
+      }
+    }
+  }
+}

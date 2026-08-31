@@ -1,0 +1,39 @@
+{
+  "name": "election-dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "inec:ingest": "node inec-ingest.js",
+    "analyze:wards": "python scripts/ward_pu_analysis.py",
+    "build:sourced-gov": "node scripts/build-sourced-governorship.js",
+    "seed:gov": "node scripts/build-sourced-governorship.js",
+    "seed:boundaries": "node scripts/seed-boundaries.js",
+    "generate:gov-official": "node scripts/generate-official-governorship.js",
+    "import:gov-official": "node scripts/generate-official-governorship.js && node scripts/import-official-governorship.js",
+    "expand:gov-history": "node scripts/expand-governorship-history.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "chart.js": "^4.5.1",
+    "cheerio": "^1.2.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "googleapis": "^171.4.0",
+    "jspdf": "^4.2.1",
+    "jspdf-autotable": "^5.0.8",
+    "jszip": "^3.10.1",
+    "leaflet": "^1.9.4",
+    "multer": "^2.3.0",
+    "papaparse": "^5.5.3",
+    "pdf-parse": "^2.4.5",
+    "shpjs": "^6.2.0",
+    "xlsx": "^0.18.5"
+  }
+}

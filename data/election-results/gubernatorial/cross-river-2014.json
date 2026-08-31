@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Cross River",
+    "level": "lga",
+    "title": "Cross River State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2015-04-11",
+    "updated": "2015-04-11",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Ben Ayade",
+    "party": "PDP",
+    "votes": 342016
+  },
+  "candidates": [
+    {
+      "name": "Ben Ayade",
+      "party": "PDP",
+      "votes": 342016
+    },
+    {
+      "name": "Bassey Otu",
+      "party": "APC",
+      "votes": 118111
+    }
+  ],
+  "units": {
+    "Abi": {
+      "winner": "Ben Ayade",
+      "party": "PDP",
+      "votes": {
+        "PDP": 12494,
+        "APC": 4314
+      }
+    },
+    "Akamkpa": {
+      "winner": "Ben Ayade",
+      "party": "PDP",
+      "votes": {
+        "PDP": 13555,
+        "APC": 4681
+      }
+    },
+    "Akpabuyo": {
+      "winner": "Ben Ayade",
+      "party": "PDP",
+      "votes": {
+        "PDP": 18078,
+        "APC": 6243
+      }
+    },
+    "Bakassi": {
+      "winner": "Ben Ayade",
+      "party": "PDP",
+      "votes": {
+        "PDP": 2318,
+        "APC": 800
+      }
+    },
+    "Bekwarra": {
+      "winner": "Ben Ayade",
+      "party": "PDP",
+      "votes": {
+        "PDP": 24806,
+        "APC": 8567
+      }
+    },
+    "Biase": {
+      "winner": "Ben Ayade",
+      "party": "PDP",
+      "votes": {
+        "PDP": 12241,
+        "APC": 4227
+      }
+    },
+    "Boki": {
+      "winner": "Ben Ayade",
+      "party": "PDP",
+      "votes": {
+        "PDP": 22296,
+        "APC": 7699
+      }
+    },
+    "Calabar Municipality": {
+      "winner": "Ben Ayade",
+      "party": "PDP",
+      "votes": {
+        "PDP": 1,
+        "APC": 0
+      }
+    },
+    "Calabar South": {
+      "winner": "Ben Ayade",
+      "party": "PDP",
+      "votes": {
+        "PDP": 56150,
+        "APC": 19391
+      }
+    },
+    "Etung": {
+      "winner": "Ben Ayade",
+      "party": "PDP",
+      "votes": {
+        "PDP": 6771,
+        "APC": 2338
+      }
+    },
+    "Ikom": {
+      "winner": "Ben Ayade",
+      "party": "PDP",
+      "votes": {
+        "PDP": 24911,
+        "APC": 8603
+      }
+    },
+    "Obanliku": {
+      "winner": "Ben Ayade",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16663,
+        "APC": 5755
+      }
+    },
+    "Obubra": {
+      "winner": "Ben Ayade",
+      "party": "PDP",
+      "votes": {
+        "PDP": 16776,
+        "APC": 5794
+      }
+    },
+    "Obudu": {
+      "winner": "Ben Ayade",
+      "party": "PDP",
+      "votes": {
+        "PDP": 20263,
+        "APC": 6997
+      }
+    },
+    "Odukpani": {
+      "winner": "Ben Ayade",
+      "party": "PDP",
+      "votes": {
+        "PDP": 27543,
+        "APC": 9512
+      }
+    },
+    "Ogoja": {
+      "winner": "Ben Ayade",
+      "party": "PDP",
+      "votes": {
+        "PDP": 21749,
+        "APC": 7511
+      }
+    },
+    "Yakurr": {
+      "winner": "Ben Ayade",
+      "party": "PDP",
+      "votes": {
+        "PDP": 19952,
+        "APC": 6890
+      }
+    },
+    "Yala": {
+      "winner": "Ben Ayade",
+      "party": "PDP",
+      "votes": {
+        "PDP": 25449,
+        "APC": 8789
+      }
+    }
+  }
+}

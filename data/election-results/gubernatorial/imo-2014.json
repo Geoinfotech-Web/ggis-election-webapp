@@ -1,0 +1,252 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Imo",
+    "level": "lga",
+    "title": "Imo State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2015-04-11",
+    "updated": "2015-04-11",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Rochas Okorocha",
+    "party": "APC",
+    "votes": 416996
+  },
+  "candidates": [
+    {
+      "name": "Rochas Okorocha",
+      "party": "APC",
+      "votes": 416996
+    },
+    {
+      "name": "Emeka Ihedioha",
+      "party": "PDP",
+      "votes": 320705
+    }
+  ],
+  "units": {
+    "Aboh Mbaise": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 18763,
+        "PDP": 14430
+      }
+    },
+    "Ahiazu Mbaise": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 15686,
+        "PDP": 12064
+      }
+    },
+    "Ehime Mbano": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 15107,
+        "PDP": 11619
+      }
+    },
+    "Ezinihitte Mbaise": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Ideato North": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 25537,
+        "PDP": 19640
+      }
+    },
+    "Ideato South": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 8545,
+        "PDP": 6572
+      }
+    },
+    "Ihitte/Uboma": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 8609,
+        "PDP": 6621
+      }
+    },
+    "Ikeduru": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 23416,
+        "PDP": 18008
+      }
+    },
+    "Isiala Mbano": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 29445,
+        "PDP": 22646
+      }
+    },
+    "Isu": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 10805,
+        "PDP": 8310
+      }
+    },
+    "Mbaitoli": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Ngor Okpala": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 17829,
+        "PDP": 13712
+      }
+    },
+    "Njaba": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 16210,
+        "PDP": 12467
+      }
+    },
+    "Nkwerre": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 7328,
+        "PDP": 5636
+      }
+    },
+    "Nwangele": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 14850,
+        "PDP": 11421
+      }
+    },
+    "Obowo": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 13918,
+        "PDP": 10704
+      }
+    },
+    "Oguta": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 8912,
+        "PDP": 6854
+      }
+    },
+    "Ohaji/Egbema": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 21080,
+        "PDP": 16213
+      }
+    },
+    "Okigwe": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 14549,
+        "PDP": 11190
+      }
+    },
+    "Onuimo": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 8420,
+        "PDP": 6476
+      }
+    },
+    "Orlu": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 25301,
+        "PDP": 19458
+      }
+    },
+    "Orsu": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 14132,
+        "PDP": 10869
+      }
+    },
+    "Oru West": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 15571,
+        "PDP": 11976
+      }
+    },
+    "Oru-East": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 17397,
+        "PDP": 13379
+      }
+    },
+    "Owerri Municipal": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 17623,
+        "PDP": 13554
+      }
+    },
+    "Owerri North": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 25138,
+        "PDP": 19334
+      }
+    },
+    "Owerri West": {
+      "winner": "Rochas Okorocha",
+      "party": "APC",
+      "votes": {
+        "APC": 22824,
+        "PDP": 17554
+      }
+    }
+  }
+}

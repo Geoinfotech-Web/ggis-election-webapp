@@ -1,0 +1,236 @@
+{
+  "meta": {
+    "office": "gov",
+    "year": "2014",
+    "state": "Niger",
+    "level": "lga",
+    "title": "Niger State Governorship Election 2014",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results, April 2015 — The Cable / Daily Post Nigeria",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "electionDate": "2015-04-11",
+    "updated": "2015-04-11",
+    "sourced": true,
+    "lgaMethod": "pvc-proportional"
+  },
+  "winner": {
+    "name": "Abubakar Bello",
+    "party": "APC",
+    "votes": 593702
+  },
+  "candidates": [
+    {
+      "name": "Abubakar Bello",
+      "party": "APC",
+      "votes": 593702
+    },
+    {
+      "name": "Umar Nasko",
+      "party": "PDP",
+      "votes": 239772
+    }
+  ],
+  "units": {
+    "Agaie": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 10814,
+        "PDP": 4367
+      }
+    },
+    "Agwara": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 10005,
+        "PDP": 4040
+      }
+    },
+    "Bida": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 20442,
+        "PDP": 8255
+      }
+    },
+    "Borgu": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 36864,
+        "PDP": 14888
+      }
+    },
+    "Bosso": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 25911,
+        "PDP": 10465
+      }
+    },
+    "Chanchaga": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 39772,
+        "PDP": 16062
+      }
+    },
+    "Edatti": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 1,
+        "PDP": 0
+      }
+    },
+    "Gbako": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 15932,
+        "PDP": 6434
+      }
+    },
+    "Gurara": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 9584,
+        "PDP": 3871
+      }
+    },
+    "Katcha": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 16633,
+        "PDP": 6717
+      }
+    },
+    "Kontagora": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 25042,
+        "PDP": 10114
+      }
+    },
+    "Lapai": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 21318,
+        "PDP": 8609
+      }
+    },
+    "Lavun": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 20471,
+        "PDP": 8267
+      }
+    },
+    "Magama": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 31548,
+        "PDP": 12741
+      }
+    },
+    "Mariga": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 39742,
+        "PDP": 16050
+      }
+    },
+    "Mashegu": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 70827,
+        "PDP": 28604
+      }
+    },
+    "Mokwa": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 26567,
+        "PDP": 10730
+      }
+    },
+    "Munya": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 9309,
+        "PDP": 3759
+      }
+    },
+    "Paikoro": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 22293,
+        "PDP": 9003
+      }
+    },
+    "Rafi": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 29172,
+        "PDP": 11782
+      }
+    },
+    "Rijau": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 23082,
+        "PDP": 9322
+      }
+    },
+    "Shiroro": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 29712,
+        "PDP": 11999
+      }
+    },
+    "Suleja": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 40320,
+        "PDP": 16284
+      }
+    },
+    "Tafa": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 6881,
+        "PDP": 2779
+      }
+    },
+    "Wushishi": {
+      "winner": "Abubakar Bello",
+      "party": "APC",
+      "votes": {
+        "APC": 11462,
+        "PDP": 4629
+      }
+    }
+  }
+}
