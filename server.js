@@ -21,7 +21,7 @@ const { getFileMetadata, listFilesInFolderTree, searchFiles, readFile, readPopul
 const { buildPollingUnitDashboardData, normalizeLookupKey } = require('./polling-data');
 const { runIngest, loadLatestSnapshot, getIngestStatus, hydrateIngestStatus } = require('./inec-ingest');
 const { computeNigeriaKpis } = require('./nigeria-kpis');
-const { loadChoropleth, listAvailableDatasets, listAvailableGovStates, PARTY_COLORS } = require('./election-results-data');
+const { loadChoropleth, listAvailableDatasets, listAvailableGovStates, listGovCatalog, PARTY_COLORS } = require('./election-results-data');
 const {
   ensurePollingUnitsSeeded,
   ensureElectionResultsSeeded,
@@ -1489,12 +1489,23 @@ app.get('/api/election-results', async (req, res) => {
 app.get('/api/election-results/gov-states', (req, res) => {
   try {
     ensureElectionResultsSeeded();
-    const year = String(req.query.year || '2026');
+    const year = req.query.year != null && String(req.query.year) !== '' ? String(req.query.year) : null;
     const states = listAvailableGovStates(year);
     res.setHeader('Cache-Control', 'public, max-age=300');
     return res.json({ year, states, count: states.length });
   } catch (error) {
     return res.status(500).json({ error: 'Unable to list governorship states.' });
+  }
+});
+
+app.get('/api/election-results/gov-catalog', (_req, res) => {
+  try {
+    ensureElectionResultsSeeded();
+    const catalog = listGovCatalog();
+    res.setHeader('Cache-Control', 'public, max-age=300');
+    return res.json(catalog);
+  } catch (error) {
+    return res.status(500).json({ error: 'Unable to load governorship catalog.' });
   }
 });
 

@@ -252,9 +252,9 @@ module.exports = {
   Osun: entry(
     [
       { name: 'Ademola Adeleke', party: 'PDP', votes: 403371 },
-      { name: 'Gboyega Oyetola', party: 'APC', votes: 377551 },
+      { name: 'Gboyega Oyetola', party: 'APC', votes: 375027 },
     ],
-    'INEC declared results, July 2022 — Punch / Guardian',
+    'INEC declared results, July 2022 — Punch / Guardian / Channels TV',
     '2022-07-17',
   ),
   Oyo: entry(

@@ -1,0 +1,311 @@
+{
+  "meta": {
+    "office": "pres",
+    "year": "2015",
+    "level": "state",
+    "title": "2015 Presidential Election",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results — Reuters / Wikipedia state collation tables, March–April 2015",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "updated": "2015-04-01"
+  },
+  "units": {
+    "Abia": {
+      "winner": "Goodluck Jonathan",
+      "party": "PDP",
+      "votes": {
+        "APC": 13394,
+        "PDP": 368303
+      }
+    },
+    "Adamawa": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 374701,
+        "PDP": 251664
+      }
+    },
+    "Akwa Ibom": {
+      "winner": "Goodluck Jonathan",
+      "party": "PDP",
+      "votes": {
+        "APC": 58411,
+        "PDP": 953304
+      }
+    },
+    "Anambra": {
+      "winner": "Goodluck Jonathan",
+      "party": "PDP",
+      "votes": {
+        "APC": 17926,
+        "PDP": 660762
+      }
+    },
+    "Bauchi": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 931598,
+        "PDP": 86085
+      }
+    },
+    "Bayelsa": {
+      "winner": "Goodluck Jonathan",
+      "party": "PDP",
+      "votes": {
+        "APC": 5194,
+        "PDP": 361209
+      }
+    },
+    "Benue": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 373961,
+        "PDP": 303737
+      }
+    },
+    "Borno": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 473543,
+        "PDP": 25640
+      }
+    },
+    "Cross River": {
+      "winner": "Goodluck Jonathan",
+      "party": "PDP",
+      "votes": {
+        "APC": 28368,
+        "PDP": 414863
+      }
+    },
+    "Delta": {
+      "winner": "Goodluck Jonathan",
+      "party": "PDP",
+      "votes": {
+        "APC": 48910,
+        "PDP": 1211405
+      }
+    },
+    "Ebonyi": {
+      "winner": "Goodluck Jonathan",
+      "party": "PDP",
+      "votes": {
+        "APC": 19518,
+        "PDP": 323653
+      }
+    },
+    "Edo": {
+      "winner": "Goodluck Jonathan",
+      "party": "PDP",
+      "votes": {
+        "APC": 208469,
+        "PDP": 286869
+      }
+    },
+    "Ekiti": {
+      "winner": "Goodluck Jonathan",
+      "party": "PDP",
+      "votes": {
+        "APC": 120331,
+        "PDP": 176466
+      }
+    },
+    "Enugu": {
+      "winner": "Goodluck Jonathan",
+      "party": "PDP",
+      "votes": {
+        "APC": 14157,
+        "PDP": 553003
+      }
+    },
+    "FCT": {
+      "winner": "Goodluck Jonathan",
+      "party": "PDP",
+      "votes": {
+        "APC": 146399,
+        "PDP": 157195
+      }
+    },
+    "Gombe": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 361245,
+        "PDP": 96873
+      }
+    },
+    "Imo": {
+      "winner": "Goodluck Jonathan",
+      "party": "PDP",
+      "votes": {
+        "APC": 133253,
+        "PDP": 559185
+      }
+    },
+    "Jigawa": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 885988,
+        "PDP": 142904
+      }
+    },
+    "Kaduna": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 1127760,
+        "PDP": 484085
+      }
+    },
+    "Kano": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 1903999,
+        "PDP": 215779
+      }
+    },
+    "Katsina": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 1345441,
+        "PDP": 98937
+      }
+    },
+    "Kebbi": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 567883,
+        "PDP": 100972
+      }
+    },
+    "Kogi": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 264851,
+        "PDP": 149987
+      }
+    },
+    "Kwara": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 302146,
+        "PDP": 132602
+      }
+    },
+    "Lagos": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 792460,
+        "PDP": 632327
+      }
+    },
+    "Nasarawa": {
+      "winner": "Goodluck Jonathan",
+      "party": "PDP",
+      "votes": {
+        "APC": 236838,
+        "PDP": 273460
+      }
+    },
+    "Niger": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 657678,
+        "PDP": 149222
+      }
+    },
+    "Ogun": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 308290,
+        "PDP": 207950
+      }
+    },
+    "Ondo": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 299889,
+        "PDP": 251368
+      }
+    },
+    "Osun": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 383603,
+        "PDP": 249929
+      }
+    },
+    "Oyo": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 528620,
+        "PDP": 303376
+      }
+    },
+    "Plateau": {
+      "winner": "Goodluck Jonathan",
+      "party": "PDP",
+      "votes": {
+        "APC": 429140,
+        "PDP": 549615
+      }
+    },
+    "Rivers": {
+      "winner": "Goodluck Jonathan",
+      "party": "PDP",
+      "votes": {
+        "APC": 69238,
+        "PDP": 1487075
+      }
+    },
+    "Sokoto": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 671926,
+        "PDP": 152199
+      }
+    },
+    "Taraba": {
+      "winner": "Goodluck Jonathan",
+      "party": "PDP",
+      "votes": {
+        "APC": 261326,
+        "PDP": 310800
+      }
+    },
+    "Yobe": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 446265,
+        "PDP": 25526
+      }
+    },
+    "Zamfara": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 612202,
+        "PDP": 144833
+      }
+    }
+  }
+}

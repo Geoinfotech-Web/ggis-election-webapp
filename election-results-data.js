@@ -52,6 +52,8 @@ const DATA_DIR = process.env.ELECTION_RESULTS_DIR
 
 const STATIC_INDEX = [
   { office: 'pres', year: '2023', level: 'state', file: 'presidential-2023-states.json' },
+  { office: 'pres', year: '2019', level: 'state', file: 'presidential-2019-states.json' },
+  { office: 'pres', year: '2015', level: 'state', file: 'presidential-2015-states.json' },
   { office: 'gov', year: '2026', state: 'Ekiti', level: 'lga', file: 'gubernatorial-ekiti-2026-lga.json' },
 ];
 
@@ -112,7 +114,11 @@ function buildLegend(units, candidates) {
     if (c.party && c.name) partyNames[c.party] = c.name;
   });
   const tally = {};
+  const seen = new Set();
   Object.values(units || {}).forEach((row) => {
+    const dedupe = row._canonicalKey || row.label || JSON.stringify(row.votes || {});
+    if (seen.has(dedupe)) return;
+    seen.add(dedupe);
     const party = row.party || 'Others';
     if (!tally[party]) {
       tally[party] = {
@@ -140,8 +146,20 @@ async function readDataset(relativePath) {
 function availableGovStates(year) {
   const govDir = path.join(DATA_DIR, 'gubernatorial');
   if (!fsSync.existsSync(govDir)) return [];
-  const suffix = `-${String(year || '')}.json`;
+  const yearId = String(year || '');
+  if (!yearId) {
+    return listGovCatalog().states;
+  }
+  const fromCatalog = listGovCatalog().byState;
   const states = [];
+  for (const [state, entries] of Object.entries(fromCatalog)) {
+    if (entries.some((e) => e.electionYear === yearId || e.storageYear === yearId)) {
+      states.push(state);
+    }
+  }
+  if (states.length) return states.sort((a, b) => a.localeCompare(b));
+
+  const suffix = `-${yearId}.json`;
   for (const file of fsSync.readdirSync(govDir)) {
     if (!file.endsWith(suffix)) continue;
     try {
@@ -154,7 +172,72 @@ function availableGovStates(year) {
   return [...new Set(states)].sort((a, b) => a.localeCompare(b));
 }
 
+function electionYearOf(meta) {
+  const m = meta || {};
+  const dated = m.electionDate || m.updated;
+  if (dated && /^\d{4}/.test(String(dated))) return String(dated).slice(0, 4);
+  return String(m.year || '');
+}
+
+function scoreGovEntry(entry) {
+  return (entry.collated ? 1000 : 0) + Number(entry.storageYear || 0);
+}
+
+function listGovCatalog() {
+  const govDir = path.join(DATA_DIR, 'gubernatorial');
+  const byState = {};
+  if (fsSync.existsSync(govDir)) {
+    for (const file of fsSync.readdirSync(govDir)) {
+      if (!file.endsWith('.json')) continue;
+      const m = file.match(/^(.+)-(\d{4})\.json$/);
+      if (!m) continue;
+      try {
+        const payload = JSON.parse(fsSync.readFileSync(path.join(govDir, file), 'utf8'));
+        if (!isPublishableLegacyPayload(payload) || !payload.meta?.state) continue;
+        const state = canonicalState(payload.meta.state);
+        const storageYear = String(payload.meta.year || m[2]);
+        const electionYear = electionYearOf(payload.meta) || storageYear;
+        const entry = {
+          state,
+          electionYear,
+          storageYear,
+          electionDate: payload.meta.electionDate || payload.meta.updated || null,
+          collated: !!payload.meta.collated && payload.meta.lgaMethod !== 'pvc-proportional',
+          estimated: payload.meta.lgaMethod === 'pvc-proportional' || payload.meta.modeled === true,
+          file: path.join('gubernatorial', file),
+          title: payload.meta.title || `${state} Governorship ${electionYear}`,
+        };
+        if (!byState[state]) byState[state] = [];
+        const existingIdx = byState[state].findIndex((e) => e.electionYear === electionYear);
+        if (existingIdx < 0) byState[state].push(entry);
+        else if (scoreGovEntry(entry) >= scoreGovEntry(byState[state][existingIdx])) {
+          byState[state][existingIdx] = entry;
+        }
+      } catch {
+        /* skip */
+      }
+    }
+  }
+  for (const state of Object.keys(byState)) {
+    byState[state].sort((a, b) => Number(b.electionYear) - Number(a.electionYear));
+  }
+  const states = Object.keys(byState).sort((a, b) => a.localeCompare(b));
+  return { states, byState, count: states.length };
+}
+
+function resolveGovEntry(stateName, yearId) {
+  const state = canonicalState(stateName);
+  const year = String(yearId || '');
+  const entries = listGovCatalog().byState[state] || [];
+  return entries.find((e) => e.electionYear === year || e.storageYear === year) || null;
+}
+
 async function findGovFile(stateName, yearId) {
+  const resolved = resolveGovEntry(stateName, yearId);
+  if (resolved?.file) {
+    const full = path.join(DATA_DIR, resolved.file);
+    if (fsSync.existsSync(full)) return resolved.file;
+  }
   const slug = stateSlug(stateName);
   const rel = path.join('gubernatorial', `${slug}-${yearId}.json`);
   const full = path.join(DATA_DIR, rel);
@@ -162,31 +245,60 @@ async function findGovFile(stateName, yearId) {
   return null;
 }
 
+function deriveResultIntegrity(meta, level) {
+  const m = meta || {};
+  const estimated = m.lgaMethod === 'pvc-proportional' || m.modeled === true || m.synthetic === true;
+  const collated = m.collated === true || (!estimated && level === 'lga');
+  let lgaMethod = null;
+  if (level === 'lga') {
+    lgaMethod = estimated ? 'pvc-proportional' : 'official-collation';
+  } else if (level === 'state') {
+    lgaMethod = 'state-declared';
+  }
+  return {
+    collated: !!collated && !estimated,
+    estimated: !!estimated,
+    lgaMethod,
+    sourceDetail: m.sourceDetail || m.source || null,
+    electionDate: m.electionDate || m.updated || null,
+  };
+}
+
 function packChoropleth(payload, officeId, yearId, stateName, level) {
   const units = decorateUnits(payload.units, level);
   const legend = buildLegend(units, payload.candidates);
-  const key = [officeId, yearId, stateName || 'ng', level].filter(Boolean).join(':');
+  const electionYear = electionYearOf(payload.meta) || String(yearId);
+  const storageYear = String(payload.meta?.year || yearId);
+  const key = [officeId, electionYear, stateName || 'ng', level].filter(Boolean).join(':');
+  const integrity = deriveResultIntegrity(payload.meta, level);
   return {
     ok: true,
     status: 'published',
     key,
     office: officeId,
-    year: yearId,
+    year: electionYear,
+    storageYear,
+    electionYear,
     state: stateName || payload.meta?.state || null,
     level,
-    title: payload.meta?.title || `${yearId} ${officeId} election`,
+    title: payload.meta?.title || `${electionYear} ${officeId} election`,
     source: payload.meta?.source || 'Verified publication',
     sourceUrl: payload.meta?.sourceUrl || null,
+    sourceDetail: integrity.sourceDetail,
     sourceReferences: payload.meta?.evidence || [],
     methodology: payload.meta?.methodology || 'Legal declaration totals',
     coverage: payload.meta?.level || level,
     attribution: payload.meta?.attribution || null,
     updated: payload.meta?.updated || null,
+    electionDate: integrity.electionDate,
+    collated: integrity.collated,
+    estimated: integrity.estimated,
+    lgaMethod: integrity.lgaMethod,
     winner: payload.winner || null,
     candidates: payload.candidates || null,
     units,
     legend,
-    availableStates: officeId === 'gov' ? availableGovStates(yearId) : [],
+    availableStates: officeId === 'gov' ? availableGovStates(electionYear) : [],
   };
 }
 
@@ -194,10 +306,13 @@ async function loadChoropleth({ office, year, state }) {
   const officeId = String(office || '').toLowerCase();
   const yearId = String(year || '');
   const stateName = state ? canonicalState(state) : null;
+  const resolvedGov = officeId === 'gov' && stateName ? resolveGovEntry(stateName, yearId) : null;
+  const storageYearId = resolvedGov?.storageYear || yearId;
   const govStates = officeId === 'gov' ? availableGovStates(yearId) : [];
 
   try {
-    const fromDb = loadElectionDataset({ office: officeId, year: yearId, state: stateName });
+    const fromDb = loadElectionDataset({ office: officeId, year: storageYearId, state: stateName })
+      || (storageYearId !== yearId ? loadElectionDataset({ office: officeId, year: yearId, state: stateName }) : null);
     if (fromDb && isPublishableLegacyPayload(fromDb.meta) && fromDb.units && Object.keys(fromDb.units).length) {
       const level = fromDb.level || (officeId === 'gov' ? 'state' : 'state');
       return packChoropleth(
@@ -232,7 +347,7 @@ async function loadChoropleth({ office, year, state }) {
     }
     const lgaMatch = STATIC_INDEX.find((row) =>
       row.office === 'gov' &&
-      String(row.year) === yearId &&
+      (String(row.year) === yearId || String(row.year) === storageYearId) &&
       normalizeKey(row.state) === normalizeKey(stateName)
     );
     if (lgaMatch) {
@@ -318,5 +433,9 @@ module.exports = {
   loadChoropleth,
   listAvailableDatasets,
   listAvailableGovStates,
+  listGovCatalog,
+  electionYearOf,
+  resolveGovEntry,
   isPublishableLegacyPayload,
+  deriveResultIntegrity,
 };

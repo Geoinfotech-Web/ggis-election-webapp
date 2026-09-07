@@ -1,0 +1,311 @@
+{
+  "meta": {
+    "office": "pres",
+    "year": "2019",
+    "level": "state",
+    "title": "2019 Presidential Election",
+    "source": "INEC declared results",
+    "sourceUrl": "https://www.inecnigeria.org/",
+    "sourceDetail": "INEC declared results — BBC News / INEC state collation tables, February 2019",
+    "attribution": "Independent National Electoral Commission (INEC)",
+    "updated": "2019-02-27"
+  },
+  "units": {
+    "Abia": {
+      "winner": "Atiku Abubakar",
+      "party": "PDP",
+      "votes": {
+        "APC": 85058,
+        "PDP": 219698
+      }
+    },
+    "Adamawa": {
+      "winner": "Atiku Abubakar",
+      "party": "PDP",
+      "votes": {
+        "APC": 378078,
+        "PDP": 410266
+      }
+    },
+    "Akwa Ibom": {
+      "winner": "Atiku Abubakar",
+      "party": "PDP",
+      "votes": {
+        "APC": 175429,
+        "PDP": 395832
+      }
+    },
+    "Anambra": {
+      "winner": "Atiku Abubakar",
+      "party": "PDP",
+      "votes": {
+        "APC": 33298,
+        "PDP": 524738
+      }
+    },
+    "Bauchi": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 798428,
+        "PDP": 209313
+      }
+    },
+    "Bayelsa": {
+      "winner": "Atiku Abubakar",
+      "party": "PDP",
+      "votes": {
+        "APC": 118821,
+        "PDP": 197933
+      }
+    },
+    "Benue": {
+      "winner": "Atiku Abubakar",
+      "party": "PDP",
+      "votes": {
+        "APC": 347668,
+        "PDP": 356817
+      }
+    },
+    "Borno": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 836496,
+        "PDP": 71788
+      }
+    },
+    "Cross River": {
+      "winner": "Atiku Abubakar",
+      "party": "PDP",
+      "votes": {
+        "APC": 117302,
+        "PDP": 295737
+      }
+    },
+    "Delta": {
+      "winner": "Atiku Abubakar",
+      "party": "PDP",
+      "votes": {
+        "APC": 221292,
+        "PDP": 594068
+      }
+    },
+    "Ebonyi": {
+      "winner": "Atiku Abubakar",
+      "party": "PDP",
+      "votes": {
+        "APC": 90726,
+        "PDP": 258573
+      }
+    },
+    "Edo": {
+      "winner": "Atiku Abubakar",
+      "party": "PDP",
+      "votes": {
+        "APC": 267842,
+        "PDP": 275691
+      }
+    },
+    "Ekiti": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 219231,
+        "PDP": 154032
+      }
+    },
+    "Enugu": {
+      "winner": "Atiku Abubakar",
+      "party": "PDP",
+      "votes": {
+        "APC": 54423,
+        "PDP": 355553
+      }
+    },
+    "FCT": {
+      "winner": "Atiku Abubakar",
+      "party": "PDP",
+      "votes": {
+        "APC": 152224,
+        "PDP": 259997
+      }
+    },
+    "Gombe": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 402961,
+        "PDP": 138484
+      }
+    },
+    "Imo": {
+      "winner": "Atiku Abubakar",
+      "party": "PDP",
+      "votes": {
+        "APC": 140463,
+        "PDP": 334923
+      }
+    },
+    "Jigawa": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 794738,
+        "PDP": 289895
+      }
+    },
+    "Kaduna": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 993445,
+        "PDP": 649612
+      }
+    },
+    "Kano": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 1464768,
+        "PDP": 391593
+      }
+    },
+    "Katsina": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 1232133,
+        "PDP": 308056
+      }
+    },
+    "Kebbi": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 581552,
+        "PDP": 154282
+      }
+    },
+    "Kogi": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 285894,
+        "PDP": 218207
+      }
+    },
+    "Kwara": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 308984,
+        "PDP": 138184
+      }
+    },
+    "Lagos": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 580825,
+        "PDP": 448015
+      }
+    },
+    "Nasarawa": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 289903,
+        "PDP": 283847
+      }
+    },
+    "Niger": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 612371,
+        "PDP": 218052
+      }
+    },
+    "Ogun": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 281762,
+        "PDP": 194655
+      }
+    },
+    "Ondo": {
+      "winner": "Atiku Abubakar",
+      "party": "PDP",
+      "votes": {
+        "APC": 241769,
+        "PDP": 275901
+      }
+    },
+    "Osun": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 347634,
+        "PDP": 337377
+      }
+    },
+    "Oyo": {
+      "winner": "Atiku Abubakar",
+      "party": "PDP",
+      "votes": {
+        "APC": 365229,
+        "PDP": 366690
+      }
+    },
+    "Plateau": {
+      "winner": "Atiku Abubakar",
+      "party": "PDP",
+      "votes": {
+        "APC": 468555,
+        "PDP": 548665
+      }
+    },
+    "Rivers": {
+      "winner": "Atiku Abubakar",
+      "party": "PDP",
+      "votes": {
+        "APC": 150710,
+        "PDP": 473971
+      }
+    },
+    "Sokoto": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 490333,
+        "PDP": 361604
+      }
+    },
+    "Taraba": {
+      "winner": "Atiku Abubakar",
+      "party": "PDP",
+      "votes": {
+        "APC": 324906,
+        "PDP": 374743
+      }
+    },
+    "Yobe": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 497914,
+        "PDP": 50763
+      }
+    },
+    "Zamfara": {
+      "winner": "Muhammadu Buhari",
+      "party": "APC",
+      "votes": {
+        "APC": 438682,
+        "PDP": 125423
+      }
+    }
+  }
+}

@@ -157,11 +157,19 @@
     }
   }
 
+  function themeStateMatches(theme, featureState) {
+    if (!theme || !theme.state) return true;
+    return adminNamesMatch(theme.state, featureState);
+  }
+
   function resolveResultUnit(theme, layerId, props) {
     if (!theme || !theme.units) return null;
     const state = pickProp(props, ['statename', 'state']);
     const lga = pickProp(props, ['lganame', 'lga']);
     if (theme.level === 'lga' && layerId === 'lga') {
+      // Shared LGA names exist across states (e.g. Bassa in Plateau and Kogi).
+      // Never apply another state's result to a foreign polygon.
+      if (!themeStateMatches(theme, state)) return null;
       const canonical = canonicalLgaName(lga);
       return theme.units[canonical]
         || theme.units[matchKey(canonical)]
@@ -398,7 +406,25 @@
     } else clearOverlay(inst, "state");
 
     if (layers.lga && zoom >= 5) {
-      const data = await loadLayer("lga", bbox);
+      const theme = inst.cfg.resultTheme;
+      let data = null;
+      // Governorship LGA choropleth: only draw the selected state's LGAs so
+      // neighbouring states (and shared names like Bassa) never bleed through.
+      if (theme && theme.level === 'lga' && theme.state) {
+        const stateWhere = "UPPER(statename)='" + escWhere(theme.state).toUpperCase() + "'";
+        data = await queryLocalAdmin('lga', theme.state);
+        if (!data || !data.features || !data.features.length) {
+          data = await queryAdmin('lga', stateWhere, 200);
+        }
+        if (data && data.features && data.features.length) {
+          data = {
+            type: 'FeatureCollection',
+            features: pickAdminFeatures(data, 'statename', theme.state),
+          };
+        }
+      } else {
+        data = await loadLayer("lga", bbox);
+      }
       if (inst.overlayKey === key) putGeoJson(inst, "lga", data);
     } else clearOverlay(inst, "lga");
 
