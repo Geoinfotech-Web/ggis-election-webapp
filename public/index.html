@@ -534,14 +534,40 @@ a:hover{color:var(--primary)}
               <div class="eid-scroll" style="padding:11px 14px;display:flex;flex-direction:column;gap:11px;max-height:360px;overflow-y:auto">
                 <sc-for list="{{ elecCands }}" as="c" hint-placeholder-count="4">
                   <div>
-                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><span style="width:9px;height:9px;border-radius:2px;flex:none;background:{{ c.color }}"></span><span style="font-size:12px;font-weight:500;color:var(--text)">{{ c.name }}</span><span style="font-size:10.5px;color:var(--mute)">{{ c.party }}</span><sc-if value="{{ c.won }}" hint-placeholder-val="{{ false }}"><span class="msi" style="font-size:15px;color:{{ c.color }}" title="Winner">check_circle</span></sc-if><span style="margin-left:auto;font-size:12px;font-weight:600;color:var(--text);font-variant-numeric:tabular-nums">{{ c.share }}</span><sc-if value="{{ c.statesLabel }}" hint-placeholder-val="{{ false }}"><span style="font-size:10.5px;color:var(--mute);margin-left:6px">{{ c.statesLabel }}</span></sc-if></div>
+                    <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:5px">
+                      <span style="width:9px;height:9px;border-radius:2px;flex:none;background:{{ c.color }};margin-top:4px"></span>
+                      <div style="min-width:0;flex:1">
+                        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+                          <span style="font-size:12px;font-weight:500;color:var(--text)">{{ c.name }}</span>
+                          <span style="font-size:10.5px;color:var(--mute)">{{ c.party }}</span>
+                          <sc-if value="{{ c.won }}" hint-placeholder-val="{{ false }}"><span class="msi" style="font-size:15px;color:{{ c.color }}" title="Winner">check_circle</span></sc-if>
+                          <sc-if value="{{ c.statesLabel }}" hint-placeholder-val="{{ false }}"><span style="font-size:10.5px;color:var(--mute)">{{ c.statesLabel }}</span></sc-if>
+                        </div>
+                      </div>
+                      <div style="text-align:right;flex:none;font-variant-numeric:tabular-nums">
+                        <div style="font-size:12px;font-weight:600;color:var(--text)">{{ c.share }}</div>
+                        <sc-if value="{{ c.hasVotes }}" hint-placeholder-val="{{ false }}"><div style="font-size:10.5px;color:var(--mute);margin-top:1px">{{ c.votesLabel }} votes</div></sc-if>
+                      </div>
+                    </div>
                     <div style="height:5px;border-radius:3px;background:var(--surface3);overflow:hidden"><span style="{{ c.bar }}"></span></div>
                     <sc-if value="{{ c.hasUnits }}" hint-placeholder-val="{{ false }}">
                     <button onClick="{{ c.toggleUnits }}" style="margin-top:7px;height:28px;padding:0 10px;border:1px solid var(--border);background:var(--surface2);border-radius:7px;font-family:inherit;font-size:11px;color:var(--dim);cursor:pointer">{{ c.toggleLabel }}</button>
                     <sc-if value="{{ c.isExpanded }}" hint-placeholder-val="{{ false }}">
                     <div style="margin-top:6px;padding-left:4px">
                       <sc-for list="{{ c.unitRows }}" as="u" hint-placeholder-count="4">
-                        <div onClick="{{ u.onClick }}" style="{{ u.rowStyle }}" style-hover="background:var(--surface2)"><span style="width:8px;height:8px;border-radius:2px;flex:none;background:{{ u.color }}"></span><div style="min-width:0;flex:1"><div style="font-size:11.5px;font-weight:600;color:var(--text)">{{ u.name }}</div><div style="font-size:10px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ u.winner }} · {{ u.party }}</div></div></div>
+                        <div onClick="{{ u.onClick }}" style="{{ u.rowStyle }}" style-hover="background:var(--surface2)">
+                          <span style="width:8px;height:8px;border-radius:2px;flex:none;background:{{ u.color }}"></span>
+                          <div style="min-width:0;flex:1">
+                            <div style="font-size:11.5px;font-weight:600;color:var(--text)">{{ u.name }}</div>
+                            <div style="font-size:10px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ u.winner }} · {{ u.party }}</div>
+                          </div>
+                          <sc-if value="{{ u.hasVotes }}" hint-placeholder-val="{{ false }}">
+                          <div style="text-align:right;flex:none;font-variant-numeric:tabular-nums">
+                            <div style="font-size:11.5px;font-weight:600;color:var(--text)">{{ u.votesLabel }}</div>
+                            <div style="font-size:9.5px;color:var(--mute)">votes</div>
+                          </div>
+                          </sc-if>
+                        </div>
                       </sc-for>
                     </div>
                     </sc-if>
@@ -555,7 +581,17 @@ a:hover{color:var(--primary)}
                 <div style="font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute);margin-bottom:8px">Vote breakdown · {{ ngElec.unitDetail.totalVotes }} votes</div>
                 <div style="display:flex;flex-direction:column;gap:9px">
                   <sc-for list="{{ ngElec.unitDetail.breakdown }}" as="b" hint-placeholder-count="4">
-                    <div><div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="width:8px;height:8px;border-radius:2px;background:{{ b.color }}"></span><span style="font-size:12px;color:var(--text)">{{ b.party }}</span><span style="margin-left:auto;font-family:'IBM Plex Sans';font-size:11.5px;font-weight:600;color:var(--text)">{{ b.share }}</span></div><div style="height:4px;border-radius:3px;background:var(--surface3);overflow:hidden"><span style="{{ b.bar }}"></span></div></div>
+                    <div>
+                      <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:4px">
+                        <span style="width:8px;height:8px;border-radius:2px;background:{{ b.color }};margin-top:4px;flex:none"></span>
+                        <span style="font-size:12px;color:var(--text);flex:1">{{ b.party }}</span>
+                        <div style="text-align:right;flex:none;font-variant-numeric:tabular-nums">
+                          <div style="font-family:'IBM Plex Sans';font-size:11.5px;font-weight:600;color:var(--text)">{{ b.share }}</div>
+                          <sc-if value="{{ b.hasVotes }}" hint-placeholder-val="{{ false }}"><div style="font-size:10px;color:var(--mute);margin-top:1px">{{ b.votesLabel }} votes</div></sc-if>
+                        </div>
+                      </div>
+                      <div style="height:4px;border-radius:3px;background:var(--surface3);overflow:hidden"><span style="{{ b.bar }}"></span></div>
+                    </div>
                   </sc-for>
                 </div>
               </div>
@@ -1359,6 +1395,7 @@ class Component extends DCLogic {
       puDir:{ ...this.state.puDir, lgas:[], wards:[], units:[] },
       layers:{ ...this.state.layers, state:true, lga:false, ward:false, polling:false },
     }, ()=>{
+      this.fetchNgKpis();
       this.loadPuDirectory(s, null, null, seq);
       this.flyToAdminBoundary(s, null, null);
     });
@@ -1373,6 +1410,7 @@ class Component extends DCLogic {
       puDir:{ ...this.state.puDir, wards:[], units:[] },
       layers:{ ...this.state.layers, state:true, lga:true, ward:true, polling:false },
     }, ()=>{
+      this.fetchNgKpis();
       this.loadPuDirectory(st, l, null, seq);
       this.flyToAdminBoundary(st, l, null);
     });
@@ -1388,13 +1426,14 @@ class Component extends DCLogic {
       puDir:{ ...this.state.puDir, units:[] },
       layers:{ ...this.state.layers, state:true, lga:true, ward:true, polling:true },
     }, ()=>{
+      this.fetchNgKpis();
       this.loadPuDirectory(st, lg, w, seq);
       this.loadPuUnits(st, lg, w, seq);
       this.flyToAdminBoundary(st, lg, w);
     });
   }
-  selectNgPU(p){ this.setState(s=>({ ngPU: s.ngPU===p ? null : p })); }
-  clearNgDrill(){ this.setState({ ngState:null, ngLga:null, ngWard:null, ngPU:null, mapFocus:null }); }
+  selectNgPU(p){ this.setState(s=>({ ngPU: s.ngPU===p ? null : p }), ()=>this.fetchNgKpis()); }
+  clearNgDrill(){ this.setState({ ngState:null, ngLga:null, ngWard:null, ngPU:null, mapFocus:null }, ()=>this.fetchNgKpis()); }
 
   OFFICE_YEARS = {
     pres: ['2027','2023','2019','2015'],
@@ -1416,10 +1455,40 @@ class Component extends DCLogic {
   NG_PARTIES = [ {name:'APC',color:'#2f6fed'}, {name:'PDP',color:'#cf3a4e'}, {name:'LP',color:'#2fa84f'}, {name:'NNPP',color:'#7a53d1'} ];
   NG_NAMES = ['A. Bello','C. Okafor','M. Sani','T. Adeyemi','I. Musa','F. Eze','K. Danjuma','O. Balogun','U. Chukwu','H. Lawal','B. Nwosu','G. Aliyu','J. Onyeka','S. Ibrahim'];
   NG_PRES = {
-    '2023':[['B. Tinubu','APC',37.0,true],['A. Abubakar','PDP',29.1],['P. Obi','LP',25.4],['R. Kwankwaso','NNPP',6.4],['Others','—',2.1]],
-    '2019':[['M. Buhari','APC',55.6,true],['A. Abubakar','PDP',41.2],['Others','—',3.2]],
-    '2015':[['M. Buhari','APC',53.9,true],['G. Jonathan','PDP',44.9],['Others','—',1.2]],
+    // [name, party, share%, won?, nationalVotes]
+    '2023':[
+      ['B. Tinubu','APC',37.0,true,8794726],
+      ['A. Abubakar','PDP',29.1,false,6984520],
+      ['P. Obi','LP',25.4,false,6101533],
+      ['R. Kwankwaso','NNPP',6.4,false,1496687],
+      ['Others','—',2.1],
+    ],
+    '2019':[
+      ['M. Buhari','APC',55.6,true,15191847],
+      ['A. Abubakar','PDP',41.2,false,11262978],
+      ['Others','—',3.2],
+    ],
+    '2015':[
+      ['M. Buhari','APC',53.9,true,15424921],
+      ['G. Jonathan','PDP',44.9,false,12853162],
+      ['Others','—',1.2],
+    ],
   };
+  // INEC-declared national register + turnout for presidential KPI cards by year
+  NG_PRES_STATS = {
+    '2023': { registered: 93469008, turnout: 27.1 },
+    '2019': { registered: 84004184, turnout: 34.8 },
+    '2015': { registered: 67422005, turnout: 43.7 },
+  };
+  presValidVotes(year){
+    const rows = this.NG_PRES[String(year)] || [];
+    let named = 0, namedShare = 0;
+    rows.forEach((r)=>{
+      if (r[4] != null) { named += Number(r[4]) || 0; namedShare += Number(r[2]) || 0; }
+    });
+    if (namedShare > 0 && namedShare < 99.5) return Math.round(named * 100 / namedShare);
+    return named;
+  }
   syncElectionLayers(office, state, choroActive, level){
     const layers = { ...this.state.layers };
     layers.lga = !!(office === 'gov' && state && choroActive && level === 'lga');
@@ -1481,9 +1550,11 @@ class Component extends DCLogic {
     const total = Object.values(votes).reduce((a,b)=>a+Number(b||0),0) || 1;
     const breakdown = Object.entries(votes).map(([party, count])=>{
       const pct = +((Number(count)/total)*100).toFixed(1);
+      const n = Number(count)||0;
       return {
-        party, color:this.partyColor(party), votes:Number(count),
+        party, color:this.partyColor(party), votes:n,
         share:pct.toFixed(1)+'%',
+        votesLabel: this.fmtInt(n),
         bar:`display:block;height:100%;width:${pct}%;background:${this.partyColor(party)}`,
       };
     }).sort((a,b)=>b.votes-a.votes);
@@ -1493,6 +1564,17 @@ class Component extends DCLogic {
     }, elecExpandedCand: null });
   }
   clearElecUnit(){ this.setState({ elecSelectedUnit:null }); }
+  sumPartyVotesFromUnits(units, party){
+    const seen = new Set();
+    let total = 0;
+    Object.entries(units || {}).forEach(([name, u])=>{
+      const dedupe = (u && u._canonicalKey) || name;
+      if (seen.has(dedupe)) return;
+      seen.add(dedupe);
+      total += Number((u.votes || {})[party] || 0);
+    });
+    return total;
+  }
   ngElection(year, officeId, upcoming, choro, selectedState){
     const off = this.NG_OFFICES.find(o=>o.id===officeId) || this.NG_OFFICES[0];
     const colorOf = (nm) => this.partyColor(nm);
@@ -1504,13 +1586,21 @@ class Component extends DCLogic {
         isPres: officeId==='pres', isGov: officeId==='gov', totalCands: rows.length,
         hasWinner: !!winner,
         winnerName: winner? winner.name : '—', winnerParty: winner? winner.party : '—', winnerColor: winner? colorOf(winner.party) : 'var(--mute)',
-        candidates: rows.map(r=>({ name:r.name, party:r.party, color:colorOf(r.party),
-          share: (r.share!=null?Number(r.share).toFixed(1)+'%':'—'),
-          statesWon: r.statesWon != null ? r.statesWon : null,
-          statesLabel: r.unitsLabel || (r.statesWon != null ? `${r.statesWon} state${r.statesWon===1?'':'s'}` : null),
-          wonUnits: r.wonUnits || [],
-          won:!!r.won,
-          bar:`display:block;height:100%;width:${r.share||0}%;background:${colorOf(r.party)}` })),
+        candidates: rows.map(r=>{
+          const votes = r.votes != null ? Number(r.votes) : null;
+          return {
+            name:r.name, party:r.party, color:colorOf(r.party),
+            share: (r.share!=null?Number(r.share).toFixed(1)+'%':'—'),
+            votes,
+            votesLabel: votes != null ? this.fmtInt(votes) : null,
+            hasVotes: votes != null,
+            statesWon: r.statesWon != null ? r.statesWon : null,
+            statesLabel: r.unitsLabel || (r.statesWon != null ? `${r.statesWon} state${r.statesWon===1?'':'s'}` : null),
+            wonUnits: r.wonUnits || [],
+            won:!!r.won,
+            bar:`display:block;height:100%;width:${r.share||0}%;background:${colorOf(r.party)}`,
+          };
+        }),
         ...extra,
       };
     };
@@ -1523,6 +1613,7 @@ class Component extends DCLogic {
         return {
           name:cd.name, party:cd.party,
           share: +((Number(cd.votes||0)/total)*100).toFixed(1),
+          votes: Number(cd.votes||0),
           won: choro.winner && (cd.party===choro.winner.party || cd.name===choro.winner.name),
           wonUnits,
           statesWon: wonUnits.length,
@@ -1553,9 +1644,12 @@ class Component extends DCLogic {
       const byParty = this.groupWonUnits(choro.units, colorOf);
       const national = this.NG_PRES[String(year)] || [];
       const rows = national.filter(r=>r[1]!=='—').map(r=>{
-        const wonUnits = byParty[r[1]] || [];
+        const party = r[1];
+        const wonUnits = byParty[party] || [];
+        const summed = this.sumPartyVotesFromUnits(choro.units, party);
+        const votes = summed > 0 ? summed : (r[4] != null ? Number(r[4]) : null);
         return {
-          name:r[0], party:r[1], share:r[2], won:!!r[3] && !upcoming,
+          name:r[0], party, share:r[2], votes, won:!!r[3] && !upcoming,
           statesWon: wonUnits.length,
           unitsLabel: wonUnits.length ? `${wonUnits.length} state${wonUnits.length===1?'':'s'}` : null,
           wonUnits,
@@ -1564,7 +1658,9 @@ class Component extends DCLogic {
       return pack(rows);
     }
     if(officeId==='pres' && this.NG_PRES[String(year)]){
-      const rows = this.NG_PRES[String(year)].filter(r=>r[1]!=='—').map(r=>({ name:r[0], party:r[1], share:r[2], won:!!r[3] && !upcoming }));
+      const rows = this.NG_PRES[String(year)].filter(r=>r[1]!=='—').map(r=>({
+        name:r[0], party:r[1], share:r[2], votes: r[4] != null ? Number(r[4]) : null, won:!!r[3] && !upcoming,
+      }));
       return pack(rows);
     }
     if(officeId==='gov'){
@@ -1873,7 +1969,8 @@ class Component extends DCLogic {
   componentDidUpdate(){
     this.apply();
     const s=this.state;
-    const key=[s.scope,s.ngState,s.ngLga,s.ngWard,s.ngPU].join('|');
+    // Prefer polling-unit drill-down; otherwise governorship election state; else national.
+    const key=[s.scope,s.ngState,s.ngLga,s.ngWard,s.ngPU,s.ovOffice,s.ovElecState,s.ovElecYear].join('|');
     if(this._kpiKey!==key){ this._kpiKey=key; this.fetchNgKpis(); }
   }
   apply(){
@@ -1957,14 +2054,24 @@ class Component extends DCLogic {
   fmtInt(n){ return Number(n||0).toLocaleString(); }
 
   async fetchNgKpis(){
-    const {ngState, ngLga, ngWard, ngPU} = this.state;
+    const seq = (this._kpiSeq = (this._kpiSeq || 0) + 1);
+    const { scope, ngState, ngLga, ngWard, ngPU, ovOffice, ovElecState, ovElecYear } = this.state;
+    if (scope !== 'ng' && scope !== 'global') return;
     const qs = new URLSearchParams();
-    if(ngState) qs.set('state', ngState);
-    if(ngLga) qs.set('lga', ngLga);
-    if(ngWard) qs.set('ward', ngWard);
-    if(ngPU) qs.set('pu', ngPU);
+    // Drill-down from "Find your polling unit" wins; else use selected gov state.
+    const state = ngState || (ovOffice === 'gov' ? ovElecState : null) || null;
+    const lga = ngState ? ngLga : null;
+    const ward = ngState ? ngWard : null;
+    const pu = ngState ? ngPU : null;
+    const year = ovElecYear || '2023';
+    if(state) qs.set('state', state);
+    if(lga) qs.set('lga', lga);
+    if(ward) qs.set('ward', ward);
+    if(pu) qs.set('pu', pu);
+    if(year) qs.set('year', String(year));
     try {
       const data = await fetch('/api/nigeria-kpis'+(qs.toString()?'?'+qs.toString():'')).then(r=>r.ok?r.json():null);
+      if(seq !== this._kpiSeq) return;
       if(data) this.setState({ ngKpiRow: data });
     } catch(e){}
   }
@@ -2515,7 +2622,7 @@ class Component extends DCLogic {
         label: year,
         onClick:()=>{
           const next = { ovElecYear: year, ovOffice, elecMapTheme: null, elecChoroMeta: null, elecSelectedUnit: null, elecExpandedCand: null, showEstimatedLga: true };
-          this.setState(next, ()=> this.flyToElectionView());
+          this.setState(next, ()=>{ this.fetchNgKpis(); this.flyToElectionView(); });
         },
         style:`height:30px;padding:0 11px;border:1px solid ${on?'var(--primary)':'var(--border)'};background:${on?'var(--primary-soft)':'transparent'};color:${on?'var(--text)':'var(--dim)'};border-radius:8px;font-family:inherit;font-size:12px;font-weight:${on?'600':'400'};cursor:pointer`,
       };
@@ -2545,22 +2652,31 @@ class Component extends DCLogic {
           isExpanded: expanded,
           toggleLabel: expanded ? `Hide ${unitWordCap}` : `View ${wonUnits.length} ${unitWord}${wonUnits.length===1?'':'s'}`,
           toggleUnits: ()=>this.toggleCandUnits(row.party),
-          unitRows: wonUnits.map(u=>({
-            name: u.name,
-            winner: (u.unit && u.unit.winner) || row.name,
-            party: (u.unit && u.unit.party) || row.party,
-            color: u.color || row.color,
-            onClick: ()=>this.selectElecUnit(u.name, u.unit),
-            rowStyle:'display:flex;align-items:center;gap:9px;padding:6px 0;border-bottom:1px solid var(--border);cursor:pointer',
-          })),
+          unitRows: wonUnits.map(u=>{
+            const partyVotes = Number(((u.unit && u.unit.votes) || {})[row.party] || 0);
+            return {
+              name: u.name,
+              winner: (u.unit && u.unit.winner) || row.name,
+              party: (u.unit && u.unit.party) || row.party,
+              color: u.color || row.color,
+              votesLabel: this.fmtInt(partyVotes),
+              hasVotes: true,
+              onClick: ()=>this.selectElecUnit(u.name, u.unit),
+              rowStyle:'display:flex;align-items:center;gap:9px;padding:6px 0;border-bottom:1px solid var(--border);cursor:pointer',
+            };
+          }),
         };
       });
       if (this.state.elecSelectedUnit) {
         const u = this.state.elecSelectedUnit;
         ngElec.unitDetail = {
           name:u.name, winner:u.winner, party:u.party, color:u.color,
-          totalVotes:this.fmtNum(u.totalVotes),
-          breakdown:u.breakdown || [],
+          totalVotes: this.fmtInt(u.totalVotes),
+          breakdown:(u.breakdown || []).map(b=>({
+            ...b,
+            votesLabel: b.votesLabel || this.fmtInt(b.votes || 0),
+            hasVotes: true,
+          })),
           onBack: ()=>this.clearElecUnit(),
         };
       }
@@ -2633,20 +2749,63 @@ class Component extends DCLogic {
       submissions: this.state.submissions,
     };
 
-    // ── contextual Nigeria KPIs (voting strength by admin level) ──
+    // ── contextual Nigeria KPIs (election year when declared; else PVC drill-down) ──
     let ngKpis=null;
     if(isNigeria){
       const row=this.state.ngKpiRow;
       if(row){
-        const reg=this.fmtNum(row.registered), pvc=this.fmtNum(row.collected), str=this.fmtNum(row.votingStrength);
+        const yKey = String(elecYear || row.year || '2023');
+        const scopeKey = [row.level, row.scope, yKey, ovOffice].join('-');
         const origin = row.origin==='official'?'Official':(row.origin==='allocated'?'Allocated':'Pending');
-        const est=this.fmtNum(row.estimatedBallots||0);
-        ngKpis=[
-          { icon:'badge', label:'Registered voters', value:reg.value, unit:reg.unit, delta:`${row.level} · ${row.scope} · ${origin}`, deltaIcon:'place', deltaColor:'var(--dim)', caption:row.caption },
-          { icon:'how_to_reg', label:'PVCs collected', value:pvc.value, unit:pvc.unit, delta:`${row.level} · ${row.scope}`, deltaIcon:'trending_up', deltaColor:'var(--good)', caption:row.caption },
-          { icon:'donut_large', label:'Collection rate', value:String(row.rate), unit:'%', delta:`${row.level} · ${row.scope}`, deltaIcon:'inventory_2', deltaColor:'var(--dim)', caption: origin==='Official'?'Official collected ÷ registered':row.caption },
-          { icon:'bolt', label:'Voting strength', value:str.value, unit:str.unit, delta:'PVCs collected (can vote)', deltaIcon:'insights', deltaColor:'var(--primary)', caption:`× ${row.turnoutBasis||'2023 national turnout 27.1%'} ≈ ${est.value}${est.unit} ballots (estimate)` },
-        ];
+        const upcoming = !!(elecSelT && elecSelT.status==='Upcoming');
+        const drilling = !!(this.state.ngLga || this.state.ngWard || this.state.ngPU);
+
+        let validVotes = null, winnerShare = null, turnoutPct = null, winnerLabel = null, electionCaption = null, registeredForYear = row.registered;
+
+        if (!upcoming && !drilling && ovOffice === 'pres' && this.NG_PRES[yKey]) {
+          validVotes = this.presValidVotes(yKey);
+          const winner = (this.NG_PRES[yKey] || []).find((r)=> r[3]);
+          winnerShare = winner ? Number(winner[2]) : null;
+          winnerLabel = winner ? `${winner[0]} · ${winner[1]}` : 'Winner';
+          const stats = this.NG_PRES_STATS[yKey];
+          if (stats && row.level === 'National') {
+            registeredForYear = stats.registered;
+            turnoutPct = stats.turnout;
+          } else {
+            turnoutPct = registeredForYear ? Math.round((validVotes / registeredForYear) * 1000) / 10 : null;
+          }
+          electionCaption = `${yKey} presidential · INEC declared`;
+        } else if (!upcoming && !drilling && ovOffice === 'gov' && ngElec && !ngElec.pending) {
+          const cands = (ngElec.candidates || []).filter((c)=> c.hasVotes);
+          if (cands.length) {
+            validVotes = cands.reduce((a,c)=> a + (Number(c.votes) || 0), 0);
+            const win = cands.find((c)=> c.won) || cands[0];
+            winnerShare = win && win.share != null ? parseFloat(String(win.share)) : null;
+            winnerLabel = win ? `${win.name} · ${win.party}` : 'Winner';
+            turnoutPct = registeredForYear ? Math.round((validVotes / registeredForYear) * 1000) / 10 : null;
+            electionCaption = `${yKey} ${ovElecState || row.scope} governorship`;
+          }
+        }
+
+        if (validVotes != null && winnerShare != null) {
+          const reg = this.fmtNum(registeredForYear);
+          const votes = this.fmtNum(validVotes);
+          ngKpis = [
+            { key:'reg-'+scopeKey, icon:'badge', label:'Registered voters', value:reg.value, unit:reg.unit, delta:`${row.level} · ${row.scope}`, deltaIcon:'place', deltaColor:'var(--dim)', caption:electionCaption },
+            { key:'votes-'+scopeKey, icon:'how_to_vote', label:'Valid votes', value:votes.value, unit:votes.unit, delta:electionCaption, deltaIcon:'ballot', deltaColor:'var(--good)', caption:electionCaption },
+            { key:'turn-'+scopeKey, icon:'donut_large', label:`Turnout ${yKey}`, value:turnoutPct != null ? String(turnoutPct) : '—', unit:'%', delta:electionCaption, deltaIcon:'insights', deltaColor:'var(--dim)', caption: ovOffice==='pres' && row.level==='National' ? 'INEC-declared national turnout' : 'Valid ÷ register (approx.)' },
+            { key:'win-'+scopeKey, icon:'emoji_events', label:'Winner share', value:String(winnerShare), unit:'%', delta:winnerLabel, deltaIcon:'military_tech', deltaColor:'var(--primary)', caption:electionCaption },
+          ];
+        } else {
+          const reg=this.fmtNum(row.registered), pvc=this.fmtNum(row.collected), str=this.fmtNum(row.votingStrength);
+          const est=this.fmtNum(row.estimatedBallots||0);
+          ngKpis=[
+            { key:'reg-'+scopeKey, icon:'badge', label:'Registered voters', value:reg.value, unit:reg.unit, delta:`${row.level} · ${row.scope} · ${origin}`, deltaIcon:'place', deltaColor:'var(--dim)', caption:row.caption },
+            { key:'pvc-'+scopeKey, icon:'how_to_reg', label:'PVCs collected', value:pvc.value, unit:pvc.unit, delta:`${row.level} · ${row.scope}`, deltaIcon:'trending_up', deltaColor:'var(--good)', caption:row.caption },
+            { key:'rate-'+scopeKey, icon:'donut_large', label:'Collection rate', value:String(row.rate), unit:'%', delta:`${row.level} · ${row.scope}`, deltaIcon:'inventory_2', deltaColor:'var(--dim)', caption: origin==='Official'?'Official collected ÷ registered':row.caption },
+            { key:'str-'+scopeKey, icon:'bolt', label:'Voting strength', value:str.value, unit:str.unit, delta:'PVCs collected (can vote)', deltaIcon:'insights', deltaColor:'var(--primary)', caption:`× ${row.turnoutBasis||'2023 national turnout 27.1%'} ≈ ${est.value}${est.unit} ballots (estimate)` },
+          ];
+        }
       }
     }
     const topKpis = ngKpis || (c ? c.kpis : []);
@@ -2802,11 +2961,11 @@ class Component extends DCLogic {
         const office = e.target.value || 'pres';
         if (office === 'gov') {
           this.fetchGovCatalog();
-          this.setState({
-            ovOffice: office, ovElecYear: null, ovElecState: null, elecMapTheme: null, elecChoroMeta: null,
-            elecSelectedUnit: null, elecExpandedCand: null, showEstimatedLga: true,
-            layers: this.syncElectionLayers(office, null, false, null),
-          }, ()=>this.syncCountryMap());
+        this.setState({
+          ovOffice: office, ovElecYear: null, ovElecState: null, elecMapTheme: null, elecChoroMeta: null,
+          elecSelectedUnit: null, elecExpandedCand: null, showEstimatedLga: true,
+          layers: this.syncElectionLayers(office, null, false, null),
+        }, ()=>{ this.fetchNgKpis(); this.syncCountryMap(); });
           return;
         }
         const officeYears = this.OFFICE_YEARS[office] || ['2023'];
@@ -2815,7 +2974,7 @@ class Component extends DCLogic {
           ovOffice: office, ovElecYear: nextYear, ovElecState: null, elecMapTheme: null, elecChoroMeta: null,
           elecSelectedUnit: null, elecExpandedCand: null, showEstimatedLga: true,
           layers: this.syncElectionLayers(office, null, false, null),
-        }, ()=>this.flyToElectionView());
+        }, ()=>{ this.fetchNgKpis(); this.flyToElectionView(); });
       },
       onElecState:(e)=>{
         const state = e.target.value || null;
@@ -2823,7 +2982,7 @@ class Component extends DCLogic {
         const nextYear = years.includes(String(this.state.ovElecYear)) ? String(this.state.ovElecYear) : (years[0] || null);
         this.setState({
           ovElecState: state, ovElecYear: nextYear, elecMapTheme: null, elecChoroMeta: null, elecSelectedUnit: null, elecExpandedCand: null, showEstimatedLga: true,
-        }, ()=>this.flyToElectionView());
+        }, ()=>{ this.fetchNgKpis(); this.flyToElectionView(); });
       },
       sub,
       ngStateVal:(ngView?ngView.stSel:null)||'',

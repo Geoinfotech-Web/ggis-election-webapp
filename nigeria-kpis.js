@@ -5,7 +5,19 @@ const { normalizeLookupKey } = require('./polling-data');
 const { loadLatestSnapshot } = require('./inec-ingest');
 
 const LOCAL_POLLING_UNIT_DATA_PATH = path.join(__dirname, 'data', 'reference', 'Nigeria_polling_units.csv');
-const TURNOUT_2023 = 0.271;
+
+/** National presidential turnout rates used for ballot estimates (INEC-declared cycles). */
+const TURNOUT_BY_YEAR = {
+  '2023': { rate: 0.271, label: '2023 national turnout 27.1%' },
+  '2019': { rate: 0.348, label: '2019 national turnout 34.8%' },
+  '2015': { rate: 0.437, label: '2015 national turnout 43.7%' },
+};
+const TURNOUT_2023 = TURNOUT_BY_YEAR['2023'].rate;
+
+function turnoutForYear(year) {
+  const key = String(year || '2023');
+  return TURNOUT_BY_YEAR[key] || TURNOUT_BY_YEAR['2023'];
+}
 
 function pickRow(rows, name, field) {
   if (!name || !rows?.length) return null;
@@ -64,23 +76,26 @@ async function countPollingUnits({ state, lga, ward } = {}) {
   return { lgaTotal: bucket.lgaTotal, wardTotal, byWard: bucket.byWard };
 }
 
-function packKpi({ level, scope, registered, collected, origin, caption }) {
+function packKpi({ level, scope, registered, collected, origin, caption, year }) {
   const rate = ratePct(collected, registered);
+  const turnout = turnoutForYear(year);
   return {
     level,
     scope,
+    year: String(year || '2023'),
     registered,
     collected,
     rate,
     votingStrength: collected,
-    estimatedBallots: roundInt(collected * TURNOUT_2023),
-    turnoutBasis: '2023 national turnout 27.1%',
+    estimatedBallots: roundInt(collected * turnout.rate),
+    turnoutBasis: turnout.label,
     origin,
     caption,
   };
 }
 
-async function computeNigeriaKpis({ state, lga, ward, pu } = {}) {
+async function computeNigeriaKpis({ state, lga, ward, pu, year } = {}) {
+  const electionYear = String(year || '2023');
   const snap = await loadLatestSnapshot();
   const states = snap.statePopulation || [];
   const lgas = snap.lgaPopulation || [];
@@ -97,6 +112,7 @@ async function computeNigeriaKpis({ state, lga, ward, pu } = {}) {
       collected: nationalPvc,
       origin: 'source_series',
       caption: 'INEC February 2023 state series · national discrepancy disclosed',
+      year: electionYear,
     });
   }
 
@@ -109,6 +125,7 @@ async function computeNigeriaKpis({ state, lga, ward, pu } = {}) {
       collected: 0,
       origin: 'pending',
       caption: 'No official state row in the current snapshot',
+      year: electionYear,
     });
   }
 
@@ -123,6 +140,7 @@ async function computeNigeriaKpis({ state, lga, ward, pu } = {}) {
       collected: statePvc,
       origin: 'source_series',
       caption: 'INEC February 2023 state table · in review',
+      year: electionYear,
     });
   }
 
@@ -158,6 +176,7 @@ async function computeNigeriaKpis({ state, lga, ward, pu } = {}) {
       collected: lgaPvc,
       origin,
       caption,
+      year: electionYear,
     });
   }
 
@@ -177,6 +196,7 @@ async function computeNigeriaKpis({ state, lga, ward, pu } = {}) {
       collected: wardPvc,
       origin: 'allocated',
       caption: wardCaption,
+      year: electionYear,
     });
   }
 
@@ -188,7 +208,8 @@ async function computeNigeriaKpis({ state, lga, ward, pu } = {}) {
     collected: roundInt(wardPvc / puCount),
     origin: 'allocated',
     caption: 'Allocated equally across units in this ward',
+    year: electionYear,
   });
 }
 
-module.exports = { computeNigeriaKpis, TURNOUT_2023 };
+module.exports = { computeNigeriaKpis, TURNOUT_2023, TURNOUT_BY_YEAR };

@@ -1757,6 +1757,7 @@ app.get('/api/nigeria-kpis', async (req, res) => {
       lga: req.query.lga,
       ward: req.query.ward,
       pu: req.query.pu,
+      year: req.query.year,
     });
     const ingest = getIngestStatus();
     res.setHeader('Cache-Control', 'public, max-age=120');
