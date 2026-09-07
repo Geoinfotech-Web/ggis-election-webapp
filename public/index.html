@@ -6,7 +6,7 @@
 <title>Election Intelligence Dashboard</title>
 <link rel="stylesheet" href="./vendor/leaflet/leaflet.css">
 <script src="./vendor/leaflet/leaflet.js"></script>
-<script src="./js/eid-maps.js?v=20260831a"></script>
+<script src="./js/eid-maps.js?v=20260907pu"></script>
 <script src="./support.js?v=20260819c"></script>
 </head>
 <body>
@@ -1206,8 +1206,8 @@ class Component extends DCLogic {
     subState:null, subLga:null, subWard:null, subPU:null, subCoords:null, subGeo:'idle', subFile:null, submissions:[],
     candYear:'2023', candOffice:'pres', selParty:null,
     admFilter:'all', admQuery:'', admSel:null,
+    anaCoords:null, anaGeo:'idle', nearPUs:[], puQuery:'', mapFocus:null, mapAdminFocus:null,
     apiUrl:'', apiKey:'', apiStatus:'idle', uploads:[],
-    anaCoords:null, anaGeo:'idle', nearPUs:[], puQuery:'', mapFocus:null,
     layersOpen:true, basemapOpen:false,
     layers:{ state:true, lga:false, ward:false, polling:false, health:false },
     status:{ live:true, upcoming:true, recent:true, nodata:false } };
@@ -1391,9 +1391,11 @@ class Component extends DCLogic {
     const seq = this._puSeq;
     this.setState({
       ngState:s, ngLga:null, ngWard:null, ngPU:null, mapFocus:null,
+      mapAdminFocus:{ state:s, lga:null, ward:null },
+      ngKpiRow:null,
       puLoading:'lga',
       puDir:{ ...this.state.puDir, lgas:[], wards:[], units:[] },
-      layers:{ ...this.state.layers, state:true, lga:false, ward:false, polling:false },
+      layers:{ ...this.state.layers, state:true, lga:true, ward:false, polling:false },
     }, ()=>{
       this.fetchNgKpis();
       this.loadPuDirectory(s, null, null, seq);
@@ -1406,12 +1408,15 @@ class Component extends DCLogic {
     const st = this.state.ngState;
     this.setState({
       ngLga:l, ngWard:null, ngPU:null, mapFocus:null,
+      mapAdminFocus:{ state:st, lga:l, ward:null },
+      ngKpiRow:null,
       puLoading:'ward',
       puDir:{ ...this.state.puDir, wards:[], units:[] },
-      layers:{ ...this.state.layers, state:true, lga:true, ward:true, polling:false },
+      layers:{ ...this.state.layers, state:true, lga:true, ward:true, polling:true },
     }, ()=>{
       this.fetchNgKpis();
       this.loadPuDirectory(st, l, null, seq);
+      this.loadPuUnits(st, l, null, seq);
       this.flyToAdminBoundary(st, l, null);
     });
   }
@@ -1422,6 +1427,8 @@ class Component extends DCLogic {
     const lg = this.state.ngLga;
     this.setState({
       ngWard:w, ngPU:null, mapFocus:null,
+      mapAdminFocus:{ state:st, lga:lg, ward:w },
+      ngKpiRow:null,
       puLoading:'pu',
       puDir:{ ...this.state.puDir, units:[] },
       layers:{ ...this.state.layers, state:true, lga:true, ward:true, polling:true },
@@ -1433,7 +1440,7 @@ class Component extends DCLogic {
     });
   }
   selectNgPU(p){ this.setState(s=>({ ngPU: s.ngPU===p ? null : p }), ()=>this.fetchNgKpis()); }
-  clearNgDrill(){ this.setState({ ngState:null, ngLga:null, ngWard:null, ngPU:null, mapFocus:null }, ()=>this.fetchNgKpis()); }
+  clearNgDrill(){ this.setState({ ngState:null, ngLga:null, ngWard:null, ngPU:null, mapFocus:null, mapAdminFocus:null, ngKpiRow:null }, ()=>{ this.fetchNgKpis(); this.flyToElectionView(); }); }
 
   OFFICE_YEARS = {
     pres: ['2027','2023','2019','2015'],
@@ -2033,7 +2040,7 @@ class Component extends DCLogic {
       this.setState(s=>{
         if(token && this._puSeq && token !== this._puSeq) return {};
         return { puDir: Object.assign({}, s.puDir, { units }), puLoading: null };
-      });
+      }, ()=> this.syncCountryMap());
     } catch(e){}
   }
   onPuQuery(e){
@@ -2147,6 +2154,7 @@ class Component extends DCLogic {
       user: kind==='country' ? this.state.anaCoords : null,
       focus: this.state.mapFocus,
       focusZoom: 16,
+      adminFocus: this.state.mapAdminFocus,
       keepLocalPoints: kind==='country' && (nearPts.length || ((this.state.puDir && this.state.puDir.units)||[]).length),
     };
   }
@@ -2158,7 +2166,11 @@ class Component extends DCLogic {
   async flyToAdminBoundary(state, lga, ward){
     const el = this.mapEls && this.mapEls.country;
     if(!el || !window.EIDMaps || !window.EIDMaps.flyToAdmin || !state) return;
-    await window.EIDMaps.flyToAdmin(el, { state, lga, ward });
+    // Wait a frame so the map container/ref survives the drill-down re-render.
+    await new Promise((r)=> requestAnimationFrame(()=>r()));
+    const live = this.mapEls && this.mapEls.country;
+    if(!live) return;
+    await window.EIDMaps.flyToAdmin(live, { state, lga, ward });
   }
   async loadElecMapTheme(office, year, state){
     const seq = (this._elecThemeSeq = (this._elecThemeSeq || 0) + 1);
@@ -2324,7 +2336,7 @@ class Component extends DCLogic {
       status:{live:true,upcoming:true,recent:true,nodata:false},
       layers:{state:true,lga:true,ward:false,polling:false,health:false},
       ngState:null, ngLga:null, ngWard:null, ngPU:null,
-      mapFocus:null, mapSel:null, puQuery:'', puSearchHits:[],
+      mapFocus:null, mapAdminFocus:null, mapSel:null, puQuery:'', puSearchHits:[],
       anaCoords:null, anaGeo:'idle', nearPUs:[],
       ovElecYear:'2023', ovOffice:'pres', ovElecState:null, elecMapTheme:null, elecChoroMeta:null,
       elecSelectedUnit:null, elecExpandedCand:null, showEstimatedLga:true,
@@ -2555,8 +2567,8 @@ class Component extends DCLogic {
         lgaPlaceholder: this.state.puLoading==='lga' ? 'Loading LGAs…' : 'Select an LGA…',
         wardPlaceholder: this.state.puLoading==='ward' ? 'Loading wards…' : 'Select a ward…',
         lgaVal:lgSel||'', wardVal:wSel||'', puVal:puSel||'',
-        onLga:(e)=>{ const v=e.target.value; if(v) this.selectNgLga(v); else this.setState({ngLga:null,ngWard:null,ngPU:null,mapFocus:null}, ()=>this.flyToAdminBoundary(stSel, null, null)); },
-        onWard:(e)=>{ const v=e.target.value; if(v) this.selectNgWard(v); else this.setState({ngWard:null,ngPU:null,mapFocus:null}, ()=>this.flyToAdminBoundary(stSel, lgSel, null)); },
+        onLga:(e)=>{ const v=e.target.value; if(v) this.selectNgLga(v); else this.setState({ngLga:null,ngWard:null,ngPU:null,mapFocus:null,mapAdminFocus: stSel ? { state:stSel, lga:null, ward:null } : null, ngKpiRow:null}, ()=>{ this.fetchNgKpis(); this.flyToAdminBoundary(stSel, null, null); }); },
+        onWard:(e)=>{ const v=e.target.value; if(v) this.selectNgWard(v); else this.setState({ngWard:null,ngPU:null,mapFocus:null,mapAdminFocus: (stSel&&lgSel) ? { state:stSel, lga:lgSel, ward:null } : null, ngKpiRow:null}, ()=>{ this.fetchNgKpis(); this.loadPuUnits(stSel, lgSel, null); this.flyToAdminBoundary(stSel, lgSel, null); }); },
         onPU:(e)=>{ const v=e.target.value; if(!v){ this.setState({ngPU:null,mapFocus:null}); return; } const hit=pus.find(p=>(p.code||p.name)===v) || { state:stSel, lga:lgSel, ward:wSel, pu:v, name:v }; this.focusPollingUnit(hit); },
         stSel,lgSel,wSel,puSel, hasState:!!stSel,hasLga:!!lgSel,hasWard:!!wSel, hasSel:!!(stSel||lgSel||wSel||puSel||this.state.mapFocus||this.state.anaCoords),
         crumb:[stSel,lgSel,wSel].filter(Boolean).join('  ›  ')||'State → LGA → Ward → Polling Unit',
@@ -2758,11 +2770,12 @@ class Component extends DCLogic {
         const scopeKey = [row.level, row.scope, yKey, ovOffice].join('-');
         const origin = row.origin==='official'?'Official':(row.origin==='allocated'?'Allocated':'Pending');
         const upcoming = !!(elecSelT && elecSelT.status==='Upcoming');
-        const drilling = !!(this.state.ngLga || this.state.ngWard || this.state.ngPU);
+        // Prefer PVC / register KPIs whenever "Find your polling unit" has a selection.
+        const adminDrill = !!this.state.ngState;
 
         let validVotes = null, winnerShare = null, turnoutPct = null, winnerLabel = null, electionCaption = null, registeredForYear = row.registered;
 
-        if (!upcoming && !drilling && ovOffice === 'pres' && this.NG_PRES[yKey]) {
+        if (!upcoming && !adminDrill && ovOffice === 'pres' && this.NG_PRES[yKey]) {
           validVotes = this.presValidVotes(yKey);
           const winner = (this.NG_PRES[yKey] || []).find((r)=> r[3]);
           winnerShare = winner ? Number(winner[2]) : null;
@@ -2775,7 +2788,7 @@ class Component extends DCLogic {
             turnoutPct = registeredForYear ? Math.round((validVotes / registeredForYear) * 1000) / 10 : null;
           }
           electionCaption = `${yKey} presidential · INEC declared`;
-        } else if (!upcoming && !drilling && ovOffice === 'gov' && ngElec && !ngElec.pending) {
+        } else if (!upcoming && !adminDrill && ovOffice === 'gov' && ngElec && !ngElec.pending) {
           const cands = (ngElec.candidates || []).filter((c)=> c.hasVotes);
           if (cands.length) {
             validVotes = cands.reduce((a,c)=> a + (Number(c.votes) || 0), 0);

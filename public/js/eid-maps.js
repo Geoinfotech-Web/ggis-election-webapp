@@ -454,6 +454,11 @@
     }
   }
 
+  function adminViewKey(admin) {
+    if (!admin || !admin.state) return null;
+    return "admin:" + [admin.state, admin.lga || "", admin.ward || ""].join("|");
+  }
+
   function attach(el, cfg) {
     const inst = ensure(el);
     if (!inst) return;
@@ -463,16 +468,22 @@
     setBasemap(el, cfg.basemap || "hybrid");
     const user = cfg.user && cfg.user.lat != null ? cfg.user : null;
     const focus = cfg.focus && cfg.focus.lat != null ? cfg.focus : null;
+    const admin = cfg.adminFocus && cfg.adminFocus.state ? cfg.adminFocus : null;
     const viewKey = focus
       ? "focus:" + Number(focus.lat).toFixed(5) + "," + Number(focus.lng).toFixed(5)
-      : user
-        ? "user:" + user.lat.toFixed(4) + "," + user.lng.toFixed(4)
-        : (cfg.live ? "ekiti" : cfg.scope) + ":" + (cfg.zoom || liveView.zoom);
+      : admin
+        ? adminViewKey(admin)
+        : user
+          ? "user:" + user.lat.toFixed(4) + "," + user.lng.toFixed(4)
+          : (cfg.live ? "ekiti" : cfg.scope) + ":" + (cfg.zoom || liveView.zoom);
     if (inst.viewKey !== viewKey) {
-      if (focus) inst.map.flyTo([Number(focus.lat), Number(focus.lng)], cfg.focusZoom || 16, { duration: 0.75 });
-      else if (user) inst.map.setView([user.lat, user.lng], 13);
-      else inst.map.setView(liveView.center, cfg.zoom || liveView.zoom);
       inst.viewKey = viewKey;
+      if (focus) inst.map.flyTo([Number(focus.lat), Number(focus.lng)], cfg.focusZoom || 16, { duration: 0.75 });
+      else if (admin) {
+        // Re-fly after DOM remounts so LGA/ward drill is not lost on re-render.
+        flyToAdmin(el, Object.assign({}, admin, { preserveLayers: true, skipViewKey: true }));
+      } else if (user) inst.map.setView([user.lat, user.lng], 13);
+      else inst.map.setView(liveView.center, cfg.zoom || liveView.zoom);
     }
     inst.markers.clearLayers();
     inst.points.clearLayers();
@@ -580,6 +591,9 @@
   }
 
   function boundsFromFeatures(features) {
+    const list = Array.isArray(features)
+      ? features
+      : (features && Array.isArray(features.features) ? features.features : []);
     let minLat = 90;
     let maxLat = -90;
     let minLng = 180;
@@ -597,8 +611,8 @@
       }
       coords.forEach(walk);
     }
-    (features || []).forEach((feat) => {
-      if (feat.geometry && feat.geometry.coordinates) walk(feat.geometry.coordinates);
+    list.forEach((feat) => {
+      if (feat && feat.geometry && feat.geometry.coordinates) walk(feat.geometry.coordinates);
     });
     if (minLat > maxLat) return null;
     return [[minLat, minLng], [maxLat, maxLng]];
@@ -632,7 +646,39 @@
   function pickAdminFeatures(data, field, target) {
     const features = (data && data.features) || [];
     if (!target) return features;
-    return features.filter((feat) => adminNamesMatch(pickProp(feat.properties, [field, field.toUpperCase()]), target));
+    const tokens = String(target || '')
+      .split(/[\/|,]+/)
+      .map((t) => t.trim())
+      .filter(Boolean);
+    return features.filter((feat) => {
+      const name = pickProp(feat.properties, [field, field.toUpperCase()]);
+      if (adminNamesMatch(name, target)) return true;
+      return tokens.some((tok) => adminNamesMatch(name, tok));
+    });
+  }
+
+  async function boundsFromPollingUnits(state, lga, ward) {
+    const qs = new URLSearchParams();
+    if (state) qs.set('state', state);
+    if (lga) qs.set('lga', lga);
+    if (ward) qs.set('ward', ward);
+    const data = await loadJson('/api/polling-unit-points?' + qs.toString());
+    const pts = (data && data.points) || [];
+    const coords = pts
+      .filter((p) => p.latitude != null && p.longitude != null)
+      .map((p) => ({ geometry: { type: 'Point', coordinates: [Number(p.longitude), Number(p.latitude)] } }));
+    return boundsFromFeatures(coords);
+  }
+
+  function applyAdminLayers(inst, opts, state, lga, ward) {
+    if (opts && opts.preserveLayers) return;
+    inst.cfg = inst.cfg || {};
+    inst.cfg.layers = Object.assign({}, inst.cfg.layers || {}, {
+      state: true,
+      lga: true,
+      ward: !!(lga || ward),
+      polling: !!(lga || ward),
+    });
   }
 
   async function flyToAdmin(el, opts) {
@@ -643,6 +689,9 @@
     const ward = opts.ward;
     if (!state) return;
 
+    const viewKey = adminViewKey({ state, lga, ward });
+    if (!opts.skipViewKey) inst.viewKey = viewKey;
+
     let layerId = "state";
     let where = "UPPER(statename)='" + escWhere(state).toUpperCase() + "'";
     let maxZoom = 8;
@@ -652,20 +701,18 @@
       layerId = "ward";
       where += " AND UPPER(lganame)='" + escWhere(lga).toUpperCase() + "'";
       maxZoom = 14;
-      data = await queryLocalAdmin(layerId, state, lga, ward);
+      // Prefer all wards in the LGA, then fuzzy-match directory names (e.g. Agbotikuyo/Dopemu ↔ Dopemu).
+      data = await queryLocalAdmin(layerId, state, lga);
       if (!data || !data.features || !data.features.length) data = await queryAdmin(layerId, where, 500);
-      const matched = pickAdminFeatures(data, 'wardname', ward);
-      const bounds = boundsFromFeatures(matched.length ? { type: 'FeatureCollection', features: matched } : data);
+      let matched = pickAdminFeatures(data, 'wardname', ward);
+      if (!matched.length) {
+        const exact = await queryLocalAdmin(layerId, state, lga, ward);
+        if (exact && exact.features && exact.features.length) matched = exact.features;
+      }
+      const bounds = boundsFromFeatures(matched.length ? matched : null)
+        || await boundsFromPollingUnits(state, lga, ward);
       if (bounds) {
-        if (!opts.preserveLayers) {
-          inst.cfg = inst.cfg || {};
-          inst.cfg.layers = Object.assign({}, inst.cfg.layers || {}, {
-            state: true,
-            lga: true,
-            ward: true,
-            polling: true,
-          });
-        }
+        applyAdminLayers(inst, opts, state, lga, ward);
         inst.overlayKey = null;
         inst.map.flyToBounds(bounds, { padding: [28, 28], duration: 0.85, maxZoom });
         refreshOverlays(el);
@@ -674,21 +721,14 @@
     } else if (lga) {
       layerId = "lga";
       where += " AND UPPER(lganame)='" + escWhere(lga).toUpperCase() + "'";
-      maxZoom = 11;
+      maxZoom = 12;
       data = await queryLocalAdmin(layerId, state, lga);
       if (!data || !data.features || !data.features.length) data = await queryAdmin(layerId, where, 50);
       const matched = pickAdminFeatures(data, 'lganame', lga);
-      const bounds = boundsFromFeatures(matched.length ? { type: 'FeatureCollection', features: matched } : data);
+      const bounds = boundsFromFeatures(matched.length ? matched : (data && data.features))
+        || await boundsFromPollingUnits(state, lga, null);
       if (bounds) {
-        if (!opts.preserveLayers) {
-          inst.cfg = inst.cfg || {};
-          inst.cfg.layers = Object.assign({}, inst.cfg.layers || {}, {
-            state: true,
-            lga: true,
-            ward: true,
-            polling: false,
-          });
-        }
+        applyAdminLayers(inst, opts, state, lga, ward);
         inst.overlayKey = null;
         inst.map.flyToBounds(bounds, { padding: [28, 28], duration: 0.85, maxZoom });
         refreshOverlays(el);
@@ -696,15 +736,7 @@
       }
     }
 
-    if (!opts.preserveLayers) {
-      inst.cfg = inst.cfg || {};
-      inst.cfg.layers = Object.assign({}, inst.cfg.layers || {}, {
-        state: true,
-        lga: !!state,
-        ward: !!(lga || ward),
-        polling: !!ward,
-      });
-    }
+    applyAdminLayers(inst, opts, state, lga, ward);
     inst.overlayKey = null;
 
     data = data || await queryLocalAdmin(layerId, state, lga, ward);
@@ -714,7 +746,8 @@
     const featureList = layerId === 'state'
       ? pickAdminFeatures(data, 'statename', state)
       : ((data && data.features) || []);
-    const bounds = boundsFromFeatures(featureList.length ? featureList : (data && data.features));
+    let bounds = boundsFromFeatures(featureList.length ? featureList : (data && data.features));
+    if (!bounds && (lga || ward)) bounds = await boundsFromPollingUnits(state, lga, ward);
     if (bounds) {
       inst.map.flyToBounds(bounds, { padding: [28, 28], duration: 0.85, maxZoom });
       refreshOverlays(el);
