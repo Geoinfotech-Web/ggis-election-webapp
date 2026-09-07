@@ -8,7 +8,7 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const HISTORY_PATH = path.join(ROOT, 'data', 'governorship-history.json');
-const POP_PATH = path.join(ROOT, 'public', 'data', 'population-pvc-data.json');
+const POP_PATH = path.join(ROOT, 'data', 'reference', 'population-pvc-data.json');
 
 const INCUMBENTS_2014 = {
   Abia: [

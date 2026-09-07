@@ -1,0 +1,33 @@
+name: quality
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgis/postgis:16-3.4
+        env:
+          POSTGRES_DB: election_dashboard_test
+          POSTGRES_USER: election_test
+          POSTGRES_PASSWORD: election_test_password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U election_test -d election_dashboard_test"
+          --health-interval 5s --health-timeout 5s --health-retries 20
+    env:
+      TEST_DATABASE_URL: postgresql://election_test:election_test_password@127.0.0.1:5432/election_dashboard_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm run test:integration
+      - run: npm audit --omit=dev --audit-level=high

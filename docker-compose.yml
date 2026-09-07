@@ -1,29 +1,109 @@
 name: election-dashboard
 
 services:
+  secrets-init:
+    image: alpine:3.20
+    command:
+      - /bin/sh
+      - -ec
+      - |
+        umask 077
+        test -s /run/local-secrets/postgres_password || head -c 48 /dev/urandom | base64 > /run/local-secrets/postgres_password
+        test -s /run/local-secrets/admin_session_secret || head -c 64 /dev/urandom | base64 > /run/local-secrets/admin_session_secret
+        chown 1000:1000 /run/local-secrets/postgres_password /run/local-secrets/admin_session_secret
+        chmod 0400 /run/local-secrets/postgres_password /run/local-secrets/admin_session_secret
+    volumes:
+      - local-secrets:/run/local-secrets
+    restart: "no"
+
+  db:
+    image: postgis/postgis:16-3.4
+    depends_on:
+      secrets-init:
+        condition: service_completed_successfully
+    environment:
+      POSTGRES_DB: election_dashboard
+      POSTGRES_USER: election_app
+      POSTGRES_PASSWORD_FILE: /run/local-secrets/postgres_password
+    volumes:
+      - editorial-db:/var/lib/postgresql/data
+      - local-secrets:/run/local-secrets:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U election_app -d election_dashboard"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+    networks: [backend]
+
   app:
     build: .
-    container_name: election-dashboard-app
     ports:
-      - "3010:3010"
-    volumes:
-      - ./data/election-results:/app/data/election-results
-      - ./data/boundaries:/app/data/boundaries
-      - ./data/governorship-history.json:/app/data/governorship-history.json:ro
-      - ./Shapefiles:/app/Shapefiles:ro
-      - ./public:/app/public
-      - ./admin:/app/admin
-      - ./scripts:/app/scripts:ro
-      - ./lga-normalize.js:/app/lga-normalize.js:ro
-      - ./election-results-data.js:/app/election-results-data.js:ro
-      - election-db:/app/data/db
+      - "127.0.0.1:3010:3010"
+    depends_on:
+      db:
+        condition: service_healthy
     environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
       PORT: "3010"
+      BASE_URL: http://localhost:3010
+      CORS_ORIGINS: http://localhost:3010,http://127.0.0.1:3010
+      COOKIE_SECURE: "false"
+      ADMIN_SESSION_SECRET_FILE: /run/local-secrets/admin_session_secret
+      EDITORIAL_DATABASE_HOST: db
+      EDITORIAL_DATABASE_USER: election_app
+      EDITORIAL_DATABASE_NAME: election_dashboard
+      EDITORIAL_DATABASE_PASSWORD_FILE: /run/local-secrets/postgres_password
       ELECTION_DB_PATH: /app/data/db/election-dashboard.db
       ELECTION_RESULTS_DIR: /app/data/election-results
       BOUNDARIES_DIR: /app/data/boundaries
-      SQLITE_JOURNAL_MODE: DELETE
+      SOURCE_ARCHIVE_ROOT: /source-archive
+      SQLITE_JOURNAL_MODE: WAL
+      ENABLE_INEC_DISCOVERY: "false"
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-}
+      GOOGLE_REDIRECT_URI: ${GOOGLE_REDIRECT_URI:-http://localhost:3010/auth/google/callback}
+    volumes:
+      - legacy-db:/app/data/db
+      - local-secrets:/run/local-secrets:ro
+      - type: bind
+        source: "D:/Election Dashboard Data/source-archive"
+        target: /source-archive
+        bind:
+          create_host_path: false
     restart: unless-stopped
+    networks: [backend]
+
+  db-backup:
+    image: postgres:16-bookworm
+    depends_on:
+      db:
+        condition: service_healthy
+    command:
+      - /bin/sh
+      - -ec
+      - >-
+        export PGPASSWORD="$$(cat /run/local-secrets/postgres_password)";
+        while true; do
+          pg_dump -h db -U election_app -d election_dashboard -Fc -f "/backups/election-dashboard-$$(date -u +%Y%m%dT%H%M%SZ).dump";
+          find /backups -type f -name '*.dump' -mtime +30 -delete;
+          sleep 86400;
+        done
+    volumes:
+      - local-secrets:/run/local-secrets:ro
+      - type: bind
+        source: "D:/Election Dashboard Data/database-backups"
+        target: /backups
+        bind:
+          create_host_path: false
+    restart: unless-stopped
+    networks: [backend]
 
 volumes:
-  election-db:
+  editorial-db:
+  legacy-db:
+  local-secrets:
+
+networks:
+  backend:

@@ -2,12 +2,13 @@ const fs = require('fs');
 const path = require('path');
 const Database = require('better-sqlite3');
 const Papa = require('papaparse');
+const crypto = require('crypto');
 
 const DB_PATH = process.env.ELECTION_DB_PATH
   ? path.resolve(process.env.ELECTION_DB_PATH)
   : path.join(__dirname, 'data', 'election-dashboard.db');
 
-const CSV_PATH = path.join(__dirname, 'public', 'data', 'Nigeria_polling_units.csv');
+const CSV_PATH = path.join(__dirname, 'data', 'reference', 'Nigeria_polling_units.csv');
 const RESULTS_DIR = process.env.ELECTION_RESULTS_DIR
   ? path.resolve(process.env.ELECTION_RESULTS_DIR)
   : path.join(__dirname, 'data', 'election-results');
@@ -130,6 +131,7 @@ function initSchema(database) {
 }
 
 function rowToPoint(row) {
+  const hasCoordinates = Number.isFinite(row.latitude) && Number.isFinite(row.longitude);
   return {
     state: row.state,
     lga: row.lga,
@@ -140,7 +142,9 @@ function rowToPoint(row) {
     address: row.address || '',
     latitude: row.latitude,
     longitude: row.longitude,
-    sourceHasCoordinates: Number.isFinite(row.latitude) && Number.isFinite(row.longitude),
+    sourceHasCoordinates: hasCoordinates,
+    coordinateStatus: hasCoordinates ? 'source-provided' : 'unavailable',
+    geometrySource: hasCoordinates ? 'csv-latlong' : 'unavailable',
   };
 }
 
@@ -163,8 +167,9 @@ function importPollingUnitsFromCsv(csvPath, normalizeRow) {
     )
   `);
 
-  database.exec('DELETE FROM polling_units');
   const tx = database.transaction((rows) => {
+    database.exec('CREATE TABLE IF NOT EXISTS reference_imports (name TEXT PRIMARY KEY, fingerprint TEXT NOT NULL)');
+    database.exec('DELETE FROM polling_units_fts; DELETE FROM polling_units');
     for (const raw of rows) {
       const point = normalizeRow(raw);
       if (!point.state || !point.lga || !point.code) continue;
@@ -185,20 +190,30 @@ function importPollingUnitsFromCsv(csvPath, normalizeRow) {
         ].join(' ')),
       });
     }
+    database.exec(`
+      INSERT INTO polling_units_fts(rowid, search_text)
+      SELECT id, search_text FROM polling_units
+    `);
+    database.prepare('INSERT OR REPLACE INTO reference_imports(name, fingerprint) VALUES (?, ?)')
+      .run('polling_units', pollingSourceFingerprint(csvText));
   });
   tx(parsed.data || []);
-  database.exec(`
-    INSERT INTO polling_units_fts(rowid, search_text)
-    SELECT id, search_text FROM polling_units
-  `);
   return database.prepare('SELECT COUNT(*) AS n FROM polling_units').get().n;
+}
+
+function pollingSourceFingerprint(csvText) {
+  return 'source-coordinates-v3:' + crypto.createHash('sha256').update(csvText).digest('hex');
 }
 
 function ensurePollingUnitsSeeded(normalizeRow) {
   const database = getDb();
+  if (!fs.existsSync(CSV_PATH)) throw new Error('Canonical polling-unit CSV is missing.');
+  database.exec('CREATE TABLE IF NOT EXISTS reference_imports (name TEXT PRIMARY KEY, fingerprint TEXT NOT NULL)');
   const count = database.prepare('SELECT COUNT(*) AS n FROM polling_units').get().n;
-  if (count > 0) return count;
-  if (!fs.existsSync(CSV_PATH)) return 0;
+  const fingerprint = pollingSourceFingerprint(fs.readFileSync(CSV_PATH, 'utf8'));
+  const imported = database.prepare('SELECT fingerprint FROM reference_imports WHERE name = ?').get('polling_units');
+  // Upgrade unversioned caches and refresh whenever the canonical source changes.
+  if (count > 0 && imported?.fingerprint === fingerprint) return count;
   return importPollingUnitsFromCsv(CSV_PATH, normalizeRow);
 }
 
@@ -436,11 +451,17 @@ function ensureElectionResultsSeeded() {
   return importElectionResultsFromDir();
 }
 
+function quarantineLegacyElectionResults() {
+  const database = getDb();
+  return database.prepare('DELETE FROM election_datasets').run().changes;
+}
+
 function getDbStatus() {
   const database = getDb();
   return {
     path: DB_PATH,
     pollingUnits: database.prepare('SELECT COUNT(*) AS n FROM polling_units').get().n,
+    pollingUnitsWithCoordinates: database.prepare('SELECT COUNT(*) AS n FROM polling_units WHERE latitude IS NOT NULL AND longitude IS NOT NULL').get().n,
     electionDatasets: database.prepare('SELECT COUNT(*) AS n FROM election_datasets').get().n,
     electionUnits: database.prepare('SELECT COUNT(*) AS n FROM election_units').get().n,
   };
@@ -505,6 +526,7 @@ module.exports = {
   upsertElectionDataset,
   importElectionResultsFromDir,
   ensureElectionResultsSeeded,
+  quarantineLegacyElectionResults,
   loadElectionDataset,
   listLgasByState,
   listGovStatesByYear,

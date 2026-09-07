@@ -8,7 +8,7 @@ const path = require('path');
 const { canonicalLga, matchKey } = require('../lga-normalize');
 
 const ROOT = path.join(__dirname, '..');
-const POP_PATH = path.join(ROOT, 'public', 'data', 'population-pvc-data.json');
+const POP_PATH = path.join(ROOT, 'data', 'reference', 'population-pvc-data.json');
 const OUT_DIR = path.join(ROOT, 'data', 'election-results', 'gubernatorial');
 const EKITI_2026_PATH = path.join(ROOT, 'data', 'election-results', 'gubernatorial-ekiti-2026-lga.json');
 const GOV_HISTORY_PATH = path.join(ROOT, 'data', 'governorship-history.json');

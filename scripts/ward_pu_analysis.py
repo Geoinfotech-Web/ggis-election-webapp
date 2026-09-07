@@ -23,7 +23,7 @@ import pandas as pd
 
 
 DEFAULTS = {
-    "polling_csv": "public/data/Nigeria_polling_units.csv",
+    "polling_csv": "data/reference/Nigeria_polling_units.csv",
     "wards_shp": "public/data/boundaries/adm3.zip",
     "output_gpkg": "public/data/ward_pu_analysis.gpkg",
     "output_layer": "ward_pu_stats",

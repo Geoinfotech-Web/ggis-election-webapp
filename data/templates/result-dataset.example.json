@@ -1,0 +1,48 @@
+{
+  "contest": {
+    "office": "president",
+    "jurisdictionCode": "NG",
+    "jurisdictionName": "Nigeria",
+    "constituencyName": "",
+    "electionDate": "2015-03-28",
+    "electionType": "general",
+    "phase": "initial"
+  },
+  "dataset": {
+    "title": "Nigeria presidential election declaration totals",
+    "methodology": "Candidate totals transcribed from the legally declared national collation document.",
+    "coverage": "legal_declaration",
+    "asOf": "2015-04-01T12:00:00Z",
+    "declaredWinnerRef": "candidate-1",
+    "geographyVintage": "INEC 2015 declaration geography",
+    "expectedReportingUnits": 1
+  },
+  "candidates": [
+    { "ref": "candidate-1", "name": "Replace with candidate", "party": "AAA" },
+    { "ref": "candidate-2", "name": "Replace with candidate", "party": "BBB" }
+  ],
+  "reportingUnits": [
+    { "ref": "national", "name": "Nigeria", "level": "national", "jurisdictionCode": "NG" }
+  ],
+  "summaries": [
+    { "reportingUnitRef": "national", "registeredVoters": 0, "accreditedVoters": 0, "validVotes": 0, "rejectedVotes": 0 }
+  ],
+  "results": [
+    { "reportingUnitRef": "national", "candidateRef": "candidate-1", "votes": 0, "sourceRefs": ["inec-source"] },
+    { "reportingUnitRef": "national", "candidateRef": "candidate-2", "votes": 0, "sourceRefs": ["inec-source"] }
+  ],
+  "sources": [
+    {
+      "ref": "inec-source",
+      "publisher": "Independent National Electoral Commission",
+      "publisherType": "inec",
+      "url": "https://www.inecnigeria.org/replace-with-specific-result-document.pdf",
+      "documentType": "declaration form",
+      "documentDate": "2015-04-01",
+      "retrievedAt": "2026-09-03T10:00:00Z",
+      "pageReference": "Replace with page or form reference",
+      "sha256": "replace-with-64-lowercase-hex-characters-after-source-upload",
+      "storageKey": "president/2015/nigeria/replace-with-original.pdf"
+    }
+  ]
+}

@@ -17,7 +17,7 @@ const FILES = [
   ['server.js', 'application/javascript'],
   ['drive.js', 'application/javascript'],
   ['auth.js', 'application/javascript'],
-  ['public/data/population-pvc-data.json', 'application/json'],
+  ['data/reference/population-pvc-data.json', 'application/json'],
   ['public/data/lg-directory-source.html', 'text/html'],
   ['scripts/import-lga-chairmen.js', 'application/javascript'],
   ['scripts/download-governor-assets.js', 'application/javascript'],

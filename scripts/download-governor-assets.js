@@ -2,7 +2,7 @@ const fs = require('fs/promises');
 const path = require('path');
 
 const ROOT_DIR = path.join(__dirname, '..');
-const DATA_PATH = path.join(ROOT_DIR, 'public', 'data', 'population-pvc-data.json');
+const DATA_PATH = path.join(ROOT_DIR, 'data', 'reference', 'population-pvc-data.json');
 const GOVERNOR_DIR = path.join(ROOT_DIR, 'public', 'assets', 'governors');
 const PARTY_DIR = path.join(ROOT_DIR, 'public', 'assets', 'parties');
 

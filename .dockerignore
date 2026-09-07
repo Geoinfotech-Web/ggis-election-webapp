@@ -1,4 +1,12 @@
 node_modules
+.tools
+tmp
+**/*.db-wal
+**/*.db-shm
+credentials.json
+client_secret_*.json
+token.json
+admin-settings.json
 .git
 .env
 data/election-dashboard.db
@@ -10,3 +18,10 @@ Nigeria Wards.kmz
 Blueprint*.jpeg
 **/__pycache__
 **/*.pyc
+Election Dashboard
+data/inec/*.html
+data/inec/*-preview-*.json
+data/inec/*-tables-*.json
+data/boundaries/uploads
+public/data/*.xlsx
+proposal

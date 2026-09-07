@@ -1,16 +1,13 @@
 const path = require('path');
 const { google } = require('googleapis');
 const Papa = require('papaparse');
-const XLSX = require('xlsx');
 const JSZip = require('jszip');
 const { getAuthClient } = require('./auth');
 
 const MIME_TYPES = {
-  googleSheet: 'application/vnd.google-apps.spreadsheet',
   folder: 'application/vnd.google-apps.folder',
   csv: 'text/csv',
   text: 'text/plain',
-  excel: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
   kml: 'application/vnd.google-earth.kml+xml',
   kmz: 'application/vnd.google-earth.kmz',
   jpeg: 'image/jpeg',
@@ -35,17 +32,33 @@ function parseCsv(csvText) {
   return parsed.data;
 }
 
-function parseExcel(buffer) {
-  const workbook = XLSX.read(buffer, { type: 'buffer' });
-  const firstSheetName = workbook.SheetNames[0];
-
-  if (!firstSheetName) {
-    return [];
+function parsePopulationCsv(csvText) {
+  const rows = parseCsv(csvText);
+  const statePopulation = [];
+  const lgaPopulation = [];
+  const governors = [];
+  for (const row of rows) {
+    const recordType = String(row.recordType || row.record_type || '').trim().toLowerCase();
+    if (recordType === 'state') {
+      statePopulation.push({
+        state: row.state,
+        population: Number(row.population) || 0,
+        registeredVoters: Number(row.registeredVoters || row.registered_voters) || 0,
+        collectedPVCs: Number(row.collectedPVCs || row.collected_pvcs) || 0,
+        pvcCollectionRate: Number(row.pvcCollectionRate || row.pvc_collection_rate) || 0,
+        uncollectedPVCs: Number(row.uncollectedPVCs || row.uncollected_pvcs) || 0,
+        uncollectedRate: Number(row.uncollectedRate || row.uncollected_rate) || 0,
+      });
+    } else if (recordType === 'lga') {
+      lgaPopulation.push({ state: row.state, lga: row.lga, population: Number(row.population) || 0 });
+    } else if (recordType === 'governor') {
+      governors.push({ state: row.state, governor: row.governor, party: row.party, geopoliticalZone: row.geopoliticalZone || row.geopolitical_zone || '' });
+    }
   }
-
-  return XLSX.utils.sheet_to_json(workbook.Sheets[firstSheetName], {
-    defval: '',
-  });
+  if (!statePopulation.length || !lgaPopulation.length) {
+    throw new Error('Population CSV must contain state and lga recordType rows.');
+  }
+  return { generatedAt: new Date().toISOString(), statePopulation, lgaPopulation, governors };
 }
 
 function getExtension(value) {
@@ -65,10 +78,6 @@ function looksLikeBinaryData(buffer) {
 
   const sample = buffer.subarray(0, Math.min(buffer.length, 1024));
   return sample.includes(0);
-}
-
-function isXlsxFileName(fileName) {
-  return getExtension(fileName) === '.xlsx';
 }
 
 function isMimeOrExtension(mimeType, acceptedMimeTypes, acceptedExtensions = [], fileName = '') {
@@ -107,91 +116,6 @@ async function downloadBuffer(drive, fileId) {
 async function downloadJson(drive, fileId) {
   const text = await downloadText(drive, fileId);
   return JSON.parse(text);
-}
-
-async function exportGoogleSheetAsCsv(drive, fileId) {
-  const response = await drive.files.export(
-    { fileId, mimeType: MIME_TYPES.csv },
-    { responseType: 'text' }
-  );
-
-  return response.data;
-}
-
-async function exportGoogleSheetAsXlsx(drive, fileId) {
-  const response = await drive.files.export(
-    { fileId, mimeType: MIME_TYPES.excel },
-    { responseType: 'arraybuffer' }
-  );
-
-  return Buffer.from(response.data);
-}
-
-function cleanRow(row) {
-  return Object.fromEntries(Object.entries(row).filter(([key]) => !key.startsWith('__EMPTY')));
-}
-
-function normalizeStateName(value) {
-  return value === 'Federal Capital Territory' ? 'FCT' : value;
-}
-
-function getSheetRows(workbook, sheetName) {
-  const sheet = workbook.Sheets[sheetName];
-
-  if (!sheet) {
-    return [];
-  }
-
-  return XLSX.utils.sheet_to_json(sheet, { defval: '' }).map(cleanRow);
-}
-
-function parsePopulationWorkbook(buffer) {
-  const workbook = XLSX.read(buffer, { type: 'buffer' });
-  const statePopulation = getSheetRows(workbook, 'State Population')
-    .filter((row) => row.State && row.State !== 'Water body')
-    .map((row) => ({
-      state: normalizeStateName(row.State),
-      population: Number(row.Population) || 0,
-      registeredVoters: Number(row.Registered_Voters) || 0,
-      collectedPVCs: Number(row.Collected_PVCs) || 0,
-      pvcCollectionRate: Number(row['PVC_Collection_%']) || 0,
-      uncollectedPVCs: Number(row.Uncollected_PVCs) || 0,
-      uncollectedRate: Number(row['Uncollected_%']) || 0,
-    }));
-
-  let currentState = '';
-  const lgaPopulation = getSheetRows(workbook, 'LGA Population')
-    .map((row) => {
-      if (row.state) {
-        currentState = row.state;
-      }
-
-      return {
-        state: normalizeStateName(currentState),
-        lga: row.local,
-        population: Number(row.mean) || 0,
-      };
-    })
-    .filter((row) => row.state && row.lga);
-
-  const governors = getSheetRows(workbook, 'Governors and Party')
-    .filter((row) => row.STATE)
-    .map((row) => ({
-      state: normalizeStateName(row.STATE),
-      governor: row["GOVERNOR'S NAME"],
-      party: row.PARTY,
-      geopoliticalZone: row['GEOPOLITICAL ZONES'],
-      partyLogo: row.partyLogo || row.PartyLogo || row.PARTY_LOGO || '',
-      photo: row.photo || row.Photo || '',
-      photoSource: row.photoSource || row.PhotoSource || '',
-    }));
-
-  return {
-    generatedAt: new Date().toISOString(),
-    statePopulation,
-    lgaPopulation,
-    governors,
-  };
 }
 
 async function extractKmlFromKmz(buffer) {
@@ -308,30 +232,12 @@ async function readFile(fileId, mimeType) {
     const drive = await getDriveClient();
     const fileName = await getFileName(drive, fileId);
 
-    if (isXlsxFileName(fileName)) {
-      const buffer = await downloadBuffer(drive, fileId);
-      return { type: 'table', data: parseExcel(buffer) };
-    }
-
-    if (mimeType === MIME_TYPES.googleSheet) {
-      const csvText = await exportGoogleSheetAsCsv(drive, fileId);
-      return { type: 'table', data: parseCsv(csvText) };
-    }
-
     if (isMimeOrExtension(mimeType, [MIME_TYPES.csv, MIME_TYPES.text], ['.csv'], fileName)) {
       const buffer = await downloadBuffer(drive, fileId);
 
-      if (mimeType === MIME_TYPES.csv && looksLikeBinaryData(buffer)) {
-        console.warn(`File ${fileId} is marked text/csv but looks binary; parsing as xlsx.`);
-        return { type: 'table', data: parseExcel(buffer) };
-      }
+      if (looksLikeBinaryData(buffer)) throw new Error('Binary spreadsheet data is not accepted. Export it as normalized CSV.');
 
       return { type: 'table', data: parseCsv(buffer.toString('utf8')) };
-    }
-
-    if (isMimeOrExtension(mimeType, [MIME_TYPES.excel], ['.xlsx'], fileName)) {
-      const buffer = await downloadBuffer(drive, fileId);
-      return { type: 'table', data: parseExcel(buffer) };
     }
 
     if (isMimeOrExtension(mimeType, [MIME_TYPES.kml], ['.kml'], fileName)) {
@@ -372,17 +278,11 @@ async function readPopulationData(fileId, mimeType) {
     return downloadJson(drive, fileId);
   }
 
-  if (effectiveMimeType === MIME_TYPES.googleSheet) {
-    const buffer = await exportGoogleSheetAsXlsx(drive, fileId);
-    return parsePopulationWorkbook(buffer);
+  if (isMimeOrExtension(effectiveMimeType, [MIME_TYPES.csv, MIME_TYPES.text], ['.csv'], fileName)) {
+    return parsePopulationCsv(await downloadText(drive, fileId));
   }
 
-  if (isXlsxFileName(fileName) || isMimeOrExtension(effectiveMimeType, [MIME_TYPES.excel], ['.xlsx'], fileName)) {
-    const buffer = await downloadBuffer(drive, fileId);
-    return parsePopulationWorkbook(buffer);
-  }
-
-  throw new Error(`Unsupported population source type: ${effectiveMimeType}`);
+  throw new Error(`Unsupported population source type: ${effectiveMimeType}. Use normalized JSON.`);
 }
 
 module.exports = {

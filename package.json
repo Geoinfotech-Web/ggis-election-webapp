@@ -5,27 +5,32 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
+    "migrate": "node scripts/migrate.js",
+    "test": "node --test --test-concurrency=1 test/unit/*.test.js",
+    "test:integration": "node --test --test-concurrency=1 test/integration/*.test.js",
+    "check": "npm run test && node scripts/audit-data-integrity.js",
     "inec:ingest": "node inec-ingest.js",
     "analyze:wards": "python scripts/ward_pu_analysis.py",
-    "build:sourced-gov": "node scripts/build-sourced-governorship.js",
-    "seed:gov": "node scripts/build-sourced-governorship.js",
     "seed:boundaries": "node scripts/seed-boundaries.js",
-    "generate:gov-official": "node scripts/generate-official-governorship.js",
-    "import:gov-official": "node scripts/generate-official-governorship.js && node scripts/import-official-governorship.js",
-    "expand:gov-history": "node scripts/expand-governorship-history.js"
+    "audit:data": "node scripts/audit-data-integrity.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@google-cloud/storage": "^8.0.1",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
     "better-sqlite3": "^13.0.3",
     "chart.js": "^4.5.1",
     "cheerio": "^1.2.0",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
     "googleapis": "^171.4.0",
+    "helmet": "^8.3.0",
     "jspdf": "^4.2.1",
     "jspdf-autotable": "^5.0.8",
     "jszip": "^3.10.1",
@@ -33,7 +38,10 @@
     "multer": "^2.3.0",
     "papaparse": "^5.5.3",
     "pdf-parse": "^2.4.5",
-    "shpjs": "^6.2.0",
-    "xlsx": "^0.18.5"
+    "pg": "^8.23.0",
+    "shpjs": "^6.2.0"
+  },
+  "devDependencies": {
+    "supertest": "^7.2.2"
   }
 }

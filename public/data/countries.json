@@ -1,0 +1,13 @@
+[
+  {
+    "code": "NG",
+    "slug": "nigeria",
+    "name": "Nigeria",
+    "region": "West Africa",
+    "center": [9.08, 8.67],
+    "zoom": 6,
+    "boundaryUrl": "/data/boundaries/adm1.zip",
+    "boundaryLevel": "adm1",
+    "status": "configured"
+  }
+]

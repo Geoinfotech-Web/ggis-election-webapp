@@ -4,7 +4,7 @@ const Papa = require('papaparse');
 const { normalizeLookupKey } = require('./polling-data');
 const { loadLatestSnapshot } = require('./inec-ingest');
 
-const LOCAL_POLLING_UNIT_DATA_PATH = path.join(__dirname, 'public', 'data', 'Nigeria_polling_units.csv');
+const LOCAL_POLLING_UNIT_DATA_PATH = path.join(__dirname, 'data', 'reference', 'Nigeria_polling_units.csv');
 const TURNOUT_2023 = 0.271;
 
 function pickRow(rows, name, field) {
@@ -95,8 +95,8 @@ async function computeNigeriaKpis({ state, lga, ward, pu } = {}) {
       scope: 'Nigeria',
       registered: nationalReg,
       collected: nationalPvc,
-      origin: 'official',
-      caption: 'INEC register and PVC collection · all states + FCT',
+      origin: 'source_series',
+      caption: 'INEC February 2023 state series · national discrepancy disclosed',
     });
   }
 
@@ -121,8 +121,8 @@ async function computeNigeriaKpis({ state, lga, ward, pu } = {}) {
       scope: stateRow.state || state,
       registered: stateReg,
       collected: statePvc,
-      origin: 'official',
-      caption: 'Official INEC state totals',
+      origin: 'source_series',
+      caption: 'INEC February 2023 state table · in review',
     });
   }
 
@@ -139,8 +139,8 @@ async function computeNigeriaKpis({ state, lga, ward, pu } = {}) {
   if (official && Number(official.registeredVoters) > 0) {
     lgaReg = Number(official.registeredVoters);
     lgaPvc = Number(official.collectedPVCs || 0);
-    origin = 'official';
-    caption = 'Official INEC LGA table from ingest';
+    origin = 'source_series';
+    caption = 'INEC LGA source table · in review';
   } else {
     const stateLgas = lgas.filter((row) => normalizeLookupKey(row.state) === normalizeLookupKey(state));
     const popSum = stateLgas.reduce((sum, row) => sum + Number(row.population || 0), 0) || 1;
@@ -165,8 +165,8 @@ async function computeNigeriaKpis({ state, lga, ward, pu } = {}) {
   const wardShare = counts.lgaTotal ? (counts.wardTotal || 0) / counts.lgaTotal : 0;
   const wardReg = roundInt(lgaReg * wardShare);
   const wardPvc = roundInt(lgaPvc * wardShare);
-  const wardCaption = origin === 'official'
-    ? 'Allocated using polling-unit counts within official LGA totals'
+  const wardCaption = origin === 'source_series'
+    ? 'Estimated using polling-unit counts within sourced LGA totals'
     : 'Allocated using polling-unit counts';
 
   if (!pu) {

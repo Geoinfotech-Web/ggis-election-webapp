@@ -1,7 +1,7 @@
 const fs = require('fs/promises');
 const fsSync = require('fs');
 const path = require('path');
-const { loadElectionDataset, ensureElectionResultsSeeded, listGovStatesByYear } = require('./db');
+const { loadElectionDataset } = require('./db');
 const { canonicalLga, matchKey } = require('./lga-normalize');
 
 const PARTY_COLORS = {
@@ -54,6 +54,20 @@ const STATIC_INDEX = [
   { office: 'pres', year: '2023', level: 'state', file: 'presidential-2023-states.json' },
   { office: 'gov', year: '2026', state: 'Ekiti', level: 'lga', file: 'gubernatorial-ekiti-2026-lga.json' },
 ];
+
+function isPublishableLegacyPayload(payload) {
+  // Strict editorial gate only when explicitly enabled.
+  if (process.env.QUARANTINE_LEGACY_RESULTS === 'true') {
+    const meta = payload?.meta || payload || {};
+    if (meta.publicationStatus !== 'published') return false;
+    if (meta.lgaMethod === 'pvc-proportional' || meta.modeled === true || meta.synthetic === true) return false;
+    if (!Array.isArray(meta.evidence) || meta.evidence.length < 1) return false;
+    const electionYear = meta.electionDate ? new Date(meta.electionDate).getUTCFullYear() : Number(meta.year);
+    return !meta.year || !Number.isFinite(electionYear) || Number(meta.year) === electionYear;
+  }
+  // Restored public UI still serves sourced/collated legacy JSON and SQLite datasets.
+  return Boolean(payload && (payload.units || payload.candidates || payload.meta || payload.winner));
+}
 
 function normalizeKey(value) {
   return String(value || '')
@@ -124,28 +138,18 @@ async function readDataset(relativePath) {
 }
 
 function availableGovStates(year) {
-  try {
-    ensureElectionResultsSeeded();
-    const states = listGovStatesByYear(String(year || ''));
-    if (states.length) return states;
-  } catch (e) {
-    /* fall through */
-  }
   const govDir = path.join(DATA_DIR, 'gubernatorial');
-  if (!fsSync.existsSync(govDir)) return ['Ekiti'];
+  if (!fsSync.existsSync(govDir)) return [];
   const suffix = `-${String(year || '')}.json`;
   const states = [];
   for (const file of fsSync.readdirSync(govDir)) {
     if (!file.endsWith(suffix)) continue;
     try {
       const payload = JSON.parse(fsSync.readFileSync(path.join(govDir, file), 'utf8'));
-      if (payload.meta?.state) states.push(payload.meta.state);
+      if (payload.meta?.state && isPublishableLegacyPayload(payload)) states.push(payload.meta.state);
     } catch (e) {
       /* skip */
     }
-  }
-  if (states.includes('Ekiti') || fsSync.existsSync(path.join(DATA_DIR, 'gubernatorial-ekiti-2026-lga.json'))) {
-    if (String(year) === '2026' && !states.includes('Ekiti')) states.push('Ekiti');
   }
   return [...new Set(states)].sort((a, b) => a.localeCompare(b));
 }
@@ -164,15 +168,19 @@ function packChoropleth(payload, officeId, yearId, stateName, level) {
   const key = [officeId, yearId, stateName || 'ng', level].filter(Boolean).join(':');
   return {
     ok: true,
+    status: 'published',
     key,
     office: officeId,
     year: yearId,
     state: stateName || payload.meta?.state || null,
     level,
     title: payload.meta?.title || `${yearId} ${officeId} election`,
-    source: payload.meta?.source || process.env.ELECTION_RESULTS_SOURCE_URL || 'INEC declared results',
-    sourceUrl: payload.meta?.sourceUrl || process.env.ELECTION_RESULTS_SOURCE_URL || 'https://www.inecnigeria.org/',
-    attribution: payload.meta?.attribution || 'Independent National Electoral Commission (INEC)',
+    source: payload.meta?.source || 'Verified publication',
+    sourceUrl: payload.meta?.sourceUrl || null,
+    sourceReferences: payload.meta?.evidence || [],
+    methodology: payload.meta?.methodology || 'Legal declaration totals',
+    coverage: payload.meta?.level || level,
+    attribution: payload.meta?.attribution || null,
     updated: payload.meta?.updated || null,
     winner: payload.winner || null,
     candidates: payload.candidates || null,
@@ -189,9 +197,8 @@ async function loadChoropleth({ office, year, state }) {
   const govStates = officeId === 'gov' ? availableGovStates(yearId) : [];
 
   try {
-    ensureElectionResultsSeeded();
     const fromDb = loadElectionDataset({ office: officeId, year: yearId, state: stateName });
-    if (fromDb && fromDb.units && Object.keys(fromDb.units).length) {
+    if (fromDb && isPublishableLegacyPayload(fromDb.meta) && fromDb.units && Object.keys(fromDb.units).length) {
       const level = fromDb.level || (officeId === 'gov' ? 'state' : 'state');
       return packChoropleth(
         {
@@ -214,6 +221,12 @@ async function loadChoropleth({ office, year, state }) {
     const govFile = await findGovFile(stateName, yearId);
     if (govFile) {
       const payload = await readDataset(govFile);
+      if (!isPublishableLegacyPayload(payload)) {
+        return {
+          ok: false, office: officeId, year: yearId, state: stateName, level: payload.meta?.level || 'state',
+          message: 'This legacy dataset is quarantined pending source verification.', units: {}, legend: [], availableStates: govStates,
+        };
+      }
       const level = payload.meta?.level || 'state';
       return packChoropleth(payload, officeId, yearId, stateName, level);
     }
@@ -224,6 +237,12 @@ async function loadChoropleth({ office, year, state }) {
     );
     if (lgaMatch) {
       const payload = await readDataset(lgaMatch.file);
+      if (!isPublishableLegacyPayload(payload)) {
+        return {
+          ok: false, office: officeId, year: yearId, state: stateName, level: lgaMatch.level,
+          message: 'This legacy dataset is quarantined pending source verification.', units: {}, legend: [], availableStates: govStates,
+        };
+      }
       return packChoropleth(payload, officeId, yearId, stateName, lgaMatch.level);
     }
   }
@@ -242,7 +261,7 @@ async function loadChoropleth({ office, year, state }) {
       year: yearId,
       state: stateName,
       level: officeId === 'gov' ? 'state' : 'state',
-      message: 'Official collated map data not loaded yet for this selection.',
+      message: 'No verified, published result is available for this selection.',
       units: {},
       legend: [],
       availableStates: govStates,
@@ -250,11 +269,23 @@ async function loadChoropleth({ office, year, state }) {
   }
 
   const payload = await readDataset(match.file);
+  if (!isPublishableLegacyPayload(payload)) {
+    return {
+      ok: false, office: officeId, year: yearId, state: stateName, level: match.level,
+      message: 'This legacy dataset is quarantined pending source verification.', units: {}, legend: [], availableStates: govStates,
+    };
+  }
   return packChoropleth(payload, officeId, yearId, stateName || payload.meta?.state || null, match.level);
 }
 
 function listAvailableDatasets() {
-  const rows = [...STATIC_INDEX];
+  const rows = [];
+  for (const item of STATIC_INDEX) {
+    try {
+      const payload = JSON.parse(fsSync.readFileSync(path.join(DATA_DIR, item.file), 'utf8'));
+      if (isPublishableLegacyPayload(payload)) rows.push(item);
+    } catch { /* unavailable or quarantined */ }
+  }
   const govDir = path.join(DATA_DIR, 'gubernatorial');
   if (fsSync.existsSync(govDir)) {
     for (const file of fsSync.readdirSync(govDir)) {
@@ -262,7 +293,12 @@ function listAvailableDatasets() {
       const m = file.match(/^(.+)-(\d{4})\.json$/);
       if (!m) continue;
       const state = m[1].split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-      rows.push({ office: 'gov', year: m[2], state, level: 'state', file: path.join('gubernatorial', file) });
+      try {
+        const payload = JSON.parse(fsSync.readFileSync(path.join(govDir, file), 'utf8'));
+        if (isPublishableLegacyPayload(payload)) {
+          rows.push({ office: 'gov', year: m[2], state, level: 'state', file: path.join('gubernatorial', file) });
+        }
+      } catch { /* unavailable or quarantined */ }
     }
   }
   return rows;
@@ -282,4 +318,5 @@ module.exports = {
   loadChoropleth,
   listAvailableDatasets,
   listAvailableGovStates,
+  isPublishableLegacyPayload,
 };

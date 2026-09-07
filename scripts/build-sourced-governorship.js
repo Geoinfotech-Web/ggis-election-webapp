@@ -10,7 +10,7 @@ const { distributeLgaByPvc } = require('./lib/distribute-lga-by-pvc');
 const { INEC_URL } = require('./data/governorship-statewide-meta');
 
 const ROOT = path.join(__dirname, '..');
-const POP_PATH = path.join(ROOT, 'public', 'data', 'population-pvc-data.json');
+const POP_PATH = path.join(ROOT, 'data', 'reference', 'population-pvc-data.json');
 const OUT_DIR = path.join(ROOT, 'data', 'election-results', 'gubernatorial');
 const HISTORY_PATH = path.join(ROOT, 'data', 'governorship-history.json');
 const EKITI_2026_PATH = path.join(ROOT, 'data', 'election-results', 'gubernatorial-ekiti-2026-lga.json');

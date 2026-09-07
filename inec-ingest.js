@@ -7,7 +7,7 @@ const IREV_HOME_URL = 'https://www.inecelectionresults.ng/';
 const DATA_DIR = path.join(__dirname, 'data', 'inec');
 const LATEST_PATH = path.join(DATA_DIR, 'latest.json');
 const STATUS_PATH = path.join(DATA_DIR, 'status.json');
-const LOCAL_POP_PATH = path.join(__dirname, 'public', 'data', 'population-pvc-data.json');
+const LOCAL_POP_PATH = path.join(__dirname, 'data', 'reference', 'population-pvc-data.json');
 
 let lastStatus = {
   ok: false,
@@ -97,7 +97,7 @@ function buildSnapshotFromPopulation(pop, extra = {}) {
     lgaRegister: extra.lgaRegister || [],
     wardRegister: extra.wardRegister || [],
     puRegister: extra.puRegister || [],
-    notes: extra.notes || 'Official INEC REST API is not available. Snapshot from local PVC/register file plus any public INEC pages that parsed successfully.',
+    notes: extra.notes || 'INEC has no supported public results API. This discovery snapshot is non-publishing input and remains subject to editorial verification.',
   };
 }
 

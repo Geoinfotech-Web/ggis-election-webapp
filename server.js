@@ -1,5 +1,7 @@
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
+const { rateLimit } = require('express-rate-limit');
 const crypto = require('crypto');
 const fs = require('fs/promises');
 const path = require('path');
@@ -22,12 +24,11 @@ const { computeNigeriaKpis } = require('./nigeria-kpis');
 const { loadChoropleth, listAvailableDatasets, listAvailableGovStates, PARTY_COLORS } = require('./election-results-data');
 const {
   ensurePollingUnitsSeeded,
+  ensureElectionResultsSeeded,
   importPollingUnitsFromCsv,
   queryPollingUnits,
   getPollingDirectoryTree,
-  upsertElectionDataset,
-  importElectionResultsFromDir,
-  ensureElectionResultsSeeded,
+  quarantineLegacyElectionResults,
   getDbStatus,
   CSV_PATH,
 } = require('./db');
@@ -40,47 +41,61 @@ const {
   BOUNDARIES_DIR,
 } = require('./boundaries-data');
 const multer = require('multer');
+const editorialStore = require('./src/editorial-store');
+const { getSessionSecret: getConfiguredSessionSecret } = require('./src/config');
+const { storeSource } = require('./src/storage');
 
 const boundaryUpload = multer({
   storage: multer.memoryStorage(),
-  limits: { fileSize: 120 * 1024 * 1024, files: 12 },
+  limits: { fileSize: 25 * 1024 * 1024, files: 8, parts: 12 },
+  fileFilter: (_req, file, callback) => {
+    const allowed = /\.(zip|geojson|json|shp|dbf|shx|prj|cpg)$/i.test(file.originalname || '');
+    callback(allowed ? null : new Error('Unsupported boundary file type.'), allowed);
+  },
 });
+const sourceUpload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 40 * 1024 * 1024, files: 1, parts: 6 },
+  fileFilter: (_req, file, callback) => {
+    const allowed = /\.(pdf|csv|json)$/i.test(file.originalname || '');
+    callback(allowed ? null : new Error('Source evidence must be PDF, CSV, or JSON.'), allowed);
+  },
+});
+
+function hasExpectedMagic(file, boundary = false) {
+  const name = String(file?.originalname || '').toLowerCase();
+  const buffer = file?.buffer;
+  if (!Buffer.isBuffer(buffer) || !buffer.length) return false;
+  if (/\.pdf$/.test(name)) return buffer.subarray(0, 5).toString('ascii') === '%PDF-';
+  if (/\.zip$/.test(name)) return buffer[0] === 0x50 && buffer[1] === 0x4b;
+  if (/\.(geojson|json)$/.test(name)) return /^[\s\uFEFF]*[\[{]/.test(buffer.subarray(0, 1024).toString('utf8'));
+  if (/\.(shp|shx)$/.test(name)) return buffer.length >= 4 && buffer.readInt32BE(0) === 9994;
+  if (/\.dbf$/.test(name)) return [0x02, 0x03, 0x30, 0x31, 0x32, 0x43, 0x63, 0x83, 0x8b, 0xf5].includes(buffer[0]);
+  if (/\.(csv|prj|cpg)$/.test(name)) return !buffer.subarray(0, 4096).includes(0) && (!boundary || buffer.length < 5 * 1024 * 1024);
+  return false;
+}
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const LOCAL_BASE_URL = 'http://localhost:3000';
-const LOCAL_POPULATION_DATA_PATH = path.join(__dirname, 'public', 'data', 'population-pvc-data.json');
-const LOCAL_POLLING_UNIT_DATA_PATH = path.join(__dirname, 'public', 'data', 'Nigeria_polling_units.csv');
+const HOST = process.env.HOST || '127.0.0.1';
+const LOCAL_BASE_URL = `http://localhost:${PORT}`;
+const LOCAL_POPULATION_DATA_PATH = path.join(__dirname, 'data', 'reference', 'population-pvc-data.json');
+const LOCAL_POLLING_UNIT_DATA_PATH = path.join(__dirname, 'data', 'reference', 'Nigeria_polling_units.csv');
 const ADMIN_SETTINGS_PATH = path.join(__dirname, 'admin-settings.json');
 const ADMIN_ACCESS_PATH = path.join(__dirname, 'admin-access.json');
 const CREDENTIALS_PATH = path.join(__dirname, 'credentials.json');
 const ADMIN_COOKIE_NAME = 'election_admin_session';
 const OAUTH_STATE_COOKIE_NAME = 'election_admin_oauth_state';
-const PRIMARY_ADMIN_EMAIL = 'geoinfotechgisteam@gmail.com';
 const SESSION_TTL_MS = 12 * 60 * 60 * 1000;
+const DEV_SESSION_SECRET = crypto.randomBytes(48).toString('base64url');
 const DRIVE_DASHBOARD_FOLDER_NAME = 'Election Dashboard';
 const POLLING_UNIT_POINTS_SOURCE_URL =
   'https://github.com/mykeels/inec-polling-units/raw/refs/heads/master/polling-units.csv';
-const GOOGLE_GEOCODING_API_KEY = process.env.GOOGLE_MAPS_API_KEY || process.env.GEOCODING_API_KEY || '';
-const ENABLE_GOOGLE_GEOCODING =
-  ['1', 'true', 'yes', 'on'].includes(String(process.env.GEOCODE_POLLING_UNITS || '').trim().toLowerCase());
 const NIGERIA_BOUNDS = {
   south: 4.0,
   north: 14.9,
   west: 2.5,
   east: 15.8,
-};
-const NIGERIA_CENTER = {
-  latitude: 9.082,
-  longitude: 8.6753,
-};
-const MAX_WARD_DRIFT_METRES = 100000;
-const MAX_LGA_DRIFT_METRES = 250000;
-const MAX_STATE_DRIFT_METRES = 600000;
-const ADMIN_LOGIN_USER = {
-  username: 'admin',
-  password: 'admin123',
-  name: 'Dashboard Admin',
 };
 const SUPPORTED_FILE_TYPES = [
   {
@@ -91,21 +106,9 @@ const SUPPORTED_FILE_TYPES = [
   },
   {
     type: 'table',
-    label: 'Google Sheets',
-    mimeTypes: ['application/vnd.google-apps.spreadsheet'],
-    extensions: [],
-  },
-  {
-    type: 'table',
     label: 'CSV',
     mimeTypes: ['text/csv', 'text/plain'],
     extensions: ['.csv'],
-  },
-  {
-    type: 'table',
-    label: 'Excel',
-    mimeTypes: ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'],
-    extensions: ['.xlsx'],
   },
   {
     type: 'kml',
@@ -133,8 +136,73 @@ const SUPPORTED_FILE_TYPES = [
   },
 ];
 
-app.use(cors());
+const configuredOrigins = String(process.env.CORS_ORIGINS || process.env.BASE_URL || LOCAL_BASE_URL)
+  .split(',').map((value) => value.trim()).filter(Boolean);
+if (process.env.NODE_ENV !== 'production') {
+  configuredOrigins.push(`http://127.0.0.1:${PORT}`, `http://localhost:${PORT}`);
+}
+const allowedOrigins = new Set(configuredOrigins);
+
+app.disable('x-powered-by');
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      // EID UI loads React + Babel from unpkg; Babel standalone needs unsafe-eval.
+      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", 'https://unpkg.com'],
+      styleSrc: ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
+      fontSrc: ["'self'", 'https://fonts.gstatic.com', 'data:'],
+      connectSrc: ["'self'", 'https://unpkg.com', 'https://*.inecnigeria.org', 'https://*.inecelectionresults.ng', 'https://*.arcgis.com', 'https://*.googleapis.com', 'https://newsapi.org', 'https://api.gdeltproject.org', 'https://feeds.bbci.co.uk', 'https://*.bbci.co.uk', 'https://mt0.google.com', 'https://mt1.google.com', 'https://mt2.google.com', 'https://mt3.google.com'],
+      imgSrc: ["'self'", 'data:', 'blob:', 'https:', 'https://flagcdn.com', 'https://*.google.com', 'https://*.googleapis.com', 'https://*.gstatic.com'],
+      workerSrc: ["'self'", 'blob:'],
+      upgradeInsecureRequests: process.env.COOKIE_SECURE === 'true' ? [] : null,
+    },
+  },
+  strictTransportSecurity: process.env.COOKIE_SECURE === 'true' ? undefined : false,
+  crossOriginEmbedderPolicy: false,
+}));
+app.use(cors({
+  credentials: true,
+  origin(origin, callback) {
+    if (!origin || allowedOrigins.has(origin)) return callback(null, true);
+    return callback(new Error('Cross-origin request denied.'));
+  },
+}));
 app.use(express.json({ limit: '1mb' }));
+app.use('/auth', rateLimit({ windowMs: 15 * 60 * 1000, limit: 30, standardHeaders: 'draft-8', legacyHeaders: false }));
+app.use('/api/admin', rateLimit({ windowMs: 15 * 60 * 1000, limit: 240, standardHeaders: 'draft-8', legacyHeaders: false }));
+app.use('/api/v1/admin', rateLimit({ windowMs: 15 * 60 * 1000, limit: 240, standardHeaders: 'draft-8', legacyHeaders: false }));
+
+const runtimeState = { ready: false, error: null, initializedAt: null };
+
+app.get('/health/live', (_req, res) => res.json({ ok: true }));
+app.get('/health/ready', async (_req, res) => {
+  const editorial = await editorialStore.readiness();
+  const ready = runtimeState.ready && (process.env.NODE_ENV !== 'production' || editorial.ready);
+  return res.status(ready ? 200 : 503).json({ ok: ready, initializedAt: runtimeState.initializedAt, editorial, error: runtimeState.error });
+});
+
+app.use(['/api/election-results', '/api/elections'], (_req, res, next) => {
+  res.setHeader('Deprecation', 'true');
+  res.setHeader('Sunset', 'Thu, 31 Dec 2026 23:59:59 GMT');
+  res.setHeader('Link', '</api/v1/contests>; rel="successor-version"');
+  next();
+});
+
+function validUuid(value) {
+  return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(String(value || ''));
+}
+
+function editorialRequired(_req, res, next) {
+  if (!editorialStore.isEnabled()) return res.status(503).json({ error: 'Editorial database is not configured.' });
+  return next();
+}
+
+function editorialError(res, error) {
+  const message = error.message || 'Editorial operation failed.';
+  const clientError = /required|invalid|unknown|duplicate|cannot|only|evidence|dataset/i.test(message);
+  return res.status(clientError ? 400 : 500).json({ error: message });
+}
 
 async function readJsonFile(filePath, fallback) {
   try {
@@ -162,7 +230,9 @@ function toDisplayCase(value) {
 }
 
 function parseNumericValue(value) {
-  const number = Number(String(value ?? '').replace(/,/g, '').trim());
+  const normalized = String(value ?? '').replace(/,/g, '').trim();
+  if (!normalized) return null;
+  const number = Number(normalized);
   return Number.isFinite(number) ? number : null;
 }
 
@@ -203,131 +273,6 @@ function isWithinNigeriaBounds(latitude, longitude) {
     longitude >= NIGERIA_BOUNDS.west &&
     longitude <= NIGERIA_BOUNDS.east
   );
-}
-
-function haversineDistanceMetres(a, b) {
-  if (!a || !b) {
-    return Number.POSITIVE_INFINITY;
-  }
-
-  const toRadians = (value) => (value * Math.PI) / 180;
-  const earthRadiusMetres = 6371000;
-  const lat1 = toRadians(a.latitude);
-  const lat2 = toRadians(b.latitude);
-  const deltaLat = toRadians(b.latitude - a.latitude);
-  const deltaLng = toRadians(b.longitude - a.longitude);
-  const sinLat = Math.sin(deltaLat / 2);
-  const sinLng = Math.sin(deltaLng / 2);
-  const haversine =
-    sinLat * sinLat +
-    Math.cos(lat1) * Math.cos(lat2) * sinLng * sinLng;
-
-  return 2 * earthRadiusMetres * Math.asin(Math.min(1, Math.sqrt(haversine)));
-}
-
-function getPointKey(point) {
-  return [point.state, point.lga, point.ward].map((part) => normalizeLookupKey(part)).join('::');
-}
-
-function createCentroidAccumulator() {
-  return { latitude: 0, longitude: 0, count: 0 };
-}
-
-function addCentroidSample(map, key, latitude, longitude) {
-  if (!key || !Number.isFinite(latitude) || !Number.isFinite(longitude)) {
-    return;
-  }
-
-  let accumulator = map.get(key);
-  if (!accumulator) {
-    accumulator = createCentroidAccumulator();
-    map.set(key, accumulator);
-  }
-
-  accumulator.latitude += latitude;
-  accumulator.longitude += longitude;
-  accumulator.count += 1;
-}
-
-function finalizeCentroidMap(map) {
-  const finalized = new Map();
-
-  for (const [key, value] of map.entries()) {
-    if (!value.count) {
-      continue;
-    }
-
-    finalized.set(key, {
-      latitude: value.latitude / value.count,
-      longitude: value.longitude / value.count,
-      count: value.count,
-    });
-  }
-
-  return finalized;
-}
-
-function hashToUnitInterval(seed, salt = '') {
-  const digest = crypto.createHash('sha1').update(`${seed}::${salt}`).digest();
-  const integer = digest.readUInt32BE(0);
-  return integer / 0xffffffff;
-}
-
-function jitterPoint(point, seed, radiusMetres = 350) {
-  const angle = hashToUnitInterval(seed, 'angle') * Math.PI * 2;
-  const distance = Math.sqrt(hashToUnitInterval(seed, 'distance')) * radiusMetres;
-  const latitudeOffset = (Math.sin(angle) * distance) / 111320;
-  const longitudeScale = Math.max(Math.cos((point.latitude * Math.PI) / 180), 0.2);
-  const longitudeOffset = (Math.cos(angle) * distance) / (111320 * longitudeScale);
-
-  return {
-    latitude: point.latitude + latitudeOffset,
-    longitude: point.longitude + longitudeOffset,
-  };
-}
-
-async function geocodePollingUnitAddress(query) {
-  if (!GOOGLE_GEOCODING_API_KEY || !query) {
-    return null;
-  }
-
-  const url = new URL('https://maps.googleapis.com/maps/api/geocode/json');
-  url.searchParams.set('address', query);
-  url.searchParams.set('region', 'ng');
-  url.searchParams.set('components', 'country:NG');
-  url.searchParams.set('key', GOOGLE_GEOCODING_API_KEY);
-
-  const response = await fetch(url);
-
-  if (!response.ok) {
-    return null;
-  }
-
-  const payload = await response.json();
-
-  if (payload.status !== 'OK' || !Array.isArray(payload.results) || !payload.results[0]) {
-    return null;
-  }
-
-  const location = payload.results[0]?.geometry?.location;
-
-  if (!location) {
-    return null;
-  }
-
-  const latitude = Number(location.lat);
-  const longitude = Number(location.lng);
-
-  if (!isWithinNigeriaBounds(latitude, longitude)) {
-    return null;
-  }
-
-  return {
-    latitude,
-    longitude,
-    formattedAddress: payload.results[0].formatted_address || '',
-    placeId: payload.results[0].place_id || '',
-  };
 }
 
 function buildPollingUnitAddressQuery(row) {
@@ -409,7 +354,9 @@ function normalizePollingUnitPointRow(row) {
   const sourceHasCoordinates = Number.isFinite(latitude) && Number.isFinite(longitude);
 
   if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
-    const coordinateText = getFieldValue(row, ['coordinates', 'coordinate', 'geo', 'location', 'point']);
+    // `location` is an address/name field in the canonical INEC CSV. Parsing its
+    // street and polling-unit numbers as a coordinate pair creates false points.
+    const coordinateText = getFieldValue(row, ['coordinates', 'coordinate', 'geo', 'point']);
     const parsedPair = parseCoordinatePair(coordinateText);
 
     if (parsedPair) {
@@ -553,136 +500,21 @@ async function loadLocalPollingUnitPointsForArea({ state, lga } = {}) {
 }
 
 async function resolvePollingUnitCoordinates(points) {
-  const wardCentroids = new Map();
-  const lgaCentroids = new Map();
-  const stateCentroids = new Map();
-
-  for (const point of points) {
-    if (!isWithinNigeriaBounds(point.latitude, point.longitude)) {
-      continue;
-    }
-
-    addCentroidSample(wardCentroids, `${getPointKey(point)}::ward`, point.latitude, point.longitude);
-    addCentroidSample(lgaCentroids, `${normalizeLookupKey(point.state)}::${normalizeLookupKey(point.lga)}::lga`, point.latitude, point.longitude);
-    addCentroidSample(stateCentroids, `${normalizeLookupKey(point.state)}::state`, point.latitude, point.longitude);
-  }
-
-  const finalizedWardCentroids = finalizeCentroidMap(wardCentroids);
-  const finalizedLgaCentroids = finalizeCentroidMap(lgaCentroids);
-  const finalizedStateCentroids = finalizeCentroidMap(stateCentroids);
-
-  const resolvedPoints = [];
-
-  for (const point of points) {
+  return points.map((point) => {
     const sourceLatitude = point.latitude;
     const sourceLongitude = point.longitude;
     const sourceIsValid = isWithinNigeriaBounds(sourceLatitude, sourceLongitude);
-    const wardKey = `${getPointKey(point)}::ward`;
-    const lgaKey = `${normalizeLookupKey(point.state)}::${normalizeLookupKey(point.lga)}::lga`;
-    const stateKey = `${normalizeLookupKey(point.state)}::state`;
-    const wardCentroid = finalizedWardCentroids.get(wardKey) || null;
-    const lgaCentroid = finalizedLgaCentroids.get(lgaKey) || null;
-    const stateCentroid = finalizedStateCentroids.get(stateKey) || null;
-
-    let geometrySource = 'source';
-    let latitude = sourceLatitude;
-    let longitude = sourceLongitude;
-
-    if (point.overrideCoordinates) {
-      resolvedPoints.push({
-        ...point,
-        sourceLatitude,
-        sourceLongitude,
-        latitude,
-        longitude,
-        geometrySource: point.geometrySource || 'csv-latlong',
-        sourceCoordinatesAvailable: true,
-      });
-      continue;
-    }
-
-    const sourceLooksSuspicious = (() => {
-      if (!sourceIsValid) {
-        return true;
-      }
-
-      if (wardCentroid && point.sourceHasCoordinates) {
-        const wardDistance = haversineDistanceMetres(
-          { latitude: sourceLatitude, longitude: sourceLongitude },
-          wardCentroid
-        );
-        if (wardDistance > MAX_WARD_DRIFT_METRES) {
-          return true;
-        }
-      }
-
-      if (lgaCentroid && point.sourceHasCoordinates) {
-        const lgaDistance = haversineDistanceMetres(
-          { latitude: sourceLatitude, longitude: sourceLongitude },
-          lgaCentroid
-        );
-        if (lgaDistance > MAX_LGA_DRIFT_METRES) {
-          return true;
-        }
-      }
-
-      if (stateCentroid && point.sourceHasCoordinates) {
-        const stateDistance = haversineDistanceMetres(
-          { latitude: sourceLatitude, longitude: sourceLongitude },
-          stateCentroid
-        );
-        if (stateDistance > MAX_STATE_DRIFT_METRES) {
-          return true;
-        }
-      }
-
-      return false;
-    })();
-
-    if (sourceLooksSuspicious) {
-      const geocodedPoint = ENABLE_GOOGLE_GEOCODING
-        ? await geocodePollingUnitAddress(point.addressQuery)
-        : null;
-
-      if (geocodedPoint) {
-        latitude = geocodedPoint.latitude;
-        longitude = geocodedPoint.longitude;
-        geometrySource = 'google-geocode';
-      } else {
-        const fallbackCentroid =
-          wardCentroid ||
-          lgaCentroid ||
-          stateCentroid ||
-          NIGERIA_CENTER;
-
-        const jitterSeed = point.code || point.addressQuery || `${point.state}::${point.lga}::${point.ward}::${point.name}`;
-        const jitterRadiusMetres = wardCentroid ? 120 : lgaCentroid ? 300 : stateCentroid ? 700 : 1200;
-        const jittered = jitterPoint(fallbackCentroid, jitterSeed, jitterRadiusMetres);
-
-        latitude = jittered.latitude;
-        longitude = jittered.longitude;
-        geometrySource = wardCentroid
-          ? 'ward-centroid'
-          : lgaCentroid
-            ? 'lga-centroid'
-            : stateCentroid
-              ? 'state-centroid'
-              : 'country-centre';
-      }
-    }
-
-    resolvedPoints.push({
+    return {
       ...point,
       sourceLatitude,
       sourceLongitude,
-      latitude,
-      longitude,
-      geometrySource,
+      latitude: sourceIsValid ? sourceLatitude : null,
+      longitude: sourceIsValid ? sourceLongitude : null,
+      geometrySource: sourceIsValid ? (point.geometrySource || 'source-provided') : 'unavailable',
       sourceCoordinatesAvailable: sourceIsValid,
-    });
-  }
-
-  return resolvedPoints;
+      coordinateStatus: sourceIsValid ? 'source-provided' : 'unavailable',
+    };
+  });
 }
 
 async function loadPollingUnitPoints() {
@@ -804,6 +636,13 @@ function buildPollingUnitPointResponse(points, { state, lga, ward, q, bbox, limi
 }
 
 async function getCredentialsConfig() {
+  if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
+    return {
+      client_id: process.env.GOOGLE_CLIENT_ID,
+      client_secret: process.env.GOOGLE_CLIENT_SECRET,
+      redirect_uris: [process.env.GOOGLE_REDIRECT_URI || `${getBaseUrl()}/auth/google/callback`],
+    };
+  }
   const credentials = await readJsonFile(CREDENTIALS_PATH, {});
   const config = credentials.web || credentials.installed;
 
@@ -831,86 +670,31 @@ function parseCookies(req) {
 }
 
 function getSessionSecret() {
-  return process.env.ADMIN_SESSION_SECRET || process.env.SESSION_SECRET || 'geoinfotech-election-dashboard-local-session';
+  const configured = getConfiguredSessionSecret();
+  if (configured) return configured;
+  if (process.env.NODE_ENV === 'production') {
+    throw new Error('ADMIN_SESSION_SECRET is required in production.');
+  }
+  return DEV_SESSION_SECRET;
 }
 
-function signValue(value) {
-  return crypto.createHmac('sha256', getSessionSecret()).update(value).digest('base64url');
+function timingSafeTextEqual(left, right) {
+  const a = Buffer.from(String(left || ''));
+  const b = Buffer.from(String(right || ''));
+  return a.length === b.length && crypto.timingSafeEqual(a, b);
 }
 
-function createSessionCookie(admin) {
-  const payload = Buffer.from(
-    JSON.stringify({
-      email: admin.email,
-      name: admin.name || '',
-      picture: admin.picture || '',
-      exp: Date.now() + SESSION_TTL_MS,
-    })
-  ).toString('base64url');
-
-  return `${payload}.${signValue(payload)}`;
-}
-
-function readSession(req) {
-  const sessionCookie = parseCookies(req)[ADMIN_COOKIE_NAME];
-
-  if (!sessionCookie) {
-    return null;
-  }
-
-  const [payload, signature] = sessionCookie.split('.');
-
-  if (!payload || !signature || signature !== signValue(payload)) {
-    return null;
-  }
-
-  try {
-    const session = JSON.parse(Buffer.from(payload, 'base64url').toString('utf8'));
-    return session.exp > Date.now() ? session : null;
-  } catch {
-    return null;
-  }
-}
-
-function createAdminToken(admin) {
-  const payload = Buffer.from(
-    JSON.stringify({
-      username: admin.username,
-      name: admin.name || '',
-      exp: Date.now() + SESSION_TTL_MS,
-    })
-  ).toString('base64url');
-
-  return `${payload}.${signValue(payload)}`;
-}
-
-function readAdminToken(req) {
-  const authHeader = req.get('authorization') || '';
-  const token = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : '';
-
-  if (!token) {
-    return null;
-  }
-
-  const [payload, signature] = token.split('.');
-
-  if (!payload || !signature || signature !== signValue(payload)) {
-    return null;
-  }
-
-  try {
-    const session = JSON.parse(Buffer.from(payload, 'base64url').toString('utf8'));
-    return session.exp > Date.now() ? session : null;
-  } catch {
-    return null;
-  }
+async function readSession(req) {
+  const token = parseCookies(req)[ADMIN_COOKIE_NAME];
+  return editorialStore.getAdminSession(token);
 }
 
 function setCookie(res, name, value, maxAgeMs) {
   const maxAge = Math.floor(maxAgeMs / 1000);
+  const secure = process.env.COOKIE_SECURE === 'true' ? '; Secure' : '';
   appendCookie(
     res,
-    `${name}=${encodeURIComponent(value)}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${maxAge}`
+    `${name}=${encodeURIComponent(value)}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${maxAge}${secure}`
   );
 }
 
@@ -930,13 +714,10 @@ function appendCookie(res, cookie) {
 }
 
 async function getAdminAccess() {
-  const access = await readJsonFile(ADMIN_ACCESS_PATH, { admins: [PRIMARY_ADMIN_EMAIL] });
-  const admins = new Set([
-    PRIMARY_ADMIN_EMAIL,
-    ...(Array.isArray(access.admins) ? access.admins : []),
-  ]);
+  const access = await readJsonFile(ADMIN_ACCESS_PATH, { admins: [] });
+  const admins = new Set(Array.isArray(access.admins) ? access.admins : []);
 
-  return { admins: [...admins].map((email) => email.toLowerCase()).sort() };
+  return { admins: [...admins].map((email) => String(email).trim().toLowerCase()).filter(Boolean).sort() };
 }
 
 async function isAllowedAdmin(email) {
@@ -945,23 +726,22 @@ async function isAllowedAdmin(email) {
 }
 
 async function requireAdminApi(req, res, next) {
-  const oauthSession = readSession(req);
+  const oauthSession = await readSession(req);
   if (oauthSession && (await isAllowedAdmin(oauthSession.email))) {
     req.admin = oauthSession;
     return next();
   }
-
-  const tokenSession = readAdminToken(req);
-  if (tokenSession) {
-    req.admin = {
-      email: tokenSession.username,
-      name: tokenSession.name || tokenSession.username,
-      username: tokenSession.username,
-    };
-    return next();
-  }
-
   return res.status(401).json({ error: 'Admin access required.' });
+}
+
+async function requireAdminWrite(req, res, next) {
+  return requireAdminApi(req, res, () => {
+    const supplied = req.get('x-csrf-token') || '';
+    if (!supplied || !timingSafeTextEqual(supplied, req.admin.csrfToken)) {
+      return res.status(403).json({ error: 'A valid CSRF token is required.' });
+    }
+    return next();
+  });
 }
 
 async function requirePrimaryAdminApi(req, res, next) {
@@ -974,8 +754,17 @@ async function requirePrimaryAdminApi(req, res, next) {
   });
 }
 
+async function requirePrimaryAdminWrite(req, res, next) {
+  return requireAdminWrite(req, res, () => {
+    if ((req.admin.email || '').toLowerCase() !== PRIMARY_ADMIN_EMAIL) {
+      return res.status(403).json({ error: 'Only the primary admin can manage admin access.' });
+    }
+    return next();
+  });
+}
+
 async function requireAdminPage(req, res, next) {
-  const session = readSession(req);
+  const session = await readSession(req);
 
   if (!session || !(await isAllowedAdmin(session.email))) {
     return res.redirect('/admin-login.html');
@@ -1042,8 +831,7 @@ function getSupportedPopulationFileQuery(extraCondition = '') {
     "(" +
       [
         "mimeType = 'application/json'",
-        "mimeType = 'application/vnd.google-apps.spreadsheet'",
-        "mimeType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'",
+        "mimeType = 'text/csv'",
       ].join(' or ') +
       ")",
   ]
@@ -1054,8 +842,8 @@ function getSupportedPopulationFileQuery(extraCondition = '') {
 function isSupportedPopulationFile(file) {
   return [
     'application/json',
-    'application/vnd.google-apps.spreadsheet',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    'text/csv',
+    'text/plain',
   ].includes(file.mimeType);
 }
 
@@ -1093,7 +881,7 @@ app.get('/auth/google', async (req, res) => {
 app.get('/auth/google/callback', async (req, res) => {
   const expectedState = parseCookies(req)[OAUTH_STATE_COOKIE_NAME];
 
-  if (!req.query.state || req.query.state !== expectedState) {
+  if (!req.query.state || !timingSafeTextEqual(req.query.state, expectedState)) {
     return res.status(400).send('Invalid admin login state.');
   }
 
@@ -1111,16 +899,12 @@ app.get('/auth/google/callback', async (req, res) => {
       return res.status(403).send('This Google account is not allowed to access the admin page.');
     }
 
-    setCookie(
-      res,
-      ADMIN_COOKIE_NAME,
-      createSessionCookie({
-        email,
-        name: profile.data.name,
-        picture: profile.data.picture,
-      }),
-      SESSION_TTL_MS
-    );
+    const session = await editorialStore.createAdminSession({
+      email,
+      name: profile.data.name,
+      picture: profile.data.picture,
+    }, SESSION_TTL_MS);
+    setCookie(res, ADMIN_COOKIE_NAME, session.token, SESSION_TTL_MS);
     clearCookie(res, OAUTH_STATE_COOKIE_NAME);
     return res.redirect('/admin.html');
   } catch (error) {
@@ -1129,44 +913,17 @@ app.get('/auth/google/callback', async (req, res) => {
   }
 });
 
-app.post('/auth/logout', (req, res) => {
+app.post('/auth/logout', requireAdminWrite, async (req, res) => {
+  await editorialStore.deleteAdminSession(parseCookies(req)[ADMIN_COOKIE_NAME]);
   clearCookie(res, ADMIN_COOKIE_NAME);
   return res.json({ ok: true });
 });
 
 app.post('/api/admin/login', (req, res) => {
-  const username = String(req.body.username || '').trim();
-  const password = String(req.body.password || '');
-
-  if (username !== ADMIN_LOGIN_USER.username || password !== ADMIN_LOGIN_USER.password) {
-    return res.status(401).json({ success: false, error: 'Invalid username or password.' });
-  }
-
-  return res.json({
-    success: true,
-    token: createAdminToken(ADMIN_LOGIN_USER),
-    admin: {
-      username: ADMIN_LOGIN_USER.username,
-      name: ADMIN_LOGIN_USER.name,
-    },
-  });
+  return res.status(410).json({ error: 'Password login has been removed. Use Google OAuth.' });
 });
 
-app.get('/api/admin/verify', (req, res) => {
-  const session = readAdminToken(req);
-
-  if (!session) {
-    return res.status(401).json({ success: false, error: 'Admin login required.' });
-  }
-
-  return res.json({
-    success: true,
-    admin: {
-      username: session.username,
-      name: session.name,
-    },
-  });
-});
+app.get('/api/admin/verify', requireAdminApi, (req, res) => res.json({ success: true, admin: req.admin }));
 
 app.get('/admin.html', requireAdminPage, (req, res) => {
   return res.sendFile(path.join(__dirname, 'public', 'admin.html'));
@@ -1177,6 +934,7 @@ app.get('/api/admin/me', requireAdminApi, (req, res) => {
     email: req.admin.email,
     name: req.admin.name,
     isPrimary: (req.admin.email || '').toLowerCase() === PRIMARY_ADMIN_EMAIL,
+    csrfToken: req.admin.csrfToken,
   });
 });
 
@@ -1185,7 +943,7 @@ app.get('/api/admin/access', requirePrimaryAdminApi, async (req, res) => {
   return res.json(access);
 });
 
-app.post('/api/admin/access', requirePrimaryAdminApi, async (req, res) => {
+app.post('/api/admin/access', requirePrimaryAdminWrite, async (req, res) => {
   const email = String(req.body.email || '').trim().toLowerCase();
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -1198,7 +956,7 @@ app.post('/api/admin/access', requirePrimaryAdminApi, async (req, res) => {
   return res.json({ admins });
 });
 
-app.delete('/api/admin/access/:email', requirePrimaryAdminApi, async (req, res) => {
+app.delete('/api/admin/access/:email', requirePrimaryAdminWrite, async (req, res) => {
   const email = String(req.params.email || '').trim().toLowerCase();
 
   if (email === PRIMARY_ADMIN_EMAIL) {
@@ -1216,7 +974,7 @@ app.get('/api/admin/population-source', requireAdminApi, async (req, res) => {
   return res.json(settings.populationSource);
 });
 
-app.post('/api/admin/population-source', requireAdminApi, async (req, res) => {
+app.post('/api/admin/population-source', requireAdminWrite, async (req, res) => {
   const mode = req.body.mode === 'local' ? 'local' : 'drive';
 
   try {
@@ -1301,7 +1059,146 @@ app.get('/api/admin/drive/files', requireAdminApi, async (req, res) => {
   }
 });
 
-app.use('/admin', express.static(path.join(__dirname, 'admin'), {
+app.get('/api/v1/contests', editorialRequired, async (req, res) => {
+  try {
+    const contests = await editorialStore.listPublishedContests({ office: req.query.office, from: req.query.from, to: req.query.to });
+    return res.json({ status: 'published', contests });
+  } catch (error) {
+    return editorialError(res, error);
+  }
+});
+
+app.get('/api/v1/contests/:id', editorialRequired, async (req, res) => {
+  if (!validUuid(req.params.id)) return res.status(400).json({ error: 'Invalid contest id.' });
+  try {
+    const contest = await editorialStore.getPublishedContest(req.params.id);
+    return contest ? res.json({ status: 'published', contest }) : res.status(404).json({ error: 'Published contest not found.' });
+  } catch (error) {
+    return editorialError(res, error);
+  }
+});
+
+app.get('/api/v1/contests/:id/results', editorialRequired, async (req, res) => {
+  if (!validUuid(req.params.id)) return res.status(400).json({ error: 'Invalid contest id.' });
+  try {
+    const result = await editorialStore.getPublishedResults(req.params.id);
+    return result ? res.json(result) : res.status(404).json({ error: 'Published contest not found.' });
+  } catch (error) {
+    return editorialError(res, error);
+  }
+});
+
+app.get('/api/v1/datasets/:id/sources', editorialRequired, async (req, res) => {
+  if (!validUuid(req.params.id)) return res.status(400).json({ error: 'Invalid dataset id.' });
+  try {
+    const sources = await editorialStore.getPublishedSources(req.params.id);
+    return sources.length ? res.json({ datasetId: req.params.id, status: 'published', sources }) : res.status(404).json({ error: 'Published dataset not found.' });
+  } catch (error) {
+    return editorialError(res, error);
+  }
+});
+
+app.post('/api/v1/admin/datasets/drafts', editorialRequired, requireAdminWrite, async (req, res) => {
+  try {
+    const draft = await editorialStore.createDraft(req.body, req.admin.email);
+    return res.status(201).json(draft);
+  } catch (error) {
+    return editorialError(res, error);
+  }
+});
+
+app.get('/api/v1/admin/datasets', editorialRequired, requireAdminApi, async (_req, res) => {
+  try {
+    return res.json({ datasets: await editorialStore.listEditorialQueue() });
+  } catch (error) {
+    return editorialError(res, error);
+  }
+});
+
+app.get('/api/v1/admin/audit-events', editorialRequired, requireAdminApi, async (req, res) => {
+  try {
+    return res.json({ events: await editorialStore.listAuditEvents(req.query.limit) });
+  } catch (error) {
+    return editorialError(res, error);
+  }
+});
+
+app.post('/api/v1/admin/sources', editorialRequired, requireAdminWrite, sourceUpload.single('file'), async (req, res) => {
+  try {
+    if (!req.file || !hasExpectedMagic(req.file)) {
+      return res.status(400).json({ error: 'Source file signature does not match its extension.' });
+    }
+    const stored = await storeSource(String(req.body.storageKey || ''), req.file.buffer);
+    return res.status(201).json(stored);
+  } catch (error) {
+    return editorialError(res, error);
+  }
+});
+
+app.get('/api/v1/admin/datasets/:id', editorialRequired, requireAdminApi, async (req, res) => {
+  if (!validUuid(req.params.id)) return res.status(400).json({ error: 'Invalid dataset id.' });
+  try {
+    const dataset = await editorialStore.getDatasetForAdmin(req.params.id);
+    return dataset ? res.json(dataset) : res.status(404).json({ error: 'Dataset not found.' });
+  } catch (error) {
+    return editorialError(res, error);
+  }
+});
+
+app.post('/api/v1/admin/datasets/:id/validate', editorialRequired, requireAdminWrite, async (req, res) => {
+  if (!validUuid(req.params.id)) return res.status(400).json({ error: 'Invalid dataset id.' });
+  try {
+    const validation = await editorialStore.validateDraft(req.params.id, req.admin.email);
+    return validation ? res.json({ id: req.params.id, validation }) : res.status(404).json({ error: 'Dataset not found.' });
+  } catch (error) {
+    return editorialError(res, error);
+  }
+});
+
+app.post('/api/v1/admin/datasets/:id/submit', editorialRequired, requireAdminWrite, async (req, res) => {
+  if (!validUuid(req.params.id)) return res.status(400).json({ error: 'Invalid dataset id.' });
+  try {
+    const result = await editorialStore.submitDraft(req.params.id, req.admin.email);
+    return result ? res.json(result) : res.status(404).json({ error: 'Dataset not found.' });
+  } catch (error) {
+    return editorialError(res, error);
+  }
+});
+
+app.post('/api/v1/admin/datasets/:id/review', editorialRequired, requireAdminWrite, async (req, res) => {
+  if (!validUuid(req.params.id)) return res.status(400).json({ error: 'Invalid dataset id.' });
+  if (!['approved', 'rejected'].includes(req.body?.decision)) return res.status(400).json({ error: 'Decision must be approved or rejected.' });
+  try {
+    const result = await editorialStore.reviewDataset(req.params.id, req.admin.email, req.body.decision, String(req.body.notes || '').slice(0, 4000));
+    return result ? res.json(result) : res.status(404).json({ error: 'Dataset not found.' });
+  } catch (error) {
+    return editorialError(res, error);
+  }
+});
+
+app.post('/api/v1/admin/datasets/:id/publish', editorialRequired, requireAdminWrite, async (req, res) => {
+  if (!validUuid(req.params.id)) return res.status(400).json({ error: 'Invalid dataset id.' });
+  try {
+    const result = await editorialStore.publishDataset(req.params.id, req.admin.email);
+    return result ? res.json(result) : res.status(404).json({ error: 'Dataset not found.' });
+  } catch (error) {
+    return editorialError(res, error);
+  }
+});
+
+app.post('/api/v1/admin/datasets/:id/quarantine', editorialRequired, requireAdminWrite, async (req, res) => {
+  if (!validUuid(req.params.id)) return res.status(400).json({ error: 'Invalid dataset id.' });
+  try {
+    const reason = String(req.body?.reason || '').slice(0, 4000);
+    const result = await editorialStore.quarantineDataset(req.params.id, req.admin.email, reason);
+    return result ? res.json(result) : res.status(404).json({ error: 'Dataset not found.' });
+  } catch (error) {
+    return editorialError(res, error);
+  }
+});
+
+app.get('/admin/index.html', requireAdminPage, (_req, res) => res.redirect('/admin/dashboard.html'));
+app.use('/admin', requireAdminPage, express.static(path.join(__dirname, 'admin'), {
   setHeaders(res, filePath) {
     if (/\.(html|js)$/i.test(filePath)) res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
   },
@@ -1334,6 +1231,63 @@ app.get('/api/drive/list-supported', requireAdminApi, (req, res) => {
   return res.json(SUPPORTED_FILE_TYPES);
 });
 
+function preparePublicPopulationData(input) {
+  const metadata = input?.metadata || {};
+  const populationVerified = metadata.population?.status === 'verified';
+  const states = (input?.statePopulation || [])
+    .filter((row) => normalizeLookupKey(row.state) !== 'total')
+    .map((row) => ({
+      ...row,
+      state: normalizeLookupKey(row.state) === 'fct abuja' ? 'FCT' : row.state,
+      population: populationVerified ? row.population : null,
+      populationStatus: populationVerified ? 'verified_estimate' : 'withheld',
+      voterRegisterStatus: metadata.voterRegister?.status || 'unverified',
+      voterRegisterAsOf: metadata.voterRegister?.asOf || null,
+    }));
+  const lgas = (input?.lgaPopulation || []).map((row) => ({
+    ...row,
+    population: populationVerified ? row.population : null,
+    populationStatus: populationVerified ? 'verified_estimate' : 'withheld',
+  }));
+  const registeredVoters = states.reduce((sum, row) => sum + Number(row.registeredVoters || 0), 0);
+  const stateSeriesCollectedPVCs = states.reduce((sum, row) => sum + Number(row.collectedPVCs || 0), 0);
+  return {
+    generatedAt: input?.generatedAt || null,
+    metadata,
+    statePopulation: states,
+    lgaPopulation: lgas,
+    nationalSummary: {
+      registeredVoters,
+      stateSeriesCollectedPVCs,
+      reportNarrativeCollectedPVCs: metadata.voterRegister?.laterReportNarrativeCollectedPVCs ?? null,
+      unexplainedDifference: metadata.voterRegister?.difference ?? null,
+      status: metadata.voterRegister?.status || 'unverified',
+      asOf: metadata.voterRegister?.asOf || null,
+    },
+  };
+}
+
+app.get('/api/v1/reference-summary', async (_req, res) => {
+  try {
+    const localData = JSON.parse(await fs.readFile(LOCAL_POPULATION_DATA_PATH, 'utf8'));
+    const prepared = preparePublicPopulationData(localData);
+    const dbStatus = getDbStatus();
+    return res.json({
+      asOf: prepared.nationalSummary.asOf,
+      voterRegister: prepared.nationalSummary,
+      population: prepared.metadata.population,
+      pollingUnits: {
+        records: dbStatus.pollingUnits,
+        withCoordinates: dbStatus.pollingUnitsWithCoordinates,
+        withoutCoordinates: dbStatus.pollingUnits - dbStatus.pollingUnitsWithCoordinates,
+        coordinateAccuracy: 'Exact coordinates only; missing coordinates are not inferred.',
+      },
+    });
+  } catch (error) {
+    return res.status(503).json({ error: 'Reference summary is unavailable.' });
+  }
+});
+
 app.get('/api/population-data', async (req, res) => {
   try {
     const { fileId, mimeType } = await getPopulationSource(req);
@@ -1341,14 +1295,14 @@ app.get('/api/population-data', async (req, res) => {
     if (fileId) {
       try {
         const data = await readPopulationData(fileId, mimeType);
-        return res.json(data);
+        return res.json(preparePublicPopulationData(data));
       } catch (driveError) {
         console.warn('Population Drive source unavailable; falling back to local JSON.', driveError.message || driveError);
       }
     }
 
-    const localData = await fs.readFile(LOCAL_POPULATION_DATA_PATH, 'utf8');
-    return res.type('json').send(localData);
+    const localData = JSON.parse(await fs.readFile(LOCAL_POPULATION_DATA_PATH, 'utf8'));
+    return res.json(preparePublicPopulationData(localData));
   } catch (error) {
     console.error('Error handling /api/population-data:', error.message || error);
     return res.status(500).json({ error: 'Failed to load population data.' });
@@ -1423,94 +1377,6 @@ app.get('/api/polling-directory', async (req, res) => {
   }
 });
 
-const EKITI_2026_RESULT = {
-  election: 'Ekiti State Governorship Election 2026',
-  state: 'Ekiti',
-  electionDate: '2026-06-20',
-  declaredDate: '2026-06-21',
-  winner: { name: 'Biodun Oyebanji', party: 'APC', votes: 319224 },
-  candidates: [
-    { name: 'Biodun Oyebanji', party: 'APC', votes: 319224 },
-    { name: 'Oluwole Oluyede', party: 'PDP', votes: 40543 },
-    { name: 'Oluwadare Bejide', party: 'ADC', votes: 12872 },
-    { name: 'Ayodeji Ojo', party: 'ADP', votes: 1269 },
-    { name: 'Oyebanji Olajuyin', party: 'LP', votes: 276 },
-    { name: 'Akande Oluwasegun', party: 'AAC', votes: 195 },
-    { name: 'Alade Isaac', party: 'SDP', votes: 179 },
-    { name: 'Opeyemi Falegan', party: 'Accord', votes: 56 },
-    { name: 'Omotosho Mathew', party: 'AA', votes: 126 },
-    { name: 'Anifowoshe Olanrewaju', party: 'APM', votes: 59 },
-    { name: 'Bidemi Awogbemi', party: 'APP', votes: 61 },
-    { name: 'Blessing Abegunde', party: 'NNPP', votes: 35 },
-    { name: 'Osinkolu Olusegun Ayodele', party: 'YPP', votes: 98 },
-    { name: 'Victor Adetunji', party: 'ZLP', votes: 113 },
-  ],
-  totals: { accreditedVoters: 384940, validVotes: 375777, rejectedVotes: 6332, lgAsWon: 16 },
-  sources: [
-    {
-      publisher: 'Channels Television',
-      title: 'INEC Declares APC’s Oyebanji Winner Of Ekiti Gov Election',
-      url: 'https://www.channelstv.com/2026/06/21/inec-declares-apcs-oyebanji-winner-of-ekiti-gov-election/amp/',
-    },
-    {
-      publisher: 'Premium Times',
-      title: 'INEC declares APC’s Oyebanji winner of Ekiti governorship election',
-      url: 'https://www.premiumtimesng.com/regional/ssouth-west/889497-its-official-inec-declares-apcs-oyebanji-winner-of-ekiti-governorship-election.html',
-    },
-    {
-      publisher: 'Peoples Gazette',
-      title: 'How candidates performed in Ekiti governorship election',
-      url: 'https://gazettengr.com/ekitidecides2026-how-candidates-performed-in-ekiti-governorship-election/',
-    },
-  ],
-};
-
-const NIGERIA_2023_PRES = {
-  election: '2023 Presidential Election',
-  state: 'Nigeria',
-  electionDate: '2023-02-25',
-  declaredDate: '2023-03-01',
-  winner: { name: 'Bola Ahmed Tinubu', party: 'APC', votes: 8707945 },
-  candidates: [
-    { name: 'Bola Ahmed Tinubu', party: 'APC', votes: 8707945, share: 36.61 },
-    { name: 'Atiku Abubakar', party: 'PDP', votes: 6989844, share: 29.07 },
-    { name: 'Peter Obi', party: 'LP', votes: 6101549, share: 25.4 },
-    { name: 'Rabiu Kwankwaso', party: 'NNPP', votes: 1496633, share: 6.23 },
-  ],
-  totals: { accreditedVoters: 24894112, validVotes: 24025580, rejectedVotes: 865172, turnout: 26.72 },
-  sources: [{ publisher: 'INEC', title: 'Independent National Electoral Commission', url: 'https://www.inecnigeria.org/' }],
-};
-
-// Archived results are curated election records. Headlines can surface useful
-// coverage, but NewsAPI is not an authoritative vote-count database.
-const ELECTION_RESULT_ARCHIVE = {
-  nigeria: [NIGERIA_2023_PRES],
-  ekiti: [
-    EKITI_2026_RESULT,
-    {
-      election: 'Ekiti State Governorship Election 2022', state: 'Ekiti', electionDate: '2022-06-18', declaredDate: '2022-06-19',
-      winner: { name: 'Biodun Oyebanji', party: 'APC', votes: 187057 },
-      candidates: [{ name: 'Biodun Oyebanji', party: 'APC', votes: 187057 }, { name: 'Segun Oni', party: 'SDP', votes: 82211 }, { name: 'Bisi Kolawole', party: 'PDP', votes: 67457 }],
-      totals: { accreditedVoters: 363438, validVotes: 338130, rejectedVotes: 4453, lgAsWon: 15 },
-      sources: [{ publisher: 'INEC', title: 'Independent National Electoral Commission', url: 'https://www.inecnigeria.org/' }],
-    },
-    {
-      election: 'Ekiti State Governorship Election 2018', state: 'Ekiti', electionDate: '2018-07-14', declaredDate: '2018-07-15',
-      winner: { name: 'Kayode Fayemi', party: 'APC', votes: 197459 },
-      candidates: [{ name: 'Kayode Fayemi', party: 'APC', votes: 197459 }, { name: 'Olusola Eleka', party: 'PDP', votes: 178121 }],
-      totals: { accreditedVoters: 328172, validVotes: 321037, rejectedVotes: 7729, lgAsWon: 12 },
-      sources: [{ publisher: 'INEC', title: 'Independent National Electoral Commission', url: 'https://www.inecnigeria.org/' }],
-    },
-    {
-      election: 'Ekiti State Governorship Election 2014', state: 'Ekiti', electionDate: '2014-06-21', declaredDate: '2014-06-22',
-      winner: { name: 'Ayodele Fayose', party: 'PDP', votes: 203090 },
-      candidates: [{ name: 'Ayodele Fayose', party: 'PDP', votes: 203090 }, { name: 'Kayode Fayemi', party: 'APC', votes: 120433 }],
-      totals: { accreditedVoters: 360455, validVotes: 323909, rejectedVotes: 7507, lgAsWon: 16 },
-      sources: [{ publisher: 'INEC', title: 'Independent National Electoral Commission', url: 'https://www.inecnigeria.org/' }],
-    },
-  ],
-};
-
 const BBC_AFRICA_RSS_URL = 'https://feeds.bbci.co.uk/news/world/africa/rss.xml';
 const NEWS_API_KEY = process.env.NEWS_API_KEY || '';
 
@@ -1569,6 +1435,8 @@ async function fetchNewsApiElectionNews(state = 'Ekiti') {
     publishedAt: article.publishedAt,
   })).filter((article) => article.title && article.url);
 }
+
+const ELECTION_RESULT_ARCHIVE = {};
 
 async function getElectionResultResponse(state) {
   const stateName = toDisplayCase(state || 'Ekiti');
@@ -1664,7 +1532,7 @@ app.get('/api/election-results/datasets', (_req, res) => {
 app.get('/api/election-results/ekiti', async (req, res) => {
   const payload = await getElectionResultResponse('Ekiti');
   res.setHeader('Cache-Control', 'public, max-age=900');
-  return res.json({ ...payload.latest, history: payload.history, news: payload.news, newsApi: payload.newsApi });
+  return res.json(payload);
 });
 
 app.get('/api/polling-unit-points', async (req, res) => {
@@ -1729,6 +1597,7 @@ app.get('/api/polling-units.geojson', async (req, res) => {
     });
 
     const features = points
+      .filter((point) => Number.isFinite(point.latitude) && Number.isFinite(point.longitude))
       .map((point) => {
         return {
           type: 'Feature',
@@ -1746,6 +1615,7 @@ app.get('/api/polling-units.geojson', async (req, res) => {
             geometrySource: point.geometrySource || 'source',
             sourceLatitude: point.sourceLatitude ?? null,
             sourceLongitude: point.sourceLongitude ?? null,
+            coordinateStatus: point.coordinateStatus || 'source-provided',
           },
         };
       });
@@ -1774,9 +1644,11 @@ app.get('/api/polling-units.geojson', async (req, res) => {
       type: 'FeatureCollection',
       features,
       source: {
-        name: 'mykeels/inec-polling-units',
-        url: POLLING_UNIT_POINTS_SOURCE_URL,
+        name: 'Local polling-unit register; coordinates shown only when source-provided',
+        url: null,
         counts: sourceCounts,
+        omittedWithoutCoordinates: points.length - features.length,
+        accuracyNotice: 'No centroid, jittered, or inferred point is published as a polling-unit location.',
       },
     });
   } catch (error) {
@@ -1921,9 +1793,14 @@ app.get('/api/boundaries/:layer', (req, res) => {
   return res.json(payload);
 });
 
-app.post('/api/admin/boundaries/upload', requireAdminApi, boundaryUpload.array('files', 12), async (req, res) => {
+app.post('/api/admin/boundaries/upload', requireAdminWrite, boundaryUpload.array('files', 8), async (req, res) => {
   try {
-    const files = (req.files || []).map((file) => ({
+    const uploaded = req.files || [];
+    if (!uploaded.length) return res.status(400).json({ error: 'No files uploaded.' });
+    if (uploaded.some((file) => !hasExpectedMagic(file, true))) {
+      return res.status(400).json({ error: 'A boundary file signature does not match its extension.' });
+    }
+    const files = uploaded.map((file) => ({
       originalname: file.originalname,
       buffer: file.buffer,
     }));
@@ -1935,7 +1812,7 @@ app.post('/api/admin/boundaries/upload', requireAdminApi, boundaryUpload.array('
   }
 });
 
-app.delete('/api/admin/boundaries/:layer', requireAdminApi, (req, res) => {
+app.delete('/api/admin/boundaries/:layer', requireAdminWrite, (req, res) => {
   try {
     const result = deleteBoundaryLayer(String(req.params.layer || '').toLowerCase());
     return res.json({ ok: true, ...result, layers: listBoundaryLayers() });
@@ -1944,7 +1821,7 @@ app.delete('/api/admin/boundaries/:layer', requireAdminApi, (req, res) => {
   }
 });
 
-app.post('/api/admin/db/reimport-polling-units', requireAdminApi, (_req, res) => {
+app.post('/api/admin/db/reimport-polling-units', requireAdminWrite, (_req, res) => {
   try {
     pollingTreeCache = null;
     pollingTreePromise = null;
@@ -1955,29 +1832,15 @@ app.post('/api/admin/db/reimport-polling-units', requireAdminApi, (_req, res) =>
   }
 });
 
-app.post('/api/admin/db/reimport-election-results', requireAdminApi, (_req, res) => {
-  try {
-    const count = importElectionResultsFromDir(true);
-    res.json({ ok: true, datasets: count });
-  } catch (error) {
-    res.status(500).json({ error: error.message || 'Reimport failed.' });
-  }
+app.post('/api/admin/db/reimport-election-results', requireAdminWrite, (_req, res) => {
+  return res.status(410).json({ error: 'Legacy election imports are quarantined. Use the versioned editorial workflow.' });
 });
 
-app.post('/api/admin/db/upload-election-results', requireAdminApi, (req, res) => {
-  try {
-    const payload = req.body;
-    if (!payload || !payload.units || !payload.meta) {
-      return res.status(400).json({ error: 'Body must include meta and units.' });
-    }
-    const saved = upsertElectionDataset(payload);
-    res.json({ ok: true, ...saved });
-  } catch (error) {
-    res.status(500).json({ error: error.message || 'Upload failed.' });
-  }
+app.post('/api/admin/db/upload-election-results', requireAdminWrite, (req, res) => {
+  return res.status(410).json({ error: 'Legacy direct publication is disabled. Use the versioned draft and review workflow.' });
 });
 
-app.post('/api/admin/inec-ingest', requireAdminApi, async (_req, res) => {
+app.post('/api/admin/inec-ingest', requireAdminWrite, async (_req, res) => {
   try {
     const result = await runIngest();
     return res.json({ ok: true, status: result.status });
@@ -1986,46 +1849,102 @@ app.post('/api/admin/inec-ingest', requireAdminApi, async (_req, res) => {
   }
 });
 
-app.get('/api/elections', (_req, res) => {
-  const rows = [];
-  for (const [key, list] of Object.entries(ELECTION_RESULT_ARCHIVE)) {
-    for (const item of list || []) {
-      rows.push({
-        key,
-        name: item.election,
-        type: /presidential/i.test(item.election) ? 'Presidential' : 'Gubernatorial',
-        date: (item.electionDate || '').slice(0, 4),
-        detail: item.state,
-        status: 'Result',
-        winner: item.winner,
-      });
-    }
+app.get('/api/elections', editorialRequired, async (_req, res) => {
+  try {
+    const published = await editorialStore.listPublishedContests({});
+    return res.json({
+      elections: published.map((row) => ({
+        key: row.id,
+        name: row.title,
+        type: row.office,
+        date: String(row.electionDate).slice(0, 10),
+        detail: row.constituencyName || row.jurisdictionName,
+        status: 'Published',
+        winner: null,
+        datasetId: row.datasetId,
+      })),
+    });
+  } catch (error) {
+    return editorialError(res, error);
   }
-  rows.push({
-    key: 'nigeria-2027',
-    name: '2027 General Election',
-    type: 'Presidential',
-    date: '2027',
-    detail: 'Nigeria · scheduled',
-    status: 'Upcoming',
-    winner: null,
-  });
-  return res.json({ elections: rows });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server listening on http://localhost:${PORT}`);
-  try {
-    const puCount = ensurePollingUnitsSeeded(normalizePollingUnitPointRow);
-    const dsCount = ensureElectionResultsSeeded();
-    console.log(`Database ready: ${puCount} polling units, ${dsCount} election datasets`);
-  } catch (error) {
-    console.warn('Database seed skipped:', error.message || error);
+app.use((error, _req, res, _next) => {
+  if (error?.message === 'Cross-origin request denied.') {
+    return res.status(403).json({ error: error.message });
   }
-  hydrateIngestStatus().catch(() => {});
-  runIngest().catch((error) => console.warn('Startup INEC ingest skipped:', error.message || error));
-  const sixHours = 6 * 60 * 60 * 1000;
-  setInterval(() => {
-    runIngest().catch((error) => console.warn('Scheduled INEC ingest failed:', error.message || error));
-  }, sixHours);
+  if (error instanceof multer.MulterError || /Unsupported boundary|Source evidence/i.test(error?.message || '')) {
+    return res.status(400).json({ error: error.message });
+  }
+  console.error('Unhandled request error:', error?.message || error);
+  return res.status(500).json({ error: 'Request failed.' });
 });
+
+function validateRuntimeConfig() {
+  if (process.env.NODE_ENV !== 'production') return;
+  const secret = getConfiguredSessionSecret();
+  if (secret.length < 32) throw new Error('ADMIN_SESSION_SECRET must contain at least 32 characters in production.');
+  if (!editorialStore.isEnabled()) throw new Error('EDITORIAL_DATABASE_URL is required in production.');
+  if (!process.env.BASE_URL) throw new Error('BASE_URL is required in production.');
+}
+
+async function initializeApp() {
+  runtimeState.ready = false;
+  runtimeState.error = null;
+  try {
+    validateRuntimeConfig();
+    await editorialStore.initializeEditorialStore();
+    const puCount = ensurePollingUnitsSeeded(normalizePollingUnitPointRow);
+    // Legacy public UI still reads SQLite election_datasets. Only wipe when explicitly enabled.
+    let quarantinedLegacyRows = 0;
+    let dsCount = 0;
+    if (process.env.QUARANTINE_LEGACY_RESULTS === 'true') {
+      quarantinedLegacyRows = quarantineLegacyElectionResults();
+      console.log(`Database ready: ${puCount} polling units; ${quarantinedLegacyRows} legacy election rows quarantined`);
+    } else {
+      dsCount = ensureElectionResultsSeeded();
+      console.log(`Database ready: ${puCount} polling units; ${dsCount} election datasets`);
+    }
+    await hydrateIngestStatus();
+    if (process.env.ENABLE_INEC_DISCOVERY === 'true') {
+      runIngest().catch((error) => console.warn('INEC discovery ingest skipped:', error.message || error));
+      const timer = setInterval(() => {
+        runIngest().catch((error) => console.warn('Scheduled INEC discovery failed:', error.message || error));
+      }, 6 * 60 * 60 * 1000);
+      timer.unref();
+    }
+    runtimeState.ready = true;
+    runtimeState.initializedAt = new Date().toISOString();
+    return { puCount, dsCount };
+  } catch (error) {
+    runtimeState.error = error.message || String(error);
+    throw error;
+  }
+}
+
+async function start() {
+  await initializeApp();
+  return new Promise((resolve) => {
+    const server = app.listen(PORT, HOST, () => {
+      console.log(`Server listening on http://${HOST}:${PORT}`);
+      resolve(server);
+    });
+  });
+}
+
+if (require.main === module) {
+  start().catch((error) => {
+    console.error('Server startup failed:', error.message || error);
+    process.exitCode = 1;
+  });
+}
+
+module.exports = {
+  app,
+  start,
+  initializeApp,
+  validateRuntimeConfig,
+  runtimeState,
+  parseNumericValue,
+  normalizePollingUnitPointRow,
+};

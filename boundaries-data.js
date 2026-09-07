@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const JSZip = require('jszip');
 const { getDb, normalizeKey } = require('./db');
 
 const BOUNDARIES_DIR = process.env.BOUNDARIES_DIR
@@ -69,6 +70,14 @@ async function parseUploadBuffer(buffer, originalName, companionFiles) {
   }
 
   if (lower.endsWith('.zip')) {
+    const archive = await JSZip.loadAsync(buffer, { checkCRC32: true });
+    const entries = Object.values(archive.files);
+    if (entries.length > 50) throw new Error('Boundary archive contains too many files.');
+    const expandedBytes = entries.reduce((sum, entry) => sum + Number(entry._data?.uncompressedSize || 0), 0);
+    if (expandedBytes > 200 * 1024 * 1024) throw new Error('Boundary archive expands beyond the 200 MB safety limit.');
+    if (entries.some((entry) => /(^|[\\/])\.\.([\\/]|$)/.test(entry.name))) {
+      throw new Error('Boundary archive contains an unsafe path.');
+    }
     return shp(buffer);
   }
 
@@ -156,10 +165,12 @@ function pickProp(props, keys) {
 function saveUploadArchive(files, label) {
   fs.mkdirSync(path.join(BOUNDARIES_DIR, 'uploads'), { recursive: true });
   const stamp = new Date().toISOString().replace(/[:.]/g, '-');
-  const dir = path.join(BOUNDARIES_DIR, 'uploads', `${stamp}-${label}`);
+  const safeLabel = path.basename(String(label || 'boundary')).replace(/[^a-zA-Z0-9._-]+/g, '-').slice(0, 100);
+  const dir = path.join(BOUNDARIES_DIR, 'uploads', `${stamp}-${safeLabel}`);
   fs.mkdirSync(dir, { recursive: true });
   for (const file of files) {
-    fs.writeFileSync(path.join(dir, file.originalname), file.buffer);
+    const safeName = path.basename(String(file.originalname || 'upload.bin')).replace(/[^a-zA-Z0-9._-]+/g, '-');
+    fs.writeFileSync(path.join(dir, safeName), file.buffer, { flag: 'wx' });
   }
   return dir;
 }

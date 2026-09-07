@@ -11,6 +11,7 @@ credentials.json
 client_secret_*.json
 token.json
 admin-settings.json
+admin-access.json
 
 # logs
 server.err.log
@@ -23,4 +24,16 @@ data/election-dashboard.db
 data/election-dashboard.db-shm
 data/election-dashboard.db-wal
 data/boundaries/uploads/**/*.zip
+data/boundaries/uploads/
+data/inec/*.html
+data/inec/latest.json
+data/inec/status.json
+data/inec/*-preview-*.json
+data/inec/*-tables-*.json
+source-archive/
+backups/
 *.kmz
+public/data/*.xlsx
+public/data/*-source.html
+Election Dashboard/
+tmp/

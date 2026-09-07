@@ -3,7 +3,7 @@ const path = require('path');
 
 const ROOT_DIR = path.join(__dirname, '..');
 const SOURCE_PATH = path.join(ROOT_DIR, 'public', 'data', 'lg-directory-source.html');
-const DATA_PATH = path.join(ROOT_DIR, 'public', 'data', 'population-pvc-data.json');
+const DATA_PATH = path.join(ROOT_DIR, 'data', 'reference', 'population-pvc-data.json');
 
 const SOURCE_URL = 'https://democracybuilders.ng/lg-directory/';
 

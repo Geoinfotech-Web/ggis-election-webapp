@@ -231,12 +231,13 @@ async function loadPopulationData(localPopulationDataPath) {
 function createPopulationLookups(populationData) {
   const stateLookup = new Map();
   const lgaLookup = new Map();
+  const populationVerified = populationData.metadata?.population?.status === 'verified';
 
   for (const row of populationData.statePopulation || []) {
     const state = normalizeStateName(row.state);
     stateLookup.set(normalizeLookupKey(state), {
       state,
-      population: safeNumber(row.population),
+      population: populationVerified ? safeNumber(row.population) : null,
       registeredVoters: safeNumber(row.registeredVoters),
       collectedPVCs: safeNumber(row.collectedPVCs),
     });
@@ -249,7 +250,7 @@ function createPopulationLookups(populationData) {
       {
         state,
         lga: row.lga,
-        population: safeNumber(row.population),
+        population: populationVerified ? safeNumber(row.population) : null,
       }
     );
   }
