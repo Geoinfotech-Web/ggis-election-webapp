@@ -4,7 +4,7 @@ Status as of 2026-09-07: implementation remains incomplete. The local applicatio
 
 The served UI now reproduces the Global Overview design system's global scope, filter rail, KPI row, two-tier map controls, and Live/Upcoming/Recent side panels. It uses attributed Esri World Dark Gray Canvas and World Imagery basemaps, plus a configuration-driven country registry and local Nigeria state boundaries. It deliberately replaces the design prototype's synthetic election feed with verified empty states and hides polling-unit points whose coordinates are unavailable. Country detail, deeper contest and administrative drill-down, and the protected editorial interface remain incomplete.
 
-The polling-cache migration fingerprints the canonical CSV and replaces obsolete caches transactionally. It has run successfully in the application container and the live API now reports 176,846 records, one source-provided coordinate pair, and 176,845 unavailable coordinates. Blank coordinate cells and number pairs embedded in address text have regression coverage and are not interpreted as coordinates.
+The polling-cache migration fingerprints the canonical CSV and replaces obsolete caches transactionally. The live register holds 176,846 records; INEC-sourced coordinates cover roughly two-thirds of units (remainder stay unavailable — never inferred). Blank coordinate cells and number pairs embedded in address text have regression coverage and are not interpreted as coordinates.
 
 ## Implemented
 

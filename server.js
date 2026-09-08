@@ -1272,15 +1272,29 @@ app.get('/api/v1/reference-summary', async (_req, res) => {
     const localData = JSON.parse(await fs.readFile(LOCAL_POPULATION_DATA_PATH, 'utf8'));
     const prepared = preparePublicPopulationData(localData);
     const dbStatus = getDbStatus();
+    let puMeta = null;
+    try {
+      puMeta = JSON.parse(await fs.readFile(path.join(__dirname, 'data', 'reference', 'inec-pu-coordinates.meta.json'), 'utf8'));
+    } catch (_) {
+      puMeta = null;
+    }
+    const withCoords = dbStatus.pollingUnitsWithCoordinates;
+    const total = dbStatus.pollingUnits;
     return res.json({
       asOf: prepared.nationalSummary.asOf,
       voterRegister: prepared.nationalSummary,
       population: prepared.metadata.population,
       pollingUnits: {
-        records: dbStatus.pollingUnits,
-        withCoordinates: dbStatus.pollingUnitsWithCoordinates,
-        withoutCoordinates: dbStatus.pollingUnits - dbStatus.pollingUnitsWithCoordinates,
+        records: total,
+        withCoordinates: withCoords,
+        withoutCoordinates: total - withCoords,
         coordinateAccuracy: 'Exact coordinates only; missing coordinates are not inferred.',
+        coordinateSource: puMeta?.attribution || 'INEC public polling-unit locator / civic archive',
+        coordinateCoverage:
+          total > 0
+            ? `INEC locator - ${Number(withCoords).toLocaleString('en-US')} of ${Number(total).toLocaleString('en-US')} with coordinates; remainder unavailable.`
+            : 'Polling-unit register unavailable.',
+        coordinateFetchedAt: puMeta?.fetchedAt || null,
       },
     });
   } catch (error) {

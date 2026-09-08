@@ -16,12 +16,12 @@ test('upgrades an unversioned coordinate cache and rolls back failed imports', (
       latitude:row.lat.trim() ? Number(row.lat) : null,
       longitude:row.long.trim() ? Number(row.long) : null});
     assert.equal(store.ensurePollingUnitsSeeded(normalize), 176846);
-    assert.equal(store.getDbStatus().pollingUnitsWithCoordinates, 1);
+    assert.ok(store.getDbStatus().pollingUnitsWithCoordinates >= 100000);
     assert.equal(db.prepare("SELECT count(*) n FROM polling_units WHERE code='fake'").get().n, 0);
     assert.equal(store.ensurePollingUnitsSeeded(() => { throw new Error('Unexpected reimport'); }), 176846);
     assert.throws(() => store.importPollingUnitsFromCsv(store.CSV_PATH, () => { throw new Error('Bad row'); }), /Bad row/);
     assert.equal(store.getDbStatus().pollingUnits, 176846);
-    assert.equal(store.getDbStatus().pollingUnitsWithCoordinates, 1);
+    assert.ok(store.getDbStatus().pollingUnitsWithCoordinates >= 100000);
   } finally {
     db.close();
     fs.rmSync(root, {recursive:true,force:true});

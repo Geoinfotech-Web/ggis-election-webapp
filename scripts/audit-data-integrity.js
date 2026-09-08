@@ -49,7 +49,10 @@ report.pollingUnits.withoutCoordinates = report.pollingUnits.rows - report.polli
 
 console.log(JSON.stringify(report, null, 2));
 
+// Register must stay complete; coordinates come from the INEC locator archive (~67% coverage).
+const MIN_SOURCED_COORDS = 100000;
 const unsafe = report.invalidJson > 0 || report.published > 0 || report.pvc.jurisdictions !== 37 ||
   report.pvc.registeredVoters !== 93469008 || report.pvc.stateSeriesCollected !== 87209007 ||
-  report.pvc.lgas !== 774 || report.pollingUnits.rows !== 176846 || report.pollingUnits.withCoordinates !== 1;
+  report.pvc.lgas !== 774 || report.pollingUnits.rows !== 176846 ||
+  report.pollingUnits.withCoordinates < MIN_SOURCED_COORDS;
 if (unsafe) process.exitCode = 1;

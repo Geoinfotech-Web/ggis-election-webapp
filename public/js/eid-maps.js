@@ -35,6 +35,18 @@
     ekiti: { center: [7.67, 5.31], zoom: 9 },
   };
 
+  function pollingUnitIcon(opts) {
+    const focus = !!(opts && opts.focus);
+    const size = focus ? 28 : 22;
+    return global.L.divIcon({
+      className: "eid-pu-marker",
+      html: '<div class="eid-pu-pin' + (focus ? " is-focus" : "") + '"><span class="msi">where_to_vote</span></div>',
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size / 2],
+      popupAnchor: [0, -(size / 2)],
+    });
+  }
+
   const MARKER_LL = {
     ng: [9.08, 8.68],
     us: [39.83, -98.58],
@@ -144,7 +156,7 @@
   function setBasemap(el, key) {
     const inst = ensure(el);
     if (!inst) return;
-    const spec = TILES[key] || TILES.hybrid;
+    const spec = TILES[key] || TILES.streets;
     if (inst.tile) inst.map.removeLayer(inst.tile);
     inst.tile = global.L.tileLayer(spec.url, spec.options).addTo(inst.map);
     inst.basemap = key;
@@ -304,15 +316,23 @@
       pane: 'grid3',
       style: (feat) => styleForFeature(id, feat.properties, cfg),
       pointToLayer: isPoint
-        ? (feat, latlng) =>
-            global.L.circleMarker(latlng, {
+        ? (feat, latlng) => {
+            if (id === 'polling') {
+              return global.L.marker(latlng, {
+                pane: 'grid3',
+                icon: pollingUnitIcon(),
+                keyboard: false,
+              });
+            }
+            return global.L.circleMarker(latlng, {
               pane: 'grid3',
-              radius: id === 'polling' ? 4 : 5,
+              radius: 5,
               color: '#ffffff',
               weight: 1,
-              fillColor: id === 'health' ? '#be123c' : '#1c8f86',
+              fillColor: '#be123c',
               fillOpacity: 0.9,
-            })
+            });
+          }
         : undefined,
       onEachFeature: (feat, layer) => {
         const label = featureLabel(id, feat.properties);
@@ -465,7 +485,7 @@
     inst.cfg = cfg || {};
     const view = GEO[cfg.scope] || GEO.global;
     const liveView = cfg.live ? GEO.ekiti : view;
-    setBasemap(el, cfg.basemap || "hybrid");
+    setBasemap(el, cfg.basemap || "streets");
     const user = cfg.user && cfg.user.lat != null ? cfg.user : null;
     const focus = cfg.focus && cfg.focus.lat != null ? cfg.focus : null;
     const admin = cfg.adminFocus && cfg.adminFocus.state ? cfg.adminFocus : null;
@@ -519,11 +539,9 @@
     (cfg.points || []).slice(0, 800).forEach((p) => {
       if (p.lat == null || p.lng == null) return;
       const tip = [p.code, p.address || p.name, p.place].filter(Boolean).join(" · ");
-      const marker = global.L.circleMarker([p.lat, p.lng], {
-        radius: 3,
-        color: "#1c8f86",
-        weight: 1,
-        fillOpacity: 0.7,
+      const marker = global.L.marker([p.lat, p.lng], {
+        icon: pollingUnitIcon(),
+        keyboard: false,
       }).bindPopup("<strong>" + String(p.name || "Polling unit").replace(/</g, "&lt;") + "</strong><br>" + String(tip).replace(/</g, "&lt;"));
       if (typeof p.onClick === "function") marker.on("click", p.onClick);
       inst.points.addLayer(marker);
@@ -543,12 +561,10 @@
     const addr = String(focus.address || "").replace(/</g, "&lt;");
     const place = [focus.ward, focus.lga, focus.state].filter(Boolean).join(" · ").replace(/</g, "&lt;");
     const html = "<strong>" + title + "</strong>" + (addr ? "<br>" + addr : "") + (place ? "<br>" + place : "");
-    inst.focusMarker = global.L.circleMarker([Number(focus.lat), Number(focus.lng)], {
-      radius: 10,
-      color: "#ffffff",
-      weight: 2,
-      fillColor: "#cf3f36",
-      fillOpacity: 1,
+    inst.focusMarker = global.L.marker([Number(focus.lat), Number(focus.lng)], {
+      icon: pollingUnitIcon({ focus: true }),
+      zIndexOffset: 800,
+      keyboard: false,
     })
       .bindPopup(html)
       .addTo(inst.map);

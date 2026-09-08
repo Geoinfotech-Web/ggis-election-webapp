@@ -23,5 +23,9 @@ data/inec/*.html
 data/inec/*-preview-*.json
 data/inec/*-tables-*.json
 data/boundaries/uploads
+data/reference/_inec-pu-coords-work
+data/reference/inec-pu-coordinates.json
+data/reference/Nigeria_polling_units.pre-coords-backup.csv
+data/reference/inec-pu-coordinates-raw.csv
 public/data/*.xlsx
 proposal

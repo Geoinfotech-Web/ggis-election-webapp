@@ -12,7 +12,10 @@
     "inec:ingest": "node inec-ingest.js",
     "analyze:wards": "python scripts/ward_pu_analysis.py",
     "seed:boundaries": "node scripts/seed-boundaries.js",
-    "audit:data": "node scripts/audit-data-integrity.js"
+    "audit:data": "node scripts/audit-data-integrity.js",
+    "pu:coords:fetch": "node scripts/fetch-inec-pu-coordinates.js",
+    "pu:coords:merge": "node scripts/merge-inec-pu-coordinates.js",
+    "pu:coords:refresh": "npm run pu:coords:fetch && npm run pu:coords:merge"
   },
   "keywords": [],
   "author": "",

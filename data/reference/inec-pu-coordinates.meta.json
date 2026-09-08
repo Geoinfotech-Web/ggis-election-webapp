@@ -1,0 +1,18 @@
+{
+  "fetchedAt": "2026-09-08T09:07:50.136Z",
+  "sourceUrl": "https://github.com/mykeels/inec-polling-units",
+  "sourceDetail": "INEC polling-unit delimitation register archive (mykeels/inec-polling-units), retrieved from https://www.inecnigeria.org/elections/polling-units/",
+  "attribution": "Independent National Electoral Commission (INEC) via public polling-unit pages / civic archive",
+  "wardUnitFiles": 8809,
+  "unitsScanned": 176623,
+  "withLocationField": 119297,
+  "acceptedInNigeriaBbox": 117786,
+  "uniqueCodesWithCoordinates": 117786,
+  "droppedOutOfBbox": 1511,
+  "missingCode": 0,
+  "missingCoords": 57326,
+  "note": "Only finite coordinates inside an approximate Nigeria bounding box are kept. Units without published coordinates remain unavailable.",
+  "lastMergedAt": "2026-09-08T09:08:31.042Z",
+  "mergeReport": "data\\reference\\inec-pu-coordinates-merge-report.json",
+  "withCoordinatesAfterMerge": 117699
+}

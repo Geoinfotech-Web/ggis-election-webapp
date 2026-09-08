@@ -1,0 +1,15 @@
+{
+  "mergedAt": "2026-09-08T09:08:31.042Z",
+  "force": false,
+  "csvRows": 176846,
+  "coordFeedRows": 117786,
+  "matched": 117698,
+  "filled": 117698,
+  "alreadyHadCoords": 0,
+  "overwritten": 0,
+  "unmatchedCsv": 59148,
+  "unmatchedFeed": 88,
+  "withCoordinatesAfter": 117699,
+  "withoutCoordinatesAfter": 59147,
+  "backup": "data\\reference\\Nigeria_polling_units.pre-coords-backup.csv"
+}
