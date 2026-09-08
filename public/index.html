@@ -355,6 +355,7 @@ a:hover{color:var(--primary)}
             <div style="display:flex;align-items:center;gap:7px;padding:10px 11px;border-bottom:1px solid var(--border)">
               <span class="msi" style="font-size:16px;color:var(--primary)">history</span>
               <div style="font-size:12px;font-weight:600;color:var(--text)">Election history</div>
+              <button onClick="{{ resetAll }}" title="Reset election, map, polling unit and filters" style="margin-left:auto;border:none;background:transparent;color:var(--mute);cursor:pointer;display:inline-flex;align-items:center;gap:3px;font-size:11px;font-family:inherit"><span class="msi" style="font-size:15px">restart_alt</span>Reset</button>
             </div>
             <div style="padding:11px;display:flex;flex-direction:column;gap:11px">
               <div>
@@ -400,7 +401,6 @@ a:hover{color:var(--primary)}
             <div style="display:flex;align-items:center;gap:7px;padding:10px 11px;border-bottom:1px solid var(--border)">
               <span class="msi" style="font-size:16px;color:var(--primary)">where_to_vote</span>
               <div style="font-size:12px;font-weight:600;color:var(--text)">Find your polling unit</div>
-              <button onClick="{{ ngView.clear }}" title="Reset map, filters and selection" style="margin-left:auto;border:none;background:transparent;color:var(--mute);cursor:pointer;display:inline-flex;align-items:center;gap:3px;font-size:11px;font-family:inherit"><span class="msi" style="font-size:15px">restart_alt</span>Reset</button>
             </div>
             <div style="padding:11px;display:flex;flex-direction:column;gap:11px">
               <div>
@@ -2332,24 +2332,31 @@ class Component extends DCLogic {
   }
   resetAll(){
     const scope = this.state.scope;
+    this._puSeq = (this._puSeq || 0) + 1;
+    this._kpiKey = null;
     this.setState({
       status:{live:true,upcoming:true,recent:true,nodata:false},
       layers:{state:true,lga:true,ward:false,polling:false,health:false},
       ngState:null, ngLga:null, ngWard:null, ngPU:null,
       mapFocus:null, mapAdminFocus:null, mapSel:null, puQuery:'', puSearchHits:[],
+      puDir:{ states:(this.state.puDir && this.state.puDir.states) || [], lgas:[], wards:[], units:[] },
+      puLoading:null, ngKpiRow:null,
       anaCoords:null, anaGeo:'idle', nearPUs:[],
       ovElecYear:'2023', ovOffice:'pres', ovElecState:null, elecMapTheme:null, elecChoroMeta:null,
       elecSelectedUnit:null, elecExpandedCand:null, showEstimatedLga:true,
       layersOpen:true, basemapOpen:false,
       basemap:'hybrid',
+    }, ()=>{
+      if(window.EIDMaps && window.EIDMaps.resetView){
+        Object.keys(this.mapEls||{}).forEach(kind=>{
+          const el=this.mapEls[kind];
+          const key = kind==='live' ? 'ekiti' : (scope==='global' ? 'global' : scope);
+          if(el) window.EIDMaps.resetView(el, key);
+        });
+      }
+      this.fetchNgKpis();
+      if(scope === 'ng') this.flyToElectionView();
     });
-    if(window.EIDMaps && window.EIDMaps.resetView){
-      Object.keys(this.mapEls||{}).forEach(kind=>{
-        const el=this.mapEls[kind];
-        const key = kind==='live' ? 'ekiti' : (scope==='global' ? 'global' : scope);
-        if(el) window.EIDMaps.resetView(el, key);
-      });
-    }
   }
   resetFilters(){ this.resetAll(); }
   toggleLayersPanel(){ this.setState(s=>({ layersOpen:!s.layersOpen, basemapOpen:false })); }
