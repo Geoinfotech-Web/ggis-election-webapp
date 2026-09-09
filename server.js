@@ -283,16 +283,13 @@ function buildPollingUnitAddressQuery(row) {
 }
 
 function getFieldValue(row, candidates = []) {
-  const normalizedCandidates = candidates.map((candidate) => normalizeLookupKey(candidate));
-
-  for (const [key, value] of Object.entries(row || {})) {
-    const normalizedKey = normalizeLookupKey(key);
-
-    if (normalizedCandidates.includes(normalizedKey)) {
-      return value;
-    }
+  if (!row) return null;
+  const entries = Object.entries(row).map(([key, value]) => [normalizeLookupKey(key), value]);
+  for (const candidate of candidates) {
+    const want = normalizeLookupKey(candidate);
+    const hit = entries.find(([key]) => key === want);
+    if (hit && hit[1] != null && String(hit[1]).trim() !== '') return hit[1];
   }
-
   return null;
 }
 
@@ -374,7 +371,8 @@ function normalizePollingUnitPointRow(row) {
     longitude,
     sourceHasCoordinates,
     code: String(
-      getFieldValue(row, ['pu_code', 'polling_unit_code', 'pollingunitcode', 'code']) || ''
+      // Prefer full delimitation code (e.g. 37/06/02/061) over short pu_code (061).
+      getFieldValue(row, ['code', 'polling_unit_code', 'pollingunitcode', 'pu_code']) || ''
     ).trim(),
     name: sourceName,
     address,
@@ -1273,13 +1271,24 @@ app.get('/api/v1/reference-summary', async (_req, res) => {
     const prepared = preparePublicPopulationData(localData);
     const dbStatus = getDbStatus();
     let puMeta = null;
+    let policyMeta = null;
     try {
       puMeta = JSON.parse(await fs.readFile(path.join(__dirname, 'data', 'reference', 'inec-pu-coordinates.meta.json'), 'utf8'));
     } catch (_) {
       puMeta = null;
     }
+    try {
+      policyMeta = JSON.parse(await fs.readFile(path.join(__dirname, 'data', 'reference', 'pu-coordinate-policy.json'), 'utf8'));
+    } catch (_) {
+      policyMeta = null;
+    }
     const withCoords = dbStatus.pollingUnitsWithCoordinates;
     const total = dbStatus.pollingUnits;
+    const coverageParts = [];
+    if (total > 0) {
+      coverageParts.push(`${Number(withCoords).toLocaleString('en-US')} of ${Number(total).toLocaleString('en-US')} with INEC locator coordinates`);
+      coverageParts.push(`${Number(total - withCoords).toLocaleString('en-US')} unmapped (no estimated positions)`);
+    }
     return res.json({
       asOf: prepared.nationalSummary.asOf,
       voterRegister: prepared.nationalSummary,
@@ -1288,13 +1297,11 @@ app.get('/api/v1/reference-summary', async (_req, res) => {
         records: total,
         withCoordinates: withCoords,
         withoutCoordinates: total - withCoords,
-        coordinateAccuracy: 'Exact coordinates only; missing coordinates are not inferred.',
+        coordinateAccuracy:
+          'INEC polling-unit locator coordinates only. Ward centroids and geocode estimates are not used.',
         coordinateSource: puMeta?.attribution || 'INEC public polling-unit locator / civic archive',
-        coordinateCoverage:
-          total > 0
-            ? `INEC locator - ${Number(withCoords).toLocaleString('en-US')} of ${Number(total).toLocaleString('en-US')} with coordinates; remainder unavailable.`
-            : 'Polling-unit register unavailable.',
-        coordinateFetchedAt: puMeta?.fetchedAt || null,
+        coordinateCoverage: total > 0 ? coverageParts.join(' · ') + '.' : 'Polling-unit register unavailable.',
+        coordinateFetchedAt: policyMeta?.revertedAt || puMeta?.fetchedAt || null,
       },
     });
   } catch (error) {
@@ -1368,6 +1375,90 @@ app.get('/api/polling-units-data', async (req, res) => {
   } catch (error) {
     console.error('Error handling /api/polling-units-data:', error.message || error);
     return res.status(500).json({ error: 'Failed to load polling unit data.' });
+  }
+});
+
+app.get('/api/geocode', async (req, res) => {
+  const q = String(req.query.q || '').trim();
+  if (q.length < 3) {
+    return res.status(400).json({ ok: false, error: 'Enter at least 3 characters for an address or place.' });
+  }
+  try {
+    const url = 'https://nominatim.openstreetmap.org/search?' + new URLSearchParams({
+      q,
+      format: 'json',
+      limit: '1',
+      countrycodes: 'ng',
+      addressdetails: '0',
+    });
+    const upstream = await fetch(url, {
+      headers: {
+        Accept: 'application/json',
+        'User-Agent': 'Geoinfotech-Election-Dashboard/1.0 (https://github.com/Geoinfotech-Web/ggis-election-webapp)',
+      },
+      signal: AbortSignal.timeout(12000),
+    });
+    if (!upstream.ok) {
+      return res.status(502).json({ ok: false, error: 'Geocoder unavailable.' });
+    }
+    const rows = await upstream.json();
+    if (!Array.isArray(rows) || !rows.length) {
+      return res.json({ ok: false, error: 'No match found in Nigeria for that address or place.' });
+    }
+    const hit = rows[0];
+    const lat = Number(hit.lat);
+    const lng = Number(hit.lon);
+    if (!Number.isFinite(lat) || !Number.isFinite(lng)) {
+      return res.json({ ok: false, error: 'Geocoder returned an invalid location.' });
+    }
+    return res.json({
+      ok: true,
+      lat,
+      lng,
+      label: hit.display_name || q,
+    });
+  } catch (error) {
+    console.error('Error handling /api/geocode:', error.message || error);
+    return res.status(502).json({ ok: false, error: 'Geocode request failed.' });
+  }
+});
+
+app.get('/api/route', async (req, res) => {
+  const fromLat = Number(req.query.fromLat);
+  const fromLng = Number(req.query.fromLng);
+  const toLat = Number(req.query.toLat);
+  const toLng = Number(req.query.toLng);
+  const validLat = (value) => Number.isFinite(value) && value >= -90 && value <= 90;
+  const validLng = (value) => Number.isFinite(value) && value >= -180 && value <= 180;
+  if (!validLat(fromLat) || !validLat(toLat) || !validLng(fromLng) || !validLng(toLng)) {
+    return res.status(400).json({ ok: false, error: 'Valid route coordinates are required.' });
+  }
+  try {
+    const url = `https://router.project-osrm.org/route/v1/driving/${fromLng},${fromLat};${toLng},${toLat}`
+      + '?overview=full&geometries=geojson&steps=false&alternatives=false';
+    const upstream = await fetch(url, {
+      headers: {
+        Accept: 'application/json',
+        'User-Agent': 'Geoinfotech-Election-Dashboard/1.0 (https://github.com/Geoinfotech-Web/ggis-election-webapp)',
+      },
+      signal: AbortSignal.timeout(15000),
+    });
+    const data = upstream.ok ? await upstream.json() : null;
+    const route = data?.routes?.[0];
+    const coordinates = route?.geometry?.coordinates;
+    if (!Array.isArray(coordinates) || coordinates.length < 2) {
+      return res.status(502).json({ ok: false, error: 'No road route was found.' });
+    }
+    res.setHeader('Cache-Control', 'public, max-age=300');
+    return res.json({
+      ok: true,
+      distance: Number(route.distance),
+      duration: Number(route.duration),
+      coordinates,
+    });
+  } catch (error) {
+    console.error('Error handling /api/route:', error.message || error);
+    return res.status(502).json({ ok: false, error: 'Road route request failed.' });
   }
 });
 

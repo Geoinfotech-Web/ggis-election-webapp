@@ -125,6 +125,7 @@
       map,
       tile: null,
       markers: global.L.layerGroup().addTo(map),
+      route: global.L.layerGroup().addTo(map),
       points: global.L.layerGroup().addTo(map),
       overlays: {},
       cfg: {},
@@ -151,6 +152,56 @@
       timer = setTimeout(() => refreshOverlays(el), 320);
     });
     return inst;
+  }
+
+  function paintRoute(inst, route) {
+    inst.route.clearLayers();
+    if (!route || !Array.isArray(route.coords) || route.coords.length < 2) {
+      inst.routeKey = null;
+      return;
+    }
+    const coords = route.coords
+      .map((point) => [Number(point[0]), Number(point[1])])
+      .filter((point) => point.every(Number.isFinite));
+    if (coords.length < 2) return;
+    const halo = global.L.polyline(coords, {
+      color: "#ffffff",
+      weight: 8,
+      opacity: 0.9,
+      lineCap: "round",
+      lineJoin: "round",
+      interactive: false,
+    }).addTo(inst.route);
+    const line = global.L.polyline(coords, {
+      color: "#2563eb",
+      weight: 4,
+      opacity: 0.95,
+      lineCap: "round",
+      lineJoin: "round",
+    }).addTo(inst.route);
+    if (route.label) {
+      line.bindTooltip(String(route.label), {
+        permanent: true,
+        direction: "center",
+        className: "eid-route-label",
+        opacity: 1,
+      }).openTooltip();
+    }
+    if (Array.isArray(route.origin)) {
+      global.L.circleMarker(route.origin, {
+        radius: 7,
+        color: "#ffffff",
+        weight: 3,
+        fillColor: "#2563eb",
+        fillOpacity: 1,
+      }).bindTooltip("Route origin").addTo(inst.route);
+    }
+    const routeKey = String(route.key || coords.length);
+    if (inst.routeKey !== routeKey) {
+      inst.routeKey = routeKey;
+      inst.map.stop();
+      inst.map.fitBounds(halo.getBounds(), { padding: [42, 42], maxZoom: 15 });
+    }
   }
 
   function setBasemap(el, key) {
@@ -269,9 +320,153 @@
     return String(value || '')
       .normalize('NFKD')
       .replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^a-z0-9/]+/gi, ' ')
+      .replace(/\bcentre\b/gi, 'center')
+      .replace(/[^a-z0-9]+/gi, ' ')
       .trim()
       .toLowerCase();
+  }
+
+  function canonicalAdminState(name) {
+    const key = normalizeAdminKey(name).replace(/\s+/g, '');
+    if (!key) return '';
+    if (key === 'fct' || key === 'abuja' || key === 'fctabuja' || key === 'federalcapitalterritory') return 'FCT';
+    return String(name || '').trim();
+  }
+
+  // Directory / INEC short names ↔ GRID3 / ArcGIS long names.
+  function adminNameAliasKeys(name) {
+    const key = normalizeAdminKey(name);
+    if (!key) return [];
+    const compact = key.replace(/\s+/g, '');
+    const groups = [
+      ['municipal', 'municipal area council', 'abuja municipal', 'amac'],
+      ['fct', 'abuja', 'federal capital territory', 'fct abuja'],
+    ];
+    for (let i = 0; i < groups.length; i++) {
+      const group = groups[i];
+      if (group.some((g) => g === key || g.replace(/\s+/g, '') === compact)) {
+        return group.slice();
+      }
+    }
+    return [key];
+  }
+
+  function adminNamesMatch(a, b) {
+    const left = normalizeAdminKey(a);
+    const right = normalizeAdminKey(b);
+    if (!left || !right) return false;
+    if (left === right) return true;
+
+    const leftAliases = adminNameAliasKeys(left);
+    const rightAliases = adminNameAliasKeys(right);
+    if (leftAliases.some((l) => rightAliases.includes(l))) return true;
+
+    // "Garki" ↔ "Garki 1" / "Garki II" without matching "Garkida".
+    const stripTrailingCode = (s) =>
+      s
+        .replace(/\b(?:\d+|i|ii|iii|iv|v|a|b|c)\b/gi, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    const leftBase = stripTrailingCode(left);
+    const rightBase = stripTrailingCode(right);
+    if (leftBase && rightBase && leftBase === rightBase) return true;
+
+    const leftTokens = left.split(/\s+/).filter(Boolean);
+    const rightTokens = right.split(/\s+/).filter(Boolean);
+    if (leftTokens.length === 1 && rightTokens.includes(left)) return true;
+    if (rightTokens.length === 1 && leftTokens.includes(right)) return true;
+
+    // Shorter multi-token name fully contained as tokens (Municipal ⊂ Municipal Area Council).
+    const shortTokens = leftTokens.length <= rightTokens.length ? leftTokens : rightTokens;
+    const longTokens = leftTokens.length <= rightTokens.length ? rightTokens : leftTokens;
+    if (shortTokens.length > 1 && shortTokens.every((t) => longTokens.includes(t))) return true;
+
+    return false;
+  }
+
+  function adminNamesMatchLoose(a, b) {
+    if (adminNamesMatch(a, b)) return true;
+    // Directory wards like "Anifowoshe/Ikeja" ↔ ArcGIS "Anifowoshe"
+    const partsA = String(a || '')
+      .split(/[\/|,]+/)
+      .map((t) => t.trim())
+      .filter(Boolean);
+    const partsB = String(b || '')
+      .split(/[\/|,]+/)
+      .map((t) => t.trim())
+      .filter(Boolean);
+    if (partsA.length <= 1 && partsB.length <= 1) return false;
+    return partsA.some((pa) => partsB.some((pb) => adminNamesMatch(pa, pb)) || adminNamesMatch(pa, b))
+      || partsB.some((pb) => adminNamesMatch(a, pb));
+  }
+
+  function featureMatchesState(props, state) {
+    if (!state) return true;
+    const name = pickProp(props, ['statename', 'state', 'STATE']);
+    return adminNamesMatch(name, state) || adminNamesMatch(name, canonicalAdminState(state));
+  }
+
+  function featureMatchesLga(props, lga) {
+    if (!lga) return true;
+    const name = pickProp(props, ['lganame', 'lga', 'LGA']);
+    return adminNamesMatch(name, lga);
+  }
+
+  function pickAdminFeatures(data, field, target, scope) {
+    const features = (data && data.features) || [];
+    const scoped = features.filter((feat) => {
+      if (!feat || !feat.properties) return false;
+      if (scope && scope.state && !featureMatchesState(feat.properties, scope.state)) return false;
+      if (scope && scope.lga && !featureMatchesLga(feat.properties, scope.lga)) return false;
+      return true;
+    });
+    if (!target) return scoped;
+    const tokens = String(target || '')
+      .split(/[\/|,]+/)
+      .map((t) => t.trim())
+      .filter(Boolean);
+    return scoped.filter((feat) => {
+      const name = pickProp(feat.properties, [field, field.toUpperCase(), 'wardname', 'ward', 'lganame', 'lga', 'statename', 'state']);
+      if (adminNamesMatchLoose(name, target)) return true;
+      return tokens.some((tok) => adminNamesMatchLoose(name, tok));
+    });
+  }
+
+  function buildAdminWhere(state, lga, ward) {
+    const stateName = canonicalAdminState(state) || String(state || '').trim();
+    let where = "UPPER(statename)='" + escWhere(stateName).toUpperCase() + "'";
+    if (lga) {
+      const aliases = adminNameAliasKeys(lga)
+        .map((a) => a.toUpperCase())
+        .filter((v, i, arr) => arr.indexOf(v) === i);
+      const raw = normalizeAdminKey(lga).toUpperCase();
+      if (raw && !aliases.includes(raw)) aliases.push(raw);
+      if (aliases.length === 1) {
+        where += " AND UPPER(lganame)='" + escWhere(aliases[0]) + "'";
+      } else {
+        where +=
+          ' AND (' +
+          aliases.map((a) => "UPPER(lganame)='" + escWhere(a) + "'").join(' OR ') +
+          ')';
+      }
+    }
+    if (ward) {
+      const wardKey = normalizeAdminKey(ward);
+      const firstToken = (wardKey.split(/\s+/)[0] || wardKey).toUpperCase();
+      if (firstToken) {
+        where +=
+          " AND (UPPER(wardname)='" +
+          escWhere(wardKey.toUpperCase()) +
+          "' OR UPPER(wardname) LIKE '" +
+          escWhere(firstToken) +
+          " %' OR UPPER(wardname) LIKE '% " +
+          escWhere(firstToken) +
+          "' OR UPPER(wardname) LIKE '% " +
+          escWhere(firstToken) +
+          " %')";
+      }
+    }
+    return where;
   }
 
   function styleForFeature(layerId, props, cfg) {
@@ -479,6 +674,41 @@
     return "admin:" + [admin.state, admin.lga || "", admin.ward || ""].join("|");
   }
 
+  function beginNav(inst) {
+    if (!inst) return 0;
+    inst.navToken = (inst.navToken || 0) + 1;
+    try {
+      if (inst.map && typeof inst.map.stop === 'function') inst.map.stop();
+    } catch (_) {
+      /* ignore */
+    }
+    return inst.navToken;
+  }
+
+  function isNavCurrent(inst, token) {
+    return !!(inst && token && inst.navToken === token);
+  }
+
+  function goToPoint(inst, lat, lng, zoom) {
+    if (!inst || !inst.map) return;
+    const z = zoom || 16;
+    beginNav(inst);
+    // setView is reliable; flyTo was getting cancelled by late async admin flies.
+    inst.map.setView([Number(lat), Number(lng)], z, { animate: true, duration: 0.6 });
+  }
+
+  function goToBounds(inst, bounds, opts) {
+    if (!inst || !inst.map || !bounds) return;
+    // Caller should already hold the current nav token; stop any leftover pan only.
+    try {
+      if (typeof inst.map.stop === 'function') inst.map.stop();
+    } catch (_) {
+      /* ignore */
+    }
+    const o = Object.assign({ padding: [28, 28], maxZoom: 14, animate: true }, opts || {});
+    inst.map.fitBounds(bounds, o);
+  }
+
   function attach(el, cfg) {
     const inst = ensure(el);
     if (!inst) return;
@@ -498,16 +728,20 @@
           : (cfg.live ? "ekiti" : cfg.scope) + ":" + (cfg.zoom || liveView.zoom);
     if (inst.viewKey !== viewKey) {
       inst.viewKey = viewKey;
-      if (focus) inst.map.flyTo([Number(focus.lat), Number(focus.lng)], cfg.focusZoom || 16, { duration: 0.75 });
-      else if (admin) {
+      if (focus) goToPoint(inst, focus.lat, focus.lng, cfg.focusZoom || 16);
+      else if (admin && !cfg.skipAdminFly) {
         // Re-fly after DOM remounts so LGA/ward drill is not lost on re-render.
         flyToAdmin(el, Object.assign({}, admin, { preserveLayers: true, skipViewKey: true }));
-      } else if (user) inst.map.setView([user.lat, user.lng], 13);
-      else inst.map.setView(liveView.center, cfg.zoom || liveView.zoom);
+      } else if (!admin && user) {
+        beginNav(inst);
+        inst.map.setView([user.lat, user.lng], 13);
+      } else if (!admin && !focus) {
+        beginNav(inst);
+        inst.map.setView(liveView.center, cfg.zoom || liveView.zoom);
+      }
     }
     inst.markers.clearLayers();
     inst.points.clearLayers();
-    paintFocus(inst, focus);
 
     if (user) {
       inst.markers.addLayer(
@@ -547,8 +781,13 @@
       inst.points.addLayer(marker);
     });
 
+    // Paint selection last so its red pin and halo remain above ordinary markers.
+    paintFocus(inst, focus);
+    paintRoute(inst, cfg.route);
     refreshOverlays(el);
-    requestAnimationFrame(() => inst.map.invalidateSize());
+    requestAnimationFrame(() => {
+      if (inst.map) inst.map.invalidateSize({ animate: false });
+    });
   }
 
   function paintFocus(inst, focus) {
@@ -556,11 +795,24 @@
       inst.map.removeLayer(inst.focusMarker);
       inst.focusMarker = null;
     }
+    if (inst.focusHalo) {
+      inst.map.removeLayer(inst.focusHalo);
+      inst.focusHalo = null;
+    }
     if (!focus || focus.lat == null || focus.lng == null) return;
     const title = String(focus.name || "Polling unit").replace(/</g, "&lt;");
     const addr = String(focus.address || "").replace(/</g, "&lt;");
     const place = [focus.ward, focus.lga, focus.state].filter(Boolean).join(" · ").replace(/</g, "&lt;");
     const html = "<strong>" + title + "</strong>" + (addr ? "<br>" + addr : "") + (place ? "<br>" + place : "");
+    inst.focusHalo = global.L.circleMarker([Number(focus.lat), Number(focus.lng)], {
+      radius: 18,
+      color: "#cf3f36",
+      weight: 3,
+      opacity: 0.9,
+      fillColor: "#cf3f36",
+      fillOpacity: 0.18,
+      interactive: false,
+    }).addTo(inst.map);
     inst.focusMarker = global.L.marker([Number(focus.lat), Number(focus.lng)], {
       icon: pollingUnitIcon({ focus: true }),
       zIndexOffset: 800,
@@ -579,7 +831,7 @@
     inst.cfg.focus = focus;
     inst.viewKey = "focus:" + focus.lat.toFixed(5) + "," + focus.lng.toFixed(5);
     paintFocus(inst, focus);
-    inst.map.flyTo([focus.lat, focus.lng], zoom || 16, { duration: 0.75 });
+    goToPoint(inst, focus.lat, focus.lng, zoom || 16);
   }
 
   function resetView(el, scope) {
@@ -589,7 +841,8 @@
     inst.viewKey = null;
     paintFocus(inst, null);
     const view = GEO[scope] || GEO.ng || GEO.global;
-    inst.map.flyTo(view.center, view.zoom, { duration: 0.7 });
+    beginNav(inst);
+    inst.map.setView(view.center, view.zoom, { animate: true });
   }
 
   function zoomIn(el) {
@@ -648,31 +901,6 @@
     return loadJson(base.replace(/\/$/, "") + "/query?" + params.toString());
   }
 
-  function adminNamesMatch(a, b) {
-    const left = normalizeAdminKey(a);
-    const right = normalizeAdminKey(b);
-    if (!left || !right) return false;
-    if (left === right) return true;
-    if (left.includes(right) || right.includes(left)) return true;
-    const leftCompact = left.replace(/\s+/g, '');
-    const rightCompact = right.replace(/\s+/g, '');
-    return leftCompact === rightCompact || leftCompact.includes(rightCompact) || rightCompact.includes(leftCompact);
-  }
-
-  function pickAdminFeatures(data, field, target) {
-    const features = (data && data.features) || [];
-    if (!target) return features;
-    const tokens = String(target || '')
-      .split(/[\/|,]+/)
-      .map((t) => t.trim())
-      .filter(Boolean);
-    return features.filter((feat) => {
-      const name = pickProp(feat.properties, [field, field.toUpperCase()]);
-      if (adminNamesMatch(name, target)) return true;
-      return tokens.some((tok) => adminNamesMatch(name, tok));
-    });
-  }
-
   async function boundsFromPollingUnits(state, lga, ward) {
     const qs = new URLSearchParams();
     if (state) qs.set('state', state);
@@ -697,6 +925,28 @@
     });
   }
 
+  async function resolveAdminFeatures(layerId, state, lga, ward, recordCount) {
+    const scope = { state, lga: layerId === 'state' ? null : lga };
+    let data = await queryLocalAdmin(layerId, state, lga, layerId === 'ward' ? ward : null);
+    if (!data || !data.features || !data.features.length) {
+      const where = buildAdminWhere(state, layerId === 'state' ? null : lga, layerId === 'ward' ? ward : null);
+      data = await queryAdmin(layerId, where, recordCount || (layerId === 'ward' ? 200 : 50));
+    }
+    if (!data || !data.features || !data.features.length) {
+      // Broader ArcGIS pull for the state (+ LGA aliases), then match locally.
+      const where = buildAdminWhere(state, layerId === 'state' ? null : lga, null);
+      data = await queryAdmin(layerId, where, recordCount || (layerId === 'ward' ? 500 : 80));
+    }
+    const field = layerId === 'state' ? 'statename' : layerId === 'lga' ? 'lganame' : 'wardname';
+    const target = layerId === 'state' ? state : layerId === 'lga' ? lga : ward;
+    const matched = pickAdminFeatures(data, field, target, scope);
+    if (matched.length) return matched;
+    // If we asked for a ward and only LGA scope matched, keep LGA-scoped wards empty
+    // rather than leaking other states.
+    if (layerId === 'ward' && ward) return [];
+    return pickAdminFeatures(data, field, null, scope);
+  }
+
   async function flyToAdmin(el, opts) {
     const inst = ensure(el);
     if (!inst || !opts) return;
@@ -706,72 +956,57 @@
     if (!state) return;
 
     const viewKey = adminViewKey({ state, lga, ward });
+    if (opts.force) inst.viewKey = null;
     if (!opts.skipViewKey) inst.viewKey = viewKey;
 
-    let layerId = "state";
-    let where = "UPPER(statename)='" + escWhere(state).toUpperCase() + "'";
-    let maxZoom = 8;
-    let data = null;
+    applyAdminLayers(inst, opts, state, lga, ward);
+    inst.overlayKey = null;
+    const token = beginNav(inst);
 
     if (ward && lga) {
-      layerId = "ward";
-      where += " AND UPPER(lganame)='" + escWhere(lga).toUpperCase() + "'";
-      maxZoom = 14;
-      // Prefer all wards in the LGA, then fuzzy-match directory names (e.g. Agbotikuyo/Dopemu ↔ Dopemu).
-      data = await queryLocalAdmin(layerId, state, lga);
-      if (!data || !data.features || !data.features.length) data = await queryAdmin(layerId, where, 500);
-      let matched = pickAdminFeatures(data, 'wardname', ward);
-      if (!matched.length) {
-        const exact = await queryLocalAdmin(layerId, state, lga, ward);
-        if (exact && exact.features && exact.features.length) matched = exact.features;
+      const matched = await resolveAdminFeatures('ward', state, lga, ward, 200);
+      if (!isNavCurrent(inst, token)) return;
+      let bounds = boundsFromFeatures(matched);
+      if (!bounds) bounds = await boundsFromPollingUnits(state, lga, ward);
+      if (!isNavCurrent(inst, token)) return;
+      // Never search wards by name alone — fall back to the parent LGA in this state.
+      if (!bounds) {
+        const lgaFeats = await resolveAdminFeatures('lga', state, lga, null, 40);
+        if (!isNavCurrent(inst, token)) return;
+        bounds = boundsFromFeatures(lgaFeats) || (await boundsFromPollingUnits(state, lga, null));
+        if (!isNavCurrent(inst, token)) return;
       }
-      const bounds = boundsFromFeatures(matched.length ? matched : null)
-        || await boundsFromPollingUnits(state, lga, ward);
       if (bounds) {
-        applyAdminLayers(inst, opts, state, lga, ward);
-        inst.overlayKey = null;
-        inst.map.flyToBounds(bounds, { padding: [28, 28], duration: 0.85, maxZoom });
+        goToBounds(inst, bounds, { maxZoom: 14 });
         refreshOverlays(el);
         return;
       }
     } else if (lga) {
-      layerId = "lga";
-      where += " AND UPPER(lganame)='" + escWhere(lga).toUpperCase() + "'";
-      maxZoom = 12;
-      data = await queryLocalAdmin(layerId, state, lga);
-      if (!data || !data.features || !data.features.length) data = await queryAdmin(layerId, where, 50);
-      const matched = pickAdminFeatures(data, 'lganame', lga);
-      const bounds = boundsFromFeatures(matched.length ? matched : (data && data.features))
-        || await boundsFromPollingUnits(state, lga, null);
+      const matched = await resolveAdminFeatures('lga', state, lga, null, 40);
+      if (!isNavCurrent(inst, token)) return;
+      let bounds = boundsFromFeatures(matched) || (await boundsFromPollingUnits(state, lga, null));
+      if (!isNavCurrent(inst, token)) return;
       if (bounds) {
-        applyAdminLayers(inst, opts, state, lga, ward);
-        inst.overlayKey = null;
-        inst.map.flyToBounds(bounds, { padding: [28, 28], duration: 0.85, maxZoom });
+        goToBounds(inst, bounds, { maxZoom: 12 });
         refreshOverlays(el);
         return;
       }
     }
 
-    applyAdminLayers(inst, opts, state, lga, ward);
-    inst.overlayKey = null;
-
-    data = data || await queryLocalAdmin(layerId, state, lga, ward);
-    if (!data || !data.features || !data.features.length) {
-      data = await queryAdmin(layerId, where, layerId === 'state' ? 8 : 100);
-    }
-    const featureList = layerId === 'state'
-      ? pickAdminFeatures(data, 'statename', state)
-      : ((data && data.features) || []);
-    let bounds = boundsFromFeatures(featureList.length ? featureList : (data && data.features));
+    const stateFeats = await resolveAdminFeatures('state', state, null, null, 8);
+    if (!isNavCurrent(inst, token)) return;
+    let bounds = boundsFromFeatures(stateFeats);
     if (!bounds && (lga || ward)) bounds = await boundsFromPollingUnits(state, lga, ward);
+    if (!isNavCurrent(inst, token)) return;
     if (bounds) {
-      inst.map.flyToBounds(bounds, { padding: [28, 28], duration: 0.85, maxZoom });
+      goToBounds(inst, bounds, { maxZoom: lga ? 10 : 8 });
       refreshOverlays(el);
       return;
     }
 
     const fallback = GEO.ng || GEO.global;
-    inst.map.flyTo(fallback.center, maxZoom, { duration: 0.75 });
+    beginNav(inst);
+    inst.map.setView(fallback.center, 8, { animate: true });
     refreshOverlays(el);
   }
 
@@ -794,7 +1029,7 @@
       const data = await queryAdmin('lga', stateWhere, 200);
       const bounds = boundsFromFeatures(data && data.features);
       if (bounds) {
-        inst.map.flyToBounds(bounds, { padding: [32, 32], duration: 0.85, maxZoom: 10 });
+        goToBounds(inst, bounds, { padding: [32, 32], maxZoom: 10 });
         refreshOverlays(el);
         return;
       }
@@ -808,7 +1043,8 @@
     }
 
     const view = GEO.ng || GEO.global;
-    inst.map.flyTo(view.center, view.zoom, { duration: 0.75 });
+    beginNav(inst);
+    inst.map.setView(view.center, view.zoom, { animate: true });
     refreshOverlays(el);
   }
 

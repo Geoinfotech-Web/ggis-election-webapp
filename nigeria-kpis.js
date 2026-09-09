@@ -79,6 +79,7 @@ async function countPollingUnits({ state, lga, ward } = {}) {
 function packKpi({ level, scope, registered, collected, origin, caption, year }) {
   const rate = ratePct(collected, registered);
   const turnout = turnoutForYear(year);
+  const estimatedBallots = roundInt(collected * turnout.rate);
   return {
     level,
     scope,
@@ -86,8 +87,8 @@ function packKpi({ level, scope, registered, collected, origin, caption, year })
     registered,
     collected,
     rate,
-    votingStrength: collected,
-    estimatedBallots: roundInt(collected * turnout.rate),
+    votingStrength: estimatedBallots,
+    estimatedBallots,
     turnoutBasis: turnout.label,
     origin,
     caption,

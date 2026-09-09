@@ -1,0 +1,8 @@
+{
+  "revertedAt": "2026-09-08T15:49:23.665Z",
+  "reason": "Ward-centroid and OSM/LGA geocode estimates removed; map uses INEC locator coordinates only.",
+  "method": "restore-pre-centroid-fill-backup",
+  "withCoordinates": 117699,
+  "withoutCoordinates": 59147,
+  "note": "Estimated points (ward centroid + Nominatim LGA) were misleading as polling-unit locations."
+}

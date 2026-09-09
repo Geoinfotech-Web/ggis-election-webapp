@@ -710,12 +710,12 @@ function renderPollingUnitPointsLayer() {
 
   let features = allPollingUnitFeatures
     .filter((f) => normalizeLookupKey(f.properties.state) === normalizeLookupKey(state))
-    .filter((f) => !lga || normalizeLookupKey(f.properties.lga) === normalizeLookupKey(lga));
-
-  // Many records in the supplied register have no coordinates. Place those
-  // records at stable estimated positions within the selected boundary so the
-  // complete polling-unit list remains visible.
-  features = features.map((feature, index) => placePollingPointInBoundary(feature, boundaryFeature, index));
+    .filter((f) => !lga || normalizeLookupKey(f.properties.lga) === normalizeLookupKey(lga))
+    // Only plot units with source-provided coordinates — do not invent ward/boundary estimates.
+    .filter((f) => {
+      const coords = f.geometry && f.geometry.coordinates;
+      return Array.isArray(coords) && Number.isFinite(coords[0]) && Number.isFinite(coords[1]);
+    });
 
   if (!features.length) return;
 

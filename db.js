@@ -202,7 +202,8 @@ function importPollingUnitsFromCsv(csvPath, normalizeRow) {
 }
 
 function pollingSourceFingerprint(csvText) {
-  return 'source-coordinates-v3:' + crypto.createHash('sha256').update(csvText).digest('hex');
+  // v5: candidate-priority field lookup so full `code` wins over short `pu_code`.
+  return 'source-coordinates-v5:' + crypto.createHash('sha256').update(csvText).digest('hex');
 }
 
 function ensurePollingUnitsSeeded(normalizeRow) {

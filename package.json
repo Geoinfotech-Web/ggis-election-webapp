@@ -15,6 +15,8 @@
     "audit:data": "node scripts/audit-data-integrity.js",
     "pu:coords:fetch": "node scripts/fetch-inec-pu-coordinates.js",
     "pu:coords:merge": "node scripts/merge-inec-pu-coordinates.js",
+    "pu:coords:fill-missing": "node scripts/fill-missing-pu-coordinates.js",
+    "pu:coords:geocode": "node scripts/geocode-missing-pu-coordinates.js",
     "pu:coords:refresh": "npm run pu:coords:fetch && npm run pu:coords:merge"
   },
   "keywords": [],

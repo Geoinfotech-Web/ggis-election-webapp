@@ -6,7 +6,7 @@
 <title>Election Intelligence Dashboard</title>
 <link rel="stylesheet" href="./vendor/leaflet/leaflet.css">
 <script src="./vendor/leaflet/leaflet.js"></script>
-<script src="./js/eid-maps.js?v=20260908streets"></script>
+<script src="./js/eid-maps.js?v=20260908coords"></script>
 <script src="./support.js?v=20260819c"></script>
 </head>
 <body>
@@ -49,6 +49,10 @@ a:hover{color:var(--primary)}
 .eid-pu-pin.is-focus .msi{font-size:16px}
 .eid-pu-legend{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:#1c8f86;color:#fff;flex:none}
 .eid-pu-legend .msi{font-size:11px;color:#fff;line-height:1}
+.eid-pu-list-row.is-selected{border-color:var(--primary)!important;background:var(--primary-soft)!important;box-shadow:0 0 0 1px var(--primary)}
+.eid-pu-list-row.is-selected .eid-pu-legend{color:#fff!important;background:var(--primary)!important;transform:scale(1.08)}
+.eid-route-label{background:var(--surface)!important;border:1px solid var(--primary)!important;border-radius:12px!important;color:var(--primary)!important;font-family:'IBM Plex Sans',sans-serif!important;font-size:11px!important;font-weight:600!important;padding:3px 7px!important;box-shadow:var(--shadow)!important}
+.eid-route-label:before{display:none!important}
 @keyframes eidpulse{0%{box-shadow:0 0 0 0 var(--live-ring)}70%{box-shadow:0 0 0 9px rgba(0,0,0,0)}100%{box-shadow:0 0 0 0 rgba(0,0,0,0)}}
 @keyframes eidblink{0%,100%{opacity:1}50%{opacity:.35}}
 @keyframes eidspin{to{transform:rotate(360deg)}}
@@ -430,10 +434,7 @@ a:hover{color:var(--primary)}
               </div>
               </sc-if>
               <sc-if value="{{ ngView.hasWard }}" hint-placeholder-val="{{ false }}">
-              <div>
-                <div style="font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:6px">Step 4 · Polling unit</div>
-                <select value="{{ ngView.puVal }}" onChange="{{ ngView.onPU }}" style="{{ selStyle }}"><option value="">Select a polling unit…</option><sc-for list="{{ ngView.puOpts }}" as="p" hint-placeholder-count="4"><option value="{{ p.value }}">{{ p.label }}</option></sc-for></select>
-              </div>
+              <div style="font-size:11px;color:var(--mute);line-height:1.45;padding:2px 1px 0">Polling units for this ward are listed in the right panel.</div>
               </sc-if>
             </div>
           </section>
@@ -512,6 +513,7 @@ a:hover{color:var(--primary)}
             </div>
             <div class="eid-scroll" style="padding:11px 12px;flex:1;min-height:0;max-height:min(62vh,520px);overflow-y:auto">
               <sc-if value="{{ anaData.locating }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mute)"><span class="msi" style="font-size:16px;display:inline-block;animation:eidspin 1s linear infinite">progress_activity</span>Finding polling units near you…</div></sc-if>
+              <sc-if value="{{ anaData.geoError }}" hint-placeholder-val="{{ false }}"><div style="font-size:11.5px;color:var(--live);line-height:1.5;padding:8px;border:1px solid var(--live);border-radius:8px">{{ anaData.geoError }}</div></sc-if>
               <sc-if value="{{ anaData.hasNear }}" hint-placeholder-val="{{ false }}">
               <div style="display:flex;flex-direction:column;gap:6px">
                 <sc-for list="{{ anaData.near }}" as="p" hint-placeholder-count="4">
@@ -519,6 +521,50 @@ a:hover{color:var(--primary)}
                     <span style="width:22px;height:22px;flex:none;border-radius:50%;background:var(--surface3);display:grid;place-items:center;font-size:10px;font-weight:600;color:var(--text)">{{ p.rank }}</span>
                     <div style="min-width:0;flex:1"><div style="font-size:12px;font-weight:500;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ p.name }}</div><div style="font-size:10px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ p.place }}</div></div>
                     <span style="font-size:11px;font-weight:600;color:var(--primary);white-space:nowrap">{{ p.distLabel }}</span>
+                  </div>
+                </sc-for>
+              </div>
+              </sc-if>
+            </div>
+          </section>
+          </sc-if>
+          <sc-if value="{{ anaData.showWardPuPanel }}" hint-placeholder-val="{{ false }}">
+          <section style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;flex:1;min-height:0;display:flex;flex-direction:column">
+            <div style="display:flex;align-items:center;gap:8px;padding:12px 14px;border-bottom:1px solid var(--border);flex:none">
+              <span class="msi" style="font-size:16px;color:var(--primary)">where_to_vote</span>
+              <div style="min-width:0;flex:1"><h2 style="margin:0;font-size:13px;font-weight:600;color:var(--text)">Polling units</h2><div style="font-size:10px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ anaData.wardHint }}</div></div>
+              <span style="font-size:11px;font-weight:600;color:var(--mute);flex:none">{{ anaData.wardCountLabel }}</span>
+            </div>
+            <div style="padding:10px 12px;border-bottom:1px solid var(--border);flex:none;display:flex;flex-direction:column;gap:8px;background:var(--surface2)">
+              <div style="font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)">Distance from</div>
+              <div style="display:flex;gap:6px">
+                <input value="{{ anaData.distQuery }}" onInput="{{ anaData.onDistQuery }}" onKeyDown="{{ anaData.onDistKey }}" placeholder="Address or place in Nigeria…" style="flex:1;min-width:0;height:32px;padding:0 10px;border:1px solid var(--border2);background:var(--surface);color:var(--text);border-radius:8px;font-family:inherit;font-size:12px;outline:none">
+                <button onClick="{{ anaData.geocodeDist }}" title="Find place" style="height:32px;padding:0 11px;border:1px solid var(--border);background:var(--surface);border-radius:8px;font-family:inherit;font-size:11.5px;color:var(--text);cursor:pointer;flex:none">Go</button>
+              </div>
+              <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+                <button onClick="{{ anaData.useMyLocation }}" style="height:28px;padding:0 9px;border:1px solid var(--border);background:transparent;border-radius:7px;font-family:inherit;font-size:11px;color:var(--dim);cursor:pointer;display:inline-flex;align-items:center;gap:4px"><span class="msi" style="font-size:14px">my_location</span>My location</button>
+                <sc-if value="{{ anaData.hasDistOrigin }}" hint-placeholder-val="{{ false }}">
+                <button onClick="{{ anaData.clearDist }}" style="height:28px;padding:0 9px;border:1px solid var(--border);background:transparent;border-radius:7px;font-family:inherit;font-size:11px;color:var(--mute);cursor:pointer">Clear</button>
+                </sc-if>
+              </div>
+              <sc-if value="{{ anaData.distBusy }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--mute)"><span class="msi" style="font-size:14px;display:inline-block;animation:eidspin 1s linear infinite">progress_activity</span>{{ anaData.distBusyLabel }}</div></sc-if>
+              <sc-if value="{{ anaData.distError }}" hint-placeholder-val="{{ false }}"><div style="font-size:11px;color:var(--live);line-height:1.4">{{ anaData.distError }}</div></sc-if>
+              <sc-if value="{{ anaData.hasDistOrigin }}" hint-placeholder-val="{{ false }}"><div style="font-size:10.5px;color:var(--dim);line-height:1.4">From {{ anaData.distOriginLabel }}</div></sc-if>
+            </div>
+            <div class="eid-scroll" style="padding:11px 12px;flex:1;min-height:0;max-height:min(58vh,480px);overflow-y:auto">
+              <sc-if value="{{ anaData.wardLoading }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mute)"><span class="msi" style="font-size:16px;display:inline-block;animation:eidspin 1s linear infinite">progress_activity</span>Loading polling units…</div></sc-if>
+              <sc-if value="{{ anaData.wardEmpty }}" hint-placeholder-val="{{ false }}"><div style="font-size:12px;color:var(--mute);line-height:1.45">No polling units found for this ward in the register.</div></sc-if>
+              <sc-if value="{{ anaData.hasWardPus }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <sc-for list="{{ anaData.wardPus }}" as="p" hint-placeholder-count="6">
+                  <div onClick="{{ p.select }}" class="{{ p.rowClass }}" style="{{ p.rowStyle }}" style-hover="border-color:var(--primary)">
+                    <span class="eid-pu-legend" style="flex:none"><span class="msi">where_to_vote</span></span>
+                    <div style="min-width:0;flex:1">
+                      <div style="font-size:12px;font-weight:500;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ p.name }}</div>
+                      <div style="font-size:10px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ p.meta }}</div>
+                    </div>
+                    <sc-if value="{{ p.distLabel }}" hint-placeholder-val="{{ false }}"><span style="font-size:11px;font-weight:600;color:var(--primary);white-space:nowrap;flex:none">{{ p.distLabel }}</span></sc-if>
+                    <sc-if value="{{ p.showPin }}" hint-placeholder-val="{{ false }}"><span class="msi" style="font-size:15px;color:var(--primary);flex:none" title="Has coordinates">location_on</span></sc-if>
                   </div>
                 </sc-for>
               </div>
@@ -1220,7 +1266,8 @@ class Component extends DCLogic {
     subState:null, subLga:null, subWard:null, subPU:null, subCoords:null, subGeo:'idle', subFile:null, submissions:[],
     candYear:'2023', candOffice:'pres', selParty:null,
     admFilter:'all', admQuery:'', admSel:null,
-    anaCoords:null, anaGeo:'idle', nearPUs:[], puQuery:'', mapFocus:null, mapAdminFocus:null,
+    anaCoords:null, anaGeo:'idle', anaGeoError:null, nearPUs:[], puQuery:'', mapFocus:null, mapAdminFocus:null,
+    puDistOrigin:null, puDistQuery:'', puDistStatus:'idle', puDistError:null, puRoute:null,
     apiUrl:'', apiKey:'', apiStatus:'idle', uploads:[],
     layersOpen:true, basemapOpen:false,
     layers:{ state:true, lga:false, ward:false, polling:false, health:false },
@@ -1402,22 +1449,27 @@ class Component extends DCLogic {
 
   selectNgState(s){
     this._puSeq = (this._puSeq || 0) + 1;
+    this._elecThemeSeq = (this._elecThemeSeq || 0) + 1;
     const seq = this._puSeq;
     this.setState({
       ngState:s, ngLga:null, ngWard:null, ngPU:null, mapFocus:null,
       mapAdminFocus:{ state:s, lga:null, ward:null },
       ngKpiRow:null,
       puLoading:'lga',
-      puDir:{ ...this.state.puDir, lgas:[], wards:[], units:[] },
+      puDir:{ ...this.state.puDir, lgas:[], wards:[], units:[], unitsScope:null },
       layers:{ ...this.state.layers, state:true, lga:true, ward:false, polling:false },
+      elecMapTheme:null, elecChoroMeta:null, elecSelectedUnit:null, elecExpandedCand:null,
+      puDistOrigin:null, puDistQuery:'', puDistStatus:'idle', puDistError:null, puRoute:null,
     }, ()=>{
       this.fetchNgKpis();
       this.loadPuDirectory(s, null, null, seq);
       this.flyToAdminBoundary(s, null, null);
+      this.syncCountryMap();
     });
   }
   selectNgLga(l){
     this._puSeq = (this._puSeq || 0) + 1;
+    this._elecThemeSeq = (this._elecThemeSeq || 0) + 1;
     const seq = this._puSeq;
     const st = this.state.ngState;
     this.setState({
@@ -1425,17 +1477,21 @@ class Component extends DCLogic {
       mapAdminFocus:{ state:st, lga:l, ward:null },
       ngKpiRow:null,
       puLoading:'ward',
-      puDir:{ ...this.state.puDir, wards:[], units:[] },
+      puDir:{ ...this.state.puDir, wards:[], units:[], unitsScope:null },
       layers:{ ...this.state.layers, state:true, lga:true, ward:true, polling:true },
+      elecMapTheme:null, elecChoroMeta:null, elecSelectedUnit:null, elecExpandedCand:null,
+      puRoute:null,
     }, ()=>{
       this.fetchNgKpis();
       this.loadPuDirectory(st, l, null, seq);
       this.loadPuUnits(st, l, null, seq);
       this.flyToAdminBoundary(st, l, null);
+      this.syncCountryMap();
     });
   }
   selectNgWard(w){
     this._puSeq = (this._puSeq || 0) + 1;
+    this._elecThemeSeq = (this._elecThemeSeq || 0) + 1;
     const seq = this._puSeq;
     const st = this.state.ngState;
     const lg = this.state.ngLga;
@@ -1444,17 +1500,27 @@ class Component extends DCLogic {
       mapAdminFocus:{ state:st, lga:lg, ward:w },
       ngKpiRow:null,
       puLoading:'pu',
-      puDir:{ ...this.state.puDir, units:[] },
+      puDir:{ ...this.state.puDir, units:[], unitsScope:null },
+      anaCoords:null, anaGeo:'idle', anaGeoError:null, nearPUs:[],
       layers:{ ...this.state.layers, state:true, lga:true, ward:true, polling:true },
+      elecMapTheme:null, elecChoroMeta:null, elecSelectedUnit:null, elecExpandedCand:null,
+      puRoute:null,
     }, ()=>{
       this.fetchNgKpis();
       this.loadPuDirectory(st, lg, w, seq);
       this.loadPuUnits(st, lg, w, seq);
+      this.syncCountryMap();
       this.flyToAdminBoundary(st, lg, w);
     });
   }
   selectNgPU(p){ this.setState(s=>({ ngPU: s.ngPU===p ? null : p }), ()=>this.fetchNgKpis()); }
-  clearNgDrill(){ this.setState({ ngState:null, ngLga:null, ngWard:null, ngPU:null, mapFocus:null, mapAdminFocus:null, ngKpiRow:null }, ()=>{ this.fetchNgKpis(); this.flyToElectionView(); }); }
+  clearNgDrill(){
+    this.setState({
+      ngState:null, ngLga:null, ngWard:null, ngPU:null,
+      mapFocus:null, mapAdminFocus:null, ngKpiRow:null,
+      puDistOrigin:null, puDistQuery:'', puDistStatus:'idle', puDistError:null, puRoute:null,
+    }, ()=>{ this.fetchNgKpis(); this.flyToElectionView(); });
+  }
 
   OFFICE_YEARS = {
     pres: ['2027','2023','2019','2015'],
@@ -1890,8 +1956,40 @@ class Component extends DCLogic {
     if(meters>=1000) return (meters/1000).toFixed(1)+' km';
     return Math.round(meters)+' m';
   }
-  findNearestPU(){
-    this.setState({ anaGeo:'locating', view:'app', scope:'ng', section:'Overview' });
+  geolocationErrorMessage(err){
+    if(!window.isSecureContext) return 'Location requires HTTPS or localhost.';
+    if(err && err.code === 1) return 'Location permission was denied. Allow location access in your browser and try again.';
+    if(err && err.code === 2) return 'Your device could not determine its location.';
+    if(err && err.code === 3) return 'Location request timed out. Check that location services are enabled and try again.';
+    return 'Could not read your location.';
+  }
+  getDeviceLocation(){
+    return new Promise((resolve, reject)=>{
+      if(!window.isSecureContext){ reject(new Error('insecure')); return; }
+      if(!navigator.geolocation){ reject(new Error('unsupported')); return; }
+      const success=(pos)=>{
+        const lat=Number(pos && pos.coords && pos.coords.latitude);
+        const lng=Number(pos && pos.coords && pos.coords.longitude);
+        if(!Number.isFinite(lat) || !Number.isFinite(lng)){ reject(new Error('invalid')); return; }
+        resolve({ lat, lng, accuracy:Number(pos.coords.accuracy)||null });
+      };
+      // High accuracy can fail on desktops; retry with network location.
+      navigator.geolocation.getCurrentPosition(
+        success,
+        (firstErr)=>{
+          if(firstErr && firstErr.code === 1){ reject(firstErr); return; }
+          navigator.geolocation.getCurrentPosition(
+            success,
+            reject,
+            { enableHighAccuracy:false, timeout:15000, maximumAge:60000 }
+          );
+        },
+        { enableHighAccuracy:true, timeout:10000, maximumAge:0 }
+      );
+    });
+  }
+  async findNearestPU(){
+    this.setState({ anaGeo:'locating', anaGeoError:null, view:'app', scope:'ng', section:'Overview' });
     const finish=(lat,lng,points)=>{
       const near=points.map(p=>{
         const meters=this.haversine(lat,lng,p.lat,p.lng);
@@ -1903,30 +2001,46 @@ class Component extends DCLogic {
         };
       }).filter(p=>Number.isFinite(p.meters)).sort((a,b)=>a.meters-b.meters).slice(0,40)
         .map(p=>({ ...p, select:()=>this.focusPollingUnit(p) }));
-      this.setState({ anaCoords:{ lat, lng }, anaGeo:'ok', nearPUs:near });
-    };
-    const fromSample=(lat,lng)=>{
-      const pts=this.samplePUPool().map(p=>{
-        const plat=4 + (p.y/100)*10, plng=2.5 + (p.x/100)*12.5;
-        return { lat:plat, lng:plng, name:p.short, venue:p.venue, place:`${p.state} · ${p.lga}`, state:p.state, lga:p.lga, ward:p.ward, pu:p.name };
+      this.setState({
+        anaCoords:{ lat, lng },
+        anaGeo:'ok',
+        anaGeoError:null,
+        nearPUs:near,
+        puDistOrigin:{ lat, lng, label:'My location' },
+        puDistStatus:'ok',
+        puDistError:null,
+      }, ()=>{
+        this.syncCountryMap();
+        const focus=this.state.mapFocus;
+        if(focus && Number.isFinite(Number(focus.lat)) && Number.isFinite(Number(focus.lng))){
+          this.loadPuRoute({lat,lng,label:'My location'}, focus);
+        }
       });
-      finish(lat,lng,pts);
     };
     const run=async (lat,lng)=>{
-      const pad=0.18;
-      const bbox=[lng-pad, lat-pad, lng+pad, lat+pad].join(',');
-      try {
+      for(const pad of [0.18, 0.5, 1.5]){
+        const bbox=[lng-pad, lat-pad, lng+pad, lat+pad].join(',');
         const res=await fetch('/api/polling-unit-points?bbox='+encodeURIComponent(bbox));
         const data=res.ok ? await res.json() : null;
         const pts=(data?.points||[]).map(p=>this.mapPuPoint(p)).filter(p=>p && p.lat!=null && p.lng!=null);
-        if(pts.length) finish(lat,lng,pts);
-        else fromSample(lat,lng);
-      } catch(e){ fromSample(lat,lng); }
+        if(pts.length){ finish(lat,lng,pts); return; }
+      }
+      this.setState({
+        anaCoords:{lat,lng},
+        anaGeo:'error',
+        anaGeoError:'No polling units with verified INEC coordinates were found near your location.',
+        nearPUs:[],
+        puDistOrigin:{lat,lng,label:'My location'},
+        puDistStatus:'ok',
+      }, ()=>this.syncCountryMap());
     };
-    const fb=()=>run(6.5244, 3.3792);
-    if(navigator.geolocation){
-      navigator.geolocation.getCurrentPosition(p=>run(p.coords.latitude,p.coords.longitude), fb, {enableHighAccuracy:true,timeout:8000,maximumAge:0});
-    } else fb();
+    try {
+      const pos=await this.getDeviceLocation();
+      await run(pos.lat,pos.lng);
+    } catch(err){
+      const message=this.geolocationErrorMessage(err);
+      this.setState({ anaGeo:'error', anaGeoError:message, nearPUs:[], puDistStatus:'error', puDistError:message });
+    }
   }
   fmtNum(n){ n=Math.round(n); if(n>=1e6) return {value:(n/1e6).toFixed(2).replace(/\.?0+$/,''), unit:'M'}; if(n>=1e4) return {value:(n/1e3).toFixed(0), unit:'K'}; if(n>=1e3) return {value:(n/1e3).toFixed(1), unit:'K'}; return {value:n.toLocaleString(), unit:''}; }
   seedNum(s){ let x=0; for(const ch of s) x=(x*31+ch.charCodeAt(0))%99991; return x; }
@@ -2053,9 +2167,20 @@ class Component extends DCLogic {
       const units = (data?.points||[]).map(p=>this.mapPuPoint(p)).filter(p=>p && p.name);
       this.setState(s=>{
         if(token && this._puSeq && token !== this._puSeq) return {};
-        return { puDir: Object.assign({}, s.puDir, { units }), puLoading: null };
+        return {
+          puDir: Object.assign({}, s.puDir, {
+            units,
+            unitsScope: { state: state || null, lga: lga || null, ward: ward || null },
+          }),
+          puLoading: null,
+        };
       }, ()=> this.syncCountryMap());
-    } catch(e){}
+    } catch(e){
+      this.setState(s=>{
+        if(token && this._puSeq && token !== this._puSeq) return {};
+        return { puLoading: null };
+      });
+    }
   }
   onPuQuery(e){
     const q = e.target.value;
@@ -2146,6 +2271,92 @@ class Component extends DCLogic {
       window.EIDMaps.attach(el, this.mapAttachCfg(kind));
     };
   }
+  wardNamesMatch(a, b){
+    const left = String(a || '').trim().toLowerCase();
+    const right = String(b || '').trim().toLowerCase();
+    if(!left || !right) return false;
+    if(left === right) return true;
+    const strip = (s)=> s.replace(/\b(?:\d+|i|ii|iii|iv|v|a|b|c)\b/gi, ' ').replace(/\s+/g, ' ').trim();
+    if(strip(left) && strip(left) === strip(right)) return true;
+    const lt = left.split(/\s+/).filter(Boolean);
+    const rt = right.split(/\s+/).filter(Boolean);
+    if(lt.length === 1 && rt.includes(left)) return true;
+    if(rt.length === 1 && lt.includes(right)) return true;
+    return false;
+  }
+  normalizeVenueKey(value){
+    return String(value || '')
+      .toLowerCase()
+      .replace(/\b(pri\.?\s*sch\.?|p\.?\s*sch\.?|primary school)\b/g, 'primary school')
+      .replace(/\b(sec\.?\s*sch\.?|secondary school)\b/g, 'secondary school')
+      .replace(/[^a-z0-9]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+  shortPuCode(code){
+    const parts = String(code || '').split('/').map((p)=>p.trim()).filter(Boolean);
+    return parts.length ? parts[parts.length - 1] : String(code || '');
+  }
+  /** Collapse multiple INEC codes at the same venue into one list row. */
+  groupUnitsByVenue(units){
+    const groups = new Map();
+    for (const p of (units || [])) {
+      const venue = String(p.address || p.venue || p.name || p.pu || '').trim();
+      const key = this.normalizeVenueKey(venue) || String(p.code || '').toLowerCase();
+      if (!key) continue;
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(p);
+    }
+    const out = [];
+    for (const members of groups.values()) {
+      members.sort((a, b)=> String(a.code || '').localeCompare(String(b.code || '')));
+      const withCoords = members.find((m)=> m.lat != null && m.lng != null && Number.isFinite(Number(m.lat)) && Number.isFinite(Number(m.lng)));
+      const primary = withCoords || members[0];
+      const venueName = String(primary.address || primary.venue || primary.name || 'Polling unit').trim();
+      const codes = members.map((m)=> m.code).filter(Boolean);
+      const shortCodes = codes.map((c)=> this.shortPuCode(c));
+      out.push({
+        ...primary,
+        name: venueName,
+        short: venueName,
+        venue: venueName,
+        address: venueName,
+        unitCount: members.length,
+        memberCodes: codes,
+        members,
+        meta: members.length > 1
+          ? `${members.length} units · PU ${shortCodes[0]}–${shortCodes[shortCodes.length - 1]}`
+          : (codes[0] || ''),
+      });
+    }
+    out.sort((a, b)=> String(a.name || '').localeCompare(String(b.name || '')));
+    return out;
+  }
+  unitsForCurrentWard(){
+    const st = this.state.ngState;
+    const lg = this.state.ngLga;
+    const wd = this.state.ngWard;
+    const dir = this.state.puDir || {};
+    const scope = dir.unitsScope || {};
+    const units = Array.isArray(dir.units) ? dir.units : [];
+    if(!st || !lg || !wd) return [];
+    // Only trust the cache when it was loaded for this exact ward (not the parent LGA).
+    const sameState = !scope.state || String(scope.state).toLowerCase() === String(st).toLowerCase()
+      || (/fct|abuja/i.test(String(scope.state)) && /fct|abuja/i.test(String(st)));
+    const sameLga = !scope.lga || this.wardNamesMatch(scope.lga, lg) || String(scope.lga).toLowerCase() === String(lg).toLowerCase();
+    const scopeOk = !!(scope.ward && this.wardNamesMatch(scope.ward, wd) && sameState && sameLga);
+    if(!scopeOk) return [];
+    // API already filtered to this ward — only dedupe (loose name re-filter can inflate the list).
+    const seen = new Set();
+    const out = [];
+    for (const p of units) {
+      const key = String(p.code || '').trim().toLowerCase() || [p.name, p.address, p.ward].join('|').toLowerCase();
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push(p);
+    }
+    return out;
+  }
   mapAttachCfg(kind){
     const scope = this.state.scope;
     const world = [
@@ -2158,6 +2369,9 @@ class Component extends DCLogic {
       {code:'br',label:'BR',title:'Brazil',onClick:()=>this.openCountry('br')},
     ];
     const nearPts = (this.state.nearPUs||[]).filter(p=>p.lat!=null && p.lng!=null);
+    const wardPts = this.state.ngWard
+      ? this.unitsForCurrentWard().filter(p=>p.lat!=null && p.lng!=null)
+      : ((this.state.puDir && this.state.puDir.units) || []).filter(p=>p.lat!=null && p.lng!=null);
     return {
       scope: kind==='live' ? 'ekiti' : (scope==='global' ? 'global' : scope),
       live: kind==='live',
@@ -2166,12 +2380,15 @@ class Component extends DCLogic {
       resultTheme: (this.state.elecMapTheme && this.state.elecMapTheme.ok) ? this.state.elecMapTheme : null,
       onResultUnitClick: (name, unit)=>this.selectElecUnit(name, unit),
       markers: (kind==='global' || (kind==='full' && scope==='global')) ? world : [],
-      points: kind==='country' ? (nearPts.length ? nearPts : ((this.state.puDir && this.state.puDir.units) || [])) : [],
-      user: kind==='country' ? this.state.anaCoords : null,
+      points: kind==='country' ? (nearPts.length ? nearPts : wardPts) : [],
+      user: kind==='country' ? (this.state.anaCoords || this.state.puDistOrigin) : null,
       focus: this.state.mapFocus,
+      route: kind==='country' ? this.state.puRoute : null,
       focusZoom: 16,
       adminFocus: this.state.mapAdminFocus,
-      keepLocalPoints: kind==='country' && (nearPts.length || ((this.state.puDir && this.state.puDir.units)||[]).length),
+      // Drill-down flies are owned by flyToAdminBoundary / focusPoint — avoid attach races.
+      skipAdminFly: kind==='country' && !!(this.state.mapAdminFocus && this.state.mapAdminFocus.state),
+      keepLocalPoints: kind==='country' && (nearPts.length || wardPts.length),
     };
   }
   syncCountryMap(){
@@ -2186,9 +2403,14 @@ class Component extends DCLogic {
     await new Promise((r)=> requestAnimationFrame(()=>r()));
     const live = this.mapEls && this.mapEls.country;
     if(!live) return;
-    await window.EIDMaps.flyToAdmin(live, { state, lga, ward });
+    await window.EIDMaps.flyToAdmin(live, { state, lga, ward, force: true });
   }
   async loadElecMapTheme(office, year, state){
+    if (this.state.ngState) {
+      this._elecThemeSeq = (this._elecThemeSeq || 0) + 1;
+      this.setState({ elecMapTheme: null, elecChoroMeta: null, elecExpandedCand: null }, ()=>this.syncCountryMap());
+      return;
+    }
     const seq = (this._elecThemeSeq = (this._elecThemeSeq || 0) + 1);
     const q = new URLSearchParams({ office: office || 'pres', year: String(year || '2023') });
     if (office === 'gov' && state) q.set('state', state);
@@ -2223,6 +2445,11 @@ class Component extends DCLogic {
   }
   flyToElectionView(){
     if(this.state.scope !== 'ng') return;
+    if(this.state.ngState){
+      this._elecThemeSeq = (this._elecThemeSeq || 0) + 1;
+      this.setState({ elecMapTheme: null, elecChoroMeta: null, elecSelectedUnit: null }, ()=>this.syncCountryMap());
+      return;
+    }
     const office = this.state.ovOffice || 'pres';
     let year = this.state.ovElecYear || '2023';
     const state = office === 'gov' ? (this.state.ovElecState || null) : null;
@@ -2296,55 +2523,201 @@ class Component extends DCLogic {
     if(!p) return;
     const lat = p.lat!=null ? Number(p.lat) : null;
     const lng = p.lng!=null ? Number(p.lng) : null;
+    const hasCoords = Number.isFinite(lat) && Number.isFinite(lng);
     const name = p.name || p.pu || 'Polling unit';
+    const nextState = p.state || this.state.ngState;
+    const nextLga = p.lga || this.state.ngLga;
+    const nextWard = p.ward || this.state.ngWard;
+    const routeOrigin = this.state.puDistOrigin;
+    this._elecThemeSeq = (this._elecThemeSeq || 0) + 1;
     this.setState(s=>({
-      ngState: p.state || s.ngState,
-      ngLga: p.lga || s.ngLga,
-      ngWard: p.ward || s.ngWard,
+      ngState: nextState || s.ngState,
+      ngLga: nextLga || s.ngLga,
+      ngWard: nextWard || s.ngWard,
       ngPU: p.code || p.pu || p.name || s.ngPU,
       puQuery: '',
       layers: Object.assign({}, s.layers, { polling:true }),
-      mapFocus: (lat!=null && lng!=null) ? { lat, lng, name, address: p.address || p.venue || '', state:p.state, lga:p.lga, ward:p.ward, code:p.code } : s.mapFocus,
-    }));
-    if(lat!=null && lng!=null) this.flyToMaps(lat, lng, name);
-    else this.resolveAndFocusPU(p);
-    if(p.state) this.loadPuDirectory(p.state, p.lga, p.ward);
-    if(p.state && p.lga) this.loadPuUnits(p.state, p.lga, p.ward);
-    this.syncCountryMap();
+      mapAdminFocus: hasCoords ? null : { state: nextState, lga: nextLga, ward: nextWard },
+      mapFocus: hasCoords
+        ? { lat, lng, name, address: p.address || p.venue || '', state: nextState, lga: nextLga, ward: nextWard, code: p.code || '' }
+        : null,
+      elecMapTheme: null,
+      elecChoroMeta: null,
+      elecSelectedUnit: null,
+    }), ()=>{
+      const runFocus = ()=>{
+        const el = this.mapEls && this.mapEls.country;
+        this.syncCountryMap();
+        if(hasCoords && el && window.EIDMaps && window.EIDMaps.focusPoint){
+          window.EIDMaps.focusPoint(el, lat, lng, 16, name);
+        } else if(!hasCoords){
+          this.resolveAndFocusPU(p);
+        }
+      };
+      // Let React commit the map ref, then navigate so late ward flies cannot win.
+      requestAnimationFrame(()=> requestAnimationFrame(runFocus));
+      if(hasCoords && routeOrigin) this.loadPuRoute(routeOrigin, {lat,lng,name});
+      this.fetchNgKpis();
+    });
   }
   async resolveAndFocusPU(p){
     const state=p.state || this.state.ngState;
     const lga=p.lga || this.state.ngLga;
     const ward=p.ward || this.state.ngWard;
+    const code=String(p.code || '').trim().toLowerCase();
     const needle=(p.pu || p.name || '').toLowerCase();
-    const local=(this.state.pollPoints||[]).find(x=>{
-      const sameState=!state || (x.state||'').toLowerCase()===(state||'').toLowerCase();
-      const sameLga=!lga || (x.lga||'').toLowerCase()===(lga||'').toLowerCase();
-      const name=(x.name||x.pu||'').toLowerCase();
-      return sameState && sameLga && needle && name.includes(needle.slice(0,12));
-    }) || (this.state.pollPoints||[]).find(x=>
-      (!state || (x.state||'').toLowerCase()===(state||'').toLowerCase()) &&
-      (!lga || (x.lga||'').toLowerCase()===(lga||'').toLowerCase()) &&
-      (!ward || (x.ward||'').toLowerCase()===(ward||'').toLowerCase())
-    );
-    if(local){ this.focusPollingUnit(local); return; }
-    if(!state) return;
-    try {
-      const q='/api/polling-unit-points?state='+encodeURIComponent(state)+(lga?('&lga='+encodeURIComponent(lga)):'');
-      const data=await fetch(q).then(r=>r.ok?r.json():null);
-      const pts=data?.points||[];
-      const match=pts.find(x=>(x.pollingUnit||'').toLowerCase()===needle)
-        || pts.find(x=>needle && (x.pollingUnit||'').toLowerCase().includes(needle.slice(0,10)))
-        || pts.find(x=>ward && (x.ward||'').toLowerCase()===(ward||'').toLowerCase())
-        || pts[0];
-      if(match && match.latitude!=null){
-        this.focusPollingUnit({
-          lat:match.latitude, lng:match.longitude,
-          name:match.pollingUnit, pu:match.pollingUnit,
-          state:match.state, lga:match.lga, ward:match.ward,
-        });
+    const sameUnit = (x)=>{
+      if(!x) return false;
+      if(code && String(x.code || '').trim().toLowerCase() === code) return true;
+      const name=(x.name || x.pu || x.pollingUnit || '').toLowerCase();
+      return !!(needle && name && name === needle);
+    };
+    const samePlace = (x)=>{
+      if(!x) return false;
+      const sameState = !state || String(x.state||'').toLowerCase()===String(state||'').toLowerCase()
+        || (/fct|abuja/i.test(String(x.state||'')) && /fct|abuja/i.test(String(state||'')));
+      const sameLga = !lga || this.wardNamesMatch(x.lga, lga) || String(x.lga||'').toLowerCase()===String(lga||'').toLowerCase();
+      const sameWard = !ward || this.wardNamesMatch(x.ward, ward);
+      return sameState && sameLga && sameWard;
+    };
+
+    const local = (this.state.pollPoints||[]).find((x)=> samePlace(x) && sameUnit(x) && x.lat!=null && x.lng!=null);
+    if(local){
+      this.focusPollingUnit({ ...p, ...local, lat:local.lat, lng:local.lng });
+      return;
+    }
+
+    if(state){
+      try {
+        const qs = new URLSearchParams({ state });
+        if(lga) qs.set('lga', lga);
+        if(ward) qs.set('ward', ward);
+        const data=await fetch('/api/polling-unit-points?'+qs.toString()).then(r=>r.ok?r.json():null);
+        const pts=data?.points||[];
+        const match=pts.find((x)=> sameUnit(x) && x.latitude!=null)
+          || pts.find((x)=> samePlace(x) && sameUnit(x) && x.latitude!=null);
+        if(match && match.latitude!=null){
+          this.focusPollingUnit({
+            ...p,
+            lat:match.latitude, lng:match.longitude,
+            name:match.pollingUnit || p.name, pu:match.pollingUnit || p.pu,
+            state:match.state || state, lga:match.lga || lga, ward:match.ward || ward,
+            code:match.code || p.code, address:match.address || p.address,
+          });
+          return;
+        }
+      } catch(e){}
+    }
+
+    // No coordinates for this exact PU — zoom to the ward and keep selection highlighted when possible.
+    if(state && lga && ward && window.EIDMaps && window.EIDMaps.flyToAdmin){
+      this.setState({
+        ngPU: p.code || p.pu || p.name || this.state.ngPU,
+        mapAdminFocus: { state, lga, ward },
+        mapFocus: null,
+        puRoute: null,
+      }, async ()=>{
+        this.syncCountryMap();
+        const el = this.mapEls && this.mapEls.country;
+        if(el) await window.EIDMaps.flyToAdmin(el, { state, lga, ward, force: true, preserveLayers: true });
+      });
+      return;
+    }
+    this.syncCountryMap();
+  }
+  onPuDistQuery(e){ this.setState({ puDistQuery: e.target.value, puDistError: null }); }
+  onPuDistKey(e){ if(e.key === 'Enter'){ e.preventDefault(); this.geocodePuDistance(); } }
+  clearPuDistance(){
+    this._routeSeq = (this._routeSeq || 0) + 1;
+    this.setState({ puDistOrigin:null, puDistQuery:'', puDistStatus:'idle', puDistError:null, puRoute:null }, ()=>this.syncCountryMap());
+  }
+  setPuDistOrigin(lat, lng, label){
+    if(!Number.isFinite(lat) || !Number.isFinite(lng)) return;
+    const origin={ lat, lng, label: label || `${lat.toFixed(4)}, ${lng.toFixed(4)}` };
+    this.setState({
+      puDistOrigin: origin,
+      puDistStatus: 'ok',
+      puDistError: null,
+      puRoute:null,
+    }, ()=>{
+      this.syncCountryMap();
+      const focus=this.state.mapFocus;
+      if(focus && Number.isFinite(Number(focus.lat)) && Number.isFinite(Number(focus.lng))){
+        this.loadPuRoute(origin, focus);
       }
-    } catch(e){}
+    });
+  }
+  async loadPuRoute(origin, destination){
+    const fromLat=Number(origin && origin.lat), fromLng=Number(origin && origin.lng);
+    const toLat=Number(destination && destination.lat), toLng=Number(destination && destination.lng);
+    if(![fromLat,fromLng,toLat,toLng].every(Number.isFinite)) return;
+    const seq=(this._routeSeq=(this._routeSeq||0)+1);
+    const straight=this.haversine(fromLat,fromLng,toLat,toLng);
+    try {
+      const url='/api/route?'+new URLSearchParams({fromLat,fromLng,toLat,toLng}).toString();
+      const res=await fetch(url);
+      const data=res.ok ? await res.json() : null;
+      if(seq!==this._routeSeq) return;
+      const coords=data && Array.isArray(data.coordinates)
+        ? data.coordinates.map((c)=>[Number(c[1]),Number(c[0])]).filter((c)=>c.every(Number.isFinite))
+        : [];
+      if(coords.length>1){
+        const distance=Number(data.distance);
+        this.setState({
+          puRoute:{
+            key:`${fromLat},${fromLng}:${toLat},${toLng}`,
+            coords,
+            distance,
+            label:this.distLabel(distance),
+            origin:[fromLat,fromLng],
+            destination:[toLat,toLng],
+          },
+        },()=>this.syncCountryMap());
+        return;
+      }
+      throw new Error('No route geometry');
+    } catch(err){
+      if(seq!==this._routeSeq) return;
+      this.setState({
+        puRoute:{
+          key:`${fromLat},${fromLng}:${toLat},${toLng}:straight`,
+          coords:[[fromLat,fromLng],[toLat,toLng]],
+          distance:straight,
+          label:`${this.distLabel(straight)} straight line`,
+          origin:[fromLat,fromLng],
+          destination:[toLat,toLng],
+          fallback:true,
+        },
+      },()=>this.syncCountryMap());
+    }
+  }
+  async useMyLocationForDistance(){
+    this.setState({ puDistStatus:'locating', puDistError:null });
+    try {
+      const pos=await this.getDeviceLocation();
+      this.setPuDistOrigin(pos.lat, pos.lng, 'My location');
+    } catch(err){
+      this.setState({ puDistStatus:'error', puDistError:this.geolocationErrorMessage(err) });
+    }
+  }
+  async geocodePuDistance(){
+    const q = (this.state.puDistQuery || '').trim();
+    if(q.length < 3){
+      this.setState({ puDistStatus:'error', puDistError:'Enter an address or place (at least 3 characters).' });
+      return;
+    }
+    this.setState({ puDistStatus:'geocoding', puDistError:null });
+    try {
+      const data = await fetch('/api/geocode?q='+encodeURIComponent(q)).then(r=>r.json()).catch(()=>null);
+      if(!data || !data.ok){
+        this.setState({ puDistStatus:'error', puDistError: (data && data.error) || 'No match found.' });
+        return;
+      }
+      this.setState({ puDistQuery: data.label || q });
+      this.setPuDistOrigin(Number(data.lat), Number(data.lng), data.label || q);
+    } catch(e){
+      this.setState({ puDistStatus:'error', puDistError:'Geocode request failed.' });
+    }
   }
   resetAll(){
     const scope = this.state.scope;
@@ -2355,9 +2728,10 @@ class Component extends DCLogic {
       layers:{state:true,lga:true,ward:false,polling:false,health:false},
       ngState:null, ngLga:null, ngWard:null, ngPU:null,
       mapFocus:null, mapAdminFocus:null, mapSel:null, puQuery:'', puSearchHits:[],
-      puDir:{ states:(this.state.puDir && this.state.puDir.states) || [], lgas:[], wards:[], units:[] },
+      puDir:{ states:(this.state.puDir && this.state.puDir.states) || [], lgas:[], wards:[], units:[], unitsScope:null },
       puLoading:null, ngKpiRow:null,
-      anaCoords:null, anaGeo:'idle', nearPUs:[],
+      anaCoords:null, anaGeo:'idle', anaGeoError:null, nearPUs:[],
+      puDistOrigin:null, puDistQuery:'', puDistStatus:'idle', puDistError:null, puRoute:null,
       ovElecYear:'2023', ovOffice:'pres', ovElecState:null, elecMapTheme:null, elecChoroMeta:null,
       elecSelectedUnit:null, elecExpandedCand:null, showEstimatedLga:true,
       layersOpen:true, basemapOpen:false,
@@ -2493,14 +2867,29 @@ class Component extends DCLogic {
       rowStyle:`display:flex;align-items:center;gap:8px;padding:8px 9px;border:1px solid ${p.selected?'var(--primary)':'var(--border)'};border-radius:9px;cursor:pointer;background:${p.selected?'var(--primary-soft)':'var(--surface2)'}`,
     }));
     const hasNear=anaNear.length>0;
+    const geoError=this.state.anaGeoError || null;
     const anaData={
       isNigeria, hasCoords:!!anaC, locating, idleLocate:!locating, simulated:this.state.anaGeo==='sim',
       coordsText: anaC? `${anaC.lat.toFixed(4)}, ${anaC.lng.toFixed(4)}`:'',
       locate:()=>this.findNearestPU(), near:anaNear, hasNear,
-      showNearPanel: isNigeria && (locating || hasNear),
-      showElecPanel: isNigeria && !(locating || hasNear),
+      geoError,
+      showNearPanel: isNigeria && (locating || hasNear || !!geoError),
+      showWardPuPanel: false,
+      showElecPanel: isNigeria && !(locating || hasNear || !!geoError),
       nearHint: locating ? 'Using your device location' : (anaC ? `${anaC.lat.toFixed(4)}, ${anaC.lng.toFixed(4)}` : ''),
       captureLabel: anaC? 'Update my location':'Use my location',
+      wardHint: '', wardCountLabel: '', wardLoading: false, wardEmpty: false, hasWardPus: false, wardPus: [],
+      distQuery: this.state.puDistQuery || '',
+      onDistQuery: (e)=>this.onPuDistQuery(e),
+      onDistKey: (e)=>this.onPuDistKey(e),
+      geocodeDist: ()=>this.geocodePuDistance(),
+      useMyLocation: ()=>this.useMyLocationForDistance(),
+      clearDist: ()=>this.clearPuDistance(),
+      hasDistOrigin: !!(this.state.puDistOrigin && this.state.puDistOrigin.lat != null),
+      distOriginLabel: (this.state.puDistOrigin && this.state.puDistOrigin.label) || '',
+      distBusy: this.state.puDistStatus==='locating' || this.state.puDistStatus==='geocoding',
+      distBusyLabel: this.state.puDistStatus==='locating' ? 'Getting your location…' : 'Looking up address…',
+      distError: this.state.puDistError || null,
     };
     const pq=(this.state.puQuery||'').trim();
     const pqMatches = this.state.puSearchHits || [];
@@ -2575,15 +2964,22 @@ class Component extends DCLogic {
       const stRec = NG[stSel];
       const lgas = stSel ? (dir.lgas && dir.lgas.length ? dir.lgas : (stRec ? Object.keys(stRec.lgas||{}) : [])) : [];
       const wards = (stSel&&lgSel) ? (dir.wards && dir.wards.length ? dir.wards : ((stRec && stRec.lgas && stRec.lgas[lgSel]) || [])) : [];
-      const realUnits = (dir.units||[]).filter(p=>!wSel || (p.ward||'').toLowerCase()===(wSel||'').toLowerCase());
-      const pus = realUnits.length ? realUnits : ((stSel&&lgSel&&wSel) ? this.ngPollingUnits(stSel,lgSel,wSel) : []);
+      const realUnits = (stSel && lgSel && wSel)
+        ? this.groupUnitsByVenue(this.unitsForCurrentWard())
+        : [];
+      const pus = realUnits;
       const chip=(on)=>`display:inline-flex;align-items:center;height:27px;padding:0 11px;border:1px solid ${on?'var(--primary)':'var(--border)'};background:${on?'var(--primary-soft)':'transparent'};color:${on?'var(--text)':'var(--dim)'};border-radius:20px;font-family:inherit;font-size:11.5px;font-weight:${on?'600':'400'};cursor:pointer`;
       ngView={
         states:statesList.map(s=>({name:s,onClick:()=>this.selectNgState(s),style:chip(s===stSel)})),
         lgas:lgas.map(l=>({name:l,onClick:()=>this.selectNgLga(l),style:chip(l===lgSel)})),
         wards:wards.map(w=>({name:w,onClick:()=>this.selectNgWard(w),style:chip(w===wSel)})),
-        pus:pus.map(p=>({ name:p.name, short:p.short||p.name, venue:p.address||p.venue||p.ward||'', address:p.address||p.venue||'', code:p.code||'', x:p.x, y:p.y, voters:p.voters!=null?Number(p.voters).toLocaleString():'—', onClick:()=>this.focusPollingUnit(p),
-          rowStyle:`display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;width:100%;text-align:left;padding:8px 10px;border:none;border-bottom:1px solid var(--border);background:${(p.name===puSel||p.code===puSel)?'var(--primary-soft)':'transparent'};cursor:pointer;font-family:inherit` })),
+        pus:pus.map(p=>({
+          name:p.name, short:p.short||p.name, venue:p.address||p.venue||p.ward||'', address:p.address||p.venue||'',
+          code:p.code||'', lat:p.lat, lng:p.lng, state:p.state||stSel, lga:p.lga||lgSel, ward:p.ward||wSel,
+          x:p.x, y:p.y, voters:p.voters!=null?Number(p.voters).toLocaleString():'—',
+          onClick:()=>this.focusPollingUnit(p),
+          rowStyle:`display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;width:100%;text-align:left;padding:8px 10px;border:none;border-bottom:1px solid var(--border);background:${(p.name===puSel||p.code===puSel)?'var(--primary-soft)':'transparent'};cursor:pointer;font-family:inherit`
+        })),
         lgaOpts:lgas.map(l=>({ name:l })), wardOpts:wards.map(w=>({ name:w })),
         puOpts:pus.map(p=>({ value:p.code||p.name, label:p.label || [p.code, p.address||p.short||p.name].filter(Boolean).join(' · ') })),
         lgaVal:lgSel||'', wardVal:wSel||'', puVal:puSel||'',
@@ -2603,6 +2999,59 @@ class Component extends DCLogic {
       else if(wSel && stRec){ zScale=1.8; zx=stRec.x; zy=stRec.y; }
       else if(stSel && stRec){ zScale=1.35; zx=stRec.x; zy=stRec.y; }
       ngView.puInfo = null;
+    }
+    if(anaData && isNigeria && ngView && ngView.hasWard && !anaData.showNearPanel){
+      const wardLoading = this.state.puLoading === 'pu';
+      const origin = this.state.puDistOrigin;
+      const hasOrigin = !!(origin && origin.lat != null && origin.lng != null);
+      const rawCount = this.unitsForCurrentWard().length;
+      let wardPus = (ngView.pus || []).map((p)=>{
+        const selected = !!(ngView.puSel && (
+          p.code === ngView.puSel ||
+          p.name === ngView.puSel ||
+          (Array.isArray(p.memberCodes) && p.memberCodes.includes(ngView.puSel))
+        ))
+          || !!(focus && p.lat != null && focus.lat != null && Math.abs(Number(p.lat) - Number(focus.lat)) < 1e-6 && Math.abs(Number(p.lng) - Number(focus.lng)) < 1e-6);
+        const hasCoords = p.lat != null && p.lng != null && Number.isFinite(Number(p.lat)) && Number.isFinite(Number(p.lng));
+        const meters = (hasOrigin && hasCoords)
+          ? this.haversine(Number(origin.lat), Number(origin.lng), Number(p.lat), Number(p.lng))
+          : null;
+        const title = p.name || p.short || 'Polling unit';
+        return {
+          name: title,
+          meta: p.meta || [p.code, p.address || p.venue].filter(Boolean).join(' · ') || (p.place || ''),
+          hasCoords,
+          showPin: hasCoords && !hasOrigin,
+          distLabel: Number.isFinite(meters) ? this.distLabel(meters) : null,
+          meters: Number.isFinite(meters) ? meters : Number.POSITIVE_INFINITY,
+          select: ()=>this.focusPollingUnit({
+            name: title,
+            pu: title,
+            code: p.code,
+            lat: p.lat,
+            lng: p.lng,
+            state: p.state || ngView.stSel,
+            lga: p.lga || ngView.lgSel,
+            ward: p.ward || ngView.wSel,
+            address: p.address || p.venue,
+          }),
+          rowClass: selected ? 'eid-pu-list-row is-selected' : 'eid-pu-list-row',
+          rowStyle: `display:flex;align-items:center;gap:8px;padding:8px 9px;border:1px solid ${selected?'var(--primary)':'var(--border)'};border-radius:9px;cursor:pointer;background:${selected?'var(--primary-soft)':'var(--surface2)'}`,
+        };
+      });
+      if(hasOrigin) wardPus = wardPus.slice().sort((a,b)=>a.meters-b.meters);
+      anaData.showWardPuPanel = true;
+      anaData.showElecPanel = false;
+      anaData.wardHint = [ngView.stSel, ngView.lgSel, ngView.wSel].filter(Boolean).join(' · ');
+      anaData.wardCountLabel = wardLoading
+        ? '…'
+        : (rawCount > wardPus.length
+          ? `${wardPus.length} places · ${rawCount} units`
+          : `${wardPus.length}`);
+      anaData.wardLoading = wardLoading;
+      anaData.hasWardPus = !wardLoading && wardPus.length > 0;
+      anaData.wardEmpty = !wardLoading && wardPus.length === 0;
+      anaData.wardPus = wardPus;
     }
     const ovMapZoom = `position:absolute;inset:0;transform-origin:${zx}% ${zy}%;transform:scale(${zScale});transition:transform .55s cubic-bezier(.4,0,.2,1)`;
     let ovRaw=[];
@@ -2800,12 +3249,13 @@ class Component extends DCLogic {
         // Prefer PVC / register KPIs whenever "Find your polling unit" has a selection.
         const adminDrill = !!this.state.ngState;
 
-        let validVotes = null, winnerShare = null, turnoutPct = null, winnerLabel = null, electionCaption = null, registeredForYear = row.registered;
+        let validVotes = null, winnerShare = null, winnerVotes = null, turnoutPct = null, winnerLabel = null, electionCaption = null, registeredForYear = row.registered;
 
         if (!upcoming && !adminDrill && ovOffice === 'pres' && this.NG_PRES[yKey]) {
           validVotes = this.presValidVotes(yKey);
           const winner = (this.NG_PRES[yKey] || []).find((r)=> r[3]);
           winnerShare = winner ? Number(winner[2]) : null;
+          winnerVotes = winner && winner[4] != null ? Number(winner[4]) : null;
           winnerLabel = winner ? `${winner[0]} · ${winner[1]}` : 'Winner';
           const stats = this.NG_PRES_STATS[yKey];
           if (stats && row.level === 'National') {
@@ -2821,6 +3271,7 @@ class Component extends DCLogic {
             validVotes = cands.reduce((a,c)=> a + (Number(c.votes) || 0), 0);
             const win = cands.find((c)=> c.won) || cands[0];
             winnerShare = win && win.share != null ? parseFloat(String(win.share)) : null;
+            winnerVotes = win && win.votes != null ? Number(win.votes) : null;
             winnerLabel = win ? `${win.name} · ${win.party}` : 'Winner';
             turnoutPct = registeredForYear ? Math.round((validVotes / registeredForYear) * 1000) / 10 : null;
             electionCaption = `${yKey} ${ovElecState || row.scope} governorship`;
@@ -2830,11 +3281,13 @@ class Component extends DCLogic {
         if (validVotes != null && winnerShare != null) {
           const reg = this.fmtNum(registeredForYear);
           const votes = this.fmtNum(validVotes);
+          if(!Number.isFinite(winnerVotes)) winnerVotes=Math.round(validVotes * winnerShare / 100);
+          const winnerVoteLabel=Number(winnerVotes).toLocaleString();
           ngKpis = [
             { key:'reg-'+scopeKey, icon:'badge', label:'Registered voters', value:reg.value, unit:reg.unit, delta:`${row.level} · ${row.scope}`, deltaIcon:'place', deltaColor:'var(--dim)', caption:electionCaption },
             { key:'votes-'+scopeKey, icon:'how_to_vote', label:'Valid votes', value:votes.value, unit:votes.unit, delta:electionCaption, deltaIcon:'ballot', deltaColor:'var(--good)', caption:electionCaption },
             { key:'turn-'+scopeKey, icon:'donut_large', label:`Turnout ${yKey}`, value:turnoutPct != null ? String(turnoutPct) : '—', unit:'%', delta:electionCaption, deltaIcon:'insights', deltaColor:'var(--dim)', caption: ovOffice==='pres' && row.level==='National' ? 'INEC-declared national turnout' : 'Valid ÷ register (approx.)' },
-            { key:'win-'+scopeKey, icon:'emoji_events', label:'Winner share', value:String(winnerShare), unit:'%', delta:winnerLabel, deltaIcon:'military_tech', deltaColor:'var(--primary)', caption:electionCaption },
+            { key:'win-'+scopeKey, icon:'emoji_events', label:'Winner share', value:String(winnerShare), unit:`% · ${winnerVoteLabel} votes`, delta:winnerLabel, deltaIcon:'military_tech', deltaColor:'var(--primary)', caption:electionCaption },
           ];
         } else {
           const reg=this.fmtNum(row.registered), pvc=this.fmtNum(row.collected), str=this.fmtNum(row.votingStrength);
@@ -2843,7 +3296,7 @@ class Component extends DCLogic {
             { key:'reg-'+scopeKey, icon:'badge', label:'Registered voters', value:reg.value, unit:reg.unit, delta:`${row.level} · ${row.scope} · ${origin}`, deltaIcon:'place', deltaColor:'var(--dim)', caption:row.caption },
             { key:'pvc-'+scopeKey, icon:'how_to_reg', label:'PVCs collected', value:pvc.value, unit:pvc.unit, delta:`${row.level} · ${row.scope}`, deltaIcon:'trending_up', deltaColor:'var(--good)', caption:row.caption },
             { key:'rate-'+scopeKey, icon:'donut_large', label:'Collection rate', value:String(row.rate), unit:'%', delta:`${row.level} · ${row.scope}`, deltaIcon:'inventory_2', deltaColor:'var(--dim)', caption: origin==='Official'?'Official collected ÷ registered':row.caption },
-            { key:'str-'+scopeKey, icon:'bolt', label:'Voting strength', value:str.value, unit:str.unit, delta:'PVCs collected (can vote)', deltaIcon:'insights', deltaColor:'var(--primary)', caption:`× ${row.turnoutBasis||'2023 national turnout 27.1%'} ≈ ${est.value}${est.unit} ballots (estimate)` },
+            { key:'str-'+scopeKey, icon:'bolt', label:'Projected turnout', value:str.value, unit:str.unit, delta:row.turnoutBasis||'Historical turnout basis', deltaIcon:'insights', deltaColor:'var(--primary)', caption:`PVC holders × historical turnout ≈ ${est.value}${est.unit} ballots (estimate)` },
           ];
         }
       }

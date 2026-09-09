@@ -25,8 +25,13 @@ data/election-dashboard.db-shm
 data/election-dashboard.db-wal
 data/reference/_inec-pu-coords-work/
 data/reference/Nigeria_polling_units.pre-coords-backup.csv
+data/reference/Nigeria_polling_units.pre-centroid-fill-backup.csv
 data/reference/inec-pu-coordinates.json
 data/reference/inec-pu-coordinates-raw.csv
+data/reference/pu-geocode-progress.json
+data/reference/pu-geocode-report.json
+data/reference/Nigeria_polling_units.csv.tmp
+data/reference/Nigeria_polling_units.geocoded.csv
 data/reference/_sample-units.json
 data/reference/_lagos-sample.json
 data/reference/_jay-sample.json
