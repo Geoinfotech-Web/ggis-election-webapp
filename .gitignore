@@ -23,6 +23,8 @@ NGA_adm.zip
 data/election-dashboard.db
 data/election-dashboard.db-shm
 data/election-dashboard.db-wal
+data/live-submissions/**/*
+!data/live-submissions/.gitkeep
 data/reference/_inec-pu-coords-work/
 data/reference/Nigeria_polling_units.pre-coords-backup.csv
 data/reference/Nigeria_polling_units.pre-centroid-fill-backup.csv

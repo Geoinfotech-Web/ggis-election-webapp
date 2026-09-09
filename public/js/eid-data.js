@@ -13,7 +13,7 @@ window.EID_DATA = (function () {
     },
     "Live Results": {
       icon: "sensors",
-      desc: "Real-time reporting progress, candidate standings, seat totals and a live result map as counts come in — with a clear data-source and last-updated indicator.",
+      desc: "Declared contest status, candidate standings, citizen result submission and a national result map — with a clear data-source and last-updated indicator.",
     },
     Map: {
       icon: "travel_explore",

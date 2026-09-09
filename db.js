@@ -127,7 +127,121 @@ function initSchema(database) {
     CREATE INDEX IF NOT EXISTS idx_bf_layer ON boundary_features(layer);
     CREATE INDEX IF NOT EXISTS idx_bf_state ON boundary_features(layer, state_norm);
     CREATE INDEX IF NOT EXISTS idx_bf_lga ON boundary_features(layer, lga_norm);
+
+    CREATE TABLE IF NOT EXISTS live_submissions (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      created_at TEXT DEFAULT (datetime('now')),
+      state TEXT,
+      lga TEXT,
+      ward TEXT,
+      pu TEXT,
+      pu_code TEXT,
+      lat REAL,
+      lng REAL,
+      accuracy REAL,
+      file_name TEXT,
+      file_path TEXT,
+      status TEXT NOT NULL DEFAULT 'Pending review',
+      note TEXT
+    );
+    CREATE INDEX IF NOT EXISTS idx_live_sub_status ON live_submissions(status);
+    CREATE INDEX IF NOT EXISTS idx_live_sub_state ON live_submissions(state);
   `);
+}
+
+function rowToLiveSubmission(row) {
+  if (!row) return null;
+  return {
+    id: row.id,
+    created_at: row.created_at,
+    time: row.created_at
+      ? new Date(row.created_at.includes('T') ? row.created_at : row.created_at.replace(' ', 'T') + 'Z').toLocaleTimeString([], {
+          hour: '2-digit',
+          minute: '2-digit',
+        })
+      : '',
+    state: row.state || '',
+    lga: row.lga || '',
+    ward: row.ward || '',
+    pu: row.pu || '',
+    pu_code: row.pu_code || '',
+    lat: row.lat,
+    lng: row.lng,
+    accuracy: row.accuracy,
+    coords:
+      Number.isFinite(row.lat) && Number.isFinite(row.lng)
+        ? `${Number(row.lat).toFixed(5)}, ${Number(row.lng).toFixed(5)}`
+        : '',
+    file: row.file_name || '',
+    file_name: row.file_name || '',
+    file_path: row.file_path || '',
+    status: row.status || 'Pending review',
+    note: row.note || '',
+    dist: row.accuracy != null ? Math.round(Number(row.accuracy)) : null,
+  };
+}
+
+function insertLiveSubmission(payload) {
+  const database = getDb();
+  const info = database
+    .prepare(
+      `INSERT INTO live_submissions
+        (state, lga, ward, pu, pu_code, lat, lng, accuracy, file_name, file_path, status, note)
+       VALUES
+        (@state, @lga, @ward, @pu, @pu_code, @lat, @lng, @accuracy, @file_name, @file_path, @status, @note)`
+    )
+    .run({
+      state: payload.state || null,
+      lga: payload.lga || null,
+      ward: payload.ward || null,
+      pu: payload.pu || null,
+      pu_code: payload.pu_code || null,
+      lat: Number.isFinite(payload.lat) ? payload.lat : null,
+      lng: Number.isFinite(payload.lng) ? payload.lng : null,
+      accuracy: Number.isFinite(payload.accuracy) ? payload.accuracy : null,
+      file_name: payload.file_name || null,
+      file_path: payload.file_path || null,
+      status: payload.status || 'Pending review',
+      note: payload.note || null,
+    });
+  return getLiveSubmissionById(info.lastInsertRowid);
+}
+
+function getLiveSubmissionById(id) {
+  const database = getDb();
+  const row = database.prepare('SELECT * FROM live_submissions WHERE id = ?').get(Number(id));
+  return rowToLiveSubmission(row);
+}
+
+function listLiveSubmissions({ status } = {}) {
+  const database = getDb();
+  let rows;
+  if (status && status !== 'all') {
+    rows = database
+      .prepare('SELECT * FROM live_submissions WHERE status = ? ORDER BY id DESC')
+      .all(String(status));
+  } else {
+    rows = database.prepare('SELECT * FROM live_submissions ORDER BY id DESC').all();
+  }
+  return rows.map(rowToLiveSubmission);
+}
+
+function updateLiveSubmissionStatus(id, status, note) {
+  const database = getDb();
+  const allowed = new Set(['Pending review', 'Approved', 'Rejected']);
+  if (!allowed.has(status)) {
+    throw new Error('Invalid status.');
+  }
+  const existing = database.prepare('SELECT id FROM live_submissions WHERE id = ?').get(Number(id));
+  if (!existing) return null;
+  database
+    .prepare(
+      `UPDATE live_submissions
+       SET status = @status, note = COALESCE(@note, note)
+       WHERE id = @id`
+    )
+    .run({ id: Number(id), status, note: note == null ? null : String(note) });
+  return getLiveSubmissionById(id);
 }
 
 function rowToPoint(row) {
@@ -533,6 +647,10 @@ module.exports = {
   listGovStatesByYear,
   listGovYears,
   getDbStatus,
+  insertLiveSubmission,
+  getLiveSubmissionById,
+  listLiveSubmissions,
+  updateLiveSubmissionStatus,
   DB_PATH,
   CSV_PATH,
 };

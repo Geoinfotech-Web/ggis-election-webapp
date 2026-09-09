@@ -64,6 +64,8 @@ services:
       GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
       GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-}
       GOOGLE_REDIRECT_URI: ${GOOGLE_REDIRECT_URI:-http://localhost:3010/auth/google/callback}
+      NEWS_API_KEY: ${NEWS_API_KEY:-}
+      LIVE_SUBMISSIONS_DIR: ${LIVE_SUBMISSIONS_DIR:-}
     volumes:
       - legacy-db:/app/data/db
       - local-secrets:/run/local-secrets:ro

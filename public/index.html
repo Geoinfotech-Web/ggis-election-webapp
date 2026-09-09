@@ -81,6 +81,81 @@ a:hover{color:var(--primary)}
   .hdr-meta{display:none !important}
   .eid-welcome-cta{flex-direction:column;align-items:stretch !important}
   .eid-welcome-cta>div{width:100% !important}
+  .live-layout{grid-template-columns:1fr !important;grid-template-areas:"kpis" "map" "right" "submit" !important;height:auto !important;max-width:none !important}
+  .live-right{overflow:visible !important;max-height:none !important}
+  .live-news{position:static !important;max-height:none !important}
+  .live-map-stage{min-height:240px !important}
+}
+.live-shell{
+  flex:1;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  padding:12px 14px;
+}
+.live-layout{
+  display:grid;
+  grid-template-columns:minmax(260px,300px) minmax(0,1fr) minmax(220px,280px);
+  grid-template-rows:auto minmax(0,1fr);
+  grid-template-areas:
+    "kpis kpis kpis"
+    "submit map right";
+  gap:12px;
+  flex:1;
+  min-height:0;
+  height:100%;
+  max-width:none;
+  margin:0;
+  align-items:stretch;
+  overflow:hidden;
+}
+.live-kpis{grid-area:kpis;flex:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:6px}
+.live-kpi{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:8px 10px}
+.live-kpi__label{font-size:10px;letter-spacing:.03em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+.live-kpi__value{font-weight:600;font-size:17px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2}
+.live-kpi__sub{font-size:10px;color:var(--mute);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.live-submit{grid-area:submit;min-height:0;overflow:auto}
+.live-map{grid-area:map;min-height:0;display:flex;flex-direction:column}
+.live-right{grid-area:right;min-height:0;display:flex;flex-direction:column;gap:12px;overflow:hidden}
+.live-standings{flex:none;overflow:visible}
+.live-standings-hd{display:flex;flex-direction:column;gap:8px;padding:14px 16px;border-bottom:1px solid var(--border)}
+.live-standings-hd__badges{display:flex;flex-wrap:wrap;align-items:center;gap:6px;min-width:0}
+.live-standings-hd__dot{width:8px;height:8px;border-radius:50%;background:var(--live);flex:none;animation:eidblink 1.6s infinite}
+.live-standings-hd__pill{font-size:9.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:20px;padding:2px 8px;white-space:nowrap;line-height:1.4}
+.live-standings-hd__pill--live{color:var(--live);border:1px solid var(--live)}
+.live-standings-hd__pill--ok{color:var(--good);border:1px solid var(--good)}
+.live-standings-hd__pill--idle{color:var(--mute);border:1px solid var(--border2)}
+.live-standings-hd__title{margin:0;font-size:16px;font-weight:600;color:var(--text);line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.live-standings-hd__sub{font-size:12px;color:var(--mute);line-height:1.35}
+.live-race-row{display:flex;flex-direction:column;gap:6px}
+.live-race-row__meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.live-race-row__swatch{width:11px;height:11px;border-radius:3px;flex:none}
+.live-race-row__name{font-size:13.5px;font-weight:500;color:var(--text)}
+.live-race-row__party{font-size:11.5px;color:var(--mute)}
+.live-race-row__lead{font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--primary);border:1px solid var(--primary);border-radius:20px;padding:2px 7px;line-height:1.3}
+.live-race-row__score{margin-left:auto;font-size:14px;font-weight:600;color:var(--text);font-variant-numeric:tabular-nums}
+.live-race-row__bar{height:7px;border-radius:5px;background:var(--surface3);overflow:hidden}
+.live-public-hd{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:16px 0 8px;padding-top:14px;border-top:1px solid var(--border)}
+.live-news{position:static;max-height:none;overflow:auto;align-self:stretch;min-height:0;flex:1 1 0}
+.live-map-stage{position:relative;flex:1;min-height:0;height:100%;overflow:hidden}
+@media (max-width:1100px){
+  .live-shell{overflow:auto}
+  .live-layout{
+    grid-template-columns:1fr;
+    grid-template-rows:auto;
+    grid-template-areas:
+      "kpis"
+      "map"
+      "right"
+      "submit";
+    height:auto;
+    overflow:visible;
+  }
+  .live-right{overflow:visible;max-height:none}
+  .live-standings,.live-news{flex:none;max-height:none}
+  .live-news{position:static;max-height:none}
+  .live-map-stage{min-height:320px}
 }
 </style>
 </helmet>
@@ -840,15 +915,20 @@ a:hover{color:var(--primary)}
 
     <!-- ── LIVE RESULTS ── -->
     <sc-if value="{{ isLive }}" hint-placeholder-val="{{ false }}">
-    <div class="eid-scroll" style="flex:1;min-height:0;overflow-y:auto;padding:16px 18px">
-      <div class="rs-wrap rs-split" style="max-width:1220px;margin:0 auto;display:grid;grid-template-columns:minmax(300px,360px) minmax(0,1fr);gap:14px;align-items:start">
-        <!-- LEFT: citizen submission -->
-        <aside style="display:flex;flex-direction:column;gap:14px">
+    <div class="live-shell">
+      <div class="live-layout">
+        <div class="live-kpis">
+          <sc-for list="{{ liveStats }}" as="s" hint-placeholder-count="4">
+            <div class="live-kpi"><div class="live-kpi__label">{{ s.label }}</div><div class="live-kpi__value">{{ s.value }}</div><sc-if value="{{ s.sub }}" hint-placeholder-val="{{ false }}"><div class="live-kpi__sub">{{ s.sub }}</div></sc-if></div>
+          </sc-for>
+        </div>
+
+        <aside class="live-submit eid-scroll" style="display:flex;flex-direction:column;gap:12px">
         <sc-if value="{{ sub.isNigeria }}" hint-placeholder-val="{{ true }}">
         <section style="background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden">
           <div style="display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border)">
             <span class="msi" style="font-size:19px;color:var(--primary)">upload_file</span>
-            <div style="min-width:0"><div style="font-size:14px;font-weight:600;color:var(--text)">Submit your result</div><div style="font-size:11px;color:var(--mute)">GPS-verified · reviewed before publish</div></div>
+            <div style="min-width:0"><div style="font-size:14px;font-weight:600;color:var(--text)">Submit your result</div><div style="font-size:11px;color:var(--mute)">GPS-verified · appears live · admin reviews trust</div></div>
           </div>
           <div style="padding:15px 16px;display:flex;flex-direction:column;gap:11px">
             <div style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)">1 · Identify your polling unit</div>
@@ -875,6 +955,7 @@ a:hover{color:var(--primary)}
               <input type="file" accept="image/*" onChange="{{ sub.onFile }}" style="display:none">
             </label>
             <button onClick="{{ sub.submit }}" style="{{ sub.submitStyle }}"><span class="msi" style="font-size:17px">send</span>Submit result</button>
+            <sc-if value="{{ sub.submitError }}" hint-placeholder-val="{{ false }}"><div style="font-size:11.5px;color:var(--live)">{{ sub.submitError }}</div></sc-if>
           </div>
           <sc-if value="{{ sub.hasSubmissions }}" hint-placeholder-val="{{ false }}">
           <div style="border-top:1px solid var(--border);padding:13px 16px">
@@ -892,39 +973,100 @@ a:hover{color:var(--primary)}
           </sc-if>
         </section>
         </sc-if>
-        </aside>
-        <!-- RIGHT: live results -->
-        <div style="display:flex;flex-direction:column;gap:14px">
-        <section style="background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden">
-          <div style="display:flex;align-items:center;gap:10px;padding:15px 18px;border-bottom:1px solid var(--border)">
-            <span style="width:9px;height:9px;border-radius:50%;background:var(--live);animation:eidblink 1.6s infinite"></span>
-            <span style="font-size:9.5px;font-weight:600;letter-spacing:.1em;color:var(--live);border:1px solid var(--live);border-radius:20px;padding:2px 8px">LIVE</span>
-            <div style="min-width:0"><div style="font-size:16px;font-weight:600;color:var(--text)">{{ liveFeat.title }}</div><div style="font-size:12px;color:var(--mute)">{{ liveFeat.country }} · reporting {{ liveFeat.reporting }}</div></div>
-            <span style="margin-left:auto;font-size:11px;color:var(--mute)">{{ liveFeat.sourceNote }}</span>
-          </div>
-          <div style="padding:18px">
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px"><span style="font-size:11px;color:var(--mute);white-space:nowrap">Reporting progress</span><div style="flex:1;height:8px;border-radius:5px;background:var(--surface3);overflow:hidden"><span style="{{ liveFeat.reportBar }}"></span></div><span style="font-size:13px;font-weight:600;color:var(--text)">{{ liveFeat.reporting }}</span></div>
-            <div style="display:flex;flex-direction:column;gap:14px">
-              <sc-for list="{{ liveFeat.cands }}" as="c" hint-placeholder-count="3">
-                <div><div style="display:flex;align-items:center;gap:9px;margin-bottom:6px"><span style="width:11px;height:11px;border-radius:3px;background:{{ c.color }}"></span><span style="font-size:14px;font-weight:500;color:var(--text)">{{ c.name }}</span><span style="font-size:12px;color:var(--mute)">{{ c.party }}</span><span style="margin-left:auto;font-size:16px;font-weight:600;color:var(--text);font-variant-numeric:tabular-nums">{{ c.pct }}</span></div><div style="height:8px;border-radius:5px;background:var(--surface3);overflow:hidden"><span style="{{ c.bar }}"></span></div></div>
-              </sc-for>
-            </div>
-          </div>
+        <sc-if value="{{ sub.notNigeria }}" hint-placeholder-val="{{ false }}">
+        <section style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px">
+          <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px">Citizen submission</div>
+          <p style="margin:0;font-size:13px;color:var(--dim);line-height:1.45">Polling-unit result upload is enabled for Nigeria. Switch scope to Nigeria to submit a sheet.</p>
         </section>
-        <section style="background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column">
-          <div style="display:flex;align-items:center;gap:9px;padding:13px 16px;border-bottom:1px solid var(--border);flex-wrap:wrap"><span class="msi" style="font-size:18px;color:var(--primary)">map</span><h2 style="margin:0;font-size:13.5px;font-weight:600">Result map</h2><span style="margin-left:auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap"><sc-for list="{{ liveMapLegend }}" as="g" hint-placeholder-count="3"><span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--dim)"><span style="width:9px;height:9px;border-radius:2px;background:{{ g.color }}"></span>{{ g.name }} · {{ g.pct }}</span></sc-for></span></div>
-          <div style="position:relative;height:clamp(220px,42vh,480px);overflow:hidden">
+        </sc-if>
+        </aside>
+
+        <section class="live-map" style="background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-height:0;height:100%">
+          <div style="display:flex;align-items:center;gap:9px;padding:11px 14px;border-bottom:1px solid var(--border);flex-wrap:wrap;flex:none">
+            <span class="msi" style="font-size:18px;color:var(--primary)">map</span>
+            <h2 style="margin:0;font-size:13.5px;font-weight:600">Result map</h2>
+            <div style="display:inline-flex;align-items:center;gap:4px;margin-left:4px;border:1px solid var(--border);border-radius:8px;overflow:hidden">
+              <button onClick="{{ liveMapMode.overlay }}" style="{{ liveMapMode.overlayStyle }}">Overlay</button>
+              <button onClick="{{ liveMapMode.compare }}" style="{{ liveMapMode.compareStyle }}">Compare</button>
+            </div>
+            <sc-if value="{{ liveMapMode.isOverlay }}" hint-placeholder-val="{{ true }}">
+            <span style="display:inline-flex;align-items:center;gap:8px;margin-left:4px;flex-wrap:wrap">
+              <button onClick="{{ liveLayerToggles.toggleOfficial }}" style="{{ liveLayerToggles.officialStyle }}"><span style="width:8px;height:8px;border-radius:2px;background:#2f6fed"></span>Official</button>
+              <button onClick="{{ liveLayerToggles.toggleCitizen }}" style="{{ liveLayerToggles.citizenStyle }}"><span style="width:8px;height:8px;border-radius:2px;background:#1c8f86"></span>Public</button>
+            </span>
+            </sc-if>
+            <span style="margin-left:auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap"><sc-for list="{{ liveMapLegend }}" as="g" hint-placeholder-count="3"><span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--dim)"><span style="width:9px;height:9px;border-radius:2px;background:{{ g.color }}"></span>{{ g.name }}</span></sc-for></span>
+          </div>
+          <div class="live-map-stage">
             <div class="eid-leaflet" ref="{{ bindLiveMap }}"></div>
           </div>
+          <div style="padding:9px 14px;border-top:1px solid var(--border);font-size:12px;color:var(--mute);flex:none">{{ liveFeat.mapCaption }}</div>
         </section>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px">
-          <sc-for list="{{ liveStats }}" as="s" hint-placeholder-count="4">
-            <div style="background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:13px 15px"><div style="font-size:10.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--mute);margin-bottom:8px">{{ s.label }}</div><div style="font-weight:600;font-size:22px;color:var(--text)">{{ s.value }}</div></div>
-          </sc-for>
-        </div>
+
+        <div class="live-right">
+        <section class="live-standings" style="background:var(--surface);border:1px solid var(--border);border-radius:14px">
+          <header class="live-standings-hd">
+            <div class="live-standings-hd__badges">
+              <sc-if value="{{ liveFeat.isLive }}" hint-placeholder-val="{{ true }}">
+                <span class="live-standings-hd__dot" aria-hidden="true"></span>
+                <span class="live-standings-hd__pill live-standings-hd__pill--live">Live</span>
+              </sc-if>
+              <sc-if value="{{ liveFeat.showDeclared }}" hint-placeholder-val="{{ false }}">
+                <span class="live-standings-hd__pill live-standings-hd__pill--ok">{{ liveFeat.officialBadge }}</span>
+              </sc-if>
+              <sc-if value="{{ liveFeat.showIdle }}" hint-placeholder-val="{{ false }}">
+                <span class="live-standings-hd__pill live-standings-hd__pill--idle">{{ liveFeat.officialBadge }}</span>
+              </sc-if>
+            </div>
+            <h2 class="live-standings-hd__title">{{ liveFeat.title }}</h2>
+            <div class="live-standings-hd__sub">{{ liveFeat.statusLine }}</div>
+          </header>
+          <div style="padding:14px 16px 16px">
+            <sc-if value="{{ liveFeat.hasWinner }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;align-items:center;gap:9px;margin-bottom:12px;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--primary-soft)">
+                <span class="msi" style="font-size:18px;color:var(--primary)">emoji_events</span>
+                <div style="font-size:13px;font-weight:600;color:var(--text)">{{ liveFeat.winnerLine }}</div>
+              </div>
+            </sc-if>
+            <div style="display:flex;flex-direction:column;gap:11px">
+              <sc-for list="{{ liveFeat.cands }}" as="c" hint-placeholder-count="4">
+                <div class="live-race-row">
+                  <div class="live-race-row__meta">
+                    <span class="live-race-row__swatch" style="background:{{ c.color }}"></span>
+                    <span class="live-race-row__name">{{ c.name }}</span>
+                    <span class="live-race-row__party">{{ c.party }}</span>
+                    <sc-if value="{{ c.leading }}" hint-placeholder-val="{{ false }}"><span class="live-race-row__lead">Leading</span></sc-if>
+                    <span class="live-race-row__score">{{ c.score }}</span>
+                  </div>
+                  <div class="live-race-row__bar"><span style="{{ c.bar }}"></span></div>
+                </div>
+              </sc-for>
+            </div>
+            <sc-if value="{{ liveFeat.emptyRoster }}" hint-placeholder-val="{{ false }}">
+              <div style="padding:18px 8px;text-align:center;font-size:12.5px;color:var(--dim)">No flag-bearer roster for this cycle yet.</div>
+            </sc-if>
+            <sc-if value="{{ liveFeat.hasPublicReturns }}" hint-placeholder-val="{{ false }}">
+              <div class="live-public-hd">Public returns by state</div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <sc-for list="{{ liveFeat.publicReturns }}" as="p" hint-placeholder-count="3">
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <span style="width:8px;height:8px;border-radius:2px;background:#1c8f86;flex:none"></span>
+                    <span style="font-size:12.5px;color:var(--text);flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ p.name }}</span>
+                    <span style="font-size:12px;font-weight:600;color:var(--dim);font-variant-numeric:tabular-nums">{{ p.score }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ liveFeat.emptyReturns }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:12px;padding:10px 8px;text-align:center;font-size:12px;color:var(--dim)">No citizen returns yet. Upload an EC8A sheet to appear on the map.</div>
+            </sc-if>
+          </div>
+        </section>
+
+        <aside class="live-news eid-scroll">
         <sc-if value="{{ liveNews.hasItems }}" hint-placeholder-val="{{ false }}">
-        <section style="background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden">
-          <div style="display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--border)"><span class="msi" style="font-size:18px;color:var(--primary)">newspaper</span><h2 style="margin:0;font-size:13.5px;font-weight:600">Election news</h2></div>
+        <section style="background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;height:100%">
+          <div style="display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--border)"><span class="msi" style="font-size:18px;color:var(--primary)">newspaper</span><h2 style="margin:0;font-size:13.5px;font-weight:600">Nigeria election news</h2></div>
           <div style="padding:8px 0">
             <sc-for list="{{ liveNews.items }}" as="n" hint-placeholder-count="3">
               <a href="{{ n.url }}" target="_blank" rel="noopener" style="display:block;padding:10px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:inherit" style-hover="background:var(--surface2)">
@@ -935,6 +1077,13 @@ a:hover{color:var(--primary)}
           </div>
         </section>
         </sc-if>
+        <sc-if value="{{ liveNews.empty }}" hint-placeholder-val="{{ true }}">
+        <section style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span class="msi" style="font-size:18px;color:var(--primary)">newspaper</span><h2 style="margin:0;font-size:13.5px;font-weight:600">Nigeria election news</h2></div>
+          <p style="margin:0;font-size:13px;color:var(--dim);line-height:1.45">No headlines loaded yet. Declared archive sources remain available on Overview.</p>
+        </section>
+        </sc-if>
+        </aside>
         </div>
       </div>
     </div>
@@ -1128,10 +1277,13 @@ a:hover{color:var(--primary)}
     <div class="eid-scroll" style="flex:1;min-height:0;overflow-y:auto;padding:22px 18px">
       <div style="max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
         <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap">
-          <div><h1 style="margin:0 0 4px;font-size:23px;font-weight:600;letter-spacing:-.02em">Administration</h1><p style="margin:0;font-size:13.5px;color:var(--dim)">Citizen EC8A uploads are not stored yet. Use the signed-in admin console for Drive and population sources, or trigger INEC website ingest from this panel.</p></div>
-          <sc-if value="{{ adminData.hasPending }}" hint-placeholder-val="{{ false }}">
-          <button onClick="{{ adminData.approveAll }}" style="height:38px;padding:0 15px;display:inline-flex;align-items:center;gap:7px;border:none;background:var(--good);color:#06110f;border-radius:9px;font-family:inherit;font-size:12.5px;font-weight:600;cursor:pointer"><span class="msi" style="font-size:17px">done_all</span>Approve all pending ({{ adminData.pendingCount }})</button>
-          </sc-if>
+          <div><h1 style="margin:0 0 4px;font-size:23px;font-weight:600;letter-spacing:-.02em">Administration</h1><p style="margin:0;font-size:13.5px;color:var(--dim)">Review citizen EC8A uploads from Live Results (approve/reject). Drive sources and INEC ingest stay in the signed-in admin console.</p></div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+            <button onClick="{{ adminData.refreshSubs }}" style="height:38px;padding:0 14px;display:inline-flex;align-items:center;gap:7px;border:1px solid var(--border);background:var(--surface2);color:var(--text);border-radius:9px;font-family:inherit;font-size:12.5px;cursor:pointer" style-hover="border-color:var(--primary)"><span class="msi" style="font-size:17px">refresh</span>Refresh submissions</button>
+            <sc-if value="{{ adminData.hasPending }}" hint-placeholder-val="{{ false }}">
+            <button onClick="{{ adminData.approveAll }}" style="height:38px;padding:0 15px;display:inline-flex;align-items:center;gap:7px;border:none;background:var(--good);color:#06110f;border-radius:9px;font-family:inherit;font-size:12.5px;font-weight:600;cursor:pointer"><span class="msi" style="font-size:17px">done_all</span>Approve all pending ({{ adminData.pendingCount }})</button>
+            </sc-if>
+          </div>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px">
           <sc-for list="{{ adminStats }}" as="s" hint-placeholder-count="4">
@@ -1261,9 +1413,10 @@ a:hover{color:var(--primary)}
 class Component extends DCLogic {
   state = { theme:(typeof localStorage!=='undefined' && localStorage.getItem('eid-theme')) || 'light', view:'welcome', scope:'global', section:'Overview', switcherOpen:false, mapSel:null, basemap:'streets',
     realPop:null, ekitiResult:null, nigeriaResult:null, pollPoints:[], puDir:{ states:[], lgas:[], wards:[], units:[] }, puSearchHits:[],
-    ngState:null, ngLga:null, ngWard:null, ngPU:null, ovElecYear:'2023', ovOffice:'pres', ovElecState:null, elecMapTheme:null, elecChoroMeta:null, elecSelectedUnit:null, elecExpandedCand:null, showEstimatedLga:true, govStatesByYear:{}, govCatalog:null, ngKpiRow:null, puLoading:null,
+    ngState:null, ngLga:null, ngWard:null, ngPU:null, ovElecYear:'2023', ovOffice:'pres', ovElecState:null, elecMapTheme:null, liveMapTheme:null, elecChoroMeta:null, elecSelectedUnit:null, elecExpandedCand:null, showEstimatedLga:true, govStatesByYear:{}, govCatalog:null, ngKpiRow:null, puLoading:null,
     electionsList:[], electionNews:[], ingestStatus:null, popStatus:null, puDash:null,
-    subState:null, subLga:null, subWard:null, subPU:null, subCoords:null, subGeo:'idle', subFile:null, submissions:[],
+    subState:null, subLga:null, subWard:null, subPU:null, subCoords:null, subGeo:'idle', subFile:null, submissions:[], subSubmitError:null, subMineIds:[],
+    liveCompareMode:'overlay', liveComparePct:50, liveShowOfficial:true, liveShowCitizen:true, citizenMapTheme:null, adminCsrf:null,
     candYear:'2023', candOffice:'pres', selParty:null,
     admFilter:'all', admQuery:'', admSel:null,
     anaCoords:null, anaGeo:'idle', anaGeoError:null, nearPUs:[], puQuery:'', mapFocus:null, mapAdminFocus:null,
@@ -1353,7 +1506,7 @@ class Component extends DCLogic {
 
   SECTIONS = {
     'Elections':{ icon:'how_to_vote', desc:'Browse every election — filter by type, year and status, then open any contest for full results, candidates and geography.' },
-    'Live Results':{ icon:'sensors', desc:'Real-time reporting progress, candidate standings, seat totals and a live result map as counts come in — with a clear data-source and last-updated indicator.' },
+    'Live Results':{ icon:'sensors', desc:'Citizen EC8A uploads go live on the national map immediately. Official returns appear as a separate layer when available — compare with the swipe slider.' },
     'Map':{ icon:'travel_explore', desc:'Full-screen geospatial intelligence: basemaps, vector layers, hierarchy drill-down (region → district → voting unit) and result-styled choropleths.' },
     'Candidates':{ icon:'person', desc:'Candidate profiles with party, position contested, historical performance, vote share and geographic strongholds — plus side-by-side comparison.' },
     'Parties':{ icon:'groups', desc:'Party intelligence: participation, seats won, historical vote share and a geographic strength map across every tracked election.' },
@@ -1873,18 +2026,96 @@ class Component extends DCLogic {
         fallback, { enableHighAccuracy:true, timeout:8000, maximumAge:0 });
     } else fallback();
   }
-  onSubFile(e){ const f=e.target.files && e.target.files[0]; if(f) this.setState({ subFile:{ name:f.name } }); }
-  reviewSubmission(id, status){ this.setState(s=>({ submissions: s.submissions.map(r=> r.id===id ? {...r, status} : r) })); }
-  reviewAllPending(status){ this.setState(s=>({ submissions: s.submissions.map(r=> r.status==='Pending review' ? {...r, status} : r), admSel:null })); }
+  onSubFile(e){ const f=e.target.files && e.target.files[0]; if(f) this.setState({ subFile:f, subSubmitError:null }); }
+  async ensureAdminCsrf(){
+    if(this.state.adminCsrf) return this.state.adminCsrf;
+    try {
+      const me = await fetch('/api/admin/me', { credentials:'include' }).then(r=>r.ok?r.json():null);
+      if(me && me.csrfToken){ this.setState({ adminCsrf: me.csrfToken }); return me.csrfToken; }
+    } catch(e){}
+    return null;
+  }
+  async loadLiveSubmissions(){
+    try {
+      const data = await fetch('/api/live-submissions', { cache:'no-store', credentials:'include' }).then(r=>r.ok?r.json():null);
+      if(data && Array.isArray(data.submissions)){
+        this.setState({ submissions: data.submissions }, ()=>this.syncLiveMap());
+      }
+    } catch(e){}
+  }
+  async reviewSubmission(id, status){
+    const csrf = await this.ensureAdminCsrf();
+    const headers = { 'Content-Type':'application/json', ...this.adminAuthHeaders() };
+    if(csrf) headers['x-csrf-token'] = csrf;
+    // Optimistic UI
+    this.setState(s=>({ submissions: s.submissions.map(r=> r.id===id ? {...r, status} : r) }), ()=>this.syncLiveMap());
+    try {
+      const res = await fetch('/api/live-submissions/'+id, {
+        method:'PATCH', credentials:'include', headers,
+        body: JSON.stringify({ status }),
+      });
+      const data = await res.json().catch(()=>({}));
+      if(res.ok && data.submission){
+        this.setState(s=>({ submissions: s.submissions.map(r=> r.id===id ? data.submission : r) }), ()=>this.syncLiveMap());
+      } else if(!res.ok){
+        await this.loadLiveSubmissions();
+      }
+    } catch(e){
+      await this.loadLiveSubmissions();
+    }
+  }
+  async reviewAllPending(status){
+    const pending = this.state.submissions.filter(r=>r.status==='Pending review');
+    for(const r of pending){ await this.reviewSubmission(r.id, status); }
+    this.setState({ admSel:null });
+  }
   seedSubmissions(){
-    const demo=[
-      {pu:'PU 014 — Ikeja GRA I', state:'Lagos', ward:'Ikeja', lga:'Ikeja', file:'ec8a_014.jpg', coords:'6.60312, 3.35108', time:'08:42', status:'Pending review', dist:9},
-      {pu:'PU 007 — Wuse Zone 4', state:'FCT', ward:'Wuse', lga:'AMAC', file:'result_007.png', coords:'9.07611, 7.48910', time:'09:05', status:'Pending review', dist:14},
-      {pu:'PU 022 — Nsukka Central', state:'Enugu', ward:'Nsukka', lga:'Nsukka', file:'ec8a_022.jpg', coords:'6.85720, 7.39560', time:'09:18', status:'Approved', dist:6},
-      {pu:'PU 003 — Kano Municipal', state:'Kano', ward:'Fagge', lga:'Fagge', file:'sheet_003.jpg', coords:'12.00120, 8.51670', time:'09:33', status:'Pending review', dist:21},
-      {pu:'PU 041 — PH Township', state:'Rivers', ward:'PH I', lga:'PH', file:'ec8a_041.jpg', coords:'4.81560, 7.04980', time:'09:51', status:'Rejected', dist:180, flag:'Outside geofence'},
-    ].map((d,i)=>({ id:1000+i, ...d }));
-    this.setState({ submissions:demo });
+    this.loadLiveSubmissions();
+  }
+  syncLiveMap(){
+    const el = this.mapEls && this.mapEls.live;
+    if(!el || !window.EIDMaps) return;
+    window.EIDMaps.attach(el, this.mapAttachCfg('live'));
+  }
+  buildCitizenMapTheme(subs){
+    // Public Live map is choropleth-only (state fills), not submission points.
+    const usable = (subs||[]).filter(r=> !/rejected/i.test(String(r.status||'')) && String(r.state||'').trim());
+    if(!usable.length) return null;
+    const byState = {};
+    usable.forEach(r=>{
+      const st = String(r.state||'').trim();
+      if(!byState[st]) byState[st] = { total:0, approved:0, pending:0 };
+      byState[st].total += 1;
+      if(/approved/i.test(String(r.status||''))) byState[st].approved += 1;
+      else byState[st].pending += 1;
+    });
+    const max = Math.max(1, ...Object.values(byState).map(b=>b.total));
+    const units = {};
+    Object.entries(byState).forEach(([name, bucket])=>{
+      const t = bucket.total / max;
+      const mostlyApproved = bucket.approved >= bucket.pending;
+      units[name] = {
+        winner: name,
+        party: mostlyApproved ? 'Citizen' : 'Pending',
+        count: bucket.total,
+        approved: bucket.approved,
+        pending: bucket.pending,
+        color: mostlyApproved ? '#1c8f86' : '#d69a34',
+        fillOpacity: 0.22 + t * 0.52,
+      };
+    });
+    const approvedN = usable.filter(r=>/approved/i.test(String(r.status||''))).length;
+    const pendingN = usable.length - approvedN;
+    const legend = [];
+    if(approvedN) legend.push({ name:'Public approved', party:'Citizen', count: approvedN, color:'#1c8f86' });
+    if(pendingN) legend.push({ name:'Public pending', party:'Pending', count: pendingN, color:'#d69a34' });
+    return {
+      ok: true,
+      key: 'citizen:' + usable.length + ':' + approvedN + ':' + Object.keys(units).sort().join(','),
+      level: 'state',
+      units,
+      legend,
+    };
   }
   onApiUrl(v){ this.setState({ apiUrl:v }); }
   onApiKey(v){ this.setState({ apiKey:v }); }
@@ -2057,13 +2288,44 @@ class Component extends DCLogic {
     const strength = Math.round(pvc*turnout/100);
     return { level, scope, registered:reg, pvc, rate, turnout, strength };
   }
-  submitResult(){
+  async submitResult(){
     const s=this.state; if(!(s.subPU && s.subCoords && s.subFile)) return;
-    const rec={ id:Date.now(), pu:s.subPU, state:s.subState, ward:s.subWard, lga:s.subLga,
-      coords:`${s.subCoords.lat.toFixed(5)}, ${s.subCoords.lng.toFixed(5)}`, file:s.subFile.name,
-      dist: 8 + (Math.abs(Math.round(s.subCoords.lat*1000))%40),
-      time:new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}), status:'Pending review' };
-    this.setState(st=>({ submissions:[rec,...st.submissions], subFile:null, subCoords:null, subGeo:'idle', subPU:null }));
+    const form = new FormData();
+    form.append('file', s.subFile, s.subFile.name || 'ec8a.jpg');
+    form.append('state', s.subState || '');
+    form.append('lga', s.subLga || '');
+    form.append('ward', s.subWard || '');
+    form.append('pu', s.subPU || '');
+    form.append('lat', String(s.subCoords.lat));
+    form.append('lng', String(s.subCoords.lng));
+    form.append('accuracy', String(s.subCoords.acc || ''));
+    const optimistic = {
+      id: 'tmp-'+Date.now(),
+      pu:s.subPU, state:s.subState, ward:s.subWard, lga:s.subLga,
+      coords:`${s.subCoords.lat.toFixed(5)}, ${s.subCoords.lng.toFixed(5)}`,
+      lat:s.subCoords.lat, lng:s.subCoords.lng,
+      file:s.subFile.name, time:new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}),
+      status:'Pending review', dist: s.subCoords.acc || null,
+    };
+    this.setState(st=>({
+      submissions:[optimistic, ...st.submissions],
+      subMineIds: [optimistic.id, ...(st.subMineIds||[])],
+      subFile:null, subCoords:null, subGeo:'idle', subPU:null, subSubmitError:null,
+    }), ()=>this.syncLiveMap());
+    try {
+      const res = await fetch('/api/live-submissions', { method:'POST', body: form });
+      const data = await res.json().catch(()=>({}));
+      if(!res.ok) throw new Error(data.error || 'Submit failed');
+      this.setState(st=>({
+        submissions: [data.submission, ...st.submissions.filter(r=>r.id!==optimistic.id)],
+        subMineIds: [data.submission.id, ...(st.subMineIds||[]).filter(id=>id!==optimistic.id)],
+      }), ()=>this.syncLiveMap());
+    } catch(err){
+      this.setState(st=>({
+        submissions: st.submissions.filter(r=>r.id!==optimistic.id),
+        subSubmitError: err.message || 'Could not submit result',
+      }), ()=>this.syncLiveMap());
+    }
   }
 
   ngPollingUnits(stateName, lga, ward){
@@ -2098,6 +2360,7 @@ class Component extends DCLogic {
   componentDidMount(){
     this.syncPartyPalette(); this.apply(); this.loadRealData(); this.loadPuDirectory(); this.fetchNgKpis();
     this.fetchGovCatalog();
+    this.loadLiveSubmissions();
     (this.OFFICE_YEARS.gov || ['2026']).forEach((y)=>this.fetchGovStates(y));
     this.flyToElectionView();
   }
@@ -2107,6 +2370,11 @@ class Component extends DCLogic {
     // Prefer polling-unit drill-down; otherwise governorship election state; else national.
     const key=[s.scope,s.ngState,s.ngLga,s.ngWard,s.ngPU,s.ovOffice,s.ovElecState,s.ovElecYear].join('|');
     if(this._kpiKey!==key){ this._kpiKey=key; this.fetchNgKpis(); }
+    const liveYear = this.liveContestYear();
+    if(this._liveYearKey !== liveYear){
+      this._liveYearKey = liveYear;
+      this.loadLiveMapTheme();
+    }
   }
   apply(){
     if(!this.root) return;
@@ -2224,11 +2492,10 @@ class Component extends DCLogic {
 
   async loadRealData(){
     try {
-      const [popRes, ekitiRes, ngRes, ptsRes, elRes, ingest, popStatus, puDash, partyColors, refSummary] = await Promise.all([
+      const [popRes, ekitiRes, ngRes, elRes, ingest, popStatus, puDash, partyColors, refSummary] = await Promise.all([
         fetch('/api/population-data').then(r=>r.ok?r.json():null).catch(()=>null),
         fetch('/api/election-results?state=Ekiti').then(r=>r.ok?r.json():null).catch(()=>null),
         fetch('/api/election-results?state=Nigeria').then(r=>r.ok?r.json():null).catch(()=>null),
-        fetch('/api/polling-unit-points?state=Ekiti').then(r=>r.ok?r.json():null).catch(()=>null),
         fetch('/api/elections').then(r=>r.ok?r.json():null).catch(()=>null),
         fetch('/api/inec-ingest/status').then(r=>r.ok?r.json():null).catch(()=>null),
         fetch('/api/population-data/status').then(r=>r.ok?r.json():null).catch(()=>null),
@@ -2241,26 +2508,91 @@ class Component extends DCLogic {
       const registered = states.reduce((a,s)=>a+Number(s.registeredVoters||0),0);
       const population = states.reduce((a,s)=>a+Number(s.population||0),0);
       const collected = states.reduce((a,s)=>a+Number(s.collectedPVCs||s.pvcCollected||0),0);
-      const pollPoints = (ptsRes?.points||[]).map(p=>({
-        lat: p.latitude, lng: p.longitude,
-        name: p.pollingUnit || 'Polling unit',
-        pu: p.pollingUnit, state: p.state, lga: p.lga, ward: p.ward,
-        label: [p.pollingUnit, p.lga, p.state].filter(Boolean).join(' · '),
-      })).filter(p=>p.lat!=null && p.lng!=null);
-      const news = [...(ekitiRes?.news||[]), ...(ngRes?.news||[])].filter((n,i,arr)=> n && n.url && arr.findIndex(x=>x.url===n.url)===i).slice(0,8);
+      // Live news is Nigeria-only — do not merge Ekiti or other-state feeds.
+      const news = (ngRes?.news || []).filter((n,i,arr)=> n && n.url && arr.findIndex(x=>x.url===n.url)===i).slice(0,8);
+      let ekitiResult = ekitiRes?.latest || null;
+      if (!ekitiResult?.candidates && ekitiRes?.candidates) {
+        ekitiResult = ekitiRes;
+      }
+      // Live Results no longer hard-wires Ekiti choropleth; keep archive for Overview/Candidates.
       this.setState({
         realPop: { states: states.length, rows: states, registered, population, collected, registeredM:this.fmtM(registered), populationM:this.fmtM(population), pvcM:this.fmtM(collected) },
-        ekitiResult: ekitiRes?.latest || ekitiRes,
+        ekitiResult,
         nigeriaResult: ngRes?.latest || ngRes,
         electionsList: elRes?.elections || [],
         electionNews: news,
         ingestStatus: ingest,
         popStatus,
         puDash,
-        pollPoints,
         puCoordCoverage: (refSummary && refSummary.pollingUnits && refSummary.pollingUnits.coordinateCoverage) || null,
-      });
+      }, ()=>this.loadLiveMapTheme());
     } catch(e){}
+  }
+
+  /** Active / upcoming presidential cycle for Live Results (not Overview archive year). */
+  liveContestYear(){
+    const years = (this.OFFICE_YEARS.pres || ['2027','2023','2019','2015']).map(String);
+    const tl = (this.COUNTRIES.ng && this.COUNTRIES.ng.timeline) || [];
+    const upcoming = tl.find(t=> t && t.status==='Upcoming' && years.includes(String(t.year)));
+    if (upcoming) return String(upcoming.year);
+    const next = this.COUNTRIES.ng && this.COUNTRIES.ng.next;
+    if (next && next.date) {
+      const hit = String(next.date).match(/(20\d{2})/);
+      if (hit && years.includes(hit[1])) return hit[1];
+    }
+    // Prefer a cycle that is not a declared NG_PRES archive.
+    for (const y of years) {
+      if (!this.NG_PRES[y]) return y;
+    }
+    return years[0] || '2027';
+  }
+
+  /** Race-board roster: INEC flag bearers when known; else major parties awaiting nominations. */
+  liveRaceRoster(year){
+    const fromInec = this.inecCandidates(year, 'pres');
+    if (fromInec.length) return fromInec;
+    return (this.NG_PARTIES || []).map(p=>{
+      const full = (this.INEC_PARTIES || []).find(x=>x.abbr===p.name);
+      return {
+        abbr: p.name,
+        party: (full && full.name) || p.name,
+        color: this.PARTY[p.name] || p.color || '#8b939d',
+        name: 'Flag bearer TBD',
+        note: 'Awaiting nomination',
+      };
+    });
+  }
+
+  /** Official standings only when theme is for the live cycle and marked current (not prior-election archive). */
+  isCurrentOfficialLiveTheme(theme, liveYear){
+    if (!theme || !theme.ok) return false;
+    const y = String(theme.year || theme.electionYear || '');
+    if (!y || y !== String(liveYear)) return false;
+    if (theme.current === true || theme.live === true) return true;
+    const st = String(theme.status || '').toLowerCase();
+    if (st === 'live' || st === 'current' || st === 'counting') return true;
+    // Published archive for a completed past cycle is never "current" live returns.
+    if (this.NG_PRES[y]) return false;
+    // Upcoming / active cycle: accept genuine candidate vote feed when present.
+    const cands = Array.isArray(theme.candidates) ? theme.candidates : [];
+    return cands.some(cd=> Number.isFinite(Number(cd.votes)) && Number(cd.votes) > 0);
+  }
+
+  async loadLiveMapTheme(){
+    const year = this.liveContestYear();
+    const seq = (this._liveThemeSeq = (this._liveThemeSeq || 0) + 1);
+    try {
+      const raw = await fetch('/api/election-results/choropleth?office=pres&year=' + encodeURIComponent(year))
+        .then(r=>r.ok?r.json():null);
+      if (seq !== this._liveThemeSeq) return;
+      const built = raw && raw.ok ? this.buildMapTheme(raw, true) : null;
+      // Keep prior-election choropleths off the Live map unless marked current for this cycle.
+      const mapTheme = this.isCurrentOfficialLiveTheme(built, year) ? built : null;
+      this.setState({ liveMapTheme: mapTheme }, ()=>this.syncLiveMap());
+    } catch(e){
+      if (seq !== this._liveThemeSeq) return;
+      this.setState({ liveMapTheme: null }, ()=>this.syncLiveMap());
+    }
   }
 
   bindMap(kind){
@@ -2372,12 +2704,23 @@ class Component extends DCLogic {
     const wardPts = this.state.ngWard
       ? this.unitsForCurrentWard().filter(p=>p.lat!=null && p.lng!=null)
       : ((this.state.puDir && this.state.puDir.units) || []).filter(p=>p.lat!=null && p.lng!=null);
+    const citizenTheme = kind==='live' ? this.buildCitizenMapTheme(this.state.submissions) : null;
     return {
-      scope: kind==='live' ? 'ekiti' : (scope==='global' ? 'global' : scope),
+      scope: kind==='live' ? 'ng' : (scope==='global' ? 'global' : scope),
       live: kind==='live',
       basemap: this.state.basemap || 'streets',
-      layers: this.state.layers,
-      resultTheme: (this.state.elecMapTheme && this.state.elecMapTheme.ok) ? this.state.elecMapTheme : null,
+      layers: kind==='live' ? { state: true, lga: false, ward: false, polling: false, health: false } : this.state.layers,
+      resultTheme: kind==='live'
+        ? ((this.state.liveMapTheme && this.state.liveMapTheme.ok) ? this.state.liveMapTheme : null)
+        : ((this.state.elecMapTheme && this.state.elecMapTheme.ok) ? this.state.elecMapTheme : null),
+      citizenTheme,
+      // Live Results compares official vs public as choropleths — no citizen point markers.
+      citizenMarkers: [],
+      compareMode: kind==='live' ? (this.state.liveCompareMode || 'overlay') : 'overlay',
+      comparePct: this.state.liveComparePct != null ? this.state.liveComparePct : 50,
+      onComparePct: kind==='live' ? (pct)=>this.setState({ liveComparePct: pct }) : null,
+      showOfficial: kind==='live' ? this.state.liveShowOfficial !== false : true,
+      showCitizen: kind==='live' ? this.state.liveShowCitizen !== false : true,
       onResultUnitClick: (name, unit)=>this.selectElecUnit(name, unit),
       markers: (kind==='global' || (kind==='full' && scope==='global')) ? world : [],
       points: kind==='country' ? (nearPts.length ? nearPts : wardPts) : [],
@@ -2497,6 +2840,32 @@ class Component extends DCLogic {
   openWelcome(){ this.setState({view:'welcome', switcherOpen:false}); }
   exitAdmin(){ this.setState({ section:'Overview' }); }
   selectScope(s){ this.setState({view:'app', scope:s, section:'Overview', switcherOpen:false}, ()=>{ if(s==='ng') this.flyToElectionView(); }); }
+  openFeaturedRace(){
+    const race = this.state.ekitiResult;
+    const state = (race && race.state) || 'Ekiti';
+    const year = String((race && (race.year || race.electionYear || race.storageYear)) || '2026');
+    this.setState({
+      view: 'app',
+      scope: 'ng',
+      section: 'Overview',
+      ovOffice: 'gov',
+      ovElecState: state,
+      ovElecYear: year,
+      elecMapTheme: null,
+      elecChoroMeta: null,
+      elecSelectedUnit: null,
+      elecExpandedCand: null,
+      showEstimatedLga: true,
+      ngState: null,
+      ngLga: null,
+      ngWard: null,
+      ngPU: null,
+    }, ()=>{
+      this.fetchNgKpis();
+      // Load the featured archive year directly — catalog year lists may omit it.
+      this.loadElecMapTheme('gov', year, state);
+    });
+  }
   openOverview(){ this.selectScope('global'); }
   openCountry(code){ this.selectScope(code); }
   toggleSwitcher(){ this.setState(s=>({switcherOpen:!s.switcherOpen})); }
@@ -2740,7 +3109,7 @@ class Component extends DCLogic {
       if(window.EIDMaps && window.EIDMaps.resetView){
         Object.keys(this.mapEls||{}).forEach(kind=>{
           const el=this.mapEls[kind];
-          const key = kind==='live' ? 'ekiti' : (scope==='global' ? 'global' : scope);
+          const key = kind==='live' ? 'ng' : (scope==='global' ? 'global' : scope);
           if(el) window.EIDMaps.resetView(el, key);
         });
       }
@@ -2911,33 +3280,166 @@ class Component extends DCLogic {
       {name:'INEC ingest status',type:'Status',fmt:'JSON',icon:'sync', href:'/api/inec-ingest/status', action:'Open', coverage:'Website snapshots', source:'inec-ingest job', updated: this.state.ingestStatus?.lastSuccessAt ? new Date(this.state.ingestStatus.lastSuccessAt).toLocaleString() : 'Not run yet'},
     ];
 
-    let liveFeat = { title: 'No declared contest in view', isLive:false, country:'Nigeria', reporting:'0%', sourceNote:'Live means ingest last succeeded + archived declared results', cands: [] };
-    let liveStats = [ {label:'Registered voters',value:'—'},{label:'Votes counted',value:'—'},{label:'Turnout',value:'—'},{label:'Units reporting',value:'—'} ];
-    const ekiti = this.state.ekitiResult;
-    if(ekiti && ekiti.candidates){
-      const total = ekiti.candidates.reduce((a,cd)=>a+Number(cd.votes||0),0) || ekiti.totals?.validVotes || 1;
-      liveFeat = {
-        title: ekiti.election || 'Ekiti Governorship Election 2026',
-        isLive: false,
-        country: (ekiti.state||'Ekiti') + ', Nigeria',
-        reporting: '100%',
-        sourceNote: 'Declared result · Ekiti archive',
-        cands: ekiti.candidates.slice(0,4).map(cd=>{
-          const w = +((Number(cd.votes||0)/total)*100).toFixed(1);
-          return { name:cd.name, party:cd.party, pct:w+'%', color:this.PARTY[cd.party]||'#8b939d', w };
-        }),
-      };
-      liveStats = [
-        {label:'Accredited voters',value:this.fmtInt(ekiti.totals?.accreditedVoters)},
-        {label:'Valid votes',value:this.fmtInt(ekiti.totals?.validVotes)},
-        {label:'Rejected votes',value:this.fmtInt(ekiti.totals?.rejectedVotes)},
-        {label:'LGAs won',value:String(ekiti.totals?.lgAsWon ?? '—')},
-      ];
+    const subsAll = this.state.submissions || [];
+    const approvedSubs = subsAll.filter(r=>/approved/i.test(String(r.status||'')));
+    const pendingSubs = subsAll.filter(r=>/pending/i.test(String(r.status||'')));
+    const liveYear = this.liveContestYear();
+    const roster = this.liveRaceRoster(liveYear);
+    // Official standings: only current liveMapTheme for this cycle — never NG_PRES / prior archive.
+    const officialTheme = this.isCurrentOfficialLiveTheme(this.state.liveMapTheme, liveYear)
+      ? this.state.liveMapTheme
+      : null;
+    const officialByParty = {};
+    const themeCands = (officialTheme && Array.isArray(officialTheme.candidates)) ? officialTheme.candidates : [];
+    themeCands.forEach(cd=>{
+      const party = String(cd.party || '').trim();
+      if(!party || party === '—') return;
+      const votes = Number(cd.votes);
+      if(Number.isFinite(votes) && votes > 0) officialByParty[party] = (officialByParty[party]||0) + votes;
+    });
+    const hasOfficialVotes = Object.keys(officialByParty).length > 0
+      && Object.values(officialByParty).some(v=>Number(v) > 0);
+
+    const officialWinner = hasOfficialVotes && officialTheme && officialTheme.winner
+      ? officialTheme.winner
+      : (hasOfficialVotes && themeCands.length
+        ? themeCands.slice().sort((a,b)=>Number(b.votes||0)-Number(a.votes||0))[0]
+        : null);
+    let leadParty = null;
+    if(hasOfficialVotes){
+      if(officialWinner && officialWinner.party) leadParty = String(officialWinner.party);
+      else leadParty = Object.entries(officialByParty).sort((a,b)=>b[1]-a[1])[0][0];
     }
-    liveFeat.reportBar = `display:block;height:100%;width:${parseFloat(liveFeat.reporting)||0}%;background:var(--live)`;
+
+    // Citizen public returns (secondary): by state count.
+    const stateCounts = {};
+    approvedSubs.forEach(r=>{
+      const st = String(r.state||'Unknown').trim() || 'Unknown';
+      stateCounts[st] = (stateCounts[st]||0) + 1;
+    });
+    const stateRows = Object.entries(stateCounts).sort((a,b)=>b[1]-a[1]);
+
+    let winnerName = '—';
+    let winnerSub = 'Awaiting official returns';
+    let winnerLine = '';
+    let hasWinner = false;
+    if(leadParty && hasOfficialVotes){
+      const leadRow = roster.find(r=>r.abbr===leadParty)
+        || themeCands.find(c=>c.party===leadParty)
+        || { name: (officialWinner && officialWinner.name) || leadParty, abbr: leadParty };
+      const votes = officialByParty[leadParty];
+      const voteLabel = Number.isFinite(votes) && votes > 100
+        ? this.fmtInt(votes)
+        : (Number.isFinite(votes) ? votes + '%' : null);
+      winnerName = leadRow.name || leadParty;
+      winnerSub = [leadParty, voteLabel].filter(Boolean).join(' · ') || 'Official';
+      winnerLine = `Official: ${winnerName}` + (voteLabel ? ` · ${voteLabel}` : '');
+      hasWinner = true;
+    }
+
+    const isLiveActive = subsAll.length > 0 || !!(this.state.ingestStatus && this.state.ingestStatus.ok);
+    const officialAvailable = !!(officialTheme && hasOfficialVotes);
+    const pendingCount = pendingSubs.length;
+    let statusLine = '';
+    if(!officialAvailable){
+      const bits = ['Awaiting official returns'];
+      if(subsAll.length){
+        const parts = [`${subsAll.length} public report${subsAll.length===1?'':'s'}`];
+        if(approvedSubs.length) parts.push(`${approvedSubs.length} approved`);
+        if(pendingCount) parts.push(`${pendingCount} pending`);
+        bits.push(parts.join(' · '));
+      }
+      statusLine = bits.join(' · ');
+    } else if(pendingCount && !approvedSubs.length){
+      statusLine = `${pendingCount} pending review`;
+    } else if(subsAll.length){
+      const parts = [`${subsAll.length} report${subsAll.length===1?'':'s'}`];
+      if(approvedSubs.length) parts.push(`${approvedSubs.length} approved`);
+      if(pendingCount) parts.push(`${pendingCount} pending`);
+      statusLine = parts.join(' · ');
+    } else {
+      statusLine = 'Official returns in';
+    }
+
+    const voteNums = roster.map(r=>{
+      const v = officialByParty[r.abbr];
+      return Number.isFinite(v) ? v : null;
+    });
+    const maxVote = Math.max(0, ...voteNums.filter(v=>v!=null));
+    const looksLikeVotes = maxVote > 100;
+    const totalVotes = looksLikeVotes
+      ? voteNums.reduce((a,v)=>a+(v||0),0) || 1
+      : 100;
+
+    let liveFeat = {
+      title: `${liveYear} presidential race`,
+      isLive: isLiveActive,
+      isDeclared: officialAvailable,
+      showDeclared: officialAvailable,
+      showIdle: !officialAvailable,
+      officialBadge: officialAvailable ? 'Declared' : 'Awaiting returns',
+      country: 'Nigeria',
+      statusLabel: isLiveActive ? 'Live' : 'Idle',
+      pendingCount,
+      statusLine,
+      statusSub: statusLine,
+      sourceNote: officialAvailable ? 'Flag bearers · official lead' : 'Party roster · awaiting official returns',
+      mapCaption: `National live view · Citizen reports: ${subsAll.length} · Official returns: ${officialAvailable ? 'available' : 'awaiting'}`,
+      winnerLine,
+      hasWinner,
+      contestLabel: `${liveYear} Presidential`,
+      hasContest: roster.length > 0,
+      openRace: ()=>{},
+      reporting: String(approvedSubs.length),
+      emptyRoster: roster.length === 0,
+      emptyReturns: stateRows.length === 0 && pendingSubs.length === 0,
+      hasPublicReturns: stateRows.length > 0,
+      publicReturns: stateRows.slice(0,8).map(([name, count])=>({ name, score: String(count) })),
+      cands: [],
+    };
+
+    liveFeat.cands = roster.map(r=>{
+      const raw = officialByParty[r.abbr];
+      const hasVal = officialAvailable && Number.isFinite(raw) && raw > 0;
+      let w = 0;
+      let score = officialAvailable ? '—' : 'Awaiting';
+      let pct = '';
+      if(hasVal){
+        if(looksLikeVotes){
+          w = +((raw / totalVotes) * 100).toFixed(1);
+          score = `${this.fmtInt(raw)} · ${w}%`;
+          pct = w + '%';
+        } else {
+          w = +Number(raw).toFixed(1);
+          score = w + '%';
+          pct = score;
+        }
+      }
+      return {
+        name: r.name,
+        party: r.abbr,
+        pct,
+        score,
+        color: this.PARTY[r.abbr] || r.color || '#8b939d',
+        w,
+        leading: !!(leadParty && r.abbr === leadParty && hasOfficialVotes),
+      };
+    }).sort((a,b)=>{
+      if(!officialAvailable) return a.party.localeCompare(b.party);
+      if(a.leading !== b.leading) return a.leading ? -1 : 1;
+      return (b.w||0) - (a.w||0);
+    });
+
+    const liveStats = [
+      { label:'Winner', value: winnerName, sub: winnerSub },
+      { label:'Public reports', value: String(subsAll.length), sub: `${pendingSubs.length} pending` },
+      { label:'Approved', value: String(approvedSubs.length), sub: `${new Set(approvedSubs.map(r=>r.state).filter(Boolean)).size} states` },
+      { label:'Official', value: officialAvailable ? 'Declared' : 'Awaiting', sub: liveYear + ' cycle' },
+    ];
+    liveFeat.reportBar = `display:block;height:100%;width:${Math.min(100, (approvedSubs.length||0)*10)}%;background:var(--good)`;
     liveFeat.cands = (liveFeat.cands||[]).map(cd=>({ ...cd, bar:`display:block;height:100%;width:${cd.w}%;background:${cd.color}` }));
-    liveFeat.sourceNote = liveFeat.sourceNote || 'Ingest + declared archive';
-    const liveNews = { hasItems: (this.state.electionNews||[]).length>0, items: this.state.electionNews||[] };
+    const liveNewsItems = this.state.electionNews||[];
+    const liveNews = { hasItems: liveNewsItems.length>0, empty: liveNewsItems.length===0, items: liveNewsItems };
     const electionTypes = ['All','Presidential','Parliamentary','Regional'].map((label,i)=>({ label, style:`height:30px;padding:0 12px;border:1px solid ${i===0?'var(--border2)':'var(--border)'};background:${i===0?'var(--surface3)':'transparent'};color:${i===0?'var(--text)':'var(--dim)'};border-radius:8px;font-family:inherit;font-size:12px;cursor:pointer` }));
     const aboutCards = [
       {icon:'hub',title:'Configurable hierarchy',body:'Country → administrative level → electoral district → voting unit, mapped to each country rather than one fixed template.'},
@@ -3078,9 +3580,15 @@ class Component extends DCLogic {
       ? ((govCatalog && govCatalog.states) || Object.keys((govCatalog && govCatalog.byState) || {}) || [])
       : [];
     const govYearPool = ovOffice === 'gov' && ovElecState ? this.govYearsForState(ovElecState) : [];
-    const yearPool = ovOffice === 'gov'
+    const yearPoolRaw = ovOffice === 'gov'
       ? govYearPool
       : officeYears.filter(y=> elecTl.some(t=>String(t.year)===y) || y==='2027');
+    const yearPool = (()=>{
+      const pool = yearPoolRaw.slice();
+      const cur = this.state.ovElecYear != null ? String(this.state.ovElecYear) : '';
+      if (cur && !pool.includes(cur)) pool.unshift(cur);
+      return pool;
+    })();
     const yearVal = yearPool.includes(String(this.state.ovElecYear))
       ? String(this.state.ovElecYear)
       : (ovOffice === 'gov'
@@ -3211,6 +3719,7 @@ class Component extends DCLogic {
     const subCanSubmit = subVerified && !!this.state.subFile;
     const sub = {
       isNigeria,
+      notNigeria: !isNigeria,
       states: ((dir.states && dir.states.length) ? dir.states : this.NG_ALL_STATES).map(s=>({ name:s })), lgas:subLgas.map(l=>({ name:l })), wards:subWards.map(w=>({ name:w })),
       puOpts:subPus.map(p=>({ value:p.name, label:[p.code, p.address||p.short||p.name].filter(Boolean).join(' · ') })),
       stateVal:sS||'', lgaVal:sL||'', wardVal:sW||'', puVal:sP||'',
@@ -3233,8 +3742,9 @@ class Component extends DCLogic {
       fileLabel: this.state.subFile ? this.state.subFile.name : 'Tap to upload result photo',
       canSubmit: subCanSubmit,
       submitStyle: `width:100%;height:40px;border:none;border-radius:9px;font-family:inherit;font-size:13px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;gap:7px;cursor:${subCanSubmit?'pointer':'not-allowed'};background:${subCanSubmit?'var(--primary)':'var(--surface3)'};color:${subCanSubmit?'var(--primary-ink)':'var(--mute)'}`,
-      hasSubmissions: this.state.submissions.length>0,
-      submissions: this.state.submissions,
+      submitError: this.state.subSubmitError || '',
+      hasSubmissions: (this.state.subMineIds||[]).length>0 || this.state.submissions.some(r=>(this.state.subMineIds||[]).includes(r.id)),
+      submissions: this.state.submissions.filter(r=>(this.state.subMineIds||[]).includes(r.id)).slice(0,8),
     };
 
     // ── contextual Nigeria KPIs (election year when declared; else PVC drill-down) ──
@@ -3369,6 +3879,7 @@ class Component extends DCLogic {
       reviewed, total, geofenced,
       hasPending:nPending>0, pendingCount:nPending,
       approveAll:()=>this.reviewAllPending('Approved'),
+      refreshSubs:()=>this.loadLiveSubmissions(),
       tabs:admTabs, query:this.state.admQuery||'', onQuery:(e)=>this.setState({admQuery:e.target.value}),
       hasSel:!!selRow, noSel:!selRow,
       detail: selRow? { ...decorate(selRow), close:()=>this.setState({admSel:null}) } : null,
@@ -3391,7 +3902,28 @@ class Component extends DCLogic {
       .map(m=>({ title:m.name, label:m.name,
         wrap:`position:absolute;left:${m.x}%;top:${m.y}%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:4px`,
         dot:`width:13px;height:13px;border-radius:50%;background:${m.col};border:2px solid var(--surface);box-shadow:var(--shadow)${m.live?';animation:eidpulse 1.8s infinite':''}` }));
-    const liveMapLegend = liveFeat.cands.filter(cd=>cd.party!=='—').map(cd=>({ name:cd.party, color:cd.color, pct:cd.pct }));
+    const liveMapLegend = [
+      { name:'Official', color:'#2f6fed' },
+      { name:'Public pending', color:'#d69a34' },
+      { name:'Public approved', color:'#1c8f86' },
+    ];
+    const cmpMode = this.state.liveCompareMode || 'overlay';
+    const modeBtn = (on)=>`height:28px;padding:0 10px;border:none;background:${on?'var(--surface3)':'transparent'};color:${on?'var(--text)':'var(--dim)'};font-family:inherit;font-size:11.5px;cursor:pointer`;
+    const liveMapMode = {
+      isOverlay: cmpMode!=='compare',
+      isCompare: cmpMode==='compare',
+      overlay: ()=>this.setState({ liveCompareMode:'overlay' }, ()=>this.syncLiveMap()),
+      compare: ()=>this.setState({ liveCompareMode:'compare' }, ()=>this.syncLiveMap()),
+      overlayStyle: modeBtn(cmpMode!=='compare'),
+      compareStyle: modeBtn(cmpMode==='compare'),
+    };
+    const togBtn = (on)=>`height:28px;padding:0 9px;border:1px solid ${on?'var(--primary)':'var(--border)'};background:${on?'var(--primary-soft)':'transparent'};color:var(--text);border-radius:7px;font-family:inherit;font-size:11px;cursor:pointer;display:inline-flex;align-items:center;gap:5px`;
+    const liveLayerToggles = {
+      toggleOfficial: ()=>this.setState(s=>({ liveShowOfficial: s.liveShowOfficial===false }), ()=>this.syncLiveMap()),
+      toggleCitizen: ()=>this.setState(s=>({ liveShowCitizen: s.liveShowCitizen===false }), ()=>this.syncLiveMap()),
+      officialStyle: togBtn(this.state.liveShowOfficial!==false),
+      citizenStyle: togBtn(this.state.liveShowCitizen!==false),
+    };
 
     return {
       rootRef: el=>{ this.root = el; },
@@ -3427,11 +3959,12 @@ class Component extends DCLogic {
       partiesGeneric: null,
       ngPartySelectHint: (isNigeria || isGlobal) && !this.state.selParty,
       mapInfo, mapInfoRows, mapMarkers, hierarchy, electionsRows, electionTypes, candidates, partiesList, analysisMetrics, battlegrounds, datasets, liveFeat, liveStats, liveNews, aboutCards, adminIntegrations, anaData, puSearch,
+      liveMapMode, liveLayerToggles,
       themeIcon: this.state.theme==='dark' ? 'light_mode' : 'dark_mode',
       toggleTheme: ()=> this.setState(s=>({theme: s.theme==='dark'?'light':'dark'})),
       openWelcome: ()=> this.openWelcome(),
       exitAdmin: ()=> this.exitAdmin(),
-      openAdmin: ()=> this.setState({ view:'app', section:'Admin' }),
+      openAdmin: ()=> { this.loadLiveSubmissions(); this.ensureAdminCsrf(); this.setState({ view:'app', section:'Admin' }); },
       openOverview: ()=> this.openOverview(),
       resetFilters: ()=> this.resetAll(),
       resetAll: ()=> this.resetAll(),
@@ -3531,21 +4064,21 @@ class Component extends DCLogic {
       kpis: [
         { icon:'public', label:'Countries', value:String(this.ORDER.length), unit:'', delta:'Tracked in this dashboard', deltaIcon:'trending_up', deltaColor:'var(--good)' },
         { icon:'how_to_vote', label:'NG registered', value: this.state.realPop?this.state.realPop.registeredM:'—', unit:'M', delta: this.state.realPop?`${this.state.realPop.states} states in dataset`:'Loading population…', deltaIcon:'check_circle', deltaColor:'var(--dim)' },
-        { icon:'sensors', label:'Latest result', value:'Ekiti', unit:'', delta:'Governorship 2026 · INEC', deltaIcon:'bolt', deltaColor:'var(--live)' },
+        { icon:'sensors', label:'Citizen reports', value: String((this.state.submissions||[]).length), unit:'', delta:'Live dual-source map', deltaIcon:'bolt', deltaColor:'var(--live)' },
         { icon:'groups', label:'NG population', value: this.state.realPop?this.state.realPop.populationM:'—', unit:'M', delta:'Official population series', deltaIcon:'database', deltaColor:'var(--dim)' },
       ],
       markers: worldMarkers.map(d=>({ label:d.label, title:this.COUNTRIES[d.code].name, onClick:()=>this.openCountry(d.code),
         wrap:`position:absolute;left:${d.x}%;top:${d.y}%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer`,
         dot:`width:13px;height:13px;border-radius:50%;background:${d.c};border:2.5px solid var(--surface);box-shadow:var(--shadow)${d.live?';animation:eidpulse 1.8s infinite':''}` })),
       live: [
-        { code:'NG', name: liveFeat.title, reporting: liveFeat.reporting, updated: ekiti?'Declared':'…', bar: liveFeat.reportBar,
+        { code:'NG', name: liveFeat.title, reporting: liveFeat.reporting, updated: liveFeat.isLive?'Live':'…', bar: liveFeat.reportBar,
           cands: liveFeat.cands.slice(0,2).map(cd=>({name:cd.name, party:cd.party, pct:cd.pct, color:cd.color})) },
       ],
       upcoming: [
         { day:'—', mon:'2027', name:'General Election', country:'Nigeria', type:'Presidential', left:'Scheduled' },
       ],
       recent: [
-        { code:'NG', name:'Ekiti Governorship', date:'Jun 2026', winner: (ekiti&&ekiti.winner&&ekiti.winner.name)||'B. Oyebanji', party:'APC', turnout:'Declared', color:P.APC },
+        { code:'NG', name:'Ekiti Governorship', date:'Jun 2026', winner: (ek&&ek.winner&&ek.winner.name)||'B. Oyebanji', party:'APC', turnout:'Declared', color:P.APC },
         { code:'NG', name:'Nigeria Presidential', date:'Feb 2023', winner:'B. Tinubu', party:'APC', turnout:'27.1%', color:P.APC },
       ],
     };

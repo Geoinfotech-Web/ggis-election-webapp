@@ -30,6 +30,10 @@ const {
   getPollingDirectoryTree,
   quarantineLegacyElectionResults,
   getDbStatus,
+  insertLiveSubmission,
+  getLiveSubmissionById,
+  listLiveSubmissions,
+  updateLiveSubmissionStatus,
   CSV_PATH,
 } = require('./db');
 const {
@@ -59,6 +63,31 @@ const sourceUpload = multer({
   fileFilter: (_req, file, callback) => {
     const allowed = /\.(pdf|csv|json)$/i.test(file.originalname || '');
     callback(allowed ? null : new Error('Source evidence must be PDF, CSV, or JSON.'), allowed);
+  },
+});
+
+const LIVE_SUBMISSIONS_DIR = process.env.LIVE_SUBMISSIONS_DIR
+  ? path.resolve(process.env.LIVE_SUBMISSIONS_DIR)
+  : path.join(__dirname, 'data', 'live-submissions');
+
+const liveSubmissionUpload = multer({
+  storage: multer.diskStorage({
+    destination: (_req, _file, cb) => {
+      fs.mkdir(LIVE_SUBMISSIONS_DIR, { recursive: true })
+        .then(() => cb(null, LIVE_SUBMISSIONS_DIR))
+        .catch((err) => cb(err));
+    },
+    filename: (_req, file, cb) => {
+      const safe = String(file.originalname || 'sheet.jpg')
+        .replace(/[^a-zA-Z0-9._-]+/g, '_')
+        .slice(0, 80);
+      cb(null, `${Date.now()}-${crypto.randomBytes(6).toString('hex')}-${safe}`);
+    },
+  }),
+  limits: { fileSize: 12 * 1024 * 1024, files: 1, parts: 20 },
+  fileFilter: (_req, file, callback) => {
+    const allowed = /^image\//i.test(file.mimetype || '') || /\.(jpe?g|png|webp|gif|heic)$/i.test(file.originalname || '');
+    callback(allowed ? null : new Error('Result sheet must be an image.'), allowed);
   },
 });
 
@@ -1485,6 +1514,20 @@ app.get('/api/polling-directory', async (req, res) => {
 const BBC_AFRICA_RSS_URL = 'https://feeds.bbci.co.uk/news/world/africa/rss.xml';
 const NEWS_API_KEY = process.env.NEWS_API_KEY || '';
 
+const NIGERIA_GEO_HINTS = [
+  'nigeria', 'nigerian', 'inec', 'abuja', 'lagos', 'kano', 'rivers', 'kaduna',
+  'oyo', 'ogun', 'anambra', 'enugu', 'imo', 'edo', 'delta', 'benue', 'plateau',
+  'sokoto', 'katsina', 'bauchi', 'borno', 'yobe', 'adamawa', 'taraba', 'gombe',
+  'jigawa', 'kebbi', 'zamfara', 'kwara', 'kogi', 'nasarawa', 'ekiti',
+  'ondo', 'osun', 'cross river', 'akwa ibom', 'bayelsa', 'ebonyi', 'abia', 'fct',
+];
+
+const ELECTION_TOPIC_HINTS = [
+  'election', 'electoral', 'inec', 'polling unit', 'ballot', 'presidential',
+  'governorship', 'gubernatorial', 'voter', 'votes', 'campaign', 'candidate',
+  'collation', 'returning officer', 'ec8', 'irev',
+];
+
 function decodeXmlText(value) {
   return String(value || '')
     .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
@@ -1512,72 +1555,128 @@ function parseBbcRss(xml) {
     .filter((article) => article.title && article.url);
 }
 
-async function fetchBbcAfricaNews() {
+function articleMatchText(article) {
+  let url = String(article?.url || '');
+  try {
+    const parsed = new URL(url);
+    url = `${parsed.origin}${parsed.pathname}`;
+  } catch (_err) {
+    url = url.split(/[?#]/)[0];
+  }
+  return [
+    article?.title,
+    url,
+    article?.source,
+    article?.description,
+  ].filter(Boolean).join(' ').toLowerCase();
+}
+
+function haystackIncludesHint(hay, hint) {
+  const needle = String(hint || '').toLowerCase();
+  if (!needle) return false;
+  // Short tokens (state codes, "vote") must be whole words — avoid URL/query false positives.
+  if (needle.length <= 4) {
+    return new RegExp(`(?:^|[^a-z0-9])${needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?:[^a-z0-9]|$)`).test(hay);
+  }
+  return hay.includes(needle);
+}
+
+function isNigeriaElectionArticle(article) {
+  const hay = articleMatchText(article);
+  if (!hay) return false;
+  const hasNigeria = NIGERIA_GEO_HINTS.some((hint) => haystackIncludesHint(hay, hint));
+  const hasElection = ELECTION_TOPIC_HINTS.some((hint) => haystackIncludesHint(hay, hint));
+  return hasNigeria && hasElection;
+}
+
+function filterNigeriaElectionNews(articles) {
+  return (articles || []).filter(isNigeriaElectionArticle);
+}
+
+async function fetchBbcNigeriaElectionNews() {
   const response = await fetch(BBC_AFRICA_RSS_URL, {
     headers: { 'User-Agent': 'Nigeria-Election-GIS-Dashboard/1.0' },
     signal: AbortSignal.timeout(8000),
   });
   if (!response.ok) throw new Error(`BBC RSS returned ${response.status}`);
-  return parseBbcRss(await response.text()).slice(0, 4);
+  return filterNigeriaElectionNews(parseBbcRss(await response.text())).slice(0, 4);
 }
 
-async function fetchNewsApiElectionNews(state = 'Ekiti') {
+async function fetchNewsApiElectionNews() {
   if (!NEWS_API_KEY) return [];
   const url = new URL('https://newsapi.org/v2/everything');
-  url.searchParams.set('q', `${state} Nigeria election`);
+  url.searchParams.set('q', 'Nigeria election OR INEC OR "polling unit"');
   url.searchParams.set('language', 'en');
   url.searchParams.set('sortBy', 'publishedAt');
-  url.searchParams.set('pageSize', '8');
+  url.searchParams.set('pageSize', '12');
   url.searchParams.set('apiKey', NEWS_API_KEY);
   const response = await fetch(url, { signal: AbortSignal.timeout(8000) });
   if (!response.ok) throw new Error(`NewsAPI returned ${response.status}`);
   const data = await response.json();
   if (data.status !== 'ok') throw new Error(data.message || 'NewsAPI returned no result.');
-  return (data.articles || []).map((article) => ({
+  return filterNigeriaElectionNews((data.articles || []).map((article) => ({
     title: article.title,
     url: article.url,
     source: article.source?.name || 'NewsAPI',
     publishedAt: article.publishedAt,
-  })).filter((article) => article.title && article.url);
+    description: article.description || '',
+  })).filter((article) => article.title && article.url));
 }
 
 const ELECTION_RESULT_ARCHIVE = {};
 
 async function getElectionResultResponse(state) {
-  const stateName = toDisplayCase(state || 'Ekiti');
+  const stateName = toDisplayCase(state || 'Nigeria');
   const archive = ELECTION_RESULT_ARCHIVE[normalizeLookupKey(stateName)] || [];
   let bbcNews = [];
   let newsApiNews = [];
   let gdeltNews = [];
-  const query = encodeURIComponent(`${stateName} Nigeria election result`);
+  // Nigeria-locked query — do not use per-state defaults that pull other African stories.
+  const query = encodeURIComponent('Nigeria election');
   const [newsApiResult, bbcResult, gdeltResult] = await Promise.allSettled([
-    fetchNewsApiElectionNews(stateName),
-    fetchBbcAfricaNews(),
-    fetch(`https://api.gdeltproject.org/api/v2/doc/doc?query=${query}&mode=artlist&format=json&maxrecords=6&sort=datedesc`, { signal: AbortSignal.timeout(8000) }),
+    fetchNewsApiElectionNews(),
+    fetchBbcNigeriaElectionNews(),
+    fetch(`https://api.gdeltproject.org/api/v2/doc/doc?query=${query}&mode=artlist&format=json&maxrecords=8&sort=datedesc`, { signal: AbortSignal.timeout(8000) }),
   ]);
 
   if (newsApiResult.status === 'fulfilled') newsApiNews = newsApiResult.value;
   else console.warn('NewsAPI election refresh unavailable:', newsApiResult.reason?.message || newsApiResult.reason);
 
   if (bbcResult.status === 'fulfilled') bbcNews = bbcResult.value;
-  else console.warn('BBC Africa news refresh unavailable:', bbcResult.reason?.message || bbcResult.reason);
+  else console.warn('BBC Nigeria news refresh unavailable:', bbcResult.reason?.message || bbcResult.reason);
 
   if (gdeltResult.status === 'fulfilled' && gdeltResult.value.ok) {
     const data = await gdeltResult.value.json();
-    gdeltNews = (data.articles || []).map((article) => ({ title: article.title, url: article.url, source: article.domain, publishedAt: article.seendate }));
+    gdeltNews = filterNigeriaElectionNews((data.articles || []).map((article) => ({
+      title: article.title,
+      url: article.url,
+      source: article.domain,
+      publishedAt: article.seendate,
+    })));
   } else if (gdeltResult.status === 'rejected') {
     console.warn('GDELT election news refresh unavailable:', gdeltResult.reason?.message || gdeltResult.reason);
   }
 
-  const news = [...newsApiNews, ...bbcNews, ...gdeltNews]
+  const news = filterNigeriaElectionNews([...newsApiNews, ...bbcNews, ...gdeltNews])
     .filter((article, index, all) => article.url && all.findIndex((item) => item.url === article.url) === index)
     .slice(0, 8);
 
   if (!news.length) {
-    news.push(...(archive[0]?.sources || []).map((source) => ({ title: source.title, url: source.url, source: source.publisher, publishedAt: archive[0].declaredDate })));
+    news.push(...filterNigeriaElectionNews((archive[0]?.sources || []).map((source) => ({
+      title: source.title,
+      url: source.url,
+      source: source.publisher,
+      publishedAt: archive[0].declaredDate,
+    }))));
   }
 
-  return { state: stateName, latest: archive[0] || null, history: archive.slice(1), news, newsApi: 'NewsAPI + BBC News Africa RSS + GDELT 2.1 DOC API' };
+  return {
+    state: stateName,
+    latest: archive[0] || null,
+    history: archive.slice(1),
+    news,
+    newsApi: 'NewsAPI + BBC (Nigeria-filtered) + GDELT 2.1 DOC API',
+  };
 }
 
 app.get('/api/election-results', async (req, res) => {
@@ -1876,6 +1975,74 @@ app.get('/api/nigeria-kpis', async (req, res) => {
 app.get('/api/inec-ingest/status', async (_req, res) => {
   const status = getIngestStatus();
   return res.json(status);
+});
+
+app.get('/api/live-submissions', (req, res) => {
+  try {
+    const status = req.query.status ? String(req.query.status) : 'all';
+    const submissions = listLiveSubmissions({ status });
+    return res.json({ ok: true, submissions, count: submissions.length });
+  } catch (error) {
+    console.error('Error listing live submissions:', error.message || error);
+    return res.status(500).json({ error: 'Failed to list live submissions.' });
+  }
+});
+
+app.post('/api/live-submissions', liveSubmissionUpload.single('file'), (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: 'Result sheet image is required.' });
+    }
+    const lat = Number(req.body.lat);
+    const lng = Number(req.body.lng);
+    const accuracy = req.body.accuracy != null && req.body.accuracy !== '' ? Number(req.body.accuracy) : null;
+    if (!Number.isFinite(lat) || !Number.isFinite(lng)) {
+      return res.status(400).json({ error: 'GPS coordinates are required.' });
+    }
+    const pu = String(req.body.pu || '').trim();
+    const state = String(req.body.state || '').trim();
+    if (!pu || !state) {
+      return res.status(400).json({ error: 'Polling unit and state are required.' });
+    }
+    const relativePath = path.relative(path.join(__dirname, 'data'), req.file.path).replace(/\\/g, '/');
+    const row = insertLiveSubmission({
+      state,
+      lga: String(req.body.lga || '').trim() || null,
+      ward: String(req.body.ward || '').trim() || null,
+      pu,
+      pu_code: String(req.body.pu_code || '').trim() || null,
+      lat,
+      lng,
+      accuracy: Number.isFinite(accuracy) ? accuracy : null,
+      file_name: req.file.originalname || req.file.filename,
+      file_path: relativePath.startsWith('..') ? req.file.path : relativePath,
+      status: 'Pending review',
+      note: String(req.body.note || '').trim() || null,
+    });
+    return res.status(201).json({ ok: true, submission: row });
+  } catch (error) {
+    console.error('Error creating live submission:', error.message || error);
+    return res.status(500).json({ error: error.message || 'Failed to save submission.' });
+  }
+});
+
+app.patch('/api/live-submissions/:id', requireAdminWrite, (req, res) => {
+  try {
+    const id = Number(req.params.id);
+    if (!Number.isFinite(id)) {
+      return res.status(400).json({ error: 'Invalid submission id.' });
+    }
+    const status = String(req.body.status || '').trim();
+    const note = req.body.note != null ? String(req.body.note) : null;
+    const row = updateLiveSubmissionStatus(id, status, note);
+    if (!row) {
+      return res.status(404).json({ error: 'Submission not found.' });
+    }
+    return res.json({ ok: true, submission: row });
+  } catch (error) {
+    console.error('Error updating live submission:', error.message || error);
+    return res.status(400).json({ error: error.message || 'Failed to update submission.' });
+  }
 });
 
 app.get('/api/admin/db/status', requireAdminApi, (_req, res) => {

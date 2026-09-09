@@ -121,14 +121,20 @@
     });
     map.createPane("grid3");
     map.getPane("grid3").style.zIndex = 450;
+    map.createPane("official");
+    map.getPane("official").style.zIndex = 455;
+    map.createPane("citizen");
+    map.getPane("citizen").style.zIndex = 460;
     inst = {
       map,
       tile: null,
       markers: global.L.layerGroup().addTo(map),
       route: global.L.layerGroup().addTo(map),
       points: global.L.layerGroup().addTo(map),
+      citizenMarkers: global.L.layerGroup().addTo(map),
       overlays: {},
       cfg: {},
+      comparePct: 50,
     };
     store.set(el, inst);
     if (typeof ResizeObserver !== "undefined") {
@@ -469,18 +475,17 @@
     return where;
   }
 
-  function styleForFeature(layerId, props, cfg) {
-    const theme = cfg && cfg.resultTheme;
+  function styleForFeature(layerId, props, cfg, themeOverride) {
+    const theme = themeOverride || (cfg && cfg.resultTheme);
     const base = STYLES[layerId] || STYLES.state;
     if (!theme || !theme.units) return base;
-    const hitKey = resultKey(layerId, props, theme);
     const hit = resolveResultUnit(theme, layerId, props);
     if (hit && hit.color) {
       return {
         color: '#ffffff',
         weight: layerId === 'state' ? 1.4 : 1.1,
         fillColor: hit.color,
-        fillOpacity: theme.level === layerId ? 0.78 : 0,
+        fillOpacity: hit.fillOpacity != null ? hit.fillOpacity : (theme.level === layerId ? 0.78 : 0),
         opacity: 0.95,
       };
     }
@@ -490,11 +495,18 @@
     return base;
   }
 
-  function popupForFeature(layerId, props, cfg) {
+  function popupForFeature(layerId, props, cfg, themeOverride) {
     const label = featureLabel(layerId, props);
-    const theme = cfg && cfg.resultTheme;
+    const theme = themeOverride || (cfg && cfg.resultTheme);
     const hit = theme && theme.units ? resolveResultUnit(theme, layerId, props) : null;
     if (!hit) return '<strong>' + label.replace(/</g, '&lt;') + '</strong>';
+    if (hit.pending != null || hit.approved != null || (hit.count != null && (hit.party === 'Citizen' || hit.party === 'Pending'))) {
+      const bits = [];
+      if (hit.approved) bits.push(hit.approved + ' approved');
+      if (hit.pending) bits.push(hit.pending + ' pending');
+      if (!bits.length && hit.count != null) bits.push(hit.count + ' public returns');
+      return '<strong>' + label.replace(/</g, '&lt;') + '</strong><br>Public: ' + bits.join(' · ');
+    }
     const share = hit.share != null ? `<br>${Number(hit.share).toFixed(1)}%` : '';
     return [
       '<strong>' + label.replace(/</g, '&lt;') + '</strong>',
@@ -503,24 +515,27 @@
     ].filter(Boolean).join('<br>');
   }
 
-  function putGeoJson(inst, id, data, isPoint) {
+  function putGeoJson(inst, id, data, isPoint, opts) {
     clearOverlay(inst, id);
     if (!data || !data.features || !data.features.length) return;
     const cfg = inst.cfg || {};
+    const options = opts || {};
+    const pane = options.pane || 'grid3';
+    const theme = options.theme || cfg.resultTheme;
     inst.overlays[id] = global.L.geoJSON(data, {
-      pane: 'grid3',
-      style: (feat) => styleForFeature(id, feat.properties, cfg),
+      pane,
+      style: (feat) => styleForFeature(id.replace(/^citizen-/, '').replace(/^official-/, ''), feat.properties, cfg, theme),
       pointToLayer: isPoint
         ? (feat, latlng) => {
-            if (id === 'polling') {
+            if (id === 'polling' || id.indexOf('polling') >= 0) {
               return global.L.marker(latlng, {
-                pane: 'grid3',
+                pane,
                 icon: pollingUnitIcon(),
                 keyboard: false,
               });
             }
             return global.L.circleMarker(latlng, {
-              pane: 'grid3',
+              pane,
               radius: 5,
               color: '#ffffff',
               weight: 1,
@@ -530,17 +545,17 @@
           }
         : undefined,
       onEachFeature: (feat, layer) => {
-        const label = featureLabel(id, feat.properties);
+        const layerKind = id.replace(/^citizen-/, '').replace(/^official-/, '');
+        const label = featureLabel(layerKind, feat.properties);
         if (label) {
           layer.bindTooltip(label, { sticky: true, direction: 'top' });
-          layer.bindPopup(popupForFeature(id, feat.properties, cfg));
+          layer.bindPopup(popupForFeature(layerKind, feat.properties, cfg, theme));
         }
-        const theme = cfg && cfg.resultTheme;
-        if (theme && theme.units && cfg.onResultUnitClick) {
+        if (theme && theme.units && cfg.onResultUnitClick && !options.skipClick) {
           layer.on('click', () => {
-            const hit = resolveResultUnit(theme, id, feat.properties);
-            const hitKey = (hit && hit._canonicalKey) || resultKey(id, feat.properties, theme);
-            if (hitKey && hit) cfg.onResultUnitClick(hitKey, hit, id);
+            const hit = resolveResultUnit(theme, layerKind, feat.properties);
+            const hitKey = (hit && hit._canonicalKey) || resultKey(layerKind, feat.properties, theme);
+            if (hitKey && hit) cfg.onResultUnitClick(hitKey, hit, layerKind);
           });
         }
       },
@@ -611,14 +626,77 @@
     const zoom = inst.map.getZoom();
     const bbox = bboxOf(inst.map);
     const themeKey = inst.cfg.resultTheme && inst.cfg.resultTheme.key ? inst.cfg.resultTheme.key : '';
-    const key = JSON.stringify({ layers, zoom: Math.floor(zoom), bbox, themeKey });
+    const citizenKey = inst.cfg.citizenTheme && inst.cfg.citizenTheme.key ? inst.cfg.citizenTheme.key : '';
+    const compareMode = inst.cfg.compareMode === 'compare' ? 'compare' : 'overlay';
+    const showOfficial = inst.cfg.showOfficial !== false;
+    const showCitizen = inst.cfg.showCitizen !== false;
+    const key = JSON.stringify({
+      layers, zoom: Math.floor(zoom), bbox, themeKey, citizenKey, compareMode, showOfficial, showCitizen,
+      comparePct: Math.round(inst.comparePct || 50),
+    });
     if (inst.overlayKey === key) return;
     inst.overlayKey = key;
 
-    if (layers.state) {
+    const isLive = !!inst.cfg.live;
+    const officialPane = isLive && compareMode === 'compare' ? 'official' : 'grid3';
+    const citizenPane = isLive && compareMode === 'compare' ? 'citizen' : 'grid3';
+
+    if (layers.state || (isLive && (showOfficial || showCitizen))) {
       const data = await loadLayer("state", bbox);
-      if (inst.overlayKey === key) putGeoJson(inst, "state", data);
-    } else clearOverlay(inst, "state");
+      if (inst.overlayKey !== key) return;
+
+      if (isLive) {
+        clearOverlay(inst, "state");
+        clearOverlay(inst, "official-state");
+        clearOverlay(inst, "citizen-state");
+
+        if (compareMode === 'compare') {
+          // Left: official choropleth (or muted outlines)
+          if (showOfficial) {
+            putGeoJson(inst, "official-state", data, false, {
+              pane: officialPane,
+              theme: (inst.cfg.resultTheme && inst.cfg.resultTheme.ok) ? inst.cfg.resultTheme : null,
+              skipClick: true,
+            });
+          }
+          // Right: citizen choropleth
+          if (showCitizen) {
+            putGeoJson(inst, "citizen-state", data, false, {
+              pane: citizenPane,
+              theme: (inst.cfg.citizenTheme && inst.cfg.citizenTheme.ok) ? inst.cfg.citizenTheme : null,
+              skipClick: true,
+            });
+          }
+          applyCompareClip(inst, inst.comparePct != null ? inst.comparePct : (inst.cfg.comparePct || 50));
+        } else {
+          // Overlay: outlines + optional official fill + citizen fill on top when toggled
+          if (showOfficial && inst.cfg.resultTheme && inst.cfg.resultTheme.ok) {
+            putGeoJson(inst, "official-state", data, false, {
+              pane: 'grid3',
+              theme: inst.cfg.resultTheme,
+            });
+          } else if (layers.state) {
+            putGeoJson(inst, "state", data, false, { pane: 'grid3', theme: null });
+          }
+          if (showCitizen && inst.cfg.citizenTheme && inst.cfg.citizenTheme.ok) {
+            putGeoJson(inst, "citizen-state", data, false, {
+              pane: 'citizen',
+              theme: inst.cfg.citizenTheme,
+              skipClick: true,
+            });
+          }
+          clearCompareClip(inst);
+        }
+      } else if (layers.state) {
+        putGeoJson(inst, "state", data);
+      } else {
+        clearOverlay(inst, "state");
+      }
+    } else {
+      clearOverlay(inst, "state");
+      clearOverlay(inst, "official-state");
+      clearOverlay(inst, "citizen-state");
+    }
 
     if (layers.lga && zoom >= 5) {
       const theme = inst.cfg.resultTheme;
@@ -667,6 +745,137 @@
     } else if (!inst.cfg.keepLocalPoints) {
       clearOverlay(inst, "polling");
     }
+
+    if (isLive) paintCitizenMarkers(inst);
+  }
+
+  function applyCompareClip(inst, pct) {
+    const p = Math.max(5, Math.min(95, Number(pct) || 50));
+    inst.comparePct = p;
+    const leftPane = inst.map.getPane('official');
+    const rightPane = inst.map.getPane('citizen');
+    if (leftPane) leftPane.style.clipPath = 'inset(0 ' + (100 - p) + '% 0 0)';
+    if (rightPane) rightPane.style.clipPath = 'inset(0 0 0 ' + p + '%)';
+    syncCompareHandle(inst);
+  }
+
+  function clearCompareClip(inst) {
+    const leftPane = inst.map.getPane('official');
+    const rightPane = inst.map.getPane('citizen');
+    if (leftPane) leftPane.style.clipPath = '';
+    if (rightPane) rightPane.style.clipPath = '';
+    if (inst.compareUi) {
+      inst.compareUi.style.display = 'none';
+    }
+  }
+
+  function syncCompareHandle(inst) {
+    if (!inst || !inst.compareUi) return;
+    const cfg = inst.cfg || {};
+    if (cfg.compareMode !== 'compare') {
+      inst.compareUi.style.display = 'none';
+      return;
+    }
+    inst.compareUi.style.display = 'block';
+    const p = inst.comparePct != null ? inst.comparePct : 50;
+    const handle = inst.compareUi.querySelector('.eid-compare-handle');
+    if (handle) handle.style.left = p + '%';
+    const leftCap = inst.compareUi.querySelector('.eid-compare-cap-left');
+    const rightCap = inst.compareUi.querySelector('.eid-compare-cap-right');
+    if (leftCap) {
+      leftCap.textContent = (cfg.resultTheme && cfg.resultTheme.ok) ? 'Official' : 'Official (awaiting)';
+    }
+    if (rightCap) rightCap.textContent = 'Public';
+  }
+
+  function ensureCompareUi(inst, el) {
+    if (inst.compareUi) return inst.compareUi;
+    const wrap = document.createElement('div');
+    wrap.className = 'eid-compare-ui';
+    wrap.style.cssText = 'position:absolute;inset:0;z-index:650;pointer-events:none;display:none';
+    wrap.innerHTML =
+      '<div class="eid-compare-cap-left" style="position:absolute;top:10px;left:10px;pointer-events:none;font:600 10px/1 IBM Plex Sans,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(22,27,34,.72);padding:5px 8px;border-radius:6px">Official</div>' +
+      '<div class="eid-compare-cap-right" style="position:absolute;top:10px;right:10px;pointer-events:none;font:600 10px/1 IBM Plex Sans,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(22,27,34,.72);padding:5px 8px;border-radius:6px">Public</div>' +
+      '<div class="eid-compare-handle" style="position:absolute;top:0;bottom:0;width:28px;margin-left:-14px;left:50%;pointer-events:auto;cursor:ew-resize">' +
+      '<div style="position:absolute;left:50%;top:0;bottom:0;width:2px;margin-left:-1px;background:rgba(255,255,255,.92);box-shadow:0 0 0 1px rgba(0,0,0,.25)"></div>' +
+      '<div style="position:absolute;left:50%;top:50%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:#1c8f86;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.35);display:grid;place-items:center;color:#fff;font-size:14px;line-height:1">⇔</div>' +
+      '</div>';
+    const host = el.parentElement || el;
+    if (getComputedStyle(host).position === 'static') host.style.position = 'relative';
+    host.appendChild(wrap);
+    const handle = wrap.querySelector('.eid-compare-handle');
+    let dragging = false;
+    const setFromClientX = (clientX) => {
+      const rect = host.getBoundingClientRect();
+      if (!rect.width) return;
+      const pct = ((clientX - rect.left) / rect.width) * 100;
+      applyCompareClip(inst, pct);
+      if (typeof inst.cfg.onComparePct === 'function') inst.cfg.onComparePct(inst.comparePct);
+    };
+    const onMove = (e) => {
+      if (!dragging) return;
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      setFromClientX(clientX);
+      e.preventDefault();
+    };
+    const onUp = () => {
+      dragging = false;
+      document.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseup', onUp);
+      document.removeEventListener('touchmove', onMove);
+      document.removeEventListener('touchend', onUp);
+    };
+    handle.addEventListener('mousedown', (e) => {
+      dragging = true;
+      document.addEventListener('mousemove', onMove);
+      document.addEventListener('mouseup', onUp);
+      e.preventDefault();
+      e.stopPropagation();
+    });
+    handle.addEventListener('touchstart', (e) => {
+      dragging = true;
+      document.addEventListener('touchmove', onMove, { passive: false });
+      document.addEventListener('touchend', onUp);
+      e.preventDefault();
+      e.stopPropagation();
+    }, { passive: false });
+    inst.compareUi = wrap;
+    return wrap;
+  }
+
+  function paintCitizenMarkers(inst) {
+    if (!inst.citizenMarkers) {
+      inst.citizenMarkers = global.L.layerGroup();
+      inst.citizenMarkers.addTo(inst.map);
+    }
+    inst.citizenMarkers.clearLayers();
+    const cfg = inst.cfg || {};
+    if (!cfg.live || cfg.showCitizen === false) return;
+    const paneName = 'citizen';
+    const list = cfg.citizenMarkers || [];
+    list.forEach((m) => {
+      if (m.lat == null || m.lng == null) return;
+      const approved = /approved/i.test(String(m.status || ''));
+      const color = approved ? '#2f9150' : '#d69a34';
+      const marker = global.L.circleMarker([Number(m.lat), Number(m.lng)], {
+        pane: paneName,
+        radius: approved ? 8 : 7,
+        color: '#ffffff',
+        weight: 2,
+        fillColor: color,
+        fillOpacity: 0.95,
+        interactive: true,
+      });
+      const tip = [m.pu || 'Citizen return', m.state, m.status].filter(Boolean).join(' · ');
+      marker.bindTooltip(tip, { direction: 'top' });
+      marker.bindPopup(
+        '<strong>' + String(m.pu || 'Citizen return').replace(/</g, '&lt;') + '</strong><br>' +
+        String([m.state, m.lga, m.ward].filter(Boolean).join(' · ')).replace(/</g, '&lt;') +
+        '<br>' + String(m.status || '').replace(/</g, '&lt;')
+      );
+      inst.citizenMarkers.addLayer(marker);
+    });
+    if (cfg.compareMode === 'compare') applyCompareClip(inst, inst.comparePct != null ? inst.comparePct : (cfg.comparePct || 50));
   }
 
   function adminViewKey(admin) {
@@ -713,8 +922,19 @@
     const inst = ensure(el);
     if (!inst) return;
     inst.cfg = cfg || {};
+    if (cfg.comparePct != null) inst.comparePct = Number(cfg.comparePct);
+    if (!inst.map.getPane('official')) {
+      inst.map.createPane('official');
+      inst.map.getPane('official').style.zIndex = 455;
+    }
+    if (!inst.map.getPane('citizen')) {
+      inst.map.createPane('citizen');
+      inst.map.getPane('citizen').style.zIndex = 460;
+    }
+    if (!inst.citizenMarkers) {
+      inst.citizenMarkers = global.L.layerGroup().addTo(inst.map);
+    }
     const view = GEO[cfg.scope] || GEO.global;
-    const liveView = cfg.live ? GEO.ekiti : view;
     setBasemap(el, cfg.basemap || "streets");
     const user = cfg.user && cfg.user.lat != null ? cfg.user : null;
     const focus = cfg.focus && cfg.focus.lat != null ? cfg.focus : null;
@@ -725,7 +945,7 @@
         ? adminViewKey(admin)
         : user
           ? "user:" + user.lat.toFixed(4) + "," + user.lng.toFixed(4)
-          : (cfg.live ? "ekiti" : cfg.scope) + ":" + (cfg.zoom || liveView.zoom);
+          : (cfg.scope || "global") + ":" + (cfg.zoom || view.zoom);
     if (inst.viewKey !== viewKey) {
       inst.viewKey = viewKey;
       if (focus) goToPoint(inst, focus.lat, focus.lng, cfg.focusZoom || 16);
@@ -737,7 +957,7 @@
         inst.map.setView([user.lat, user.lng], 13);
       } else if (!admin && !focus) {
         beginNav(inst);
-        inst.map.setView(liveView.center, cfg.zoom || liveView.zoom);
+        inst.map.setView(view.center, cfg.zoom || view.zoom);
       }
     }
     inst.markers.clearLayers();
@@ -784,6 +1004,19 @@
     // Paint selection last so its red pin and halo remain above ordinary markers.
     paintFocus(inst, focus);
     paintRoute(inst, cfg.route);
+
+    if (cfg.live) {
+      ensureCompareUi(inst, el);
+      if (cfg.compareMode === 'compare') {
+        applyCompareClip(inst, inst.comparePct != null ? inst.comparePct : (cfg.comparePct || 50));
+      } else {
+        clearCompareClip(inst);
+      }
+    } else if (inst.compareUi) {
+      inst.compareUi.style.display = 'none';
+    }
+
+    inst.overlayKey = null;
     refreshOverlays(el);
     requestAnimationFrame(() => {
       if (inst.map) inst.map.invalidateSize({ animate: false });
