@@ -507,6 +507,12 @@
       if (!bits.length && hit.count != null) bits.push(hit.count + ' public returns');
       return '<strong>' + label.replace(/</g, '&lt;') + '</strong><br>Public: ' + bits.join(' · ');
     }
+    if (theme && theme.coverage) {
+      const tip = hit.coverage
+        ? ('Archive · ' + String(hit.winner || '').replace(/</g, '&lt;') + ' · click to open')
+        : 'No archive yet · click to select';
+      return '<strong>' + label.replace(/</g, '&lt;') + '</strong><br>' + tip;
+    }
     const share = hit.share != null ? `<br>${Number(hit.share).toFixed(1)}%` : '';
     return [
       '<strong>' + label.replace(/</g, '&lt;') + '</strong>',

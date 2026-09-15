@@ -56,6 +56,12 @@ a:hover{color:var(--primary)}
 @keyframes eidpulse{0%{box-shadow:0 0 0 0 var(--live-ring)}70%{box-shadow:0 0 0 9px rgba(0,0,0,0)}100%{box-shadow:0 0 0 0 rgba(0,0,0,0)}}
 @keyframes eidblink{0%,100%{opacity:1}50%{opacity:.35}}
 @keyframes eidspin{to{transform:rotate(360deg)}}
+@keyframes eidnudge{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.eid-gov-prompt{display:flex;flex-direction:column;align-items:center;gap:4px;margin:2px 0 4px;padding:10px 11px;border:1px dashed var(--primary);border-radius:10px;background:var(--primary-soft);text-align:center}
+.eid-gov-prompt__label{font-size:12px;font-weight:600;color:var(--text);line-height:1.35}
+.eid-gov-prompt__hint{font-size:10.5px;color:var(--dim);line-height:1.35}
+.eid-gov-prompt__arrow{color:var(--primary);font-size:22px;line-height:1;animation:eidnudge 1.1s ease-in-out infinite}
+.eid-gov-state-target{outline:2px solid var(--primary);outline-offset:2px;border-radius:9px;box-shadow:0 0 0 4px var(--primary-soft)}
 /* ── responsive ── */
 @media (max-width:1200px){
   .ov-header{flex-wrap:wrap !important}
@@ -403,22 +409,6 @@ a:hover{color:var(--primary)}
           <div style="display:flex;align-items:center;gap:9px;margin-bottom:4px"><span style="font-family:'IBM Plex Sans';font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--primary)">Country overview</span><span style="width:4px;height:4px;border-radius:50%;background:var(--mute)"></span><span style="font-size:11.5px;color:var(--mute)">{{ country.region }}</span></div>
           <h1 style="margin:0;font-size:23px;font-weight:600;letter-spacing:-.02em;line-height:1">{{ country.name }}</h1>
         </div>
-        <sc-if value="{{ isNigeria }}" hint-placeholder-val="{{ false }}">
-        <div class="hdr-search" style="flex:none;display:flex;align-items:center;gap:8px;z-index:30">
-          <div style="position:relative"><span class="msi" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:17px;color:var(--mute);pointer-events:none">search</span><input value="{{ puSearch.query }}" onInput="{{ puSearch.onQuery }}" placeholder="Search polling units…" style="height:34px;width:min(300px,42vw);padding:0 12px 0 33px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:8px;font-family:inherit;font-size:12.5px;outline:none" style-focus="border-color:var(--primary)">
-            <sc-if value="{{ puSearch.hasResults }}" hint-placeholder-val="{{ false }}">
-            <div class="eid-scroll" style="position:absolute;left:0;top:40px;width:100%;max-height:300px;overflow-y:auto;background:var(--surface);border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow);z-index:40">
-              <sc-for list="{{ puSearch.results }}" as="r" hint-placeholder-count="4">
-                <div onClick="{{ r.select }}" style="display:flex;align-items:center;gap:9px;padding:9px 11px;border-bottom:1px solid var(--border);cursor:pointer" style-hover="background:var(--surface2)"><span class="msi" style="font-size:16px;color:var(--primary)">where_to_vote</span><div style="min-width:0"><div style="font-size:12px;font-weight:500;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.name }} · {{ r.venue }}</div><div style="font-size:10px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.place }}</div></div></div>
-              </sc-for>
-            </div>
-            </sc-if>
-            <sc-if value="{{ puSearch.noMatch }}" hint-placeholder-val="{{ false }}">
-            <div style="position:absolute;left:0;top:40px;width:100%;background:var(--surface);border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow);z-index:40;padding:14px;text-align:center;font-size:11.5px;color:var(--mute)">No polling units match “{{ puSearch.query }}”.</div>
-            </sc-if>
-          </div>
-        </div>
-        </sc-if>
         <div style="flex:1;min-width:0;display:flex;align-items:center;justify-content:flex-end;gap:9px">
           <span class="hdr-meta" style="display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 12px;border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--dim)"><span class="msi" style="font-size:15px;color:var(--up)">event_upcoming</span><span style="color:var(--mute)">Next:</span><span style="color:var(--text);font-weight:600">{{ country.next.countdown }}</span><span style="color:var(--mute)">· {{ country.next.date }}</span></span>
           <span style="display:inline-flex;align-items:center;gap:7px;height:32px;padding:0 12px;border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--dim)"><span style="width:7px;height:7px;border-radius:50%;background:{{ country.statusColor }}"></span>{{ country.statusLabel }}</span>
@@ -459,8 +449,17 @@ a:hover{color:var(--primary)}
               </div>
               <sc-if value="{{ elecNeedsState }}" hint-placeholder-val="{{ false }}">
               <div>
+                <sc-if value="{{ govStatePrompt }}" hint-placeholder-val="{{ false }}">
+                <div class="eid-gov-prompt" role="status">
+                  <div class="eid-gov-prompt__label">Select a state to continue</div>
+                  <div class="eid-gov-prompt__hint">Gubernatorial results are shown per state</div>
+                  <span class="msi eid-gov-prompt__arrow" aria-hidden="true">arrow_downward</span>
+                </div>
+                </sc-if>
                 <div style="font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:6px">Step 2 · State</div>
-                <select value="{{ ovElecStateVal }}" onChange="{{ onElecState }}" style="{{ selStyle }}"><option value="">Select state…</option><sc-for list="{{ govStateOptions }}" as="s" hint-placeholder-count="3"><option value="{{ s.name }}">{{ s.name }}</option></sc-for></select>
+                <div class="{{ govStateSelectWrap }}">
+                  <select value="{{ ovElecStateVal }}" onChange="{{ onElecState }}" style="{{ selStyle }}"><option value="">Select state…</option><sc-for list="{{ govStateOptions }}" as="s" hint-placeholder-count="3"><option value="{{ s.name }}">{{ s.name }}</option></sc-for></select>
+                </div>
               </div>
               </sc-if>
               <div>
@@ -480,36 +479,6 @@ a:hover{color:var(--primary)}
                 <div style="font-size:12.5px;color:var(--text);margin-bottom:5px">{{ elecSel.year }} · {{ elecSel.name }}</div>
                 <div style="display:flex;align-items:center;gap:7px;font-size:11px;color:var(--mute)"><span class="msi" style="font-size:14px">{{ elecSel.icon }}</span>{{ elecSel.meta }}</div>
               </div>
-              </sc-if>
-            </div>
-          </section>
-          <section style="border:1px solid var(--border2);border-radius:11px;overflow:hidden;background:var(--surface2)">
-            <div style="display:flex;align-items:center;gap:7px;padding:10px 11px;border-bottom:1px solid var(--border)">
-              <span class="msi" style="font-size:16px;color:var(--primary)">where_to_vote</span>
-              <div style="font-size:12px;font-weight:600;color:var(--text)">Find your polling unit</div>
-            </div>
-            <sc-if value="{{ puCoordCoverage }}" hint-placeholder-val="{{ false }}">
-            <div style="padding:8px 11px 0;font-size:10.5px;color:var(--mute);line-height:1.4">{{ puCoordCoverage }}</div>
-            </sc-if>
-            <div style="padding:11px;display:flex;flex-direction:column;gap:11px">
-              <div>
-                <div style="font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:6px">Step 1 · State</div>
-                <select value="{{ ngStateVal }}" onChange="{{ onNgState }}" style="{{ selStyle }}"><option value="">Select a state…</option><sc-for list="{{ ngView.states }}" as="s" hint-placeholder-count="5"><option value="{{ s.name }}">{{ s.name }}</option></sc-for></select>
-              </div>
-              <sc-if value="{{ ngView.hasState }}" hint-placeholder-val="{{ false }}">
-              <div>
-                <div style="font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:6px">Step 2 · LGA</div>
-                <select value="{{ ngView.lgaVal }}" onChange="{{ ngView.onLga }}" style="{{ selStyle }}"><option value="">{{ ngView.lgaPlaceholder }}</option><sc-for list="{{ ngView.lgaOpts }}" as="l" hint-placeholder-count="2"><option value="{{ l.name }}">{{ l.name }}</option></sc-for></select>
-              </div>
-              </sc-if>
-              <sc-if value="{{ ngView.hasLga }}" hint-placeholder-val="{{ false }}">
-              <div>
-                <div style="font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:6px">Step 3 · Ward</div>
-                <select value="{{ ngView.wardVal }}" onChange="{{ ngView.onWard }}" style="{{ selStyle }}"><option value="">{{ ngView.wardPlaceholder }}</option><sc-for list="{{ ngView.wardOpts }}" as="w" hint-placeholder-count="3"><option value="{{ w.name }}">{{ w.name }}</option></sc-for></select>
-              </div>
-              </sc-if>
-              <sc-if value="{{ ngView.hasWard }}" hint-placeholder-val="{{ false }}">
-              <div style="font-size:11px;color:var(--mute);line-height:1.45;padding:2px 1px 0">Polling units for this ward are listed in the right panel.</div>
               </sc-if>
             </div>
           </section>
@@ -568,85 +537,11 @@ a:hover{color:var(--primary)}
                   </sc-if>
                   <button onClick="{{ toggleBasemapPanel }}" title="Basemap" class="eid-map-fab" style="{{ basemapFabStyle }}"><span class="msi" style="font-size:18px">map</span></button>
                 </div>
-                <sc-if value="{{ isNigeria }}" hint-placeholder-val="{{ false }}">
-                <button onClick="{{ anaData.locate }}" title="Show polling units near me" class="eid-map-fab" style="color:var(--primary)">
-                  <sc-if value="{{ anaData.locating }}" hint-placeholder-val="{{ false }}"><span class="msi" style="font-size:18px;display:inline-block;animation:eidspin 1s linear infinite">progress_activity</span></sc-if>
-                  <sc-if value="{{ anaData.idleLocate }}" hint-placeholder-val="{{ true }}"><span class="msi" style="font-size:18px">my_location</span></sc-if>
-                </button>
-                </sc-if>
               </div>
             </div>
           </section>
         </main>
         <aside class="eid-scroll ov-aside-right" style="display:flex;flex-direction:column;gap:12px;min-height:0;overflow:hidden">
-          <sc-if value="{{ anaData.showNearPanel }}" hint-placeholder-val="{{ false }}">
-          <section style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;flex:1;min-height:0;display:flex;flex-direction:column">
-            <div style="display:flex;align-items:center;gap:8px;padding:12px 14px;border-bottom:1px solid var(--border);flex:none">
-              <span class="msi" style="font-size:16px;color:var(--primary)">near_me</span>
-              <div style="min-width:0"><h2 style="margin:0;font-size:13px;font-weight:600;color:var(--text)">Nearby polling units</h2><div style="font-size:10px;color:var(--mute)">{{ anaData.nearHint }}</div></div>
-              <button onClick="{{ resetAll }}" title="Reset" style="margin-left:auto;border:none;background:transparent;color:var(--mute);cursor:pointer;display:inline-flex;align-items:center;gap:3px;font-size:11px;font-family:inherit"><span class="msi" style="font-size:15px">restart_alt</span>Reset</button>
-            </div>
-            <div class="eid-scroll" style="padding:11px 12px;flex:1;min-height:0;max-height:min(62vh,520px);overflow-y:auto">
-              <sc-if value="{{ anaData.locating }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mute)"><span class="msi" style="font-size:16px;display:inline-block;animation:eidspin 1s linear infinite">progress_activity</span>Finding polling units near you…</div></sc-if>
-              <sc-if value="{{ anaData.geoError }}" hint-placeholder-val="{{ false }}"><div style="font-size:11.5px;color:var(--live);line-height:1.5;padding:8px;border:1px solid var(--live);border-radius:8px">{{ anaData.geoError }}</div></sc-if>
-              <sc-if value="{{ anaData.hasNear }}" hint-placeholder-val="{{ false }}">
-              <div style="display:flex;flex-direction:column;gap:6px">
-                <sc-for list="{{ anaData.near }}" as="p" hint-placeholder-count="4">
-                  <div onClick="{{ p.select }}" style="{{ p.rowStyle }}" style-hover="border-color:var(--primary)">
-                    <span style="width:22px;height:22px;flex:none;border-radius:50%;background:var(--surface3);display:grid;place-items:center;font-size:10px;font-weight:600;color:var(--text)">{{ p.rank }}</span>
-                    <div style="min-width:0;flex:1"><div style="font-size:12px;font-weight:500;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ p.name }}</div><div style="font-size:10px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ p.place }}</div></div>
-                    <span style="font-size:11px;font-weight:600;color:var(--primary);white-space:nowrap">{{ p.distLabel }}</span>
-                  </div>
-                </sc-for>
-              </div>
-              </sc-if>
-            </div>
-          </section>
-          </sc-if>
-          <sc-if value="{{ anaData.showWardPuPanel }}" hint-placeholder-val="{{ false }}">
-          <section style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;flex:1;min-height:0;display:flex;flex-direction:column">
-            <div style="display:flex;align-items:center;gap:8px;padding:12px 14px;border-bottom:1px solid var(--border);flex:none">
-              <span class="msi" style="font-size:16px;color:var(--primary)">where_to_vote</span>
-              <div style="min-width:0;flex:1"><h2 style="margin:0;font-size:13px;font-weight:600;color:var(--text)">Polling units</h2><div style="font-size:10px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ anaData.wardHint }}</div></div>
-              <span style="font-size:11px;font-weight:600;color:var(--mute);flex:none">{{ anaData.wardCountLabel }}</span>
-            </div>
-            <div style="padding:10px 12px;border-bottom:1px solid var(--border);flex:none;display:flex;flex-direction:column;gap:8px;background:var(--surface2)">
-              <div style="font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)">Distance from</div>
-              <div style="display:flex;gap:6px">
-                <input value="{{ anaData.distQuery }}" onInput="{{ anaData.onDistQuery }}" onKeyDown="{{ anaData.onDistKey }}" placeholder="Address or place in Nigeria…" style="flex:1;min-width:0;height:32px;padding:0 10px;border:1px solid var(--border2);background:var(--surface);color:var(--text);border-radius:8px;font-family:inherit;font-size:12px;outline:none">
-                <button onClick="{{ anaData.geocodeDist }}" title="Find place" style="height:32px;padding:0 11px;border:1px solid var(--border);background:var(--surface);border-radius:8px;font-family:inherit;font-size:11.5px;color:var(--text);cursor:pointer;flex:none">Go</button>
-              </div>
-              <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
-                <button onClick="{{ anaData.useMyLocation }}" style="height:28px;padding:0 9px;border:1px solid var(--border);background:transparent;border-radius:7px;font-family:inherit;font-size:11px;color:var(--dim);cursor:pointer;display:inline-flex;align-items:center;gap:4px"><span class="msi" style="font-size:14px">my_location</span>My location</button>
-                <sc-if value="{{ anaData.hasDistOrigin }}" hint-placeholder-val="{{ false }}">
-                <button onClick="{{ anaData.clearDist }}" style="height:28px;padding:0 9px;border:1px solid var(--border);background:transparent;border-radius:7px;font-family:inherit;font-size:11px;color:var(--mute);cursor:pointer">Clear</button>
-                </sc-if>
-              </div>
-              <sc-if value="{{ anaData.distBusy }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--mute)"><span class="msi" style="font-size:14px;display:inline-block;animation:eidspin 1s linear infinite">progress_activity</span>{{ anaData.distBusyLabel }}</div></sc-if>
-              <sc-if value="{{ anaData.distError }}" hint-placeholder-val="{{ false }}"><div style="font-size:11px;color:var(--live);line-height:1.4">{{ anaData.distError }}</div></sc-if>
-              <sc-if value="{{ anaData.hasDistOrigin }}" hint-placeholder-val="{{ false }}"><div style="font-size:10.5px;color:var(--dim);line-height:1.4">From {{ anaData.distOriginLabel }}</div></sc-if>
-            </div>
-            <div class="eid-scroll" style="padding:11px 12px;flex:1;min-height:0;max-height:min(58vh,480px);overflow-y:auto">
-              <sc-if value="{{ anaData.wardLoading }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mute)"><span class="msi" style="font-size:16px;display:inline-block;animation:eidspin 1s linear infinite">progress_activity</span>Loading polling units…</div></sc-if>
-              <sc-if value="{{ anaData.wardEmpty }}" hint-placeholder-val="{{ false }}"><div style="font-size:12px;color:var(--mute);line-height:1.45">No polling units found for this ward in the register.</div></sc-if>
-              <sc-if value="{{ anaData.hasWardPus }}" hint-placeholder-val="{{ false }}">
-              <div style="display:flex;flex-direction:column;gap:6px">
-                <sc-for list="{{ anaData.wardPus }}" as="p" hint-placeholder-count="6">
-                  <div onClick="{{ p.select }}" class="{{ p.rowClass }}" style="{{ p.rowStyle }}" style-hover="border-color:var(--primary)">
-                    <span class="eid-pu-legend" style="flex:none"><span class="msi">where_to_vote</span></span>
-                    <div style="min-width:0;flex:1">
-                      <div style="font-size:12px;font-weight:500;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ p.name }}</div>
-                      <div style="font-size:10px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ p.meta }}</div>
-                    </div>
-                    <sc-if value="{{ p.distLabel }}" hint-placeholder-val="{{ false }}"><span style="font-size:11px;font-weight:600;color:var(--primary);white-space:nowrap;flex:none">{{ p.distLabel }}</span></sc-if>
-                    <sc-if value="{{ p.showPin }}" hint-placeholder-val="{{ false }}"><span class="msi" style="font-size:15px;color:var(--primary);flex:none" title="Has coordinates">location_on</span></sc-if>
-                  </div>
-                </sc-for>
-              </div>
-              </sc-if>
-            </div>
-          </section>
-          </sc-if>
           <sc-if value="{{ anaData.showElecPanel }}" hint-placeholder-val="{{ true }}">
           <section style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden">
             <div style="display:flex;align-items:center;gap:8px;padding:12px 14px;border-bottom:1px solid var(--border)"><span class="msi" style="font-size:16px;color:var(--primary)">how_to_vote</span><div style="min-width:0"><h2 style="margin:0;font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ ngElec.label }} · {{ ngElec.year }}</h2><div style="font-size:10px;color:var(--mute)">{{ ngElec.sourceLine }}</div></div></div>
@@ -751,6 +646,20 @@ a:hover{color:var(--primary)}
                 </sc-for>
               </div>
             </sc-if>
+            <sc-if value="{{ ngElec.showGovPicker }}" hint-placeholder-val="{{ false }}">
+              <div style="padding:11px 14px 8px;border-bottom:1px solid var(--border)">
+                <div style="font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute)">Choose a state</div>
+                <div style="margin-top:4px;font-size:12px;color:var(--dim)">{{ ngElec.govPickerCount }} states with collated results</div>
+              </div>
+              <div class="eid-scroll" style="max-height:min(52vh,420px);overflow-y:auto;padding:6px 8px 10px">
+                <sc-for list="{{ ngElec.govPickerStates }}" as="s" hint-placeholder-count="8">
+                  <button type="button" onClick="{{ s.onClick }}" style="display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;text-align:left;padding:9px 10px;margin:0 0 4px;border:1px solid var(--border);background:var(--surface2);color:var(--text);border-radius:8px;font-family:inherit;font-size:12.5px;cursor:pointer">
+                    <span style="font-weight:600">{{ s.name }}</span>
+                    <span style="flex:none;font-size:10.5px;font-weight:700;letter-spacing:.02em;padding:3px 7px;border-radius:6px;background:rgba(28,143,134,.12);color:var(--primary)">{{ s.latestYear }}</span>
+                  </button>
+                </sc-for>
+              </div>
+            </sc-if>
             <sc-if value="{{ ngElec.pending }}" hint-placeholder-val="{{ false }}">
               <div style="padding:16px 14px;font-size:12.5px;color:var(--dim);line-height:1.5">{{ ngElec.pendingMsg }}</div>
             </sc-if>
@@ -771,17 +680,6 @@ a:hover{color:var(--primary)}
                 </sc-for>
               </div>
             </sc-if>
-          </section>
-          </sc-if>
-          <sc-if value="{{ ngSelectedPU }}" hint-placeholder-val="{{ false }}">
-          <section style="background:var(--surface);border:1px solid var(--primary);border-radius:12px;overflow:hidden">
-            <div style="padding:12px 14px;background:var(--primary-soft);border-bottom:1px solid var(--border)">
-              <div style="font-family:'IBM Plex Sans';font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--primary);margin-bottom:4px">Selected polling unit</div>
-              <div style="font-size:14px;font-weight:600;color:var(--text)">{{ ngSelectedPU.short }}</div>
-              <div style="font-size:11px;color:var(--text);margin-top:4px;line-height:1.4">{{ ngSelectedPU.address }}</div>
-              <div style="font-size:11px;color:var(--mute);margin-top:2px">{{ ngSelectedPU.place }} · unit {{ ngSelectedPU.code }}</div>
-            </div>
-            <div style="padding:11px 14px;font-size:12px;color:var(--dim);line-height:1.5">Official PU vote sheet is not in this corpus. Names come from INEC polling-unit data and GRID3 boundaries.</div>
           </section>
           </sc-if>
         </aside>
@@ -830,63 +728,206 @@ a:hover{color:var(--primary)}
     </sc-if>
     <!-- ── MAP ── -->
     <sc-if value="{{ isMap }}" hint-placeholder-val="{{ false }}">
-    <div class="eid-map-layout" style="flex:1;min-height:0;display:grid;grid-template-columns:minmax(184px,214px) minmax(0,1fr) minmax(244px,290px);gap:12px;padding:12px;overflow:hidden">
-      <aside class="eid-scroll" style="min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:14px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px">
-        <div style="display:flex;flex-direction:column;gap:7px">
-          <span style="font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute)">Basemap</span>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
-            <sc-for list="{{ mapBasemapBtns }}" as="b" hint-placeholder-count="4">
-              <button onClick="{{ b.onClick }}" style="{{ b.style }}">{{ b.label }}</button>
-            </sc-for>
-          </div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden">
+      <div class="ov-header" style="flex:none;position:relative;display:flex;align-items:center;gap:16px;padding:14px 20px;border-bottom:1px solid var(--border);background:linear-gradient(90deg,var(--primary-soft),transparent 60%)">
+        <div style="flex:1;min-width:0">
+          <div style="display:flex;align-items:center;gap:9px;margin-bottom:4px"><span style="font-family:'IBM Plex Sans';font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--primary)">Nigeria</span><span style="width:4px;height:4px;border-radius:50%;background:var(--mute)"></span><span style="font-size:11.5px;color:var(--mute)">Polling units</span></div>
+          <h1 style="margin:0;font-size:23px;font-weight:600;letter-spacing:-.02em;line-height:1">Find your polling unit</h1>
         </div>
-        <div style="display:flex;flex-direction:column;gap:7px">
-          <span style="font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute)">Layers</span>
-          <sc-for list="{{ layers }}" as="l" hint-placeholder-count="4">
-            <button onClick="{{ l.onClick }}" title="{{ l.title }}" style="{{ l.style }};height:32px;justify-content:flex-start"><span style="width:8px;height:8px;border-radius:2px;background:{{ l.dot }}"></span>{{ l.label }}</button>
-          </sc-for>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:7px">
-          <span style="font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute)">Hierarchy</span>
-          <sc-for list="{{ hierarchy }}" as="h" hint-placeholder-count="4">
-            <div style="display:flex;align-items:center;gap:9px;padding:7px 9px;border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--text)"><span style="font-family:'IBM Plex Sans';font-size:10px;color:var(--primary-ink);background:var(--primary);border-radius:4px;width:17px;height:17px;display:grid;place-items:center">{{ h.idx }}</span>{{ h.level }}</div>
-          </sc-for>
-        </div>
-      </aside>
-      <main style="min-height:0;background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column">
-        <div style="flex:none;display:flex;align-items:center;gap:8px;padding:9px 14px;border-bottom:1px solid var(--border);background:var(--surface2);flex-wrap:wrap">
-          <span class="msi" style="font-size:17px;color:var(--primary)">travel_explore</span><h2 style="margin:0;font-size:13.5px;font-weight:600">Interactive election map</h2>
-          <span style="margin-left:auto;font-family:'IBM Plex Sans';font-size:10px;color:var(--mute)">click a feature · Google Hybrid</span>
-        </div>
-        <div style="position:relative;flex:1;min-height:220px;overflow:hidden">
-          <div class="eid-leaflet" ref="{{ bindFullMap }}"></div>
-          <div class="eid-map-ui" style="right:14px;top:14px;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border);border-radius:9px;overflow:hidden;box-shadow:var(--shadow)">
-            <button onClick="{{ zoomFullIn }}" style="width:34px;height:34px;border:none;background:transparent;color:var(--dim);cursor:pointer;display:grid;place-items:center" style-hover="background:var(--surface2);color:var(--text)"><span class="msi" style="font-size:18px">add</span></button>
-            <button onClick="{{ zoomFullOut }}" style="width:34px;height:34px;border:none;border-top:1px solid var(--border);background:transparent;color:var(--dim);cursor:pointer;display:grid;place-items:center" style-hover="background:var(--surface2);color:var(--text)"><span class="msi" style="font-size:18px">remove</span></button>
-          </div>
-        </div>
-      </main>
-      <aside class="eid-scroll" style="min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:12px">
-        <sc-if value="{{ mapInfo }}" hint-placeholder-val="{{ false }}">
-        <section style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden">
-          <div style="padding:13px 15px;background:var(--primary-soft);border-bottom:1px solid var(--border)"><div style="font-family:'IBM Plex Sans';font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--primary);margin-bottom:4px">Selected feature</div><div style="font-size:17px;font-weight:600;color:var(--text)">{{ mapInfo.name }}</div></div>
-          <div style="padding:6px 15px">
-            <sc-for list="{{ mapInfoRows }}" as="row" hint-placeholder-count="5">
-              <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)"><span style="font-size:12px;color:var(--mute)">{{ row.label }}</span><span style="font-family:'IBM Plex Sans';font-size:13px;font-weight:600;color:var(--text);font-variant-numeric:tabular-nums">{{ row.value }}</span></div>
-            </sc-for>
-            <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0"><span style="font-size:12px;color:var(--mute)">Winning party</span><span style="display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--text)"><span style="width:10px;height:10px;border-radius:3px;background:{{ mapInfo.partyColor }}"></span>{{ mapInfo.party }}</span></div>
-          </div>
-          <div style="padding:0 15px 15px">
-            <div style="font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute);margin-bottom:9px">Vote breakdown</div>
-            <div style="display:flex;flex-direction:column;gap:10px">
-              <sc-for list="{{ mapInfo.breakdown }}" as="b" hint-placeholder-count="3">
-                <div><div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><span style="width:9px;height:9px;border-radius:2px;background:{{ b.color }}"></span><span style="font-size:12px;color:var(--text)">{{ b.name }}</span><span style="margin-left:auto;font-family:'IBM Plex Sans';font-size:12px;font-weight:600;color:var(--text)">{{ b.share }}</span></div><div style="height:5px;border-radius:3px;background:var(--surface3);overflow:hidden"><span style="{{ b.bar }}"></span></div></div>
+        <div class="hdr-search" style="flex:none;display:flex;align-items:center;gap:8px;z-index:30">
+          <div style="position:relative"><span class="msi" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:17px;color:var(--mute);pointer-events:none">search</span><input value="{{ puSearch.query }}" onInput="{{ puSearch.onQuery }}" placeholder="Search polling units…" style="height:34px;width:min(300px,42vw);padding:0 12px 0 33px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:8px;font-family:inherit;font-size:12.5px;outline:none" style-focus="border-color:var(--primary)">
+            <sc-if value="{{ puSearch.hasResults }}" hint-placeholder-val="{{ false }}">
+            <div class="eid-scroll" style="position:absolute;left:0;top:40px;width:100%;max-height:300px;overflow-y:auto;background:var(--surface);border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow);z-index:40">
+              <sc-for list="{{ puSearch.results }}" as="r" hint-placeholder-count="4">
+                <div onClick="{{ r.select }}" style="display:flex;align-items:center;gap:9px;padding:9px 11px;border-bottom:1px solid var(--border);cursor:pointer" style-hover="background:var(--surface2)"><span class="msi" style="font-size:16px;color:var(--primary)">where_to_vote</span><div style="min-width:0"><div style="font-size:12px;font-weight:500;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.name }} · {{ r.venue }}</div><div style="font-size:10px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.place }}</div></div></div>
               </sc-for>
             </div>
+            </sc-if>
+            <sc-if value="{{ puSearch.noMatch }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;left:0;top:40px;width:100%;background:var(--surface);border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow);z-index:40;padding:14px;text-align:center;font-size:11.5px;color:var(--mute)">No polling units match “{{ puSearch.query }}”.</div>
+            </sc-if>
           </div>
-        </section>
-        </sc-if>
-      </aside>
+        </div>
+      </div>
+      <div class="ov-work" style="flex:1;min-height:0;display:grid;grid-template-columns:minmax(220px,290px) minmax(0,1fr) minmax(250px,300px);gap:12px;padding:12px;overflow:hidden;align-items:stretch">
+        <aside class="eid-scroll ov-left" style="display:flex;flex-direction:column;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px">
+          <section style="border:1px solid var(--border2);border-radius:11px;overflow:hidden;background:var(--surface2)">
+            <div style="display:flex;align-items:center;gap:7px;padding:10px 11px;border-bottom:1px solid var(--border)">
+              <span class="msi" style="font-size:16px;color:var(--primary)">where_to_vote</span>
+              <div style="font-size:12px;font-weight:600;color:var(--text)">Find your polling unit</div>
+            </div>
+            <sc-if value="{{ puCoordCoverage }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:8px 11px 0;font-size:10.5px;color:var(--mute);line-height:1.4">{{ puCoordCoverage }}</div>
+            </sc-if>
+            <div style="padding:11px;display:flex;flex-direction:column;gap:11px">
+              <div>
+                <div style="font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:6px">Step 1 · State</div>
+                <select value="{{ ngStateVal }}" onChange="{{ onNgState }}" style="{{ selStyle }}"><option value="">Select a state…</option><sc-for list="{{ ngView.states }}" as="s" hint-placeholder-count="5"><option value="{{ s.name }}">{{ s.name }}</option></sc-for></select>
+              </div>
+              <sc-if value="{{ ngView.hasState }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <div style="font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:6px">Step 2 · LGA</div>
+                <select value="{{ ngView.lgaVal }}" onChange="{{ ngView.onLga }}" style="{{ selStyle }}"><option value="">{{ ngView.lgaPlaceholder }}</option><sc-for list="{{ ngView.lgaOpts }}" as="l" hint-placeholder-count="2"><option value="{{ l.name }}">{{ l.name }}</option></sc-for></select>
+              </div>
+              </sc-if>
+              <sc-if value="{{ ngView.hasLga }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <div style="font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:6px">Step 3 · Ward</div>
+                <select value="{{ ngView.wardVal }}" onChange="{{ ngView.onWard }}" style="{{ selStyle }}"><option value="">{{ ngView.wardPlaceholder }}</option><sc-for list="{{ ngView.wardOpts }}" as="w" hint-placeholder-count="3"><option value="{{ w.name }}">{{ w.name }}</option></sc-for></select>
+              </div>
+              </sc-if>
+              <sc-if value="{{ ngView.hasWard }}" hint-placeholder-val="{{ false }}">
+              <div style="font-size:11px;color:var(--mute);line-height:1.45;padding:2px 1px 0">Polling units for this ward are listed in the right panel.</div>
+              </sc-if>
+            </div>
+          </section>
+          <div style="display:flex;flex-direction:column;gap:7px">
+            <span style="font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute)">Hierarchy</span>
+            <sc-for list="{{ hierarchy }}" as="h" hint-placeholder-count="4">
+              <div style="display:flex;align-items:center;gap:9px;padding:7px 9px;border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--text)"><span style="font-family:'IBM Plex Sans';font-size:10px;color:var(--primary-ink);background:var(--primary);border-radius:4px;width:17px;height:17px;display:grid;place-items:center">{{ h.idx }}</span>{{ h.level }}</div>
+            </sc-for>
+          </div>
+        </aside>
+        <main class="ov-main eid-map-stage" style="display:flex;flex-direction:column;min-height:0;height:100%;overflow:hidden">
+          <section style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;flex:1;min-height:0;height:100%">
+            <div style="position:relative;flex:1;min-height:0;overflow:hidden">
+              <div class="eid-leaflet" ref="{{ bindFullMap }}"></div>
+              <div class="eid-map-ui" style="left:12px;bottom:12px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 12px;box-shadow:var(--shadow);min-width:158px;max-width:220px">
+                <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:7px">Legend</div>
+                <div style="display:flex;flex-direction:column;gap:6px">
+                  <sc-for list="{{ legendItems }}" as="g" hint-placeholder-count="4">
+                    <div style="display:flex;align-items:center;gap:8px;font-size:11.5px">
+                      <sc-if value="{{ g.isPu }}" hint-placeholder-val="{{ false }}"><span class="eid-pu-legend"><span class="msi">where_to_vote</span></span></sc-if>
+                      <sc-if value="{{ g.swatch }}" hint-placeholder-val="{{ false }}"><span style="{{ g.swatch }}"></span></sc-if>
+                      {{ g.label }}
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+              <div class="eid-map-ui eid-map-stack" style="right:12px;bottom:12px">
+                <div style="display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border);border-radius:9px;overflow:hidden;box-shadow:var(--shadow)">
+                  <button onClick="{{ zoomFullIn }}" class="eid-map-fab" style="box-shadow:none;border:none;border-radius:0;width:36px;height:34px"><span class="msi" style="font-size:17px">add</span></button>
+                  <button onClick="{{ zoomFullOut }}" class="eid-map-fab" style="box-shadow:none;border:none;border-top:1px solid var(--border);border-radius:0;width:36px;height:34px"><span class="msi" style="font-size:17px">remove</span></button>
+                  <button onClick="{{ resetAll }}" title="Reset map and filters" class="eid-map-fab" style="box-shadow:none;border:none;border-top:1px solid var(--border);border-radius:0;width:36px;height:34px;color:var(--primary)"><span class="msi" style="font-size:17px">restart_alt</span></button>
+                </div>
+                <div style="position:relative">
+                  <sc-if value="{{ layersOpen }}" hint-placeholder-val="{{ false }}">
+                  <div style="position:absolute;right:0;bottom:44px;width:220px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px;box-shadow:var(--shadow)">
+                    <div style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:8px">Layers · GRID3</div>
+                    <div style="display:flex;flex-direction:column;gap:6px">
+                      <sc-for list="{{ layers }}" as="l" hint-placeholder-count="5">
+                        <button onClick="{{ l.onClick }}" title="{{ l.title }}" style="{{ l.style }}">
+                          <span style="width:8px;height:8px;border-radius:2px;background:{{ l.dot }}"></span>
+                          <span style="flex:1;text-align:left">{{ l.label }}</span>
+                          <span style="{{ l.switchTrack }}"><span style="{{ l.switchThumb }}"></span></span>
+                        </button>
+                      </sc-for>
+                    </div>
+                  </div>
+                  </sc-if>
+                  <button onClick="{{ toggleLayersPanel }}" title="Layers" class="eid-map-fab" style="{{ layerFabStyle }}"><span class="msi" style="font-size:18px">layers</span></button>
+                </div>
+                <div style="position:relative">
+                  <sc-if value="{{ basemapOpen }}" hint-placeholder-val="{{ false }}">
+                  <div style="position:absolute;right:0;bottom:44px;width:168px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:8px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px">
+                    <div style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);padding:0 4px 2px">Basemap</div>
+                    <sc-for list="{{ mapBasemapBtns }}" as="b" hint-placeholder-count="4">
+                      <button onClick="{{ b.onClick }}" style="{{ b.style }}">{{ b.label }}</button>
+                    </sc-for>
+                  </div>
+                  </sc-if>
+                  <button onClick="{{ toggleBasemapPanel }}" title="Basemap" class="eid-map-fab" style="{{ basemapFabStyle }}"><span class="msi" style="font-size:18px">map</span></button>
+                </div>
+                <button onClick="{{ anaData.locate }}" title="Show polling units near me" class="eid-map-fab" style="color:var(--primary)">
+                  <sc-if value="{{ anaData.locating }}" hint-placeholder-val="{{ false }}"><span class="msi" style="font-size:18px;display:inline-block;animation:eidspin 1s linear infinite">progress_activity</span></sc-if>
+                  <sc-if value="{{ anaData.idleLocate }}" hint-placeholder-val="{{ true }}"><span class="msi" style="font-size:18px">my_location</span></sc-if>
+                </button>
+              </div>
+            </div>
+          </section>
+        </main>
+        <aside class="eid-scroll ov-aside-right" style="display:flex;flex-direction:column;gap:12px;min-height:0;overflow:hidden">
+          <sc-if value="{{ anaData.showNearPanel }}" hint-placeholder-val="{{ false }}">
+          <section style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;flex:1;min-height:0;display:flex;flex-direction:column">
+            <div style="display:flex;align-items:center;gap:8px;padding:12px 14px;border-bottom:1px solid var(--border);flex:none">
+              <span class="msi" style="font-size:16px;color:var(--primary)">near_me</span>
+              <div style="min-width:0"><h2 style="margin:0;font-size:13px;font-weight:600;color:var(--text)">Nearby polling units</h2><div style="font-size:10px;color:var(--mute)">{{ anaData.nearHint }}</div></div>
+              <button onClick="{{ resetAll }}" title="Reset" style="margin-left:auto;border:none;background:transparent;color:var(--mute);cursor:pointer;display:inline-flex;align-items:center;gap:3px;font-size:11px;font-family:inherit"><span class="msi" style="font-size:15px">restart_alt</span>Reset</button>
+            </div>
+            <div class="eid-scroll" style="padding:11px 12px;flex:1;min-height:0;max-height:min(62vh,520px);overflow-y:auto">
+              <sc-if value="{{ anaData.locating }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mute)"><span class="msi" style="font-size:16px;display:inline-block;animation:eidspin 1s linear infinite">progress_activity</span>Finding polling units near you…</div></sc-if>
+              <sc-if value="{{ anaData.geoError }}" hint-placeholder-val="{{ false }}"><div style="font-size:11.5px;color:var(--live);line-height:1.5;padding:8px;border:1px solid var(--live);border-radius:8px">{{ anaData.geoError }}</div></sc-if>
+              <sc-if value="{{ anaData.hasNear }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <sc-for list="{{ anaData.near }}" as="p" hint-placeholder-count="4">
+                  <div onClick="{{ p.select }}" style="{{ p.rowStyle }}" style-hover="border-color:var(--primary)">
+                    <span style="width:22px;height:22px;flex:none;border-radius:50%;background:var(--surface3);display:grid;place-items:center;font-size:10px;font-weight:600;color:var(--text)">{{ p.rank }}</span>
+                    <div style="min-width:0;flex:1"><div style="font-size:12px;font-weight:500;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ p.name }}</div><div style="font-size:10px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ p.place }}</div></div>
+                    <span style="font-size:11px;font-weight:600;color:var(--primary);white-space:nowrap">{{ p.distLabel }}</span>
+                  </div>
+                </sc-for>
+              </div>
+              </sc-if>
+            </div>
+          </section>
+          </sc-if>
+          <sc-if value="{{ anaData.showWardPuPanel }}" hint-placeholder-val="{{ false }}">
+          <section style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;flex:1;min-height:0;display:flex;flex-direction:column">
+            <div style="display:flex;align-items:center;gap:8px;padding:12px 14px;border-bottom:1px solid var(--border);flex:none">
+              <span class="msi" style="font-size:16px;color:var(--primary)">where_to_vote</span>
+              <div style="min-width:0;flex:1"><h2 style="margin:0;font-size:13px;font-weight:600;color:var(--text)">Polling units</h2><div style="font-size:10px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ anaData.wardHint }}</div></div>
+              <span style="font-size:11px;font-weight:600;color:var(--mute);flex:none">{{ anaData.wardCountLabel }}</span>
+            </div>
+            <div style="padding:10px 12px;border-bottom:1px solid var(--border);flex:none;display:flex;flex-direction:column;gap:8px;background:var(--surface2)">
+              <div style="font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)">Distance from</div>
+              <div style="display:flex;gap:6px">
+                <input value="{{ anaData.distQuery }}" onInput="{{ anaData.onDistQuery }}" onKeyDown="{{ anaData.onDistKey }}" placeholder="Address or place in Nigeria…" style="flex:1;min-width:0;height:32px;padding:0 10px;border:1px solid var(--border2);background:var(--surface);color:var(--text);border-radius:8px;font-family:inherit;font-size:12px;outline:none">
+                <button onClick="{{ anaData.geocodeDist }}" title="Find place" style="height:32px;padding:0 11px;border:1px solid var(--border);background:var(--surface);border-radius:8px;font-family:inherit;font-size:11.5px;color:var(--text);cursor:pointer;flex:none">Go</button>
+              </div>
+              <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+                <button onClick="{{ anaData.useMyLocation }}" style="height:28px;padding:0 9px;border:1px solid var(--border);background:transparent;border-radius:7px;font-family:inherit;font-size:11px;color:var(--dim);cursor:pointer;display:inline-flex;align-items:center;gap:4px"><span class="msi" style="font-size:14px">my_location</span>My location</button>
+                <sc-if value="{{ anaData.hasDistOrigin }}" hint-placeholder-val="{{ false }}">
+                <button onClick="{{ anaData.clearDist }}" style="height:28px;padding:0 9px;border:1px solid var(--border);background:transparent;border-radius:7px;font-family:inherit;font-size:11px;color:var(--mute);cursor:pointer">Clear</button>
+                </sc-if>
+              </div>
+              <sc-if value="{{ anaData.distBusy }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--mute)"><span class="msi" style="font-size:14px;display:inline-block;animation:eidspin 1s linear infinite">progress_activity</span>{{ anaData.distBusyLabel }}</div></sc-if>
+              <sc-if value="{{ anaData.distError }}" hint-placeholder-val="{{ false }}"><div style="font-size:11px;color:var(--live);line-height:1.4">{{ anaData.distError }}</div></sc-if>
+              <sc-if value="{{ anaData.hasDistOrigin }}" hint-placeholder-val="{{ false }}"><div style="font-size:10.5px;color:var(--dim);line-height:1.4">From {{ anaData.distOriginLabel }}</div></sc-if>
+            </div>
+            <div class="eid-scroll" style="padding:11px 12px;flex:1;min-height:0;max-height:min(58vh,480px);overflow-y:auto">
+              <sc-if value="{{ anaData.wardLoading }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mute)"><span class="msi" style="font-size:16px;display:inline-block;animation:eidspin 1s linear infinite">progress_activity</span>Loading polling units…</div></sc-if>
+              <sc-if value="{{ anaData.wardEmpty }}" hint-placeholder-val="{{ false }}"><div style="font-size:12px;color:var(--mute);line-height:1.45">No polling units found for this ward in the register.</div></sc-if>
+              <sc-if value="{{ anaData.hasWardPus }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <sc-for list="{{ anaData.wardPus }}" as="p" hint-placeholder-count="6">
+                  <div onClick="{{ p.select }}" class="{{ p.rowClass }}" style="{{ p.rowStyle }}" style-hover="border-color:var(--primary)">
+                    <span class="eid-pu-legend" style="flex:none"><span class="msi">where_to_vote</span></span>
+                    <div style="min-width:0;flex:1">
+                      <div style="font-size:12px;font-weight:500;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ p.name }}</div>
+                      <div style="font-size:10px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ p.meta }}</div>
+                    </div>
+                    <sc-if value="{{ p.distLabel }}" hint-placeholder-val="{{ false }}"><span style="font-size:11px;font-weight:600;color:var(--primary);white-space:nowrap;flex:none">{{ p.distLabel }}</span></sc-if>
+                    <sc-if value="{{ p.showPin }}" hint-placeholder-val="{{ false }}"><span class="msi" style="font-size:15px;color:var(--primary);flex:none" title="Has coordinates">location_on</span></sc-if>
+                  </div>
+                </sc-for>
+              </div>
+              </sc-if>
+            </div>
+          </section>
+          </sc-if>
+          <sc-if value="{{ ngSelectedPU }}" hint-placeholder-val="{{ false }}">
+          <section style="background:var(--surface);border:1px solid var(--primary);border-radius:12px;overflow:hidden">
+            <div style="padding:12px 14px;background:var(--primary-soft);border-bottom:1px solid var(--border)">
+              <div style="font-family:'IBM Plex Sans';font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--primary);margin-bottom:4px">Selected polling unit</div>
+              <div style="font-size:14px;font-weight:600;color:var(--text)">{{ ngSelectedPU.short }}</div>
+              <div style="font-size:11px;color:var(--text);margin-top:4px;line-height:1.4">{{ ngSelectedPU.address }}</div>
+              <div style="font-size:11px;color:var(--mute);margin-top:2px">{{ ngSelectedPU.place }} · unit {{ ngSelectedPU.code }}</div>
+            </div>
+            <div style="padding:11px 14px;font-size:12px;color:var(--dim);line-height:1.5">Official PU vote sheet is not in this corpus. Names come from INEC polling-unit data and GRID3 boundaries.</div>
+          </section>
+          </sc-if>
+        </aside>
+      </div>
     </div>
     </sc-if>
 
@@ -1422,7 +1463,7 @@ class Component extends DCLogic {
     anaCoords:null, anaGeo:'idle', anaGeoError:null, nearPUs:[], puQuery:'', mapFocus:null, mapAdminFocus:null,
     puDistOrigin:null, puDistQuery:'', puDistStatus:'idle', puDistError:null, puRoute:null,
     apiUrl:'', apiKey:'', apiStatus:'idle', uploads:[],
-    layersOpen:true, basemapOpen:false,
+    layersOpen:false, basemapOpen:false,
     layers:{ state:true, lga:false, ward:false, polling:false, health:false },
     status:{ live:true, upcoming:true, recent:true, nodata:false } };
 
@@ -1479,6 +1520,76 @@ class Component extends DCLogic {
       mapMode: estimated ? 'estimated-lga' : (data.collated ? 'official-lga' : data.level),
     });
   }
+  buildGovCoverageTheme(catalog){
+    const byState = (catalog && catalog.byState) || {};
+    const units = {};
+    let available = 0;
+    this.NG_ALL_STATES.forEach((name)=>{
+      if (name === 'FCT') return;
+      const entries = byState[name] || [];
+      const has = entries.length > 0;
+      if (has) available += 1;
+      const latest = has ? entries[0] : null;
+      units[name] = {
+        winner: has ? String(latest.electionYear || latest.storageYear || '') : 'No archive',
+        party: has ? 'Archive' : 'None',
+        color: has ? '#1c8f86' : '#94a3b8',
+        fillOpacity: has ? 0.5 : 0.07,
+        coverage: has,
+        years: entries.map((e)=> String(e.electionYear || e.storageYear || '')).filter(Boolean),
+        _canonicalKey: name,
+      };
+    });
+    const total = Object.keys(units).length;
+    return {
+      ok: true,
+      key: 'gov-coverage:' + available + ':' + total,
+      level: 'state',
+      mapMode: 'gov-coverage',
+      coverage: true,
+      units,
+      legend: [
+        { name: 'Archive available', party: 'Archive', count: available, color: '#1c8f86' },
+        { name: 'No archive yet', party: 'None', count: Math.max(0, total - available), color: '#94a3b8' },
+      ],
+    };
+  }
+  selectGovState(state){
+    const next = String(state || '').trim();
+    if (!next) {
+      this.setState({
+        ovElecState: null,
+        ovElecYear: null,
+        elecMapTheme: null,
+        elecChoroMeta: null,
+        elecSelectedUnit: null,
+        elecExpandedCand: null,
+        showEstimatedLga: true,
+      }, ()=>{ this.fetchNgKpis(); this.flyToElectionView(); });
+      return;
+    }
+    const years = this.govYearsForState(next);
+    const nextYear = years.includes(String(this.state.ovElecYear))
+      ? String(this.state.ovElecYear)
+      : (years[0] || null);
+    this.setState({
+      ovElecState: next,
+      ovElecYear: nextYear,
+      elecMapTheme: null,
+      elecChoroMeta: null,
+      elecSelectedUnit: null,
+      elecExpandedCand: null,
+      showEstimatedLga: true,
+    }, ()=>{ this.fetchNgKpis(); this.flyToElectionView(); });
+  }
+  onResultMapUnitClick(name, unit, layerKind){
+    const theme = this.state.elecMapTheme;
+    if (theme && theme.coverage && (layerKind === 'state' || theme.level === 'state')) {
+      this.selectGovState(name || (unit && unit._canonicalKey));
+      return;
+    }
+    this.selectElecUnit(name, unit);
+  }
   toggleEstimatedLga(){
     const next = !this.state.showEstimatedLga;
     const meta = this.state.elecChoroMeta;
@@ -1507,7 +1618,7 @@ class Component extends DCLogic {
   SECTIONS = {
     'Elections':{ icon:'how_to_vote', desc:'Browse every election — filter by type, year and status, then open any contest for full results, candidates and geography.' },
     'Live Results':{ icon:'sensors', desc:'Citizen EC8A uploads go live on the national map immediately. Official returns appear as a separate layer when available — compare with the swipe slider.' },
-    'Map':{ icon:'travel_explore', desc:'Full-screen geospatial intelligence: basemaps, vector layers, hierarchy drill-down (region → district → voting unit) and result-styled choropleths.' },
+    'Map':{ icon:'where_to_vote', title:'Polling units', desc:'Find your polling unit: search or drill State → LGA → Ward, locate nearby PUs, and use the map controls for GRID3 layers and basemaps.' },
     'Candidates':{ icon:'person', desc:'Candidate profiles with party, position contested, historical performance, vote share and geographic strongholds — plus side-by-side comparison.' },
     'Parties':{ icon:'groups', desc:'Party intelligence: participation, seats won, historical vote share and a geographic strength map across every tracked election.' },
     'Analysis':{ icon:'insights', desc:'Vote swing, turnout anomalies, competitive districts and battlegrounds — complex electoral statistics made legible through maps and visualization.' },
@@ -1617,7 +1728,7 @@ class Component extends DCLogic {
       this.fetchNgKpis();
       this.loadPuDirectory(s, null, null, seq);
       this.flyToAdminBoundary(s, null, null);
-      this.syncCountryMap();
+      this.syncActiveMap();
     });
   }
   selectNgLga(l){
@@ -1639,7 +1750,7 @@ class Component extends DCLogic {
       this.loadPuDirectory(st, l, null, seq);
       this.loadPuUnits(st, l, null, seq);
       this.flyToAdminBoundary(st, l, null);
-      this.syncCountryMap();
+      this.syncActiveMap();
     });
   }
   selectNgWard(w){
@@ -1662,7 +1773,7 @@ class Component extends DCLogic {
       this.fetchNgKpis();
       this.loadPuDirectory(st, lg, w, seq);
       this.loadPuUnits(st, lg, w, seq);
-      this.syncCountryMap();
+      this.syncActiveMap();
       this.flyToAdminBoundary(st, lg, w);
     });
   }
@@ -1754,11 +1865,15 @@ class Component extends DCLogic {
     return byParty;
   }
   async fetchGovCatalog(){
-    if (this.state.govCatalog && this.state.govCatalog.byState) return;
+    if (this.state.govCatalog && this.state.govCatalog.byState) return this.state.govCatalog;
     try {
       const data = await fetch('/api/election-results/gov-catalog').then(r=>r.ok?r.json():null);
-      if (data && data.byState) this.setState({ govCatalog: data });
+      if (data && data.byState) {
+        await new Promise((resolve)=> this.setState({ govCatalog: data }, resolve));
+        return data;
+      }
     } catch(e){}
+    return this.state.govCatalog || null;
   }
   async fetchGovStates(year){
     const y = String(year || '');
@@ -1904,6 +2019,9 @@ class Component extends DCLogic {
       return pack(rows);
     }
     if(officeId==='gov'){
+      if(!selectedState){
+        return pack([], { pending:false, showGovPicker:true });
+      }
       if(choro && !choro.ok){
         return pack([], { pending:true, pendingMsg: choro.message || 'Official collated map data not loaded yet for this selection.' });
       }
@@ -2220,7 +2338,7 @@ class Component extends DCLogic {
     });
   }
   async findNearestPU(){
-    this.setState({ anaGeo:'locating', anaGeoError:null, view:'app', scope:'ng', section:'Overview' });
+    this.setState({ anaGeo:'locating', anaGeoError:null, view:'app', scope:'ng', section:'Map' });
     const finish=(lat,lng,points)=>{
       const near=points.map(p=>{
         const meters=this.haversine(lat,lng,p.lat,p.lng);
@@ -2241,7 +2359,7 @@ class Component extends DCLogic {
         puDistStatus:'ok',
         puDistError:null,
       }, ()=>{
-        this.syncCountryMap();
+        this.syncFullMap();
         const focus=this.state.mapFocus;
         if(focus && Number.isFinite(Number(focus.lat)) && Number.isFinite(Number(focus.lng))){
           this.loadPuRoute({lat,lng,label:'My location'}, focus);
@@ -2263,7 +2381,7 @@ class Component extends DCLogic {
         nearPUs:[],
         puDistOrigin:{lat,lng,label:'My location'},
         puDistStatus:'ok',
-      }, ()=>this.syncCountryMap());
+      }, ()=>this.syncFullMap());
     };
     try {
       const pos=await this.getDeviceLocation();
@@ -2442,7 +2560,7 @@ class Component extends DCLogic {
           }),
           puLoading: null,
         };
-      }, ()=> this.syncCountryMap());
+      }, ()=> this.syncActiveMap());
     } catch(e){
       this.setState(s=>{
         if(token && this._puSeq && token !== this._puSeq) return {};
@@ -2705,6 +2823,9 @@ class Component extends DCLogic {
       ? this.unitsForCurrentWard().filter(p=>p.lat!=null && p.lng!=null)
       : ((this.state.puDir && this.state.puDir.units) || []).filter(p=>p.lat!=null && p.lng!=null);
     const citizenTheme = kind==='live' ? this.buildCitizenMapTheme(this.state.submissions) : null;
+    const isFull = kind==='full';
+    const isCountry = kind==='country';
+    const hasAdmin = !!(this.state.mapAdminFocus && this.state.mapAdminFocus.state);
     return {
       scope: kind==='live' ? 'ng' : (scope==='global' ? 'global' : scope),
       live: kind==='live',
@@ -2712,7 +2833,7 @@ class Component extends DCLogic {
       layers: kind==='live' ? { state: true, lga: false, ward: false, polling: false, health: false } : this.state.layers,
       resultTheme: kind==='live'
         ? ((this.state.liveMapTheme && this.state.liveMapTheme.ok) ? this.state.liveMapTheme : null)
-        : ((this.state.elecMapTheme && this.state.elecMapTheme.ok) ? this.state.elecMapTheme : null),
+        : (isFull ? null : ((this.state.elecMapTheme && this.state.elecMapTheme.ok) ? this.state.elecMapTheme : null)),
       citizenTheme,
       // Live Results compares official vs public as choropleths — no citizen point markers.
       citizenMarkers: [],
@@ -2721,17 +2842,17 @@ class Component extends DCLogic {
       onComparePct: kind==='live' ? (pct)=>this.setState({ liveComparePct: pct }) : null,
       showOfficial: kind==='live' ? this.state.liveShowOfficial !== false : true,
       showCitizen: kind==='live' ? this.state.liveShowCitizen !== false : true,
-      onResultUnitClick: (name, unit)=>this.selectElecUnit(name, unit),
-      markers: (kind==='global' || (kind==='full' && scope==='global')) ? world : [],
-      points: kind==='country' ? (nearPts.length ? nearPts : wardPts) : [],
-      user: kind==='country' ? (this.state.anaCoords || this.state.puDistOrigin) : null,
+      onResultUnitClick: (name, unit, layerKind)=>this.onResultMapUnitClick(name, unit, layerKind),
+      markers: (kind==='global' || (isFull && scope==='global')) ? world : [],
+      points: isFull ? (nearPts.length ? nearPts : wardPts) : [],
+      user: isFull ? (this.state.anaCoords || this.state.puDistOrigin) : null,
       focus: this.state.mapFocus,
-      route: kind==='country' ? this.state.puRoute : null,
+      route: isFull ? this.state.puRoute : null,
       focusZoom: 16,
       adminFocus: this.state.mapAdminFocus,
       // Drill-down flies are owned by flyToAdminBoundary / focusPoint — avoid attach races.
-      skipAdminFly: kind==='country' && !!(this.state.mapAdminFocus && this.state.mapAdminFocus.state),
-      keepLocalPoints: kind==='country' && (nearPts.length || wardPts.length),
+      skipAdminFly: (isCountry || isFull) && hasAdmin,
+      keepLocalPoints: isFull && (nearPts.length || wardPts.length),
     };
   }
   syncCountryMap(){
@@ -2739,12 +2860,22 @@ class Component extends DCLogic {
     if(!el || !window.EIDMaps) return;
     window.EIDMaps.attach(el, this.mapAttachCfg('country'));
   }
+  syncFullMap(){
+    const el = this.mapEls && this.mapEls.full;
+    if(!el || !window.EIDMaps) return;
+    window.EIDMaps.attach(el, this.mapAttachCfg('full'));
+  }
+  syncActiveMap(){
+    if(this.state.section === 'Map') this.syncFullMap();
+    else this.syncCountryMap();
+  }
   async flyToAdminBoundary(state, lga, ward){
-    const el = this.mapEls && this.mapEls.country;
+    const kind = this.state.section === 'Map' ? 'full' : 'country';
+    const el = this.mapEls && this.mapEls[kind];
     if(!el || !window.EIDMaps || !window.EIDMaps.flyToAdmin || !state) return;
     // Wait a frame so the map container/ref survives the drill-down re-render.
     await new Promise((r)=> requestAnimationFrame(()=>r()));
-    const live = this.mapEls && this.mapEls.country;
+    const live = this.mapEls && this.mapEls[kind];
     if(!live) return;
     await window.EIDMaps.flyToAdmin(live, { state, lga, ward, force: true });
   }
@@ -2798,13 +2929,25 @@ class Component extends DCLogic {
     const state = office === 'gov' ? (this.state.ovElecState || null) : null;
     if (office === 'gov') {
       if (!state) {
+        const coverage = this.buildGovCoverageTheme(this.state.govCatalog);
+        const layers = this.syncElectionLayers(office, null, true, 'state');
+        layers.state = true;
+        layers.lga = false;
+        layers.ward = false;
+        layers.polling = false;
         this.setState({
-          elecMapTheme: null,
-          elecChoroMeta: null,
+          elecMapTheme: coverage,
+          elecChoroMeta: coverage,
           elecSelectedUnit: null,
           showEstimatedLga: true,
-          layers: this.syncElectionLayers(office, null, false, null),
-        }, ()=>this.syncCountryMap());
+          layers,
+        }, ()=>{
+          this.syncCountryMap();
+          const el = this.mapEls && this.mapEls.country;
+          if (el && window.EIDMaps && window.EIDMaps.flyToResultScope) {
+            window.EIDMaps.flyToResultScope(el, coverage);
+          }
+        });
         return;
       }
       const years = this.govYearsForState(state);
@@ -2871,10 +3014,15 @@ class Component extends DCLogic {
   toggleSwitcher(){ this.setState(s=>({switcherOpen:!s.switcherOpen})); }
   closeSwitcher(){ this.setState({switcherOpen:false}); }
 
-  navItem(label, live){
+  navItem(label, live, displayLabel){
     const on = this.state.section === label;
-    return { label, live: !!live, href:'#',
-      onClick:(e)=>{ e.preventDefault(); if(label==='Countries') this.openWelcome(); else this.setState({view:'app', section:label}); },
+    return { label: displayLabel || label, live: !!live, href:'#',
+      onClick:(e)=>{
+        e.preventDefault();
+        if(label==='Countries') this.openWelcome();
+        else if(label==='Map') this.setState({ view:'app', scope:'ng', section:'Map' });
+        else this.setState({ view:'app', section:label });
+      },
       style:`display:inline-flex;align-items:center;gap:6px;height:100%;padding:0 12px;text-decoration:none;font-size:12.5px;white-space:nowrap;cursor:pointer;color:${on?'var(--text)':'var(--dim)'};font-weight:${on?'600':'400'};box-shadow:${on?'inset 0 -2px 0 var(--primary)':'none'}` };
   }
 
@@ -2900,6 +3048,9 @@ class Component extends DCLogic {
     const routeOrigin = this.state.puDistOrigin;
     this._elecThemeSeq = (this._elecThemeSeq || 0) + 1;
     this.setState(s=>({
+      view: 'app',
+      scope: 'ng',
+      section: 'Map',
       ngState: nextState || s.ngState,
       ngLga: nextLga || s.ngLga,
       ngWard: nextWard || s.ngWard,
@@ -2915,8 +3066,8 @@ class Component extends DCLogic {
       elecSelectedUnit: null,
     }), ()=>{
       const runFocus = ()=>{
-        const el = this.mapEls && this.mapEls.country;
-        this.syncCountryMap();
+        const el = this.mapEls && this.mapEls.full;
+        this.syncFullMap();
         if(hasCoords && el && window.EIDMaps && window.EIDMaps.focusPoint){
           window.EIDMaps.focusPoint(el, lat, lng, 16, name);
         } else if(!hasCoords){
@@ -2986,19 +3137,19 @@ class Component extends DCLogic {
         mapFocus: null,
         puRoute: null,
       }, async ()=>{
-        this.syncCountryMap();
-        const el = this.mapEls && this.mapEls.country;
+        this.syncFullMap();
+        const el = this.mapEls && this.mapEls.full;
         if(el) await window.EIDMaps.flyToAdmin(el, { state, lga, ward, force: true, preserveLayers: true });
       });
       return;
     }
-    this.syncCountryMap();
+    this.syncFullMap();
   }
   onPuDistQuery(e){ this.setState({ puDistQuery: e.target.value, puDistError: null }); }
   onPuDistKey(e){ if(e.key === 'Enter'){ e.preventDefault(); this.geocodePuDistance(); } }
   clearPuDistance(){
     this._routeSeq = (this._routeSeq || 0) + 1;
-    this.setState({ puDistOrigin:null, puDistQuery:'', puDistStatus:'idle', puDistError:null, puRoute:null }, ()=>this.syncCountryMap());
+    this.setState({ puDistOrigin:null, puDistQuery:'', puDistStatus:'idle', puDistError:null, puRoute:null }, ()=>this.syncFullMap());
   }
   setPuDistOrigin(lat, lng, label){
     if(!Number.isFinite(lat) || !Number.isFinite(lng)) return;
@@ -3009,7 +3160,7 @@ class Component extends DCLogic {
       puDistError: null,
       puRoute:null,
     }, ()=>{
-      this.syncCountryMap();
+      this.syncFullMap();
       const focus=this.state.mapFocus;
       if(focus && Number.isFinite(Number(focus.lat)) && Number.isFinite(Number(focus.lng))){
         this.loadPuRoute(origin, focus);
@@ -3041,7 +3192,7 @@ class Component extends DCLogic {
             origin:[fromLat,fromLng],
             destination:[toLat,toLng],
           },
-        },()=>this.syncCountryMap());
+        },()=>this.syncFullMap());
         return;
       }
       throw new Error('No route geometry');
@@ -3057,7 +3208,7 @@ class Component extends DCLogic {
           destination:[toLat,toLng],
           fallback:true,
         },
-      },()=>this.syncCountryMap());
+      },()=>this.syncFullMap());
     }
   }
   async useMyLocationForDistance(){
@@ -3103,7 +3254,7 @@ class Component extends DCLogic {
       puDistOrigin:null, puDistQuery:'', puDistStatus:'idle', puDistError:null, puRoute:null,
       ovElecYear:'2023', ovOffice:'pres', ovElecState:null, elecMapTheme:null, elecChoroMeta:null,
       elecSelectedUnit:null, elecExpandedCand:null, showEstimatedLga:true,
-      layersOpen:true, basemapOpen:false,
+      layersOpen:false, basemapOpen:false,
       basemap:'streets',
     }, ()=>{
       if(window.EIDMaps && window.EIDMaps.resetView){
@@ -3242,9 +3393,9 @@ class Component extends DCLogic {
       coordsText: anaC? `${anaC.lat.toFixed(4)}, ${anaC.lng.toFixed(4)}`:'',
       locate:()=>this.findNearestPU(), near:anaNear, hasNear,
       geoError,
-      showNearPanel: isNigeria && (locating || hasNear || !!geoError),
+      showNearPanel: isNigeria && section==='Map' && (locating || hasNear || !!geoError),
       showWardPuPanel: false,
-      showElecPanel: isNigeria && !(locating || hasNear || !!geoError),
+      showElecPanel: isNigeria && section!=='Map',
       nearHint: locating ? 'Using your device location' : (anaC ? `${anaC.lat.toFixed(4)}, ${anaC.lng.toFixed(4)}` : ''),
       captureLabel: anaC? 'Update my location':'Use my location',
       wardHint: '', wardCountLabel: '', wardLoading: false, wardEmpty: false, hasWardPus: false, wardPus: [],
@@ -3502,7 +3653,7 @@ class Component extends DCLogic {
       else if(stSel && stRec){ zScale=1.35; zx=stRec.x; zy=stRec.y; }
       ngView.puInfo = null;
     }
-    if(anaData && isNigeria && ngView && ngView.hasWard && !anaData.showNearPanel){
+    if(anaData && isNigeria && section==='Map' && ngView && ngView.hasWard && !anaData.showNearPanel){
       const wardLoading = this.state.puLoading === 'pu';
       const origin = this.state.puDistOrigin;
       const hasOrigin = !!(origin && origin.lat != null && origin.lng != null);
@@ -3605,6 +3756,8 @@ class Component extends DCLogic {
     const elecYear = String(elecSelT ? elecSelT.year : yearVal);
     const elecNeedsState = isNigeria && ovOffice === 'gov';
     const govYearHint = !!(elecNeedsState && !ovElecState);
+    const govStatePrompt = govYearHint;
+    const govStateSelectWrap = govStatePrompt ? 'eid-gov-state-target' : '';
     const elecYearStepLabel = elecNeedsState ? 'Step 3 · Year' : 'Step 2 · Year';
     const govStateOptions = govStatesList.map(s=>({ name:s }));
     const elecYearOptions = yearPool.map((year)=>{
@@ -3627,11 +3780,30 @@ class Component extends DCLogic {
     const ngElec = isNigeria ? this.ngElection(elecYear, ovOffice, elecSelT && elecSelT.status==='Upcoming', choroForYear, ovElecState) : null;
     if(ngElec){
       if (!ngElec.sourceLine) ngElec.sourceLine = choroForYear && choroForYear.ok ? (choroForYear.sourceDetail || choroForYear.source || 'Official result · winner first') : 'Official result · winner first';
-      ngElec.isGov = ovOffice==='gov' && !ovElecState && !ngElec.isCands && !ngElec.pending;
+      ngElec.showGovPicker = !!(ovOffice==='gov' && !ovElecState && (ngElec.showGovPicker || !ngElec.pending));
+      // Never show seeded fake governor-elect rows; use the coverage picker instead.
+      ngElec.isGov = false;
       ngElec.isGovCands = ovOffice==='gov' && ngElec.isCands;
       ngElec.isLga = ovOffice==='lga';
       ngElec.isNA = ovOffice==='sen' || ovOffice==='reps';
-      ngElec.isCands = !ngElec.pending && (ngElec.candidates||[]).length>0 && (ovOffice==='pres' || ovOffice==='gov');
+      ngElec.isCands = !ngElec.pending && !ngElec.showGovPicker && (ngElec.candidates||[]).length>0 && (ovOffice==='pres' || ovOffice==='gov');
+      if (ngElec.showGovPicker) {
+        const byState = (this.state.govCatalog && this.state.govCatalog.byState) || {};
+        const names = (this.state.govCatalog && this.state.govCatalog.states)
+          || Object.keys(byState).sort((a,b)=>a.localeCompare(b));
+        ngElec.govPickerCount = String(names.length);
+        ngElec.govPickerStates = names.map((name)=>{
+          const entries = byState[name] || [];
+          const latest = entries[0];
+          const years = entries.map((e)=> String(e.electionYear || e.storageYear || '')).filter(Boolean);
+          return {
+            name,
+            years,
+            latestYear: latest ? String(latest.electionYear || latest.storageYear || '—') : '—',
+            onClick: ()=> this.selectGovState(name),
+          };
+        });
+      }
       ngElec.candidates = (ngElec.candidates||[]).map((row,i)=>{
         const wonUnits = row.wonUnits || [];
         const unitWord = (ovOffice === 'gov') ? 'LGA' : 'state';
@@ -3698,13 +3870,22 @@ class Component extends DCLogic {
           : `width:14px;height:0;border-top:2px ${d.dash||'solid'} ${d.color};flex:none`),
       isPu: d.kind==='pu',
     }));
-    const resultLegendTitle = (choroMap && choroMap.ok) ? 'Result map' : 'Legend';
+    const resultLegendTitle = (choroMap && choroMap.ok)
+      ? (choroMap.coverage ? 'Governorship coverage' : 'Result map')
+      : 'Legend';
     const resultLegendItems = (choroMap && choroMap.ok && choroMap.legend && choroMap.legend.length)
-      ? choroMap.legend.map(p=>({ label:`${p.name || p.party} (${p.party}) · ${p.count} ${choroMap.level==='lga'?'LGAs':'states'}${choroMap.mapMode==='estimated-lga'?' · est.':''}`, swatch:`width:14px;height:14px;border-radius:3px;background:${p.color};flex:none` }))
+      ? (choroMap.coverage
+        ? choroMap.legend.map(p=>({
+          label: `${p.name} · ${p.count}`,
+          swatch: `width:14px;height:14px;border-radius:3px;background:${p.color};flex:none`,
+        }))
+        : choroMap.legend.map(p=>({ label:`${p.name || p.party} (${p.party}) · ${p.count} ${choroMap.level==='lga'?'LGAs':'states'}${choroMap.mapMode==='estimated-lga'?' · est.':''}`, swatch:`width:14px;height:14px;border-radius:3px;background:${p.color};flex:none` })))
       : boundaryLegend;
-    const elecMapSource = (choroForYear && choroForYear.ok)
-      ? `${choroForYear.estimated ? 'Estimated LGA · ' : (choroForYear.collated ? 'Official LGA · ' : '')}${choroForYear.sourceDetail || choroForYear.attribution || choroForYear.source}${choroForYear.updated ? ' · updated '+choroForYear.updated : ''}`
-      : null;
+    const elecMapSource = (choroMap && choroMap.ok && choroMap.coverage)
+      ? `Select a state · ${Object.values(choroMap.units || {}).filter(u=>u && u.coverage).length} with governorship archive`
+      : ((choroForYear && choroForYear.ok)
+        ? `${choroForYear.estimated ? 'Estimated LGA · ' : (choroForYear.collated ? 'Official LGA · ' : '')}${choroForYear.sourceDetail || choroForYear.attribution || choroForYear.source}${choroForYear.updated ? ' · updated '+choroForYear.updated : ''}`
+        : null);
 
     // ── citizen result upload (Nigeria) ──
     const sS=this.state.subState, sL=this.state.subLga, sW=this.state.subWard, sP=this.state.subPU;
@@ -3945,7 +4126,7 @@ class Component extends DCLogic {
       isOverviewCountry: view==='app' && section==='Overview' && isNigeria,
       isComingSoon: view==='app' && section!=='Admin' && !isGlobal && !isNigeria,
       isSection: false,
-      isMap: view==='app' && section==='Map' && (isGlobal || isNigeria),
+      isMap: view==='app' && section==='Map' && isNigeria,
       isElections: view==='app' && section==='Elections' && (isGlobal || isNigeria),
       isLive: view==='app' && section==='Live Results' && (isGlobal || isNigeria),
       isCandidates: view==='app' && section==='Candidates' && (isGlobal || isNigeria),
@@ -3981,17 +4162,19 @@ class Component extends DCLogic {
       elecNeedsState, govStateOptions, ovElecStateVal: ovElecState,
       elecCands: (ngElec && ngElec.candidates) || [],
       resultLegendTitle, resultLegendItems, elecMapSource,
-      elecYearStepLabel, govYearHint,
+      elecYearStepLabel, govYearHint, govStatePrompt, govStateSelectWrap,
       ngElec, ovOfficeVal:ovOffice,
       onOffice:(e)=>{
         const office = e.target.value || 'pres';
         if (office === 'gov') {
-          this.fetchGovCatalog();
-        this.setState({
-          ovOffice: office, ovElecYear: null, ovElecState: null, elecMapTheme: null, elecChoroMeta: null,
-          elecSelectedUnit: null, elecExpandedCand: null, showEstimatedLga: true,
-          layers: this.syncElectionLayers(office, null, false, null),
-        }, ()=>{ this.fetchNgKpis(); this.syncCountryMap(); });
+          this.setState({
+            ovOffice: office, ovElecYear: null, ovElecState: null, elecMapTheme: null, elecChoroMeta: null,
+            elecSelectedUnit: null, elecExpandedCand: null, showEstimatedLga: true,
+            layers: this.syncElectionLayers(office, null, false, null),
+          }, ()=>{
+            this.fetchNgKpis();
+            this.fetchGovCatalog().then(()=> this.flyToElectionView());
+          });
           return;
         }
         const officeYears = this.OFFICE_YEARS[office] || ['2023'];
@@ -4003,12 +4186,7 @@ class Component extends DCLogic {
         }, ()=>{ this.fetchNgKpis(); this.flyToElectionView(); });
       },
       onElecState:(e)=>{
-        const state = e.target.value || null;
-        const years = this.govYearsForState(state);
-        const nextYear = years.includes(String(this.state.ovElecYear)) ? String(this.state.ovElecYear) : (years[0] || null);
-        this.setState({
-          ovElecState: state, ovElecYear: nextYear, elecMapTheme: null, elecChoroMeta: null, elecSelectedUnit: null, elecExpandedCand: null, showEstimatedLga: true,
-        }, ()=>{ this.fetchNgKpis(); this.flyToElectionView(); });
+        this.selectGovState(e.target.value || null);
       },
       sub,
       ngStateVal:(ngView?ngView.stSel:null)||'',
@@ -4021,7 +4199,7 @@ class Component extends DCLogic {
       scopeLabel: isGlobal ? 'Global' : c.name,
       scopeFlagRef: (el)=>{ if(el && c) el.src=this.flagSrc(c.code); },
       scopeFlagRef2: (el)=>{ if(el && c) el.src=this.flagSrc(c.code); },
-      sectionInfo: this.SECTIONS[section] ? { title:section, icon:this.SECTIONS[section].icon, desc:this.SECTIONS[section].desc } : { title:section, icon:'dashboard', desc:'' },
+      sectionInfo: this.SECTIONS[section] ? { title: this.SECTIONS[section].title || section, icon:this.SECTIONS[section].icon, desc:this.SECTIONS[section].desc } : { title:section, icon:'dashboard', desc:'' },
       sectionMarkers,
 
       countryCards: this.ORDER.map(code=>{
@@ -4031,7 +4209,7 @@ class Component extends DCLogic {
       }),
 
       nav: [
-        this.navItem('Overview'), this.navItem('Live Results', true),
+        this.navItem('Overview'), this.navItem('Map', false, 'Polling units'), this.navItem('Live Results', true),
         this.navItem('Candidates'), this.navItem('Parties'),
         this.navItem('Analysis'), this.navItem('Data'), this.navItem('About'),
       ],
