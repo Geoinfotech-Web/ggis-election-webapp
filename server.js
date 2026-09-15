@@ -22,6 +22,7 @@ const { buildPollingUnitDashboardData, normalizeLookupKey } = require('./polling
 const { runIngest, loadLatestSnapshot, getIngestStatus, hydrateIngestStatus } = require('./inec-ingest');
 const { computeNigeriaKpis } = require('./nigeria-kpis');
 const { loadChoropleth, listAvailableDatasets, listAvailableGovStates, listGovCatalog, PARTY_COLORS } = require('./election-results-data');
+const { buildAnalysisBundle } = require('./election-analysis');
 const {
   ensurePollingUnitsSeeded,
   ensureElectionResultsSeeded,
@@ -1741,6 +1742,28 @@ app.get('/api/election-results/datasets', (_req, res) => {
     irevUrl: process.env.INEC_IREV_URL || 'https://cvr.inecnigeria.org/',
     datasets: listAvailableDatasets(),
   });
+});
+
+app.get('/api/election-results/analysis', (req, res) => {
+  try {
+    ensureElectionResultsSeeded();
+    const filters = {
+      office: req.query.office != null ? String(req.query.office) : 'pres',
+      year: req.query.year != null ? String(req.query.year) : (req.query.election != null ? String(req.query.election) : ''),
+      compare: req.query.compare != null ? String(req.query.compare) : '',
+      party: req.query.party != null ? String(req.query.party) : 'all',
+      region: req.query.region != null ? String(req.query.region) : 'all',
+      momentumWeight: req.query.momentum != null ? Number(req.query.momentum) : undefined,
+      retentionWeight: req.query.retention != null ? Number(req.query.retention) : undefined,
+      competitiveCutoff: req.query.cutoff != null ? Number(req.query.cutoff) : undefined,
+    };
+    const payload = buildAnalysisBundle(filters);
+    res.setHeader('Cache-Control', 'public, max-age=60');
+    return res.json(payload);
+  } catch (error) {
+    console.error('Election analysis unavailable:', error.message || error);
+    return res.status(500).json({ ok: false, error: 'Unable to build election analysis.' });
+  }
 });
 
 // Preserve the original endpoint for existing bookmarks and integrations.

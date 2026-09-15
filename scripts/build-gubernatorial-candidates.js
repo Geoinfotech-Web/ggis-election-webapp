@@ -156,6 +156,25 @@ for (const y of Object.keys(ballots)) {
 }
 
 const years = Object.keys(ballots).sort((a, b) => Number(b) - Number(a));
+
+// Preserve photo/wiki enrichment from a previous catalog build when present.
+let prevProfiles = {};
+try {
+  if (fs.existsSync(OUT)) {
+    const prev = JSON.parse(fs.readFileSync(OUT, 'utf8'));
+    prevProfiles = (prev && prev.profiles) || {};
+  }
+} catch (_) {}
+for (const [id, pr] of Object.entries(profiles)) {
+  const old = prevProfiles[id];
+  if (!old) continue;
+  if (!pr.photo && old.photo) {
+    pr.photo = old.photo;
+    pr.photoCredit = old.photoCredit || null;
+  }
+  if (!pr.wiki && old.wiki) pr.wiki = old.wiki;
+}
+
 const out = {
   source: 'Dashboard gubernatorial archive (INEC-declared / collated state results)',
   updated: new Date().toISOString().slice(0, 10),
