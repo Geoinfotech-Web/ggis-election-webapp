@@ -1,0 +1,813 @@
+{
+  "source": "INEC final list of candidates for national elections (2023) Â· Wikipedia summaries for biography where available",
+  "updated": "2026-09-15",
+  "ballots": {
+    "2015": [
+      {
+        "party": "APC",
+        "name": "Muhammadu Buhari",
+        "runningMate": "Yemi Osinbajo",
+        "outcome": "Won",
+        "votes": 15424921,
+        "share": 53.9,
+        "profileId": "muhammadu-buhari"
+      },
+      {
+        "party": "PDP",
+        "name": "Goodluck Jonathan",
+        "runningMate": "Namadi Sambo",
+        "outcome": "Lost (incumbent)",
+        "votes": 12853162,
+        "share": 44.9,
+        "profileId": "goodluck-jonathan"
+      }
+    ],
+    "2019": [
+      {
+        "party": "APC",
+        "name": "Muhammadu Buhari",
+        "runningMate": "Yemi Osinbajo",
+        "outcome": "Won",
+        "votes": 15191847,
+        "share": 55.6,
+        "profileId": "muhammadu-buhari"
+      },
+      {
+        "party": "PDP",
+        "name": "Atiku Abubakar",
+        "runningMate": "Peter Obi",
+        "outcome": "Runner-up",
+        "votes": 11262978,
+        "share": 41.2,
+        "profileId": "atiku-abubakar"
+      },
+      {
+        "party": "AAC",
+        "name": "Omoyele Sowore",
+        "runningMate": "Rabiu Garba Kwankwaso",
+        "outcome": "Contested",
+        "profileId": "omoyele-sowore"
+      },
+      {
+        "party": "ADC",
+        "name": "Obadiah Mailafia",
+        "runningMate": "Nafiu Muhammad",
+        "outcome": "Contested",
+        "profileId": "obadiah-mailafia"
+      },
+      {
+        "party": "SDP",
+        "name": "Donald Duke",
+        "runningMate": "Khadijah Okunnu-Lamidi",
+        "outcome": "Contested",
+        "profileId": "donald-duke"
+      }
+    ],
+    "2023": [
+      {
+        "party": "A",
+        "name": "Christopher Imumolen",
+        "runningMate": "Hamza Ibrahim",
+        "outcome": "Contested",
+        "profileId": "christopher-imumolen"
+      },
+      {
+        "party": "AA",
+        "name": "Hamza Al-Mustapha",
+        "runningMate": "Emmanuel Chukwuka Johnson",
+        "outcome": "Contested",
+        "profileId": "hamza-al-mustapha"
+      },
+      {
+        "party": "AAC",
+        "name": "Omoyele Sowore",
+        "runningMate": "Haruna Magashi",
+        "outcome": "Contested",
+        "profileId": "omoyele-sowore"
+      },
+      {
+        "party": "ADC",
+        "name": "Dumebi Kachikwu",
+        "runningMate": "Ahmed Mani Buhari",
+        "outcome": "Contested",
+        "profileId": "dumebi-kachikwu"
+      },
+      {
+        "party": "ADP",
+        "name": "Yabagi Sani Yusuf",
+        "runningMate": "Sani Abubakar Danladi",
+        "outcome": "Contested",
+        "profileId": "yabagi-sani"
+      },
+      {
+        "party": "APC",
+        "name": "Bola Ahmed Tinubu",
+        "runningMate": "Kashim Shettima",
+        "outcome": "Won",
+        "votes": 8794726,
+        "share": 37,
+        "profileId": "bola-ahmed-tinubu"
+      },
+      {
+        "party": "APGA",
+        "name": "Peter Umeadi",
+        "runningMate": "Abdullahi Mohammed",
+        "outcome": "Contested",
+        "profileId": "peter-umeadi"
+      },
+      {
+        "party": "APM",
+        "name": "Princess Chichi Ojei",
+        "runningMate": "Ahmed Mohammed",
+        "outcome": "Contested",
+        "profileId": "chichi-ojei"
+      },
+      {
+        "party": "APP",
+        "name": "Osita Nnadi",
+        "runningMate": "Mohammed Abdullahi",
+        "outcome": "Contested",
+        "profileId": "osita-nnadi"
+      },
+      {
+        "party": "BP",
+        "name": "Sunday Oluwafemi Adenuga",
+        "runningMate": "Mustapha Turaki",
+        "outcome": "Contested",
+        "profileId": "sunday-adenuga"
+      },
+      {
+        "party": "LP",
+        "name": "Peter Obi",
+        "runningMate": "Yusuf Datti Baba-Ahmed",
+        "outcome": "3rd place",
+        "votes": 6101533,
+        "share": 25.4,
+        "profileId": "peter-obi"
+      },
+      {
+        "party": "NNPP",
+        "name": "Rabiu Musa Kwankwaso",
+        "runningMate": "Isaac Idahosa",
+        "outcome": "4th place",
+        "votes": 1496687,
+        "share": 6.4,
+        "profileId": "rabiu-kwankwaso"
+      },
+      {
+        "party": "NRM",
+        "name": "Felix Johnson Osakwe",
+        "runningMate": "Yahaya Abubakar",
+        "outcome": "Contested",
+        "profileId": "felix-osakwe"
+      },
+      {
+        "party": "PDP",
+        "name": "Atiku Abubakar",
+        "runningMate": "Ifeanyi Okowa",
+        "outcome": "Runner-up",
+        "votes": 6984520,
+        "share": 29.1,
+        "profileId": "atiku-abubakar"
+      },
+      {
+        "party": "PRP",
+        "name": "Kola Abiola",
+        "runningMate": "Haruna Zego",
+        "outcome": "Contested",
+        "profileId": "kola-abiola"
+      },
+      {
+        "party": "SDP",
+        "name": "Adewole Adebayo",
+        "runningMate": "Yusuf Bala",
+        "outcome": "Contested",
+        "profileId": "adewole-adebayo"
+      },
+      {
+        "party": "YPP",
+        "name": "Abdulmalik Ado-Ibrahim",
+        "runningMate": "Ahmed Mohammed",
+        "outcome": "Contested",
+        "profileId": "ado-ibrahim"
+      },
+      {
+        "party": "ZLP",
+        "name": "Daniel Daberechukwu Nwanyanwu",
+        "runningMate": "Abubakar Ramalan",
+        "outcome": "Contested",
+        "profileId": "daniel-nwanyanwu"
+      }
+    ]
+  },
+  "profiles": {
+    "bola-ahmed-tinubu": {
+      "id": "bola-ahmed-tinubu",
+      "name": "Bola Ahmed Tinubu",
+      "fullName": "Asiwaju Bola Ahmed Adekunle Tinubu",
+      "born": "1952-03-29",
+      "birthPlace": "Lagos, Nigeria",
+      "roles": [
+        "President of Nigeria (2023-present)",
+        "Governor of Lagos State (1999-2007)"
+      ],
+      "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Bola_Tinubu_portrait.jpg?width=480",
+      "photoCredit": "Wikimedia Commons",
+      "wiki": "https://en.wikipedia.org/wiki/Bola_Tinubu",
+      "summary": "Nigerian politician serving as the 16th president of Nigeria since 2023. He previously served as governor of Lagos State from 1999 to 2007 and as senator for Lagos West in the Third Republic.",
+      "biography": [
+        "Tinubu rose to national prominence as a leading figure in the progressive opposition that later formed the All Progressives Congress (APC).",
+        "As Lagos governor he oversaw reforms in revenue collection, urban planning and transport. In 2023 he won the presidential election on the APC ticket with Kashim Shettima as running mate."
+      ],
+      "history": [
+        {
+          "year": "1992",
+          "title": "Senator, Lagos West",
+          "detail": "Elected during Nigeria's Third Republic."
+        },
+        {
+          "year": "1999-2007",
+          "title": "Governor of Lagos State",
+          "detail": "Two-term governor; known for fiscal and urban reforms."
+        },
+        {
+          "year": "2013",
+          "title": "APC formation",
+          "detail": "Key architect of the merger that created the All Progressives Congress."
+        },
+        {
+          "year": "2023",
+          "title": "Elected President",
+          "detail": "Defeated Atiku Abubakar (PDP) and Peter Obi (LP) in the February 2023 election."
+        }
+      ]
+    },
+    "atiku-abubakar": {
+      "id": "atiku-abubakar",
+      "name": "Atiku Abubakar",
+      "fullName": "Atiku Abubakar GCON",
+      "born": "1946-11-25",
+      "birthPlace": "Jada, Adamawa State",
+      "roles": [
+        "Vice President of Nigeria (1999-2007)",
+        "Businessman",
+        "Presidential candidate"
+      ],
+      "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Atiku_Abubakar_2023.jpg?width=480",
+      "photoCredit": "Wikimedia Commons",
+      "wiki": "https://en.wikipedia.org/wiki/Atiku_Abubakar",
+      "summary": "Nigerian politician and businessman who served as vice president from 1999 to 2007 under President Olusegun Obasanjo. He has contested the presidency multiple times, including as PDP flag bearer in 2019 and 2023.",
+      "biography": [
+        "Atiku began his career in the Nigeria Customs Service before entering politics and business. He was elected governor of Adamawa in 1999 but became Obasanjo's running mate before inauguration.",
+        "He remains one of Nigeria's most persistent presidential aspirants, finishing runner-up in both 2019 and 2023."
+      ],
+      "history": [
+        {
+          "year": "1999-2007",
+          "title": "Vice President",
+          "detail": "Served two terms with President Olusegun Obasanjo."
+        },
+        {
+          "year": "2007-2023",
+          "title": "Presidential campaigns",
+          "detail": "Multiple bids across parties; PDP nominee in 2019 and 2023."
+        },
+        {
+          "year": "2023",
+          "title": "PDP presidential nominee",
+          "detail": "Finished second nationally with Ifeanyi Okowa as running mate."
+        }
+      ]
+    },
+    "peter-obi": {
+      "id": "peter-obi",
+      "name": "Peter Obi",
+      "fullName": "Peter Gregory Onwubuasi Obi",
+      "born": "1961-07-19",
+      "birthPlace": "Onitsha, Anambra State",
+      "roles": [
+        "Governor of Anambra State (2006-2014)",
+        "Businessman",
+        "2023 LP presidential candidate"
+      ],
+      "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Peter_Obi.png?width=480",
+      "photoCredit": "Wikimedia Commons",
+      "wiki": "https://en.wikipedia.org/wiki/Peter_Obi",
+      "summary": "Nigerian politician and businessman who served as governor of Anambra State. He was the Labour Party presidential candidate in 2023 and finished third nationally.",
+      "biography": [
+        "Obi built a reputation for frugal public finance as Anambra governor. In 2022 he left the PDP and emerged as Labour Party's presidential candidate, galvanising a large youth and diaspora following.",
+        "His 2023 campaign with Yusuf Datti Baba-Ahmed reshaped Nigeria's three-way presidential contest."
+      ],
+      "history": [
+        {
+          "year": "2006-2014",
+          "title": "Governor of Anambra",
+          "detail": "Completed interrupted terms after court and impeachment battles."
+        },
+        {
+          "year": "2019",
+          "title": "PDP vice-presidential nominee",
+          "detail": "Running mate to Atiku Abubakar."
+        },
+        {
+          "year": "2023",
+          "title": "LP presidential candidate",
+          "detail": "Third place nationally with about 25% of the vote."
+        }
+      ]
+    },
+    "rabiu-kwankwaso": {
+      "id": "rabiu-kwankwaso",
+      "name": "Rabiu Musa Kwankwaso",
+      "fullName": "Mohammed Rabiu Musa Kwankwaso",
+      "born": "1956-10-21",
+      "birthPlace": "Kwankwaso, Kano State",
+      "roles": [
+        "Governor of Kano (1999-2003, 2011-2015)",
+        "Minister of Defence",
+        "Senator"
+      ],
+      "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Rabiu_Kwankwaso.jpg?width=480",
+      "photoCredit": "Wikimedia Commons",
+      "wiki": "https://en.wikipedia.org/wiki/Rabiu_Kwankwaso",
+      "summary": "Influential Kano politician and leader of the Kwankwasiyya movement. He contested the 2023 presidency on the NNPP platform and finished fourth.",
+      "biography": [
+        "Kwankwaso has been a dominant figure in Kano politics for more than two decades, alternating between PDP and APC before leading NNPP's national ticket in 2023."
+      ],
+      "history": [
+        {
+          "year": "1999-2003",
+          "title": "Governor of Kano (1st term)",
+          "detail": "First democratic tenure after the military era."
+        },
+        {
+          "year": "2003-2007",
+          "title": "Minister of Defence",
+          "detail": "Served in the Obasanjo cabinet."
+        },
+        {
+          "year": "2011-2015",
+          "title": "Governor of Kano (2nd term)",
+          "detail": "Returned via PDP before later joining APC, then NNPP."
+        },
+        {
+          "year": "2023",
+          "title": "NNPP presidential candidate",
+          "detail": "Fourth place nationally."
+        }
+      ]
+    },
+    "omoyele-sowore": {
+      "id": "omoyele-sowore",
+      "name": "Omoyele Sowore",
+      "fullName": "Omoyele Yele Sowore",
+      "born": "1971-02-16",
+      "birthPlace": "Ondo State, Nigeria",
+      "roles": [
+        "Founder, Sahara Reporters",
+        "AAC presidential candidate"
+      ],
+      "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Omoyele_Sowore_(29682338514).jpg?width=480",
+      "photoCredit": "Wikimedia Commons",
+      "wiki": "https://en.wikipedia.org/wiki/Omoyele_Sowore",
+      "summary": "Journalist, activist and founder of Sahara Reporters. He founded the African Action Congress and contested the presidency in 2019 and 2023.",
+      "biography": [
+        "Sowore is known for citizen reporting and pro-democracy activism. He launched AAC in 2018 and has remained a vocal critic of successive Nigerian governments."
+      ],
+      "history": [
+        {
+          "year": "2006",
+          "title": "Sahara Reporters",
+          "detail": "Founded the investigative news platform."
+        },
+        {
+          "year": "2018",
+          "title": "Founded AAC",
+          "detail": "Launched African Action Congress."
+        },
+        {
+          "year": "2019 & 2023",
+          "title": "Presidential candidate",
+          "detail": "AAC flag bearer in two general elections."
+        }
+      ]
+    },
+    "muhammadu-buhari": {
+      "id": "muhammadu-buhari",
+      "name": "Muhammadu Buhari",
+      "fullName": "Muhammadu Buhari GCFR",
+      "born": "1942-12-17",
+      "birthPlace": "Daura, Katsina State",
+      "roles": [
+        "President of Nigeria (2015-2023)",
+        "Military Head of State (1983-1985)"
+      ],
+      "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Muhammadu_Buhari,_President_of_the_Federal_Republic_of_Nigeria_(3x4_cropped).jpg?width=480",
+      "photoCredit": "Wikimedia Commons",
+      "wiki": "https://en.wikipedia.org/wiki/Muhammadu_Buhari",
+      "summary": "Nigerian general and politician who served as military head of state (1983-1985) and as civilian president from 2015 to 2023.",
+      "biography": [
+        "After decades of opposition politics, Buhari won the 2015 election as APC candidate, becoming the first opposition candidate to defeat an incumbent Nigerian president, and was re-elected in 2019."
+      ],
+      "history": [
+        {
+          "year": "1983-1985",
+          "title": "Military Head of State",
+          "detail": "Came to power after a coup; later overthrown."
+        },
+        {
+          "year": "2015",
+          "title": "Elected President",
+          "detail": "Defeated incumbent Goodluck Jonathan."
+        },
+        {
+          "year": "2019",
+          "title": "Re-elected",
+          "detail": "Defeated Atiku Abubakar."
+        },
+        {
+          "year": "2023",
+          "title": "Left office",
+          "detail": "Handed over to Bola Tinubu after completing two civilian terms."
+        }
+      ]
+    },
+    "goodluck-jonathan": {
+      "id": "goodluck-jonathan",
+      "name": "Goodluck Jonathan",
+      "fullName": "Goodluck Ebele Azikiwe Jonathan",
+      "born": "1957-11-20",
+      "birthPlace": "Ogbia, Bayelsa State",
+      "roles": [
+        "President of Nigeria (2010-2015)",
+        "Vice President (2007-2010)"
+      ],
+      "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Goodluck_Jonathan_World_Economic_Forum_2013.jpg?width=480",
+      "photoCredit": "Wikimedia Commons",
+      "wiki": "https://en.wikipedia.org/wiki/Goodluck_Jonathan",
+      "summary": "Nigerian politician who served as president from 2010 to 2015. He was the first sitting president to concede defeat after losing re-election.",
+      "biography": [
+        "Jonathan rose from Bayelsa deputy governor to vice president, then president after Umaru Yar'Adua's death. He lost the 2015 election to Muhammadu Buhari."
+      ],
+      "history": [
+        {
+          "year": "2007-2010",
+          "title": "Vice President",
+          "detail": "Served under President Yar'Adua."
+        },
+        {
+          "year": "2010-2015",
+          "title": "President",
+          "detail": "Completed Yar'Adua's term and won the 2011 election."
+        },
+        {
+          "year": "2015",
+          "title": "Lost re-election",
+          "detail": "Conceded to Buhari - a landmark peaceful transfer."
+        }
+      ]
+    },
+    "hamza-al-mustapha": {
+      "id": "hamza-al-mustapha",
+      "name": "Hamza Al-Mustapha",
+      "fullName": "Hamza Al-Mustapha",
+      "born": "1960",
+      "birthPlace": "Nguru, Yobe State",
+      "roles": [
+        "Former Chief Security Officer to Gen. Sani Abacha",
+        "2023 AA presidential candidate"
+      ],
+      "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Hamza_al-Mustapha_2023.jpg?width=480",
+      "photoCredit": "Wikimedia Commons",
+      "wiki": "https://en.wikipedia.org/wiki/Hamza_al-Mustapha",
+      "summary": "Retired Nigerian Army major and intelligence officer who served as Chief Security Officer to Head of State Gen. Sani Abacha. He was the Action Alliance presidential candidate in 2023.",
+      "biography": [
+        "Al-Mustapha was a central figure in Abacha's security apparatus. After years in detention and subsequent release, he entered partisan politics and contested the 2023 presidency."
+      ],
+      "history": [
+        {
+          "year": "1993-1998",
+          "title": "CSO to Head of State",
+          "detail": "Served under Gen. Sani Abacha."
+        },
+        {
+          "year": "2023",
+          "title": "AA presidential candidate",
+          "detail": "Contested on the Action Alliance ticket."
+        }
+      ]
+    },
+    "adewole-adebayo": {
+      "id": "adewole-adebayo",
+      "name": "Adewole Adebayo",
+      "fullName": "Prince Adewole Ebenezer Adebayo",
+      "born": "1972",
+      "birthPlace": "Ondo State, Nigeria",
+      "roles": [
+        "Lawyer",
+        "Media entrepreneur",
+        "SDP presidential candidate"
+      ],
+      "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/PAA_Wikipedia_Speech_(2).jpg?width=480",
+      "photoCredit": "Wikimedia Commons",
+      "wiki": "https://en.wikipedia.org/wiki/Adewole_Adebayo",
+      "summary": "Nigerian lawyer, activist and media entrepreneur. He was the Social Democratic Party presidential candidate in 2023.",
+      "biography": [
+        "Adebayo is known for public commentary on law and governance and for founding KAFTAN TV. He ran for president on the SDP platform in 2023."
+      ],
+      "history": [
+        {
+          "year": "2023",
+          "title": "SDP presidential candidate",
+          "detail": "INEC-cleared national candidate."
+        }
+      ]
+    },
+    "kola-abiola": {
+      "id": "kola-abiola",
+      "name": "Kola Abiola",
+      "fullName": "Latifu Kolawole Abiola",
+      "born": "1970",
+      "birthPlace": "Nigeria",
+      "roles": [
+        "Businessman",
+        "2023 PRP presidential candidate",
+        "Son of MKO Abiola"
+      ],
+      "photo": null,
+      "photoCredit": null,
+      "wiki": null,
+      "summary": "Businessman and son of the late Chief MKO Abiola. He was the Peoples Redemption Party presidential candidate in 2023.",
+      "biography": [
+        "Kola Abiola entered the 2023 race on the PRP ticket, invoking the democratic legacy associated with his father's June 12 mandate."
+      ],
+      "history": [
+        {
+          "year": "2023",
+          "title": "PRP presidential candidate",
+          "detail": "Contested the February 25 national election."
+        }
+      ]
+    },
+    "christopher-imumolen": {
+      "id": "christopher-imumolen",
+      "name": "Christopher Imumolen",
+      "fullName": "Irene Christopher Imumolen",
+      "roles": [
+        "Entrepreneur",
+        "2023 Accord presidential candidate"
+      ],
+      "photo": null,
+      "summary": "Accord Party presidential candidate in the 2023 general election, cleared on INEC's final national list.",
+      "biography": [
+        "Imumolen contested the 2023 presidency as the Accord (A) flag bearer."
+      ],
+      "history": [
+        {
+          "year": "2023",
+          "title": "Accord presidential candidate",
+          "detail": "INEC final list - national ballot."
+        }
+      ]
+    },
+    "dumebi-kachikwu": {
+      "id": "dumebi-kachikwu",
+      "name": "Dumebi Kachikwu",
+      "fullName": "Dumebi Kachikwu",
+      "roles": [
+        "Politician",
+        "2023 ADC presidential candidate"
+      ],
+      "photo": null,
+      "summary": "African Democratic Congress presidential candidate on INEC's 2023 final list.",
+      "biography": [
+        "Kachikwu was listed by INEC as ADC's presidential candidate for the February 2023 election."
+      ],
+      "history": [
+        {
+          "year": "2023",
+          "title": "ADC presidential candidate",
+          "detail": "INEC final list - national ballot."
+        }
+      ]
+    },
+    "yabagi-sani": {
+      "id": "yabagi-sani",
+      "name": "Yabagi Sani Yusuf",
+      "fullName": "Yabagi Sani Yusuf",
+      "roles": [
+        "Politician",
+        "2023 ADP presidential candidate"
+      ],
+      "photo": null,
+      "summary": "Action Democratic Party presidential candidate for the 2023 election.",
+      "biography": [
+        "Sani contested as ADP flag bearer in the February 2023 presidential election."
+      ],
+      "history": [
+        {
+          "year": "2023",
+          "title": "ADP presidential candidate",
+          "detail": "INEC final list - national ballot."
+        }
+      ]
+    },
+    "peter-umeadi": {
+      "id": "peter-umeadi",
+      "name": "Peter Umeadi",
+      "fullName": "Peter Nnanna Chukwudi Umeadi",
+      "roles": [
+        "Jurist",
+        "2023 APGA presidential candidate"
+      ],
+      "photo": null,
+      "summary": "Former Chief Judge of Anambra State and APGA presidential candidate in 2023.",
+      "biography": [
+        "Umeadi was APGA's presidential nominee on INEC's final 2023 list."
+      ],
+      "history": [
+        {
+          "year": "2023",
+          "title": "APGA presidential candidate",
+          "detail": "INEC final list - national ballot."
+        }
+      ]
+    },
+    "chichi-ojei": {
+      "id": "chichi-ojei",
+      "name": "Princess Chichi Ojei",
+      "fullName": "Princess Chichi Ojei",
+      "roles": [
+        "Politician",
+        "2023 APM presidential candidate"
+      ],
+      "photo": null,
+      "summary": "Allied Peoples Movement presidential candidate in 2023 - one of the few women on the national ballot.",
+      "biography": [
+        "Ojei contested the presidency on the APM ticket in February 2023."
+      ],
+      "history": [
+        {
+          "year": "2023",
+          "title": "APM presidential candidate",
+          "detail": "INEC final list - national ballot."
+        }
+      ]
+    },
+    "osita-nnadi": {
+      "id": "osita-nnadi",
+      "name": "Osita Nnadi",
+      "fullName": "Charles Osita Nnadi",
+      "roles": [
+        "Politician",
+        "2023 APP presidential candidate"
+      ],
+      "photo": null,
+      "summary": "Action Peoples Party presidential candidate for the 2023 election.",
+      "biography": [
+        "Nnadi was APP's presidential candidate on INEC's final national list."
+      ],
+      "history": [
+        {
+          "year": "2023",
+          "title": "APP presidential candidate",
+          "detail": "INEC final list - national ballot."
+        }
+      ]
+    },
+    "sunday-adenuga": {
+      "id": "sunday-adenuga",
+      "name": "Sunday Oluwafemi Adenuga",
+      "fullName": "Sunday Oluwafemi Adenuga",
+      "roles": [
+        "Politician",
+        "2023 Boot Party presidential candidate"
+      ],
+      "photo": null,
+      "summary": "Boot Party presidential candidate in the 2023 general election.",
+      "biography": [
+        "Adenuga contested as Boot Party flag bearer in February 2023."
+      ],
+      "history": [
+        {
+          "year": "2023",
+          "title": "Boot Party presidential candidate",
+          "detail": "INEC final list - national ballot."
+        }
+      ]
+    },
+    "felix-osakwe": {
+      "id": "felix-osakwe",
+      "name": "Felix Johnson Osakwe",
+      "fullName": "Felix Johnson Osakwe",
+      "roles": [
+        "Politician",
+        "2023 NRM presidential candidate"
+      ],
+      "photo": null,
+      "summary": "National Rescue Movement presidential candidate for 2023.",
+      "biography": [
+        "Osakwe was NRM's presidential candidate on INEC's final list."
+      ],
+      "history": [
+        {
+          "year": "2023",
+          "title": "NRM presidential candidate",
+          "detail": "INEC final list - national ballot."
+        }
+      ]
+    },
+    "ado-ibrahim": {
+      "id": "ado-ibrahim",
+      "name": "Abdulmalik Ado-Ibrahim",
+      "fullName": "Abdulmalik Ado-Ibrahim",
+      "roles": [
+        "Entrepreneur",
+        "2023 YPP presidential candidate"
+      ],
+      "photo": null,
+      "summary": "Young Progressives Party presidential candidate in 2023.",
+      "biography": [
+        "Ado-Ibrahim contested the presidency on the YPP ticket."
+      ],
+      "history": [
+        {
+          "year": "2023",
+          "title": "YPP presidential candidate",
+          "detail": "INEC final list - national ballot."
+        }
+      ]
+    },
+    "daniel-nwanyanwu": {
+      "id": "daniel-nwanyanwu",
+      "name": "Daniel Daberechukwu Nwanyanwu",
+      "fullName": "Daniel Daberechukwu Nwanyanwu",
+      "roles": [
+        "Politician",
+        "2023 ZLP presidential candidate"
+      ],
+      "photo": null,
+      "summary": "Zenith Labour Party presidential candidate for the 2023 election.",
+      "biography": [
+        "Nwanyanwu was ZLP's presidential candidate on INEC's final national list."
+      ],
+      "history": [
+        {
+          "year": "2023",
+          "title": "ZLP presidential candidate",
+          "detail": "INEC final list - national ballot."
+        }
+      ]
+    },
+    "obadiah-mailafia": {
+      "id": "obadiah-mailafia",
+      "name": "Obadiah Mailafia",
+      "fullName": "Obadiah Mailafia",
+      "roles": [
+        "Economist",
+        "Former CBN deputy governor",
+        "2019 ADC presidential candidate"
+      ],
+      "photo": null,
+      "summary": "Economist and former Central Bank of Nigeria deputy governor. He was ADC's presidential candidate in 2019.",
+      "biography": [
+        "Mailafia contested the 2019 presidency on the ADC platform."
+      ],
+      "history": [
+        {
+          "year": "2019",
+          "title": "ADC presidential candidate",
+          "detail": "Contested the February 2019 election."
+        }
+      ]
+    },
+    "donald-duke": {
+      "id": "donald-duke",
+      "name": "Donald Duke",
+      "fullName": "Donald Duke",
+      "born": "1961-09-30",
+      "birthPlace": "Calabar, Cross River State",
+      "roles": [
+        "Governor of Cross River (1999-2007)",
+        "2019 SDP presidential candidate"
+      ],
+      "photo": null,
+      "summary": "Former Cross River State governor and 2019 Social Democratic Party presidential candidate.",
+      "biography": [
+        "Duke governed Cross River for two terms and later sought the presidency on the SDP ticket in 2019."
+      ],
+      "history": [
+        {
+          "year": "1999-2007",
+          "title": "Governor of Cross River",
+          "detail": "Two-term governor."
+        },
+        {
+          "year": "2019",
+          "title": "SDP presidential candidate",
+          "detail": "Contested the national election."
+        }
+      ]
+    }
+  }
+}
