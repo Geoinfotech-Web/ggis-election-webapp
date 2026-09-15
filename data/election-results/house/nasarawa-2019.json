@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Nasarawa",
+    "level": "district",
+    "title": "Nasarawa House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Akwanga/Nasarawa/Eggon/Wamba",
+      "winner": {
+        "name": "Abdulkarim Usman",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Abdulkarim Usman",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Awe/Doma/Keana",
+      "winner": {
+        "name": "Abubakar Nalaraba",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abubakar Nalaraba",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Keffi/Karu/Kokona",
+      "winner": {
+        "name": "Gaza Jonathan Gbefwi",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Gaza Jonathan Gbefwi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Lafia/Obi",
+      "winner": {
+        "name": "Abubakar Sarki Dahiru",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abubakar Sarki Dahiru",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Nassarawa/Toto",
+      "winner": {
+        "name": "Abdulmumin Muhammed Ari",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abdulmumin Muhammed Ari",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Abdulkarim Usman",
+      "party": "PDP",
+      "district": "Akwanga/Nasarawa/Eggon/Wamba",
+      "votes": null
+    },
+    {
+      "name": "Abubakar Nalaraba",
+      "party": "APC",
+      "district": "Awe/Doma/Keana",
+      "votes": null
+    },
+    {
+      "name": "Gaza Jonathan Gbefwi",
+      "party": "PDP",
+      "district": "Keffi/Karu/Kokona",
+      "votes": null
+    },
+    {
+      "name": "Abubakar Sarki Dahiru",
+      "party": "APC",
+      "district": "Lafia/Obi",
+      "votes": null
+    },
+    {
+      "name": "Abdulmumin Muhammed Ari",
+      "party": "APC",
+      "district": "Nassarawa/Toto",
+      "votes": null
+    }
+  ]
+}

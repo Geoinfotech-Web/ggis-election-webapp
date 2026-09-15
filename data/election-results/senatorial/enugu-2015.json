@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Enugu",
+    "level": "district",
+    "title": "Enugu Senatorial Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 8th National Assembly (elected 2015)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Enugu North",
+      "winner": {
+        "name": "Utazi Chukwuka",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Utazi Chukwuka",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Enugu East",
+      "winner": {
+        "name": "Gilbert Nnaji",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Gilbert Nnaji",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Enugu West",
+      "winner": {
+        "name": "Ike Ekweremadu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ike Ekweremadu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Utazi Chukwuka",
+      "party": "PDP",
+      "district": "Enugu North",
+      "votes": null
+    },
+    {
+      "name": "Gilbert Nnaji",
+      "party": "PDP",
+      "district": "Enugu East",
+      "votes": null
+    },
+    {
+      "name": "Ike Ekweremadu",
+      "party": "PDP",
+      "district": "Enugu West",
+      "votes": null
+    }
+  ]
+}

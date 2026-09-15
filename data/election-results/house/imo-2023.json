@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Imo",
+    "level": "district",
+    "title": "Imo House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Aboh Mbaise/Ngor Okpala",
+      "winner": {
+        "name": "Matthew Nwogu",
+        "party": "LP"
+      },
+      "candidates": [
+        {
+          "name": "Matthew Nwogu",
+          "party": "LP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ahiazu Mbaise/Ezinihitte",
+      "winner": {
+        "name": "Emeka Chinedu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Emeka Chinedu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ehimembano/Ihitte Uboma/Obowo",
+      "winner": {
+        "name": "Okeke Onwuegbuchulam",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Okeke Onwuegbuchulam",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ideato North/Ideato South",
+      "winner": {
+        "name": "Ikenga Ugochinyere",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ikenga Ugochinyere",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikeduru/Mbaitoli",
+      "winner": {
+        "name": "Akarachi Etinosa Amadi",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Akarachi Etinosa Amadi",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Isiala Mbano/Okigwe/Onuimo",
+      "winner": {
+        "name": "Miriam Onuoha",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Miriam Onuoha",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Isu/Njaba/Nkwerre/Nwangele",
+      "winner": {
+        "name": "Ugonna Ozuruigbo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ugonna Ozuruigbo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Oguta/Ohaji-Egbema/Oru West",
+      "winner": {
+        "name": "Okechukwu Dibiagwu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Okechukwu Dibiagwu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Orlu/Oru East/Orsu",
+      "winner": {
+        "name": "Chukwugozie Nwachukwu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Chukwugozie Nwachukwu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Owerri Municipal/Owerri North/Owerri West",
+      "winner": {
+        "name": "Tochukwu Chinedu Okere",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Tochukwu Chinedu Okere",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Matthew Nwogu",
+      "party": "LP",
+      "district": "Aboh Mbaise/Ngor Okpala",
+      "votes": null
+    },
+    {
+      "name": "Emeka Chinedu",
+      "party": "PDP",
+      "district": "Ahiazu Mbaise/Ezinihitte",
+      "votes": null
+    },
+    {
+      "name": "Okeke Onwuegbuchulam",
+      "party": "PDP",
+      "district": "Ehimembano/Ihitte Uboma/Obowo",
+      "votes": null
+    },
+    {
+      "name": "Ikenga Ugochinyere",
+      "party": "PDP",
+      "district": "Ideato North/Ideato South",
+      "votes": null
+    },
+    {
+      "name": "Akarachi Etinosa Amadi",
+      "party": "APC",
+      "district": "Ikeduru/Mbaitoli",
+      "votes": null
+    },
+    {
+      "name": "Miriam Onuoha",
+      "party": "APC",
+      "district": "Isiala Mbano/Okigwe/Onuimo",
+      "votes": null
+    },
+    {
+      "name": "Ugonna Ozuruigbo",
+      "party": "APC",
+      "district": "Isu/Njaba/Nkwerre/Nwangele",
+      "votes": null
+    },
+    {
+      "name": "Okechukwu Dibiagwu",
+      "party": "APC",
+      "district": "Oguta/Ohaji-Egbema/Oru West",
+      "votes": null
+    },
+    {
+      "name": "Chukwugozie Nwachukwu",
+      "party": "APC",
+      "district": "Orlu/Oru East/Orsu",
+      "votes": null
+    },
+    {
+      "name": "Tochukwu Chinedu Okere",
+      "party": "APC",
+      "district": "Owerri Municipal/Owerri North/Owerri West",
+      "votes": null
+    }
+  ]
+}

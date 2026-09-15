@@ -1,0 +1,209 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Ogun",
+    "level": "district",
+    "title": "Ogun House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Owode/Odeda",
+      "winner": {
+        "name": "Olumide Osoba",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Olumide Osoba",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Abeokuta South",
+      "winner": {
+        "name": "Afuape Afolabi Moruf",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Afuape Afolabi Moruf",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ado-Odo/Ota",
+      "winner": {
+        "name": "Akinosi Olatunji Akanni",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Akinosi Olatunji Akanni",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Egbado North/Imeko-Afon",
+      "winner": {
+        "name": "Isiaka Nasiru Adegboyega",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Isiaka Nasiru Adegboyega",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Egbado South/Ipokia",
+      "winner": {
+        "name": "Akinlade Abiodun Isiaq",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Akinlade Abiodun Isiaq",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ifo/Ewekoro",
+      "winner": {
+        "name": "Ibrahim Isiaka",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Ibrahim Isiaka",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ijebu North/Ijebu East/Ogun Waterside",
+      "winner": {
+        "name": "Adegbesan Joseph Folorunsho",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Adegbesan Joseph Folorunsho",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ijebu Ode /Odogbolu /Ijebu North East",
+      "winner": {
+        "name": "Ogunbanwo Adeleke Olufemi",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Ogunbanwo Adeleke Olufemi",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikenne/Sagamu/Remo North",
+      "winner": {
+        "name": "Adesola Elegbeji",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Adesola Elegbeji",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Olumide Osoba",
+      "party": "NA",
+      "district": "Owode/Odeda",
+      "votes": null
+    },
+    {
+      "name": "Afuape Afolabi Moruf",
+      "party": "NA",
+      "district": "Abeokuta South",
+      "votes": null
+    },
+    {
+      "name": "Akinosi Olatunji Akanni",
+      "party": "NA",
+      "district": "Ado-Odo/Ota",
+      "votes": null
+    },
+    {
+      "name": "Isiaka Nasiru Adegboyega",
+      "party": "NA",
+      "district": "Egbado North/Imeko-Afon",
+      "votes": null
+    },
+    {
+      "name": "Akinlade Abiodun Isiaq",
+      "party": "NA",
+      "district": "Egbado South/Ipokia",
+      "votes": null
+    },
+    {
+      "name": "Ibrahim Isiaka",
+      "party": "NA",
+      "district": "Ifo/Ewekoro",
+      "votes": null
+    },
+    {
+      "name": "Adegbesan Joseph Folorunsho",
+      "party": "NA",
+      "district": "Ijebu North/Ijebu East/Ogun Waterside",
+      "votes": null
+    },
+    {
+      "name": "Ogunbanwo Adeleke Olufemi",
+      "party": "NA",
+      "district": "Ijebu Ode /Odogbolu /Ijebu North East",
+      "votes": null
+    },
+    {
+      "name": "Adesola Elegbeji",
+      "party": "NA",
+      "district": "Ikenne/Sagamu/Remo North",
+      "votes": null
+    }
+  ]
+}

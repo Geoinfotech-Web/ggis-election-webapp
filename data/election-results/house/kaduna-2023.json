@@ -1,0 +1,356 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Kaduna",
+    "level": "district",
+    "title": "Kaduna House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Birnin Gwari/Giwa",
+      "winner": {
+        "name": "Usman Bashir Zubairu",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Usman Bashir Zubairu",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Chikun/Kajuru",
+      "winner": {
+        "name": "Fidelix Bagudu",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Fidelix Bagudu",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Igabi",
+      "winner": {
+        "name": "Jallo Hussaini Mohammed",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Jallo Hussaini Mohammed",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikara/Kubau",
+      "winner": {
+        "name": "Ahmed Aliyu Abdullahi",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Ahmed Aliyu Abdullahi",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Jema&#039;A/Sanga",
+      "winner": {
+        "name": "Amos Daniel",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Amos Daniel",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kachia/Kagarko",
+      "winner": {
+        "name": "Gabriel Saleh Zock",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Gabriel Saleh Zock",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kaduna North",
+      "winner": {
+        "name": "Bello El-Rufai",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Bello El-Rufai",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kaduna South",
+      "winner": {
+        "name": "Abdulkarim Hussaini Ahmed",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Abdulkarim Hussaini Ahmed",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kaura",
+      "winner": {
+        "name": "Matthew Donatus Kuzalio",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Matthew Donatus Kuzalio",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kauru",
+      "winner": {
+        "name": "Yusuf Bashir",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Yusuf Bashir",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Lere",
+      "winner": {
+        "name": "Munir Ahmed Mohammed",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Munir Ahmed Mohammed",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Makarfi/Kudan",
+      "winner": {
+        "name": "Ajilo Umar Shehu",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Ajilo Umar Shehu",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Sabon Gari",
+      "winner": {
+        "name": "Sadiq Ango Abdullahi",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Sadiq Ango Abdullahi",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Soba",
+      "winner": {
+        "name": "Yahaya Suleiman Richifa",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Yahaya Suleiman Richifa",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Zangon Kataf/Jaba",
+      "winner": {
+        "name": "Amos Gwamna Magaji",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Amos Gwamna Magaji",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Zaria",
+      "winner": {
+        "name": "Tajudeen Abbas",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Tajudeen Abbas",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Usman Bashir Zubairu",
+      "party": "NA",
+      "district": "Birnin Gwari/Giwa",
+      "votes": null
+    },
+    {
+      "name": "Fidelix Bagudu",
+      "party": "NA",
+      "district": "Chikun/Kajuru",
+      "votes": null
+    },
+    {
+      "name": "Jallo Hussaini Mohammed",
+      "party": "NA",
+      "district": "Igabi",
+      "votes": null
+    },
+    {
+      "name": "Ahmed Aliyu Abdullahi",
+      "party": "NA",
+      "district": "Ikara/Kubau",
+      "votes": null
+    },
+    {
+      "name": "Amos Daniel",
+      "party": "NA",
+      "district": "Jema&#039;A/Sanga",
+      "votes": null
+    },
+    {
+      "name": "Gabriel Saleh Zock",
+      "party": "NA",
+      "district": "Kachia/Kagarko",
+      "votes": null
+    },
+    {
+      "name": "Bello El-Rufai",
+      "party": "NA",
+      "district": "Kaduna North",
+      "votes": null
+    },
+    {
+      "name": "Abdulkarim Hussaini Ahmed",
+      "party": "NA",
+      "district": "Kaduna South",
+      "votes": null
+    },
+    {
+      "name": "Matthew Donatus Kuzalio",
+      "party": "NA",
+      "district": "Kaura",
+      "votes": null
+    },
+    {
+      "name": "Yusuf Bashir",
+      "party": "NA",
+      "district": "Kauru",
+      "votes": null
+    },
+    {
+      "name": "Munir Ahmed Mohammed",
+      "party": "NA",
+      "district": "Lere",
+      "votes": null
+    },
+    {
+      "name": "Ajilo Umar Shehu",
+      "party": "NA",
+      "district": "Makarfi/Kudan",
+      "votes": null
+    },
+    {
+      "name": "Sadiq Ango Abdullahi",
+      "party": "NA",
+      "district": "Sabon Gari",
+      "votes": null
+    },
+    {
+      "name": "Yahaya Suleiman Richifa",
+      "party": "NA",
+      "district": "Soba",
+      "votes": null
+    },
+    {
+      "name": "Amos Gwamna Magaji",
+      "party": "NA",
+      "district": "Zangon Kataf/Jaba",
+      "votes": null
+    },
+    {
+      "name": "Tajudeen Abbas",
+      "party": "NA",
+      "district": "Zaria",
+      "votes": null
+    }
+  ]
+}

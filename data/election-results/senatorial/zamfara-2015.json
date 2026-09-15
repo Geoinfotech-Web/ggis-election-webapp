@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Zamfara",
+    "level": "district",
+    "title": "Zamfara Senatorial Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 8th National Assembly (elected 2015)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Zamfara West",
+      "winner": {
+        "name": "Ahmad Sani Yerima|Ahmad Rufai Sani",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ahmad Sani Yerima|Ahmad Rufai Sani",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Zamfara Central",
+      "winner": {
+        "name": "Kabir Garba Marafa",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Kabir Garba Marafa",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Zamfara North",
+      "winner": {
+        "name": "Tijjani Kaura",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Tijjani Kaura",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Ahmad Sani Yerima|Ahmad Rufai Sani",
+      "party": "PDP",
+      "district": "Zamfara West",
+      "votes": null
+    },
+    {
+      "name": "Kabir Garba Marafa",
+      "party": "APC",
+      "district": "Zamfara Central",
+      "votes": null
+    },
+    {
+      "name": "Tijjani Kaura",
+      "party": "APC",
+      "district": "Zamfara North",
+      "votes": null
+    }
+  ]
+}

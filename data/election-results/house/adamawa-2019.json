@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Adamawa",
+    "level": "district",
+    "title": "Adamawa House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Demsa/Numan/Lamurde",
+      "winner": {
+        "name": "Kwamoti Laori",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Kwamoti Laori",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Fufore/Song",
+      "winner": {
+        "name": "Mustafa Muhammad Saidu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Mustafa Muhammad Saidu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gombi/Hong",
+      "winner": {
+        "name": "Yusuf Buba Yakub",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Yusuf Buba Yakub",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Guyuk/Shelleng",
+      "winner": {
+        "name": "Gibeon Goroki",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Gibeon Goroki",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Madagali/Michika",
+      "winner": {
+        "name": "Zakaria Dauda Nyampa",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Zakaria Dauda Nyampa",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Maiha/Mubi North/Mubi South",
+      "winner": {
+        "name": "Ja'afar Abubakar Magaji",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ja'afar Abubakar Magaji",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Mayo Belwa/Toungo/Jada/Ganye",
+      "winner": {
+        "name": "Abdulrazak Namdas",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abdulrazak Namdas",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Yola North/Yola South/Girei",
+      "winner": {
+        "name": "Abdulrauf Abdulkadir Modibbo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abdulrauf Abdulkadir Modibbo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Kwamoti Laori",
+      "party": "PDP",
+      "district": "Demsa/Numan/Lamurde",
+      "votes": null
+    },
+    {
+      "name": "Mustafa Muhammad Saidu",
+      "party": "PDP",
+      "district": "Fufore/Song",
+      "votes": null
+    },
+    {
+      "name": "Yusuf Buba Yakub",
+      "party": "APC",
+      "district": "Gombi/Hong",
+      "votes": null
+    },
+    {
+      "name": "Gibeon Goroki",
+      "party": "PDP",
+      "district": "Guyuk/Shelleng",
+      "votes": null
+    },
+    {
+      "name": "Zakaria Dauda Nyampa",
+      "party": "PDP",
+      "district": "Madagali/Michika",
+      "votes": null
+    },
+    {
+      "name": "Ja'afar Abubakar Magaji",
+      "party": "APC",
+      "district": "Maiha/Mubi North/Mubi South",
+      "votes": null
+    },
+    {
+      "name": "Abdulrazak Namdas",
+      "party": "APC",
+      "district": "Mayo Belwa/Toungo/Jada/Ganye",
+      "votes": null
+    },
+    {
+      "name": "Abdulrauf Abdulkadir Modibbo",
+      "party": "APC",
+      "district": "Yola North/Yola South/Girei",
+      "votes": null
+    }
+  ]
+}

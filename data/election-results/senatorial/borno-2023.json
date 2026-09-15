@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Borno",
+    "level": "district",
+    "title": "Borno Senatorial Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 10th National Assembly (elected 2023)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Borno Central",
+      "winner": {
+        "name": "Kaka Shehu Lawan",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Kaka Shehu Lawan",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Borno North",
+      "winner": {
+        "name": "Mohammed Tahir Monguno",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mohammed Tahir Monguno",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Borno South",
+      "winner": {
+        "name": "Mohammed Ali Ndume",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mohammed Ali Ndume",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Kaka Shehu Lawan",
+      "party": "APC",
+      "district": "Borno Central",
+      "votes": null
+    },
+    {
+      "name": "Mohammed Tahir Monguno",
+      "party": "APC",
+      "district": "Borno North",
+      "votes": null
+    },
+    {
+      "name": "Mohammed Ali Ndume",
+      "party": "APC",
+      "district": "Borno South",
+      "votes": null
+    }
+  ]
+}

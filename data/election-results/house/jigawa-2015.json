@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Jigawa",
+    "level": "district",
+    "title": "Jigawa House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Hadejia/Kafin Hausa/Auyo",
+      "winner": {
+        "name": "Usman Ibrahim",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Usman Ibrahim",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Mallam Madori/Kaugama",
+      "winner": {
+        "name": "Rabiu Garba",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Rabiu Garba",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Birnin Kudu/Buji",
+      "winner": {
+        "name": "Da'u Magaji",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Da'u Magaji",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Dutse/Kiyawa",
+      "winner": {
+        "name": "Ibrahim Abdullahi",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ibrahim Abdullahi",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kazaure/Roni/Gwiwa/Yankwashi",
+      "winner": {
+        "name": "Muhammed Gudaji",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Muhammed Gudaji",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ringim/Taura",
+      "winner": {
+        "name": "Muhammad Boyi",
+        "party": "APGA"
+      },
+      "candidates": [
+        {
+          "name": "Muhammad Boyi",
+          "party": "APGA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gwaram",
+      "winner": {
+        "name": "Hassan Yuguda",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Hassan Yuguda",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Babura/Garki",
+      "winner": {
+        "name": "Adamu Muhammadu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Adamu Muhammadu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Birniwa Guri/Kirikasamma",
+      "winner": {
+        "name": "Fulata Abubakar",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Fulata Abubakar",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gumel/Maigatari/Sule Tankarkar/Gagarawa",
+      "winner": {
+        "name": "Mohammed Sani Zorro",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mohammed Sani Zorro",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Usman Ibrahim",
+      "party": "APC",
+      "district": "Hadejia/Kafin Hausa/Auyo",
+      "votes": null
+    },
+    {
+      "name": "Rabiu Garba",
+      "party": "APC",
+      "district": "Mallam Madori/Kaugama",
+      "votes": null
+    },
+    {
+      "name": "Da'u Magaji",
+      "party": "APC",
+      "district": "Birnin Kudu/Buji",
+      "votes": null
+    },
+    {
+      "name": "Ibrahim Abdullahi",
+      "party": "APC",
+      "district": "Dutse/Kiyawa",
+      "votes": null
+    },
+    {
+      "name": "Muhammed Gudaji",
+      "party": "APC",
+      "district": "Kazaure/Roni/Gwiwa/Yankwashi",
+      "votes": null
+    },
+    {
+      "name": "Muhammad Boyi",
+      "party": "APGA",
+      "district": "Ringim/Taura",
+      "votes": null
+    },
+    {
+      "name": "Hassan Yuguda",
+      "party": "APC",
+      "district": "Gwaram",
+      "votes": null
+    },
+    {
+      "name": "Adamu Muhammadu",
+      "party": "APC",
+      "district": "Babura/Garki",
+      "votes": null
+    },
+    {
+      "name": "Fulata Abubakar",
+      "party": "APC",
+      "district": "Birniwa Guri/Kirikasamma",
+      "votes": null
+    },
+    {
+      "name": "Mohammed Sani Zorro",
+      "party": "APC",
+      "district": "Gumel/Maigatari/Sule Tankarkar/Gagarawa",
+      "votes": null
+    }
+  ]
+}

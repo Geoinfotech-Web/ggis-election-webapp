@@ -1,0 +1,251 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Oyo",
+    "level": "district",
+    "title": "Oyo House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Afijio/Atiba/Oyo East/Oyo West",
+      "winner": {
+        "name": "Akeem Adeyemi",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Akeem Adeyemi",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Atigbo/Saki East/Saki West",
+      "winner": {
+        "name": "Olajide Olatubosun",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Olajide Olatubosun",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ibadan North",
+      "winner": {
+        "name": "Dapo Lam Adesina",
+        "party": "ADC"
+      },
+      "candidates": [
+        {
+          "name": "Dapo Lam Adesina",
+          "party": "ADC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ona-Ara/Egbeda",
+      "winner": {
+        "name": "Akintola Taiwo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Akintola Taiwo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Iseyin/Kajola/Iwajowa/Itesiwaju",
+      "winner": {
+        "name": "Abiodun Olasupo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abiodun Olasupo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Lagelu/Akinyele",
+      "winner": {
+        "name": "Olatoye Tempitope Sugar",
+        "party": "ADP"
+      },
+      "candidates": [
+        {
+          "name": "Olatoye Tempitope Sugar",
+          "party": "ADP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ibarapa East/Ido",
+      "winner": {
+        "name": "Adeyemi Adepoju",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Adeyemi Adepoju",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ibarapa Central/Ibarapa North",
+      "winner": {
+        "name": "Olugbenga Ayode",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Olugbenga Ayode",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ogo-Oluwa/Surulere",
+      "winner": {
+        "name": "Olusegun Odebunmi",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Olusegun Odebunmi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ogbomosho/North/South/Orire",
+      "winner": {
+        "name": "Ogunwuyi Segun",
+        "party": "LP"
+      },
+      "candidates": [
+        {
+          "name": "Ogunwuyi Segun",
+          "party": "LP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Irepo/Olurunsogo/Orelope",
+      "winner": {
+        "name": "Olatubosun Oladele",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Olatubosun Oladele",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Akeem Adeyemi",
+      "party": "APC",
+      "district": "Afijio/Atiba/Oyo East/Oyo West",
+      "votes": null
+    },
+    {
+      "name": "Olajide Olatubosun",
+      "party": "APC",
+      "district": "Atigbo/Saki East/Saki West",
+      "votes": null
+    },
+    {
+      "name": "Dapo Lam Adesina",
+      "party": "ADC",
+      "district": "Ibadan North",
+      "votes": null
+    },
+    {
+      "name": "Akintola Taiwo",
+      "party": "APC",
+      "district": "Ona-Ara/Egbeda",
+      "votes": null
+    },
+    {
+      "name": "Abiodun Olasupo",
+      "party": "APC",
+      "district": "Iseyin/Kajola/Iwajowa/Itesiwaju",
+      "votes": null
+    },
+    {
+      "name": "Olatoye Tempitope Sugar",
+      "party": "ADP",
+      "district": "Lagelu/Akinyele",
+      "votes": null
+    },
+    {
+      "name": "Adeyemi Adepoju",
+      "party": "APC",
+      "district": "Ibarapa East/Ido",
+      "votes": null
+    },
+    {
+      "name": "Olugbenga Ayode",
+      "party": "APC",
+      "district": "Ibarapa Central/Ibarapa North",
+      "votes": null
+    },
+    {
+      "name": "Olusegun Odebunmi",
+      "party": "PDP",
+      "district": "Ogo-Oluwa/Surulere",
+      "votes": null
+    },
+    {
+      "name": "Ogunwuyi Segun",
+      "party": "LP",
+      "district": "Ogbomosho/North/South/Orire",
+      "votes": null
+    },
+    {
+      "name": "Olatubosun Oladele",
+      "party": "APC",
+      "district": "Irepo/Olurunsogo/Orelope",
+      "votes": null
+    }
+  ]
+}

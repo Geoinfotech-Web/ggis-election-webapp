@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Yobe",
+    "level": "district",
+    "title": "Yobe Senatorial Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 8th National Assembly (elected 2015)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Yobe North",
+      "winner": {
+        "name": "Ahmed Ibrahim Lawan",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ahmed Ibrahim Lawan",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Yobe East",
+      "winner": {
+        "name": "Bukar Ibrahim",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Bukar Ibrahim",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Yobe South",
+      "winner": {
+        "name": "Mohammed Hassan (politician)|Mohammed Hassan",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Mohammed Hassan (politician)|Mohammed Hassan",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Ahmed Ibrahim Lawan",
+      "party": "APC",
+      "district": "Yobe North",
+      "votes": null
+    },
+    {
+      "name": "Bukar Ibrahim",
+      "party": "APC",
+      "district": "Yobe East",
+      "votes": null
+    },
+    {
+      "name": "Mohammed Hassan (politician)|Mohammed Hassan",
+      "party": "PDP",
+      "district": "Yobe South",
+      "votes": null
+    }
+  ]
+}

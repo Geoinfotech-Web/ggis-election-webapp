@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Plateau",
+    "level": "district",
+    "title": "Plateau House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Barkin Ladi/Riyom",
+      "winner": {
+        "name": "Simon Mwadkwon",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Simon Mwadkwon",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bokkos/Mangu",
+      "winner": {
+        "name": "Solomon Maren",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Solomon Maren",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Jos North/Bassa",
+      "winner": {
+        "name": "Haruna Maitala",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Haruna Maitala",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Jos South/Jos East",
+      "winner": {
+        "name": "Dachung Musa Bagos",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Dachung Musa Bagos",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kanke/Pankshin/Kanam",
+      "winner": {
+        "name": "Yusuf Adamu Gagdi",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Yusuf Adamu Gagdi",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Langtang North/Langtang South",
+      "winner": {
+        "name": "Beni Lar",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Beni Lar",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Mikang/Qua Anpan/Shedam",
+      "winner": {
+        "name": "Komsol Longgap",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Komsol Longgap",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Wase",
+      "winner": {
+        "name": "Ahmed Idris Wase",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ahmed Idris Wase",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Simon Mwadkwon",
+      "party": "PDP",
+      "district": "Barkin Ladi/Riyom",
+      "votes": null
+    },
+    {
+      "name": "Solomon Maren",
+      "party": "PDP",
+      "district": "Bokkos/Mangu",
+      "votes": null
+    },
+    {
+      "name": "Haruna Maitala",
+      "party": "APC",
+      "district": "Jos North/Bassa",
+      "votes": null
+    },
+    {
+      "name": "Dachung Musa Bagos",
+      "party": "PDP",
+      "district": "Jos South/Jos East",
+      "votes": null
+    },
+    {
+      "name": "Yusuf Adamu Gagdi",
+      "party": "APC",
+      "district": "Kanke/Pankshin/Kanam",
+      "votes": null
+    },
+    {
+      "name": "Beni Lar",
+      "party": "PDP",
+      "district": "Langtang North/Langtang South",
+      "votes": null
+    },
+    {
+      "name": "Komsol Longgap",
+      "party": "APC",
+      "district": "Mikang/Qua Anpan/Shedam",
+      "votes": null
+    },
+    {
+      "name": "Ahmed Idris Wase",
+      "party": "APC",
+      "district": "Wase",
+      "votes": null
+    }
+  ]
+}

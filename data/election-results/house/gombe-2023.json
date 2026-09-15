@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Gombe",
+    "level": "district",
+    "title": "Gombe House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Akko",
+      "winner": {
+        "name": "Usman Bello-Kumo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Usman Bello-Kumo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Balanga/Billiri",
+      "winner": {
+        "name": "Ali Isa",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ali Isa",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Dukku/Nafada",
+      "winner": {
+        "name": "El-Rasheed Abdullahi",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "El-Rasheed Abdullahi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kaltungo/Shongom",
+      "winner": {
+        "name": "Obed Paul Shehu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Obed Paul Shehu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Yamaltu/Deba",
+      "winner": {
+        "name": "Inuwa Garba",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Inuwa Garba",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Usman Bello-Kumo",
+      "party": "APC",
+      "district": "Akko",
+      "votes": null
+    },
+    {
+      "name": "Ali Isa",
+      "party": "PDP",
+      "district": "Balanga/Billiri",
+      "votes": null
+    },
+    {
+      "name": "El-Rasheed Abdullahi",
+      "party": "PDP",
+      "district": "Dukku/Nafada",
+      "votes": null
+    },
+    {
+      "name": "Obed Paul Shehu",
+      "party": "PDP",
+      "district": "Kaltungo/Shongom",
+      "votes": null
+    },
+    {
+      "name": "Inuwa Garba",
+      "party": "PDP",
+      "district": "Yamaltu/Deba",
+      "votes": null
+    }
+  ]
+}

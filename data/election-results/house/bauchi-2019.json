@@ -1,0 +1,272 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Bauchi",
+    "level": "district",
+    "title": "Bauchi House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Alkaleri/Kirfi",
+      "winner": {
+        "name": "Musa Muhammad Pali",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Musa Muhammad Pali",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bauchi",
+      "winner": {
+        "name": "Yakubu Shehu Abdullahi",
+        "party": "PRP"
+      },
+      "candidates": [
+        {
+          "name": "Yakubu Shehu Abdullahi",
+          "party": "PRP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Darazo/Ganjuwa",
+      "winner": {
+        "name": "Mansur Manu Soro",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mansur Manu Soro",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Dass/Bogoro/Tafawa Balewa",
+      "winner": {
+        "name": "Yakubu Dogara",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Yakubu Dogara",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gamawa",
+      "winner": {
+        "name": "Mohammed Garba Gololo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mohammed Garba Gololo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Jama’Are/Itas-Gadau",
+      "winner": {
+        "name": "Bashir Uba Mashema",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Bashir Uba Mashema",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Katagum",
+      "winner": {
+        "name": "Umar Abdulkadir Sarki",
+        "party": "PRP"
+      },
+      "candidates": [
+        {
+          "name": "Umar Abdulkadir Sarki",
+          "party": "PRP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Misau/Dambam",
+      "winner": {
+        "name": "Ibrahim Makama Misau",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ibrahim Makama Misau",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ningi/Warji",
+      "winner": {
+        "name": "Abdullahi Sa'ad Abdulkadir",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abdullahi Sa'ad Abdulkadir",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Shira/Glade",
+      "winner": {
+        "name": "Abubakar Kani Faggo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abubakar Kani Faggo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Toro",
+      "winner": {
+        "name": "Umar Muda Lawal",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Umar Muda Lawal",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Zaki",
+      "winner": {
+        "name": "Tata Omar",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Tata Omar",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Musa Muhammad Pali",
+      "party": "APC",
+      "district": "Alkaleri/Kirfi",
+      "votes": null
+    },
+    {
+      "name": "Yakubu Shehu Abdullahi",
+      "party": "PRP",
+      "district": "Bauchi",
+      "votes": null
+    },
+    {
+      "name": "Mansur Manu Soro",
+      "party": "APC",
+      "district": "Darazo/Ganjuwa",
+      "votes": null
+    },
+    {
+      "name": "Yakubu Dogara",
+      "party": "PDP",
+      "district": "Dass/Bogoro/Tafawa Balewa",
+      "votes": null
+    },
+    {
+      "name": "Mohammed Garba Gololo",
+      "party": "APC",
+      "district": "Gamawa",
+      "votes": null
+    },
+    {
+      "name": "Bashir Uba Mashema",
+      "party": "APC",
+      "district": "Jama’Are/Itas-Gadau",
+      "votes": null
+    },
+    {
+      "name": "Umar Abdulkadir Sarki",
+      "party": "PRP",
+      "district": "Katagum",
+      "votes": null
+    },
+    {
+      "name": "Ibrahim Makama Misau",
+      "party": "APC",
+      "district": "Misau/Dambam",
+      "votes": null
+    },
+    {
+      "name": "Abdullahi Sa'ad Abdulkadir",
+      "party": "APC",
+      "district": "Ningi/Warji",
+      "votes": null
+    },
+    {
+      "name": "Abubakar Kani Faggo",
+      "party": "APC",
+      "district": "Shira/Glade",
+      "votes": null
+    },
+    {
+      "name": "Umar Muda Lawal",
+      "party": "APC",
+      "district": "Toro",
+      "votes": null
+    },
+    {
+      "name": "Tata Omar",
+      "party": "APC",
+      "district": "Zaki",
+      "votes": null
+    }
+  ]
+}

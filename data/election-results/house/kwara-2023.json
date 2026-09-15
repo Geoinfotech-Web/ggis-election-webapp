@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Kwara",
+    "level": "district",
+    "title": "Kwara House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Baruten/Kaiama",
+      "winner": {
+        "name": "Malam Mohammed Bio",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Malam Mohammed Bio",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ekiti/Irepodun/Isin/Oke Ero",
+      "winner": {
+        "name": "Olawuyi Abdulraheem Tunji",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Olawuyi Abdulraheem Tunji",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ifelodun/Offa/Oyun",
+      "winner": {
+        "name": "Ismail Kayode Tijani",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Ismail Kayode Tijani",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ilorin East/Ilorin South",
+      "winner": {
+        "name": "Yinka Ahmed Aluko",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Yinka Ahmed Aluko",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ilorin West/Asa",
+      "winner": {
+        "name": "Tolani Shagaya",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Tolani Shagaya",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Patigi/Edu/Moro",
+      "winner": {
+        "name": "Adam Ahmed Saba",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Adam Ahmed Saba",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Malam Mohammed Bio",
+      "party": "NA",
+      "district": "Baruten/Kaiama",
+      "votes": null
+    },
+    {
+      "name": "Olawuyi Abdulraheem Tunji",
+      "party": "NA",
+      "district": "Ekiti/Irepodun/Isin/Oke Ero",
+      "votes": null
+    },
+    {
+      "name": "Ismail Kayode Tijani",
+      "party": "NA",
+      "district": "Ifelodun/Offa/Oyun",
+      "votes": null
+    },
+    {
+      "name": "Yinka Ahmed Aluko",
+      "party": "NA",
+      "district": "Ilorin East/Ilorin South",
+      "votes": null
+    },
+    {
+      "name": "Tolani Shagaya",
+      "party": "NA",
+      "district": "Ilorin West/Asa",
+      "votes": null
+    },
+    {
+      "name": "Adam Ahmed Saba",
+      "party": "NA",
+      "district": "Patigi/Edu/Moro",
+      "votes": null
+    }
+  ]
+}

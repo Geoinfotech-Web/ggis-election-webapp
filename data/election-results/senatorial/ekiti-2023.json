@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Ekiti",
+    "level": "district",
+    "title": "Ekiti Senatorial Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 10th National Assembly (elected 2023)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Ekiti Central",
+      "winner": {
+        "name": "Michael Opeyemi Bamidele",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Michael Opeyemi Bamidele",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ekiti North",
+      "winner": {
+        "name": "Fasuyi Cyril Oluwole",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Fasuyi Cyril Oluwole",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ekiti South",
+      "winner": {
+        "name": "Adaramodu Adeyemi Raphael",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Adaramodu Adeyemi Raphael",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Michael Opeyemi Bamidele",
+      "party": "APC",
+      "district": "Ekiti Central",
+      "votes": null
+    },
+    {
+      "name": "Fasuyi Cyril Oluwole",
+      "party": "APC",
+      "district": "Ekiti North",
+      "votes": null
+    },
+    {
+      "name": "Adaramodu Adeyemi Raphael",
+      "party": "APC",
+      "district": "Ekiti South",
+      "votes": null
+    }
+  ]
+}

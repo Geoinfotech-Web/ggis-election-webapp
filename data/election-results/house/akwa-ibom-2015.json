@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Akwa Ibom",
+    "level": "district",
+    "title": "Akwa Ibom House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Nsit Ibom/Nsit Ubium/Etinan",
+      "winner": {
+        "name": "Samuel Ikon",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Samuel Ikon",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Eket/Esit Eket/Onna/Ibeno",
+      "winner": {
+        "name": "Owoidighe Ekpoatai",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Owoidighe Ekpoatai",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Uruan/Uyo/Nsit Ata/Ibeskip Asutan",
+      "winner": {
+        "name": "Michael Enyong",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Michael Enyong",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ini/Ikono",
+      "winner": {
+        "name": "Iboro Ekanem",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Iboro Ekanem",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Oron/Mbo/Okobo/Urueoffong/Oruko/Udung-Uko",
+      "winner": {
+        "name": "Nse Ekpenyong",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Nse Ekpenyong",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ukanafun/Oruk Anam",
+      "winner": {
+        "name": "Emmanuel Ukoete",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Emmanuel Ukoete",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikor Ekpene/Essien Udim/Obot Akara",
+      "winner": {
+        "name": "Emmanuel Akpan",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Emmanuel Akpan",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Abak/Etim Ekpo/Ika",
+      "winner": {
+        "name": "Emmanuel Ekon",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Emmanuel Ekon",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikot Abasi/Mkpat Enin/Eastern Obolo",
+      "winner": {
+        "name": "Francis Uduyok",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Francis Uduyok",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Itu/Ibiono Ibom",
+      "winner": {
+        "name": "Henry Okon Archibong",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Henry Okon Archibong",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Samuel Ikon",
+      "party": "PDP",
+      "district": "Nsit Ibom/Nsit Ubium/Etinan",
+      "votes": null
+    },
+    {
+      "name": "Owoidighe Ekpoatai",
+      "party": "PDP",
+      "district": "Eket/Esit Eket/Onna/Ibeno",
+      "votes": null
+    },
+    {
+      "name": "Michael Enyong",
+      "party": "PDP",
+      "district": "Uruan/Uyo/Nsit Ata/Ibeskip Asutan",
+      "votes": null
+    },
+    {
+      "name": "Iboro Ekanem",
+      "party": "PDP",
+      "district": "Ini/Ikono",
+      "votes": null
+    },
+    {
+      "name": "Nse Ekpenyong",
+      "party": "PDP",
+      "district": "Oron/Mbo/Okobo/Urueoffong/Oruko/Udung-Uko",
+      "votes": null
+    },
+    {
+      "name": "Emmanuel Ukoete",
+      "party": "PDP",
+      "district": "Ukanafun/Oruk Anam",
+      "votes": null
+    },
+    {
+      "name": "Emmanuel Akpan",
+      "party": "PDP",
+      "district": "Ikor Ekpene/Essien Udim/Obot Akara",
+      "votes": null
+    },
+    {
+      "name": "Emmanuel Ekon",
+      "party": "PDP",
+      "district": "Abak/Etim Ekpo/Ika",
+      "votes": null
+    },
+    {
+      "name": "Francis Uduyok",
+      "party": "PDP",
+      "district": "Ikot Abasi/Mkpat Enin/Eastern Obolo",
+      "votes": null
+    },
+    {
+      "name": "Henry Okon Archibong",
+      "party": "PDP",
+      "district": "Itu/Ibiono Ibom",
+      "votes": null
+    }
+  ]
+}

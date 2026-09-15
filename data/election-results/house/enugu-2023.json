@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Enugu",
+    "level": "district",
+    "title": "Enugu House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Aninri/Awgu/Oji River",
+      "winner": {
+        "name": "Anayo Onwuegbu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Anayo Onwuegbu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Enugu East/Isi Uzo",
+      "winner": {
+        "name": "Paul Sunday Nnamchi",
+        "party": "LP"
+      },
+      "candidates": [
+        {
+          "name": "Paul Sunday Nnamchi",
+          "party": "LP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Enugu North/Enugu South",
+      "winner": {
+        "name": "Chimaobi Sam Atu",
+        "party": "LP"
+      },
+      "candidates": [
+        {
+          "name": "Chimaobi Sam Atu",
+          "party": "LP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ezeagu/Udi",
+      "winner": {
+        "name": "Sunday Cyriacus Umeha",
+        "party": "LP"
+      },
+      "candidates": [
+        {
+          "name": "Sunday Cyriacus Umeha",
+          "party": "LP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Igbo-Etiti/Uzo-Uwani",
+      "winner": {
+        "name": "Martins Oke",
+        "party": "LP"
+      },
+      "candidates": [
+        {
+          "name": "Martins Oke",
+          "party": "LP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Igbo-Eze North/Udenu",
+      "winner": {
+        "name": "Dennis Nnamdi Agbo",
+        "party": "LP"
+      },
+      "candidates": [
+        {
+          "name": "Dennis Nnamdi Agbo",
+          "party": "LP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Nkanu East/Nkanu West",
+      "winner": {
+        "name": "Nnaji Nnolim John",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Nnaji Nnolim John",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Nsukka/Igbo-Eze South",
+      "winner": {
+        "name": "Obetta Mark Chidi",
+        "party": "LP"
+      },
+      "candidates": [
+        {
+          "name": "Obetta Mark Chidi",
+          "party": "LP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Anayo Onwuegbu",
+      "party": "PDP",
+      "district": "Aninri/Awgu/Oji River",
+      "votes": null
+    },
+    {
+      "name": "Paul Sunday Nnamchi",
+      "party": "LP",
+      "district": "Enugu East/Isi Uzo",
+      "votes": null
+    },
+    {
+      "name": "Chimaobi Sam Atu",
+      "party": "LP",
+      "district": "Enugu North/Enugu South",
+      "votes": null
+    },
+    {
+      "name": "Sunday Cyriacus Umeha",
+      "party": "LP",
+      "district": "Ezeagu/Udi",
+      "votes": null
+    },
+    {
+      "name": "Martins Oke",
+      "party": "LP",
+      "district": "Igbo-Etiti/Uzo-Uwani",
+      "votes": null
+    },
+    {
+      "name": "Dennis Nnamdi Agbo",
+      "party": "LP",
+      "district": "Igbo-Eze North/Udenu",
+      "votes": null
+    },
+    {
+      "name": "Nnaji Nnolim John",
+      "party": "PDP",
+      "district": "Nkanu East/Nkanu West",
+      "votes": null
+    },
+    {
+      "name": "Obetta Mark Chidi",
+      "party": "LP",
+      "district": "Nsukka/Igbo-Eze South",
+      "votes": null
+    }
+  ]
+}

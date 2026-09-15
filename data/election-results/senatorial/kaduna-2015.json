@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Kaduna",
+    "level": "district",
+    "title": "Kaduna Senatorial Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 8th National Assembly (elected 2015)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Kaduna North",
+      "winner": {
+        "name": "Suleiman Hunkuyi",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Suleiman Hunkuyi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kaduna South",
+      "winner": {
+        "name": "Danjuma Laah",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Danjuma Laah",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kaduna Central",
+      "winner": {
+        "name": "Shehu Sani",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Shehu Sani",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Suleiman Hunkuyi",
+      "party": "PDP",
+      "district": "Kaduna North",
+      "votes": null
+    },
+    {
+      "name": "Danjuma Laah",
+      "party": "PDP",
+      "district": "Kaduna South",
+      "votes": null
+    },
+    {
+      "name": "Shehu Sani",
+      "party": "APC",
+      "district": "Kaduna Central",
+      "votes": null
+    }
+  ]
+}

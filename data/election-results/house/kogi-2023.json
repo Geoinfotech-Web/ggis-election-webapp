@@ -1,0 +1,209 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Kogi",
+    "level": "district",
+    "title": "Kogi House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Adavi/Okehi",
+      "winner": {
+        "name": "Abdulmaleek Danga Abdulraheem",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Abdulmaleek Danga Abdulraheem",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ajaokuta",
+      "winner": {
+        "name": "Sanni Abdulraheem",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Sanni Abdulraheem",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ankpa/Omala/Olamaboro",
+      "winner": {
+        "name": "Abdullahi Ibrahim Ali",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Abdullahi Ibrahim Ali",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bassa/Dekina",
+      "winner": {
+        "name": "Paul Gowon Haruna",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Paul Gowon Haruna",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Idah/Ibaji/Igalamela-Odolu",
+      "winner": {
+        "name": "David Idris Zacharias",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "David Idris Zacharias",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kabba-Bunu/Ijumu",
+      "winner": {
+        "name": "Salman Idris",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Salman Idris",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kogi (Lokoja)/Kogi (K.K.)",
+      "winner": {
+        "name": "Danladi Suleiman Aguye",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Danladi Suleiman Aguye",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Okene/Ogori-Magongo",
+      "winner": {
+        "name": "Ozigi Muhammad Tijani",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Ozigi Muhammad Tijani",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Yagba East/Yagba West/ Mopamuro",
+      "winner": {
+        "name": "Leke Abejide",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Leke Abejide",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Abdulmaleek Danga Abdulraheem",
+      "party": "NA",
+      "district": "Adavi/Okehi",
+      "votes": null
+    },
+    {
+      "name": "Sanni Abdulraheem",
+      "party": "NA",
+      "district": "Ajaokuta",
+      "votes": null
+    },
+    {
+      "name": "Abdullahi Ibrahim Ali",
+      "party": "NA",
+      "district": "Ankpa/Omala/Olamaboro",
+      "votes": null
+    },
+    {
+      "name": "Paul Gowon Haruna",
+      "party": "NA",
+      "district": "Bassa/Dekina",
+      "votes": null
+    },
+    {
+      "name": "David Idris Zacharias",
+      "party": "NA",
+      "district": "Idah/Ibaji/Igalamela-Odolu",
+      "votes": null
+    },
+    {
+      "name": "Salman Idris",
+      "party": "NA",
+      "district": "Kabba-Bunu/Ijumu",
+      "votes": null
+    },
+    {
+      "name": "Danladi Suleiman Aguye",
+      "party": "NA",
+      "district": "Kogi (Lokoja)/Kogi (K.K.)",
+      "votes": null
+    },
+    {
+      "name": "Ozigi Muhammad Tijani",
+      "party": "NA",
+      "district": "Okene/Ogori-Magongo",
+      "votes": null
+    },
+    {
+      "name": "Leke Abejide",
+      "party": "NA",
+      "district": "Yagba East/Yagba West/ Mopamuro",
+      "votes": null
+    }
+  ]
+}

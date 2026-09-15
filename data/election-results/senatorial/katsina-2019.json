@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Katsina",
+    "level": "district",
+    "title": "Katsina Senatorial Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 9th National Assembly (elected 2019)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Katsina Central",
+      "winner": {
+        "name": "Kabir Barkiya",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Kabir Barkiya",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Katsina South",
+      "winner": {
+        "name": "Bello Mandiya",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Bello Mandiya",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Katsina North",
+      "winner": {
+        "name": "Ahmad Babba Kaita",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ahmad Babba Kaita",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Kabir Barkiya",
+      "party": "APC",
+      "district": "Katsina Central",
+      "votes": null
+    },
+    {
+      "name": "Bello Mandiya",
+      "party": "APC",
+      "district": "Katsina South",
+      "votes": null
+    },
+    {
+      "name": "Ahmad Babba Kaita",
+      "party": "PDP",
+      "district": "Katsina North",
+      "votes": null
+    }
+  ]
+}

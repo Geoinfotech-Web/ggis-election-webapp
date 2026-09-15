@@ -1,0 +1,209 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Osun",
+    "level": "district",
+    "title": "Osun House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Atakunmosa East/Atakunmosa West/Ilesa East/Ilesa West",
+      "winner": {
+        "name": "Lawrence Babatunde Ayeni",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Lawrence Babatunde Ayeni",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ayedaade/Irewole/Isokan",
+      "winner": {
+        "name": "Taiwo Oluga",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Taiwo Oluga",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ayedire/Iwo/Ola-Oluwa",
+      "winner": {
+        "name": "Amobi Yinusa Akintola",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Amobi Yinusa Akintola",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Boluwaduro/Ifedayo/Illa",
+      "winner": {
+        "name": "Olufemi Fakeye",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Olufemi Fakeye",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ede North/Ede South/Egbedero/Ejigbo",
+      "winner": {
+        "name": "Bamidele Salam",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Bamidele Salam",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ife Central/Ife East/Ife North/Ife South",
+      "winner": {
+        "name": "Taofeek Abimbola Ajilesoro",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Taofeek Abimbola Ajilesoro",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Irepodun/Olurunda/Osogbo/Orolu",
+      "winner": {
+        "name": "Olubukola Oyewo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Olubukola Oyewo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Obokun/Oriade",
+      "winner": {
+        "name": "Oluwole Oke",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Oluwole Oke",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Odo-Otin/Boripe/Ifelodun",
+      "winner": {
+        "name": "Olalekan Rasheed Afolabi",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Olalekan Rasheed Afolabi",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Lawrence Babatunde Ayeni",
+      "party": "APC",
+      "district": "Atakunmosa East/Atakunmosa West/Ilesa East/Ilesa West",
+      "votes": null
+    },
+    {
+      "name": "Taiwo Oluga",
+      "party": "APC",
+      "district": "Ayedaade/Irewole/Isokan",
+      "votes": null
+    },
+    {
+      "name": "Amobi Yinusa Akintola",
+      "party": "APC",
+      "district": "Ayedire/Iwo/Ola-Oluwa",
+      "votes": null
+    },
+    {
+      "name": "Olufemi Fakeye",
+      "party": "APC",
+      "district": "Boluwaduro/Ifedayo/Illa",
+      "votes": null
+    },
+    {
+      "name": "Bamidele Salam",
+      "party": "PDP",
+      "district": "Ede North/Ede South/Egbedero/Ejigbo",
+      "votes": null
+    },
+    {
+      "name": "Taofeek Abimbola Ajilesoro",
+      "party": "PDP",
+      "district": "Ife Central/Ife East/Ife North/Ife South",
+      "votes": null
+    },
+    {
+      "name": "Olubukola Oyewo",
+      "party": "APC",
+      "district": "Irepodun/Olurunda/Osogbo/Orolu",
+      "votes": null
+    },
+    {
+      "name": "Oluwole Oke",
+      "party": "PDP",
+      "district": "Obokun/Oriade",
+      "votes": null
+    },
+    {
+      "name": "Olalekan Rasheed Afolabi",
+      "party": "APC",
+      "district": "Odo-Otin/Boripe/Ifelodun",
+      "votes": null
+    }
+  ]
+}

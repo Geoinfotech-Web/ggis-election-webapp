@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Osun",
+    "level": "district",
+    "title": "Osun House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Ede North, South/Egbedero/Ejigbo",
+      "winner": {
+        "name": "Mojeed Alabi",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mojeed Alabi",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Boluwaduro/Ifedayo/Illa",
+      "winner": {
+        "name": "Fakeye Olufemi",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Fakeye Olufemi",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ayedaade/Irewole/Isokan",
+      "winner": {
+        "name": "Ayo Omidiran",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ayo Omidiran",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ayedire/Iwo/Ola-Oluwa",
+      "winner": {
+        "name": "Gafaru Akintayo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Gafaru Akintayo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Boluwaduro/Ifedayo/Ila",
+      "winner": {
+        "name": "Ajayi Adeyinka",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ajayi Adeyinka",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ife Central/East/North/South",
+      "winner": {
+        "name": "Albert Adeogun",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Albert Adeogun",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Odo-Otin/Ifelodun/Boripe",
+      "winner": {
+        "name": "Ajayi Adeyinka Ayantunji",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ajayi Adeyinka Ayantunji",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Atakunmosa East/ Atakunmosa West/Ilesha East/Ilesha West",
+      "winner": {
+        "name": "Ajibola Famurewa",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ajibola Famurewa",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Irepodun/Olurunda/Osogbo/Orolu",
+      "winner": {
+        "name": "Yusuf Lasun",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Yusuf Lasun",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Obokon/Oriade",
+      "winner": {
+        "name": "Oluwole Oke",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Oluwole Oke",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Mojeed Alabi",
+      "party": "APC",
+      "district": "Ede North, South/Egbedero/Ejigbo",
+      "votes": null
+    },
+    {
+      "name": "Fakeye Olufemi",
+      "party": "APC",
+      "district": "Boluwaduro/Ifedayo/Illa",
+      "votes": null
+    },
+    {
+      "name": "Ayo Omidiran",
+      "party": "APC",
+      "district": "Ayedaade/Irewole/Isokan",
+      "votes": null
+    },
+    {
+      "name": "Gafaru Akintayo",
+      "party": "APC",
+      "district": "Ayedire/Iwo/Ola-Oluwa",
+      "votes": null
+    },
+    {
+      "name": "Ajayi Adeyinka",
+      "party": "APC",
+      "district": "Boluwaduro/Ifedayo/Ila",
+      "votes": null
+    },
+    {
+      "name": "Albert Adeogun",
+      "party": "PDP",
+      "district": "Ife Central/East/North/South",
+      "votes": null
+    },
+    {
+      "name": "Ajayi Adeyinka Ayantunji",
+      "party": "APC",
+      "district": "Odo-Otin/Ifelodun/Boripe",
+      "votes": null
+    },
+    {
+      "name": "Ajibola Famurewa",
+      "party": "APC",
+      "district": "Atakunmosa East/ Atakunmosa West/Ilesha East/Ilesha West",
+      "votes": null
+    },
+    {
+      "name": "Yusuf Lasun",
+      "party": "APC",
+      "district": "Irepodun/Olurunda/Osogbo/Orolu",
+      "votes": null
+    },
+    {
+      "name": "Oluwole Oke",
+      "party": "PDP",
+      "district": "Obokon/Oriade",
+      "votes": null
+    }
+  ]
+}

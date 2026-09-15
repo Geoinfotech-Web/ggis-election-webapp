@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Borno",
+    "level": "district",
+    "title": "Borno House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Askira-Uba/Hawul",
+      "winner": {
+        "name": "Haruna Mshelia",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Haruna Mshelia",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bama/Ngala/Kala-Balge",
+      "winner": {
+        "name": "Zainab Gimba",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Zainab Gimba",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Biu/Kwaya-Kusar/Shani/Bayo",
+      "winner": {
+        "name": "Muktar Aliyu Betara",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Muktar Aliyu Betara",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Chibok/Damboa/Gwoza",
+      "winner": {
+        "name": "Ahmadu Usman Jaha",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ahmadu Usman Jaha",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Dikwa/Mafa/Konduga",
+      "winner": {
+        "name": "Ibrahim Mohammed Bukar",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ibrahim Mohammed Bukar",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gubio/Kaga/Magumeri",
+      "winner": {
+        "name": "Usman Zannah",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Usman Zannah",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Jere",
+      "winner": {
+        "name": "Satomi Ahmad",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Satomi Ahmad",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kukawa/Mobbar/Abadam/Guzamala",
+      "winner": {
+        "name": "Bukar Gana Kareto",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Bukar Gana Kareto",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Maiduguri (Metropolitan)",
+      "winner": {
+        "name": "Abdulkadir Rahis",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abdulkadir Rahis",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Monguno/Marte/Nganzai",
+      "winner": {
+        "name": "Mohammed Tahir Monguno",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mohammed Tahir Monguno",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Haruna Mshelia",
+      "party": "APC",
+      "district": "Askira-Uba/Hawul",
+      "votes": null
+    },
+    {
+      "name": "Zainab Gimba",
+      "party": "APC",
+      "district": "Bama/Ngala/Kala-Balge",
+      "votes": null
+    },
+    {
+      "name": "Muktar Aliyu Betara",
+      "party": "APC",
+      "district": "Biu/Kwaya-Kusar/Shani/Bayo",
+      "votes": null
+    },
+    {
+      "name": "Ahmadu Usman Jaha",
+      "party": "APC",
+      "district": "Chibok/Damboa/Gwoza",
+      "votes": null
+    },
+    {
+      "name": "Ibrahim Mohammed Bukar",
+      "party": "APC",
+      "district": "Dikwa/Mafa/Konduga",
+      "votes": null
+    },
+    {
+      "name": "Usman Zannah",
+      "party": "APC",
+      "district": "Gubio/Kaga/Magumeri",
+      "votes": null
+    },
+    {
+      "name": "Satomi Ahmad",
+      "party": "APC",
+      "district": "Jere",
+      "votes": null
+    },
+    {
+      "name": "Bukar Gana Kareto",
+      "party": "APC",
+      "district": "Kukawa/Mobbar/Abadam/Guzamala",
+      "votes": null
+    },
+    {
+      "name": "Abdulkadir Rahis",
+      "party": "APC",
+      "district": "Maiduguri (Metropolitan)",
+      "votes": null
+    },
+    {
+      "name": "Mohammed Tahir Monguno",
+      "party": "APC",
+      "district": "Monguno/Marte/Nganzai",
+      "votes": null
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Zamfara",
+    "level": "district",
+    "title": "Zamfara Senatorial Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 9th National Assembly (elected 2019)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Zamfara North",
+      "winner": {
+        "name": "Sahabi Alhaji Yau",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Sahabi Alhaji Yau",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Zamfara West",
+      "winner": {
+        "name": "Lawali Hassan Anka",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Lawali Hassan Anka",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Sahabi Alhaji Yau",
+      "party": "APC",
+      "district": "Zamfara North",
+      "votes": null
+    },
+    {
+      "name": "Lawali Hassan Anka",
+      "party": "APC",
+      "district": "Zamfara West",
+      "votes": null
+    }
+  ]
+}

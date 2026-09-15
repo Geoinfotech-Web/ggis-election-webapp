@@ -1,0 +1,209 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Ogun",
+    "level": "district",
+    "title": "Ogun House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Owode/Odeda",
+      "winner": {
+        "name": "Olumide Osoba",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Olumide Osoba",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Abeokuta South",
+      "winner": {
+        "name": "Lanre Edun",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Lanre Edun",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ado-Odo/Ota",
+      "winner": {
+        "name": "Jimoh Ojugbele",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Jimoh Ojugbele",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Egbado North/Imeko-Afon",
+      "winner": {
+        "name": "Olaifa Jimoh Aremu",
+        "party": "ADC"
+      },
+      "candidates": [
+        {
+          "name": "Olaifa Jimoh Aremu",
+          "party": "ADC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Egbado South and Ipokia",
+      "winner": {
+        "name": "Kolawole Lawal",
+        "party": "APM"
+      },
+      "candidates": [
+        {
+          "name": "Kolawole Lawal",
+          "party": "APM",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ifo/Ewekoro",
+      "winner": {
+        "name": "Ibrahim Isiaka",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ibrahim Isiaka",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ijebu North/Ijebu East/Ogun Waterside",
+      "winner": {
+        "name": "Adekoya Adesegun Abdel-Majid",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Adekoya Adesegun Abdel-Majid",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ijebu Ode /Odogbolu /Ijebu North East",
+      "winner": {
+        "name": "Kolapo Korede Osunsanya",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Kolapo Korede Osunsanya",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikenne/Shagamu/Remo North",
+      "winner": {
+        "name": "Adewunmi Onanuga",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Adewunmi Onanuga",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Olumide Osoba",
+      "party": "APC",
+      "district": "Owode/Odeda",
+      "votes": null
+    },
+    {
+      "name": "Lanre Edun",
+      "party": "APC",
+      "district": "Abeokuta South",
+      "votes": null
+    },
+    {
+      "name": "Jimoh Ojugbele",
+      "party": "APC",
+      "district": "Ado-Odo/Ota",
+      "votes": null
+    },
+    {
+      "name": "Olaifa Jimoh Aremu",
+      "party": "ADC",
+      "district": "Egbado North/Imeko-Afon",
+      "votes": null
+    },
+    {
+      "name": "Kolawole Lawal",
+      "party": "APM",
+      "district": "Egbado South and Ipokia",
+      "votes": null
+    },
+    {
+      "name": "Ibrahim Isiaka",
+      "party": "APC",
+      "district": "Ifo/Ewekoro",
+      "votes": null
+    },
+    {
+      "name": "Adekoya Adesegun Abdel-Majid",
+      "party": "PDP",
+      "district": "Ijebu North/Ijebu East/Ogun Waterside",
+      "votes": null
+    },
+    {
+      "name": "Kolapo Korede Osunsanya",
+      "party": "APC",
+      "district": "Ijebu Ode /Odogbolu /Ijebu North East",
+      "votes": null
+    },
+    {
+      "name": "Adewunmi Onanuga",
+      "party": "APC",
+      "district": "Ikenne/Shagamu/Remo North",
+      "votes": null
+    }
+  ]
+}

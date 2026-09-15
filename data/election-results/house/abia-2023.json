@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Abia",
+    "level": "district",
+    "title": "Abia House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Aba North/Aba South",
+      "winner": {
+        "name": "Alex Ikwechegh",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Alex Ikwechegh",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Arochukwu/Ohafia",
+      "winner": {
+        "name": "Ibe Osonwa",
+        "party": "LP"
+      },
+      "candidates": [
+        {
+          "name": "Ibe Osonwa",
+          "party": "LP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bende",
+      "winner": {
+        "name": "Benjamin Kalu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Benjamin Kalu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikwuano/Umuahia North/Umuahia South",
+      "winner": {
+        "name": "Obi Aguocha",
+        "party": "LP"
+      },
+      "candidates": [
+        {
+          "name": "Obi Aguocha",
+          "party": "LP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Isiala Ngwa North/Isiala Ngwa South",
+      "winner": {
+        "name": "Ginger Onwusibe",
+        "party": "LP"
+      },
+      "candidates": [
+        {
+          "name": "Ginger Onwusibe",
+          "party": "LP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Isuikwuato/Umu-Nneochi",
+      "winner": {
+        "name": "Amobi Ogah",
+        "party": "LP"
+      },
+      "candidates": [
+        {
+          "name": "Amobi Ogah",
+          "party": "LP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Obingwa/Osisioma/Ugwunagbo",
+      "winner": {
+        "name": "Munachim Alozie",
+        "party": "LP"
+      },
+      "candidates": [
+        {
+          "name": "Munachim Alozie",
+          "party": "LP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ukwa East/Ukwa West",
+      "winner": {
+        "name": "Christian Nkwonta",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Christian Nkwonta",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Alex Ikwechegh",
+      "party": "PDP",
+      "district": "Aba North/Aba South",
+      "votes": null
+    },
+    {
+      "name": "Ibe Osonwa",
+      "party": "LP",
+      "district": "Arochukwu/Ohafia",
+      "votes": null
+    },
+    {
+      "name": "Benjamin Kalu",
+      "party": "APC",
+      "district": "Bende",
+      "votes": null
+    },
+    {
+      "name": "Obi Aguocha",
+      "party": "LP",
+      "district": "Ikwuano/Umuahia North/Umuahia South",
+      "votes": null
+    },
+    {
+      "name": "Ginger Onwusibe",
+      "party": "LP",
+      "district": "Isiala Ngwa North/Isiala Ngwa South",
+      "votes": null
+    },
+    {
+      "name": "Amobi Ogah",
+      "party": "LP",
+      "district": "Isuikwuato/Umu-Nneochi",
+      "votes": null
+    },
+    {
+      "name": "Munachim Alozie",
+      "party": "LP",
+      "district": "Obingwa/Osisioma/Ugwunagbo",
+      "votes": null
+    },
+    {
+      "name": "Christian Nkwonta",
+      "party": "NA",
+      "district": "Ukwa East/Ukwa West",
+      "votes": null
+    }
+  ]
+}

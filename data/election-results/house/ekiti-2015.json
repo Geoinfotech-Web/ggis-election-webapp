@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Ekiti",
+    "level": "district",
+    "title": "Ekiti House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Ido/Osi, Moba/Ilejeme",
+      "winner": {
+        "name": "Thaddeus Aina",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Thaddeus Aina",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikole/Oye",
+      "winner": {
+        "name": "Kehinde Agboola",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Kehinde Agboola",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ado Ekiti/Irepodun/Ifelodun",
+      "winner": {
+        "name": "Sunday Oladimeji",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Sunday Oladimeji",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Emure/Gbonyin/Ekiti East",
+      "winner": {
+        "name": "Akinyede Awodumila",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Akinyede Awodumila",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ijero/Ekiti West/Efon",
+      "winner": {
+        "name": "Olamide Oni",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Olamide Oni",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ekiti South West/Ikere/Ise/Orun",
+      "winner": {
+        "name": "Segun Adekola",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Segun Adekola",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Thaddeus Aina",
+      "party": "PDP",
+      "district": "Ido/Osi, Moba/Ilejeme",
+      "votes": null
+    },
+    {
+      "name": "Kehinde Agboola",
+      "party": "PDP",
+      "district": "Ikole/Oye",
+      "votes": null
+    },
+    {
+      "name": "Sunday Oladimeji",
+      "party": "PDP",
+      "district": "Ado Ekiti/Irepodun/Ifelodun",
+      "votes": null
+    },
+    {
+      "name": "Akinyede Awodumila",
+      "party": "PDP",
+      "district": "Emure/Gbonyin/Ekiti East",
+      "votes": null
+    },
+    {
+      "name": "Olamide Oni",
+      "party": "PDP",
+      "district": "Ijero/Ekiti West/Efon",
+      "votes": null
+    },
+    {
+      "name": "Segun Adekola",
+      "party": "PDP",
+      "district": "Ekiti South West/Ikere/Ise/Orun",
+      "votes": null
+    }
+  ]
+}

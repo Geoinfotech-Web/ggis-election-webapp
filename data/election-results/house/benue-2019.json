@@ -1,0 +1,251 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Benue",
+    "level": "district",
+    "title": "Benue House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Ado/Obadigbo/Opkokwu",
+      "winner": {
+        "name": "Francis Ottah Agbo",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Francis Ottah Agbo",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Apa/Agatu",
+      "winner": {
+        "name": "Godday Samuel",
+        "party": "LP"
+      },
+      "candidates": [
+        {
+          "name": "Godday Samuel",
+          "party": "LP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Buruku",
+      "winner": {
+        "name": "Kpam Sokpo",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Kpam Sokpo",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gboko/Tarka",
+      "winner": {
+        "name": "John Dyegh",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "John Dyegh",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Guma/Makurdi",
+      "winner": {
+        "name": "Benjamin Mzondu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Benjamin Mzondu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gwer East/Gwer West",
+      "winner": {
+        "name": "Mark Gbillah",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Mark Gbillah",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Katsina-Ala/Ukum/Logo",
+      "winner": {
+        "name": "Richard Gbande",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Richard Gbande",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Konshisha/Vandeikya",
+      "winner": {
+        "name": "Herman Hembe",
+        "party": "APGA"
+      },
+      "candidates": [
+        {
+          "name": "Herman Hembe",
+          "party": "APGA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kwande/Ushongo",
+      "winner": {
+        "name": "Robert Tyough",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Robert Tyough",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Oju/Obi",
+      "winner": {
+        "name": "David Agada Ogewu",
+        "party": "APGA"
+      },
+      "candidates": [
+        {
+          "name": "David Agada Ogewu",
+          "party": "APGA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Otukpo/Ohimini",
+      "winner": {
+        "name": "Blessing Onuh",
+        "party": "APGA"
+      },
+      "candidates": [
+        {
+          "name": "Blessing Onuh",
+          "party": "APGA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Francis Ottah Agbo",
+      "party": "PDP",
+      "district": "Ado/Obadigbo/Opkokwu",
+      "votes": null
+    },
+    {
+      "name": "Godday Samuel",
+      "party": "LP",
+      "district": "Apa/Agatu",
+      "votes": null
+    },
+    {
+      "name": "Kpam Sokpo",
+      "party": "PDP",
+      "district": "Buruku",
+      "votes": null
+    },
+    {
+      "name": "John Dyegh",
+      "party": "APC",
+      "district": "Gboko/Tarka",
+      "votes": null
+    },
+    {
+      "name": "Benjamin Mzondu",
+      "party": "PDP",
+      "district": "Guma/Makurdi",
+      "votes": null
+    },
+    {
+      "name": "Mark Gbillah",
+      "party": "PDP",
+      "district": "Gwer East/Gwer West",
+      "votes": null
+    },
+    {
+      "name": "Richard Gbande",
+      "party": "PDP",
+      "district": "Katsina-Ala/Ukum/Logo",
+      "votes": null
+    },
+    {
+      "name": "Herman Hembe",
+      "party": "APGA",
+      "district": "Konshisha/Vandeikya",
+      "votes": null
+    },
+    {
+      "name": "Robert Tyough",
+      "party": "PDP",
+      "district": "Kwande/Ushongo",
+      "votes": null
+    },
+    {
+      "name": "David Agada Ogewu",
+      "party": "APGA",
+      "district": "Oju/Obi",
+      "votes": null
+    },
+    {
+      "name": "Blessing Onuh",
+      "party": "APGA",
+      "district": "Otukpo/Ohimini",
+      "votes": null
+    }
+  ]
+}

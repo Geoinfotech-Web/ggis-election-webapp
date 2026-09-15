@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Anambra",
+    "level": "district",
+    "title": "Anambra Senatorial Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 10th National Assembly (elected 2023)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Anambra Central",
+      "winner": {
+        "name": "Umeh Victor Chukwunonyelu",
+        "party": "LP"
+      },
+      "candidates": [
+        {
+          "name": "Umeh Victor Chukwunonyelu",
+          "party": "LP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Anambra North",
+      "winner": {
+        "name": "Tony Nwoye",
+        "party": "LP"
+      },
+      "candidates": [
+        {
+          "name": "Tony Nwoye",
+          "party": "LP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Anambra South",
+      "winner": {
+        "name": "Ifeanyi Ubah",
+        "party": "YPP"
+      },
+      "candidates": [
+        {
+          "name": "Ifeanyi Ubah",
+          "party": "YPP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Umeh Victor Chukwunonyelu",
+      "party": "LP",
+      "district": "Anambra Central",
+      "votes": null
+    },
+    {
+      "name": "Tony Nwoye",
+      "party": "LP",
+      "district": "Anambra North",
+      "votes": null
+    },
+    {
+      "name": "Ifeanyi Ubah",
+      "party": "YPP",
+      "district": "Anambra South",
+      "votes": null
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Kebbi",
+    "level": "district",
+    "title": "Kebbi House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Bagudo/Suru",
+      "winner": {
+        "name": "Abdulahi Hassan",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abdulahi Hassan",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Argungu/Augie",
+      "winner": {
+        "name": "Uthman Munir",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Uthman Munir",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "B/Kebbi/Kalgo/Bunza",
+      "winner": {
+        "name": "Abdulahi Faruk",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abdulahi Faruk",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Yauri/Shanga/Ngaski",
+      "winner": {
+        "name": "D. Muhammad",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "D. Muhammad",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gwandu/Aliero/Jeg",
+      "winner": {
+        "name": "Muhammad Jega",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Muhammad Jega",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Maiyama/Koko/Besse",
+      "winner": {
+        "name": "Salisu Koko",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Salisu Koko",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Arewa/Dandi",
+      "winner": {
+        "name": "Husseni Suleiman",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Husseni Suleiman",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Zuru/Fakai/Sakaba/D/Wasagu",
+      "winner": {
+        "name": "Aliyu Danladi",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Aliyu Danladi",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Abdulahi Hassan",
+      "party": "APC",
+      "district": "Bagudo/Suru",
+      "votes": null
+    },
+    {
+      "name": "Uthman Munir",
+      "party": "APC",
+      "district": "Argungu/Augie",
+      "votes": null
+    },
+    {
+      "name": "Abdulahi Faruk",
+      "party": "APC",
+      "district": "B/Kebbi/Kalgo/Bunza",
+      "votes": null
+    },
+    {
+      "name": "D. Muhammad",
+      "party": "APC",
+      "district": "Yauri/Shanga/Ngaski",
+      "votes": null
+    },
+    {
+      "name": "Muhammad Jega",
+      "party": "APC",
+      "district": "Gwandu/Aliero/Jeg",
+      "votes": null
+    },
+    {
+      "name": "Salisu Koko",
+      "party": "APC",
+      "district": "Maiyama/Koko/Besse",
+      "votes": null
+    },
+    {
+      "name": "Husseni Suleiman",
+      "party": "APC",
+      "district": "Arewa/Dandi",
+      "votes": null
+    },
+    {
+      "name": "Aliyu Danladi",
+      "party": "APC",
+      "district": "Zuru/Fakai/Sakaba/D/Wasagu",
+      "votes": null
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Jigawa",
+    "level": "district",
+    "title": "Jigawa Senatorial Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 8th National Assembly (elected 2015)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Jigawa North-East",
+      "winner": {
+        "name": "Muhammad Shittu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Muhammad Shittu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Jigawa North-West",
+      "winner": {
+        "name": "Abdullahi Abubakar Gumel",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abdullahi Abubakar Gumel",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Jigawa South-West",
+      "winner": {
+        "name": "Mohammed Sabo (politician)|Mohammed Sabo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mohammed Sabo (politician)|Mohammed Sabo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Muhammad Shittu",
+      "party": "PDP",
+      "district": "Jigawa North-East",
+      "votes": null
+    },
+    {
+      "name": "Abdullahi Abubakar Gumel",
+      "party": "APC",
+      "district": "Jigawa North-West",
+      "votes": null
+    },
+    {
+      "name": "Mohammed Sabo (politician)|Mohammed Sabo",
+      "party": "APC",
+      "district": "Jigawa South-West",
+      "votes": null
+    }
+  ]
+}

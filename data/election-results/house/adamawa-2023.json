@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Adamawa",
+    "level": "district",
+    "title": "Adamawa House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Demsa/Numan/Lamurde",
+      "winner": {
+        "name": "Kwamoti Laori",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Kwamoti Laori",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Fufore/Song",
+      "winner": {
+        "name": "Aliyu Wakili Boya",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Aliyu Wakili Boya",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Guyuk/Shelleng",
+      "winner": {
+        "name": "Kobis Ari Thimnu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Kobis Ari Thimnu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Hong/Gombi",
+      "winner": {
+        "name": "James Shuaibu Barka",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "James Shuaibu Barka",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Jada/Ganye/Mayo Belwa/Toungo",
+      "winner": {
+        "name": "Bassi Mohammed Inuwa",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Bassi Mohammed Inuwa",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Michika/Madagali",
+      "winner": {
+        "name": "Zakaria Dauda Nyampa",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Zakaria Dauda Nyampa",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Mubi North/Mubi South/Maiha",
+      "winner": {
+        "name": "Ja&#8217;afar Abubakar Magaji",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Ja&#8217;afar Abubakar Magaji",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Yola North/Yola South/Girei",
+      "winner": {
+        "name": "Abubakar Baba Zango",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abubakar Baba Zango",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Kwamoti Laori",
+      "party": "PDP",
+      "district": "Demsa/Numan/Lamurde",
+      "votes": null
+    },
+    {
+      "name": "Aliyu Wakili Boya",
+      "party": "APC",
+      "district": "Fufore/Song",
+      "votes": null
+    },
+    {
+      "name": "Kobis Ari Thimnu",
+      "party": "PDP",
+      "district": "Guyuk/Shelleng",
+      "votes": null
+    },
+    {
+      "name": "James Shuaibu Barka",
+      "party": "PDP",
+      "district": "Hong/Gombi",
+      "votes": null
+    },
+    {
+      "name": "Bassi Mohammed Inuwa",
+      "party": "NA",
+      "district": "Jada/Ganye/Mayo Belwa/Toungo",
+      "votes": null
+    },
+    {
+      "name": "Zakaria Dauda Nyampa",
+      "party": "PDP",
+      "district": "Michika/Madagali",
+      "votes": null
+    },
+    {
+      "name": "Ja&#8217;afar Abubakar Magaji",
+      "party": "NA",
+      "district": "Mubi North/Mubi South/Maiha",
+      "votes": null
+    },
+    {
+      "name": "Abubakar Baba Zango",
+      "party": "APC",
+      "district": "Yola North/Yola South/Girei",
+      "votes": null
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Gombe",
+    "level": "district",
+    "title": "Gombe Senatorial Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 9th National Assembly (elected 2019)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Gombe Central",
+      "winner": {
+        "name": "Mohammed Danjuma Goje",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mohammed Danjuma Goje",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gombe North",
+      "winner": {
+        "name": "Sa'idu Ahmed Alkali",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Sa'idu Ahmed Alkali",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gombe South",
+      "winner": {
+        "name": "Amos Bulus Kilawangs",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Amos Bulus Kilawangs",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Mohammed Danjuma Goje",
+      "party": "APC",
+      "district": "Gombe Central",
+      "votes": null
+    },
+    {
+      "name": "Sa'idu Ahmed Alkali",
+      "party": "APC",
+      "district": "Gombe North",
+      "votes": null
+    },
+    {
+      "name": "Amos Bulus Kilawangs",
+      "party": "APC",
+      "district": "Gombe South",
+      "votes": null
+    }
+  ]
+}

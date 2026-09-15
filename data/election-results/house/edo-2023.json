@@ -1,0 +1,209 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Edo",
+    "level": "district",
+    "title": "Edo House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Akoko-Edo",
+      "winner": {
+        "name": "Ohiozojeh Peter Akpatason",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ohiozojeh Peter Akpatason",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Egor/Ikpoba-Okha",
+      "winner": {
+        "name": "Omoruyi Murphy Osaro",
+        "party": "LP"
+      },
+      "candidates": [
+        {
+          "name": "Omoruyi Murphy Osaro",
+          "party": "LP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Esan Central/West/Igueben",
+      "winner": {
+        "name": "Marcus Onobun",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Marcus Onobun",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Esan South-East/Esan North-East",
+      "winner": {
+        "name": "Prince Odianosen Okojie",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Prince Odianosen Okojie",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Etsako East/West/Central",
+      "winner": {
+        "name": "Anamero Sunday Dekeri",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Anamero Sunday Dekeri",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Oredo",
+      "winner": {
+        "name": "Esosa Iyawe",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Esosa Iyawe",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Orhionmwon/Uhunmwonde",
+      "winner": {
+        "name": "Billy Osawaru",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Billy Osawaru",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ovia North East/Ovia South West",
+      "winner": {
+        "name": "Omosede Igbinedion",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Omosede Igbinedion",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Owan East/West",
+      "winner": {
+        "name": "Julius Omozuanvbo Ihonvbere",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Julius Omozuanvbo Ihonvbere",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Ohiozojeh Peter Akpatason",
+      "party": "APC",
+      "district": "Akoko-Edo",
+      "votes": null
+    },
+    {
+      "name": "Omoruyi Murphy Osaro",
+      "party": "LP",
+      "district": "Egor/Ikpoba-Okha",
+      "votes": null
+    },
+    {
+      "name": "Marcus Onobun",
+      "party": "PDP",
+      "district": "Esan Central/West/Igueben",
+      "votes": null
+    },
+    {
+      "name": "Prince Odianosen Okojie",
+      "party": "NA",
+      "district": "Esan South-East/Esan North-East",
+      "votes": null
+    },
+    {
+      "name": "Anamero Sunday Dekeri",
+      "party": "APC",
+      "district": "Etsako East/West/Central",
+      "votes": null
+    },
+    {
+      "name": "Esosa Iyawe",
+      "party": "APC",
+      "district": "Oredo",
+      "votes": null
+    },
+    {
+      "name": "Billy Osawaru",
+      "party": "NA",
+      "district": "Orhionmwon/Uhunmwonde",
+      "votes": null
+    },
+    {
+      "name": "Omosede Igbinedion",
+      "party": "NA",
+      "district": "Ovia North East/Ovia South West",
+      "votes": null
+    },
+    {
+      "name": "Julius Omozuanvbo Ihonvbere",
+      "party": "NA",
+      "district": "Owan East/West",
+      "votes": null
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Kogi",
+    "level": "district",
+    "title": "Kogi Senatorial Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 9th National Assembly (elected 2019)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Kogi Central",
+      "winner": {
+        "name": "Yakubu Oseni",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Yakubu Oseni",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kogi East",
+      "winner": {
+        "name": "Jibrin Isah",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Jibrin Isah",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kogi West",
+      "winner": {
+        "name": "Smart Adeyemi",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Smart Adeyemi",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Yakubu Oseni",
+      "party": "APC",
+      "district": "Kogi Central",
+      "votes": null
+    },
+    {
+      "name": "Jibrin Isah",
+      "party": "APC",
+      "district": "Kogi East",
+      "votes": null
+    },
+    {
+      "name": "Smart Adeyemi",
+      "party": "APC",
+      "district": "Kogi West",
+      "votes": null
+    }
+  ]
+}

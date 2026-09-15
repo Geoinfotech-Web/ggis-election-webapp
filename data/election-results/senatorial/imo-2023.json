@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Imo",
+    "level": "district",
+    "title": "Imo Senatorial Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 10th National Assembly (elected 2023)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Imo East",
+      "winner": {
+        "name": "Ezenwa Francis Onyewuchi",
+        "party": "LP"
+      },
+      "candidates": [
+        {
+          "name": "Ezenwa Francis Onyewuchi",
+          "party": "LP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Imo North",
+      "winner": {
+        "name": "Patrick Ndubueze",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Patrick Ndubueze",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Imo West",
+      "winner": {
+        "name": "Osita Izunaso",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Osita Izunaso",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Ezenwa Francis Onyewuchi",
+      "party": "LP",
+      "district": "Imo East",
+      "votes": null
+    },
+    {
+      "name": "Patrick Ndubueze",
+      "party": "APC",
+      "district": "Imo North",
+      "votes": null
+    },
+    {
+      "name": "Osita Izunaso",
+      "party": "APC",
+      "district": "Imo West",
+      "votes": null
+    }
+  ]
+}

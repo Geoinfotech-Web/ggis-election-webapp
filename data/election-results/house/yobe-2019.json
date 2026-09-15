@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Yobe",
+    "level": "district",
+    "title": "Yobe House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Bade/Jakusko",
+      "winner": {
+        "name": "Zakariyau Galadima",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Zakariyau Galadima",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bursari/Geidam/Yunusari",
+      "winner": {
+        "name": "Lawan Shettima Ali",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Lawan Shettima Ali",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Damaturu/Gujba/Gulani/ Tarmuwa",
+      "winner": {
+        "name": "Khadija Bukar Abba Ibrahim",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Khadija Bukar Abba Ibrahim",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Fika/Fune",
+      "winner": {
+        "name": "Abubakar Yerima Idris",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abubakar Yerima Idris",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Machina/Nguru/Yusufari/ Karasuwa",
+      "winner": {
+        "name": "Tijjani Zannah Zakariya",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Tijjani Zannah Zakariya",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Nangere/Potiskum",
+      "winner": {
+        "name": "Ibrahim Umar Potiskum",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ibrahim Umar Potiskum",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Zakariyau Galadima",
+      "party": "APC",
+      "district": "Bade/Jakusko",
+      "votes": null
+    },
+    {
+      "name": "Lawan Shettima Ali",
+      "party": "APC",
+      "district": "Bursari/Geidam/Yunusari",
+      "votes": null
+    },
+    {
+      "name": "Khadija Bukar Abba Ibrahim",
+      "party": "APC",
+      "district": "Damaturu/Gujba/Gulani/ Tarmuwa",
+      "votes": null
+    },
+    {
+      "name": "Abubakar Yerima Idris",
+      "party": "APC",
+      "district": "Fika/Fune",
+      "votes": null
+    },
+    {
+      "name": "Tijjani Zannah Zakariya",
+      "party": "APC",
+      "district": "Machina/Nguru/Yusufari/ Karasuwa",
+      "votes": null
+    },
+    {
+      "name": "Ibrahim Umar Potiskum",
+      "party": "APC",
+      "district": "Nangere/Potiskum",
+      "votes": null
+    }
+  ]
+}

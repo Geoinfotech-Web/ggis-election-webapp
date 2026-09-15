@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Ekiti",
+    "level": "district",
+    "title": "Ekiti House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Ado Ekiti/Irepodun/Ifelodun",
+      "winner": {
+        "name": "Fatoba Olusola Steve Gbadura",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Fatoba Olusola Steve Gbadura",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ekiti South West/Ikere/Ise/Orun",
+      "winner": {
+        "name": "Ojuawo Rufus Adeniyi",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ojuawo Rufus Adeniyi",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Emure/Gbonyin/Ekiti East",
+      "winner": {
+        "name": "Bamisile Olufemi Richard",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Bamisile Olufemi Richard",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ido/Osi, Moba/Ilejeme",
+      "winner": {
+        "name": "Kolawole Davidson Akinlayo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Kolawole Davidson Akinlayo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ijero/Ekiti West/Efon",
+      "winner": {
+        "name": "Omoleye Abiodun Francis",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Omoleye Abiodun Francis",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikole/Oye",
+      "winner": {
+        "name": "Akintunde Rotimi Jr",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Akintunde Rotimi Jr",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Fatoba Olusola Steve Gbadura",
+      "party": "APC",
+      "district": "Ado Ekiti/Irepodun/Ifelodun",
+      "votes": null
+    },
+    {
+      "name": "Ojuawo Rufus Adeniyi",
+      "party": "APC",
+      "district": "Ekiti South West/Ikere/Ise/Orun",
+      "votes": null
+    },
+    {
+      "name": "Bamisile Olufemi Richard",
+      "party": "NA",
+      "district": "Emure/Gbonyin/Ekiti East",
+      "votes": null
+    },
+    {
+      "name": "Kolawole Davidson Akinlayo",
+      "party": "APC",
+      "district": "Ido/Osi, Moba/Ilejeme",
+      "votes": null
+    },
+    {
+      "name": "Omoleye Abiodun Francis",
+      "party": "APC",
+      "district": "Ijero/Ekiti West/Efon",
+      "votes": null
+    },
+    {
+      "name": "Akintunde Rotimi Jr",
+      "party": "APC",
+      "district": "Ikole/Oye",
+      "votes": null
+    }
+  ]
+}

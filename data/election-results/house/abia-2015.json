@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Abia",
+    "level": "district",
+    "title": "Abia House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Aba North/South",
+      "winner": {
+        "name": "Ossy Prestige",
+        "party": "APGA"
+      },
+      "candidates": [
+        {
+          "name": "Ossy Prestige",
+          "party": "APGA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Arochukwu/Ohafia",
+      "winner": {
+        "name": "Uko Ndokwe Nkole",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Uko Ndokwe Nkole",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Obingwa/Osisioma/Ugwunagbo",
+      "winner": {
+        "name": "Solomon Ezinwa O. Adaelu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Solomon Ezinwa O. Adaelu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Umunneochi/Isuikwuato",
+      "winner": {
+        "name": "Nkeruka Chiduben Onyejeocha",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Nkeruka Chiduben Onyejeocha",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bende",
+      "winner": {
+        "name": "Nnenna Elendu Ukeje",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Nnenna Elendu Ukeje",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikwuano/Umuahia",
+      "winner": {
+        "name": "Samuel Ifeanyi Onuigbo",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Samuel Ifeanyi Onuigbo",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ukwa East/Ukwa West",
+      "winner": {
+        "name": "Nkem Uzoma",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Nkem Uzoma",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Isiala Ngwa North/South",
+      "winner": {
+        "name": "Darlington Nwokocha",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Darlington Nwokocha",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Ossy Prestige",
+      "party": "APGA",
+      "district": "Aba North/South",
+      "votes": null
+    },
+    {
+      "name": "Uko Ndokwe Nkole",
+      "party": "PDP",
+      "district": "Arochukwu/Ohafia",
+      "votes": null
+    },
+    {
+      "name": "Solomon Ezinwa O. Adaelu",
+      "party": "PDP",
+      "district": "Obingwa/Osisioma/Ugwunagbo",
+      "votes": null
+    },
+    {
+      "name": "Nkeruka Chiduben Onyejeocha",
+      "party": "PDP",
+      "district": "Umunneochi/Isuikwuato",
+      "votes": null
+    },
+    {
+      "name": "Nnenna Elendu Ukeje",
+      "party": "PDP",
+      "district": "Bende",
+      "votes": null
+    },
+    {
+      "name": "Samuel Ifeanyi Onuigbo",
+      "party": "PDP",
+      "district": "Ikwuano/Umuahia",
+      "votes": null
+    },
+    {
+      "name": "Nkem Uzoma",
+      "party": "PDP",
+      "district": "Ukwa East/Ukwa West",
+      "votes": null
+    },
+    {
+      "name": "Darlington Nwokocha",
+      "party": "PDP",
+      "district": "Isiala Ngwa North/South",
+      "votes": null
+    }
+  ]
+}

@@ -1,0 +1,293 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Rivers",
+    "level": "district",
+    "title": "Rivers House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Abua/Odua/Ahoada East",
+      "winner": {
+        "name": "Solomon Bob",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Solomon Bob",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ahoada West/Ogba Egbema",
+      "winner": {
+        "name": "Uchechukwu Nnam-Obi",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Uchechukwu Nnam-Obi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Akuku-Toru/Asari-Toru",
+      "winner": {
+        "name": "Boma Goodhead",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Boma Goodhead",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Andoni / Opobo Nkoro",
+      "winner": {
+        "name": "Awaji-inombek Abiante",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Awaji-inombek Abiante",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Degema/Bonny",
+      "winner": {
+        "name": "Farah Dagogo",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Farah Dagogo",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Eleme/Oyigbo/Tai",
+      "winner": {
+        "name": "Chisom Dike",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Chisom Dike",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Etche/Omuma",
+      "winner": {
+        "name": "Ephraim Nwuzi",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ephraim Nwuzi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikwerre/Emoha",
+      "winner": {
+        "name": "Boniface S. Emerengwa",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Boniface S. Emerengwa",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Khana/Gokana",
+      "winner": {
+        "name": "Dum Dekor",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Dum Dekor",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Obio Akpor",
+      "winner": {
+        "name": "Kingsley Chinda",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Kingsley Chinda",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Okrika/Ogu-Bolo",
+      "winner": {
+        "name": "Gogo Bright Tamuno",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Gogo Bright Tamuno",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Port Harcourt I",
+      "winner": {
+        "name": "Kenneth Chikere",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Kenneth Chikere",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Port Harcourt Ii",
+      "winner": {
+        "name": "Chinyere Igwe",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Chinyere Igwe",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Solomon Bob",
+      "party": "PDP",
+      "district": "Abua/Odua/Ahoada East",
+      "votes": null
+    },
+    {
+      "name": "Uchechukwu Nnam-Obi",
+      "party": "PDP",
+      "district": "Ahoada West/Ogba Egbema",
+      "votes": null
+    },
+    {
+      "name": "Boma Goodhead",
+      "party": "PDP",
+      "district": "Akuku-Toru/Asari-Toru",
+      "votes": null
+    },
+    {
+      "name": "Awaji-inombek Abiante",
+      "party": "PDP",
+      "district": "Andoni / Opobo Nkoro",
+      "votes": null
+    },
+    {
+      "name": "Farah Dagogo",
+      "party": "PDP",
+      "district": "Degema/Bonny",
+      "votes": null
+    },
+    {
+      "name": "Chisom Dike",
+      "party": "PDP",
+      "district": "Eleme/Oyigbo/Tai",
+      "votes": null
+    },
+    {
+      "name": "Ephraim Nwuzi",
+      "party": "PDP",
+      "district": "Etche/Omuma",
+      "votes": null
+    },
+    {
+      "name": "Boniface S. Emerengwa",
+      "party": "PDP",
+      "district": "Ikwerre/Emoha",
+      "votes": null
+    },
+    {
+      "name": "Dum Dekor",
+      "party": "PDP",
+      "district": "Khana/Gokana",
+      "votes": null
+    },
+    {
+      "name": "Kingsley Chinda",
+      "party": "PDP",
+      "district": "Obio Akpor",
+      "votes": null
+    },
+    {
+      "name": "Gogo Bright Tamuno",
+      "party": "PDP",
+      "district": "Okrika/Ogu-Bolo",
+      "votes": null
+    },
+    {
+      "name": "Kenneth Chikere",
+      "party": "PDP",
+      "district": "Port Harcourt I",
+      "votes": null
+    },
+    {
+      "name": "Chinyere Igwe",
+      "party": "PDP",
+      "district": "Port Harcourt Ii",
+      "votes": null
+    }
+  ]
+}

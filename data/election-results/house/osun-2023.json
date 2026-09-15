@@ -1,0 +1,209 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Osun",
+    "level": "district",
+    "title": "Osun House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Atakunmosa East/Atakunmosa West/Ilesa East/Ilesa West",
+      "winner": {
+        "name": "Omirin Emmanuel Olusanya",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Omirin Emmanuel Olusanya",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ayedaade/Irewole/Isokan",
+      "winner": {
+        "name": "Oladebo Lanre Olomololaye",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Oladebo Lanre Olomololaye",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ayedire/Iwo/Ola-Oluwa",
+      "winner": {
+        "name": "Mudashiru Lukman Alani",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Mudashiru Lukman Alani",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Boluwaduro/Ifedayo/Ila",
+      "winner": {
+        "name": "Akanni Clement Ademola",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Akanni Clement Ademola",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ede North/Ede South/ Egbedore/Ejigbo",
+      "winner": {
+        "name": "Bamidele Salam",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Bamidele Salam",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ife Central/Ife East/Ife North/Ife South",
+      "winner": {
+        "name": "Taofeek Abimbola Ajilesoro",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Taofeek Abimbola Ajilesoro",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Irepodun/Olorunda/Osogbo/Orolu",
+      "winner": {
+        "name": "Adewale Morufu Adebayo",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Adewale Morufu Adebayo",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Obokun/Oriade",
+      "winner": {
+        "name": "Oluwole Oke",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Oluwole Oke",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Odo-Otin/Ifelodun/Boripe",
+      "winner": {
+        "name": "Adetunji Abidemi Olusoji",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Adetunji Abidemi Olusoji",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Omirin Emmanuel Olusanya",
+      "party": "NA",
+      "district": "Atakunmosa East/Atakunmosa West/Ilesa East/Ilesa West",
+      "votes": null
+    },
+    {
+      "name": "Oladebo Lanre Olomololaye",
+      "party": "NA",
+      "district": "Ayedaade/Irewole/Isokan",
+      "votes": null
+    },
+    {
+      "name": "Mudashiru Lukman Alani",
+      "party": "NA",
+      "district": "Ayedire/Iwo/Ola-Oluwa",
+      "votes": null
+    },
+    {
+      "name": "Akanni Clement Ademola",
+      "party": "NA",
+      "district": "Boluwaduro/Ifedayo/Ila",
+      "votes": null
+    },
+    {
+      "name": "Bamidele Salam",
+      "party": "NA",
+      "district": "Ede North/Ede South/ Egbedore/Ejigbo",
+      "votes": null
+    },
+    {
+      "name": "Taofeek Abimbola Ajilesoro",
+      "party": "NA",
+      "district": "Ife Central/Ife East/Ife North/Ife South",
+      "votes": null
+    },
+    {
+      "name": "Adewale Morufu Adebayo",
+      "party": "NA",
+      "district": "Irepodun/Olorunda/Osogbo/Orolu",
+      "votes": null
+    },
+    {
+      "name": "Oluwole Oke",
+      "party": "NA",
+      "district": "Obokun/Oriade",
+      "votes": null
+    },
+    {
+      "name": "Adetunji Abidemi Olusoji",
+      "party": "NA",
+      "district": "Odo-Otin/Ifelodun/Boripe",
+      "votes": null
+    }
+  ]
+}

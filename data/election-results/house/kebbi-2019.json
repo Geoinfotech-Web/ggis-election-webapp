@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Kebbi",
+    "level": "district",
+    "title": "Kebbi House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Aleiro/Gwandu/Jega",
+      "winner": {
+        "name": "Muhammad Umar Jega",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Muhammad Umar Jega",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Arewa/Dandi",
+      "winner": {
+        "name": "Umar Abdullahi Kamba",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Umar Abdullahi Kamba",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Argungu/Augie",
+      "winner": {
+        "name": "Basher Isah",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Basher Isah",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bagudo/Suru",
+      "winner": {
+        "name": "Bello Kaoje",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Bello Kaoje",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bunza/Birnin Kebbi/Kalgo",
+      "winner": {
+        "name": "Muhammad Bello Yakubu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Muhammad Bello Yakubu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Fakai/Sakaba/Wasagu/Danko/ Zuru",
+      "winner": {
+        "name": "Kabir Tukura Ibrahim",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Kabir Tukura Ibrahim",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Koko-Besse/Maiyama",
+      "winner": {
+        "name": "Shehu Mohammed Koko",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Shehu Mohammed Koko",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ngaski/Shanga/Yauri",
+      "winner": {
+        "name": "Yusuf Tanko Sununu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Yusuf Tanko Sununu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Muhammad Umar Jega",
+      "party": "APC",
+      "district": "Aleiro/Gwandu/Jega",
+      "votes": null
+    },
+    {
+      "name": "Umar Abdullahi Kamba",
+      "party": "APC",
+      "district": "Arewa/Dandi",
+      "votes": null
+    },
+    {
+      "name": "Basher Isah",
+      "party": "APC",
+      "district": "Argungu/Augie",
+      "votes": null
+    },
+    {
+      "name": "Bello Kaoje",
+      "party": "APC",
+      "district": "Bagudo/Suru",
+      "votes": null
+    },
+    {
+      "name": "Muhammad Bello Yakubu",
+      "party": "APC",
+      "district": "Bunza/Birnin Kebbi/Kalgo",
+      "votes": null
+    },
+    {
+      "name": "Kabir Tukura Ibrahim",
+      "party": "APC",
+      "district": "Fakai/Sakaba/Wasagu/Danko/ Zuru",
+      "votes": null
+    },
+    {
+      "name": "Shehu Mohammed Koko",
+      "party": "APC",
+      "district": "Koko-Besse/Maiyama",
+      "votes": null
+    },
+    {
+      "name": "Yusuf Tanko Sununu",
+      "party": "APC",
+      "district": "Ngaski/Shanga/Yauri",
+      "votes": null
+    }
+  ]
+}

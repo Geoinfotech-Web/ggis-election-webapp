@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Jigawa",
+    "level": "district",
+    "title": "Jigawa Senatorial Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 10th National Assembly (elected 2023)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Jigawa North-East",
+      "winner": {
+        "name": "Ahmad Abdulhamid Malam Madori",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ahmad Abdulhamid Malam Madori",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Jigawa North-West",
+      "winner": {
+        "name": "Babangida Hussaini",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Babangida Hussaini",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Jigawa South-West",
+      "winner": {
+        "name": "Mustapha Khabeeb",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Mustapha Khabeeb",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Ahmad Abdulhamid Malam Madori",
+      "party": "APC",
+      "district": "Jigawa North-East",
+      "votes": null
+    },
+    {
+      "name": "Babangida Hussaini",
+      "party": "APC",
+      "district": "Jigawa North-West",
+      "votes": null
+    },
+    {
+      "name": "Mustapha Khabeeb",
+      "party": "PDP",
+      "district": "Jigawa South-West",
+      "votes": null
+    }
+  ]
+}

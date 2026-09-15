@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Bauchi",
+    "level": "district",
+    "title": "Bauchi Senatorial Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 8th National Assembly (elected 2015)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Bauchi Central",
+      "winner": {
+        "name": "Isah Misau",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Isah Misau",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bauchi North",
+      "winner": {
+        "name": "Suleiman Nazif",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Suleiman Nazif",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bauchi South",
+      "winner": {
+        "name": "Malam Wakili",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Malam Wakili",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Isah Misau",
+      "party": "PDP",
+      "district": "Bauchi Central",
+      "votes": null
+    },
+    {
+      "name": "Suleiman Nazif",
+      "party": "PDP",
+      "district": "Bauchi North",
+      "votes": null
+    },
+    {
+      "name": "Malam Wakili",
+      "party": "APC",
+      "district": "Bauchi South",
+      "votes": null
+    }
+  ]
+}

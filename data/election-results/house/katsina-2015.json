@@ -1,0 +1,293 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Katsina",
+    "level": "district",
+    "title": "Katsina House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Musawa/Matazu",
+      "winner": {
+        "name": "Ibrahim Danmazari",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ibrahim Danmazari",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Mani/Bindawa",
+      "winner": {
+        "name": "Aminu Ashiru",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Aminu Ashiru",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Mashi/Dvisi",
+      "winner": {
+        "name": "Bello Sani",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Bello Sani",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bakori/Danja",
+      "winner": {
+        "name": "Amiruddin Tukur",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Amiruddin Tukur",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kankara/Sabuwa/Faskari",
+      "winner": {
+        "name": "Isah Murtala",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Isah Murtala",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Daura/Sandamu/Mai’Adua",
+      "winner": {
+        "name": "Sani Saidu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Sani Saidu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Rimi/Charanchi/Batagarawa",
+      "winner": {
+        "name": "Kabir Shaibu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Kabir Shaibu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Funtua/Dandume",
+      "winner": {
+        "name": "Muntari Dandutse",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Muntari Dandutse",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kankia/Ingawa/Kusada",
+      "winner": {
+        "name": "Ahmad Babba",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ahmad Babba",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Baure/Zango",
+      "winner": {
+        "name": "Dayyabu Ahmed",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Dayyabu Ahmed",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Dutsin-Ma/Kurfi",
+      "winner": {
+        "name": "Mohammed Danlami",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mohammed Danlami",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Malumfashi/Kafur",
+      "winner": {
+        "name": "Babangida Ibrahim",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Babangida Ibrahim",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kaita/Jibia",
+      "winner": {
+        "name": "Suleiman Salisu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Suleiman Salisu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Ibrahim Danmazari",
+      "party": "APC",
+      "district": "Musawa/Matazu",
+      "votes": null
+    },
+    {
+      "name": "Aminu Ashiru",
+      "party": "APC",
+      "district": "Mani/Bindawa",
+      "votes": null
+    },
+    {
+      "name": "Bello Sani",
+      "party": "APC",
+      "district": "Mashi/Dvisi",
+      "votes": null
+    },
+    {
+      "name": "Amiruddin Tukur",
+      "party": "APC",
+      "district": "Bakori/Danja",
+      "votes": null
+    },
+    {
+      "name": "Isah Murtala",
+      "party": "APC",
+      "district": "Kankara/Sabuwa/Faskari",
+      "votes": null
+    },
+    {
+      "name": "Sani Saidu",
+      "party": "APC",
+      "district": "Daura/Sandamu/Mai’Adua",
+      "votes": null
+    },
+    {
+      "name": "Kabir Shaibu",
+      "party": "APC",
+      "district": "Rimi/Charanchi/Batagarawa",
+      "votes": null
+    },
+    {
+      "name": "Muntari Dandutse",
+      "party": "APC",
+      "district": "Funtua/Dandume",
+      "votes": null
+    },
+    {
+      "name": "Ahmad Babba",
+      "party": "APC",
+      "district": "Kankia/Ingawa/Kusada",
+      "votes": null
+    },
+    {
+      "name": "Dayyabu Ahmed",
+      "party": "APC",
+      "district": "Baure/Zango",
+      "votes": null
+    },
+    {
+      "name": "Mohammed Danlami",
+      "party": "APC",
+      "district": "Dutsin-Ma/Kurfi",
+      "votes": null
+    },
+    {
+      "name": "Babangida Ibrahim",
+      "party": "APC",
+      "district": "Malumfashi/Kafur",
+      "votes": null
+    },
+    {
+      "name": "Suleiman Salisu",
+      "party": "APC",
+      "district": "Kaita/Jibia",
+      "votes": null
+    }
+  ]
+}

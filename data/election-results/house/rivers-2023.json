@@ -1,0 +1,293 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Rivers",
+    "level": "district",
+    "title": "Rivers House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Abua-Odual/Ahoada East",
+      "winner": {
+        "name": "Solomon Bob",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Solomon Bob",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ahoada West/Ogba Egbema",
+      "winner": {
+        "name": "Obuzor Victor",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Obuzor Victor",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Akuku-Toru/Asari-Toru",
+      "winner": {
+        "name": "Boma Goodhead",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Boma Goodhead",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Andoni/Opobo/Nkoro",
+      "winner": {
+        "name": "Abiante Awaji-Inombek Diagomie",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Abiante Awaji-Inombek Diagomie",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Degema/Bonny",
+      "winner": {
+        "name": "Hart Cyril Godwin",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Hart Cyril Godwin",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Eleme/Tai/Oyigbo",
+      "winner": {
+        "name": "Nwaeke Felix Uche",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Nwaeke Felix Uche",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Etche/Omuma",
+      "winner": {
+        "name": "Nwogu Kelechi",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Nwogu Kelechi",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikwerre/Emohua",
+      "winner": {
+        "name": "Emerengwa Boniface Sunday",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Emerengwa Boniface Sunday",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Khana/Gokana",
+      "winner": {
+        "name": "Dumnamene Robinson Deekor",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Dumnamene Robinson Deekor",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Obio Akpor",
+      "winner": {
+        "name": "Chinda Kingsley Ogundu",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Chinda Kingsley Ogundu",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Okrika/Ogu-Bolo",
+      "winner": {
+        "name": "Anderson Allison Igbiks",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Anderson Allison Igbiks",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Port Harcourt I",
+      "winner": {
+        "name": "Umezuruike Manuchim",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Umezuruike Manuchim",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Port Harcourt Ii",
+      "winner": {
+        "name": "Blessing Chigeru Amadi",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Blessing Chigeru Amadi",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Solomon Bob",
+      "party": "NA",
+      "district": "Abua-Odual/Ahoada East",
+      "votes": null
+    },
+    {
+      "name": "Obuzor Victor",
+      "party": "NA",
+      "district": "Ahoada West/Ogba Egbema",
+      "votes": null
+    },
+    {
+      "name": "Boma Goodhead",
+      "party": "NA",
+      "district": "Akuku-Toru/Asari-Toru",
+      "votes": null
+    },
+    {
+      "name": "Abiante Awaji-Inombek Diagomie",
+      "party": "NA",
+      "district": "Andoni/Opobo/Nkoro",
+      "votes": null
+    },
+    {
+      "name": "Hart Cyril Godwin",
+      "party": "NA",
+      "district": "Degema/Bonny",
+      "votes": null
+    },
+    {
+      "name": "Nwaeke Felix Uche",
+      "party": "NA",
+      "district": "Eleme/Tai/Oyigbo",
+      "votes": null
+    },
+    {
+      "name": "Nwogu Kelechi",
+      "party": "NA",
+      "district": "Etche/Omuma",
+      "votes": null
+    },
+    {
+      "name": "Emerengwa Boniface Sunday",
+      "party": "NA",
+      "district": "Ikwerre/Emohua",
+      "votes": null
+    },
+    {
+      "name": "Dumnamene Robinson Deekor",
+      "party": "NA",
+      "district": "Khana/Gokana",
+      "votes": null
+    },
+    {
+      "name": "Chinda Kingsley Ogundu",
+      "party": "NA",
+      "district": "Obio Akpor",
+      "votes": null
+    },
+    {
+      "name": "Anderson Allison Igbiks",
+      "party": "NA",
+      "district": "Okrika/Ogu-Bolo",
+      "votes": null
+    },
+    {
+      "name": "Umezuruike Manuchim",
+      "party": "NA",
+      "district": "Port Harcourt I",
+      "votes": null
+    },
+    {
+      "name": "Blessing Chigeru Amadi",
+      "party": "NA",
+      "district": "Port Harcourt Ii",
+      "votes": null
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Bayelsa",
+    "level": "district",
+    "title": "Bayelsa Senatorial Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 10th National Assembly (elected 2023)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Bayelsa Central",
+      "winner": {
+        "name": "Benson Friday Konbowei",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Benson Friday Konbowei",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bayelsa East",
+      "winner": {
+        "name": "Agadaga Benson Sunday",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Agadaga Benson Sunday",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bayelsa West",
+      "winner": {
+        "name": "Henry Seriake Dickson",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Henry Seriake Dickson",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Benson Friday Konbowei",
+      "party": "PDP",
+      "district": "Bayelsa Central",
+      "votes": null
+    },
+    {
+      "name": "Agadaga Benson Sunday",
+      "party": "PDP",
+      "district": "Bayelsa East",
+      "votes": null
+    },
+    {
+      "name": "Henry Seriake Dickson",
+      "party": "PDP",
+      "district": "Bayelsa West",
+      "votes": null
+    }
+  ]
+}

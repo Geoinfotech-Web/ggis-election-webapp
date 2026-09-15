@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Sokoto",
+    "level": "district",
+    "title": "Sokoto Senatorial Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 9th National Assembly (elected 2019)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Sokoto East",
+      "winner": {
+        "name": "Abdullahi Ibrahim Gobir",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abdullahi Ibrahim Gobir",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Sokoto North",
+      "winner": {
+        "name": "Aliyu Wamakko",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Aliyu Wamakko",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Sokoto South",
+      "winner": {
+        "name": "Ibrahim Abdullahi Danbaba",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ibrahim Abdullahi Danbaba",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Abdullahi Ibrahim Gobir",
+      "party": "APC",
+      "district": "Sokoto East",
+      "votes": null
+    },
+    {
+      "name": "Aliyu Wamakko",
+      "party": "APC",
+      "district": "Sokoto North",
+      "votes": null
+    },
+    {
+      "name": "Ibrahim Abdullahi Danbaba",
+      "party": "APC",
+      "district": "Sokoto South",
+      "votes": null
+    }
+  ]
+}

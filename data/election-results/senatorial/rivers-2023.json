@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Rivers",
+    "level": "district",
+    "title": "Rivers Senatorial Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 10th National Assembly (elected 2023)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Rivers East",
+      "winner": {
+        "name": "Allwell Onyeso",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Allwell Onyeso",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Rivers South East",
+      "winner": {
+        "name": "Barry Mpigi",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Barry Mpigi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Rivers West",
+      "winner": {
+        "name": "Ipalibo Banigo",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ipalibo Banigo",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Allwell Onyeso",
+      "party": "PDP",
+      "district": "Rivers East",
+      "votes": null
+    },
+    {
+      "name": "Barry Mpigi",
+      "party": "PDP",
+      "district": "Rivers South East",
+      "votes": null
+    },
+    {
+      "name": "Ipalibo Banigo",
+      "party": "PDP",
+      "district": "Rivers West",
+      "votes": null
+    }
+  ]
+}

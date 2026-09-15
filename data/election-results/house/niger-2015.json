@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Niger",
+    "level": "district",
+    "title": "Niger House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Magama/Rijau",
+      "winner": {
+        "name": "Shehu Saleh",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Shehu Saleh",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bida/Gbako/Katcha",
+      "winner": {
+        "name": "Saidu Musa Abdul",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Saidu Musa Abdul",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Agwara/Borgu",
+      "winner": {
+        "name": "Umar Muhammed",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Umar Muhammed",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Lavun/Mokwa/Edati",
+      "winner": {
+        "name": "Ahmed Abu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ahmed Abu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kontagora/Wushishi/Mariga/ Mashegu",
+      "winner": {
+        "name": "Abdullahi Garba",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abdullahi Garba",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Shiroro/Rafi/Munya",
+      "winner": {
+        "name": "Abubakar Adamu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abubakar Adamu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bosso/Paikoro",
+      "winner": {
+        "name": "Adamu Salihu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Adamu Salihu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gurara/Suleja/Tafa",
+      "winner": {
+        "name": "Abubakar Lado",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abubakar Lado",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Agaie/Lapai",
+      "winner": {
+        "name": "Mohammed Mahmud",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mohammed Mahmud",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Chanchaga",
+      "winner": {
+        "name": "Mohammed Umar Bago",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mohammed Umar Bago",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Shehu Saleh",
+      "party": "APC",
+      "district": "Magama/Rijau",
+      "votes": null
+    },
+    {
+      "name": "Saidu Musa Abdul",
+      "party": "APC",
+      "district": "Bida/Gbako/Katcha",
+      "votes": null
+    },
+    {
+      "name": "Umar Muhammed",
+      "party": "APC",
+      "district": "Agwara/Borgu",
+      "votes": null
+    },
+    {
+      "name": "Ahmed Abu",
+      "party": "APC",
+      "district": "Lavun/Mokwa/Edati",
+      "votes": null
+    },
+    {
+      "name": "Abdullahi Garba",
+      "party": "APC",
+      "district": "Kontagora/Wushishi/Mariga/ Mashegu",
+      "votes": null
+    },
+    {
+      "name": "Abubakar Adamu",
+      "party": "APC",
+      "district": "Shiroro/Rafi/Munya",
+      "votes": null
+    },
+    {
+      "name": "Adamu Salihu",
+      "party": "APC",
+      "district": "Bosso/Paikoro",
+      "votes": null
+    },
+    {
+      "name": "Abubakar Lado",
+      "party": "APC",
+      "district": "Gurara/Suleja/Tafa",
+      "votes": null
+    },
+    {
+      "name": "Mohammed Mahmud",
+      "party": "APC",
+      "district": "Agaie/Lapai",
+      "votes": null
+    },
+    {
+      "name": "Mohammed Umar Bago",
+      "party": "APC",
+      "district": "Chanchaga",
+      "votes": null
+    }
+  ]
+}

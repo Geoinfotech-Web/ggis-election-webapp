@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Kwara",
+    "level": "district",
+    "title": "Kwara Senatorial Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 9th National Assembly (elected 2019)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Kwara Central",
+      "winner": {
+        "name": "Ibrahim Yahaya Oloriegbe",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ibrahim Yahaya Oloriegbe",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kwara North",
+      "winner": {
+        "name": "Suleiman Sadiq Umar",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Suleiman Sadiq Umar",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kwara South",
+      "winner": {
+        "name": "Lola Ashiru",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Lola Ashiru",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Ibrahim Yahaya Oloriegbe",
+      "party": "APC",
+      "district": "Kwara Central",
+      "votes": null
+    },
+    {
+      "name": "Suleiman Sadiq Umar",
+      "party": "APC",
+      "district": "Kwara North",
+      "votes": null
+    },
+    {
+      "name": "Lola Ashiru",
+      "party": "APC",
+      "district": "Kwara South",
+      "votes": null
+    }
+  ]
+}

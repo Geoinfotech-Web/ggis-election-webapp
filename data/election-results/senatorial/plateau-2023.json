@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Plateau",
+    "level": "district",
+    "title": "Plateau Senatorial Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 10th National Assembly (elected 2023)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Plateau Central",
+      "winner": {
+        "name": "Diket Plang",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Diket Plang",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Plateau North",
+      "winner": {
+        "name": "Pam Mwadkon Dachungyang|Pam Dachungyang",
+        "party": "ADP"
+      },
+      "candidates": [
+        {
+          "name": "Pam Mwadkon Dachungyang|Pam Dachungyang",
+          "party": "ADP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Plateau South",
+      "winner": {
+        "name": "Simon Lalong",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Simon Lalong",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Diket Plang",
+      "party": "APC",
+      "district": "Plateau Central",
+      "votes": null
+    },
+    {
+      "name": "Pam Mwadkon Dachungyang|Pam Dachungyang",
+      "party": "ADP",
+      "district": "Plateau North",
+      "votes": null
+    },
+    {
+      "name": "Simon Lalong",
+      "party": "APC",
+      "district": "Plateau South",
+      "votes": null
+    }
+  ]
+}

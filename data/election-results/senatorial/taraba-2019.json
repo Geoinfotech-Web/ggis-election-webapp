@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Taraba",
+    "level": "district",
+    "title": "Taraba Senatorial Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 9th National Assembly (elected 2019)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Taraba Central",
+      "winner": {
+        "name": "Yusuf Abubakar Yusuf",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Yusuf Abubakar Yusuf",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Taraba North",
+      "winner": {
+        "name": "Shuaibu Isa Lau",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Shuaibu Isa Lau",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Taraba South",
+      "winner": {
+        "name": "Emmanuel Bwacha",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Emmanuel Bwacha",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Yusuf Abubakar Yusuf",
+      "party": "APC",
+      "district": "Taraba Central",
+      "votes": null
+    },
+    {
+      "name": "Shuaibu Isa Lau",
+      "party": "PDP",
+      "district": "Taraba North",
+      "votes": null
+    },
+    {
+      "name": "Emmanuel Bwacha",
+      "party": "APC",
+      "district": "Taraba South",
+      "votes": null
+    }
+  ]
+}

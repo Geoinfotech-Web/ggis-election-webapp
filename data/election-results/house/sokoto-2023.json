@@ -1,0 +1,251 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Sokoto",
+    "level": "district",
+    "title": "Sokoto House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Binji/Silame",
+      "winner": {
+        "name": "Mani Maishinko Katami",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Mani Maishinko Katami",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Dange-Shuni/Bodinga/Tureta",
+      "winner": {
+        "name": "Nasiru Shehu Bodinga",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Nasiru Shehu Bodinga",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Goronyo/Gada",
+      "winner": {
+        "name": "Bashiru Usman Gorau",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Bashiru Usman Gorau",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gudu/Tangaza",
+      "winner": {
+        "name": "Sani Alhaji Yakubu",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Sani Alhaji Yakubu",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Illela/Gwadabawa",
+      "winner": {
+        "name": "Isah Bello Ambarura",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Isah Bello Ambarura",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Isa/Sabon Birni",
+      "winner": {
+        "name": "Muhammad Sa&#8217;idu Bargaja",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Muhammad Sa&#8217;idu Bargaja",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kebbe/Tambuwal",
+      "winner": {
+        "name": "Abdussamad Dasuki",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Abdussamad Dasuki",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kware/Wamakko",
+      "winner": {
+        "name": "Abdullahi Ahmad Kalambaina",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Abdullahi Ahmad Kalambaina",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Sokoto North/Sokoto South",
+      "winner": {
+        "name": "Bala Hassan",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Bala Hassan",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Wurno/Rabah",
+      "winner": {
+        "name": "Ibrahim Almustapha Aliyu",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Ibrahim Almustapha Aliyu",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Yabo/Shagari",
+      "winner": {
+        "name": "Umar Yusuf Yabo",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Umar Yusuf Yabo",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Mani Maishinko Katami",
+      "party": "NA",
+      "district": "Binji/Silame",
+      "votes": null
+    },
+    {
+      "name": "Nasiru Shehu Bodinga",
+      "party": "NA",
+      "district": "Dange-Shuni/Bodinga/Tureta",
+      "votes": null
+    },
+    {
+      "name": "Bashiru Usman Gorau",
+      "party": "NA",
+      "district": "Goronyo/Gada",
+      "votes": null
+    },
+    {
+      "name": "Sani Alhaji Yakubu",
+      "party": "NA",
+      "district": "Gudu/Tangaza",
+      "votes": null
+    },
+    {
+      "name": "Isah Bello Ambarura",
+      "party": "NA",
+      "district": "Illela/Gwadabawa",
+      "votes": null
+    },
+    {
+      "name": "Muhammad Sa&#8217;idu Bargaja",
+      "party": "NA",
+      "district": "Isa/Sabon Birni",
+      "votes": null
+    },
+    {
+      "name": "Abdussamad Dasuki",
+      "party": "NA",
+      "district": "Kebbe/Tambuwal",
+      "votes": null
+    },
+    {
+      "name": "Abdullahi Ahmad Kalambaina",
+      "party": "NA",
+      "district": "Kware/Wamakko",
+      "votes": null
+    },
+    {
+      "name": "Bala Hassan",
+      "party": "NA",
+      "district": "Sokoto North/Sokoto South",
+      "votes": null
+    },
+    {
+      "name": "Ibrahim Almustapha Aliyu",
+      "party": "NA",
+      "district": "Wurno/Rabah",
+      "votes": null
+    },
+    {
+      "name": "Umar Yusuf Yabo",
+      "party": "NA",
+      "district": "Yabo/Shagari",
+      "votes": null
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Akwa Ibom",
+    "level": "district",
+    "title": "Akwa Ibom Senatorial Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 8th National Assembly (elected 2015)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Akwa Ibom North West",
+      "winner": {
+        "name": "Bassey Albert",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Bassey Albert",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Akwa Ibom North East",
+      "winner": {
+        "name": "Godswill Akpabio",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Godswill Akpabio",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Akwa Ibom South",
+      "winner": {
+        "name": "Nelson Effiong",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Nelson Effiong",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Bassey Albert",
+      "party": "PDP",
+      "district": "Akwa Ibom North West",
+      "votes": null
+    },
+    {
+      "name": "Godswill Akpabio",
+      "party": "PDP",
+      "district": "Akwa Ibom North East",
+      "votes": null
+    },
+    {
+      "name": "Nelson Effiong",
+      "party": "PDP",
+      "district": "Akwa Ibom South",
+      "votes": null
+    }
+  ]
+}

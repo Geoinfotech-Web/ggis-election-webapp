@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Bayelsa",
+    "level": "district",
+    "title": "Bayelsa House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Brass/Nembe",
+      "winner": {
+        "name": "Ebikake Marie Enenimiete",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ebikake Marie Enenimiete",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ogbia",
+      "winner": {
+        "name": "Obordor Mitema",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Obordor Mitema",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Sagbama/Ekeremor",
+      "winner": {
+        "name": "Agbedi Yeitiemone Fredrick",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Agbedi Yeitiemone Fredrick",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Southern Ijaw",
+      "winner": {
+        "name": "Ambiowei Rodney Ebikebina",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ambiowei Rodney Ebikebina",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Yenagoa/Kolokuna/Opokuma",
+      "winner": {
+        "name": "Obuku Abonsizibe Oforji",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Obuku Abonsizibe Oforji",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Ebikake Marie Enenimiete",
+      "party": "PDP",
+      "district": "Brass/Nembe",
+      "votes": null
+    },
+    {
+      "name": "Obordor Mitema",
+      "party": "PDP",
+      "district": "Ogbia",
+      "votes": null
+    },
+    {
+      "name": "Agbedi Yeitiemone Fredrick",
+      "party": "NA",
+      "district": "Sagbama/Ekeremor",
+      "votes": null
+    },
+    {
+      "name": "Ambiowei Rodney Ebikebina",
+      "party": "PDP",
+      "district": "Southern Ijaw",
+      "votes": null
+    },
+    {
+      "name": "Obuku Abonsizibe Oforji",
+      "party": "PDP",
+      "district": "Yenagoa/Kolokuna/Opokuma",
+      "votes": null
+    }
+  ]
+}

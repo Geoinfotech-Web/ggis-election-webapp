@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Delta",
+    "level": "district",
+    "title": "Delta House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Aniocha/Oshimili",
+      "winner": {
+        "name": "Ndudi Elumelu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ndudi Elumelu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bomadi/Patani",
+      "winner": {
+        "name": "Nicholas Mutu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Nicholas Mutu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Burutu",
+      "winner": {
+        "name": "Julius Gbabojor Pondi",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Julius Gbabojor Pondi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ethiope East/Ethiope West",
+      "winner": {
+        "name": "Ben Igbakpa",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ben Igbakpa",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ika North East/Ika South",
+      "winner": {
+        "name": "Victor Nwokolo",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Victor Nwokolo",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Isoko South/Isoko North",
+      "winner": {
+        "name": "Ogor Okuweh",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ogor Okuweh",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Okpe/Sapele/Uvwie",
+      "winner": {
+        "name": "Efe Afe",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Efe Afe",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Nkokwa East/Ndokwa West/ Ukwuani",
+      "winner": {
+        "name": "Ossai Nicholas Ossai",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ossai Nicholas Ossai",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ughelli North, Ughelli South/Udu",
+      "winner": {
+        "name": "Francis E. Waive",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Francis E. Waive",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Warri North/Warri South/ Warri South West",
+      "winner": {
+        "name": "Thomas Ereyitomi",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Thomas Ereyitomi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Ndudi Elumelu",
+      "party": "PDP",
+      "district": "Aniocha/Oshimili",
+      "votes": null
+    },
+    {
+      "name": "Nicholas Mutu",
+      "party": "PDP",
+      "district": "Bomadi/Patani",
+      "votes": null
+    },
+    {
+      "name": "Julius Gbabojor Pondi",
+      "party": "PDP",
+      "district": "Burutu",
+      "votes": null
+    },
+    {
+      "name": "Ben Igbakpa",
+      "party": "PDP",
+      "district": "Ethiope East/Ethiope West",
+      "votes": null
+    },
+    {
+      "name": "Victor Nwokolo",
+      "party": "PDP",
+      "district": "Ika North East/Ika South",
+      "votes": null
+    },
+    {
+      "name": "Ogor Okuweh",
+      "party": "PDP",
+      "district": "Isoko South/Isoko North",
+      "votes": null
+    },
+    {
+      "name": "Efe Afe",
+      "party": "PDP",
+      "district": "Okpe/Sapele/Uvwie",
+      "votes": null
+    },
+    {
+      "name": "Ossai Nicholas Ossai",
+      "party": "PDP",
+      "district": "Nkokwa East/Ndokwa West/ Ukwuani",
+      "votes": null
+    },
+    {
+      "name": "Francis E. Waive",
+      "party": "APC",
+      "district": "Ughelli North, Ughelli South/Udu",
+      "votes": null
+    },
+    {
+      "name": "Thomas Ereyitomi",
+      "party": "PDP",
+      "district": "Warri North/Warri South/ Warri South West",
+      "votes": null
+    }
+  ]
+}

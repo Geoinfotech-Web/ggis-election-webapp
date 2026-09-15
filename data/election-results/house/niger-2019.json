@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Niger",
+    "level": "district",
+    "title": "Niger House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Agaie/Lapai",
+      "winner": {
+        "name": "Abdullahi Mamudu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abdullahi Mamudu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Agwara/Borgu",
+      "winner": {
+        "name": "Ja'afaru Mohammed",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ja'afaru Mohammed",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bida/Gbako/Katcha",
+      "winner": {
+        "name": "Saidu Musa Abdullahi",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Saidu Musa Abdullahi",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bosso/Paikoro",
+      "winner": {
+        "name": "Shehu Barwa Beji",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Shehu Barwa Beji",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Chanchaga",
+      "winner": {
+        "name": "Mohammed Umar Bago",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mohammed Umar Bago",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gurara/Suleja/Tapa",
+      "winner": {
+        "name": "Abubakar Lado",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abubakar Lado",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kontagora/Wushishi/Mariga/ Mashegu",
+      "winner": {
+        "name": "Abdullahi Idris Garba",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abdullahi Idris Garba",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Lavun/Mokwa/Edati",
+      "winner": {
+        "name": "Usman Abdullahi Gbatamangi",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Usman Abdullahi Gbatamangi",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Magama/Rijau",
+      "winner": {
+        "name": "Shehu Saleh",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Shehu Saleh",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Shiroro/Rafi/Munya",
+      "winner": {
+        "name": "Umar Saidu Doka",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Umar Saidu Doka",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Abdullahi Mamudu",
+      "party": "APC",
+      "district": "Agaie/Lapai",
+      "votes": null
+    },
+    {
+      "name": "Ja'afaru Mohammed",
+      "party": "APC",
+      "district": "Agwara/Borgu",
+      "votes": null
+    },
+    {
+      "name": "Saidu Musa Abdullahi",
+      "party": "APC",
+      "district": "Bida/Gbako/Katcha",
+      "votes": null
+    },
+    {
+      "name": "Shehu Barwa Beji",
+      "party": "APC",
+      "district": "Bosso/Paikoro",
+      "votes": null
+    },
+    {
+      "name": "Mohammed Umar Bago",
+      "party": "APC",
+      "district": "Chanchaga",
+      "votes": null
+    },
+    {
+      "name": "Abubakar Lado",
+      "party": "APC",
+      "district": "Gurara/Suleja/Tapa",
+      "votes": null
+    },
+    {
+      "name": "Abdullahi Idris Garba",
+      "party": "APC",
+      "district": "Kontagora/Wushishi/Mariga/ Mashegu",
+      "votes": null
+    },
+    {
+      "name": "Usman Abdullahi Gbatamangi",
+      "party": "APC",
+      "district": "Lavun/Mokwa/Edati",
+      "votes": null
+    },
+    {
+      "name": "Shehu Saleh",
+      "party": "APC",
+      "district": "Magama/Rijau",
+      "votes": null
+    },
+    {
+      "name": "Umar Saidu Doka",
+      "party": "APC",
+      "district": "Shiroro/Rafi/Munya",
+      "votes": null
+    }
+  ]
+}

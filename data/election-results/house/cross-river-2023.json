@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Cross River",
+    "level": "district",
+    "title": "Cross River House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Akamkpa/Biase",
+      "winner": {
+        "name": "Inyang Emil Lemke",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Inyang Emil Lemke",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Calabar Municipal/ Odukpani",
+      "winner": {
+        "name": "Akiba Bassey Ekpenyong",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Akiba Bassey Ekpenyong",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Calabar South/Akpabuyo/Bakassi",
+      "winner": {
+        "name": "Bassey Joseph",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Bassey Joseph",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikom / Boki",
+      "winner": {
+        "name": "Abang Victor Bisong",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abang Victor Bisong",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Obanliku/Obudu/Bekwarra",
+      "winner": {
+        "name": "Peter Akpanke Atianashie",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Peter Akpanke Atianashie",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Obubra/Etung",
+      "winner": {
+        "name": "Irom Etaba Micheal",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Irom Etaba Micheal",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ogoja/Yala",
+      "winner": {
+        "name": "Offiono Godwin Odey",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Offiono Godwin Odey",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Yakurr/Abi",
+      "winner": {
+        "name": "Egbona Alex Egbona",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Egbona Alex Egbona",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Inyang Emil Lemke",
+      "party": "PDP",
+      "district": "Akamkpa/Biase",
+      "votes": null
+    },
+    {
+      "name": "Akiba Bassey Ekpenyong",
+      "party": "APC",
+      "district": "Calabar Municipal/ Odukpani",
+      "votes": null
+    },
+    {
+      "name": "Bassey Joseph",
+      "party": "NA",
+      "district": "Calabar South/Akpabuyo/Bakassi",
+      "votes": null
+    },
+    {
+      "name": "Abang Victor Bisong",
+      "party": "APC",
+      "district": "Ikom / Boki",
+      "votes": null
+    },
+    {
+      "name": "Peter Akpanke Atianashie",
+      "party": "PDP",
+      "district": "Obanliku/Obudu/Bekwarra",
+      "votes": null
+    },
+    {
+      "name": "Irom Etaba Micheal",
+      "party": "APC",
+      "district": "Obubra/Etung",
+      "votes": null
+    },
+    {
+      "name": "Offiono Godwin Odey",
+      "party": "PDP",
+      "district": "Ogoja/Yala",
+      "votes": null
+    },
+    {
+      "name": "Egbona Alex Egbona",
+      "party": "APC",
+      "district": "Yakurr/Abi",
+      "votes": null
+    }
+  ]
+}

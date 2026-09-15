@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Gombe",
+    "level": "district",
+    "title": "Gombe Senatorial Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 8th National Assembly (elected 2015)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Gombe Central",
+      "winner": {
+        "name": "Mohammed Danjuma Goje",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mohammed Danjuma Goje",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gombe North",
+      "winner": {
+        "name": "Usman Bayero Nafada",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Usman Bayero Nafada",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gombe South",
+      "winner": {
+        "name": "Joshua M. Lidani",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Joshua M. Lidani",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Mohammed Danjuma Goje",
+      "party": "APC",
+      "district": "Gombe Central",
+      "votes": null
+    },
+    {
+      "name": "Usman Bayero Nafada",
+      "party": "PDP",
+      "district": "Gombe North",
+      "votes": null
+    },
+    {
+      "name": "Joshua M. Lidani",
+      "party": "PDP",
+      "district": "Gombe South",
+      "votes": null
+    }
+  ]
+}

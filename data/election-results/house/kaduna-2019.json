@@ -1,0 +1,356 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Kaduna",
+    "level": "district",
+    "title": "Kaduna House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Birnin Gwari/Giwa",
+      "winner": {
+        "name": "Shehu Balarabe",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Shehu Balarabe",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Chikun/Kajuru",
+      "winner": {
+        "name": "Yakubu Umar Barde",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Yakubu Umar Barde",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Igabi",
+      "winner": {
+        "name": "Muhammad Abubakar Mamadi",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Muhammad Abubakar Mamadi",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikara/Kubau",
+      "winner": {
+        "name": "Hamisu Ibrahim Kubau",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Hamisu Ibrahim Kubau",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Jema’A/Sanga",
+      "winner": {
+        "name": "Shehu Nicholas Garba",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Shehu Nicholas Garba",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kachia/Kagarko",
+      "winner": {
+        "name": "Gabriel Saleh Zock",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Gabriel Saleh Zock",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kaduna North",
+      "winner": {
+        "name": "Samaila Suleiman",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Samaila Suleiman",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kaduna South",
+      "winner": {
+        "name": "Mukhtar Ahmed (Nigerian politician)",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mukhtar Ahmed (Nigerian politician)",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kaura",
+      "winner": {
+        "name": "Gideon Lucas Gwani",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Gideon Lucas Gwani",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kauru",
+      "winner": {
+        "name": "Mukhtar Zakari Chawai",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mukhtar Zakari Chawai",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Lere",
+      "winner": {
+        "name": "Suleiman Aliyu Lere",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Suleiman Aliyu Lere",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Makarfi/Kudan",
+      "winner": {
+        "name": "Mukhtar Shehu Ladan",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mukhtar Shehu Ladan",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Sabon Gari",
+      "winner": {
+        "name": "Garba Datti Muhammad",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Garba Datti Muhammad",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Soba",
+      "winner": {
+        "name": "Ibrahim Hamza",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ibrahim Hamza",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Zangon Kataf/Jaba",
+      "winner": {
+        "name": "Amos Gwamna Magaji",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Amos Gwamna Magaji",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Zaria",
+      "winner": {
+        "name": "Tajudeen Abbas",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Tajudeen Abbas",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Shehu Balarabe",
+      "party": "APC",
+      "district": "Birnin Gwari/Giwa",
+      "votes": null
+    },
+    {
+      "name": "Yakubu Umar Barde",
+      "party": "PDP",
+      "district": "Chikun/Kajuru",
+      "votes": null
+    },
+    {
+      "name": "Muhammad Abubakar Mamadi",
+      "party": "APC",
+      "district": "Igabi",
+      "votes": null
+    },
+    {
+      "name": "Hamisu Ibrahim Kubau",
+      "party": "APC",
+      "district": "Ikara/Kubau",
+      "votes": null
+    },
+    {
+      "name": "Shehu Nicholas Garba",
+      "party": "PDP",
+      "district": "Jema’A/Sanga",
+      "votes": null
+    },
+    {
+      "name": "Gabriel Saleh Zock",
+      "party": "APC",
+      "district": "Kachia/Kagarko",
+      "votes": null
+    },
+    {
+      "name": "Samaila Suleiman",
+      "party": "APC",
+      "district": "Kaduna North",
+      "votes": null
+    },
+    {
+      "name": "Mukhtar Ahmed (Nigerian politician)",
+      "party": "APC",
+      "district": "Kaduna South",
+      "votes": null
+    },
+    {
+      "name": "Gideon Lucas Gwani",
+      "party": "APC",
+      "district": "Kaura",
+      "votes": null
+    },
+    {
+      "name": "Mukhtar Zakari Chawai",
+      "party": "APC",
+      "district": "Kauru",
+      "votes": null
+    },
+    {
+      "name": "Suleiman Aliyu Lere",
+      "party": "APC",
+      "district": "Lere",
+      "votes": null
+    },
+    {
+      "name": "Mukhtar Shehu Ladan",
+      "party": "APC",
+      "district": "Makarfi/Kudan",
+      "votes": null
+    },
+    {
+      "name": "Garba Datti Muhammad",
+      "party": "APC",
+      "district": "Sabon Gari",
+      "votes": null
+    },
+    {
+      "name": "Ibrahim Hamza",
+      "party": "PDP",
+      "district": "Soba",
+      "votes": null
+    },
+    {
+      "name": "Amos Gwamna Magaji",
+      "party": "PDP",
+      "district": "Zangon Kataf/Jaba",
+      "votes": null
+    },
+    {
+      "name": "Tajudeen Abbas",
+      "party": "APC",
+      "district": "Zaria",
+      "votes": null
+    }
+  ]
+}

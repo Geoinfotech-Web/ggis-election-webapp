@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Gombe",
+    "level": "district",
+    "title": "Gombe Senatorial Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 10th National Assembly (elected 2023)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Gombe Central",
+      "winner": {
+        "name": "Mohammed Danjuma Goje",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mohammed Danjuma Goje",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gombe North",
+      "winner": {
+        "name": "Ibrahim Hassan Dankwambo",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ibrahim Hassan Dankwambo",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gombe South",
+      "winner": {
+        "name": "Anthony Siyako Yaro",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Anthony Siyako Yaro",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Mohammed Danjuma Goje",
+      "party": "APC",
+      "district": "Gombe Central",
+      "votes": null
+    },
+    {
+      "name": "Ibrahim Hassan Dankwambo",
+      "party": "PDP",
+      "district": "Gombe North",
+      "votes": null
+    },
+    {
+      "name": "Anthony Siyako Yaro",
+      "party": "PDP",
+      "district": "Gombe South",
+      "votes": null
+    }
+  ]
+}

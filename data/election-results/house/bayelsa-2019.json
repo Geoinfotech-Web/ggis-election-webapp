@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Bayelsa",
+    "level": "district",
+    "title": "Bayelsa House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Brass/Nembe",
+      "winner": {
+        "name": "Israel Sunny-Goli",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Israel Sunny-Goli",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ogbia",
+      "winner": {
+        "name": "Obua Azibapu Fred",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Obua Azibapu Fred",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Sagbama/Ekeremor",
+      "winner": {
+        "name": "Fred Agbedi",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Fred Agbedi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Southern Ijaw",
+      "winner": {
+        "name": "Preye Influence Goodluck Oseke",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Preye Influence Goodluck Oseke",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Yenagoa/Kolokuna/Opokuma",
+      "winner": {
+        "name": "Stephen Azaiki",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Stephen Azaiki",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Israel Sunny-Goli",
+      "party": "APC",
+      "district": "Brass/Nembe",
+      "votes": null
+    },
+    {
+      "name": "Obua Azibapu Fred",
+      "party": "PDP",
+      "district": "Ogbia",
+      "votes": null
+    },
+    {
+      "name": "Fred Agbedi",
+      "party": "PDP",
+      "district": "Sagbama/Ekeremor",
+      "votes": null
+    },
+    {
+      "name": "Preye Influence Goodluck Oseke",
+      "party": "APC",
+      "district": "Southern Ijaw",
+      "votes": null
+    },
+    {
+      "name": "Stephen Azaiki",
+      "party": "PDP",
+      "district": "Yenagoa/Kolokuna/Opokuma",
+      "votes": null
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Niger",
+    "level": "district",
+    "title": "Niger Senatorial Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 9th National Assembly (elected 2019)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Niger East",
+      "winner": {
+        "name": "Sani Musa",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Sani Musa",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Niger North",
+      "winner": {
+        "name": "Aliyu Sabi Abdullahi",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Aliyu Sabi Abdullahi",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Niger South",
+      "winner": {
+        "name": "Muhammad Bima Enagi",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Muhammad Bima Enagi",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Sani Musa",
+      "party": "APC",
+      "district": "Niger East",
+      "votes": null
+    },
+    {
+      "name": "Aliyu Sabi Abdullahi",
+      "party": "APC",
+      "district": "Niger North",
+      "votes": null
+    },
+    {
+      "name": "Muhammad Bima Enagi",
+      "party": "APC",
+      "district": "Niger South",
+      "votes": null
+    }
+  ]
+}

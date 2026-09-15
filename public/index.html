@@ -76,6 +76,9 @@ a:hover{color:var(--primary)}
   .ov-work{grid-template-columns:1fr !important}
   .ov-main{position:static !important}
   .ov-aside-right{order:3}
+  .cand-layout{grid-template-columns:1fr !important;overflow:auto !important;height:auto !important}
+  .cand-main__body{grid-template-columns:1fr !important}
+  .cand-shell{overflow:auto}
   .eid-app-header{height:auto !important;min-height:58px;flex-wrap:wrap;padding:8px 12px !important;row-gap:8px}
   .eid-nav{flex:1 1 100%;order:5;height:36px}
   .eid-hdr-actions{margin-left:auto}
@@ -86,6 +89,10 @@ a:hover{color:var(--primary)}
   .adm-split{grid-template-columns:1fr !important}
   .adm-split>div{border-right:none !important;border-bottom:1px solid var(--border) !important}
   .parties-split{grid-template-columns:1fr !important}
+  .cand-layout{grid-template-columns:1fr !important;overflow:auto !important}
+  .cand-main__body{grid-template-columns:1fr !important;overflow:visible !important}
+  .cand-shell,.cand-shell__inner,.cand-main{overflow:auto !important;height:auto !important}
+  .cand-filters,.cand-list,.cand-detail{max-height:none !important;height:auto !important;overflow:visible !important}
   .hdr-meta{display:none !important}
   .eid-welcome-cta{flex-direction:column;align-items:stretch !important}
   .eid-welcome-cta>div{width:100% !important}
@@ -101,6 +108,80 @@ a:hover{color:var(--primary)}
   flex-direction:column;
   overflow:hidden;
   padding:12px 14px;
+}
+.cand-shell{
+  flex:1;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  padding:12px 14px;
+  width:100%;
+}
+.cand-shell__inner{
+  flex:1;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  width:100%;
+  max-width:none;
+  margin:0;
+  overflow:hidden;
+}
+.cand-layout{
+  flex:1;
+  min-height:0;
+  height:100%;
+  display:grid;
+  grid-template-columns:minmax(196px,240px) minmax(0,1fr);
+  gap:12px;
+  align-items:stretch;
+  overflow:hidden;
+}
+.cand-filters{
+  min-height:0;
+  height:100%;
+  overflow-y:auto;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:14px;
+}
+.cand-main{
+  min-width:0;
+  min-height:0;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+.cand-main__body{
+  flex:1;
+  min-height:0;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(300px,min(400px,34vw));
+  gap:12px;
+  align-items:stretch;
+  overflow:hidden;
+}
+.cand-list{
+  min-width:0;
+  min-height:0;
+  overflow-y:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  gap:12px;
+  align-content:start;
+  padding-right:2px;
+}
+.cand-detail{
+  min-width:0;
+  min-height:0;
+  overflow-y:auto;
 }
 .live-layout{
   display:grid;
@@ -1134,110 +1215,152 @@ a:hover{color:var(--primary)}
 
     <!-- ── CANDIDATES ── -->
     <sc-if value="{{ isCandidates }}" hint-placeholder-val="{{ false }}">
-    <div class="eid-scroll" style="flex:1;min-height:0;overflow-y:auto;padding:16px 18px">
-      <div style="max-width:1180px;margin:0 auto">
-        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:16px;flex-wrap:wrap">
-          <div><div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><span style="width:8px;height:8px;border-radius:50%;background:var(--primary)"></span><span style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--primary)">{{ scopeLabel }} · Candidates</span></div><h1 style="margin:0;font-size:22px;font-weight:600;letter-spacing:-.02em">Candidates</h1></div>
-          <sc-if value="{{ ngCandidates }}" hint-placeholder-val="{{ false }}">
-          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-            <select value="{{ ngCandidates.yearVal }}" onChange="{{ ngCandidates.onYear }}" style="{{ selStyle }}"><sc-for list="{{ ngCandidates.years }}" as="y" hint-placeholder-count="3"><option value="{{ y }}">{{ y }} election</option></sc-for></select>
-            <select value="{{ ngCandidates.officeVal }}" onChange="{{ ngCandidates.onOffice }}" style="{{ selStyle }}"><sc-for list="{{ ngCandidates.offices }}" as="o" hint-placeholder-count="5"><option value="{{ o.v }}">{{ o.l }}</option></sc-for></select>
-          </div>
-          </sc-if>
+    <div class="cand-shell">
+      <div class="cand-shell__inner">
+        <div style="flex:none">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><span style="width:8px;height:8px;border-radius:50%;background:var(--primary)"></span><span style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--primary)">{{ scopeLabel }} · Candidates</span></div>
+          <h1 style="margin:0;font-size:22px;font-weight:600;letter-spacing:-.02em">Candidates</h1>
         </div>
-        <sc-if value="{{ ngCandidates.empty }}" hint-placeholder-val="{{ false }}">
-          <div style="padding:28px;border:1px dashed var(--border2);border-radius:12px;text-align:center;font-size:13px;color:var(--dim)">Official candidate list not loaded yet for this office. Presidential bearers and archived contests (Ekiti 2026) are shown when available.</div>
-        </sc-if>
-        <sc-if value="{{ ngCandidates.hasList }}" hint-placeholder-val="{{ false }}">
-          <div style="font-size:11.5px;color:var(--mute);margin-bottom:12px">{{ ngCandidates.title }} · {{ ngCandidates.count }} INEC-cleared candidates · tap a card for biography</div>
-          <div class="parties-split" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,400px);gap:14px;align-items:start">
-            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px">
-              <sc-for list="{{ ngCandidates.list }}" as="c" hint-placeholder-count="8">
-                <button type="button" onClick="{{ c.onClick }}" style="{{ c.cardStyle }}" style-hover="border-color:var(--primary)">
-                  <div style="display:flex;align-items:center;gap:12px;padding:12px 13px">
-                    <span style="position:relative;width:48px;height:48px;flex:none;border-radius:10px;overflow:hidden;background:{{ c.color }};display:grid;place-items:center">
-                      <span style="color:#fff;font-size:13px;font-weight:600">{{ c.initials }}</span>
-                      <sc-if value="{{ c.hasPhoto }}" hint-placeholder-val="{{ false }}">
-                        <img src="{{ c.photo }}" alt="" referrerpolicy="no-referrer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onError="{{ c.onPhotoError }}"/>
-                      </sc-if>
-                    </span>
-                    <div style="min-width:0;text-align:left"><div style="font-size:13.5px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ c.name }}</div><div style="font-size:11px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ c.abbr }} · {{ c.party }}</div><div style="font-size:10.5px;color:var(--dim);margin-top:2px">{{ c.note }}</div></div>
-                  </div>
-                </button>
-              </sc-for>
+        <sc-if value="{{ ngCandidates }}" hint-placeholder-val="{{ false }}">
+        <div class="cand-layout">
+          <aside class="cand-filters eid-scroll">
+            <div style="display:flex;align-items:center;gap:8px">
+              <span class="msi" style="font-size:18px;color:var(--primary)">tune</span>
+              <h2 style="margin:0;font-size:13px;font-weight:600;letter-spacing:.01em">Filters</h2>
+              <button type="button" onClick="{{ ngCandidates.resetFilters }}" style="margin-left:auto;border:none;background:transparent;color:var(--mute);font-family:inherit;font-size:11.5px;cursor:pointer;padding:0" style-hover="color:var(--text)">Reset</button>
             </div>
-            <aside style="position:sticky;top:0">
-              <sc-if value="{{ ngCandidateDetail }}" hint-placeholder-val="{{ false }}">
-              <section class="eid-cand-wiki" style="background:var(--surface);border:1px solid var(--border);border-radius:13px;overflow:hidden;box-shadow:var(--shadow)">
-                <div style="height:5px;background:{{ ngCandidateDetail.color }}"></div>
-                <div class="eid-cand-photo" style="position:relative;height:320px;overflow:hidden;isolation:isolate;background:linear-gradient(160deg,{{ ngCandidateDetail.color }},#1a1f28 70%)">
-                  <div style="position:absolute;inset:0;display:grid;place-items:center;z-index:0"><span style="font-size:42px;font-weight:700;color:#fff;opacity:.85">{{ ngCandidateDetail.initials }}</span></div>
-                  <sc-if value="{{ ngCandidateDetail.hasPhoto }}" hint-placeholder-val="{{ false }}">
-                    <img class="eid-cand-photo-img" src="{{ ngCandidateDetail.photo }}" alt="" referrerpolicy="no-referrer" decoding="async" style="position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:contain;object-position:center center;display:block" onError="{{ ngCandidateDetail.onPhotoError }}"/>
-                  </sc-if>
-                  <button onClick="{{ ngCandidateDetail.close }}" title="Close" style="position:absolute;top:10px;right:10px;width:32px;height:32px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.35);color:#fff;border-radius:8px;cursor:pointer;z-index:2"><span class="msi" style="font-size:18px">close</span></button>
-                </div>
-                <div style="padding:14px 15px 6px">
-                  <div style="font-size:18px;font-weight:650;letter-spacing:-.02em;color:var(--text)">{{ ngCandidateDetail.name }}</div>
-                  <div style="font-size:12px;color:var(--mute);margin-top:3px">{{ ngCandidateDetail.partyLabel }}</div>
-                  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">
-                    <span style="font-size:10.5px;font-weight:600;padding:4px 8px;border-radius:6px;background:var(--primary-soft);color:var(--primary)">{{ ngCandidateDetail.year }} · {{ ngCandidateDetail.outcome }}</span>
-                    <sc-if value="{{ ngCandidateDetail.hasShare }}" hint-placeholder-val="{{ false }}"><span style="font-size:10.5px;font-weight:600;padding:4px 8px;border-radius:6px;background:var(--surface2);color:var(--dim)">{{ ngCandidateDetail.shareLabel }}</span></sc-if>
-                  </div>
-                </div>
-                <sc-if value="{{ ngCandidateDetail.runningMate }}" hint-placeholder-val="{{ false }}">
-                <div style="padding:4px 15px 10px;font-size:12px;color:var(--dim)"><span style="color:var(--mute)">Running mate · </span>{{ ngCandidateDetail.runningMate }}</div>
-                </sc-if>
-                <sc-if value="{{ ngCandidateDetail.summary }}" hint-placeholder-val="{{ false }}">
-                <div style="padding:0 15px 12px;font-size:13px;line-height:1.55;color:var(--text)">{{ ngCandidateDetail.summary }}</div>
-                </sc-if>
-                <sc-if value="{{ ngCandidateDetail.hasBio }}" hint-placeholder-val="{{ false }}">
-                <div style="padding:0 15px 4px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)">Biography</div>
-                <div style="padding:0 15px 12px;display:flex;flex-direction:column;gap:8px">
-                  <sc-for list="{{ ngCandidateDetail.biography }}" as="para" hint-placeholder-count="2">
-                    <p style="margin:0;font-size:12.5px;line-height:1.55;color:var(--dim)">{{ para.text }}</p>
+            <label style="display:flex;flex-direction:column;gap:6px">
+              <span style="font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute)">Office</span>
+              <select value="{{ ngCandidates.officeVal }}" onChange="{{ ngCandidates.onOffice }}" style="{{ selStyle }}"><sc-for list="{{ ngCandidates.offices }}" as="o" hint-placeholder-count="5"><option value="{{ o.v }}">{{ o.l }}</option></sc-for></select>
+            </label>
+            <label style="display:flex;flex-direction:column;gap:6px">
+              <span style="font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute)">Election year</span>
+              <select value="{{ ngCandidates.yearVal }}" onChange="{{ ngCandidates.onYear }}" style="{{ selStyle }}"><sc-for list="{{ ngCandidates.years }}" as="y" hint-placeholder-count="3"><option value="{{ y }}">{{ y }} election</option></sc-for></select>
+            </label>
+            <sc-if value="{{ ngCandidates.showStateFilter }}" hint-placeholder-val="{{ false }}">
+            <label style="display:flex;flex-direction:column;gap:6px">
+              <span style="font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute)">State</span>
+              <select value="{{ ngCandidates.stateVal }}" onChange="{{ ngCandidates.onState }}" style="{{ selStyle }}"><option value="">All states</option><sc-for list="{{ ngCandidates.stateOptions }}" as="s" hint-placeholder-count="6"><option value="{{ s }}">{{ s }}</option></sc-for></select>
+            </label>
+            </sc-if>
+            <sc-if value="{{ ngCandidates.showDistrictFilter }}" hint-placeholder-val="{{ false }}">
+            <label style="display:flex;flex-direction:column;gap:6px">
+              <span style="font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute)">{{ ngCandidates.districtLabel }}</span>
+              <select value="{{ ngCandidates.districtVal }}" onChange="{{ ngCandidates.onDistrict }}" style="{{ selStyle }}"><option value="">All districts</option><sc-for list="{{ ngCandidates.districtOptions }}" as="d" hint-placeholder-count="4"><option value="{{ d }}">{{ d }}</option></sc-for></select>
+            </label>
+            </sc-if>
+            <label style="display:flex;flex-direction:column;gap:6px">
+              <span style="font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute)">Outcome</span>
+              <select value="{{ ngCandidates.outcomeVal }}" onChange="{{ ngCandidates.onOutcome }}" style="{{ selStyle }}"><sc-for list="{{ ngCandidates.outcomeOptions }}" as="o" hint-placeholder-count="4"><option value="{{ o.v }}">{{ o.l }}</option></sc-for></select>
+            </label>
+            <sc-if value="{{ ngCandidates.showPartyFilter }}" hint-placeholder-val="{{ false }}">
+            <label style="display:flex;flex-direction:column;gap:6px">
+              <span style="font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute)">Party</span>
+              <select value="{{ ngCandidates.partyVal }}" onChange="{{ ngCandidates.onParty }}" style="{{ selStyle }}"><option value="">All parties</option><sc-for list="{{ ngCandidates.partyOptions }}" as="p" hint-placeholder-count="6"><option value="{{ p.v }}">{{ p.l }}</option></sc-for></select>
+            </label>
+            </sc-if>
+            <div style="margin-top:auto;padding-top:12px;border-top:1px solid var(--border);font-size:11px;color:var(--mute);line-height:1.4">{{ ngCandidates.title }} · {{ ngCandidates.count }} shown</div>
+          </aside>
+          <div class="cand-main">
+            <sc-if value="{{ ngCandidates.empty }}" hint-placeholder-val="{{ false }}">
+              <div style="padding:28px;border:1px dashed var(--border2);border-radius:12px;text-align:center;font-size:13px;color:var(--dim)">{{ ngCandidates.emptyHint }}</div>
+            </sc-if>
+            <sc-if value="{{ ngCandidates.hasList }}" hint-placeholder-val="{{ false }}">
+              <div style="flex:none;font-size:11.5px;color:var(--mute);margin-bottom:10px">{{ ngCandidates.title }} · {{ ngCandidates.count }} candidates · tap a card for biography</div>
+              <sc-if value="{{ ngCandidates.filterEmpty }}" hint-placeholder-val="{{ false }}">
+                <div style="flex:none;padding:22px;border:1px dashed var(--border2);border-radius:12px;text-align:center;font-size:13px;color:var(--dim);margin-bottom:10px">No candidates match these filters. Try All outcomes, All parties, or another year.</div>
+              </sc-if>
+              <div class="cand-main__body parties-split">
+                <div class="cand-list eid-scroll">
+                  <sc-for list="{{ ngCandidates.list }}" as="c" hint-placeholder-count="8">
+                    <button type="button" onClick="{{ c.onClick }}" style="{{ c.cardStyle }}" style-hover="border-color:var(--primary)">
+                      <div style="display:flex;align-items:center;gap:12px;padding:12px 13px">
+                        <span style="position:relative;width:48px;height:48px;flex:none;border-radius:10px;overflow:hidden;background:{{ c.color }};display:grid;place-items:center">
+                          <span style="color:#fff;font-size:13px;font-weight:600">{{ c.initials }}</span>
+                          <sc-if value="{{ c.hasPhoto }}" hint-placeholder-val="{{ false }}">
+                            <img src="{{ c.photo }}" alt="" referrerpolicy="no-referrer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onError="{{ c.onPhotoError }}"/>
+                          </sc-if>
+                        </span>
+                        <div style="min-width:0;text-align:left"><div style="font-size:13.5px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ c.name }}</div><div style="font-size:11px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ c.abbr }} · {{ c.party }}</div><sc-if value="{{ c.subtitle }}" hint-placeholder-val="{{ false }}"><div style="font-size:10.5px;color:var(--primary);margin-top:2px">{{ c.subtitle }}</div></sc-if><div style="font-size:10.5px;color:var(--dim);margin-top:2px">{{ c.note }}</div></div>
+                      </div>
+                    </button>
                   </sc-for>
                 </div>
-                </sc-if>
-                <sc-if value="{{ ngCandidateDetail.hasHistory }}" hint-placeholder-val="{{ false }}">
-                <div style="padding:0 15px 4px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)">History</div>
-                <div style="padding:0 15px 14px;display:flex;flex-direction:column">
-                  <sc-for list="{{ ngCandidateDetail.history }}" as="h" hint-placeholder-count="3">
-                    <div style="display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--border)">
-                      <span style="flex:none;min-width:58px;font-size:11px;font-weight:650;color:var(--primary)">{{ h.year }}</span>
-                      <div style="min-width:0"><div style="font-size:12.5px;font-weight:600;color:var(--text)">{{ h.title }}</div><div style="font-size:11.5px;color:var(--mute);margin-top:2px;line-height:1.4">{{ h.detail }}</div></div>
+                <aside class="cand-detail eid-scroll">
+                  <sc-if value="{{ ngCandidateDetail }}" hint-placeholder-val="{{ false }}">
+                  <section class="eid-cand-wiki" style="background:var(--surface);border:1px solid var(--border);border-radius:13px;overflow:hidden;box-shadow:var(--shadow)">
+                    <div style="height:5px;background:{{ ngCandidateDetail.color }}"></div>
+                    <div class="eid-cand-photo" style="position:relative;height:320px;overflow:hidden;isolation:isolate;background:linear-gradient(160deg,{{ ngCandidateDetail.color }},#1a1f28 70%)">
+                      <div style="position:absolute;inset:0;display:grid;place-items:center;z-index:0"><span style="font-size:42px;font-weight:700;color:#fff;opacity:.85">{{ ngCandidateDetail.initials }}</span></div>
+                      <sc-if value="{{ ngCandidateDetail.hasPhoto }}" hint-placeholder-val="{{ false }}">
+                        <img class="eid-cand-photo-img" src="{{ ngCandidateDetail.photo }}" alt="" referrerpolicy="no-referrer" decoding="async" style="position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:contain;object-position:center center;display:block" onError="{{ ngCandidateDetail.onPhotoError }}"/>
+                      </sc-if>
+                      <button onClick="{{ ngCandidateDetail.close }}" title="Close" style="position:absolute;top:10px;right:10px;width:32px;height:32px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.35);color:#fff;border-radius:8px;cursor:pointer;z-index:2"><span class="msi" style="font-size:18px">close</span></button>
                     </div>
-                  </sc-for>
-                </div>
-                </sc-if>
-                <sc-if value="{{ ngCandidateDetail.hasRoles }}" hint-placeholder-val="{{ false }}">
-                <div style="padding:0 15px 4px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)">Roles</div>
-                <div style="padding:0 15px 14px;display:flex;flex-wrap:wrap;gap:6px">
-                  <sc-for list="{{ ngCandidateDetail.roles }}" as="role" hint-placeholder-count="2">
-                    <span style="font-size:11px;padding:4px 8px;border-radius:6px;background:var(--surface2);color:var(--dim);border:1px solid var(--border)">{{ role.text }}</span>
-                  </sc-for>
-                </div>
-                </sc-if>
-                <sc-if value="{{ ngCandidateDetail.wiki }}" hint-placeholder-val="{{ false }}">
-                <div style="padding:0 15px 14px">
-                  <a href="{{ ngCandidateDetail.wiki }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--primary);text-decoration:none"><span class="msi" style="font-size:16px">open_in_new</span>Read more on Wikipedia</a>
-                </div>
-                </sc-if>
-                <div style="padding:10px 15px;border-top:1px solid var(--border);font-size:10px;color:var(--mute);line-height:1.4">Profiles summarise public sources. Ballot names follow INEC’s final list for the selected year.</div>
-              </section>
-              </sc-if>
-              <sc-if value="{{ ngCandidates.needPick }}" hint-placeholder-val="{{ false }}">
-              <div style="padding:22px 16px;border:1px dashed var(--border2);border-radius:13px;background:var(--surface);text-align:center">
-                <span class="msi" style="font-size:28px;color:var(--primary)">person_search</span>
-                <div style="margin-top:8px;font-size:13px;font-weight:600;color:var(--text)">Choose a candidate</div>
-                <div style="margin-top:4px;font-size:12px;color:var(--mute);line-height:1.45">Open a mini profile with photo, biography and career history.</div>
+                    <div style="padding:14px 15px 6px">
+                      <div style="font-size:18px;font-weight:650;letter-spacing:-.02em;color:var(--text)">{{ ngCandidateDetail.name }}</div>
+                      <div style="font-size:12px;color:var(--mute);margin-top:3px">{{ ngCandidateDetail.partyLabel }}</div>
+                      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">
+                        <span style="font-size:10.5px;font-weight:600;padding:4px 8px;border-radius:6px;background:var(--primary-soft);color:var(--primary)">{{ ngCandidateDetail.year }} · {{ ngCandidateDetail.outcome }}</span>
+                        <sc-if value="{{ ngCandidateDetail.hasShare }}" hint-placeholder-val="{{ false }}"><span style="font-size:10.5px;font-weight:600;padding:4px 8px;border-radius:6px;background:var(--surface2);color:var(--dim)">{{ ngCandidateDetail.shareLabel }}</span></sc-if>
+                      </div>
+                    </div>
+                    <sc-if value="{{ ngCandidateDetail.runningMate }}" hint-placeholder-val="{{ false }}">
+                    <div style="padding:4px 15px 10px;font-size:12px;color:var(--dim)"><span style="color:var(--mute)">Running mate · </span>{{ ngCandidateDetail.runningMate }}</div>
+                    </sc-if>
+                    <sc-if value="{{ ngCandidateDetail.summary }}" hint-placeholder-val="{{ false }}">
+                    <div style="padding:0 15px 12px;font-size:13px;line-height:1.55;color:var(--text)">{{ ngCandidateDetail.summary }}</div>
+                    </sc-if>
+                    <sc-if value="{{ ngCandidateDetail.hasBio }}" hint-placeholder-val="{{ false }}">
+                    <div style="padding:0 15px 4px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)">Biography</div>
+                    <div style="padding:0 15px 12px;display:flex;flex-direction:column;gap:8px">
+                      <sc-for list="{{ ngCandidateDetail.biography }}" as="para" hint-placeholder-count="2">
+                        <p style="margin:0;font-size:12.5px;line-height:1.55;color:var(--dim)">{{ para.text }}</p>
+                      </sc-for>
+                    </div>
+                    </sc-if>
+                    <sc-if value="{{ ngCandidateDetail.hasHistory }}" hint-placeholder-val="{{ false }}">
+                    <div style="padding:0 15px 4px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)">History</div>
+                    <div style="padding:0 15px 14px;display:flex;flex-direction:column">
+                      <sc-for list="{{ ngCandidateDetail.history }}" as="h" hint-placeholder-count="3">
+                        <div style="display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--border)">
+                          <span style="flex:none;min-width:58px;font-size:11px;font-weight:650;color:var(--primary)">{{ h.year }}</span>
+                          <div style="min-width:0"><div style="font-size:12.5px;font-weight:600;color:var(--text)">{{ h.title }}</div><div style="font-size:11.5px;color:var(--mute);margin-top:2px;line-height:1.4">{{ h.detail }}</div></div>
+                        </div>
+                      </sc-for>
+                    </div>
+                    </sc-if>
+                    <sc-if value="{{ ngCandidateDetail.hasRoles }}" hint-placeholder-val="{{ false }}">
+                    <div style="padding:0 15px 4px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)">Roles</div>
+                    <div style="padding:0 15px 14px;display:flex;flex-wrap:wrap;gap:6px">
+                      <sc-for list="{{ ngCandidateDetail.roles }}" as="role" hint-placeholder-count="2">
+                        <span style="font-size:11px;padding:4px 8px;border-radius:6px;background:var(--surface2);color:var(--dim);border:1px solid var(--border)">{{ role.text }}</span>
+                      </sc-for>
+                    </div>
+                    </sc-if>
+                    <sc-if value="{{ ngCandidateDetail.wiki }}" hint-placeholder-val="{{ false }}">
+                    <div style="padding:0 15px 14px">
+                      <a href="{{ ngCandidateDetail.wiki }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--primary);text-decoration:none"><span class="msi" style="font-size:16px">open_in_new</span>Read more on Wikipedia</a>
+                    </div>
+                    </sc-if>
+                    <div style="padding:10px 15px;border-top:1px solid var(--border);font-size:10px;color:var(--mute);line-height:1.4">Profiles summarise public sources. Ballot names follow INEC’s final list for the selected year.</div>
+                  </section>
+                  </sc-if>
+                  <sc-if value="{{ ngCandidates.needPick }}" hint-placeholder-val="{{ false }}">
+                  <div style="padding:22px 16px;border:1px dashed var(--border2);border-radius:13px;background:var(--surface);text-align:center">
+                    <span class="msi" style="font-size:28px;color:var(--primary)">person_search</span>
+                    <div style="margin-top:8px;font-size:13px;font-weight:600;color:var(--text)">Choose a candidate</div>
+                    <div style="margin-top:4px;font-size:12px;color:var(--mute);line-height:1.45">Open a mini profile with photo, biography and career history.</div>
+                  </div>
+                  </sc-if>
+                </aside>
               </div>
-              </sc-if>
-            </aside>
+            </sc-if>
           </div>
+        </div>
         </sc-if>
         <sc-if value="{{ candGeneric }}" hint-placeholder-val="{{ false }}">
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px">
+          <div class="eid-scroll" style="flex:1;min-height:0;overflow-y:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;align-content:start">
             <sc-for list="{{ candGeneric }}" as="c" hint-placeholder-count="6">
               <div style="background:var(--surface);border:1px solid var(--border);border-radius:13px;overflow:hidden" style-hover="border-color:var(--primary)">
                 <div style="height:118px;position:relative;background:repeating-linear-gradient(45deg,var(--surface3) 0 9px,var(--surface2) 9px 18px);display:grid;place-items:center"><span style="font-size:10px;color:var(--mute);border:1px dashed var(--border2);border-radius:6px;padding:4px 8px">photo</span><span style="position:absolute;left:10px;top:10px;width:12px;height:12px;border-radius:3px;background:{{ c.color }}"></span></div>
@@ -1537,7 +1660,7 @@ class Component extends DCLogic {
     electionsList:[], electionNews:[], ingestStatus:null, popStatus:null, puDash:null,
     subState:null, subLga:null, subWard:null, subPU:null, subCoords:null, subGeo:'idle', subFile:null, submissions:[], subSubmitError:null, subMineIds:[],
     liveCompareMode:'overlay', liveComparePct:50, liveShowOfficial:true, liveShowCitizen:true, citizenMapTheme:null, adminCsrf:null,
-    candYear:'2023', candOffice:'pres', selParty:null, selCandidate:null, candCatalog:null,
+    candYear:'2023', candOffice:'pres', candGovState:null, candDistrict:null, candOutcome:null, candParty:null, selParty:null, selCandidate:null, candCatalog:null, govCandCatalog:null, senCandCatalog:null, repsCandCatalog:null,
     admFilter:'all', admQuery:'', admSel:null,
     anaCoords:null, anaGeo:'idle', anaGeoError:null, nearPUs:[], puQuery:'', mapFocus:null, mapAdminFocus:null,
     puDistOrigin:null, puDistQuery:'', puDistStatus:'idle', puDistError:null, puRoute:null,
@@ -1698,7 +1821,7 @@ class Component extends DCLogic {
     'Elections':{ icon:'how_to_vote', desc:'Browse every election — filter by type, year and status, then open any contest for full results, candidates and geography.' },
     'Live Results':{ icon:'sensors', desc:'Citizen EC8A uploads go live on the national map immediately. Official returns appear as a separate layer when available — compare with the swipe slider.' },
     'Map':{ icon:'where_to_vote', title:'Polling units', desc:'Find your polling unit: search or drill State → LGA → Ward, locate nearby PUs, and use the map controls for GRID3 layers and basemaps.' },
-    'Candidates':{ icon:'person', desc:'INEC-cleared presidential candidates by election year — open any profile for photo, biography, career history and ballot result.' },
+    'Candidates':{ icon:'person', desc:'Presidential, senatorial, House and gubernatorial candidates from archived INEC results — open any profile for biography, vote totals and career notes.' },
     'Parties':{ icon:'groups', desc:'Party intelligence: participation, seats won, historical vote share and a geographic strength map across every tracked election.' },
     'Analysis':{ icon:'insights', desc:'Vote swing, turnout anomalies, competitive districts and battlegrounds — complex electoral statistics made legible through maps and visualization.' },
     'Data':{ icon:'database', desc:'Explore and download datasets — results, boundaries, voting locations, candidates and voter statistics — each with source, coverage and update date.' },
@@ -2210,6 +2333,45 @@ class Component extends DCLogic {
     } catch(e){}
     return this.state.candCatalog || null;
   }
+  async fetchGovCandidateCatalog(){
+    if (this.state.govCandCatalog && this.state.govCandCatalog.ballots) return this.state.govCandCatalog;
+    try {
+      const data = await fetch('/data/gubernatorial-candidates.json', { cache:'no-store' }).then(r=>r.ok?r.json():null);
+      if (data && data.ballots) {
+        await new Promise((resolve)=> this.setState({ govCandCatalog: data }, resolve));
+        return data;
+      }
+    } catch(e){}
+    return this.state.govCandCatalog || null;
+  }
+  async fetchSenCandidateCatalog(){
+    if (this.state.senCandCatalog && this.state.senCandCatalog.ballots) return this.state.senCandCatalog;
+    try {
+      const data = await fetch('/data/senatorial-candidates.json', { cache:'no-store' }).then(r=>r.ok?r.json():null);
+      if (data && data.ballots) {
+        await new Promise((resolve)=> this.setState({ senCandCatalog: data }, resolve));
+        return data;
+      }
+    } catch(e){}
+    return this.state.senCandCatalog || null;
+  }
+  async fetchRepsCandidateCatalog(){
+    if (this.state.repsCandCatalog && this.state.repsCandCatalog.ballots) return this.state.repsCandCatalog;
+    try {
+      const data = await fetch('/data/reps-candidates.json', { cache:'no-store' }).then(r=>r.ok?r.json():null);
+      if (data && data.ballots) {
+        await new Promise((resolve)=> this.setState({ repsCandCatalog: data }, resolve));
+        return data;
+      }
+    } catch(e){}
+    return this.state.repsCandCatalog || null;
+  }
+  candidateCatalogFor(office){
+    if (office === 'gov') return this.state.govCandCatalog;
+    if (office === 'sen') return this.state.senCandCatalog;
+    if (office === 'reps') return this.state.repsCandCatalog;
+    return this.state.candCatalog;
+  }
   selectCandidate(entry){
     if (!entry) {
       this.setState({ selCandidate: null });
@@ -2218,24 +2380,37 @@ class Component extends DCLogic {
     this.setState({
       selCandidate: {
         profileId: entry.profileId || null,
-        party: entry.abbr || entry.party || null,
-        year: entry.year || this.state.candYear || '2023',
+        party: entry.abbr || entry.partyAbbr || entry.party || null,
+        year: entry.year || this.state.candYear || null,
         name: entry.name || null,
+        state: entry.state || null,
+        district: entry.district || null,
+        office: entry.office || this.state.candOffice || 'pres',
       },
     });
   }
   candidateProfileFor(entry, year){
-    const catalog = this.state.candCatalog;
-    const y = String(year || this.state.candYear || '2023');
-    const profileId = entry && (entry.profileId || (catalog && catalog.ballots && (catalog.ballots[y]||[]).find(b=>b.party===(entry.abbr||entry.party) && b.name===entry.name)?.profileId));
+    const office = (entry && entry.office) || this.state.candOffice || 'pres';
+    const catalog = this.candidateCatalogFor(office);
+    const y = String(year || this.state.candYear || '');
+    const profileId = entry && entry.profileId;
     const profile = (catalog && catalog.profiles && profileId) ? catalog.profiles[profileId] : null;
-    const ballot = catalog && catalog.ballots && (catalog.ballots[y]||[]).find(b=> (profileId && b.profileId===profileId) || (b.party===(entry.abbr||entry.party) && b.name===(entry.name||profile?.name)));
+    const geoOffices = office === 'gov' || office === 'sen' || office === 'reps';
+    const ballot = catalog && catalog.ballots && (catalog.ballots[y]||[]).find(b=> (profileId && b.profileId===profileId) || (b.name===(entry && entry.name) && (!geoOffices || b.state===(entry && entry.state)) && ((office!=='sen' && office!=='reps') || !entry.district || b.district===entry.district)));
     return { profile, ballot, profileId };
   }
   partyBearers(abbr){
     if(this.PRES_BEARERS[abbr]) return this.PRES_BEARERS[abbr].map(r=>({ year:r[0], name:r[1], outcome:r[2], color:r[3] }));
     return [];
   }
+  candidateOutcomeBucket(note){
+    const n = String(note || '').trim().toLowerCase();
+    if (!n) return 'contested';
+    if (n === 'won' || n.startsWith('won ') || n.includes('declared winner')) return 'won';
+    if (n === 'runner-up' || n.startsWith('runner')) return 'runner-up';
+    return 'contested';
+  }
+
   inecCandidates(year, office){
     const y = String(year || '');
     if(office==='pres'){
@@ -2246,6 +2421,7 @@ class Component extends DCLogic {
           const p = this.INEC_PARTIES.find(x=>x.abbr===b.party) || { abbr:b.party, name:b.party, color:this.partyColor(b.party) };
           const profile = (catalog.profiles && b.profileId) ? catalog.profiles[b.profileId] : null;
           return {
+            office: 'pres',
             abbr: p.abbr,
             party: p.name,
             color: p.color || this.partyColor(p.abbr),
@@ -2257,20 +2433,111 @@ class Component extends DCLogic {
             share: b.share != null ? b.share : null,
             photo: profile && profile.photo ? profile.photo : null,
             year: y,
+            state: null,
+            subtitle: null,
           };
         });
       }
       return this.INEC_PARTIES.map(p=>{
         const hit=(this.PRES_BEARERS[p.abbr]||[]).find(r=>r[0]===y);
         if(!hit) return null;
-        return { abbr:p.abbr, party:p.name, color:p.color, name:hit[1], note: hit[2], profileId:null, year:y };
+        return { office:'pres', abbr:p.abbr, party:p.name, color:p.color, name:hit[1], note: hit[2], profileId:null, year:y, state:null };
       }).filter(Boolean);
     }
-    if(office==='gov' && String(year)==='2026' && this.state.ekitiResult?.candidates){
-      return this.state.ekitiResult.candidates.map(cd=>{
-        const p=this.INEC_PARTIES.find(x=>x.abbr===cd.party) || { abbr:cd.party, name:cd.party, color:this.PARTY[cd.party]||'#8b939d' };
-        return { abbr:p.abbr, party:p.name, color:p.color, name:cd.name, note: this.state.ekitiResult.winner?.name===cd.name ? 'Declared winner · Ekiti 2026' : 'Ekiti 2026 archive' };
-      });
+    if(office==='gov'){
+      const catalog = this.state.govCandCatalog;
+      const ballot = catalog && catalog.ballots && catalog.ballots[y];
+      if (ballot && ballot.length) {
+        const stateFilter = this.state.candGovState || null;
+        const seen = new Set();
+        return ballot
+          .filter((b)=> !stateFilter || b.state === stateFilter)
+          .filter((b)=>{
+            const key = b.profileId || `${b.state}|${b.party}|${b.name}`;
+            if (seen.has(key)) return false;
+            seen.add(key);
+            return true;
+          })
+          .map((b)=>{
+            const p = this.INEC_PARTIES.find(x=>x.abbr===b.party) || { abbr:b.party, name:b.party, color:this.partyColor(b.party) };
+            const profile = (catalog.profiles && b.profileId) ? catalog.profiles[b.profileId] : null;
+            return {
+              office: 'gov',
+              abbr: p.abbr,
+              partyAbbr: b.party,
+              party: p.name || b.party,
+              color: p.color || this.partyColor(b.party),
+              name: b.name,
+              note: b.outcome || 'Contested',
+              profileId: b.profileId || null,
+              votes: b.votes != null ? b.votes : null,
+              share: b.share != null ? b.share : null,
+              photo: profile && profile.photo ? profile.photo : null,
+              year: y,
+              state: b.state,
+              subtitle: b.state,
+              source: b.source || null,
+              title: b.title || null,
+            };
+          });
+      }
+      if(String(year)==='2026' && this.state.ekitiResult?.candidates){
+        return this.state.ekitiResult.candidates.map(cd=>{
+          const p=this.INEC_PARTIES.find(x=>x.abbr===cd.party) || { abbr:cd.party, name:cd.party, color:this.PARTY[cd.party]||'#8b939d' };
+          return {
+            office:'gov', abbr:p.abbr, party:p.name, color:p.color, name:cd.name,
+            note: this.state.ekitiResult.winner?.name===cd.name ? 'Declared winner · Ekiti 2026' : 'Ekiti 2026 archive',
+            state:'Ekiti', subtitle:'Ekiti', year:'2026',
+          };
+        });
+      }
+      return [];
+    }
+    if(office==='sen' || office==='reps'){
+      const catalog = this.candidateCatalogFor(office);
+      const ballot = catalog && catalog.ballots && catalog.ballots[y];
+      if (ballot && ballot.length) {
+        const stateFilter = this.state.candGovState || null;
+        const districtFilter = this.state.candDistrict || null;
+        const seen = new Set();
+        const seatWord = office==='sen' ? 'Senatorial' : 'Federal constituency';
+        return ballot
+          .filter((b)=> !stateFilter || b.state === stateFilter)
+          .filter((b)=> !districtFilter || b.district === districtFilter)
+          .filter((b)=>{
+            const key = b.profileId || `${b.state}|${b.district}|${b.party}|${b.name}`;
+            if (seen.has(key)) return false;
+            seen.add(key);
+            return true;
+          })
+          .map((b)=>{
+            const partyAbbr = b.party && b.party !== 'NA' && b.party !== '—' && !/^\?+$/.test(b.party) ? b.party : 'NA';
+            const p = this.INEC_PARTIES.find(x=>x.abbr===partyAbbr) || { abbr:partyAbbr, name:partyAbbr, color:this.partyColor(partyAbbr) };
+            const profile = (catalog.profiles && b.profileId) ? catalog.profiles[b.profileId] : null;
+            const district = b.district || null;
+            return {
+              office,
+              abbr: p.abbr === 'NA' ? '—' : p.abbr,
+              partyAbbr: partyAbbr === 'NA' ? '—' : partyAbbr,
+              party: partyAbbr === 'NA' ? 'Party not recorded' : ((p.name && p.name !== 'NA') ? p.name : partyAbbr),
+              color: p.color || this.partyColor(partyAbbr === 'NA' ? null : partyAbbr),
+              name: b.name,
+              note: b.outcome || 'Contested',
+              profileId: b.profileId || null,
+              votes: b.votes != null ? b.votes : null,
+              share: b.share != null ? b.share : null,
+              photo: profile && profile.photo ? profile.photo : null,
+              year: y,
+              state: b.state,
+              district,
+              subtitle: [b.state, district].filter(Boolean).join(' · '),
+              source: b.source || null,
+              title: b.title || null,
+              seatLabel: district ? `${district} · ${seatWord}` : seatWord,
+            };
+          });
+      }
+      return [];
     }
     return [];
   }
@@ -2624,6 +2891,7 @@ class Component extends DCLogic {
     this.syncPartyPalette(); this.apply(); this.loadRealData(); this.loadPuDirectory(); this.fetchNgKpis();
     this.fetchGovCatalog();
     this.fetchCandidateCatalog();
+    this.fetchGovCandidateCatalog();
     this.loadLiveSubmissions();
     (this.OFFICE_YEARS.gov || ['2026']).forEach((y)=>this.fetchGovStates(y));
     this.flyToElectionView();
@@ -4143,22 +4411,139 @@ class Component extends DCLogic {
     // ── Candidates & Parties (Nigeria / INEC) ──
     let ngCandidates=null, ngParties=null, ngPartyDetail=null, ngCandidateDetail=null;
     if(isNigeria || isGlobal){
-      const cy=this.state.candYear||'2023', co=this.state.candOffice||'pres';
+      let cy=this.state.candYear||'2023', co=this.state.candOffice||'pres';
       if (co === 'pres' && !this.state.candCatalog) this.fetchCandidateCatalog();
+      if (co === 'gov' && !this.state.govCandCatalog) this.fetchGovCandidateCatalog();
+      if (co === 'sen' && !this.state.senCandCatalog) this.fetchSenCandidateCatalog();
+      if (co === 'reps' && !this.state.repsCandCatalog) this.fetchRepsCandidateCatalog();
+      const govYearsPreferred = ['2026','2023','2019','2015'];
+      const govYears = (this.state.govCandCatalog && this.state.govCandCatalog.years)
+        ? govYearsPreferred.filter((y)=> (this.state.govCandCatalog.ballots[y]||[]).length)
+        : govYearsPreferred;
+      const legCatalog = co==='sen' ? this.state.senCandCatalog : (co==='reps' ? this.state.repsCandCatalog : null);
+      const legYearsPreferred = ['2023','2019','2015'];
+      const legYears = (legCatalog && legCatalog.years)
+        ? legYearsPreferred.filter((y)=> (legCatalog.ballots[y]||[]).length)
+        : legYearsPreferred;
+      if (co === 'gov' && !govYears.includes(String(cy))) {
+        cy = govYears[0] || '2023';
+      }
+      if ((co === 'sen' || co === 'reps') && !legYears.includes(String(cy))) {
+        cy = legYears[0] || '2023';
+      }
+      if (co === 'pres' && !['2023','2019','2015'].includes(String(cy))) {
+        cy = '2023';
+      }
       const officeLabel={pres:'Presidential',sen:'Senatorial',reps:'House of Reps',gov:'Gubernatorial',assembly:'State Assembly',lga:'LGA Chairman'}[co];
-      const cands=this.inecCandidates(cy, co);
+      const outcomeFilter = this.state.candOutcome || null;
+      const partyFilter = this.state.candParty || null;
+      const allCands=this.inecCandidates(cy, co);
+      const partyOptionsBase = (()=>{
+        const seen = new Map();
+        allCands.forEach((c)=>{
+          const abbr = String(c.abbr || c.partyAbbr || '').trim();
+          if (!abbr || abbr === '—' || abbr === 'NA') return;
+          if (!seen.has(abbr)) seen.set(abbr, c.party && c.party !== abbr ? `${abbr} · ${c.party}` : abbr);
+        });
+        return [...seen.entries()]
+          .sort((a,b)=> a[0].localeCompare(b[0]))
+          .map(([v,l])=>({ v, l }));
+      })();
+      let cands = outcomeFilter
+        ? allCands.filter((c)=> this.candidateOutcomeBucket(c.note) === outcomeFilter)
+        : allCands;
+      if (partyFilter) {
+        cands = cands.filter((c)=> String(c.abbr || c.partyAbbr || '') === partyFilter);
+      }
       const selCand = this.state.selCandidate;
+      const geoCatalog = co==='gov' ? this.state.govCandCatalog : legCatalog;
+      const govStateOptions = ((co==='gov' || co==='sen' || co==='reps') && geoCatalog && geoCatalog.statesByYear)
+        ? (geoCatalog.statesByYear[cy] || [])
+        : [];
+      const districtOptions = ((co==='sen' || co==='reps') && this.state.candGovState && geoCatalog && geoCatalog.districtsByYear)
+        ? ((geoCatalog.districtsByYear[cy] || {})[this.state.candGovState] || [])
+        : [];
+      const outcomeLabel = { won:'Winners', 'runner-up':'Runner-up', contested:'Contested' }[outcomeFilter] || null;
+      const partyLabel = partyFilter || null;
+      const yearOptions = co==='gov' ? govYears : ((co==='sen' || co==='reps') ? legYears : ['2023','2019','2015']);
+      const emptyHint = co==='sen'
+        ? 'No senatorial candidates loaded for this year. Historical winners appear when the catalog includes that election year.'
+        : co==='reps'
+          ? 'No House of Representatives candidates loaded for this year. Historical winners appear when the catalog includes that election year.'
+          : co==='gov'
+            ? 'Official candidate list not loaded yet for this office. Archived governorship contests appear when available.'
+            : 'Official candidate list not loaded yet for this office. Presidential bearers and archived contests are shown when available.';
       ngCandidates={
-        years:['2023','2019','2015'], yearVal:cy,
-        onYear:(e)=>this.setState({candYear:e.target.value, selCandidate:null}),
+        years: yearOptions,
+        yearVal: cy,
+        onYear:(e)=>this.setState({candYear:e.target.value, candParty: null, selCandidate:null}),
         offices:[{v:'pres',l:'Presidential'},{v:'sen',l:'Senatorial'},{v:'reps',l:'House of Reps'},{v:'gov',l:'Gubernatorial'},{v:'lga',l:'LGA Chairman'}],
-        officeVal:co, onOffice:(e)=>this.setState({candOffice:e.target.value, selCandidate:null}),
-        title:`${cy} · ${officeLabel}`, count:cands.length, empty:cands.length===0, hasList:cands.length>0,
+        officeVal:co,
+        onOffice:(e)=>{
+          const next = e.target.value;
+          let nextYear = '2023';
+          if (next==='gov') {
+            nextYear = govYears.includes(String(this.state.candYear)) ? String(this.state.candYear) : (govYears[0]||'2023');
+          } else if (next==='sen' || next==='reps') {
+            const cat = next==='sen' ? this.state.senCandCatalog : this.state.repsCandCatalog;
+            const ys = (cat && cat.years) ? legYearsPreferred.filter((y)=> (cat.ballots[y]||[]).length) : legYearsPreferred;
+            nextYear = ys.includes(String(this.state.candYear)) ? String(this.state.candYear) : (ys[0]||'2023');
+          } else {
+            nextYear = ['2023','2019','2015'].includes(String(this.state.candYear)) ? String(this.state.candYear) : '2023';
+          }
+          this.setState({ candOffice: next, candYear: nextYear, candGovState: null, candDistrict: null, candOutcome: null, candParty: null, selCandidate: null }, ()=>{
+            if (next === 'gov') this.fetchGovCandidateCatalog();
+            if (next === 'sen') this.fetchSenCandidateCatalog();
+            if (next === 'reps') this.fetchRepsCandidateCatalog();
+            if (next === 'pres') this.fetchCandidateCatalog();
+          });
+        },
+        showStateFilter: co==='gov' || co==='sen' || co==='reps',
+        showDistrictFilter: (co==='sen' || co==='reps') && !!this.state.candGovState && districtOptions.length>0,
+        showPartyFilter: partyOptionsBase.length > 0 && (co==='sen' || co==='reps' || co==='gov' || co==='pres'),
+        districtLabel: co==='sen' ? 'Senatorial district' : 'Federal constituency',
+        stateVal: this.state.candGovState || '',
+        stateOptions: govStateOptions,
+        onState:(e)=>this.setState({ candGovState: e.target.value || null, candDistrict: null, candParty: null, selCandidate: null }),
+        districtVal: this.state.candDistrict || '',
+        districtOptions,
+        onDistrict:(e)=>this.setState({ candDistrict: e.target.value || null, candParty: null, selCandidate: null }),
+        outcomeVal: outcomeFilter || '',
+        outcomeOptions: [
+          { v:'', l:'All outcomes' },
+          { v:'won', l:'Won' },
+          { v:'runner-up', l:'Runner-up' },
+          { v:'contested', l:'Contested' },
+        ],
+        onOutcome:(e)=>this.setState({ candOutcome: e.target.value || null, selCandidate: null }),
+        partyVal: partyFilter || '',
+        partyOptions: partyOptionsBase,
+        onParty:(e)=>this.setState({ candParty: e.target.value || null, selCandidate: null }),
+        resetFilters:()=>this.setState({
+          candYear: co==='gov' ? (govYears[0]||'2023') : ((co==='sen'||co==='reps') ? (legYears[0]||'2023') : '2023'),
+          candOffice: 'pres',
+          candGovState: null,
+          candDistrict: null,
+          candOutcome: null,
+          candParty: null,
+          selCandidate: null,
+        }, ()=> this.fetchCandidateCatalog()),
+        title: [
+          cy,
+          officeLabel,
+          this.state.candGovState || null,
+          this.state.candDistrict || null,
+          outcomeLabel,
+          partyLabel,
+        ].filter(Boolean).join(' · '),
+        count:cands.length, empty:allCands.length===0, hasList:allCands.length>0,
+        emptyHint,
+        filterEmpty: allCands.length>0 && cands.length===0,
         needPick: cands.length>0 && !selCand,
         list:cands.map(x=>{
           const active = !!(selCand && (
             (selCand.profileId && selCand.profileId === x.profileId) ||
-            (selCand.name === x.name && selCand.party === x.abbr)
+            (selCand.name === x.name && selCand.party === x.abbr && (co==='pres' || selCand.state === x.state) && ((co!=='sen' && co!=='reps') || !x.district || selCand.district === x.district))
           ));
           const hasPhoto = !!x.photo;
           return {
@@ -4172,9 +4557,9 @@ class Component extends DCLogic {
           };
         }),
       };
-      if (selCand && co === 'pres') {
-        const entry = cands.find(c=> (selCand.profileId && c.profileId===selCand.profileId) || (c.name===selCand.name && c.abbr===selCand.party)) || selCand;
-        const { profile, ballot } = this.candidateProfileFor(entry, cy);
+      if (selCand && (co === 'pres' || co === 'gov' || co === 'sen' || co === 'reps')) {
+        const entry = cands.find(c=> (selCand.profileId && c.profileId===selCand.profileId) || (c.name===selCand.name && c.abbr===selCand.party && (co==='pres' || c.state===selCand.state) && ((co!=='sen' && co!=='reps') || !c.district || c.district===selCand.district))) || selCand;
+        const { profile, ballot } = this.candidateProfileFor({ ...entry, office: co }, cy);
         const name = (profile && profile.name) || entry.name || selCand.name;
         const color = entry.color || this.partyColor(entry.abbr || selCand.party);
         const photo = (profile && profile.photo) || entry.photo || null;
@@ -4183,12 +4568,15 @@ class Component extends DCLogic {
         const roles = (profile && profile.roles) || [];
         const share = ballot && ballot.share != null ? ballot.share : entry.share;
         const votes = ballot && ballot.votes != null ? ballot.votes : entry.votes;
+        const stateLabel = entry.state || selCand.state || (profile && profile.state) || null;
+        const districtLabel = entry.district || selCand.district || (profile && profile.district) || null;
+        const placeLabel = [stateLabel, districtLabel].filter(Boolean).join(' · ');
         ngCandidateDetail = {
           name,
           fullName: (profile && profile.fullName) || name,
           initials: String(name||'').split(/\s+/).map(w=>w[0]).filter(Boolean).slice(0,2).join('').toUpperCase(),
           color,
-          partyLabel: [entry.abbr || selCand.party, entry.party].filter(Boolean).join(' · '),
+          partyLabel: [entry.abbr || selCand.party, entry.party].filter(Boolean).join(' · ') + (placeLabel ? ` · ${placeLabel}` : ''),
           year: cy,
           outcome: (ballot && ballot.outcome) || entry.note || 'Contested',
           runningMate: (ballot && ballot.runningMate) || entry.runningMate || null,
@@ -4207,9 +4595,12 @@ class Component extends DCLogic {
           hasShare: share != null,
           shareLabel: share != null
             ? `${Number(share).toFixed(1)}%${votes!=null ? ' · '+this.fmtInt(votes)+' votes' : ''}`
-            : null,
+            : (votes!=null ? this.fmtInt(votes)+' votes' : null),
           close: ()=> this.selectCandidate(null),
         };
+        if (!ngCandidateDetail.hasShare && votes != null) {
+          ngCandidateDetail.hasShare = true;
+        }
       }
       const sel=this.state.selParty;
       const shareOf=(abbr)=>{ const hit=(this.NG_PRES['2023']||[]).find(r=>r[1]===abbr); return hit? hit[2]+'%' : '—'; };

@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Nasarawa",
+    "level": "district",
+    "title": "Nasarawa House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Akwanga/Nasarawa Eggon/Wamba",
+      "winner": {
+        "name": "Jeremiah Umaru",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Jeremiah Umaru",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Awe/Doma/Keana",
+      "winner": {
+        "name": "Abubakar Hassan Nalaraba",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Abubakar Hassan Nalaraba",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Keffi/Karu/Kokona",
+      "winner": {
+        "name": "Jonathan Gaza Gbefwi",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Jonathan Gaza Gbefwi",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Lafia/Obi",
+      "winner": {
+        "name": "Abubakar Sarki Dahiru",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Abubakar Sarki Dahiru",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Nassarawa/Toto",
+      "winner": {
+        "name": "Abdulmumin Mohammed Ari",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Abdulmumin Mohammed Ari",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Jeremiah Umaru",
+      "party": "NA",
+      "district": "Akwanga/Nasarawa Eggon/Wamba",
+      "votes": null
+    },
+    {
+      "name": "Abubakar Hassan Nalaraba",
+      "party": "NA",
+      "district": "Awe/Doma/Keana",
+      "votes": null
+    },
+    {
+      "name": "Jonathan Gaza Gbefwi",
+      "party": "NA",
+      "district": "Keffi/Karu/Kokona",
+      "votes": null
+    },
+    {
+      "name": "Abubakar Sarki Dahiru",
+      "party": "NA",
+      "district": "Lafia/Obi",
+      "votes": null
+    },
+    {
+      "name": "Abdulmumin Mohammed Ari",
+      "party": "NA",
+      "district": "Nassarawa/Toto",
+      "votes": null
+    }
+  ]
+}

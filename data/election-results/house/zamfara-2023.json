@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Zamfara",
+    "level": "district",
+    "title": "Zamfara House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Anka/Talata Mafara",
+      "winner": {
+        "name": "Isa Muhammad Anka",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Isa Muhammad Anka",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bakura/Maradun",
+      "winner": {
+        "name": "Muhammad Sani Ahmad",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Muhammad Sani Ahmad",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bungudu/Maru",
+      "winner": {
+        "name": "Abdulmalik Zubairu",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Abdulmalik Zubairu",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gummi/Bukkuyum",
+      "winner": {
+        "name": "Suleiman Abubakar Gummi",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Suleiman Abubakar Gummi",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gusau/Tsafe",
+      "winner": {
+        "name": "Kabiru Amadu",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Kabiru Amadu",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kaura-Namoda/Birnin Magaji",
+      "winner": {
+        "name": "Aminu Jaji",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Aminu Jaji",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Shinkafi/Zurmi",
+      "winner": {
+        "name": "Bello Hassan Shinkafi",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Bello Hassan Shinkafi",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Isa Muhammad Anka",
+      "party": "NA",
+      "district": "Anka/Talata Mafara",
+      "votes": null
+    },
+    {
+      "name": "Muhammad Sani Ahmad",
+      "party": "NA",
+      "district": "Bakura/Maradun",
+      "votes": null
+    },
+    {
+      "name": "Abdulmalik Zubairu",
+      "party": "NA",
+      "district": "Bungudu/Maru",
+      "votes": null
+    },
+    {
+      "name": "Suleiman Abubakar Gummi",
+      "party": "NA",
+      "district": "Gummi/Bukkuyum",
+      "votes": null
+    },
+    {
+      "name": "Kabiru Amadu",
+      "party": "NA",
+      "district": "Gusau/Tsafe",
+      "votes": null
+    },
+    {
+      "name": "Aminu Jaji",
+      "party": "NA",
+      "district": "Kaura-Namoda/Birnin Magaji",
+      "votes": null
+    },
+    {
+      "name": "Bello Hassan Shinkafi",
+      "party": "NA",
+      "district": "Shinkafi/Zurmi",
+      "votes": null
+    }
+  ]
+}

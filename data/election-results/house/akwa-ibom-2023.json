@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Akwa Ibom",
+    "level": "district",
+    "title": "Akwa Ibom House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Abak/Etim Ekpo/Ika",
+      "winner": {
+        "name": "Clement Jimbo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Clement Jimbo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Eket/Esit Eket/Ibeno/Onna",
+      "winner": {
+        "name": "Okpolupm Etteh",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Okpolupm Etteh",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Etinan/Nsit Ibom/Nsit Ubium",
+      "winner": {
+        "name": "Ekpo Paul Asuquo",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ekpo Paul Asuquo",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikono/Ini",
+      "winner": {
+        "name": "Emmanuel Ukpong-Udo",
+        "party": "YPP"
+      },
+      "candidates": [
+        {
+          "name": "Emmanuel Ukpong-Udo",
+          "party": "YPP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikot Abasi/Mkpat Enin/Eastern Obolo",
+      "winner": {
+        "name": "Odudoh Uduak Alphonsus",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Odudoh Uduak Alphonsus",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikot Ekpene/Essien Udim/ Obot Akara F",
+      "winner": {
+        "name": "Patrick Umoh",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Patrick Umoh",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Itu/Ibiono Ibom",
+      "winner": {
+        "name": "Ime Bassey Okon",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ime Bassey Okon",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Mbo/Okobo/Oron/Udung Uko/Urue Offong Oruko",
+      "winner": {
+        "name": "Esin Martins Etim",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Esin Martins Etim",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ukanafun/Oruk Anam",
+      "winner": {
+        "name": "Unyime Idem",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Unyime Idem",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Uyo/Uruan/Nsit Atai/ Ibesikpo Asutan",
+      "winner": {
+        "name": "Esset Mark Udo",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Esset Mark Udo",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Clement Jimbo",
+      "party": "APC",
+      "district": "Abak/Etim Ekpo/Ika",
+      "votes": null
+    },
+    {
+      "name": "Okpolupm Etteh",
+      "party": "PDP",
+      "district": "Eket/Esit Eket/Ibeno/Onna",
+      "votes": null
+    },
+    {
+      "name": "Ekpo Paul Asuquo",
+      "party": "PDP",
+      "district": "Etinan/Nsit Ibom/Nsit Ubium",
+      "votes": null
+    },
+    {
+      "name": "Emmanuel Ukpong-Udo",
+      "party": "YPP",
+      "district": "Ikono/Ini",
+      "votes": null
+    },
+    {
+      "name": "Odudoh Uduak Alphonsus",
+      "party": "PDP",
+      "district": "Ikot Abasi/Mkpat Enin/Eastern Obolo",
+      "votes": null
+    },
+    {
+      "name": "Patrick Umoh",
+      "party": "APC",
+      "district": "Ikot Ekpene/Essien Udim/ Obot Akara F",
+      "votes": null
+    },
+    {
+      "name": "Ime Bassey Okon",
+      "party": "PDP",
+      "district": "Itu/Ibiono Ibom",
+      "votes": null
+    },
+    {
+      "name": "Esin Martins Etim",
+      "party": "PDP",
+      "district": "Mbo/Okobo/Oron/Udung Uko/Urue Offong Oruko",
+      "votes": null
+    },
+    {
+      "name": "Unyime Idem",
+      "party": "PDP",
+      "district": "Ukanafun/Oruk Anam",
+      "votes": null
+    },
+    {
+      "name": "Esset Mark Udo",
+      "party": "PDP",
+      "district": "Uyo/Uruan/Nsit Atai/ Ibesikpo Asutan",
+      "votes": null
+    }
+  ]
+}

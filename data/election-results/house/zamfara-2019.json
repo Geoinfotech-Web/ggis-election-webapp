@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Zamfara",
+    "level": "district",
+    "title": "Zamfara House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Anka/Talata Mafara",
+      "winner": {
+        "name": "Kabiru Yahaya",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Kabiru Yahaya",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bakura/Maradun",
+      "winner": {
+        "name": "Ahmed Bakura Muhammad",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ahmed Bakura Muhammad",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bungudu/Maru",
+      "winner": {
+        "name": "Shehu Ahmed",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Shehu Ahmed",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gunmi/Bukkuyum",
+      "winner": {
+        "name": "Sulaiman Gumi Abubakar",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Sulaiman Gumi Abubakar",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gusau/Tsafe",
+      "winner": {
+        "name": "Kabiru Amadu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Kabiru Amadu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kaura-Namoda/Birnin Magaji",
+      "winner": {
+        "name": "Sani Umar Dan-Galadima",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Sani Umar Dan-Galadima",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Shinkafi/Zurmi",
+      "winner": {
+        "name": "Bello Hassan Shinkafi",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Bello Hassan Shinkafi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Kabiru Yahaya",
+      "party": "PDP",
+      "district": "Anka/Talata Mafara",
+      "votes": null
+    },
+    {
+      "name": "Ahmed Bakura Muhammad",
+      "party": "PDP",
+      "district": "Bakura/Maradun",
+      "votes": null
+    },
+    {
+      "name": "Shehu Ahmed",
+      "party": "PDP",
+      "district": "Bungudu/Maru",
+      "votes": null
+    },
+    {
+      "name": "Sulaiman Gumi Abubakar",
+      "party": "PDP",
+      "district": "Gunmi/Bukkuyum",
+      "votes": null
+    },
+    {
+      "name": "Kabiru Amadu",
+      "party": "PDP",
+      "district": "Gusau/Tsafe",
+      "votes": null
+    },
+    {
+      "name": "Sani Umar Dan-Galadima",
+      "party": "PDP",
+      "district": "Kaura-Namoda/Birnin Magaji",
+      "votes": null
+    },
+    {
+      "name": "Bello Hassan Shinkafi",
+      "party": "PDP",
+      "district": "Shinkafi/Zurmi",
+      "votes": null
+    }
+  ]
+}

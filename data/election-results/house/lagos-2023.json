@@ -1,0 +1,524 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Lagos",
+    "level": "district",
+    "title": "Lagos House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Agege",
+      "winner": {
+        "name": "Hameed Adewale Waheed",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Hameed Adewale Waheed",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ajeromi/Ifelodun",
+      "winner": {
+        "name": "Kalejaiye Adeboye",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Kalejaiye Adeboye",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Alimosho",
+      "winner": {
+        "name": "Ganiyu Ayuba",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Ganiyu Ayuba",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Amuwo-Odofin",
+      "winner": {
+        "name": "George Folarin Adegeye",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "George Folarin Adegeye",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Apapa",
+      "winner": {
+        "name": "Adedayo Adesola",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Adedayo Adesola",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Badagry",
+      "winner": {
+        "name": "Sesi Whingan",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Sesi Whingan",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Epe",
+      "winner": {
+        "name": "Raji Olawale",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Raji Olawale",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Eti-Osa",
+      "winner": {
+        "name": "Thaddeus Attah",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Thaddeus Attah",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ibeju Lekki",
+      "winner": {
+        "name": "Adebayo Olusegun Balogun",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Adebayo Olusegun Balogun",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ifako/Ijaiye",
+      "winner": {
+        "name": "Adeyemi Benjamin Olabinjo",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Adeyemi Benjamin Olabinjo",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikeja",
+      "winner": {
+        "name": "James Abiodun Faleke",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "James Abiodun Faleke",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikorodu",
+      "winner": {
+        "name": "Babajimi Benson",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Babajimi Benson",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kosofe",
+      "winner": {
+        "name": "Ogbara Kafilat",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Ogbara Kafilat",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Lagos Island I",
+      "winner": {
+        "name": "Badru Dolapo",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Badru Dolapo",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Lagos Island Ii",
+      "winner": {
+        "name": "Akiolu Kayode",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Akiolu Kayode",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Lagos Mainland",
+      "winner": {
+        "name": "Moshood Olanrewaju Oshun",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Moshood Olanrewaju Oshun",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Mushin I",
+      "winner": {
+        "name": "Adeyemi Taofeek Alli",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Adeyemi Taofeek Alli",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Mushin Ii",
+      "winner": {
+        "name": "Fayinka Toyin",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Fayinka Toyin",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ojo",
+      "winner": {
+        "name": "Seyi Sowunmi",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Seyi Sowunmi",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Oshodi/Isolo I",
+      "winner": {
+        "name": "Dawodu Bashiru Ayinla",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Dawodu Bashiru Ayinla",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Oshodi/Isolo Ii",
+      "winner": {
+        "name": "Jesse Okey-Joe Onuakalusi",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Jesse Okey-Joe Onuakalusi",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Somolu",
+      "winner": {
+        "name": "Ademorin Kuye",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Ademorin Kuye",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Surulere I",
+      "winner": {
+        "name": "Fuad Kayode Laguda",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Fuad Kayode Laguda",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Surulere Ii",
+      "winner": {
+        "name": "Okunola Lanre",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Okunola Lanre",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Hameed Adewale Waheed",
+      "party": "NA",
+      "district": "Agege",
+      "votes": null
+    },
+    {
+      "name": "Kalejaiye Adeboye",
+      "party": "NA",
+      "district": "Ajeromi/Ifelodun",
+      "votes": null
+    },
+    {
+      "name": "Ganiyu Ayuba",
+      "party": "NA",
+      "district": "Alimosho",
+      "votes": null
+    },
+    {
+      "name": "George Folarin Adegeye",
+      "party": "NA",
+      "district": "Amuwo-Odofin",
+      "votes": null
+    },
+    {
+      "name": "Adedayo Adesola",
+      "party": "NA",
+      "district": "Apapa",
+      "votes": null
+    },
+    {
+      "name": "Sesi Whingan",
+      "party": "NA",
+      "district": "Badagry",
+      "votes": null
+    },
+    {
+      "name": "Raji Olawale",
+      "party": "NA",
+      "district": "Epe",
+      "votes": null
+    },
+    {
+      "name": "Thaddeus Attah",
+      "party": "NA",
+      "district": "Eti-Osa",
+      "votes": null
+    },
+    {
+      "name": "Adebayo Olusegun Balogun",
+      "party": "NA",
+      "district": "Ibeju Lekki",
+      "votes": null
+    },
+    {
+      "name": "Adeyemi Benjamin Olabinjo",
+      "party": "NA",
+      "district": "Ifako/Ijaiye",
+      "votes": null
+    },
+    {
+      "name": "James Abiodun Faleke",
+      "party": "NA",
+      "district": "Ikeja",
+      "votes": null
+    },
+    {
+      "name": "Babajimi Benson",
+      "party": "NA",
+      "district": "Ikorodu",
+      "votes": null
+    },
+    {
+      "name": "Ogbara Kafilat",
+      "party": "NA",
+      "district": "Kosofe",
+      "votes": null
+    },
+    {
+      "name": "Badru Dolapo",
+      "party": "NA",
+      "district": "Lagos Island I",
+      "votes": null
+    },
+    {
+      "name": "Akiolu Kayode",
+      "party": "NA",
+      "district": "Lagos Island Ii",
+      "votes": null
+    },
+    {
+      "name": "Moshood Olanrewaju Oshun",
+      "party": "NA",
+      "district": "Lagos Mainland",
+      "votes": null
+    },
+    {
+      "name": "Adeyemi Taofeek Alli",
+      "party": "NA",
+      "district": "Mushin I",
+      "votes": null
+    },
+    {
+      "name": "Fayinka Toyin",
+      "party": "NA",
+      "district": "Mushin Ii",
+      "votes": null
+    },
+    {
+      "name": "Seyi Sowunmi",
+      "party": "NA",
+      "district": "Ojo",
+      "votes": null
+    },
+    {
+      "name": "Dawodu Bashiru Ayinla",
+      "party": "NA",
+      "district": "Oshodi/Isolo I",
+      "votes": null
+    },
+    {
+      "name": "Jesse Okey-Joe Onuakalusi",
+      "party": "NA",
+      "district": "Oshodi/Isolo Ii",
+      "votes": null
+    },
+    {
+      "name": "Ademorin Kuye",
+      "party": "NA",
+      "district": "Somolu",
+      "votes": null
+    },
+    {
+      "name": "Fuad Kayode Laguda",
+      "party": "NA",
+      "district": "Surulere I",
+      "votes": null
+    },
+    {
+      "name": "Okunola Lanre",
+      "party": "NA",
+      "district": "Surulere Ii",
+      "votes": null
+    }
+  ]
+}

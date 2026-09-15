@@ -1,0 +1,209 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Ondo",
+    "level": "district",
+    "title": "Ondo House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Akoko North East/Akoko North West",
+      "winner": {
+        "name": "Ifeoluwa Babajide Ehindero",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Ifeoluwa Babajide Ehindero",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Akoko South East/Akoko South West",
+      "winner": {
+        "name": "Adefarati Adegboyega Adeyemi",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Adefarati Adegboyega Adeyemi",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Akure North/Akure South",
+      "winner": {
+        "name": "Adesida Abiodun Cornelius Aderin",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Adesida Abiodun Cornelius Aderin",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Idanre/Ifedore",
+      "winner": {
+        "name": "Akingbaso Festus Olanrewaju",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Akingbaso Festus Olanrewaju",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ilaje/Ese Odo",
+      "winner": {
+        "name": "Ojogo Donald Kimikanboh",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Ojogo Donald Kimikanboh",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ileoluji/Okeigbo/Odigbo",
+      "winner": {
+        "name": "Adefiranye Ayodele Festus",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Adefiranye Ayodele Festus",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Okitipupa/Irele",
+      "winner": {
+        "name": "Odimayo Okunjimi John",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Odimayo Okunjimi John",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ondo West/Ondo East",
+      "winner": {
+        "name": "Makinde Abiola Peter",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Makinde Abiola Peter",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Owo/Ose",
+      "winner": {
+        "name": "Adelegbe Oluwatimehin Emmanuel",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Adelegbe Oluwatimehin Emmanuel",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Ifeoluwa Babajide Ehindero",
+      "party": "NA",
+      "district": "Akoko North East/Akoko North West",
+      "votes": null
+    },
+    {
+      "name": "Adefarati Adegboyega Adeyemi",
+      "party": "NA",
+      "district": "Akoko South East/Akoko South West",
+      "votes": null
+    },
+    {
+      "name": "Adesida Abiodun Cornelius Aderin",
+      "party": "NA",
+      "district": "Akure North/Akure South",
+      "votes": null
+    },
+    {
+      "name": "Akingbaso Festus Olanrewaju",
+      "party": "NA",
+      "district": "Idanre/Ifedore",
+      "votes": null
+    },
+    {
+      "name": "Ojogo Donald Kimikanboh",
+      "party": "NA",
+      "district": "Ilaje/Ese Odo",
+      "votes": null
+    },
+    {
+      "name": "Adefiranye Ayodele Festus",
+      "party": "NA",
+      "district": "Ileoluji/Okeigbo/Odigbo",
+      "votes": null
+    },
+    {
+      "name": "Odimayo Okunjimi John",
+      "party": "NA",
+      "district": "Okitipupa/Irele",
+      "votes": null
+    },
+    {
+      "name": "Makinde Abiola Peter",
+      "party": "NA",
+      "district": "Ondo West/Ondo East",
+      "votes": null
+    },
+    {
+      "name": "Adelegbe Oluwatimehin Emmanuel",
+      "party": "NA",
+      "district": "Owo/Ose",
+      "votes": null
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Kwara",
+    "level": "district",
+    "title": "Kwara House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Edu/Moro/Patigi",
+      "winner": {
+        "name": "Aliyu Ahman-Pategi",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Aliyu Ahman-Pategi",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Asa/Ilorin West",
+      "winner": {
+        "name": "Razak Atunwa",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Razak Atunwa",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Offa/Oyun/Ifelodun",
+      "winner": {
+        "name": "Olarinoye Olayonu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Olarinoye Olayonu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ilorin East/South",
+      "winner": {
+        "name": "Abubakar Garba Amuda-Kannike",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abubakar Garba Amuda-Kannike",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ekiti/Isin/Irepodun/Oke-Ero",
+      "winner": {
+        "name": "Olufunke Adedoyin",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Olufunke Adedoyin",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Aliyu Ahman-Pategi",
+      "party": "APC",
+      "district": "Edu/Moro/Patigi",
+      "votes": null
+    },
+    {
+      "name": "Razak Atunwa",
+      "party": "APC",
+      "district": "Asa/Ilorin West",
+      "votes": null
+    },
+    {
+      "name": "Olarinoye Olayonu",
+      "party": "APC",
+      "district": "Offa/Oyun/Ifelodun",
+      "votes": null
+    },
+    {
+      "name": "Abubakar Garba Amuda-Kannike",
+      "party": "APC",
+      "district": "Ilorin East/South",
+      "votes": null
+    },
+    {
+      "name": "Olufunke Adedoyin",
+      "party": "APC",
+      "district": "Ekiti/Isin/Irepodun/Oke-Ero",
+      "votes": null
+    }
+  ]
+}

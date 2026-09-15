@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Plateau",
+    "level": "district",
+    "title": "Plateau House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Barkin Ladi/Riyom",
+      "winner": {
+        "name": "Dalyop Chollom",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Dalyop Chollom",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bassa/Jos North",
+      "winner": {
+        "name": "Daniel Asama Ago",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Daniel Asama Ago",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Jos South/Jos East",
+      "winner": {
+        "name": "Alfred Ajang Iliya",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Alfred Ajang Iliya",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Langtang North/Langtang South",
+      "winner": {
+        "name": "Vincent Venman Bulus",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Vincent Venman Bulus",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Mangu/Bokkos",
+      "winner": {
+        "name": "Ishaya David Lalu",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Ishaya David Lalu",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Mikang/Qua&#039;An Pan/Shendam",
+      "winner": {
+        "name": "John Dafaan",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "John Dafaan",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Pankshin/Kanke/Kanam",
+      "winner": {
+        "name": "Yusuf Adamu Gagdi",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Yusuf Adamu Gagdi",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Wase",
+      "winner": {
+        "name": "Ahmed Idris Wase",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Ahmed Idris Wase",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Dalyop Chollom",
+      "party": "NA",
+      "district": "Barkin Ladi/Riyom",
+      "votes": null
+    },
+    {
+      "name": "Daniel Asama Ago",
+      "party": "NA",
+      "district": "Bassa/Jos North",
+      "votes": null
+    },
+    {
+      "name": "Alfred Ajang Iliya",
+      "party": "NA",
+      "district": "Jos South/Jos East",
+      "votes": null
+    },
+    {
+      "name": "Vincent Venman Bulus",
+      "party": "NA",
+      "district": "Langtang North/Langtang South",
+      "votes": null
+    },
+    {
+      "name": "Ishaya David Lalu",
+      "party": "NA",
+      "district": "Mangu/Bokkos",
+      "votes": null
+    },
+    {
+      "name": "John Dafaan",
+      "party": "NA",
+      "district": "Mikang/Qua&#039;An Pan/Shendam",
+      "votes": null
+    },
+    {
+      "name": "Yusuf Adamu Gagdi",
+      "party": "NA",
+      "district": "Pankshin/Kanke/Kanam",
+      "votes": null
+    },
+    {
+      "name": "Ahmed Idris Wase",
+      "party": "NA",
+      "district": "Wase",
+      "votes": null
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Abia",
+    "level": "district",
+    "title": "Abia Senatorial Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 9th National Assembly (elected 2019)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Abia Central",
+      "winner": {
+        "name": "Theodore Orji",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Theodore Orji",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Abia North",
+      "winner": {
+        "name": "Orji Uzor Kalu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Orji Uzor Kalu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Abia South",
+      "winner": {
+        "name": "Enyinnaya Abaribe",
+        "party": "APGA"
+      },
+      "candidates": [
+        {
+          "name": "Enyinnaya Abaribe",
+          "party": "APGA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Theodore Orji",
+      "party": "PDP",
+      "district": "Abia Central",
+      "votes": null
+    },
+    {
+      "name": "Orji Uzor Kalu",
+      "party": "APC",
+      "district": "Abia North",
+      "votes": null
+    },
+    {
+      "name": "Enyinnaya Abaribe",
+      "party": "APGA",
+      "district": "Abia South",
+      "votes": null
+    }
+  ]
+}

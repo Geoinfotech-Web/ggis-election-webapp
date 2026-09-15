@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Abia",
+    "level": "district",
+    "title": "Abia Senatorial Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 8th National Assembly (elected 2015)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Abia South",
+      "winner": {
+        "name": "Enyinnaya Abaribe",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Enyinnaya Abaribe",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Abia Central",
+      "winner": {
+        "name": "Theodore Orji",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Theodore Orji",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Abia North",
+      "winner": {
+        "name": "Mao Ohuabunwa",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Mao Ohuabunwa",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Enyinnaya Abaribe",
+      "party": "PDP",
+      "district": "Abia South",
+      "votes": null
+    },
+    {
+      "name": "Theodore Orji",
+      "party": "PDP",
+      "district": "Abia Central",
+      "votes": null
+    },
+    {
+      "name": "Mao Ohuabunwa",
+      "party": "PDP",
+      "district": "Abia North",
+      "votes": null
+    }
+  ]
+}

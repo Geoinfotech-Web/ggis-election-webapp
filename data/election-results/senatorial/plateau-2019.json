@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Plateau",
+    "level": "district",
+    "title": "Plateau Senatorial Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 9th National Assembly (elected 2019)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Plateau Central",
+      "winner": {
+        "name": "Dimka Ayuba|Hezekiah Ayuba Dimka",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Dimka Ayuba|Hezekiah Ayuba Dimka",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Plateau North",
+      "winner": {
+        "name": "Istifanus Gyang",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Istifanus Gyang",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Plateau South",
+      "winner": {
+        "name": "Nora Daduut",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Nora Daduut",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Dimka Ayuba|Hezekiah Ayuba Dimka",
+      "party": "APC",
+      "district": "Plateau Central",
+      "votes": null
+    },
+    {
+      "name": "Istifanus Gyang",
+      "party": "PDP",
+      "district": "Plateau North",
+      "votes": null
+    },
+    {
+      "name": "Nora Daduut",
+      "party": "APC",
+      "district": "Plateau South",
+      "votes": null
+    }
+  ]
+}

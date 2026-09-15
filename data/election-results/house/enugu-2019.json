@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Enugu",
+    "level": "district",
+    "title": "Enugu House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Aninri/Awgu/Oji River",
+      "winner": {
+        "name": "Toby Okechukwu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Toby Okechukwu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Enugu East/Isi Uzo",
+      "winner": {
+        "name": "Cornelius Nnaji",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Cornelius Nnaji",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Enugu North/Enugu South",
+      "winner": {
+        "name": "Ofor Gregory Chukwuegbo",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ofor Gregory Chukwuegbo",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ezeagu/Udi",
+      "winner": {
+        "name": "Dennis Oguerinwa Amadi",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Dennis Oguerinwa Amadi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Igbo-Etiti/Uzo-Uwani",
+      "winner": {
+        "name": "Martins Oke",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Martins Oke",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Igbo-Eze North/Udenu",
+      "winner": {
+        "name": "Simon Atigwe",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Simon Atigwe",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Nkanu East/Nkanu West",
+      "winner": {
+        "name": "Nnolim Nnaji",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Nnolim Nnaji",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Nsukka/Igbo-Eze South",
+      "winner": {
+        "name": "Pat Asadu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Pat Asadu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Toby Okechukwu",
+      "party": "PDP",
+      "district": "Aninri/Awgu/Oji River",
+      "votes": null
+    },
+    {
+      "name": "Cornelius Nnaji",
+      "party": "PDP",
+      "district": "Enugu East/Isi Uzo",
+      "votes": null
+    },
+    {
+      "name": "Ofor Gregory Chukwuegbo",
+      "party": "PDP",
+      "district": "Enugu North/Enugu South",
+      "votes": null
+    },
+    {
+      "name": "Dennis Oguerinwa Amadi",
+      "party": "PDP",
+      "district": "Ezeagu/Udi",
+      "votes": null
+    },
+    {
+      "name": "Martins Oke",
+      "party": "PDP",
+      "district": "Igbo-Etiti/Uzo-Uwani",
+      "votes": null
+    },
+    {
+      "name": "Simon Atigwe",
+      "party": "PDP",
+      "district": "Igbo-Eze North/Udenu",
+      "votes": null
+    },
+    {
+      "name": "Nnolim Nnaji",
+      "party": "PDP",
+      "district": "Nkanu East/Nkanu West",
+      "votes": null
+    },
+    {
+      "name": "Pat Asadu",
+      "party": "PDP",
+      "district": "Nsukka/Igbo-Eze South",
+      "votes": null
+    }
+  ]
+}

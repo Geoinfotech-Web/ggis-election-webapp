@@ -1,0 +1,293 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Bauchi",
+    "level": "district",
+    "title": "Bauchi House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Zaki",
+      "winner": {
+        "name": "Omar Tata",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Omar Tata",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bogoro/Dass/Tafawa Balewa",
+      "winner": {
+        "name": "Dogara Yakubu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Dogara Yakubu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Jama’Are/Itas-Gadau",
+      "winner": {
+        "name": "Isa Mohammed",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Isa Mohammed",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Alkaleri/Kirfi",
+      "winner": {
+        "name": "Muhammad Abdu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Muhammad Abdu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Shira/Glade",
+      "winner": {
+        "name": "Adamu Gurai",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Adamu Gurai",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ningi/Warji",
+      "winner": {
+        "name": "Zakari Salisu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Zakari Salisu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Katagum",
+      "winner": {
+        "name": "Ibrahim Baba",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ibrahim Baba",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Toro",
+      "winner": {
+        "name": "Gumau Yahaya",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Gumau Yahaya",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Darazo/Gunjuwa",
+      "winner": {
+        "name": "Jika Haliru",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Jika Haliru",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bauchi",
+      "winner": {
+        "name": "Shehu Musa",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Shehu Musa",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Misau/Dambam",
+      "winner": {
+        "name": "Ahmed Yerima",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ahmed Yerima",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gamawa",
+      "winner": {
+        "name": "Mohammed Garba Gololo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mohammed Garba Gololo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gombe, Kwami & Funakaye",
+      "winner": {
+        "name": "Yaya Bauchi Tongo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Yaya Bauchi Tongo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Omar Tata",
+      "party": "APC",
+      "district": "Zaki",
+      "votes": null
+    },
+    {
+      "name": "Dogara Yakubu",
+      "party": "APC",
+      "district": "Bogoro/Dass/Tafawa Balewa",
+      "votes": null
+    },
+    {
+      "name": "Isa Mohammed",
+      "party": "APC",
+      "district": "Jama’Are/Itas-Gadau",
+      "votes": null
+    },
+    {
+      "name": "Muhammad Abdu",
+      "party": "APC",
+      "district": "Alkaleri/Kirfi",
+      "votes": null
+    },
+    {
+      "name": "Adamu Gurai",
+      "party": "APC",
+      "district": "Shira/Glade",
+      "votes": null
+    },
+    {
+      "name": "Zakari Salisu",
+      "party": "APC",
+      "district": "Ningi/Warji",
+      "votes": null
+    },
+    {
+      "name": "Ibrahim Baba",
+      "party": "APC",
+      "district": "Katagum",
+      "votes": null
+    },
+    {
+      "name": "Gumau Yahaya",
+      "party": "APC",
+      "district": "Toro",
+      "votes": null
+    },
+    {
+      "name": "Jika Haliru",
+      "party": "APC",
+      "district": "Darazo/Gunjuwa",
+      "votes": null
+    },
+    {
+      "name": "Shehu Musa",
+      "party": "APC",
+      "district": "Bauchi",
+      "votes": null
+    },
+    {
+      "name": "Ahmed Yerima",
+      "party": "APC",
+      "district": "Misau/Dambam",
+      "votes": null
+    },
+    {
+      "name": "Mohammed Garba Gololo",
+      "party": "APC",
+      "district": "Gamawa",
+      "votes": null
+    },
+    {
+      "name": "Yaya Bauchi Tongo",
+      "party": "APC",
+      "district": "Gombe, Kwami & Funakaye",
+      "votes": null
+    }
+  ]
+}

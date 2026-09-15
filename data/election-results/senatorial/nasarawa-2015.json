@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Nasarawa",
+    "level": "district",
+    "title": "Nasarawa Senatorial Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 8th National Assembly (elected 2015)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Nasarawa West",
+      "winner": {
+        "name": "Abdullahi Adamu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abdullahi Adamu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Nasarawa North",
+      "winner": {
+        "name": "Aruwa Gyunka",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Aruwa Gyunka",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Nasarawa South",
+      "winner": {
+        "name": "Suleiman Asonya Adokwe",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Suleiman Asonya Adokwe",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Abdullahi Adamu",
+      "party": "APC",
+      "district": "Nasarawa West",
+      "votes": null
+    },
+    {
+      "name": "Aruwa Gyunka",
+      "party": "PDP",
+      "district": "Nasarawa North",
+      "votes": null
+    },
+    {
+      "name": "Suleiman Asonya Adokwe",
+      "party": "PDP",
+      "district": "Nasarawa South",
+      "votes": null
+    }
+  ]
+}

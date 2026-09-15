@@ -1,0 +1,524 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Kano",
+    "level": "district",
+    "title": "Kano House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Albasu/Gaya/Ajingi",
+      "winner": {
+        "name": "Ghali Mustapha Tijjani",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Ghali Mustapha Tijjani",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bagwai/Shanono",
+      "winner": {
+        "name": "Yusuf Ahmad Badau",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Yusuf Ahmad Badau",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bebeji/Kiru",
+      "winner": {
+        "name": "Abdulmumin Jibrin",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Abdulmumin Jibrin",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bichi",
+      "winner": {
+        "name": "Abubakar Kabir Abubakar",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Abubakar Kabir Abubakar",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Dala",
+      "winner": {
+        "name": "Aliyu Sani Madaki",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Aliyu Sani Madaki",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Dambatta/Makoda",
+      "winner": {
+        "name": "Hamisu Ibrahim Chidari",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Hamisu Ibrahim Chidari",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Dawakin Kudu/Warawa",
+      "winner": {
+        "name": "Shuaibu Rabiu",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Shuaibu Rabiu",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Dawakin Tofa/Tofa/Rimin Gado",
+      "winner": {
+        "name": "Tijjani Abdulkadir Jobe",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Tijjani Abdulkadir Jobe",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Fagge",
+      "winner": {
+        "name": "Muhammad Bello Shehu",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Muhammad Bello Shehu",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gezawa/Gabasawa",
+      "winner": {
+        "name": "Muhammad Garba Chiroma",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Muhammad Garba Chiroma",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gwale",
+      "winner": {
+        "name": "Ibrahim Garba Mohammed",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Ibrahim Garba Mohammed",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gwarzo/Kabo",
+      "winner": {
+        "name": "Abdullahi Mu&#8217;azu Gwarzo",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Abdullahi Mu&#8217;azu Gwarzo",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Municipal",
+      "winner": {
+        "name": "Sagir Ibrahim Koki",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Sagir Ibrahim Koki",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Karaye/Rogo",
+      "winner": {
+        "name": "Abdullahi Sani Rogo",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Abdullahi Sani Rogo",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kumbotso",
+      "winner": {
+        "name": "Idris Dankawu",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Idris Dankawu",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kura/Madobi/Garun Mallam",
+      "winner": {
+        "name": "Yusuf Umar Datti",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Yusuf Umar Datti",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Minjibir/Ungogo",
+      "winner": {
+        "name": "Sani Adamu Wakili",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Sani Adamu Wakili",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Nassarawa",
+      "winner": {
+        "name": "Hassan Shehu Hussain",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Hassan Shehu Hussain",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Rano/Bunkure/Kibiya",
+      "winner": {
+        "name": "Kabiru Alhassan Rurum",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Kabiru Alhassan Rurum",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Sumaila/Takai",
+      "winner": {
+        "name": "Rabiu Yusuf Takai",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Rabiu Yusuf Takai",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Tarauni",
+      "winner": {
+        "name": "Mukhtar Umar Zakari",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Mukhtar Umar Zakari",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Tsanyawa/Kunchi",
+      "winner": {
+        "name": "Sani Umar Bala",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Sani Umar Bala",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Tudun Wada/Doguwa",
+      "winner": {
+        "name": "Alhassan Ado Doguwa",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Alhassan Ado Doguwa",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Wudil/Garko",
+      "winner": {
+        "name": "Abdulhakeem Kamilu Ado",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Abdulhakeem Kamilu Ado",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Ghali Mustapha Tijjani",
+      "party": "NA",
+      "district": "Albasu/Gaya/Ajingi",
+      "votes": null
+    },
+    {
+      "name": "Yusuf Ahmad Badau",
+      "party": "NA",
+      "district": "Bagwai/Shanono",
+      "votes": null
+    },
+    {
+      "name": "Abdulmumin Jibrin",
+      "party": "NA",
+      "district": "Bebeji/Kiru",
+      "votes": null
+    },
+    {
+      "name": "Abubakar Kabir Abubakar",
+      "party": "NA",
+      "district": "Bichi",
+      "votes": null
+    },
+    {
+      "name": "Aliyu Sani Madaki",
+      "party": "NA",
+      "district": "Dala",
+      "votes": null
+    },
+    {
+      "name": "Hamisu Ibrahim Chidari",
+      "party": "NA",
+      "district": "Dambatta/Makoda",
+      "votes": null
+    },
+    {
+      "name": "Shuaibu Rabiu",
+      "party": "NA",
+      "district": "Dawakin Kudu/Warawa",
+      "votes": null
+    },
+    {
+      "name": "Tijjani Abdulkadir Jobe",
+      "party": "NA",
+      "district": "Dawakin Tofa/Tofa/Rimin Gado",
+      "votes": null
+    },
+    {
+      "name": "Muhammad Bello Shehu",
+      "party": "NA",
+      "district": "Fagge",
+      "votes": null
+    },
+    {
+      "name": "Muhammad Garba Chiroma",
+      "party": "NA",
+      "district": "Gezawa/Gabasawa",
+      "votes": null
+    },
+    {
+      "name": "Ibrahim Garba Mohammed",
+      "party": "NA",
+      "district": "Gwale",
+      "votes": null
+    },
+    {
+      "name": "Abdullahi Mu&#8217;azu Gwarzo",
+      "party": "NA",
+      "district": "Gwarzo/Kabo",
+      "votes": null
+    },
+    {
+      "name": "Sagir Ibrahim Koki",
+      "party": "NA",
+      "district": "Municipal",
+      "votes": null
+    },
+    {
+      "name": "Abdullahi Sani Rogo",
+      "party": "NA",
+      "district": "Karaye/Rogo",
+      "votes": null
+    },
+    {
+      "name": "Idris Dankawu",
+      "party": "NA",
+      "district": "Kumbotso",
+      "votes": null
+    },
+    {
+      "name": "Yusuf Umar Datti",
+      "party": "NA",
+      "district": "Kura/Madobi/Garun Mallam",
+      "votes": null
+    },
+    {
+      "name": "Sani Adamu Wakili",
+      "party": "NA",
+      "district": "Minjibir/Ungogo",
+      "votes": null
+    },
+    {
+      "name": "Hassan Shehu Hussain",
+      "party": "NA",
+      "district": "Nassarawa",
+      "votes": null
+    },
+    {
+      "name": "Kabiru Alhassan Rurum",
+      "party": "NA",
+      "district": "Rano/Bunkure/Kibiya",
+      "votes": null
+    },
+    {
+      "name": "Rabiu Yusuf Takai",
+      "party": "NA",
+      "district": "Sumaila/Takai",
+      "votes": null
+    },
+    {
+      "name": "Mukhtar Umar Zakari",
+      "party": "NA",
+      "district": "Tarauni",
+      "votes": null
+    },
+    {
+      "name": "Sani Umar Bala",
+      "party": "NA",
+      "district": "Tsanyawa/Kunchi",
+      "votes": null
+    },
+    {
+      "name": "Alhassan Ado Doguwa",
+      "party": "NA",
+      "district": "Tudun Wada/Doguwa",
+      "votes": null
+    },
+    {
+      "name": "Abdulhakeem Kamilu Ado",
+      "party": "NA",
+      "district": "Wudil/Garko",
+      "votes": null
+    }
+  ]
+}

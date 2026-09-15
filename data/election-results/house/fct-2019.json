@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "FCT",
+    "level": "district",
+    "title": "FCT House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Abaji/Gwagwalada/Kwali/Kuje",
+      "winner": {
+        "name": "Hassan Usman Sokodabo",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Hassan Usman Sokodabo",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Amac/Bwari",
+      "winner": {
+        "name": "Micah Jiba",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Micah Jiba",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Hassan Usman Sokodabo",
+      "party": "PDP",
+      "district": "Abaji/Gwagwalada/Kwali/Kuje",
+      "votes": null
+    },
+    {
+      "name": "Micah Jiba",
+      "party": "PDP",
+      "district": "Amac/Bwari",
+      "votes": null
+    }
+  ]
+}

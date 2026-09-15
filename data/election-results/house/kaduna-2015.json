@@ -1,0 +1,356 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Kaduna",
+    "level": "district",
+    "title": "Kaduna House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Kauru",
+      "winner": {
+        "name": "Simon Arabo",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Simon Arabo",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Soba",
+      "winner": {
+        "name": "Muhammad Soba",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Muhammad Soba",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Chikum/Kajuru",
+      "winner": {
+        "name": "Umar Yakubu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Umar Yakubu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kaduna South",
+      "winner": {
+        "name": "Ahmed Rufai",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ahmed Rufai",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kachia/Kagarko",
+      "winner": {
+        "name": "Adams Jagaba",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Adams Jagaba",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikara/Kubau",
+      "winner": {
+        "name": "Bala Yusuf",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Bala Yusuf",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Sabon Gari",
+      "winner": {
+        "name": "Garba Muhammad",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Garba Muhammad",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Makarfi/Kudan",
+      "winner": {
+        "name": "Muhammad Usman",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Muhammad Usman",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kaura",
+      "winner": {
+        "name": "Gideon Gwani",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Gideon Gwani",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kaduna North",
+      "winner": {
+        "name": "Samaila Suleiman",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Samaila Suleiman",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Jema’A/Sanga",
+      "winner": {
+        "name": "Nicholas Shehu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Nicholas Shehu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Zangon Kataf/Jaba",
+      "winner": {
+        "name": "Marshal Sunday",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Marshal Sunday",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Igabi",
+      "winner": {
+        "name": "Muhammad Abubakar",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Muhammad Abubakar",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Birnin Gwari/Giwa",
+      "winner": {
+        "name": "Hassan Adamu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Hassan Adamu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Zaria",
+      "winner": {
+        "name": "Tajudeen Abbas",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Tajudeen Abbas",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Lere",
+      "winner": {
+        "name": "Muhd Lawal",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Muhd Lawal",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Simon Arabo",
+      "party": "PDP",
+      "district": "Kauru",
+      "votes": null
+    },
+    {
+      "name": "Muhammad Soba",
+      "party": "APC",
+      "district": "Soba",
+      "votes": null
+    },
+    {
+      "name": "Umar Yakubu",
+      "party": "PDP",
+      "district": "Chikum/Kajuru",
+      "votes": null
+    },
+    {
+      "name": "Ahmed Rufai",
+      "party": "APC",
+      "district": "Kaduna South",
+      "votes": null
+    },
+    {
+      "name": "Adams Jagaba",
+      "party": "APC",
+      "district": "Kachia/Kagarko",
+      "votes": null
+    },
+    {
+      "name": "Bala Yusuf",
+      "party": "APC",
+      "district": "Ikara/Kubau",
+      "votes": null
+    },
+    {
+      "name": "Garba Muhammad",
+      "party": "APC",
+      "district": "Sabon Gari",
+      "votes": null
+    },
+    {
+      "name": "Muhammad Usman",
+      "party": "APC",
+      "district": "Makarfi/Kudan",
+      "votes": null
+    },
+    {
+      "name": "Gideon Gwani",
+      "party": "PDP",
+      "district": "Kaura",
+      "votes": null
+    },
+    {
+      "name": "Samaila Suleiman",
+      "party": "APC",
+      "district": "Kaduna North",
+      "votes": null
+    },
+    {
+      "name": "Nicholas Shehu",
+      "party": "PDP",
+      "district": "Jema’A/Sanga",
+      "votes": null
+    },
+    {
+      "name": "Marshal Sunday",
+      "party": "PDP",
+      "district": "Zangon Kataf/Jaba",
+      "votes": null
+    },
+    {
+      "name": "Muhammad Abubakar",
+      "party": "APC",
+      "district": "Igabi",
+      "votes": null
+    },
+    {
+      "name": "Hassan Adamu",
+      "party": "APC",
+      "district": "Birnin Gwari/Giwa",
+      "votes": null
+    },
+    {
+      "name": "Tajudeen Abbas",
+      "party": "APC",
+      "district": "Zaria",
+      "votes": null
+    },
+    {
+      "name": "Muhd Lawal",
+      "party": "APC",
+      "district": "Lere",
+      "votes": null
+    }
+  ]
+}

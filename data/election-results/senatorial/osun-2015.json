@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Osun",
+    "level": "district",
+    "title": "Osun Senatorial Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 8th National Assembly (elected 2015)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Osun West",
+      "winner": {
+        "name": "Isiaka Adeleke",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Isiaka Adeleke",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Osun East",
+      "winner": {
+        "name": "Christopher Omoworare Babajide",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Christopher Omoworare Babajide",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Osun Central",
+      "winner": {
+        "name": "Olusola Adeyeye",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Olusola Adeyeye",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Isiaka Adeleke",
+      "party": "APC",
+      "district": "Osun West",
+      "votes": null
+    },
+    {
+      "name": "Christopher Omoworare Babajide",
+      "party": "APC",
+      "district": "Osun East",
+      "votes": null
+    },
+    {
+      "name": "Olusola Adeyeye",
+      "party": "APC",
+      "district": "Osun Central",
+      "votes": null
+    }
+  ]
+}

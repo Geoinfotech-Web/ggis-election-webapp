@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Ekiti",
+    "level": "district",
+    "title": "Ekiti Senatorial Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 9th National Assembly (elected 2019)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Ekiti Central",
+      "winner": {
+        "name": "Michael Opeyemi Bamidele",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Michael Opeyemi Bamidele",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ekiti North",
+      "winner": {
+        "name": "Olubunmi Ayodeji Adetunmbi",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Olubunmi Ayodeji Adetunmbi",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ekiti South",
+      "winner": {
+        "name": "Abiodun Olujimi",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Abiodun Olujimi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Michael Opeyemi Bamidele",
+      "party": "APC",
+      "district": "Ekiti Central",
+      "votes": null
+    },
+    {
+      "name": "Olubunmi Ayodeji Adetunmbi",
+      "party": "APC",
+      "district": "Ekiti North",
+      "votes": null
+    },
+    {
+      "name": "Abiodun Olujimi",
+      "party": "PDP",
+      "district": "Ekiti South",
+      "votes": null
+    }
+  ]
+}

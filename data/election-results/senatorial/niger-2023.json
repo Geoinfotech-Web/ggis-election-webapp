@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Niger",
+    "level": "district",
+    "title": "Niger Senatorial Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 10th National Assembly (elected 2023)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Niger East",
+      "winner": {
+        "name": "Sani Musa",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Sani Musa",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Niger North",
+      "winner": {
+        "name": "Abubakar Sani Bello",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abubakar Sani Bello",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Niger South",
+      "winner": {
+        "name": "Peter Ndalikali Jiya",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Peter Ndalikali Jiya",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Sani Musa",
+      "party": "APC",
+      "district": "Niger East",
+      "votes": null
+    },
+    {
+      "name": "Abubakar Sani Bello",
+      "party": "APC",
+      "district": "Niger North",
+      "votes": null
+    },
+    {
+      "name": "Peter Ndalikali Jiya",
+      "party": "PDP",
+      "district": "Niger South",
+      "votes": null
+    }
+  ]
+}

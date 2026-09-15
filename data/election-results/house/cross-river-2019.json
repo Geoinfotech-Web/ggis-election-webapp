@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Cross River",
+    "level": "district",
+    "title": "Cross River House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Abi/Yakurr",
+      "winner": {
+        "name": "Alex Egbona",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Alex Egbona",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Akamkpa/Biase",
+      "winner": {
+        "name": "Daniel Effiong Asuquo",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Daniel Effiong Asuquo",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Akpabuyo/Bakassi/Calabar South",
+      "winner": {
+        "name": "Essien Ayi",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Essien Ayi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Calabar Municipal/Odukpani",
+      "winner": {
+        "name": "Eta Mbora Edim",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Eta Mbora Edim",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikom/Boki",
+      "winner": {
+        "name": "Chris Ngoro Agibe",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Chris Ngoro Agibe",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Obanliku/Obudu/Bekwarra",
+      "winner": {
+        "name": "Ochiglegor Idagbo",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ochiglegor Idagbo",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Obubra/Etung",
+      "winner": {
+        "name": "Michael Etaba",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Michael Etaba",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ogoja/Yala",
+      "winner": {
+        "name": "Agom Jarigbe",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Agom Jarigbe",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Alex Egbona",
+      "party": "APC",
+      "district": "Abi/Yakurr",
+      "votes": null
+    },
+    {
+      "name": "Daniel Effiong Asuquo",
+      "party": "PDP",
+      "district": "Akamkpa/Biase",
+      "votes": null
+    },
+    {
+      "name": "Essien Ayi",
+      "party": "PDP",
+      "district": "Akpabuyo/Bakassi/Calabar South",
+      "votes": null
+    },
+    {
+      "name": "Eta Mbora Edim",
+      "party": "PDP",
+      "district": "Calabar Municipal/Odukpani",
+      "votes": null
+    },
+    {
+      "name": "Chris Ngoro Agibe",
+      "party": "PDP",
+      "district": "Ikom/Boki",
+      "votes": null
+    },
+    {
+      "name": "Ochiglegor Idagbo",
+      "party": "PDP",
+      "district": "Obanliku/Obudu/Bekwarra",
+      "votes": null
+    },
+    {
+      "name": "Michael Etaba",
+      "party": "PDP",
+      "district": "Obubra/Etung",
+      "votes": null
+    },
+    {
+      "name": "Agom Jarigbe",
+      "party": "PDP",
+      "district": "Ogoja/Yala",
+      "votes": null
+    }
+  ]
+}

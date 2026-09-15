@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Yobe",
+    "level": "district",
+    "title": "Yobe House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Bade/Jakusko",
+      "winner": {
+        "name": "Jakduwa Hassan Kaikuku",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Jakduwa Hassan Kaikuku",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bursari/Geidam/Yunusari",
+      "winner": {
+        "name": "Alli Lawan Shettima",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Alli Lawan Shettima",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Damaturu/Gujba/Gulani/ Tarmuwa",
+      "winner": {
+        "name": "Khadija Bukar Ibrahim",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Khadija Bukar Ibrahim",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Fika/Fune",
+      "winner": {
+        "name": "Jajere Mohammed Buba",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Jajere Mohammed Buba",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Machina/Nguru/Yusufari/ Karasuwa",
+      "winner": {
+        "name": "Zakariya Tijjani Zanna Zakariya",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Zakariya Tijjani Zanna Zakariya",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Nangere/Potiskum",
+      "winner": {
+        "name": "Fatima Talba",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Fatima Talba",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Jakduwa Hassan Kaikuku",
+      "party": "NA",
+      "district": "Bade/Jakusko",
+      "votes": null
+    },
+    {
+      "name": "Alli Lawan Shettima",
+      "party": "NA",
+      "district": "Bursari/Geidam/Yunusari",
+      "votes": null
+    },
+    {
+      "name": "Khadija Bukar Ibrahim",
+      "party": "NA",
+      "district": "Damaturu/Gujba/Gulani/ Tarmuwa",
+      "votes": null
+    },
+    {
+      "name": "Jajere Mohammed Buba",
+      "party": "NA",
+      "district": "Fika/Fune",
+      "votes": null
+    },
+    {
+      "name": "Zakariya Tijjani Zanna Zakariya",
+      "party": "NA",
+      "district": "Machina/Nguru/Yusufari/ Karasuwa",
+      "votes": null
+    },
+    {
+      "name": "Fatima Talba",
+      "party": "NA",
+      "district": "Nangere/Potiskum",
+      "votes": null
+    }
+  ]
+}

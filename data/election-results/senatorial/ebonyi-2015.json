@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Ebonyi",
+    "level": "district",
+    "title": "Ebonyi Senatorial Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 8th National Assembly (elected 2015)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Ebonyi North",
+      "winner": {
+        "name": "Sam Egwu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Sam Egwu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ebonyi South",
+      "winner": {
+        "name": "Sonni Ogbuoji",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Sonni Ogbuoji",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ebonyi Central",
+      "winner": {
+        "name": "Joseph Ogba",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Joseph Ogba",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Sam Egwu",
+      "party": "PDP",
+      "district": "Ebonyi North",
+      "votes": null
+    },
+    {
+      "name": "Sonni Ogbuoji",
+      "party": "APC",
+      "district": "Ebonyi South",
+      "votes": null
+    },
+    {
+      "name": "Joseph Ogba",
+      "party": "PDP",
+      "district": "Ebonyi Central",
+      "votes": null
+    }
+  ]
+}

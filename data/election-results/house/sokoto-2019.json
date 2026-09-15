@@ -1,0 +1,251 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Sokoto",
+    "level": "district",
+    "title": "Sokoto House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Binji/Silame",
+      "winner": {
+        "name": "Mani Maishinko Katami",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Mani Maishinko Katami",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Dange-Shuni/Bodinga/Tureta",
+      "winner": {
+        "name": "Aliyu Shehu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Aliyu Shehu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Goronyo/Gada",
+      "winner": {
+        "name": "Musa Sarkin-Adar",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Musa Sarkin-Adar",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Illela/Gwadabawa",
+      "winner": {
+        "name": "Abdullahi Balarabe Salame",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abdullahi Balarabe Salame",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Isa/Sabon Birni",
+      "winner": {
+        "name": "Mohammed Saidu Bargaja",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Mohammed Saidu Bargaja",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kebbe/Tambuwal",
+      "winner": {
+        "name": "Bala Kokani",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Bala Kokani",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kware/Wamakko",
+      "winner": {
+        "name": "Ahmad Abdullahi Kalambaina",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ahmad Abdullahi Kalambaina",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Sokoto North/Sokoto South",
+      "winner": {
+        "name": "Hassan Bala Abubakar III",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Hassan Bala Abubakar III",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Tangaza/Gudu",
+      "winner": {
+        "name": "Yusuf Isah Kurdula",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Yusuf Isah Kurdula",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Wurno/Rabah",
+      "winner": {
+        "name": "Ibrahim Almustapha Aliyu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ibrahim Almustapha Aliyu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Yabo/Shagari",
+      "winner": {
+        "name": "Abubakar Umar Yabo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abubakar Umar Yabo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Mani Maishinko Katami",
+      "party": "PDP",
+      "district": "Binji/Silame",
+      "votes": null
+    },
+    {
+      "name": "Aliyu Shehu",
+      "party": "APC",
+      "district": "Dange-Shuni/Bodinga/Tureta",
+      "votes": null
+    },
+    {
+      "name": "Musa Sarkin-Adar",
+      "party": "APC",
+      "district": "Goronyo/Gada",
+      "votes": null
+    },
+    {
+      "name": "Abdullahi Balarabe Salame",
+      "party": "APC",
+      "district": "Illela/Gwadabawa",
+      "votes": null
+    },
+    {
+      "name": "Mohammed Saidu Bargaja",
+      "party": "PDP",
+      "district": "Isa/Sabon Birni",
+      "votes": null
+    },
+    {
+      "name": "Bala Kokani",
+      "party": "APC",
+      "district": "Kebbe/Tambuwal",
+      "votes": null
+    },
+    {
+      "name": "Ahmad Abdullahi Kalambaina",
+      "party": "APC",
+      "district": "Kware/Wamakko",
+      "votes": null
+    },
+    {
+      "name": "Hassan Bala Abubakar III",
+      "party": "APC",
+      "district": "Sokoto North/Sokoto South",
+      "votes": null
+    },
+    {
+      "name": "Yusuf Isah Kurdula",
+      "party": "APC",
+      "district": "Tangaza/Gudu",
+      "votes": null
+    },
+    {
+      "name": "Ibrahim Almustapha Aliyu",
+      "party": "APC",
+      "district": "Wurno/Rabah",
+      "votes": null
+    },
+    {
+      "name": "Abubakar Umar Yabo",
+      "party": "APC",
+      "district": "Yabo/Shagari",
+      "votes": null
+    }
+  ]
+}

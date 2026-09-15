@@ -1,0 +1,209 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Ondo",
+    "level": "district",
+    "title": "Ondo House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Akoko North East/Akoko North West",
+      "winner": {
+        "name": "Olubunmi Tunji-Ojo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Olubunmi Tunji-Ojo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Akoko South East/Akoko South West",
+      "winner": {
+        "name": "Adejoro Adeogun",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Adejoro Adeogun",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Akure North/Akure South",
+      "winner": {
+        "name": "Adedayo Omolafe",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Adedayo Omolafe",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Idanre/Ifedore",
+      "winner": {
+        "name": "Tajudeen Adeyemi Adefisoye",
+        "party": "SDP"
+      },
+      "candidates": [
+        {
+          "name": "Tajudeen Adeyemi Adefisoye",
+          "party": "SDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ilaje/Eseodo",
+      "winner": {
+        "name": "Kolade Victor Akinjo",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Kolade Victor Akinjo",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ileoluji/Okeigbo/Odigbo",
+      "winner": {
+        "name": "Mayowa Akinfolarin",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mayowa Akinfolarin",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Irele/Okitipupa",
+      "winner": {
+        "name": "Dele Gboluga Ikengboju",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Dele Gboluga Ikengboju",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ondo East/Ondo West",
+      "winner": {
+        "name": "Abiola Makinde",
+        "party": "ADC"
+      },
+      "candidates": [
+        {
+          "name": "Abiola Makinde",
+          "party": "ADC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Owo/Ose",
+      "winner": {
+        "name": "Oluwatimehin Adelegbe",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Oluwatimehin Adelegbe",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Olubunmi Tunji-Ojo",
+      "party": "APC",
+      "district": "Akoko North East/Akoko North West",
+      "votes": null
+    },
+    {
+      "name": "Adejoro Adeogun",
+      "party": "APC",
+      "district": "Akoko South East/Akoko South West",
+      "votes": null
+    },
+    {
+      "name": "Adedayo Omolafe",
+      "party": "PDP",
+      "district": "Akure North/Akure South",
+      "votes": null
+    },
+    {
+      "name": "Tajudeen Adeyemi Adefisoye",
+      "party": "SDP",
+      "district": "Idanre/Ifedore",
+      "votes": null
+    },
+    {
+      "name": "Kolade Victor Akinjo",
+      "party": "PDP",
+      "district": "Ilaje/Eseodo",
+      "votes": null
+    },
+    {
+      "name": "Mayowa Akinfolarin",
+      "party": "APC",
+      "district": "Ileoluji/Okeigbo/Odigbo",
+      "votes": null
+    },
+    {
+      "name": "Dele Gboluga Ikengboju",
+      "party": "PDP",
+      "district": "Irele/Okitipupa",
+      "votes": null
+    },
+    {
+      "name": "Abiola Makinde",
+      "party": "ADC",
+      "district": "Ondo East/Ondo West",
+      "votes": null
+    },
+    {
+      "name": "Oluwatimehin Adelegbe",
+      "party": "APC",
+      "district": "Owo/Ose",
+      "votes": null
+    }
+  ]
+}

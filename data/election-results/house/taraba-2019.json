@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Taraba",
+    "level": "district",
+    "title": "Taraba House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Bali/Gassol",
+      "winner": {
+        "name": "Garba Hamman-Julde",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Garba Hamman-Julde",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Jalingo/Yorro/Zing",
+      "winner": {
+        "name": "Aminu Ibrahim Malle",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Aminu Ibrahim Malle",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Karim Lamido/Lau/Ardo-Kola",
+      "winner": {
+        "name": "Danladi Baido",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Danladi Baido",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Sardauna/Gashaka/Kurmi",
+      "winner": {
+        "name": "David Abel Fuoh",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "David Abel Fuoh",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Takuma/Donga/Ussa",
+      "winner": {
+        "name": "Rima Kwewum",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Rima Kwewum",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Wukari/Ibi",
+      "winner": {
+        "name": "Usman Danjuma Shiddi",
+        "party": "APGA"
+      },
+      "candidates": [
+        {
+          "name": "Usman Danjuma Shiddi",
+          "party": "APGA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Garba Hamman-Julde",
+      "party": "APC",
+      "district": "Bali/Gassol",
+      "votes": null
+    },
+    {
+      "name": "Aminu Ibrahim Malle",
+      "party": "APC",
+      "district": "Jalingo/Yorro/Zing",
+      "votes": null
+    },
+    {
+      "name": "Danladi Baido",
+      "party": "PDP",
+      "district": "Karim Lamido/Lau/Ardo-Kola",
+      "votes": null
+    },
+    {
+      "name": "David Abel Fuoh",
+      "party": "PDP",
+      "district": "Sardauna/Gashaka/Kurmi",
+      "votes": null
+    },
+    {
+      "name": "Rima Kwewum",
+      "party": "PDP",
+      "district": "Takuma/Donga/Ussa",
+      "votes": null
+    },
+    {
+      "name": "Usman Danjuma Shiddi",
+      "party": "APGA",
+      "district": "Wukari/Ibi",
+      "votes": null
+    }
+  ]
+}

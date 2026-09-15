@@ -1,0 +1,503 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Lagos",
+    "level": "district",
+    "title": "Lagos House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Ikeja",
+      "winner": {
+        "name": "Abiodun James Faleke",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abiodun James Faleke",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikorodu",
+      "winner": {
+        "name": "Babajimi Benson",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Babajimi Benson",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Mushin I",
+      "winner": {
+        "name": "Dauda Kako Are",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Dauda Kako Are",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ifako/Ijaiye",
+      "winner": {
+        "name": "Adewale Oluwatayo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Adewale Oluwatayo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Lagos Mainland",
+      "winner": {
+        "name": "Jimoh Abdul",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Jimoh Abdul",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Oshodi/Isolo Ii",
+      "winner": {
+        "name": "Tony Nwulu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Tony Nwulu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Epe",
+      "winner": {
+        "name": "Tasir Raji",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Tasir Raji",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Agege",
+      "winner": {
+        "name": "Taofeek Adaranijo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Taofeek Adaranijo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Surulere I",
+      "winner": {
+        "name": "Femi Gbajabiamila",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Femi Gbajabiamila",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Eti-Osa",
+      "winner": {
+        "name": "Akinloye Babajide",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Akinloye Babajide",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kosofe",
+      "winner": {
+        "name": "Oluwarotimi Agunsoye",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Oluwarotimi Agunsoye",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ojo",
+      "winner": {
+        "name": "Tajudeen Obasa",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Tajudeen Obasa",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Alimosho",
+      "winner": {
+        "name": "Olufemi Adebanjo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Olufemi Adebanjo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ibeju Lekki",
+      "winner": {
+        "name": "Ayeola Abayomi",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ayeola Abayomi",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Badagry",
+      "winner": {
+        "name": "Joseph Bamgbose",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Joseph Bamgbose",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Lagos Island I",
+      "winner": {
+        "name": "Enitan Badru",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Enitan Badru",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ajeromi/Ifelodun",
+      "winner": {
+        "name": "Rita Orji",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Rita Orji",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Somolu",
+      "winner": {
+        "name": "Oyewole Diya",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Oyewole Diya",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Surulere Ii",
+      "winner": {
+        "name": "Shoyinka Olatunji",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Shoyinka Olatunji",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Amuwo-Odofin",
+      "winner": {
+        "name": "Oghene Emmanuel",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Oghene Emmanuel",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Apapa",
+      "winner": {
+        "name": "Ayodeji Joseph",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ayodeji Joseph",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Oshodi/Isolo I",
+      "winner": {
+        "name": "Mutiu Shadimu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Mutiu Shadimu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Mushin Ii",
+      "winner": {
+        "name": "Bolaji Ayinla",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Bolaji Ayinla",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Abiodun James Faleke",
+      "party": "APC",
+      "district": "Ikeja",
+      "votes": null
+    },
+    {
+      "name": "Babajimi Benson",
+      "party": "APC",
+      "district": "Ikorodu",
+      "votes": null
+    },
+    {
+      "name": "Dauda Kako Are",
+      "party": "APC",
+      "district": "Mushin I",
+      "votes": null
+    },
+    {
+      "name": "Adewale Oluwatayo",
+      "party": "APC",
+      "district": "Ifako/Ijaiye",
+      "votes": null
+    },
+    {
+      "name": "Jimoh Abdul",
+      "party": "APC",
+      "district": "Lagos Mainland",
+      "votes": null
+    },
+    {
+      "name": "Tony Nwulu",
+      "party": "PDP",
+      "district": "Oshodi/Isolo Ii",
+      "votes": null
+    },
+    {
+      "name": "Tasir Raji",
+      "party": "APC",
+      "district": "Epe",
+      "votes": null
+    },
+    {
+      "name": "Taofeek Adaranijo",
+      "party": "APC",
+      "district": "Agege",
+      "votes": null
+    },
+    {
+      "name": "Femi Gbajabiamila",
+      "party": "APC",
+      "district": "Surulere I",
+      "votes": null
+    },
+    {
+      "name": "Akinloye Babajide",
+      "party": "APC",
+      "district": "Eti-Osa",
+      "votes": null
+    },
+    {
+      "name": "Oluwarotimi Agunsoye",
+      "party": "APC",
+      "district": "Kosofe",
+      "votes": null
+    },
+    {
+      "name": "Tajudeen Obasa",
+      "party": "PDP",
+      "district": "Ojo",
+      "votes": null
+    },
+    {
+      "name": "Olufemi Adebanjo",
+      "party": "APC",
+      "district": "Alimosho",
+      "votes": null
+    },
+    {
+      "name": "Ayeola Abayomi",
+      "party": "APC",
+      "district": "Ibeju Lekki",
+      "votes": null
+    },
+    {
+      "name": "Joseph Bamgbose",
+      "party": "APC",
+      "district": "Badagry",
+      "votes": null
+    },
+    {
+      "name": "Enitan Badru",
+      "party": "APC",
+      "district": "Lagos Island I",
+      "votes": null
+    },
+    {
+      "name": "Rita Orji",
+      "party": "PDP",
+      "district": "Ajeromi/Ifelodun",
+      "votes": null
+    },
+    {
+      "name": "Oyewole Diya",
+      "party": "APC",
+      "district": "Somolu",
+      "votes": null
+    },
+    {
+      "name": "Shoyinka Olatunji",
+      "party": "PDP",
+      "district": "Surulere Ii",
+      "votes": null
+    },
+    {
+      "name": "Oghene Emmanuel",
+      "party": "PDP",
+      "district": "Amuwo-Odofin",
+      "votes": null
+    },
+    {
+      "name": "Ayodeji Joseph",
+      "party": "APC",
+      "district": "Apapa",
+      "votes": null
+    },
+    {
+      "name": "Mutiu Shadimu",
+      "party": "PDP",
+      "district": "Oshodi/Isolo I",
+      "votes": null
+    },
+    {
+      "name": "Bolaji Ayinla",
+      "party": "APC",
+      "district": "Mushin Ii",
+      "votes": null
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Ebonyi",
+    "level": "district",
+    "title": "Ebonyi House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Abakaliki/Izzi",
+      "winner": {
+        "name": "Uguru Emmanuel",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Uguru Emmanuel",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Fikpo North/Afikpo South",
+      "winner": {
+        "name": "Igariwey Iduma Enwo",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Igariwey Iduma Enwo",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ebonyi/Ohaukwu",
+      "winner": {
+        "name": "Eze Nwachukwu Eze",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Eze Nwachukwu Eze",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ezza South/Ikwo",
+      "winner": {
+        "name": "Ogah Nweke Chinedu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ogah Nweke Chinedu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ezza North/Ishielu",
+      "winner": {
+        "name": "Nwobasi Joseph",
+        "party": "APGA"
+      },
+      "candidates": [
+        {
+          "name": "Nwobasi Joseph",
+          "party": "APGA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ivo-Ohaozara/Onicha",
+      "winner": {
+        "name": "Osi Kama Nkemkanma St. Andy",
+        "party": "LP"
+      },
+      "candidates": [
+        {
+          "name": "Osi Kama Nkemkanma St. Andy",
+          "party": "LP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Uguru Emmanuel",
+      "party": "APC",
+      "district": "Abakaliki/Izzi",
+      "votes": null
+    },
+    {
+      "name": "Igariwey Iduma Enwo",
+      "party": "PDP",
+      "district": "Fikpo North/Afikpo South",
+      "votes": null
+    },
+    {
+      "name": "Eze Nwachukwu Eze",
+      "party": "APC",
+      "district": "Ebonyi/Ohaukwu",
+      "votes": null
+    },
+    {
+      "name": "Ogah Nweke Chinedu",
+      "party": "APC",
+      "district": "Ezza South/Ikwo",
+      "votes": null
+    },
+    {
+      "name": "Nwobasi Joseph",
+      "party": "APGA",
+      "district": "Ezza North/Ishielu",
+      "votes": null
+    },
+    {
+      "name": "Osi Kama Nkemkanma St. Andy",
+      "party": "LP",
+      "district": "Ivo-Ohaozara/Onicha",
+      "votes": null
+    }
+  ]
+}

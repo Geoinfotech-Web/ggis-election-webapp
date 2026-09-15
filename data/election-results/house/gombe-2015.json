@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Gombe",
+    "level": "district",
+    "title": "Gombe House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Akko",
+      "winner": {
+        "name": "Barambu Kawuwa",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Barambu Kawuwa",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Yamaltu/Deba",
+      "winner": {
+        "name": "Yunusa Abubakar",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Yunusa Abubakar",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gombe/Kwami/Funakaye",
+      "winner": {
+        "name": "Khamisu Ahmed Mailantarki",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Khamisu Ahmed Mailantarki",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kaltungo/Shongom",
+      "winner": {
+        "name": "Binta Bello",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Binta Bello",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Dukku/Nafada",
+      "winner": {
+        "name": "Aishatu Jibril Dukku",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Aishatu Jibril Dukku",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Balanga/Billiri",
+      "winner": {
+        "name": "Ali Isa",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ali Isa",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Barambu Kawuwa",
+      "party": "APC",
+      "district": "Akko",
+      "votes": null
+    },
+    {
+      "name": "Yunusa Abubakar",
+      "party": "APC",
+      "district": "Yamaltu/Deba",
+      "votes": null
+    },
+    {
+      "name": "Khamisu Ahmed Mailantarki",
+      "party": "APC",
+      "district": "Gombe/Kwami/Funakaye",
+      "votes": null
+    },
+    {
+      "name": "Binta Bello",
+      "party": "PDP",
+      "district": "Kaltungo/Shongom",
+      "votes": null
+    },
+    {
+      "name": "Aishatu Jibril Dukku",
+      "party": "APC",
+      "district": "Dukku/Nafada",
+      "votes": null
+    },
+    {
+      "name": "Ali Isa",
+      "party": "PDP",
+      "district": "Balanga/Billiri",
+      "votes": null
+    }
+  ]
+}

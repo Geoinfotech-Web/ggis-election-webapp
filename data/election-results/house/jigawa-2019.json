@@ -1,0 +1,251 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Jigawa",
+    "level": "district",
+    "title": "Jigawa House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Babura/Garki",
+      "winner": {
+        "name": "Muhammadu Gawo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Muhammadu Gawo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Birnin Kudu/Buji",
+      "winner": {
+        "name": "Magaji Da'u Aliyu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Magaji Da'u Aliyu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Birniwa Guri/Kirikasamma",
+      "winner": {
+        "name": "Abubakar Hassan Fulata",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abubakar Hassan Fulata",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Dutse/Kiyawa",
+      "winner": {
+        "name": "Ibrahim Abdullahi Dutse",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ibrahim Abdullahi Dutse",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gagarawa/Gumel/Maigatari/Sule Tankarkar",
+      "winner": {
+        "name": "Nazifi Sani",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Nazifi Sani",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gwaram",
+      "winner": {
+        "name": "Yuguda Hassan-Kila",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Yuguda Hassan-Kila",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Hadejia/Auyo/Kafin Hausa",
+      "winner": {
+        "name": "Usman Ibrahim Auyo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Usman Ibrahim Auyo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kazaure/Roni/Gwiwa/Yankwashi",
+      "winner": {
+        "name": "Muhammed Gudaji Kazaure",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Muhammed Gudaji Kazaure",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Mallam Madori/Kaugama",
+      "winner": {
+        "name": "Makki Abubakar Yalleman",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Makki Abubakar Yalleman",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Jahun/Miga",
+      "winner": {
+        "name": "Yusuf Sa'idu Miga",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Yusuf Sa'idu Miga",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ringim/Taura",
+      "winner": {
+        "name": "Ado Sani Kiri",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ado Sani Kiri",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Muhammadu Gawo",
+      "party": "APC",
+      "district": "Babura/Garki",
+      "votes": null
+    },
+    {
+      "name": "Magaji Da'u Aliyu",
+      "party": "APC",
+      "district": "Birnin Kudu/Buji",
+      "votes": null
+    },
+    {
+      "name": "Abubakar Hassan Fulata",
+      "party": "APC",
+      "district": "Birniwa Guri/Kirikasamma",
+      "votes": null
+    },
+    {
+      "name": "Ibrahim Abdullahi Dutse",
+      "party": "APC",
+      "district": "Dutse/Kiyawa",
+      "votes": null
+    },
+    {
+      "name": "Nazifi Sani",
+      "party": "APC",
+      "district": "Gagarawa/Gumel/Maigatari/Sule Tankarkar",
+      "votes": null
+    },
+    {
+      "name": "Yuguda Hassan-Kila",
+      "party": "APC",
+      "district": "Gwaram",
+      "votes": null
+    },
+    {
+      "name": "Usman Ibrahim Auyo",
+      "party": "APC",
+      "district": "Hadejia/Auyo/Kafin Hausa",
+      "votes": null
+    },
+    {
+      "name": "Muhammed Gudaji Kazaure",
+      "party": "APC",
+      "district": "Kazaure/Roni/Gwiwa/Yankwashi",
+      "votes": null
+    },
+    {
+      "name": "Makki Abubakar Yalleman",
+      "party": "APC",
+      "district": "Mallam Madori/Kaugama",
+      "votes": null
+    },
+    {
+      "name": "Yusuf Sa'idu Miga",
+      "party": "APC",
+      "district": "Jahun/Miga",
+      "votes": null
+    },
+    {
+      "name": "Ado Sani Kiri",
+      "party": "APC",
+      "district": "Ringim/Taura",
+      "votes": null
+    }
+  ]
+}

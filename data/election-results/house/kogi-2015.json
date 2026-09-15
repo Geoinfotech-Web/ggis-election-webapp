@@ -1,0 +1,209 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Kogi",
+    "level": "district",
+    "title": "Kogi House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Dekina/Bassa",
+      "winner": {
+        "name": "Ikani Okolo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ikani Okolo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Yagba East/Yagba West/ Mopamuro",
+      "winner": {
+        "name": "Sunday Karimi",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Sunday Karimi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Arewa/Dandi",
+      "winner": {
+        "name": "Husseni Suleiman",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Husseni Suleiman",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kogi (Lokoja)/Kogi (K.K.)",
+      "winner": {
+        "name": "Umar Jibril",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Umar Jibril",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ajaokuta",
+      "winner": {
+        "name": "Muhammed Idirisu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Muhammed Idirisu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Okene/Ogori-Magogo",
+      "winner": {
+        "name": "Yusuf Tijani",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Yusuf Tijani",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Adavi/Okehi",
+      "winner": {
+        "name": "Muhammed Ajanah",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Muhammed Ajanah",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ankpa/Omala/Olamaboro",
+      "winner": {
+        "name": "Hassan Omale",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Hassan Omale",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Idah/Ibaji/Igalamela/Ofu",
+      "winner": {
+        "name": "Egwu Emmanuel",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Egwu Emmanuel",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Ikani Okolo",
+      "party": "APC",
+      "district": "Dekina/Bassa",
+      "votes": null
+    },
+    {
+      "name": "Sunday Karimi",
+      "party": "PDP",
+      "district": "Yagba East/Yagba West/ Mopamuro",
+      "votes": null
+    },
+    {
+      "name": "Husseni Suleiman",
+      "party": "PDP",
+      "district": "Arewa/Dandi",
+      "votes": null
+    },
+    {
+      "name": "Umar Jibril",
+      "party": "PDP",
+      "district": "Kogi (Lokoja)/Kogi (K.K.)",
+      "votes": null
+    },
+    {
+      "name": "Muhammed Idirisu",
+      "party": "APC",
+      "district": "Ajaokuta",
+      "votes": null
+    },
+    {
+      "name": "Yusuf Tijani",
+      "party": "PDP",
+      "district": "Okene/Ogori-Magogo",
+      "votes": null
+    },
+    {
+      "name": "Muhammed Ajanah",
+      "party": "APC",
+      "district": "Adavi/Okehi",
+      "votes": null
+    },
+    {
+      "name": "Hassan Omale",
+      "party": "APC",
+      "district": "Ankpa/Omala/Olamaboro",
+      "votes": null
+    },
+    {
+      "name": "Egwu Emmanuel",
+      "party": "PDP",
+      "district": "Idah/Ibaji/Igalamela/Ofu",
+      "votes": null
+    }
+  ]
+}

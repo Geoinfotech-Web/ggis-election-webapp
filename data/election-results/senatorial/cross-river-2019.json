@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Cross River",
+    "level": "district",
+    "title": "Cross River Senatorial Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 9th National Assembly (elected 2019)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Cross River Central",
+      "winner": {
+        "name": "Sandy Ojang Onor",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Sandy Ojang Onor",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Cross River North",
+      "winner": {
+        "name": "Agom Jarigbe",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Agom Jarigbe",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Cross River South",
+      "winner": {
+        "name": "Gershom Bassey",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Gershom Bassey",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Sandy Ojang Onor",
+      "party": "PDP",
+      "district": "Cross River Central",
+      "votes": null
+    },
+    {
+      "name": "Agom Jarigbe",
+      "party": "PDP",
+      "district": "Cross River North",
+      "votes": null
+    },
+    {
+      "name": "Gershom Bassey",
+      "party": "PDP",
+      "district": "Cross River South",
+      "votes": null
+    }
+  ]
+}

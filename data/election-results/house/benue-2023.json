@@ -1,0 +1,251 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Benue",
+    "level": "district",
+    "title": "Benue House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Ado/Ogbadibo/Okpokwu",
+      "winner": {
+        "name": "Philip Agbese",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Philip Agbese",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Apa/Agatu",
+      "winner": {
+        "name": "Ojema Ojotu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ojema Ojotu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Buruku",
+      "winner": {
+        "name": "Sekav Dzua Iyortyom",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Sekav Dzua Iyortyom",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gboko/Tarka",
+      "winner": {
+        "name": "Regina Akume",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Regina Akume",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gwer East/Gwer West",
+      "winner": {
+        "name": "Austin Asema Achado",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Austin Asema Achado",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Katsina Ala/Logo/Ukum",
+      "winner": {
+        "name": "Solomon Wombo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Solomon Wombo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Konshisha/Vandeikya",
+      "winner": {
+        "name": "Sesoo Ikpacher",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Sesoo Ikpacher",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kwande/Ushongo",
+      "winner": {
+        "name": "Terseer Ugbor",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Terseer Ugbor",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Makurdi/Guma",
+      "winner": {
+        "name": "Dickson Tarkighir",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Dickson Tarkighir",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Oju/Obi",
+      "winner": {
+        "name": "David Ogewu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "David Ogewu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Otukpo/Ohimini",
+      "winner": {
+        "name": "Blessing Onuh",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Blessing Onuh",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Philip Agbese",
+      "party": "APC",
+      "district": "Ado/Ogbadibo/Okpokwu",
+      "votes": null
+    },
+    {
+      "name": "Ojema Ojotu",
+      "party": "PDP",
+      "district": "Apa/Agatu",
+      "votes": null
+    },
+    {
+      "name": "Sekav Dzua Iyortyom",
+      "party": "APC",
+      "district": "Buruku",
+      "votes": null
+    },
+    {
+      "name": "Regina Akume",
+      "party": "APC",
+      "district": "Gboko/Tarka",
+      "votes": null
+    },
+    {
+      "name": "Austin Asema Achado",
+      "party": "APC",
+      "district": "Gwer East/Gwer West",
+      "votes": null
+    },
+    {
+      "name": "Solomon Wombo",
+      "party": "APC",
+      "district": "Katsina Ala/Logo/Ukum",
+      "votes": null
+    },
+    {
+      "name": "Sesoo Ikpacher",
+      "party": "APC",
+      "district": "Konshisha/Vandeikya",
+      "votes": null
+    },
+    {
+      "name": "Terseer Ugbor",
+      "party": "APC",
+      "district": "Kwande/Ushongo",
+      "votes": null
+    },
+    {
+      "name": "Dickson Tarkighir",
+      "party": "APC",
+      "district": "Makurdi/Guma",
+      "votes": null
+    },
+    {
+      "name": "David Ogewu",
+      "party": "APC",
+      "district": "Oju/Obi",
+      "votes": null
+    },
+    {
+      "name": "Blessing Onuh",
+      "party": "APC",
+      "district": "Otukpo/Ohimini",
+      "votes": null
+    }
+  ]
+}

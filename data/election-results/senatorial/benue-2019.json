@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Benue",
+    "level": "district",
+    "title": "Benue Senatorial Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 9th National Assembly (elected 2019)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Benue North East",
+      "winner": {
+        "name": "Gabriel Suswam",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Gabriel Suswam",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Benue North West",
+      "winner": {
+        "name": "Emmanuel Yisa Orker-Jev",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Emmanuel Yisa Orker-Jev",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Benue South",
+      "winner": {
+        "name": "Patrick Abba Moro",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Patrick Abba Moro",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Gabriel Suswam",
+      "party": "PDP",
+      "district": "Benue North East",
+      "votes": null
+    },
+    {
+      "name": "Emmanuel Yisa Orker-Jev",
+      "party": "PDP",
+      "district": "Benue North West",
+      "votes": null
+    },
+    {
+      "name": "Patrick Abba Moro",
+      "party": "PDP",
+      "district": "Benue South",
+      "votes": null
+    }
+  ]
+}

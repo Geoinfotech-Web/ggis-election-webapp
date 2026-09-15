@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Ogun",
+    "level": "district",
+    "title": "Ogun Senatorial Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 10th National Assembly (elected 2023)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Ogun Central",
+      "winner": {
+        "name": "Shuaibu Salisu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Shuaibu Salisu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ogun East",
+      "winner": {
+        "name": "Gbenga Daniel",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Gbenga Daniel",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ogun West",
+      "winner": {
+        "name": "Solomon Olamilekan Adeola",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Solomon Olamilekan Adeola",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Shuaibu Salisu",
+      "party": "APC",
+      "district": "Ogun Central",
+      "votes": null
+    },
+    {
+      "name": "Gbenga Daniel",
+      "party": "APC",
+      "district": "Ogun East",
+      "votes": null
+    },
+    {
+      "name": "Solomon Olamilekan Adeola",
+      "party": "APC",
+      "district": "Ogun West",
+      "votes": null
+    }
+  ]
+}

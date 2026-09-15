@@ -1,0 +1,209 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Ogun",
+    "level": "district",
+    "title": "Ogun House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Owode/Odeda",
+      "winner": {
+        "name": "Mukaila Kassim",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mukaila Kassim",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Egbado South and Ipoki",
+      "winner": {
+        "name": "Adekunle Akinlade",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Adekunle Akinlade",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Abeokuta South",
+      "winner": {
+        "name": "Samuel William",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Samuel William",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ijebu North/Ijebu East/Ogun Waterside",
+      "winner": {
+        "name": "Adekoya Adesegun",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Adekoya Adesegun",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ado-Odo/Ota",
+      "winner": {
+        "name": "Jimoh Ojugbele",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Jimoh Ojugbele",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikenne/Shagamu/Remo North",
+      "winner": {
+        "name": "Oladipupo Olatunde Adebutu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Oladipupo Olatunde Adebutu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ijebu Ode /Odogbolu /Ijebu North East",
+      "winner": {
+        "name": "Odeneye Olusegun",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Odeneye Olusegun",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ifo/Ewekoro",
+      "winner": {
+        "name": "Ibrahim Isiaka",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ibrahim Isiaka",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Imeko Afon/Egbado North",
+      "winner": {
+        "name": "Kayode Oladele",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Kayode Oladele",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Mukaila Kassim",
+      "party": "APC",
+      "district": "Owode/Odeda",
+      "votes": null
+    },
+    {
+      "name": "Adekunle Akinlade",
+      "party": "APC",
+      "district": "Egbado South and Ipoki",
+      "votes": null
+    },
+    {
+      "name": "Samuel William",
+      "party": "APC",
+      "district": "Abeokuta South",
+      "votes": null
+    },
+    {
+      "name": "Adekoya Adesegun",
+      "party": "PDP",
+      "district": "Ijebu North/Ijebu East/Ogun Waterside",
+      "votes": null
+    },
+    {
+      "name": "Jimoh Ojugbele",
+      "party": "APC",
+      "district": "Ado-Odo/Ota",
+      "votes": null
+    },
+    {
+      "name": "Oladipupo Olatunde Adebutu",
+      "party": "PDP",
+      "district": "Ikenne/Shagamu/Remo North",
+      "votes": null
+    },
+    {
+      "name": "Odeneye Olusegun",
+      "party": "APC",
+      "district": "Ijebu Ode /Odogbolu /Ijebu North East",
+      "votes": null
+    },
+    {
+      "name": "Ibrahim Isiaka",
+      "party": "APC",
+      "district": "Ifo/Ewekoro",
+      "votes": null
+    },
+    {
+      "name": "Kayode Oladele",
+      "party": "APC",
+      "district": "Imeko Afon/Egbado North",
+      "votes": null
+    }
+  ]
+}

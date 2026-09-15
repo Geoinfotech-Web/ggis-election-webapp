@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Niger",
+    "level": "district",
+    "title": "Niger House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Agaie/Lapai",
+      "winner": {
+        "name": "Mamudu Abdullahi",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Mamudu Abdullahi",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Agwara/Borgu",
+      "winner": {
+        "name": "Jafaru Mohammed",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Jafaru Mohammed",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bida/Gbako/Katcha",
+      "winner": {
+        "name": "Saidu Musa Abdullahi",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Saidu Musa Abdullahi",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bosso/Paikoro",
+      "winner": {
+        "name": "Baraje Yusuf Kure",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Baraje Yusuf Kure",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Chanchaga",
+      "winner": {
+        "name": "Abubakar Abdul Buba",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Abubakar Abdul Buba",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gurara/Suleja/Tapa",
+      "winner": {
+        "name": "Tanko Adamu",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Tanko Adamu",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kontagora/Wushishi/Mariga/ Mashegu",
+      "winner": {
+        "name": "Abdullahi Idris Garba",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Abdullahi Idris Garba",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Lavun/Mokwa/Edati",
+      "winner": {
+        "name": "Gana Joshua Audu",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Gana Joshua Audu",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Magama/Rijau",
+      "winner": {
+        "name": "Shehu Saleh",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Shehu Saleh",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Shiroro/Rafi/Munya",
+      "winner": {
+        "name": "Modibo Ismail Musa",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Modibo Ismail Musa",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Mamudu Abdullahi",
+      "party": "NA",
+      "district": "Agaie/Lapai",
+      "votes": null
+    },
+    {
+      "name": "Jafaru Mohammed",
+      "party": "NA",
+      "district": "Agwara/Borgu",
+      "votes": null
+    },
+    {
+      "name": "Saidu Musa Abdullahi",
+      "party": "NA",
+      "district": "Bida/Gbako/Katcha",
+      "votes": null
+    },
+    {
+      "name": "Baraje Yusuf Kure",
+      "party": "NA",
+      "district": "Bosso/Paikoro",
+      "votes": null
+    },
+    {
+      "name": "Abubakar Abdul Buba",
+      "party": "NA",
+      "district": "Chanchaga",
+      "votes": null
+    },
+    {
+      "name": "Tanko Adamu",
+      "party": "NA",
+      "district": "Gurara/Suleja/Tapa",
+      "votes": null
+    },
+    {
+      "name": "Abdullahi Idris Garba",
+      "party": "NA",
+      "district": "Kontagora/Wushishi/Mariga/ Mashegu",
+      "votes": null
+    },
+    {
+      "name": "Gana Joshua Audu",
+      "party": "NA",
+      "district": "Lavun/Mokwa/Edati",
+      "votes": null
+    },
+    {
+      "name": "Shehu Saleh",
+      "party": "NA",
+      "district": "Magama/Rijau",
+      "votes": null
+    },
+    {
+      "name": "Modibo Ismail Musa",
+      "party": "NA",
+      "district": "Shiroro/Rafi/Munya",
+      "votes": null
+    }
+  ]
+}

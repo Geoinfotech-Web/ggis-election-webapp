@@ -1,0 +1,251 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Benue",
+    "level": "district",
+    "title": "Benue House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Apa/Agatu",
+      "winner": {
+        "name": "Ochepo Adamu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ochepo Adamu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kwande/Ushongo",
+      "winner": {
+        "name": "Iorember Wayo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Iorember Wayo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Buruku",
+      "winner": {
+        "name": "Orker-jev Yisa",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Orker-jev Yisa",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Katsina-Ala/Ukum/Logo",
+      "winner": {
+        "name": "Memga Emmanuel",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Memga Emmanuel",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Makurdi/Guma",
+      "winner": {
+        "name": "Dickson Tarkighir",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Dickson Tarkighir",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ado/Obadigbo/Opkokwu",
+      "winner": {
+        "name": "Adabah Christian",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Adabah Christian",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Otukpo/Ohimini",
+      "winner": {
+        "name": "Awulu Adaji",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Awulu Adaji",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gwer East/Gwer West",
+      "winner": {
+        "name": "Mark Gbillah",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mark Gbillah",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Oju/Obi",
+      "winner": {
+        "name": "Aja Samson",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Aja Samson",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Vandeikya/Konshisha",
+      "winner": {
+        "name": "Herman Hembe",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Herman Hembe",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gboko/Tarka",
+      "winner": {
+        "name": "John Dyegh",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "John Dyegh",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Ochepo Adamu",
+      "party": "PDP",
+      "district": "Apa/Agatu",
+      "votes": null
+    },
+    {
+      "name": "Iorember Wayo",
+      "party": "APC",
+      "district": "Kwande/Ushongo",
+      "votes": null
+    },
+    {
+      "name": "Orker-jev Yisa",
+      "party": "APC",
+      "district": "Buruku",
+      "votes": null
+    },
+    {
+      "name": "Memga Emmanuel",
+      "party": "PDP",
+      "district": "Katsina-Ala/Ukum/Logo",
+      "votes": null
+    },
+    {
+      "name": "Dickson Tarkighir",
+      "party": "APC",
+      "district": "Makurdi/Guma",
+      "votes": null
+    },
+    {
+      "name": "Adabah Christian",
+      "party": "PDP",
+      "district": "Ado/Obadigbo/Opkokwu",
+      "votes": null
+    },
+    {
+      "name": "Awulu Adaji",
+      "party": "PDP",
+      "district": "Otukpo/Ohimini",
+      "votes": null
+    },
+    {
+      "name": "Mark Gbillah",
+      "party": "APC",
+      "district": "Gwer East/Gwer West",
+      "votes": null
+    },
+    {
+      "name": "Aja Samson",
+      "party": "PDP",
+      "district": "Oju/Obi",
+      "votes": null
+    },
+    {
+      "name": "Herman Hembe",
+      "party": "APC",
+      "district": "Vandeikya/Konshisha",
+      "votes": null
+    },
+    {
+      "name": "John Dyegh",
+      "party": "APC",
+      "district": "Gboko/Tarka",
+      "votes": null
+    }
+  ]
+}

@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Imo",
+    "level": "district",
+    "title": "Imo House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Aboh Mbaise/Ngor Okpala",
+      "winner": {
+        "name": "Bede Eke",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Bede Eke",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Oguta/Ohaji-Egbema/Oru West",
+      "winner": {
+        "name": "Goodluck Nanah Opiah",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Goodluck Nanah Opiah",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Mbaitolu/Ikeduru",
+      "winner": {
+        "name": "Henry Nwawuba",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Henry Nwawuba",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Isu/Njaba/Nkwerre/Nwangele",
+      "winner": {
+        "name": "Jones Onyereri",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Jones Onyereri",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Isiala Mbano/Okigwe/Onuimo",
+      "winner": {
+        "name": "Oninubuariri Obinna",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Oninubuariri Obinna",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ahiazu Mbaise/Ezinihitte",
+      "winner": {
+        "name": "Igbokwe Nnanna",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Igbokwe Nnanna",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Orlu/Oru East/Orsu",
+      "winner": {
+        "name": "Alagboso Jerry",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Alagboso Jerry",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ideato North /South",
+      "winner": {
+        "name": "Chukwukere Austine",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Chukwukere Austine",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Owerri Municipal/Owerri North/West",
+      "winner": {
+        "name": "Onyewuchi Ezenwa",
+        "party": "APGA"
+      },
+      "candidates": [
+        {
+          "name": "Onyewuchi Ezenwa",
+          "party": "APGA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ehimembano/Ihitte Uboma/Obowo",
+      "winner": {
+        "name": "Okafor John",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Okafor John",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Bede Eke",
+      "party": "PDP",
+      "district": "Aboh Mbaise/Ngor Okpala",
+      "votes": null
+    },
+    {
+      "name": "Goodluck Nanah Opiah",
+      "party": "PDP",
+      "district": "Oguta/Ohaji-Egbema/Oru West",
+      "votes": null
+    },
+    {
+      "name": "Henry Nwawuba",
+      "party": "PDP",
+      "district": "Mbaitolu/Ikeduru",
+      "votes": null
+    },
+    {
+      "name": "Jones Onyereri",
+      "party": "PDP",
+      "district": "Isu/Njaba/Nkwerre/Nwangele",
+      "votes": null
+    },
+    {
+      "name": "Oninubuariri Obinna",
+      "party": "PDP",
+      "district": "Isiala Mbano/Okigwe/Onuimo",
+      "votes": null
+    },
+    {
+      "name": "Igbokwe Nnanna",
+      "party": "PDP",
+      "district": "Ahiazu Mbaise/Ezinihitte",
+      "votes": null
+    },
+    {
+      "name": "Alagboso Jerry",
+      "party": "PDP",
+      "district": "Orlu/Oru East/Orsu",
+      "votes": null
+    },
+    {
+      "name": "Chukwukere Austine",
+      "party": "APC",
+      "district": "Ideato North /South",
+      "votes": null
+    },
+    {
+      "name": "Onyewuchi Ezenwa",
+      "party": "APGA",
+      "district": "Owerri Municipal/Owerri North/West",
+      "votes": null
+    },
+    {
+      "name": "Okafor John",
+      "party": "APC",
+      "district": "Ehimembano/Ihitte Uboma/Obowo",
+      "votes": null
+    }
+  ]
+}

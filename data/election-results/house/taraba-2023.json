@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Taraba",
+    "level": "district",
+    "title": "Taraba House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Bali/Gassol",
+      "winner": {
+        "name": "Jaafaru Chiroma Yakubu",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Jaafaru Chiroma Yakubu",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gashaka/Kurmi/Sardauna",
+      "winner": {
+        "name": "David Abel Fuoh",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "David Abel Fuoh",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ibi/Wukari",
+      "winner": {
+        "name": "Ayuba Aboki Zaku Dampar",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Ayuba Aboki Zaku Dampar",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Jalingo/Yorro/Zing",
+      "winner": {
+        "name": "Sadiq Abbas Tafida",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Sadiq Abbas Tafida",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Karim Lamido/Lau/Ardo-Kola",
+      "winner": {
+        "name": "Audu Mohammed Lauya",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Audu Mohammed Lauya",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Takum/Donga/Ussa",
+      "winner": {
+        "name": "Useni Mark Bako",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Useni Mark Bako",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Jaafaru Chiroma Yakubu",
+      "party": "NA",
+      "district": "Bali/Gassol",
+      "votes": null
+    },
+    {
+      "name": "David Abel Fuoh",
+      "party": "NA",
+      "district": "Gashaka/Kurmi/Sardauna",
+      "votes": null
+    },
+    {
+      "name": "Ayuba Aboki Zaku Dampar",
+      "party": "NA",
+      "district": "Ibi/Wukari",
+      "votes": null
+    },
+    {
+      "name": "Sadiq Abbas Tafida",
+      "party": "NA",
+      "district": "Jalingo/Yorro/Zing",
+      "votes": null
+    },
+    {
+      "name": "Audu Mohammed Lauya",
+      "party": "NA",
+      "district": "Karim Lamido/Lau/Ardo-Kola",
+      "votes": null
+    },
+    {
+      "name": "Useni Mark Bako",
+      "party": "NA",
+      "district": "Takum/Donga/Ussa",
+      "votes": null
+    }
+  ]
+}

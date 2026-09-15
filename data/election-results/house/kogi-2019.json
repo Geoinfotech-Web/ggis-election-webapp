@@ -1,0 +1,209 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Kogi",
+    "level": "district",
+    "title": "Kogi House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Adavi/Okehi",
+      "winner": {
+        "name": "Joseph Bello",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Joseph Bello",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ajaokuta",
+      "winner": {
+        "name": "Lawal Muhammadu Idirisu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Lawal Muhammadu Idirisu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ankpa/Omala/Olamaboro",
+      "winner": {
+        "name": "Ali Abdullahi Ibrahim",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ali Abdullahi Ibrahim",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bassa/Dekina",
+      "winner": {
+        "name": "Hassan Abdullahi Baiwa",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Hassan Abdullahi Baiwa",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ibaji/Idah/Igalamela/Odolu",
+      "winner": {
+        "name": "David Idris Zacharias",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "David Idris Zacharias",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kabba/Bunu/Ijumu",
+      "winner": {
+        "name": "Tajudeen Yusuf",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Tajudeen Yusuf",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kogi (Lokoja)/Kogi (K.K.)",
+      "winner": {
+        "name": "Abdulkareem Usman Isah",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abdulkareem Usman Isah",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Okene/Ogori-Magogo",
+      "winner": {
+        "name": "Yusuf Ahmed Tijjani",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Yusuf Ahmed Tijjani",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Yagba East/Yagba West/ Mopamuro",
+      "winner": {
+        "name": "Leke Abejide",
+        "party": "ADC"
+      },
+      "candidates": [
+        {
+          "name": "Leke Abejide",
+          "party": "ADC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Joseph Bello",
+      "party": "APC",
+      "district": "Adavi/Okehi",
+      "votes": null
+    },
+    {
+      "name": "Lawal Muhammadu Idirisu",
+      "party": "APC",
+      "district": "Ajaokuta",
+      "votes": null
+    },
+    {
+      "name": "Ali Abdullahi Ibrahim",
+      "party": "APC",
+      "district": "Ankpa/Omala/Olamaboro",
+      "votes": null
+    },
+    {
+      "name": "Hassan Abdullahi Baiwa",
+      "party": "APC",
+      "district": "Bassa/Dekina",
+      "votes": null
+    },
+    {
+      "name": "David Idris Zacharias",
+      "party": "APC",
+      "district": "Ibaji/Idah/Igalamela/Odolu",
+      "votes": null
+    },
+    {
+      "name": "Tajudeen Yusuf",
+      "party": "PDP",
+      "district": "Kabba/Bunu/Ijumu",
+      "votes": null
+    },
+    {
+      "name": "Abdulkareem Usman Isah",
+      "party": "APC",
+      "district": "Kogi (Lokoja)/Kogi (K.K.)",
+      "votes": null
+    },
+    {
+      "name": "Yusuf Ahmed Tijjani",
+      "party": "APC",
+      "district": "Okene/Ogori-Magogo",
+      "votes": null
+    },
+    {
+      "name": "Leke Abejide",
+      "party": "ADC",
+      "district": "Yagba East/Yagba West/ Mopamuro",
+      "votes": null
+    }
+  ]
+}

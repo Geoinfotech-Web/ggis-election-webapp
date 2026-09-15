@@ -1,0 +1,335 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Katsina",
+    "level": "district",
+    "title": "Katsina House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Bakori/Danja",
+      "winner": {
+        "name": "Dabai Abdullahi Balarabe",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Dabai Abdullahi Balarabe",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Batagarawa/Charanchi/Rimi",
+      "winner": {
+        "name": "Murtala Usman Banye",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Murtala Usman Banye",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Batsari/Safana/Danmusa",
+      "winner": {
+        "name": "Aliyu Iliyasu",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Aliyu Iliyasu",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Daura/Sandamu/Mai’Adua",
+      "winner": {
+        "name": "Aminu Jamo",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Aminu Jamo",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Dutsin-Ma/Kurfi",
+      "winner": {
+        "name": "Balele Aminu",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Balele Aminu",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Faskari/Kankara/Sabuwa",
+      "winner": {
+        "name": "Shehu Dalhatu Tafoki",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Shehu Dalhatu Tafoki",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Funtua/Dandume",
+      "winner": {
+        "name": "Mohammad Abubakar Ahmad",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Mohammad Abubakar Ahmad",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ingawa/Kankia/Kusada",
+      "winner": {
+        "name": "Kusada Ismail Dalha",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Kusada Ismail Dalha",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Jibia/Kaita",
+      "winner": {
+        "name": "Sada Soli Jibiya",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Sada Soli Jibiya",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Katsina",
+      "winner": {
+        "name": "Chindo Aminu Ahmad",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Chindo Aminu Ahmad",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Malumfashi/Kafur",
+      "winner": {
+        "name": "Aminu Ibrahim Kafur",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Aminu Ibrahim Kafur",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Mani/Bindawa",
+      "winner": {
+        "name": "Yusuf Ahmed Doro",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Yusuf Ahmed Doro",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Mashi/Dutsi",
+      "winner": {
+        "name": "Salisu Yusuf Majigiri",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Salisu Yusuf Majigiri",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Matazu/Musawa",
+      "winner": {
+        "name": "Ahmed Aliyu Abdullahi",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Ahmed Aliyu Abdullahi",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Zango/Baure",
+      "winner": {
+        "name": "Lawal Sani",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Lawal Sani",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Dabai Abdullahi Balarabe",
+      "party": "NA",
+      "district": "Bakori/Danja",
+      "votes": null
+    },
+    {
+      "name": "Murtala Usman Banye",
+      "party": "NA",
+      "district": "Batagarawa/Charanchi/Rimi",
+      "votes": null
+    },
+    {
+      "name": "Aliyu Iliyasu",
+      "party": "NA",
+      "district": "Batsari/Safana/Danmusa",
+      "votes": null
+    },
+    {
+      "name": "Aminu Jamo",
+      "party": "NA",
+      "district": "Daura/Sandamu/Mai’Adua",
+      "votes": null
+    },
+    {
+      "name": "Balele Aminu",
+      "party": "NA",
+      "district": "Dutsin-Ma/Kurfi",
+      "votes": null
+    },
+    {
+      "name": "Shehu Dalhatu Tafoki",
+      "party": "NA",
+      "district": "Faskari/Kankara/Sabuwa",
+      "votes": null
+    },
+    {
+      "name": "Mohammad Abubakar Ahmad",
+      "party": "NA",
+      "district": "Funtua/Dandume",
+      "votes": null
+    },
+    {
+      "name": "Kusada Ismail Dalha",
+      "party": "NA",
+      "district": "Ingawa/Kankia/Kusada",
+      "votes": null
+    },
+    {
+      "name": "Sada Soli Jibiya",
+      "party": "NA",
+      "district": "Jibia/Kaita",
+      "votes": null
+    },
+    {
+      "name": "Chindo Aminu Ahmad",
+      "party": "NA",
+      "district": "Katsina",
+      "votes": null
+    },
+    {
+      "name": "Aminu Ibrahim Kafur",
+      "party": "NA",
+      "district": "Malumfashi/Kafur",
+      "votes": null
+    },
+    {
+      "name": "Yusuf Ahmed Doro",
+      "party": "NA",
+      "district": "Mani/Bindawa",
+      "votes": null
+    },
+    {
+      "name": "Salisu Yusuf Majigiri",
+      "party": "NA",
+      "district": "Mashi/Dutsi",
+      "votes": null
+    },
+    {
+      "name": "Ahmed Aliyu Abdullahi",
+      "party": "NA",
+      "district": "Matazu/Musawa",
+      "votes": null
+    },
+    {
+      "name": "Lawal Sani",
+      "party": "NA",
+      "district": "Zango/Baure",
+      "votes": null
+    }
+  ]
+}

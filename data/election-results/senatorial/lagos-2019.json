@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Lagos",
+    "level": "district",
+    "title": "Lagos Senatorial Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 9th National Assembly (elected 2019)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Lagos Central",
+      "winner": {
+        "name": "Oluremi Tinubu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Oluremi Tinubu",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Lagos East",
+      "winner": {
+        "name": "Tokunbo Abiru",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Tokunbo Abiru",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Lagos West",
+      "winner": {
+        "name": "Solomon Olamilekan Adeola",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Solomon Olamilekan Adeola",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Oluremi Tinubu",
+      "party": "APC",
+      "district": "Lagos Central",
+      "votes": null
+    },
+    {
+      "name": "Tokunbo Abiru",
+      "party": "APC",
+      "district": "Lagos East",
+      "votes": null
+    },
+    {
+      "name": "Solomon Olamilekan Adeola",
+      "party": "APC",
+      "district": "Lagos West",
+      "votes": null
+    }
+  ]
+}

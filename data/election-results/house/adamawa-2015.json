@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Adamawa",
+    "level": "district",
+    "title": "Adamawa House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Madagali/Michika",
+      "winner": {
+        "name": "Adamu Kamale",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Adamu Kamale",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Hong/Gombi",
+      "winner": {
+        "name": "Yusuf Buba",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Yusuf Buba",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Mayo Belwa/Toungo/Jada/Ganye",
+      "winner": {
+        "name": "Abdulrazak Namdas",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abdulrazak Namdas",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Girei/Yola North/Yola South",
+      "winner": {
+        "name": "Abubakar Lawal",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abubakar Lawal",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Lamurde/Numan/Demsa",
+      "winner": {
+        "name": "Talatu Yohanna",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Talatu Yohanna",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Maiha/Mubi N/ Mu S",
+      "winner": {
+        "name": "Shuaibu Abdulraman",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Shuaibu Abdulraman",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Shelleng/Guyuk",
+      "winner": {
+        "name": "Philip Ahmad",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Philip Ahmad",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Song/Fufore",
+      "winner": {
+        "name": "Sadiq Ibrahim",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Sadiq Ibrahim",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Adamu Kamale",
+      "party": "PDP",
+      "district": "Madagali/Michika",
+      "votes": null
+    },
+    {
+      "name": "Yusuf Buba",
+      "party": "APC",
+      "district": "Hong/Gombi",
+      "votes": null
+    },
+    {
+      "name": "Abdulrazak Namdas",
+      "party": "APC",
+      "district": "Mayo Belwa/Toungo/Jada/Ganye",
+      "votes": null
+    },
+    {
+      "name": "Abubakar Lawal",
+      "party": "APC",
+      "district": "Girei/Yola North/Yola South",
+      "votes": null
+    },
+    {
+      "name": "Talatu Yohanna",
+      "party": "APC",
+      "district": "Lamurde/Numan/Demsa",
+      "votes": null
+    },
+    {
+      "name": "Shuaibu Abdulraman",
+      "party": "APC",
+      "district": "Maiha/Mubi N/ Mu S",
+      "votes": null
+    },
+    {
+      "name": "Philip Ahmad",
+      "party": "APC",
+      "district": "Shelleng/Guyuk",
+      "votes": null
+    },
+    {
+      "name": "Sadiq Ibrahim",
+      "party": "APC",
+      "district": "Song/Fufore",
+      "votes": null
+    }
+  ]
+}

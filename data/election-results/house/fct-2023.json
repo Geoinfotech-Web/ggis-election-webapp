@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "FCT",
+    "level": "district",
+    "title": "FCT House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Municipal/Bwari",
+      "winner": {
+        "name": "Obika Joshua Chinedu",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Obika Joshua Chinedu",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kuje/Abaji/Gwagwalada/Kwali",
+      "winner": {
+        "name": "Ajiya Abulrahaman",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Ajiya Abulrahaman",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Obika Joshua Chinedu",
+      "party": "NA",
+      "district": "Municipal/Bwari",
+      "votes": null
+    },
+    {
+      "name": "Ajiya Abulrahaman",
+      "party": "NA",
+      "district": "Kuje/Abaji/Gwagwalada/Kwali",
+      "votes": null
+    }
+  ]
+}

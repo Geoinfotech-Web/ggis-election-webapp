@@ -1,0 +1,251 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Anambra",
+    "level": "district",
+    "title": "Anambra House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Aguata",
+      "winner": {
+        "name": "Chukwuma Michael Umeoji",
+        "party": "APGA"
+      },
+      "candidates": [
+        {
+          "name": "Chukwuma Michael Umeoji",
+          "party": "APGA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Anambra East/Anambra West",
+      "winner": {
+        "name": "Chinedu Obidigwe",
+        "party": "APGA"
+      },
+      "candidates": [
+        {
+          "name": "Chinedu Obidigwe",
+          "party": "APGA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Awka North/Awka South",
+      "winner": {
+        "name": "Sam Onwuaso",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Sam Onwuaso",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Idemili North/Idemili South",
+      "winner": {
+        "name": "Ifeanyi Ibezi",
+        "party": "APGA"
+      },
+      "candidates": [
+        {
+          "name": "Ifeanyi Ibezi",
+          "party": "APGA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ihiala",
+      "winner": {
+        "name": "Ifeanyi Chudy Momah",
+        "party": "APGA"
+      },
+      "candidates": [
+        {
+          "name": "Ifeanyi Chudy Momah",
+          "party": "APGA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Njikoka/Dunukofia/Anaocha",
+      "winner": {
+        "name": "Valentine Ayika",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Valentine Ayika",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Nnewi North/Nnewi South/ Ekwusigo",
+      "winner": {
+        "name": "Chris Emeka Azubogu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Chris Emeka Azubogu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ogbaru",
+      "winner": {
+        "name": "Chukwuka Onyema",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Chukwuka Onyema",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Onitsha North/Onitsha South",
+      "winner": {
+        "name": "Lynda Chuba Ikpeazu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Lynda Chuba Ikpeazu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Orumba North/Orumba South",
+      "winner": {
+        "name": "Okwudili Ezenwankwo",
+        "party": "APGA"
+      },
+      "candidates": [
+        {
+          "name": "Okwudili Ezenwankwo",
+          "party": "APGA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Oyi/Ayamelum",
+      "winner": {
+        "name": "Vincent Ofumelu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Vincent Ofumelu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Chukwuma Michael Umeoji",
+      "party": "APGA",
+      "district": "Aguata",
+      "votes": null
+    },
+    {
+      "name": "Chinedu Obidigwe",
+      "party": "APGA",
+      "district": "Anambra East/Anambra West",
+      "votes": null
+    },
+    {
+      "name": "Sam Onwuaso",
+      "party": "PDP",
+      "district": "Awka North/Awka South",
+      "votes": null
+    },
+    {
+      "name": "Ifeanyi Ibezi",
+      "party": "APGA",
+      "district": "Idemili North/Idemili South",
+      "votes": null
+    },
+    {
+      "name": "Ifeanyi Chudy Momah",
+      "party": "APGA",
+      "district": "Ihiala",
+      "votes": null
+    },
+    {
+      "name": "Valentine Ayika",
+      "party": "PDP",
+      "district": "Njikoka/Dunukofia/Anaocha",
+      "votes": null
+    },
+    {
+      "name": "Chris Emeka Azubogu",
+      "party": "PDP",
+      "district": "Nnewi North/Nnewi South/ Ekwusigo",
+      "votes": null
+    },
+    {
+      "name": "Chukwuka Onyema",
+      "party": "PDP",
+      "district": "Ogbaru",
+      "votes": null
+    },
+    {
+      "name": "Lynda Chuba Ikpeazu",
+      "party": "PDP",
+      "district": "Onitsha North/Onitsha South",
+      "votes": null
+    },
+    {
+      "name": "Okwudili Ezenwankwo",
+      "party": "APGA",
+      "district": "Orumba North/Orumba South",
+      "votes": null
+    },
+    {
+      "name": "Vincent Ofumelu",
+      "party": "PDP",
+      "district": "Oyi/Ayamelum",
+      "votes": null
+    }
+  ]
+}

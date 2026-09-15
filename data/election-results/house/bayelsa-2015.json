@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Bayelsa",
+    "level": "district",
+    "title": "Bayelsa House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Sagbama/Ekeremor",
+      "winner": {
+        "name": "Fred Agbedi",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Fred Agbedi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ogbia",
+      "winner": {
+        "name": "Sodaguno Festus-Omoni",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Sodaguno Festus-Omoni",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Yenagoa/Kolokuna/Opokuma",
+      "winner": {
+        "name": "Douye Diri",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Douye Diri",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Brass/Nembe",
+      "winner": {
+        "name": "Jephthah Foingha",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Jephthah Foingha",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Southern Ijaw",
+      "winner": {
+        "name": "Ofongo Henry",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ofongo Henry",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Fred Agbedi",
+      "party": "PDP",
+      "district": "Sagbama/Ekeremor",
+      "votes": null
+    },
+    {
+      "name": "Sodaguno Festus-Omoni",
+      "party": "PDP",
+      "district": "Ogbia",
+      "votes": null
+    },
+    {
+      "name": "Douye Diri",
+      "party": "PDP",
+      "district": "Yenagoa/Kolokuna/Opokuma",
+      "votes": null
+    },
+    {
+      "name": "Jephthah Foingha",
+      "party": "PDP",
+      "district": "Brass/Nembe",
+      "votes": null
+    },
+    {
+      "name": "Ofongo Henry",
+      "party": "PDP",
+      "district": "Southern Ijaw",
+      "votes": null
+    }
+  ]
+}

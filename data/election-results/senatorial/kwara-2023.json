@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Kwara",
+    "level": "district",
+    "title": "Kwara Senatorial Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 10th National Assembly (elected 2023)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Kwara Central",
+      "winner": {
+        "name": "Saliu Mustapha",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Saliu Mustapha",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kwara North",
+      "winner": {
+        "name": "Suleiman Sadiq Umar",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Suleiman Sadiq Umar",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kwara South",
+      "winner": {
+        "name": "Lola Ashiru",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Lola Ashiru",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Saliu Mustapha",
+      "party": "APC",
+      "district": "Kwara Central",
+      "votes": null
+    },
+    {
+      "name": "Suleiman Sadiq Umar",
+      "party": "APC",
+      "district": "Kwara North",
+      "votes": null
+    },
+    {
+      "name": "Lola Ashiru",
+      "party": "APC",
+      "district": "Kwara South",
+      "votes": null
+    }
+  ]
+}

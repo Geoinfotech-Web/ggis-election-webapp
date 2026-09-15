@@ -1,0 +1,209 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Ondo",
+    "level": "district",
+    "title": "Ondo House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Akure North/South",
+      "winner": {
+        "name": "Afe Olowookere",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Afe Olowookere",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Owo/Ose",
+      "winner": {
+        "name": "Olabode Ayorinde",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Olabode Ayorinde",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ondo East/Ondo West",
+      "winner": {
+        "name": "Akinlaja Joseph",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Akinlaja Joseph",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Akoko South East/South West",
+      "winner": {
+        "name": "Babatunde Kolawole",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Babatunde Kolawole",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Akoko North East/West",
+      "winner": {
+        "name": "Olubunmi Tunji-Ojo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Olubunmi Tunji-Ojo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Okitipupa/Irele",
+      "winner": {
+        "name": "Michael Omogbehin",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Michael Omogbehin",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ileoluji-Okeibo/Odigbo",
+      "winner": {
+        "name": "Mayowa Akinfolarin",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Mayowa Akinfolarin",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Idanre/Ifedore",
+      "winner": {
+        "name": "Baderinwa Bamidele White",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Baderinwa Bamidele White",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Eseodo/Ilaje",
+      "winner": {
+        "name": "Akinjo Victor",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Akinjo Victor",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Afe Olowookere",
+      "party": "APC",
+      "district": "Akure North/South",
+      "votes": null
+    },
+    {
+      "name": "Olabode Ayorinde",
+      "party": "APC",
+      "district": "Owo/Ose",
+      "votes": null
+    },
+    {
+      "name": "Akinlaja Joseph",
+      "party": "PDP",
+      "district": "Ondo East/Ondo West",
+      "votes": null
+    },
+    {
+      "name": "Babatunde Kolawole",
+      "party": "APC",
+      "district": "Akoko South East/South West",
+      "votes": null
+    },
+    {
+      "name": "Olubunmi Tunji-Ojo",
+      "party": "APC",
+      "district": "Akoko North East/West",
+      "votes": null
+    },
+    {
+      "name": "Michael Omogbehin",
+      "party": "PDP",
+      "district": "Okitipupa/Irele",
+      "votes": null
+    },
+    {
+      "name": "Mayowa Akinfolarin",
+      "party": "PDP",
+      "district": "Ileoluji-Okeibo/Odigbo",
+      "votes": null
+    },
+    {
+      "name": "Baderinwa Bamidele White",
+      "party": "APC",
+      "district": "Idanre/Ifedore",
+      "votes": null
+    },
+    {
+      "name": "Akinjo Victor",
+      "party": "PDP",
+      "district": "Eseodo/Ilaje",
+      "votes": null
+    }
+  ]
+}

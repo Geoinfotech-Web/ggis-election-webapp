@@ -1,0 +1,251 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Anambra",
+    "level": "district",
+    "title": "Anambra House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Ogbaru",
+      "winner": {
+        "name": "Chukwuka Onyema",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Chukwuka Onyema",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Anaocha/Njikoka/Dunukofia",
+      "winner": {
+        "name": "Okechukwu Eze",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Okechukwu Eze",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Onitsha North/South",
+      "winner": {
+        "name": "Emeka Idu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Emeka Idu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ihiala",
+      "winner": {
+        "name": "Chukwuemeka Anohu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Chukwuemeka Anohu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Idemili North/South",
+      "winner": {
+        "name": "Chidoka Obinna",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Chidoka Obinna",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Nnewi North/South/Ekwusigo",
+      "winner": {
+        "name": "Azubago Ifeanyi",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Azubago Ifeanyi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Oyi/Ayamelum",
+      "winner": {
+        "name": "Gabriel Onyenwife",
+        "party": "APGA"
+      },
+      "candidates": [
+        {
+          "name": "Gabriel Onyenwife",
+          "party": "APGA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Anambra East/West",
+      "winner": {
+        "name": "Peter Madubueze",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Peter Madubueze",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Awka North/South",
+      "winner": {
+        "name": "Anayo Nnebe",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Anayo Nnebe",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Aguta",
+      "winner": {
+        "name": "Eucharia Okwunna",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Eucharia Okwunna",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Orumba North/South",
+      "winner": {
+        "name": "Sopuluchukqu Ezeonwuka",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Sopuluchukqu Ezeonwuka",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Chukwuka Onyema",
+      "party": "PDP",
+      "district": "Ogbaru",
+      "votes": null
+    },
+    {
+      "name": "Okechukwu Eze",
+      "party": "PDP",
+      "district": "Anaocha/Njikoka/Dunukofia",
+      "votes": null
+    },
+    {
+      "name": "Emeka Idu",
+      "party": "PDP",
+      "district": "Onitsha North/South",
+      "votes": null
+    },
+    {
+      "name": "Chukwuemeka Anohu",
+      "party": "PDP",
+      "district": "Ihiala",
+      "votes": null
+    },
+    {
+      "name": "Chidoka Obinna",
+      "party": "PDP",
+      "district": "Idemili North/South",
+      "votes": null
+    },
+    {
+      "name": "Azubago Ifeanyi",
+      "party": "PDP",
+      "district": "Nnewi North/South/Ekwusigo",
+      "votes": null
+    },
+    {
+      "name": "Gabriel Onyenwife",
+      "party": "APGA",
+      "district": "Oyi/Ayamelum",
+      "votes": null
+    },
+    {
+      "name": "Peter Madubueze",
+      "party": "APC",
+      "district": "Anambra East/West",
+      "votes": null
+    },
+    {
+      "name": "Anayo Nnebe",
+      "party": "PDP",
+      "district": "Awka North/South",
+      "votes": null
+    },
+    {
+      "name": "Eucharia Okwunna",
+      "party": "PDP",
+      "district": "Aguta",
+      "votes": null
+    },
+    {
+      "name": "Sopuluchukqu Ezeonwuka",
+      "party": "PDP",
+      "district": "Orumba North/South",
+      "votes": null
+    }
+  ]
+}

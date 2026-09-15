@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Borno",
+    "level": "district",
+    "title": "Borno House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Dikwa/Mafaf/Konduga",
+      "winner": {
+        "name": "Mahhud Maina",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mahhud Maina",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bama/Ngala/Kala-Balge",
+      "winner": {
+        "name": "Shriff Mohammed",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Shriff Mohammed",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kaga/Gubio/Magumeri",
+      "winner": {
+        "name": "Mohammed Sanda",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mohammed Sanda",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Damboa/Gwoza/Chibok",
+      "winner": {
+        "name": "Asabe Bashir",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Asabe Bashir",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Jere",
+      "winner": {
+        "name": "Mohammed Monguno",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mohammed Monguno",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kukawa/Mobbar/Abadam/Guzamalai",
+      "winner": {
+        "name": "Mallam Gana",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mallam Gana",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Maiduguri (Metropolitan)",
+      "winner": {
+        "name": "Abdukadir Rahis",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abdukadir Rahis",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Askira-Uba/Hawul",
+      "winner": {
+        "name": "Jibrin Santumari",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Jibrin Santumari",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Biu/Bayo/Shani/Kwaya Kusar",
+      "winner": {
+        "name": "Aliyu Muktar",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Aliyu Muktar",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Monguno/Marte/Nganzai",
+      "winner": {
+        "name": "Mohammed Tahir Monguno",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mohammed Tahir Monguno",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Mahhud Maina",
+      "party": "APC",
+      "district": "Dikwa/Mafaf/Konduga",
+      "votes": null
+    },
+    {
+      "name": "Shriff Mohammed",
+      "party": "APC",
+      "district": "Bama/Ngala/Kala-Balge",
+      "votes": null
+    },
+    {
+      "name": "Mohammed Sanda",
+      "party": "APC",
+      "district": "Kaga/Gubio/Magumeri",
+      "votes": null
+    },
+    {
+      "name": "Asabe Bashir",
+      "party": "APC",
+      "district": "Damboa/Gwoza/Chibok",
+      "votes": null
+    },
+    {
+      "name": "Mohammed Monguno",
+      "party": "APC",
+      "district": "Jere",
+      "votes": null
+    },
+    {
+      "name": "Mallam Gana",
+      "party": "APC",
+      "district": "Kukawa/Mobbar/Abadam/Guzamalai",
+      "votes": null
+    },
+    {
+      "name": "Abdukadir Rahis",
+      "party": "APC",
+      "district": "Maiduguri (Metropolitan)",
+      "votes": null
+    },
+    {
+      "name": "Jibrin Santumari",
+      "party": "APC",
+      "district": "Askira-Uba/Hawul",
+      "votes": null
+    },
+    {
+      "name": "Aliyu Muktar",
+      "party": "APC",
+      "district": "Biu/Bayo/Shani/Kwaya Kusar",
+      "votes": null
+    },
+    {
+      "name": "Mohammed Tahir Monguno",
+      "party": "APC",
+      "district": "Monguno/Marte/Nganzai",
+      "votes": null
+    }
+  ]
+}

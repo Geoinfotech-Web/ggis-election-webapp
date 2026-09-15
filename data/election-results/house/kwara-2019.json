@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Kwara",
+    "level": "district",
+    "title": "Kwara House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Asa/Ilorin West",
+      "winner": {
+        "name": "Abdulyekeen Alajagusi",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abdulyekeen Alajagusi",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Baruten/Kaiama",
+      "winner": {
+        "name": "Mohammed Omar Bio",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mohammed Omar Bio",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Edu/Moro/Pategi",
+      "winner": {
+        "name": "Ahmed Abubakar Ndakene",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ahmed Abubakar Ndakene",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ekiti/Isin/Irepodun/Oke-Ero",
+      "winner": {
+        "name": "Raheem Olawuyi",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Raheem Olawuyi",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ilorin East/Ilorin South",
+      "winner": {
+        "name": "Abdulganiyu Saka Cook Olododo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abdulganiyu Saka Cook Olododo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Offa/Oyun/Ifelodun",
+      "winner": {
+        "name": "Ismail Tijani",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ismail Tijani",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Abdulyekeen Alajagusi",
+      "party": "APC",
+      "district": "Asa/Ilorin West",
+      "votes": null
+    },
+    {
+      "name": "Mohammed Omar Bio",
+      "party": "APC",
+      "district": "Baruten/Kaiama",
+      "votes": null
+    },
+    {
+      "name": "Ahmed Abubakar Ndakene",
+      "party": "APC",
+      "district": "Edu/Moro/Pategi",
+      "votes": null
+    },
+    {
+      "name": "Raheem Olawuyi",
+      "party": "APC",
+      "district": "Ekiti/Isin/Irepodun/Oke-Ero",
+      "votes": null
+    },
+    {
+      "name": "Abdulganiyu Saka Cook Olododo",
+      "party": "APC",
+      "district": "Ilorin East/Ilorin South",
+      "votes": null
+    },
+    {
+      "name": "Ismail Tijani",
+      "party": "APC",
+      "district": "Offa/Oyun/Ifelodun",
+      "votes": null
+    }
+  ]
+}

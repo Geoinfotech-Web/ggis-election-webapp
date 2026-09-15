@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Akwa Ibom",
+    "level": "district",
+    "title": "Akwa Ibom Senatorial Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 10th National Assembly (elected 2023)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Akwa Ibom North East",
+      "winner": {
+        "name": "Bassey Aniekan Etim",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Bassey Aniekan Etim",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Akwa Ibom North West",
+      "winner": {
+        "name": "Godswill Akpabio",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Godswill Akpabio",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Akwa Ibom South",
+      "winner": {
+        "name": "Akpan Ekong Sampson",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Akpan Ekong Sampson",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Bassey Aniekan Etim",
+      "party": "PDP",
+      "district": "Akwa Ibom North East",
+      "votes": null
+    },
+    {
+      "name": "Godswill Akpabio",
+      "party": "APC",
+      "district": "Akwa Ibom North West",
+      "votes": null
+    },
+    {
+      "name": "Akpan Ekong Sampson",
+      "party": "PDP",
+      "district": "Akwa Ibom South",
+      "votes": null
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Ebonyi",
+    "level": "district",
+    "title": "Ebonyi House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Abakaliki/Izzi",
+      "winner": {
+        "name": "Sylvester Ogbaga",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Sylvester Ogbaga",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Fikpo North/Afikpo South",
+      "winner": {
+        "name": "Iduma Igariwey",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Iduma Igariwey",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ebonyi/Ohaukwu",
+      "winner": {
+        "name": "Chukwuma Nwazunku",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Chukwuma Nwazunku",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ezza North/Ishielu",
+      "winner": {
+        "name": "Edwin Anayo",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Edwin Anayo",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ezza South/Ikwo",
+      "winner": {
+        "name": "Lazarus Ogbee",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Lazarus Ogbee",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ivo-Ohaozara/Onicha",
+      "winner": {
+        "name": "Livinus Makwe",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Livinus Makwe",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Sylvester Ogbaga",
+      "party": "PDP",
+      "district": "Abakaliki/Izzi",
+      "votes": null
+    },
+    {
+      "name": "Iduma Igariwey",
+      "party": "PDP",
+      "district": "Fikpo North/Afikpo South",
+      "votes": null
+    },
+    {
+      "name": "Chukwuma Nwazunku",
+      "party": "PDP",
+      "district": "Ebonyi/Ohaukwu",
+      "votes": null
+    },
+    {
+      "name": "Edwin Anayo",
+      "party": "PDP",
+      "district": "Ezza North/Ishielu",
+      "votes": null
+    },
+    {
+      "name": "Lazarus Ogbee",
+      "party": "PDP",
+      "district": "Ezza South/Ikwo",
+      "votes": null
+    },
+    {
+      "name": "Livinus Makwe",
+      "party": "PDP",
+      "district": "Ivo-Ohaozara/Onicha",
+      "votes": null
+    }
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Bauchi",
+    "level": "district",
+    "title": "Bauchi House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Alkaleri/Kirfi",
+      "winner": {
+        "name": "Kabiru Yusuf Alhaji",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Kabiru Yusuf Alhaji",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bauchi",
+      "winner": {
+        "name": "Aliyu Aminu Garu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Aliyu Aminu Garu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bogoro/Dass/Tafawa Balewa",
+      "winner": {
+        "name": "Leko Jafaru Gambo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Leko Jafaru Gambo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Darazo/Ganjuwa",
+      "winner": {
+        "name": "Mansur Manu Soro",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Mansur Manu Soro",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gamawa",
+      "winner": {
+        "name": "Adamu Ibrahim Gamawa",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Adamu Ibrahim Gamawa",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Jama&#039;Are/Itas-Gadau",
+      "winner": {
+        "name": "Rabilu Bala",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Rabilu Bala",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Katagum",
+      "winner": {
+        "name": "Auwalu Abdu Gwalabe",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Auwalu Abdu Gwalabe",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Misau/Dambam",
+      "winner": {
+        "name": "Aliyu Bappa Misau",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Aliyu Bappa Misau",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ningi/Warji",
+      "winner": {
+        "name": "Hashimu Adamu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Hashimu Adamu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Shira/Giade",
+      "winner": {
+        "name": "Sani Ibrahim Tanko",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Sani Ibrahim Tanko",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Toro",
+      "winner": {
+        "name": "Dabo Ismaila Haruna",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Dabo Ismaila Haruna",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Zaki",
+      "winner": {
+        "name": "Muhammed Dan Abba Shehu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Muhammed Dan Abba Shehu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Kabiru Yusuf Alhaji",
+      "party": "APC",
+      "district": "Alkaleri/Kirfi",
+      "votes": null
+    },
+    {
+      "name": "Aliyu Aminu Garu",
+      "party": "PDP",
+      "district": "Bauchi",
+      "votes": null
+    },
+    {
+      "name": "Leko Jafaru Gambo",
+      "party": "APC",
+      "district": "Bogoro/Dass/Tafawa Balewa",
+      "votes": null
+    },
+    {
+      "name": "Mansur Manu Soro",
+      "party": "PDP",
+      "district": "Darazo/Ganjuwa",
+      "votes": null
+    },
+    {
+      "name": "Adamu Ibrahim Gamawa",
+      "party": "APC",
+      "district": "Gamawa",
+      "votes": null
+    },
+    {
+      "name": "Rabilu Bala",
+      "party": "APC",
+      "district": "Jama&#039;Are/Itas-Gadau",
+      "votes": null
+    },
+    {
+      "name": "Auwalu Abdu Gwalabe",
+      "party": "PDP",
+      "district": "Katagum",
+      "votes": null
+    },
+    {
+      "name": "Aliyu Bappa Misau",
+      "party": "PDP",
+      "district": "Misau/Dambam",
+      "votes": null
+    },
+    {
+      "name": "Hashimu Adamu",
+      "party": "PDP",
+      "district": "Ningi/Warji",
+      "votes": null
+    },
+    {
+      "name": "Sani Ibrahim Tanko",
+      "party": "PDP",
+      "district": "Shira/Giade",
+      "votes": null
+    },
+    {
+      "name": "Dabo Ismaila Haruna",
+      "party": "APC",
+      "district": "Toro",
+      "votes": null
+    },
+    {
+      "name": "Muhammed Dan Abba Shehu",
+      "party": "PDP",
+      "district": "Zaki",
+      "votes": null
+    }
+  ]
+}

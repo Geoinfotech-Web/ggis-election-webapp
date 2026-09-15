@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Delta",
+    "level": "district",
+    "title": "Delta House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Opke/Sapele/Uvwie",
+      "winner": {
+        "name": "Evelyn Omavowan",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Evelyn Omavowan",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Aniocha North/Aniocha South/Oshimili N&S",
+      "winner": {
+        "name": "Joan Mrakpor",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Joan Mrakpor",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ughelli North/South/Udu",
+      "winner": {
+        "name": "Solomon Ahwinahwi",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Solomon Ahwinahwi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ethiope East/Ethiope West",
+      "winner": {
+        "name": "Ederin Idisi",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ederin Idisi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Warri North/Warri South/ Warri South West",
+      "winner": {
+        "name": "Daniel Reyenieju",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Daniel Reyenieju",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ika North East/Ika South",
+      "winner": {
+        "name": "Nwokolo Victor",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Nwokolo Victor",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Isoko North/South",
+      "winner": {
+        "name": "Ogor Okuweh",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ogor Okuweh",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bomadi/Patani",
+      "winner": {
+        "name": "Nicholas Mutu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Nicholas Mutu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ndokwa/Ukwani",
+      "winner": {
+        "name": "Nicholas Ossai",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Nicholas Ossai",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Burutu",
+      "winner": {
+        "name": "Julius Pondi",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Julius Pondi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Evelyn Omavowan",
+      "party": "PDP",
+      "district": "Opke/Sapele/Uvwie",
+      "votes": null
+    },
+    {
+      "name": "Joan Mrakpor",
+      "party": "PDP",
+      "district": "Aniocha North/Aniocha South/Oshimili N&S",
+      "votes": null
+    },
+    {
+      "name": "Solomon Ahwinahwi",
+      "party": "PDP",
+      "district": "Ughelli North/South/Udu",
+      "votes": null
+    },
+    {
+      "name": "Ederin Idisi",
+      "party": "PDP",
+      "district": "Ethiope East/Ethiope West",
+      "votes": null
+    },
+    {
+      "name": "Daniel Reyenieju",
+      "party": "PDP",
+      "district": "Warri North/Warri South/ Warri South West",
+      "votes": null
+    },
+    {
+      "name": "Nwokolo Victor",
+      "party": "PDP",
+      "district": "Ika North East/Ika South",
+      "votes": null
+    },
+    {
+      "name": "Ogor Okuweh",
+      "party": "PDP",
+      "district": "Isoko North/South",
+      "votes": null
+    },
+    {
+      "name": "Nicholas Mutu",
+      "party": "PDP",
+      "district": "Bomadi/Patani",
+      "votes": null
+    },
+    {
+      "name": "Nicholas Ossai",
+      "party": "PDP",
+      "district": "Ndokwa/Ukwani",
+      "votes": null
+    },
+    {
+      "name": "Julius Pondi",
+      "party": "PDP",
+      "district": "Burutu",
+      "votes": null
+    }
+  ]
+}

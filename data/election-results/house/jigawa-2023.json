@@ -1,0 +1,251 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Jigawa",
+    "level": "district",
+    "title": "Jigawa House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Babura/Garki",
+      "winner": {
+        "name": "Rabiu Mukhtar",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Rabiu Mukhtar",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Birniwa Guri/Kirikasamma",
+      "winner": {
+        "name": "Abubakar Hassan Fulata",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Abubakar Hassan Fulata",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Buji/Birnin Kudu",
+      "winner": {
+        "name": "Adamu Yakubu",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Adamu Yakubu",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Dutse/Kiyawa",
+      "winner": {
+        "name": "Madawaki Dahiru",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Madawaki Dahiru",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gumel/Maigatari/Sule Tankarkar/Gagarawa",
+      "winner": {
+        "name": "Nazifi Sani",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Nazifi Sani",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gwaram",
+      "winner": {
+        "name": "Yusuf Shittu Galambi",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Yusuf Shittu Galambi",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Hadejia/Auyo/Kafin Hausa",
+      "winner": {
+        "name": "Usman Ibrahim Auyo",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Usman Ibrahim Auyo",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kaugama/Mallam Madori",
+      "winner": {
+        "name": "Makki Abubakar Yalleman",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Makki Abubakar Yalleman",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kazaure/Roni/Gwiwa/Yankwashi",
+      "winner": {
+        "name": "Mukhtar Muhammed Zanna",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Mukhtar Muhammed Zanna",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Miga/Jahun",
+      "winner": {
+        "name": "Yusuf Sa&#8217;idu Miga",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Yusuf Sa&#8217;idu Miga",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Taura/Ringim",
+      "winner": {
+        "name": "Sa&#8217;ad Wada Taura",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Sa&#8217;ad Wada Taura",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Rabiu Mukhtar",
+      "party": "NA",
+      "district": "Babura/Garki",
+      "votes": null
+    },
+    {
+      "name": "Abubakar Hassan Fulata",
+      "party": "NA",
+      "district": "Birniwa Guri/Kirikasamma",
+      "votes": null
+    },
+    {
+      "name": "Adamu Yakubu",
+      "party": "NA",
+      "district": "Buji/Birnin Kudu",
+      "votes": null
+    },
+    {
+      "name": "Madawaki Dahiru",
+      "party": "NA",
+      "district": "Dutse/Kiyawa",
+      "votes": null
+    },
+    {
+      "name": "Nazifi Sani",
+      "party": "NA",
+      "district": "Gumel/Maigatari/Sule Tankarkar/Gagarawa",
+      "votes": null
+    },
+    {
+      "name": "Yusuf Shittu Galambi",
+      "party": "NA",
+      "district": "Gwaram",
+      "votes": null
+    },
+    {
+      "name": "Usman Ibrahim Auyo",
+      "party": "NA",
+      "district": "Hadejia/Auyo/Kafin Hausa",
+      "votes": null
+    },
+    {
+      "name": "Makki Abubakar Yalleman",
+      "party": "NA",
+      "district": "Kaugama/Mallam Madori",
+      "votes": null
+    },
+    {
+      "name": "Mukhtar Muhammed Zanna",
+      "party": "NA",
+      "district": "Kazaure/Roni/Gwiwa/Yankwashi",
+      "votes": null
+    },
+    {
+      "name": "Yusuf Sa&#8217;idu Miga",
+      "party": "NA",
+      "district": "Miga/Jahun",
+      "votes": null
+    },
+    {
+      "name": "Sa&#8217;ad Wada Taura",
+      "party": "NA",
+      "district": "Taura/Ringim",
+      "votes": null
+    }
+  ]
+}

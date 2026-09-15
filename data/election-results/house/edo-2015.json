@@ -1,0 +1,209 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Edo",
+    "level": "district",
+    "title": "Edo House of Representatives Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2015–2019",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Orhionmwon/Uhunmwode",
+      "winner": {
+        "name": "Aisowieren Patrick",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Aisowieren Patrick",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Esan North East/Esan South East",
+      "winner": {
+        "name": "Sergius Ogun",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Sergius Ogun",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Oredo",
+      "winner": {
+        "name": "Ogbeideihama Omoregie",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ogbeideihama Omoregie",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Esan Central/West/Igueben",
+      "winner": {
+        "name": "Joseph Edionwele",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Joseph Edionwele",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Akoko-Edo",
+      "winner": {
+        "name": "Ohiozojeh Akpatason",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ohiozojeh Akpatason",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ovia South/West-Ovia North/East",
+      "winner": {
+        "name": "Omosede Igbinedion",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Omosede Igbinedion",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Etsako East/West/Central",
+      "winner": {
+        "name": "Johnson Oghuma",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Johnson Oghuma",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Egor/Ikpoba-Okha",
+      "winner": {
+        "name": "Ehiozuwa Agbonayinma",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ehiozuwa Agbonayinma",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Owan West/East",
+      "winner": {
+        "name": "Pally Iriase",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Pally Iriase",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Aisowieren Patrick",
+      "party": "APC",
+      "district": "Orhionmwon/Uhunmwode",
+      "votes": null
+    },
+    {
+      "name": "Sergius Ogun",
+      "party": "PDP",
+      "district": "Esan North East/Esan South East",
+      "votes": null
+    },
+    {
+      "name": "Ogbeideihama Omoregie",
+      "party": "PDP",
+      "district": "Oredo",
+      "votes": null
+    },
+    {
+      "name": "Joseph Edionwele",
+      "party": "PDP",
+      "district": "Esan Central/West/Igueben",
+      "votes": null
+    },
+    {
+      "name": "Ohiozojeh Akpatason",
+      "party": "APC",
+      "district": "Akoko-Edo",
+      "votes": null
+    },
+    {
+      "name": "Omosede Igbinedion",
+      "party": "PDP",
+      "district": "Ovia South/West-Ovia North/East",
+      "votes": null
+    },
+    {
+      "name": "Johnson Oghuma",
+      "party": "APC",
+      "district": "Etsako East/West/Central",
+      "votes": null
+    },
+    {
+      "name": "Ehiozuwa Agbonayinma",
+      "party": "PDP",
+      "district": "Egor/Ikpoba-Okha",
+      "votes": null
+    },
+    {
+      "name": "Pally Iriase",
+      "party": "APC",
+      "district": "Owan West/East",
+      "votes": null
+    }
+  ]
+}

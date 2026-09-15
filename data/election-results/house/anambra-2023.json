@@ -1,0 +1,251 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Anambra",
+    "level": "district",
+    "title": "Anambra House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Aguata",
+      "winner": {
+        "name": "Okafor Dominic Ifeanyi",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Okafor Dominic Ifeanyi",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Anambra East/Anambra West",
+      "winner": {
+        "name": "Aniekwe Peter Udeogalanya",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Aniekwe Peter Udeogalanya",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Awka North/Awka South",
+      "winner": {
+        "name": "Orogbu Obiageli",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Orogbu Obiageli",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Idemili North/Idemili South",
+      "winner": {
+        "name": "Okonkwo Uchenna Harris",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Okonkwo Uchenna Harris",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ihiala",
+      "winner": {
+        "name": "Agbodike Paschal Arinzechukwu",
+        "party": "APGA"
+      },
+      "candidates": [
+        {
+          "name": "Agbodike Paschal Arinzechukwu",
+          "party": "APGA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Njikoka/Dunukofia/Anaocha",
+      "winner": {
+        "name": "Ozodinobi George Ibezimako",
+        "party": "LP"
+      },
+      "candidates": [
+        {
+          "name": "Ozodinobi George Ibezimako",
+          "party": "LP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Nnewi North/Nnewi South/ Ekwusigo",
+      "winner": {
+        "name": "Peter Uzokwe",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Peter Uzokwe",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ogbaru",
+      "winner": {
+        "name": "Afam Ogene",
+        "party": "LP"
+      },
+      "candidates": [
+        {
+          "name": "Afam Ogene",
+          "party": "LP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Onitsha North/South",
+      "winner": {
+        "name": "Emeka Idu Godwin Obiajulu",
+        "party": "LP"
+      },
+      "candidates": [
+        {
+          "name": "Emeka Idu Godwin Obiajulu",
+          "party": "LP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Orumba North/South",
+      "winner": {
+        "name": "Nnabuife Chinwe Clara",
+        "party": "YPP"
+      },
+      "candidates": [
+        {
+          "name": "Nnabuife Chinwe Clara",
+          "party": "YPP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Oyi/Ayamelum",
+      "winner": {
+        "name": "Maureen Chinwe Gwacham",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Maureen Chinwe Gwacham",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Okafor Dominic Ifeanyi",
+      "party": "APC",
+      "district": "Aguata",
+      "votes": null
+    },
+    {
+      "name": "Aniekwe Peter Udeogalanya",
+      "party": "NA",
+      "district": "Anambra East/Anambra West",
+      "votes": null
+    },
+    {
+      "name": "Orogbu Obiageli",
+      "party": "NA",
+      "district": "Awka North/Awka South",
+      "votes": null
+    },
+    {
+      "name": "Okonkwo Uchenna Harris",
+      "party": "NA",
+      "district": "Idemili North/Idemili South",
+      "votes": null
+    },
+    {
+      "name": "Agbodike Paschal Arinzechukwu",
+      "party": "APGA",
+      "district": "Ihiala",
+      "votes": null
+    },
+    {
+      "name": "Ozodinobi George Ibezimako",
+      "party": "LP",
+      "district": "Njikoka/Dunukofia/Anaocha",
+      "votes": null
+    },
+    {
+      "name": "Peter Uzokwe",
+      "party": "NA",
+      "district": "Nnewi North/Nnewi South/ Ekwusigo",
+      "votes": null
+    },
+    {
+      "name": "Afam Ogene",
+      "party": "LP",
+      "district": "Ogbaru",
+      "votes": null
+    },
+    {
+      "name": "Emeka Idu Godwin Obiajulu",
+      "party": "LP",
+      "district": "Onitsha North/South",
+      "votes": null
+    },
+    {
+      "name": "Nnabuife Chinwe Clara",
+      "party": "YPP",
+      "district": "Orumba North/South",
+      "votes": null
+    },
+    {
+      "name": "Maureen Chinwe Gwacham",
+      "party": "APC",
+      "district": "Oyi/Ayamelum",
+      "votes": null
+    }
+  ]
+}

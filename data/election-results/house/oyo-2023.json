@@ -1,0 +1,305 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Oyo",
+    "level": "district",
+    "title": "Oyo House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Afijio/Atiba/Oyo East/Oyo West",
+      "winner": {
+        "name": "Akeem Adeyemi",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Akeem Adeyemi",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Akinyele/Lagelu",
+      "winner": {
+        "name": "Akinmoyede Olafisoye Wasiu",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Akinmoyede Olafisoye Wasiu",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Egbeda/Ona-Ara",
+      "winner": {
+        "name": "Akinola Adekunle Alabi",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Akinola Adekunle Alabi",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ibadan North",
+      "winner": {
+        "name": "Folajimi Oyekunle",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Folajimi Oyekunle",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        },
+        {
+          "name": "Adedeji Stanley Olajide",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ibadan North East/Ibadan South East",
+      "winner": {
+        "name": "Abass Adigun Agboworin",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Abass Adigun Agboworin",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ibarapa Central/Ibarapa North",
+      "winner": {
+        "name": "Adebayo Adepoju",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Adebayo Adepoju",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ibarapa East/Ido",
+      "winner": {
+        "name": "Aderemi Abasi Oseni",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Aderemi Abasi Oseni",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Irepo/Orelope/Olorunsogo",
+      "winner": {
+        "name": "Mohammed Olaide Lateef",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Mohammed Olaide Lateef",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Iseyin/Itesiwaju/Kajola/ Iwajowa",
+      "winner": {
+        "name": "Oyedeji Najimdeen Oyeshina",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Oyedeji Najimdeen Oyeshina",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ogbomoso North/ Ogbomoso South/Orire",
+      "winner": {
+        "name": "Olamijuwonlo Alao-Akala",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Olamijuwonlo Alao-Akala",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ogo-Oluwa/Surulere",
+      "winner": {
+        "name": "Makanjuola Sunday Ojo",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Makanjuola Sunday Ojo",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Oluyole",
+      "winner": {
+        "name": "Tolulope Akande-Sadipe",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Tolulope Akande-Sadipe",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Saki East/Saki West/Atisbo",
+      "winner": {
+        "name": "Kareem Tajudeen Abisodun",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Kareem Tajudeen Abisodun",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Akeem Adeyemi",
+      "party": "NA",
+      "district": "Afijio/Atiba/Oyo East/Oyo West",
+      "votes": null
+    },
+    {
+      "name": "Akinmoyede Olafisoye Wasiu",
+      "party": "NA",
+      "district": "Akinyele/Lagelu",
+      "votes": null
+    },
+    {
+      "name": "Akinola Adekunle Alabi",
+      "party": "NA",
+      "district": "Egbeda/Ona-Ara",
+      "votes": null
+    },
+    {
+      "name": "Folajimi Oyekunle",
+      "party": "NA",
+      "district": "Ibadan North",
+      "votes": null
+    },
+    {
+      "name": "Abass Adigun Agboworin",
+      "party": "NA",
+      "district": "Ibadan North East/Ibadan South East",
+      "votes": null
+    },
+    {
+      "name": "Adedeji Stanley Olajide",
+      "party": "NA",
+      "district": "Ibadan North",
+      "votes": null
+    },
+    {
+      "name": "Adebayo Adepoju",
+      "party": "NA",
+      "district": "Ibarapa Central/Ibarapa North",
+      "votes": null
+    },
+    {
+      "name": "Aderemi Abasi Oseni",
+      "party": "NA",
+      "district": "Ibarapa East/Ido",
+      "votes": null
+    },
+    {
+      "name": "Mohammed Olaide Lateef",
+      "party": "NA",
+      "district": "Irepo/Orelope/Olorunsogo",
+      "votes": null
+    },
+    {
+      "name": "Oyedeji Najimdeen Oyeshina",
+      "party": "NA",
+      "district": "Iseyin/Itesiwaju/Kajola/ Iwajowa",
+      "votes": null
+    },
+    {
+      "name": "Olamijuwonlo Alao-Akala",
+      "party": "NA",
+      "district": "Ogbomoso North/ Ogbomoso South/Orire",
+      "votes": null
+    },
+    {
+      "name": "Makanjuola Sunday Ojo",
+      "party": "NA",
+      "district": "Ogo-Oluwa/Surulere",
+      "votes": null
+    },
+    {
+      "name": "Tolulope Akande-Sadipe",
+      "party": "NA",
+      "district": "Oluyole",
+      "votes": null
+    },
+    {
+      "name": "Kareem Tajudeen Abisodun",
+      "party": "NA",
+      "district": "Saki East/Saki West/Atisbo",
+      "votes": null
+    }
+  ]
+}

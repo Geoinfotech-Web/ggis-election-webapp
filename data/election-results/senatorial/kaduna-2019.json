@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Kaduna",
+    "level": "district",
+    "title": "Kaduna Senatorial Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 9th National Assembly (elected 2019)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Kaduna Central",
+      "winner": {
+        "name": "Uba Sani",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Uba Sani",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kaduna North",
+      "winner": {
+        "name": "Suleiman Abdu Kwari",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Suleiman Abdu Kwari",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Kaduna South",
+      "winner": {
+        "name": "Danjuma Laah",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Danjuma Laah",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Uba Sani",
+      "party": "APC",
+      "district": "Kaduna Central",
+      "votes": null
+    },
+    {
+      "name": "Suleiman Abdu Kwari",
+      "party": "APC",
+      "district": "Kaduna North",
+      "votes": null
+    },
+    {
+      "name": "Danjuma Laah",
+      "party": "PDP",
+      "district": "Kaduna South",
+      "votes": null
+    }
+  ]
+}

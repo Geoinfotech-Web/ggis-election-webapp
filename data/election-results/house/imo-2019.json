@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2019",
+    "electionDate": "2019-02-23",
+    "state": "Imo",
+    "level": "district",
+    "title": "Imo House of Representatives Election 2019",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Aboh Mbaise/Ngor Okpala",
+      "winner": {
+        "name": "Bede Eke",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Bede Eke",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ahiazu Mbaise/Ezinihitte",
+      "winner": {
+        "name": "Emeka Chinedu",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Emeka Chinedu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ehime Mbano/Ihitte Uboma/Obowo",
+      "winner": {
+        "name": "Chukwuemeka Nwajiuba",
+        "party": "A"
+      },
+      "candidates": [
+        {
+          "name": "Chukwuemeka Nwajiuba",
+          "party": "A",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ideato North/Ideato South",
+      "winner": {
+        "name": "Paschal Chigozie Obi",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Paschal Chigozie Obi",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Ikeduru/Mbaitoli",
+      "winner": {
+        "name": "Henry Nwawuba",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Henry Nwawuba",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Isiala Mbano/Okigwe/Onuimo",
+      "winner": {
+        "name": "Obinna Onwubuariri",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Obinna Onwubuariri",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Isu/Njaba/Nkwerre/Nwangele",
+      "winner": {
+        "name": "Ugonna Ozurigbo",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ugonna Ozurigbo",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Oguta/Ohaji-Egbema/Oru West",
+      "winner": {
+        "name": "Uju Kingsley Chima",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Uju Kingsley Chima",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Oru East/Orsu/Orlu",
+      "winner": {
+        "name": "Jerry Alagbaoso",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Jerry Alagbaoso",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Owerri Municipal/Owerri North/Owerri West",
+      "winner": {
+        "name": "Ikenna Elezieanya",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Ikenna Elezieanya",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Bede Eke",
+      "party": "PDP",
+      "district": "Aboh Mbaise/Ngor Okpala",
+      "votes": null
+    },
+    {
+      "name": "Emeka Chinedu",
+      "party": "PDP",
+      "district": "Ahiazu Mbaise/Ezinihitte",
+      "votes": null
+    },
+    {
+      "name": "Chukwuemeka Nwajiuba",
+      "party": "A",
+      "district": "Ehime Mbano/Ihitte Uboma/Obowo",
+      "votes": null
+    },
+    {
+      "name": "Paschal Chigozie Obi",
+      "party": "APC",
+      "district": "Ideato North/Ideato South",
+      "votes": null
+    },
+    {
+      "name": "Henry Nwawuba",
+      "party": "PDP",
+      "district": "Ikeduru/Mbaitoli",
+      "votes": null
+    },
+    {
+      "name": "Obinna Onwubuariri",
+      "party": "PDP",
+      "district": "Isiala Mbano/Okigwe/Onuimo",
+      "votes": null
+    },
+    {
+      "name": "Ugonna Ozurigbo",
+      "party": "APC",
+      "district": "Isu/Njaba/Nkwerre/Nwangele",
+      "votes": null
+    },
+    {
+      "name": "Uju Kingsley Chima",
+      "party": "APC",
+      "district": "Oguta/Ohaji-Egbema/Oru West",
+      "votes": null
+    },
+    {
+      "name": "Jerry Alagbaoso",
+      "party": "PDP",
+      "district": "Oru East/Orsu/Orlu",
+      "votes": null
+    },
+    {
+      "name": "Ikenna Elezieanya",
+      "party": "PDP",
+      "district": "Owerri Municipal/Owerri North/Owerri West",
+      "votes": null
+    }
+  ]
+}

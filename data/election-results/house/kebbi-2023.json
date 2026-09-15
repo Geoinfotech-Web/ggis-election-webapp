@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "office": "reps",
+    "year": "2023",
+    "electionDate": "2023-02-25",
+    "state": "Kebbi",
+    "level": "district",
+    "title": "Kebbi House of Representatives Election 2023",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2023-06-13",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Arewa/Dandi",
+      "winner": {
+        "name": "Rabiu Garba Kamba",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Rabiu Garba Kamba",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Argungu/Augie",
+      "winner": {
+        "name": "Sani Yakubu Noma",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Sani Yakubu Noma",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bagudo/Suru",
+      "winner": {
+        "name": "Bello A. Kaoje",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Bello A. Kaoje",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Bunza/Birnin Kebbi/Kalgo",
+      "winner": {
+        "name": "Ibrahim Mohammed",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Ibrahim Mohammed",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Gwandu/Aliero/Jega",
+      "winner": {
+        "name": "Mansur Musa",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Mansur Musa",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Koko-Besse/Maiyama",
+      "winner": {
+        "name": "Salisu Garba Koko",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Salisu Garba Koko",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Yauri/Shanga/Ngaski",
+      "winner": {
+        "name": "Umar Garba Uba",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Umar Garba Uba",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Zuru/Fakai/Sakaba/D/Wasagu",
+      "winner": {
+        "name": "Kabir Tukura Ibrahim",
+        "party": "NA"
+      },
+      "candidates": [
+        {
+          "name": "Kabir Tukura Ibrahim",
+          "party": "NA",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Rabiu Garba Kamba",
+      "party": "NA",
+      "district": "Arewa/Dandi",
+      "votes": null
+    },
+    {
+      "name": "Sani Yakubu Noma",
+      "party": "NA",
+      "district": "Argungu/Augie",
+      "votes": null
+    },
+    {
+      "name": "Bello A. Kaoje",
+      "party": "NA",
+      "district": "Bagudo/Suru",
+      "votes": null
+    },
+    {
+      "name": "Ibrahim Mohammed",
+      "party": "NA",
+      "district": "Bunza/Birnin Kebbi/Kalgo",
+      "votes": null
+    },
+    {
+      "name": "Mansur Musa",
+      "party": "NA",
+      "district": "Gwandu/Aliero/Jega",
+      "votes": null
+    },
+    {
+      "name": "Salisu Garba Koko",
+      "party": "NA",
+      "district": "Koko-Besse/Maiyama",
+      "votes": null
+    },
+    {
+      "name": "Umar Garba Uba",
+      "party": "NA",
+      "district": "Yauri/Shanga/Ngaski",
+      "votes": null
+    },
+    {
+      "name": "Kabir Tukura Ibrahim",
+      "party": "NA",
+      "district": "Zuru/Fakai/Sakaba/D/Wasagu",
+      "votes": null
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "office": "sen",
+    "year": "2015",
+    "electionDate": "2015-03-28",
+    "state": "Delta",
+    "level": "district",
+    "title": "Delta Senatorial Election 2015",
+    "source": "Public National Assembly membership scaffold",
+    "sourceDetail": "Wikipedia: Nigerian senators of the 8th National Assembly (elected 2015)",
+    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
+    "updated": "2026-09-15",
+    "collated": false,
+    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+  },
+  "seats": [
+    {
+      "district": "Delta South",
+      "winner": {
+        "name": "James Manager",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "James Manager",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Delta North",
+      "winner": {
+        "name": "Peter Nwaoboshi",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Peter Nwaoboshi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    },
+    {
+      "district": "Delta Central",
+      "winner": {
+        "name": "Ovie Omo-Agege",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Ovie Omo-Agege",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "name": "James Manager",
+      "party": "PDP",
+      "district": "Delta South",
+      "votes": null
+    },
+    {
+      "name": "Peter Nwaoboshi",
+      "party": "PDP",
+      "district": "Delta North",
+      "votes": null
+    },
+    {
+      "name": "Ovie Omo-Agege",
+      "party": "APC",
+      "district": "Delta Central",
+      "votes": null
+    }
+  ]
+}
