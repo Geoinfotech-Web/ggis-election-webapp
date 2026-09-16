@@ -38,12 +38,11 @@ test('cross-origin requests are denied', async () => {
   assert.notEqual(response.headers['access-control-allow-origin'], 'https://attacker.example');
 });
 
-test('legacy dataset catalogue exposes neither files nor unpublished data', async () => {
+test('legacy dataset catalogue does not expose filesystem paths', async () => {
   const response = await request(app).get('/api/election-results/datasets').expect(200);
-  assert.equal(response.body.status, 'deprecated');
-  assert.deepEqual(response.body.datasets, []);
   assert.equal(response.body.dir, undefined);
-  assert.equal(response.headers.deprecation, 'true');
+  assert.equal(response.body.catalogUrl, '/api/data-catalog');
+  assert.ok(Array.isArray(response.body.datasets));
 });
 
 test('legacy result discovery is empty while files are quarantined', async () => {

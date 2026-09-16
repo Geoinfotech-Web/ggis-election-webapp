@@ -8,9 +8,10 @@
 <script src="./vendor/leaflet/leaflet.js"></script>
 <script src="./vendor/chart.js/chart.umd.min.js"></script>
 <script src="./js/eid-maps.js?v=20260908coords"></script>
-<script src="./js/eid-analysis.js?v=20260916d"></script>
+<script src="./js/eid-analysis.js?v=20260916e"></script>
 <script src="./js/eid-dashboard.js?v=20260916dash"></script>
 <script src="./js/eid-page-content.js?v=20260916pages"></script>
+<script src="./js/eid-data-explorer.js?v=20260916data"></script>
 <script src="./support.js?v=20260819c"></script>
 </head>
 <body>
@@ -1628,6 +1629,13 @@ a:hover{color:var(--primary)}
               <sc-for list="{{ analysisUI.officeOpts }}" as="o" hint-placeholder-count="4"><option value="{{ o.id }}">{{ o.label }}</option></sc-for>
             </select>
           </label>
+          <sc-if value="{{ analysisUI.showStateFilter }}" hint-placeholder-val="{{ false }}">
+            <label>State
+              <select value="{{ analysisUI.state }}" onChange="{{ analysisUI.onState }}">
+                <sc-for list="{{ analysisUI.stateOpts }}" as="s" hint-placeholder-count="6"><option value="{{ s.value }}">{{ s.label }}</option></sc-for>
+              </select>
+            </label>
+          </sc-if>
           <label>Region
             <select value="{{ analysisUI.region }}" onChange="{{ analysisUI.onRegion }}">
               <sc-for list="{{ analysisUI.regionOpts }}" as="r" hint-placeholder-count="7"><option value="{{ r.value }}">{{ r.label }}</option></sc-for>
@@ -1863,21 +1871,57 @@ a:hover{color:var(--primary)}
     <div class="eid-page-shell">
       <div class="eid-page-root">
         <div class="eid-page-head" style="display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap">
-          <div><div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><span style="width:8px;height:8px;border-radius:50%;background:var(--primary)"></span><span style="font-family:'IBM Plex Sans';font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--primary)">{{ scopeLabel }} · Data</span></div><h1 style="margin:0;font-size:22px;font-weight:600;letter-spacing:-.02em">Data explorer</h1></div>
-          <div style="position:relative;display:flex;align-items:center;width:min(280px,60vw)"><span class="msi" style="position:absolute;left:11px;color:var(--mute);font-size:18px;pointer-events:none">search</span><input placeholder="Search datasets…" style="width:100%;height:38px;padding:0 12px 0 37px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:9px;font-family:inherit;font-size:12.5px;outline:none" style-focus="border-color:var(--primary)"></div>
+          <div>
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><span style="width:8px;height:8px;border-radius:50%;background:var(--primary)"></span><span style="font-family:'IBM Plex Sans';font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--primary)">{{ scopeLabel }} · Data</span></div>
+            <h1 style="margin:0;font-size:22px;font-weight:600;letter-spacing:-.02em">Data explorer</h1>
+            <p style="margin:6px 0 0;font-size:12.5px;color:var(--dim)">{{ dataExplorer.summary }}</p>
+          </div>
+          <div style="position:relative;display:flex;align-items:center;width:min(320px,70vw)"><span class="msi" style="position:absolute;left:11px;color:var(--mute);font-size:18px;pointer-events:none">search</span><input value="{{ dataExplorer.query }}" onInput="{{ dataExplorer.onQuery }}" placeholder="Search datasets…" style="width:100%;height:38px;padding:0 12px 0 37px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:9px;font-family:inherit;font-size:12.5px;outline:none" style-focus="border-color:var(--primary)"></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px">
+          <label style="display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--mute)">Office
+            <select value="{{ dataExplorer.office }}" onChange="{{ dataExplorer.onOffice }}" style="height:32px;padding:0 10px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:8px;font-family:inherit;font-size:12px">
+              <sc-for list="{{ dataExplorer.officeOptions }}" as="o" hint-placeholder-count="5"><option value="{{ o.v }}">{{ o.l }}</option></sc-for>
+            </select>
+          </label>
+          <label style="display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--mute)">Year
+            <select value="{{ dataExplorer.year }}" onChange="{{ dataExplorer.onYear }}" style="height:32px;padding:0 10px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:8px;font-family:inherit;font-size:12px">
+              <sc-for list="{{ dataExplorer.yearOptions }}" as="y" hint-placeholder-count="5"><option value="{{ y.v }}">{{ y.l }}</option></sc-for>
+            </select>
+          </label>
+          <label style="display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--mute)">Category
+            <select value="{{ dataExplorer.category }}" onChange="{{ dataExplorer.onCategory }}" style="height:32px;padding:0 10px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:8px;font-family:inherit;font-size:12px">
+              <sc-for list="{{ dataExplorer.categoryOptions }}" as="c" hint-placeholder-count="5"><option value="{{ c.v }}">{{ c.l }}</option></sc-for>
+            </select>
+          </label>
+          <sc-if value="{{ dataExplorer.loading }}" hint-placeholder-val="{{ false }}"><span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--mute)"><span class="msi" style="font-size:16px;display:inline-block;animation:eidspin 1s linear infinite">progress_activity</span>Loading catalog…</span></sc-if>
         </div>
         <div class="eid-page-body eid-scroll" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:auto">
-          <div style="display:grid;grid-template-columns:2fr 1fr 1.4fr 1fr auto;gap:12px;padding:11px 16px;border-bottom:1px solid var(--border);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute);position:sticky;top:0;background:var(--surface);z-index:1"><span>Dataset</span><span>Type</span><span>Format</span><span>Updated</span><span></span></div>
-          <sc-for list="{{ datasets }}" as="d" hint-placeholder-count="6">
-            <div style="display:grid;grid-template-columns:2fr 1fr 1.4fr 1fr auto;gap:12px;align-items:center;padding:13px 16px;border-bottom:1px solid var(--border)">
-              <div style="display:flex;align-items:center;gap:10px;min-width:0"><span class="msi" style="font-size:19px;color:var(--primary)">{{ d.icon }}</span><div style="min-width:0"><div style="font-size:13px;font-weight:500;color:var(--text)">{{ d.name }}</div><div style="font-size:11px;color:var(--mute)">{{ d.coverage }} · {{ d.source }}</div></div></div>
+          <div style="display:grid;grid-template-columns:minmax(220px,2.2fr) 0.9fr 1.1fr 0.9fr auto;gap:12px;padding:11px 16px;border-bottom:1px solid var(--border);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute);position:sticky;top:0;background:var(--surface);z-index:1"><span>Dataset</span><span>Type</span><span>Format</span><span>Updated</span><span>Download</span></div>
+          <sc-for list="{{ datasets }}" as="d" hint-placeholder-count="8">
+            <div style="display:grid;grid-template-columns:minmax(220px,2.2fr) 0.9fr 1.1fr 0.9fr auto;gap:12px;align-items:center;padding:13px 16px;border-bottom:1px solid var(--border)">
+              <div style="display:flex;align-items:flex-start;gap:10px;min-width:0"><span class="msi" style="font-size:19px;color:var(--primary);margin-top:1px">{{ d.icon }}</span><div style="min-width:0"><div style="font-size:13px;font-weight:500;color:var(--text)">{{ d.name }}</div><div style="font-size:11px;color:var(--mute);line-height:1.4">{{ d.coverage }} · {{ d.source }}</div><sc-if value="{{ d.hasNotes }}" hint-placeholder-val="{{ false }}"><div style="font-size:10.5px;color:var(--dim);margin-top:3px;line-height:1.35">{{ d.notes }}</div></sc-if></div></div>
               <span style="font-size:12px;color:var(--dim)">{{ d.type }}</span>
               <span style="font-family:'IBM Plex Sans';font-size:11.5px;color:var(--dim)">{{ d.fmt }}</span>
               <span style="font-size:11.5px;color:var(--mute)">{{ d.updated }}</span>
-              <a href="{{ d.href }}" target="_blank" rel="noopener" style="height:32px;padding:0 12px;display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);background:transparent;color:var(--text);border-radius:8px;font-family:inherit;font-size:12px;text-decoration:none" style-hover="border-color:var(--primary);color:var(--primary)"><span class="msi" style="font-size:16px">download</span>{{ d.action }}</a>
+              <div style="display:inline-flex;align-items:center;gap:6px;justify-content:flex-end">
+                <sc-if value="{{ d.hasJson }}" hint-placeholder-val="{{ true }}"><a href="{{ d.jsonHref }}" download target="_blank" rel="noopener" style="height:30px;padding:0 10px;display:inline-flex;align-items:center;gap:5px;border:1px solid var(--border);background:transparent;color:var(--text);border-radius:8px;font-family:inherit;font-size:11.5px;text-decoration:none" style-hover="border-color:var(--primary);color:var(--primary)"><span class="msi" style="font-size:15px">download</span>JSON</a></sc-if>
+                <sc-if value="{{ d.hasCsv }}" hint-placeholder-val="{{ false }}"><a href="{{ d.csvHref }}" download target="_blank" rel="noopener" style="height:30px;padding:0 10px;display:inline-flex;align-items:center;gap:5px;border:1px solid var(--border);background:transparent;color:var(--text);border-radius:8px;font-family:inherit;font-size:11.5px;text-decoration:none" style-hover="border-color:var(--primary);color:var(--primary)"><span class="msi" style="font-size:15px">table</span>CSV</a></sc-if>
+              </div>
             </div>
           </sc-for>
+          <sc-if value="{{ dataExplorer.empty }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:28px 16px;text-align:center;font-size:13px;color:var(--mute)">No datasets match these filters.</div>
+          </sc-if>
         </div>
+        <sc-if value="{{ dataExplorer.hasGated }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:12px;padding:12px 14px;border:1px dashed var(--border);border-radius:10px;background:var(--surface2)">
+            <div style="font-size:11.5px;font-weight:600;color:var(--text);margin-bottom:6px">Not listed (gated)</div>
+            <sc-for list="{{ dataExplorer.gated }}" as="g" hint-placeholder-count="3">
+              <div style="font-size:11.5px;color:var(--dim);line-height:1.45;margin-bottom:4px"><span style="color:var(--text)">{{ g.name }}</span> — {{ g.reason }}</div>
+            </sc-for>
+          </div>
+        </sc-if>
       </div>
     </div>
     </sc-if>
@@ -3442,13 +3486,37 @@ class Component extends DCLogic {
       if (this.state.anaCompare) qs.set('compare', this.state.anaCompare);
       if (this.state.anaParty && this.state.anaParty !== 'all') qs.set('party', this.state.anaParty);
       if (this.state.anaRegion && this.state.anaRegion !== 'all') qs.set('region', this.state.anaRegion);
+      if ((this.state.anaOffice || 'pres') === 'gov' && this.state.anaState && this.state.anaState !== 'all') {
+        qs.set('state', this.state.anaState);
+      }
       qs.set('momentum', String((Number(this.state.anaMomentum) || 65) / 100));
       qs.set('retention', String((Number(this.state.anaRetention) || 25) / 100));
       const data = await fetch('/api/election-results/analysis?' + qs.toString(), { cache: 'no-store' })
         .then((r) => r.ok ? r.json() : null);
       if (seq !== this._analysisSeq) return;
       if (data && data.ok) {
-        this.setState({ analysisBundle: data, analysisLoading: false }, () => this.queueAnalysisCharts());
+        const patch = {
+          analysisBundle: data,
+          analysisLoading: false,
+        };
+        // Keep year/compare aligned with server resolution (esp. after office change clears them).
+        if (data.filters) {
+          if (!this.state.anaYear && data.filters.year) patch.anaYear = data.filters.year;
+          if (!this.state.anaCompare && data.filters.compare) patch.anaCompare = data.filters.compare;
+          // If client year is invalid for the new office, adopt server year.
+          const officeMeta = (data.offices || []).find((o) => o.id === (this.state.anaOffice || data.filters.office));
+          const years = officeMeta?.years || [];
+          if (this.state.anaYear && years.length && !years.includes(String(this.state.anaYear))) {
+            patch.anaYear = data.filters.year || '';
+            patch.anaCompare = data.filters.compare || '';
+          }
+          // Drop state selection when leaving governorship.
+          const officeId = this.state.anaOffice || data.filters.office || 'pres';
+          if (officeId !== 'gov') {
+            patch.anaState = 'all';
+          }
+        }
+        this.setState(patch, () => this.queueAnalysisCharts());
       } else {
         this.setState({ analysisLoading: false });
       }
@@ -3579,7 +3647,7 @@ class Component extends DCLogic {
 
   async loadRealData(){
     try {
-      const [popRes, ekitiRes, ngRes, elRes, ingest, popStatus, puDash, partyColors, refSummary] = await Promise.all([
+      const [popRes, ekitiRes, ngRes, elRes, ingest, popStatus, puDash, partyColors, refSummary, dataCatalog] = await Promise.all([
         fetch('/api/population-data').then(r=>r.ok?r.json():null).catch(()=>null),
         fetch('/api/election-results?state=Ekiti').then(r=>r.ok?r.json():null).catch(()=>null),
         fetch('/api/election-results?state=Nigeria').then(r=>r.ok?r.json():null).catch(()=>null),
@@ -3589,6 +3657,7 @@ class Component extends DCLogic {
         fetch('/api/polling-units-data').then(r=>r.ok?r.json():null).catch(()=>null),
         fetch('/api/party-colors').then(r=>r.ok?r.json():null).catch(()=>null),
         fetch('/api/v1/reference-summary').then(r=>r.ok?r.json():null).catch(()=>null),
+        fetch('/api/data-catalog').then(r=>r.ok?r.json():null).catch(()=>null),
       ]);
       if (partyColors) this.syncPartyPalette(partyColors);
       const states = popRes?.statePopulation || [];
@@ -3612,8 +3681,23 @@ class Component extends DCLogic {
         popStatus,
         puDash,
         puCoordCoverage: (refSummary && refSummary.pollingUnits && refSummary.pollingUnits.coordinateCoverage) || null,
+        dataCatalog: dataCatalog && dataCatalog.ok !== false ? dataCatalog : null,
+        dataCatalogLoading: false,
       }, ()=>this.loadLiveMapTheme());
     } catch(e){}
+  }
+
+  async refreshDataCatalog(){
+    this.setState({ dataCatalogLoading: true });
+    try {
+      const dataCatalog = await fetch('/api/data-catalog', { cache:'no-store' }).then(r=>r.ok?r.json():null);
+      this.setState({
+        dataCatalog: dataCatalog && dataCatalog.ok !== false ? dataCatalog : null,
+        dataCatalogLoading: false,
+      });
+    } catch (e) {
+      this.setState({ dataCatalogLoading: false });
+    }
   }
 
   /** Active / upcoming presidential cycle for Live Results (not Overview archive year). */
@@ -4400,6 +4484,19 @@ class Component extends DCLogic {
     const regionOpts = [{ value: 'all', label: 'All regions' }].concat(
       (analysisBundle?.regions || []).map((r) => ({ value: r, label: r }))
     );
+    const showStateFilter = anaOffice === 'gov';
+    const anaStateRaw = showStateFilter ? (this.state.anaState || resolvedFilters.state || 'all') : 'all';
+    // Year options for the dropdown; keep the current selection visible even if empty for this year.
+    const yearStateNames = analysisBundle?.states || [];
+    const catalogStates = analysisBundle?.allStates || yearStateNames;
+    const stateOptSet = new Set(yearStateNames);
+    if (anaStateRaw && anaStateRaw !== 'all') stateOptSet.add(anaStateRaw);
+    const stateOpts = [{ value: 'all', label: 'All states' }].concat(
+      [...stateOptSet].sort((a, b) => a.localeCompare(b)).map((s) => ({ value: s, label: s }))
+    );
+    const anaState = (anaStateRaw !== 'all' && (catalogStates.includes(anaStateRaw) || yearStateNames.includes(anaStateRaw) || stateOptSet.has(anaStateRaw)))
+      ? anaStateRaw
+      : 'all';
     const pred = analysisBundle?.prediction || {};
     const perf = analysisBundle?.performance || {};
     const geo = analysisBundle?.geographic || {};
@@ -4517,6 +4614,8 @@ class Component extends DCLogic {
       compare: anaCompare,
       party: this.state.anaParty || 'all',
       region: this.state.anaRegion || 'all',
+      state: anaState,
+      showStateFilter,
       officeOpts: (analysisBundle?.offices || [
         { id: 'pres', label: 'Presidential' },
         { id: 'gov', label: 'Governorship' },
@@ -4527,6 +4626,7 @@ class Component extends DCLogic {
       compareOpts: compareOpts.length ? compareOpts : [{ value: '', label: '—' }],
       partyOpts,
       regionOpts,
+      stateOpts,
       compareLabel: anaCompare ? `${anaYear} vs ${anaCompare}` : (anaYear || 'Archives'),
       narrative: analysisBundle?.summary?.narrative || 'Load archives to generate a result narrative.',
       drivers: (analysisBundle?.drivers || []).map((d) => ({
@@ -4544,14 +4644,18 @@ class Component extends DCLogic {
         : 'select compare election for flips',
       mapHint: geo.mapHint || 'Geographic tables and charts below; Leaflet choropleths remain on Map / Live Results.',
       geoRows: geoRows.length ? geoRows : [{ unit: '—', region: '—', winner: '—', color: 'var(--mute)', margin: '—', prev: '—', swing: '—', flip: '—' }],
-      turnoutMeta: turnout.current != null ? `National ${turnout.current}%` : 'Limited fields',
+      turnoutMeta: turnout.current != null
+        ? (analysisBundle?.availability?.turnoutNational ? `National ${turnout.current}%` : `Proxy avg ${turnout.current}%`)
+        : (turnout.note || 'Limited fields'),
       turnoutStub: false,
-      turnoutNote: '',
+      turnoutNote: turnout.note || '',
       turnoutKpis: [
         {
-          label: 'National turnout',
+          label: analysisBundle?.availability?.turnoutNational ? 'National turnout' : 'Turnout (proxy avg)',
           value: turnout.current != null ? `${turnout.current}%` : '—',
-          note: turnout.change != null ? `${turnout.change > 0 ? '+' : ''}${turnout.change} pts vs previous` : 'change —',
+          note: turnout.change != null
+            ? `${turnout.change > 0 ? '+' : ''}${turnout.change} pts vs previous`
+            : (turnout.byUnit?.length ? `${turnout.byUnit.length} units with proxies` : 'change —'),
         },
         {
           label: 'Registered',
@@ -4611,12 +4715,15 @@ class Component extends DCLogic {
       caveats: (pred.caveats || ['Load analysis archives to see model caveats.']).map((text) => ({ text })),
       onOffice: (e) => {
         const office = e.target.value || 'pres';
-        this.setState({ anaOffice: office, anaYear: '', anaCompare: '' }, () => reload());
+        const patch = { anaOffice: office, anaYear: '', anaCompare: '' };
+        if (office !== 'gov') patch.anaState = 'all';
+        this.setState(patch, () => reload());
       },
       onYear: (e) => this.setState({ anaYear: e.target.value || '', anaCompare: '' }, () => reload()),
       onCompare: (e) => this.setState({ anaCompare: e.target.value || '' }, () => reload()),
       onParty: (e) => this.setState({ anaParty: e.target.value || 'all' }, () => reload()),
       onRegion: (e) => this.setState({ anaRegion: e.target.value || 'all' }, () => reload()),
+      onState: (e) => this.setState({ anaState: e.target.value || 'all' }, () => reload()),
       onMomentum: (e) => {
         const v = Number(e.target.value);
         this.setState({ anaMomentum: Number.isFinite(v) ? v : 65 }, () => this.scheduleAnalysisAssumptions());
@@ -4672,15 +4779,49 @@ class Component extends DCLogic {
     };
 
     const popUpdated = this.state.popStatus?.modifiedTime ? new Date(this.state.popStatus.modifiedTime).toLocaleDateString() : 'Local file';
-    const datasets = [
-      {name:'Population / PVC',type:'Tabular',fmt:'JSON',icon:'bar_chart', href:'/api/population-data', action:'Open', coverage:'Nigeria states + FCT', source:'population-pvc-data.json', updated:popUpdated},
-      {name:'Polling units GeoJSON',type:'Point',fmt:'GeoJSON',icon:'location_on', href:'/api/polling-units.geojson', action:'Download', coverage:'INEC PU CSV', source:'Nigeria_polling_units.csv', updated:popUpdated},
-      {name:'GRID3 layer config',type:'Vector',fmt:'JSON',icon:'layers', href:'/api/grid3-config', action:'Open', coverage:'States, LGAs, wards, health', source:'ArcGIS FeatureServers', updated:'Live service'},
-      {name:'2023 Presidential map data',type:'GeoJSON-ready',fmt:'JSON',icon:'map', href:'/api/election-results/choropleth?office=pres&year=2023', action:'Open', coverage:'37 states + FCT', source:'INEC declared results', updated:'2023-03-01'},
-      {name:'Ekiti 2026 governorship map data',type:'GeoJSON-ready',fmt:'JSON',icon:'map', href:'/api/election-results/choropleth?office=gov&year=2026&state=Ekiti', action:'Open', coverage:'16 LGAs', source:'INEC declared results', updated:'2026-06-21'},
-      {name:'Result dataset catalog',type:'Tabular',fmt:'JSON',icon:'database', href:'/api/election-results/datasets', action:'Open', coverage:'Available map datasets', source:'Election Dashboard archive', updated:'Live'},
-      {name:'INEC ingest status',type:'Status',fmt:'JSON',icon:'sync', href:'/api/inec-ingest/status', action:'Open', coverage:'Website snapshots', source:'inec-ingest job', updated: this.state.ingestStatus?.lastSuccessAt ? new Date(this.state.ingestStatus.lastSuccessAt).toLocaleString() : 'Not run yet'},
-    ];
+    const catalog = this.state.dataCatalog;
+    const explorer = (typeof window !== 'undefined' && window.EidDataExplorer) ? window.EidDataExplorer : null;
+    const catalogDatasets = (catalog && Array.isArray(catalog.datasets)) ? catalog.datasets : [];
+    const countryScope = (this.state.scope === 'ng' || this.state.scope === 'global') ? this.state.scope : 'ng';
+    const filteredCatalog = explorer
+      ? explorer.filterDatasets(catalogDatasets, {
+          query: this.state.dataQuery,
+          office: this.state.dataOffice,
+          year: this.state.dataYear,
+          category: this.state.dataCategory,
+          country: countryScope === 'global' ? '' : 'ng',
+        })
+      : catalogDatasets;
+    let datasets = explorer ? explorer.toRows(filteredCatalog, catalog?.officeLabels) : [];
+    if (!datasets.length && !catalog && !this.state.dataCatalogLoading) {
+      datasets = [
+        {name:'Population / PVC',type:'Tabular',fmt:'JSON',icon:'bar_chart', href:'/api/population-data', action:'Open', coverage:'Nigeria states + FCT', source:'population-pvc-data.json', updated:popUpdated, hasJson:true, hasCsv:false, jsonHref:'/api/population-data', csvHref:'', notes:'', hasNotes:false},
+        {name:'Polling units GeoJSON',type:'Point',fmt:'GeoJSON',icon:'location_on', href:'/api/polling-units.geojson', action:'Download', coverage:'INEC PU CSV', source:'Nigeria_polling_units.csv', updated:popUpdated, hasJson:true, hasCsv:false, jsonHref:'/api/polling-units.geojson', csvHref:'', notes:'', hasNotes:false},
+        {name:'Result dataset catalog',type:'Tabular',fmt:'JSON',icon:'database', href:'/api/data-catalog', action:'Open', coverage:'Full public catalog', source:'Election Dashboard', updated:'Live', hasJson:true, hasCsv:false, jsonHref:'/api/data-catalog', csvHref:'', notes:'', hasNotes:false},
+      ];
+    }
+    const officeLabels = (catalog && catalog.officeLabels) || { pres:'Presidential', gov:'Gubernatorial', sen:'Senatorial', reps:'House of Representatives' };
+    const catLabels = (explorer && explorer.CATEGORY_LABELS) || {};
+    const dataExplorer = {
+      query: this.state.dataQuery || '',
+      office: this.state.dataOffice || 'all',
+      year: this.state.dataYear || 'all',
+      category: this.state.dataCategory || 'all',
+      loading: !!this.state.dataCatalogLoading,
+      empty: !this.state.dataCatalogLoading && datasets.length === 0,
+      summary: catalog
+        ? `${datasets.length} of ${catalog.count || catalogDatasets.length} public datasets`
+        : (this.state.dataCatalogLoading ? 'Loading catalog…' : 'Catalog unavailable — showing fallback links'),
+      officeOptions: [{ v:'all', l:'All offices' }].concat((catalog?.offices || Object.keys(officeLabels)).map(v=>({ v, l: officeLabels[v] || v }))),
+      yearOptions: [{ v:'all', l:'All years' }].concat((catalog?.years || []).map(v=>({ v, l:String(v) }))),
+      categoryOptions: [{ v:'all', l:'All categories' }].concat((catalog?.categories || Object.keys(catLabels)).map(v=>({ v, l: catLabels[v] || v }))),
+      gated: Array.isArray(catalog?.gated) ? catalog.gated : [],
+      hasGated: !!(catalog?.gated && catalog.gated.length),
+      onQuery: (e)=> this.setState({ dataQuery: e?.target?.value || '' }),
+      onOffice: (e)=> this.setState({ dataOffice: e?.target?.value || 'all' }),
+      onYear: (e)=> this.setState({ dataYear: e?.target?.value || 'all' }),
+      onCategory: (e)=> this.setState({ dataCategory: e?.target?.value || 'all' }),
+    };
 
     const subsAll = this.state.submissions || [];
     const approvedSubs = subsAll.filter(r=>/approved/i.test(String(r.status||'')));
@@ -5606,7 +5747,7 @@ class Component extends DCLogic {
       candGeneric: null,
       partiesGeneric: null,
       ngPartySelectHint: (isNigeria || isGlobal) && !this.state.selParty,
-      mapInfo, mapInfoRows, mapMarkers, hierarchy, electionsRows, electionTypes, candidates, partiesList, analysisMetrics, battlegrounds, datasets, liveFeat, liveStats, liveNews, aboutCards, adminIntegrations, anaData, puSearch,
+      mapInfo, mapInfoRows, mapMarkers, hierarchy, electionsRows, electionTypes, candidates, partiesList, analysisMetrics, battlegrounds, datasets, dataExplorer, liveFeat, liveStats, liveNews, aboutCards, adminIntegrations, anaData, puSearch,
       analysisUI,
       bindAnalysisRoot: (el)=> this.bindAnalysisRoot(el),
       liveMapMode, liveLayerToggles,

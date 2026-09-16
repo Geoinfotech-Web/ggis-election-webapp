@@ -253,26 +253,38 @@
       return;
     }
     clearEmpty(canvas);
+    const hasVoteShare = rows.some((r) => r.voteShare != null);
+    const datasets = [
+      {
+        label: 'Wins',
+        data: rows.map((r) => r.wins),
+        backgroundColor: t.primary,
+        borderRadius: 4,
+        maxBarThickness: 26,
+      },
+    ];
+    if (hasVoteShare) {
+      datasets.push({
+        label: 'Vote share %',
+        data: rows.map((r) => r.voteShare),
+        backgroundColor: t.up,
+        borderRadius: 4,
+        maxBarThickness: 26,
+      });
+    } else if (rows.some((r) => r.winShare != null)) {
+      datasets.push({
+        label: 'Win share %',
+        data: rows.map((r) => r.winShare),
+        backgroundColor: t.up,
+        borderRadius: 4,
+        maxBarThickness: 26,
+      });
+    }
     upsertChart(canvas.id, canvas, {
       type: 'bar',
       data: {
         labels: rows.map((r) => r.region.replace('North ', 'N. ').replace('South ', 'S. ')),
-        datasets: [
-          {
-            label: 'Wins',
-            data: rows.map((r) => r.wins),
-            backgroundColor: t.primary,
-            borderRadius: 4,
-            maxBarThickness: 26,
-          },
-          {
-            label: 'Vote share %',
-            data: rows.map((r) => r.voteShare),
-            backgroundColor: t.up,
-            borderRadius: 4,
-            maxBarThickness: 26,
-          },
-        ],
+        datasets,
       },
       options: baseOptions(t),
     });
@@ -317,7 +329,7 @@
     if (!canvas) return;
     const rows = (points || []).filter((p) => p.swing != null && (p.change != null || p.turnoutPct != null));
     if (!rows.length) {
-      emptyCanvas(canvas, t, 'Turnout vs swing needs state turnout proxies (2023 presidential)');
+      emptyCanvas(canvas, t, 'Turnout vs swing needs unit turnout proxies for this office/year');
       return;
     }
     clearEmpty(canvas);
@@ -549,7 +561,7 @@
           options: baseOptions(t, { percent: true }),
         });
       } else {
-        emptyCanvas(turnoutCanvas, t, 'National turnout series only for presidential cycles');
+        emptyCanvas(turnoutCanvas, t, 'National turnout series not available for this office');
       }
     });
 

@@ -49,6 +49,7 @@ function buildAnalysisBundle(filters = {}) {
     compare: filters.compare || '',
     party: filters.party || 'all',
     region: filters.region || 'all',
+    state: filters.state || 'all',
     momentumWeight: filters.momentumWeight,
     retentionWeight: filters.retentionWeight,
     competitiveCutoff: filters.competitiveCutoff,
@@ -180,6 +181,37 @@ function zoneOf(state) {
 function inRegion(state, region) {
   if (!region || region === 'all') return true;
   return zoneOf(state) === region;
+}
+
+function inState(stateName, stateFilter) {
+  if (!stateFilter || stateFilter === 'all') return true;
+  return canonicalState(stateName) === canonicalState(stateFilter);
+}
+
+/** Rank parties from a filtered race list (used when State ≠ All). */
+function partyStatsFromRaces(races) {
+  const parties = {};
+  let totalVotes = 0;
+  (races || []).forEach((r) => {
+    const winnerParty = r.winnerParty || 'Others';
+    ensureParty(parties, winnerParty).wins += 1;
+    (r.candidates || []).forEach((c) => {
+      const votes = Number(c.votes) || 0;
+      ensureParty(parties, c.party || 'Others').votes += votes;
+      totalVotes += votes;
+    });
+  });
+  const raceCount = (races || []).length;
+  Object.values(parties).forEach((p) => {
+    p.seatShare = pct(p.wins, raceCount || 1);
+    p.voteShare = pct(p.votes, totalVotes);
+  });
+  return { parties, totalVotes, ranked: partyRankList(parties) };
+}
+
+function statesForGovYear(base, year) {
+  return [...new Set((base.gov?.byYear?.[year]?.units || []).map((u) => u.state).filter(Boolean))]
+    .sort((a, b) => a.localeCompare(b));
 }
 
 function loadPresidentialSeries(registeredByState) {
@@ -483,6 +515,46 @@ function clamp01(n) {
   return Math.max(0, Math.min(1, n));
 }
 
+/** Coverage score for an office/year bucket (races, seats, or geographic units). */
+function yearCoverage(series, year) {
+  const bucket = series?.byYear?.[year];
+  if (!bucket) return 0;
+  return bucket.units?.length
+    || bucket.races
+    || bucket.seats
+    || bucket.stateWins
+    || 0;
+}
+
+/**
+ * Prefer the richest archive year (most units/races). Among near-ties (±10% or ±2 units),
+ * prefer the most recent so offices don't stick on an older dense year.
+ */
+function pickDefaultYear(series) {
+  const years = series?.years || [];
+  if (!years.length) return '';
+  const scored = years.map((y) => ({ y, score: yearCoverage(series, y) }));
+  const maxScore = Math.max(...scored.map((s) => s.score), 0);
+  if (maxScore <= 0) return years[years.length - 1];
+  const threshold = Math.max(maxScore - 2, Math.floor(maxScore * 0.9));
+  const contenders = scored.filter((s) => s.score >= threshold);
+  contenders.sort((a, b) => Number(b.y) - Number(a.y));
+  return contenders[0]?.y || years[years.length - 1];
+}
+
+/** Prior cycle with meaningful coverage when possible (not just the previous calendar label). */
+function pickCompareYear(series, year) {
+  const years = series?.years || [];
+  const idx = years.indexOf(year);
+  if (idx <= 0) return '';
+  const currentScore = yearCoverage(series, year);
+  const minUseful = Math.max(3, Math.floor(currentScore * 0.35));
+  for (let i = idx - 1; i >= 0; i -= 1) {
+    if (yearCoverage(series, years[i]) >= minUseful) return years[i];
+  }
+  return years[idx - 1] || '';
+}
+
 function resolveFilters(base, filters) {
   const office = ['pres', 'gov', 'sen', 'reps'].includes(filters.office) ? filters.office : 'pres';
   const series = office === 'pres' ? base.pres
@@ -491,15 +563,35 @@ function resolveFilters(base, filters) {
     : base.reps;
   const years = series.years || [];
   let year = String(filters.year || '');
-  if (!year || !years.includes(year)) year = years[years.length - 1] || '';
+  if (!year || !years.includes(year)) year = pickDefaultYear(series);
   let compare = String(filters.compare || '');
   if (!compare || compare === year || !years.includes(compare)) {
-    const idx = years.indexOf(year);
-    compare = idx > 0 ? years[idx - 1] : (years.length >= 2 ? years[years.length - 2] : '');
+    compare = pickCompareYear(series, year);
   }
   const party = filters.party && filters.party !== 'all' ? String(filters.party) : 'all';
   const region = filters.region && filters.region !== 'all' ? String(filters.region) : 'all';
-  return { office, year, compare, party, region, series };
+  // State filter is governorship-scoped only (presidential is national).
+  let state = 'all';
+  if (office === 'gov') {
+    const raw = filters.state && filters.state !== 'all' ? canonicalState(String(filters.state)) : 'all';
+    if (raw && raw !== 'all') {
+      // Accept any catalogued governorship state so year changes can yield an empty view.
+      const known = (base.states || []).length
+        ? base.states
+        : statesForGovYear(base, year);
+      if (known.some((s) => canonicalState(s) === raw)) state = raw;
+    }
+  }
+  return { office, year, compare, party, region, state, series };
+}
+
+function historyTrendFromSeries(series, metric) {
+  const years = series?.years || [];
+  return MAJOR_PARTIES.map((p) => ({
+    party: p,
+    color: partyColor(p),
+    values: years.map((y) => round1(series.byYear[y]?.parties?.[p]?.[metric] || 0)),
+  }));
 }
 
 function partyRankList(partiesMap) {
@@ -585,11 +677,29 @@ function buildNarrative({ office, year, compare, winner, runner, units, flips, l
       );
     }
   } else if (office === 'gov' && winner) {
-    parts.push(
-      `Across ${year} governorship archives, ${winner.party} won ${winner.wins} of ${winner.totalUnits} races`
-      + (winner.voteShare != null ? ` and about ${winner.voteShare}% of summed candidate votes where totals exist.` : '.')
-    );
-    if (flips != null && compare) parts.push(`${flips} states flipped party between consecutive cycles overlapping ${compare}→${year}.`);
+    if ((units || []).length === 1) {
+      const u = units[0];
+      parts.push(
+        `In the ${year} ${u.state} governorship race, ${u.winnerName || winner.party} (${u.winnerParty || winner.party}) won`
+        + (u.marginPct != null ? ` by ${u.marginPct} pts` : '')
+        + (u.runnerParty ? ` over ${u.runnerParty}` : '')
+        + '.'
+      );
+      if (u.previousWinner && compare) {
+        parts.push(
+          u.flipped
+            ? `The seat flipped from ${u.previousWinner} relative to the prior archive cycle.`
+            : `${u.winnerParty || winner.party} retained the seat versus the prior archive cycle.`
+        );
+      }
+      if (u.turnoutPct != null) parts.push(`Turnout proxy ≈ ${u.turnoutPct}% (candidate votes ÷ PVC register).`);
+    } else {
+      parts.push(
+        `Across ${year} governorship archives, ${winner.party} won ${winner.wins} of ${winner.totalUnits} races`
+        + (winner.voteShare != null ? ` and about ${winner.voteShare}% of summed candidate votes where totals exist.` : '.')
+      );
+      if (flips != null && compare) parts.push(`${flips} states flipped party between consecutive cycles overlapping ${compare}→${year}.`);
+    }
   } else if ((office === 'sen' || office === 'reps') && winner) {
     const label = office === 'sen' ? 'Senate' : 'House';
     parts.push(
@@ -888,7 +998,7 @@ function matchSeatFlips(curUnits, prevUnits) {
 
 function assemblePayload(base, filters) {
   const resolved = resolveFilters(base, filters);
-  const { office, year, compare, party, region, series } = resolved;
+  const { office, year, compare, party, region, state, series } = resolved;
   const assumptions = {
     momentumWeight: clamp01(Number(filters.momentumWeight ?? 0.65)),
     retentionWeight: clamp01(Number(filters.retentionWeight ?? 0.25)),
@@ -901,6 +1011,11 @@ function assemblePayload(base, filters) {
   else section = buildSeatSections(base, resolved);
 
   const prediction = buildPrediction(base, assumptions);
+  // Dropdown lists states with data for the selected year; keep full catalog when year is empty.
+  const yearStates = office === 'gov' ? statesForGovYear(base, year) : [];
+  const govStates = office === 'gov'
+    ? (yearStates.length ? yearStates : base.states)
+    : base.states;
 
   return {
     ok: true,
@@ -912,9 +1027,10 @@ function assemblePayload(base, filters) {
       { id: 'sen', label: 'Senate', years: base.sen.years },
       { id: 'reps', label: 'House of Reps', years: base.reps.years },
     ],
-    states: base.states,
+    states: govStates.length ? govStates : base.states,
+    allStates: office === 'gov' ? (base.states || []) : undefined,
     regions: Object.keys(GEO_ZONES),
-    filters: { office, year, compare, party, region },
+    filters: { office, year, compare, party, region, state },
     availability: section.availability,
     summary: section.summary,
     drivers: section.drivers,
@@ -1159,16 +1275,8 @@ function buildPresSections(base, { year, compare, party, region }) {
   const historyYears = base.pres.years;
   const history = {
     years: historyYears,
-    voteShareTrend: MAJOR_PARTIES.map((p) => ({
-      party: p,
-      color: partyColor(p),
-      values: historyYears.map((y) => round1(base.pres.byYear[y]?.parties?.[p]?.voteShare || 0)),
-    })),
-    seatShareTrend: MAJOR_PARTIES.map((p) => ({
-      party: p,
-      color: partyColor(p),
-      values: historyYears.map((y) => round1(base.pres.byYear[y]?.parties?.[p]?.seatShare || 0)),
-    })),
+    voteShareTrend: historyTrendFromSeries(base.pres, 'voteShare'),
+    seatShareTrend: historyTrendFromSeries(base.pres, 'seatShare'),
     turnoutTrend: historyYears.map((y) => ({
       year: y,
       turnoutPct: base.pres.byYear[y]?.nationalTurnout?.turnoutPct ?? null,
@@ -1204,25 +1312,117 @@ function buildPresSections(base, { year, compare, party, region }) {
   };
 }
 
-function buildGovSections(base, { year, compare, party, region }) {
+function buildGovSections(base, { year, compare, party, region, state }) {
   const cur = base.gov.byYear[year];
-  let races = (cur?.units || []).filter((r) => inRegion(r.state, region));
-  const ranked = partyRankList(cur?.parties);
+  const stateFilter = state && state !== 'all' ? state : 'all';
+  let races = (cur?.units || []).filter((r) => inRegion(r.state, region) && inState(r.state, stateFilter));
+
+  // When scoped to one/few races, recompute party stats from the filtered set.
+  const filteredStats = (stateFilter !== 'all' || (region && region !== 'all'))
+    ? partyStatsFromRaces(races)
+    : null;
+  const ranked = filteredStats
+    ? filteredStats.ranked
+    : partyRankList(cur?.parties);
   const winnerRow = ranked[0] || null;
   const focusParty = party !== 'all' ? party : (winnerRow?.party || 'APC');
+  const registeredByState = base.registeredByState || {};
+  const scopedTotalVotes = filteredStats
+    ? filteredStats.totalVotes
+    : (cur?.totalVotes || 0);
 
-  const pairFlips = base.gov.retentionPairs.filter((p) => {
-    if (String(p.toYear) !== String(year)) return false;
-    if (compare && String(p.fromYear) !== String(compare)) {
-      // allow nearest prior when compare is a cycle label
-      return !compare || Number(p.fromYear) <= Number(compare);
-    }
-    return true;
-  });
-  const relevantPairs = base.gov.retentionPairs.filter((p) => String(p.toYear) === String(year));
-  const flips = relevantPairs.filter((p) => !p.retained && inRegion(p.state, region)).length;
-  const retained = relevantPairs.filter((p) => p.retained && inRegion(p.state, region)).length;
-  const sample = relevantPairs.filter((p) => inRegion(p.state, region)).length;
+  const relevantPairs = base.gov.retentionPairs
+    .filter((p) => String(p.toYear) === String(year))
+    .filter((p) => inRegion(p.state, region) && inState(p.state, stateFilter));
+  const flips = relevantPairs.filter((p) => !p.retained).length;
+  const retained = relevantPairs.filter((p) => p.retained).length;
+  const sample = relevantPairs.length;
+
+  if (!races.length) {
+    const emptyNote = stateFilter !== 'all'
+      ? `No governorship archive for ${stateFilter} in ${year}. Choose All states or another year.`
+      : (region && region !== 'all'
+        ? `No governorship races in ${region} for ${year}.`
+        : `No governorship races archived for ${year}.`);
+    const emptyKpis = [
+      { icon: 'emoji_events', label: 'Leading party', value: '—', unit: '', color: 'var(--mute)' },
+      { icon: 'map', label: 'Races in view', value: '0', unit: year, color: 'var(--mute)' },
+      { icon: 'pie_chart', label: 'Vote share (summed)', value: '—', unit: '', color: 'var(--mute)' },
+      { icon: 'how_to_vote', label: 'Turnout (proxy)', value: '—', unit: 'not in archive', color: 'var(--mute)' },
+      { icon: 'sync_alt', label: 'Party flips', value: '—', unit: '', color: 'var(--mute)' },
+      { icon: 'replay', label: 'Retention rate', value: '—', unit: '', color: 'var(--mute)' },
+    ];
+    return {
+      availability: {
+        voteShare: false,
+        turnoutNational: false,
+        turnoutByState: false,
+        rejectedBallots: false,
+        demographics: false,
+        map: false,
+        legislativeVotes: false,
+      },
+      summary: { kpis: emptyKpis, narrative: emptyNote, winner: null, runner: null, year, compare },
+      drivers: [{ text: emptyNote, value: null, kind: 'note', icon: 'info', title: 'No races' }],
+      performance: {
+        voteShare: [],
+        seatVsVote: [],
+        strongest: [],
+        weakest: [],
+        incumbent: { available: false, rate: null, sample: 0, note: emptyNote },
+        focusParty,
+      },
+      geographic: {
+        mode: 'state',
+        mapHint: emptyNote,
+        focusParty,
+        regions: [],
+        units: [],
+        strongholds: [],
+        competitive: [],
+        gained: [],
+        lost: [],
+        selected: stateFilter !== 'all' ? stateFilter : null,
+      },
+      turnout: {
+        current: null,
+        previous: null,
+        change: null,
+        registered: null,
+        note: emptyNote,
+        byUnit: [],
+        fields: { registered: false, valid: false, rejected: false, abstentions: false },
+      },
+      competitiveness: {
+        available: false,
+        counts: { under1: 0, under5: 0, under10: 0, safe20: 0, total: 0 },
+        averageMargin: null,
+        enp: null,
+        wastedVotes: null,
+        distribution: [],
+        closest: [],
+        note: emptyNote,
+      },
+      history: {
+        years: base.gov.years,
+        voteShareTrend: historyTrendFromSeries(base.gov, 'voteShare'),
+        seatShareTrend: historyTrendFromSeries(base.gov, 'seatShare'),
+        turnoutTrend: base.gov.years.map((y) => ({ year: y, turnoutPct: null })),
+        compareSideBySide: {
+          current: { year, parties: [] },
+          previous: { year: compare, parties: [] },
+        },
+        realignmentNote: emptyNote,
+      },
+      demographics: emptyDemographics(),
+      anomalies: [{
+        kind: 'coverage',
+        unit: stateFilter !== 'all' ? stateFilter : year,
+        why: emptyNote,
+        detail: 'Adjust State or Year filters to see governorship analysis.',
+      }],
+    };
+  }
 
   const units = races.map((r) => {
     const prevKey = relevantPairs.find((p) => p.state === r.state);
@@ -1237,6 +1437,32 @@ function buildGovSections(base, { year, compare, party, region }) {
       );
       swingWinnerPts = round2(nowShare - thenShare);
     }
+    const registered = registeredByState[r.state] || 0;
+    const prevRegistered = registered;
+    const turnoutPct = (registered && r.totalVotes)
+      ? round1(pct(r.totalVotes, registered))
+      : null;
+    const previousTurnout = (prevRace && prevRegistered && prevRace.totalVotes)
+      ? round1(pct(prevRace.totalVotes, prevRegistered))
+      : null;
+    const swings = {};
+    const focusParties = new Set([
+      ...Object.keys(
+        Object.fromEntries((r.candidates || []).map((c) => [c.party, c.votes]))
+      ),
+      ...Object.keys(
+        Object.fromEntries((prevRace?.candidates || []).map((c) => [c.party, c.votes]))
+      ),
+    ]);
+    focusParties.forEach((p) => {
+      const now = r.totalVotes
+        ? pct((r.candidates || []).find((c) => c.party === p)?.votes || 0, r.totalVotes)
+        : 0;
+      const then = prevRace?.totalVotes
+        ? pct((prevRace.candidates || []).find((c) => c.party === p)?.votes || 0, prevRace.totalVotes)
+        : 0;
+      swings[p] = round2(now - then);
+    });
     return {
       state: r.state,
       region: r.region,
@@ -1250,7 +1476,12 @@ function buildGovSections(base, { year, compare, party, region }) {
       previousWinner: prevKey?.fromParty || null,
       flipped,
       swingWinnerPts,
-      turnoutPct: null,
+      swings,
+      turnoutPct,
+      previousTurnout,
+      turnoutChange: (turnoutPct != null && previousTurnout != null)
+        ? round1(turnoutPct - previousTurnout)
+        : null,
       votes: Object.fromEntries((r.candidates || []).map((c) => [c.party, c.votes])),
       partyShares: Object.fromEntries(
         (r.candidates || []).map((c) => [c.party, round2(pct(c.votes, r.totalVotes || 1))])
@@ -1262,22 +1493,41 @@ function buildGovSections(base, { year, compare, party, region }) {
   const zoneSwing = zoneBreakdown(units, focusParty);
   const winner = winnerRow ? {
     party: winnerRow.party,
-    name: null,
-    voteShare: cur?.totalVotes ? round1(winnerRow.voteShare) : null,
+    name: units.length === 1 ? (units[0].winnerName || null) : null,
+    voteShare: scopedTotalVotes ? round1(winnerRow.voteShare) : null,
     wins: races.filter((r) => r.winnerParty === winnerRow.party).length,
     totalUnits: races.length,
-    marginPts: null,
+    marginPts: units.length === 1 ? units[0].marginPct : null,
     seatShare: round1(winnerRow.seatShare),
   } : null;
 
+  const turnoutUnits = units
+    .filter((u) => u.turnoutPct != null)
+    .map((u) => ({
+      state: u.state,
+      region: u.region,
+      turnoutPct: u.turnoutPct,
+      previous: u.previousTurnout,
+      change: u.turnoutChange,
+      focusShare: u.partyShares?.[focusParty] ?? null,
+      swing: u.swings?.[focusParty] ?? u.swingWinnerPts ?? null,
+    }))
+    .sort((a, b) => (b.turnoutPct || 0) - (a.turnoutPct || 0));
+  const turnoutAvg = turnoutUnits.length
+    ? round1(turnoutUnits.reduce((a, u) => a + u.turnoutPct, 0) / turnoutUnits.length)
+    : null;
   const turnout = {
-    current: null,
+    current: turnoutAvg,
     previous: null,
     change: null,
     registered: null,
-    note: 'Governorship archives in this repo do not include registered / rejected / abstention fields.',
-    byUnit: [],
-    fields: { registered: false, valid: true, rejected: false, abstentions: false },
+    note: turnoutUnits.length
+      ? (stateFilter !== 'all'
+        ? `Turnout proxy for ${stateFilter} = summed candidate votes ÷ PVC register (approximate).`
+        : 'State turnout proxies = summed candidate votes ÷ PVC register (same register vintage for all years — approximate).')
+      : 'Governorship archives lack registered / rejected / abstention fields; no vote totals to build proxies.',
+    byUnit: turnoutUnits,
+    fields: { registered: turnoutUnits.length > 0, valid: true, rejected: false, abstentions: false },
   };
 
   const retention = {
@@ -1285,23 +1535,31 @@ function buildGovSections(base, { year, compare, party, region }) {
     sample,
     retained,
     note: sample
-      ? `${retained} of ${sample} states kept the same party into ${year} (consecutive archive pairs).`
-      : 'No consecutive governorship pairs for this year filter.',
+      ? (stateFilter !== 'all'
+        ? `${retained ? 'Retained' : 'Flipped'} party into ${year} for ${stateFilter} (vs prior archive cycle).`
+        : `${retained} of ${sample} states kept the same party into ${year} (consecutive archive pairs).`)
+      : (stateFilter !== 'all'
+        ? `No prior governorship archive pair for ${stateFilter} ending in ${year}.`
+        : 'No consecutive governorship pairs for this year filter.'),
   };
 
   const kpis = [
     {
       icon: 'emoji_events',
-      label: 'Leading party',
+      label: units.length === 1 ? 'Winner' : 'Leading party',
       value: winner ? winner.party : '—',
-      unit: winner ? `${winner.wins} wins` : '',
+      unit: winner
+        ? (units.length === 1
+          ? (units[0].winnerName || `${winner.wins} win`)
+          : `${winner.wins} wins`)
+        : '',
       color: winner ? partyColor(winner.party) : 'var(--mute)',
     },
     {
       icon: 'map',
       label: 'Races in view',
       value: String(races.length || '—'),
-      unit: year,
+      unit: stateFilter !== 'all' ? stateFilter : year,
       color: 'var(--primary)',
     },
     {
@@ -1314,10 +1572,11 @@ function buildGovSections(base, { year, compare, party, region }) {
     },
     {
       icon: 'how_to_vote',
-      label: 'Turnout',
-      value: '—',
-      unit: 'not in archive',
-      color: 'var(--mute)',
+      label: 'Turnout (proxy)',
+      value: turnout.current != null ? String(turnout.current) : '—',
+      unit: turnout.current != null ? (units.length === 1 ? '%' : '% avg') : 'not in archive',
+      color: turnout.current != null ? 'var(--up)' : 'var(--mute)',
+      caption: turnoutUnits.length ? `${turnoutUnits.length} states with vote totals` : '',
     },
     {
       icon: 'sync_alt',
@@ -1342,20 +1601,36 @@ function buildGovSections(base, { year, compare, party, region }) {
     office: 'gov', year, compare, winner, units, zoneSwing, turnout, flips, retention,
   });
 
+  const prevRaces = (base.gov.byYear[compare]?.units || [])
+    .filter((r) => inRegion(r.state, region) && inState(r.state, stateFilter));
+  const prevStats = filteredStats
+    ? partyStatsFromRaces(prevRaces)
+    : null;
+  const prevParties = prevStats
+    ? prevStats.ranked
+    : partyRankList(base.gov.byYear[compare]?.parties);
+  const prevTotalVotes = prevStats
+    ? prevStats.totalVotes
+    : (base.gov.byYear[compare]?.totalVotes || 0);
   const margins = units.filter((u) => u.marginPct != null).map((u) => u.marginPct);
   const performance = {
-    voteShare: ranked.map((p) => ({
-      party: p.party,
-      color: p.color,
-      currentShare: round1(p.voteShare),
-      previousShare: null,
-      deltaShare: null,
-      currentVotes: p.votes,
-      previousVotes: null,
-      deltaVotes: null,
-      seatShare: round1(p.seatShare),
-      wins: p.wins,
-    })),
+    voteShare: ranked.map((p) => {
+      const was = prevParties.find((x) => x.party === p.party);
+      return {
+        party: p.party,
+        color: p.color,
+        currentShare: scopedTotalVotes ? round1(p.voteShare) : null,
+        previousShare: was && prevTotalVotes ? round1(was.voteShare) : null,
+        deltaShare: (was && scopedTotalVotes && prevTotalVotes)
+          ? round1(p.voteShare - was.voteShare)
+          : null,
+        currentVotes: p.votes,
+        previousVotes: was?.votes ?? null,
+        deltaVotes: was ? p.votes - was.votes : null,
+        seatShare: round1(p.seatShare),
+        wins: p.wins,
+      };
+    }),
     seatVsVote: ranked.filter((p) => p.votes > 0).map((p) => ({
       party: p.party,
       color: p.color,
@@ -1375,11 +1650,49 @@ function buildGovSections(base, { year, compare, party, region }) {
     focusParty,
   };
 
+  const turnoutTrend = base.gov.years.map((y) => {
+    const bucket = base.gov.byYear[y];
+    const rows = (bucket?.units || [])
+      .filter((r) => inRegion(r.state, region) && inState(r.state, stateFilter))
+      .map((r) => {
+        const registered = registeredByState[r.state] || 0;
+        return (registered && r.totalVotes) ? pct(r.totalVotes, registered) : null;
+      })
+      .filter((v) => v != null);
+    return {
+      year: y,
+      turnoutPct: rows.length ? round1(rows.reduce((a, v) => a + v, 0) / rows.length) : null,
+    };
+  });
+
+  let voteShareTrend = historyTrendFromSeries(base.gov, 'voteShare');
+  let seatShareTrend = historyTrendFromSeries(base.gov, 'seatShare');
+  if (stateFilter !== 'all') {
+    voteShareTrend = MAJOR_PARTIES.map((p) => ({
+      party: p,
+      color: partyColor(p),
+      values: base.gov.years.map((y) => {
+        const race = base.gov.byStateYear[`${stateFilter}|${y}`];
+        if (!race?.totalVotes) return 0;
+        const cand = (race.candidates || []).find((c) => c.party === p);
+        return round1(pct(cand?.votes || 0, race.totalVotes));
+      }),
+    }));
+    seatShareTrend = MAJOR_PARTIES.map((p) => ({
+      party: p,
+      color: partyColor(p),
+      values: base.gov.years.map((y) => {
+        const race = base.gov.byStateYear[`${stateFilter}|${y}`];
+        return race && race.winnerParty === p ? 100 : (race ? 0 : 0);
+      }),
+    }));
+  }
+
   return {
     availability: {
-      voteShare: !!cur?.totalVotes,
+      voteShare: !!scopedTotalVotes,
       turnoutNational: false,
-      turnoutByState: false,
+      turnoutByState: turnoutUnits.length > 0,
       rejectedBallots: false,
       demographics: false,
       map: false,
@@ -1390,7 +1703,9 @@ function buildGovSections(base, { year, compare, party, region }) {
     performance,
     geographic: {
       mode: 'state',
-      mapHint: 'Governorship swing by state; LGA detail remains on Live Results maps.',
+      mapHint: stateFilter !== 'all'
+        ? `${stateFilter} governorship focus; LGA detail remains on Live Results maps.`
+        : 'Governorship swing by state; LGA detail remains on Live Results maps.',
       focusParty,
       regions: zoneSwing,
       units,
@@ -1398,7 +1713,7 @@ function buildGovSections(base, { year, compare, party, region }) {
       competitive: units.filter((u) => u.marginPct != null && u.marginPct < 10).sort((a, b) => a.marginPct - b.marginPct),
       gained: units.filter((u) => u.flipped && u.winnerParty === focusParty),
       lost: units.filter((u) => u.flipped && u.previousWinner === focusParty),
-      selected: null,
+      selected: stateFilter !== 'all' ? stateFilter : null,
     },
     turnout,
     competitiveness: {
@@ -1425,18 +1740,14 @@ function buildGovSections(base, { year, compare, party, region }) {
     },
     history: {
       years: base.gov.years,
-      voteShareTrend: [],
-      seatShareTrend: MAJOR_PARTIES.map((p) => ({
-        party: p,
-        color: partyColor(p),
-        values: base.gov.years.map((y) => round1(base.gov.byYear[y]?.parties?.[p]?.seatShare || 0)),
-      })),
-      turnoutTrend: [],
+      voteShareTrend,
+      seatShareTrend,
+      turnoutTrend,
       compareSideBySide: {
         current: { year, parties: ranked.slice(0, 6) },
         previous: {
           year: compare,
-          parties: partyRankList(base.gov.byYear[compare]?.parties).slice(0, 6),
+          parties: prevParties.slice(0, 6),
         },
       },
       realignmentNote: retention.note,
@@ -1608,12 +1919,11 @@ function buildSeatSections(base, { office, year, compare, party, region }) {
     },
     history: {
       years: series.years,
-      voteShareTrend: [],
-      seatShareTrend: MAJOR_PARTIES.map((p) => ({
-        party: p,
-        color: partyColor(p),
-        values: series.years.map((y) => round1(series.byYear[y]?.parties?.[p]?.seatShare || 0)),
-      })),
+      // Legislative archives are mostly winner-only — vote-share trend stays empty unless totals exist.
+      voteShareTrend: series.hasVoteTotals
+        ? historyTrendFromSeries(series, 'voteShare')
+        : [],
+      seatShareTrend: historyTrendFromSeries(series, 'seatShare'),
       turnoutTrend: [],
       compareSideBySide: {
         current: { year, parties: ranked.slice(0, 6) },

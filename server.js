@@ -22,6 +22,12 @@ const { buildPollingUnitDashboardData, normalizeLookupKey } = require('./polling
 const { runIngest, loadLatestSnapshot, getIngestStatus, hydrateIngestStatus } = require('./inec-ingest');
 const { computeNigeriaKpis } = require('./nigeria-kpis');
 const { loadChoropleth, listAvailableDatasets, listAvailableGovStates, listGovCatalog, PARTY_COLORS } = require('./election-results-data');
+const {
+  buildDataCatalog,
+  publicCatalogForClient,
+  findCatalogEntry,
+  buildDownload,
+} = require('./src/data-catalog');
 const { buildAnalysisBundle } = require('./election-analysis');
 const {
   ensurePollingUnitsSeeded,
@@ -1786,11 +1792,80 @@ app.get('/api/election-results/choropleth', async (req, res) => {
 app.get('/api/election-results/datasets', (_req, res) => {
   res.setHeader('Cache-Control', 'public, max-age=3600');
   return res.json({
-    dir: process.env.ELECTION_RESULTS_DIR || path.join(__dirname, 'data', 'election-results'),
     sourceUrl: process.env.ELECTION_RESULTS_SOURCE_URL || 'https://www.inecnigeria.org/',
     irevUrl: process.env.INEC_IREV_URL || 'https://cvr.inecnigeria.org/',
-    datasets: listAvailableDatasets(),
+    datasets: listAvailableDatasets().map((row) => ({
+      office: row.office,
+      year: row.year,
+      state: row.state || null,
+      level: row.level,
+      file: row.file,
+    })),
+    catalogUrl: '/api/data-catalog',
   });
+});
+
+/** Public data explorer catalog — publishable datasets with download URLs. */
+app.get('/api/data-catalog', (_req, res) => {
+  try {
+    const catalog = publicCatalogForClient(buildDataCatalog());
+    res.setHeader('Cache-Control', 'public, max-age=120');
+    return res.json(catalog);
+  } catch (error) {
+    console.error('Error building data catalog:', error.message || error);
+    return res.status(500).json({ ok: false, error: 'Unable to build data catalog.' });
+  }
+});
+
+app.get('/api/data-catalog/download', async (req, res) => {
+  try {
+    const id = String(req.query.id || '').trim();
+    const format = String(req.query.format || 'json').trim().toLowerCase();
+    if (!id) return res.status(400).json({ error: 'Dataset id is required.' });
+    const entry = findCatalogEntry(id);
+    if (!entry || entry.public === false) {
+      return res.status(404).json({ error: 'Dataset not found or not public.' });
+    }
+    const fetchJson = async (href) => {
+      const url = new URL(href, `${req.protocol}://${req.get('host')}`);
+      // Prefer in-process handlers for known public APIs to avoid self-HTTP in Docker.
+      if (url.pathname === '/api/population-data') {
+        const localData = JSON.parse(await fs.readFile(LOCAL_POPULATION_DATA_PATH, 'utf8'));
+        return preparePublicPopulationData(localData);
+      }
+      if (url.pathname === '/api/party-colors') return PARTY_COLORS;
+      if (url.pathname === '/api/live-submissions') {
+        const status = url.searchParams.get('status') || 'approved';
+        const submissions = listLiveSubmissions({ status });
+        return { ok: true, submissions, count: submissions.length };
+      }
+      const upstream = await fetch(url.toString(), {
+        headers: { Accept: 'application/json' },
+        signal: AbortSignal.timeout(20000),
+      });
+      if (!upstream.ok) {
+        const err = new Error(`Upstream ${url.pathname} returned ${upstream.status}`);
+        err.status = 502;
+        throw err;
+      }
+      return upstream.json();
+    };
+    const result = await buildDownload(entry, format, fetchJson);
+    if (result.redirect) return res.redirect(302, result.redirect);
+    if (result.filePath) {
+      res.setHeader('Content-Type', result.contentType || 'application/octet-stream');
+      res.setHeader('Content-Disposition', `attachment; filename="${result.fileName || 'download.bin'}"`);
+      return res.sendFile(result.filePath);
+    }
+    res.setHeader('Content-Type', result.contentType || 'application/octet-stream');
+    res.setHeader('Content-Disposition', `attachment; filename="${result.fileName || 'download.bin'}"`);
+    res.setHeader('Cache-Control', 'private, max-age=60');
+    return res.send(result.body);
+  } catch (error) {
+    const status = Number(error.status) || 500;
+    console.error('Error downloading catalog dataset:', error.message || error);
+    return res.status(status).json({ error: error.message || 'Download failed.' });
+  }
 });
 
 app.get('/api/election-results/analysis', (req, res) => {
@@ -1802,6 +1877,7 @@ app.get('/api/election-results/analysis', (req, res) => {
       compare: req.query.compare != null ? String(req.query.compare) : '',
       party: req.query.party != null ? String(req.query.party) : 'all',
       region: req.query.region != null ? String(req.query.region) : 'all',
+      state: req.query.state != null ? String(req.query.state) : 'all',
       momentumWeight: req.query.momentum != null ? Number(req.query.momentum) : undefined,
       retentionWeight: req.query.retention != null ? Number(req.query.retention) : undefined,
       competitiveCutoff: req.query.cutoff != null ? Number(req.query.cutoff) : undefined,
