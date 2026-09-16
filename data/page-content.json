@@ -1,0 +1,3035 @@
+{
+  "version": 1,
+  "countries": {
+    "global": {
+      "draft": {
+        "version": 1,
+        "country": "global",
+        "updatedAt": "2026-09-16T13:44:05.348Z",
+        "publishedAt": "2026-09-16T13:44:05.348Z",
+        "nav": [
+          {
+            "id": "Overview",
+            "label": "Overview",
+            "visible": true,
+            "order": 0,
+            "live": false
+          },
+          {
+            "id": "Map",
+            "label": "Polling units",
+            "visible": false,
+            "order": 1,
+            "live": false
+          },
+          {
+            "id": "Live Results",
+            "label": "Live Results",
+            "visible": true,
+            "order": 2,
+            "live": true
+          },
+          {
+            "id": "Candidates",
+            "label": "Candidates",
+            "visible": true,
+            "order": 3,
+            "live": false
+          },
+          {
+            "id": "Parties",
+            "label": "Parties",
+            "visible": true,
+            "order": 4,
+            "live": false
+          },
+          {
+            "id": "Analysis",
+            "label": "Analysis",
+            "visible": true,
+            "order": 5,
+            "live": false
+          },
+          {
+            "id": "Data",
+            "label": "Data",
+            "visible": true,
+            "order": 6,
+            "live": false
+          },
+          {
+            "id": "About",
+            "label": "About",
+            "visible": true,
+            "order": 7,
+            "live": false
+          }
+        ],
+        "subTabs": {
+          "Analysis": [
+            {
+              "id": "overview",
+              "label": "Overview",
+              "icon": "insights",
+              "visible": true,
+              "order": 0
+            },
+            {
+              "id": "geography",
+              "label": "Geography",
+              "icon": "map",
+              "visible": true,
+              "order": 1
+            },
+            {
+              "id": "turnout",
+              "label": "Turnout",
+              "icon": "how_to_vote",
+              "visible": true,
+              "order": 2
+            },
+            {
+              "id": "trends",
+              "label": "Trends",
+              "icon": "timeline",
+              "visible": true,
+              "order": 3
+            },
+            {
+              "id": "demographics",
+              "label": "Demographics",
+              "icon": "groups",
+              "visible": true,
+              "order": 4
+            },
+            {
+              "id": "quality",
+              "label": "Data Quality",
+              "icon": "fact_check",
+              "visible": true,
+              "order": 5
+            }
+          ]
+        },
+        "editorial": {
+          "headline": "",
+          "subhead": "",
+          "notes": "",
+          "comingSoonMessage": "",
+          "kpiCards": []
+        },
+        "widgets": [
+          {
+            "id": "ana-history",
+            "section": "Analysis",
+            "subTab": "trends",
+            "type": "chart",
+            "visible": true,
+            "order": 0,
+            "title": "Vote-share trend",
+            "config": {
+              "chartType": "line",
+              "canvasId": "anaChartHistory",
+              "dataKey": "history.voteShareTrend",
+              "source": "analysis",
+              "meta": "major parties"
+            }
+          },
+          {
+            "id": "ana-regions",
+            "section": "Analysis",
+            "subTab": "geography",
+            "type": "chart",
+            "visible": true,
+            "order": 0,
+            "title": "Regional performance",
+            "config": {
+              "chartType": "bar",
+              "canvasId": "anaChartRegions",
+              "dataKey": "geographic.regions",
+              "source": "analysis",
+              "meta": "wins / share"
+            }
+          },
+          {
+            "id": "ana-turnout-trend",
+            "section": "Analysis",
+            "subTab": "turnout",
+            "type": "chart",
+            "visible": true,
+            "order": 0,
+            "title": "Turnout by cycle",
+            "config": {
+              "chartType": "line",
+              "canvasId": "anaChartTurnoutTrend",
+              "dataKey": "history.turnoutTrend",
+              "source": "analysis",
+              "meta": "national"
+            }
+          },
+          {
+            "id": "ana-vote-share",
+            "section": "Analysis",
+            "subTab": "overview",
+            "type": "chart",
+            "visible": true,
+            "order": 0,
+            "title": "Vote share",
+            "config": {
+              "chartType": "bar",
+              "canvasId": "anaChartPerfShare",
+              "dataKey": "performance.voteShare",
+              "source": "analysis",
+              "meta": "current vs previous"
+            }
+          },
+          {
+            "id": "ana-seat-history",
+            "section": "Analysis",
+            "subTab": "trends",
+            "type": "chart",
+            "visible": true,
+            "order": 1,
+            "title": "Seat / win-share trend",
+            "config": {
+              "chartType": "line",
+              "canvasId": "anaChartSeatHistory",
+              "dataKey": "history.seatShareTrend",
+              "source": "analysis",
+              "meta": "across cycles"
+            }
+          },
+          {
+            "id": "ana-seat-vote",
+            "section": "Analysis",
+            "subTab": "overview",
+            "type": "chart",
+            "visible": true,
+            "order": 1,
+            "title": "Seat distribution",
+            "config": {
+              "chartType": "scatter",
+              "canvasId": "anaChartSeatVote",
+              "dataKey": "performance.seatVsVote",
+              "source": "analysis",
+              "meta": "seat share vs vote share"
+            }
+          },
+          {
+            "id": "ana-swing",
+            "section": "Analysis",
+            "subTab": "geography",
+            "type": "chart",
+            "visible": true,
+            "order": 1,
+            "title": "Unit swing",
+            "config": {
+              "chartType": "bar",
+              "canvasId": "anaChartSwing",
+              "dataKey": "geographic.units",
+              "source": "analysis",
+              "meta": "focus party"
+            }
+          },
+          {
+            "id": "ana-turnout-swing",
+            "section": "Analysis",
+            "subTab": "turnout",
+            "type": "chart",
+            "visible": true,
+            "order": 1,
+            "title": "Turnout vs party swing",
+            "config": {
+              "chartType": "scatter",
+              "canvasId": "anaChartTurnoutSwing",
+              "dataKey": "turnout.byUnit",
+              "source": "analysis",
+              "meta": "state proxy"
+            }
+          },
+          {
+            "id": "ana-margins",
+            "section": "Analysis",
+            "subTab": "geography",
+            "type": "chart",
+            "visible": true,
+            "order": 2,
+            "title": "Margin distribution",
+            "config": {
+              "chartType": "bar",
+              "canvasId": "anaChartMargins",
+              "dataKey": "competitiveness.distribution",
+              "source": "analysis",
+              "meta": "histogram"
+            }
+          },
+          {
+            "id": "ana-outlook",
+            "section": "Analysis",
+            "subTab": "trends",
+            "type": "chart",
+            "visible": true,
+            "order": 2,
+            "title": "Outlook momentum",
+            "config": {
+              "chartType": "bar",
+              "canvasId": "anaChartOutlook",
+              "dataKey": "prediction.partyMomentum",
+              "source": "analysis",
+              "meta": "heuristic"
+            }
+          },
+          {
+            "id": "ana-turnout-by-unit",
+            "section": "Analysis",
+            "subTab": "turnout",
+            "type": "chart",
+            "visible": true,
+            "order": 2,
+            "title": "Turnout by region / unit",
+            "config": {
+              "chartType": "horizontalBar",
+              "canvasId": "anaChartTurnoutByUnit",
+              "dataKey": "turnout.byUnit",
+              "source": "analysis",
+              "meta": "high → low"
+            }
+          },
+          {
+            "id": "ana-geo-table",
+            "section": "Analysis",
+            "subTab": "geography",
+            "type": "table",
+            "visible": true,
+            "order": 3,
+            "title": "Constituency / unit results",
+            "config": {
+              "dataKey": "geographic.units",
+              "source": "analysis",
+              "columns": [
+                "unit",
+                "winner",
+                "share",
+                "margin"
+              ],
+              "meta": ""
+            }
+          }
+        ],
+        "dataSources": [
+          {
+            "id": "analysis",
+            "label": "Election analysis bundle",
+            "endpoint": "/api/election-results/analysis",
+            "enabled": true,
+            "notes": "Drives Analysis charts and tables."
+          },
+          {
+            "id": "dashboards-overview",
+            "label": "Overview dashboard layout",
+            "endpoint": "/api/dashboards/overview",
+            "enabled": true,
+            "notes": "Published KPI/widget grid from Dashboards admin."
+          },
+          {
+            "id": "dashboards-live",
+            "label": "Live dashboard layout",
+            "endpoint": "/api/dashboards/live",
+            "enabled": true,
+            "notes": "Published KPI/widget grid for Live Results."
+          },
+          {
+            "id": "map-views",
+            "label": "Map Studio views",
+            "endpoint": "/api/maps/views",
+            "enabled": true,
+            "notes": "Basemap / layers / extent for Overview, Polling, Live."
+          },
+          {
+            "id": "nigeria-kpis",
+            "label": "Nigeria KPIs",
+            "endpoint": "/api/nigeria-kpis",
+            "enabled": false,
+            "notes": "Scoped KPI row for state / LGA / ward / PU."
+          },
+          {
+            "id": "candidates-presidential",
+            "label": "Presidential candidates",
+            "endpoint": "/data/presidential-candidates.json",
+            "enabled": true,
+            "notes": "Static catalog; editable via Content hub."
+          }
+        ],
+        "capabilities": {
+          "liveData": true,
+          "maps": false,
+          "analysis": true,
+          "candidates": true,
+          "parties": true,
+          "liveResults": true,
+          "dataExplorer": true,
+          "comingSoon": false
+        },
+        "links": {
+          "dashboardOverview": true,
+          "dashboardLive": true,
+          "mapStudio": false
+        },
+        "codeLocked": [
+          {
+            "surface": "Analysis Chart.js renderers",
+            "note": "Chart algorithms and canvas wiring stay in eid-analysis.js. Titles, visibility, and order are editable here."
+          },
+          {
+            "surface": "Map geometry & GRID3 layers",
+            "note": "Basemap/layers use Map Studio. Boundary polygons and PU coordinates remain code/data-pipeline locked."
+          },
+          {
+            "surface": "Live submission moderation UI",
+            "note": "In-app Admin moderation flow is not page-studio editable."
+          },
+          {
+            "surface": "dc-runtime template shells",
+            "note": "Major HTML section shells in index.html are code-locked; studio toggles visibility/labels and injects extras."
+          }
+        ]
+      },
+      "published": {
+        "version": 1,
+        "country": "global",
+        "updatedAt": "2026-09-16T13:44:05.348Z",
+        "publishedAt": "2026-09-16T13:44:05.348Z",
+        "nav": [
+          {
+            "id": "Overview",
+            "label": "Overview",
+            "visible": true,
+            "order": 0,
+            "live": false
+          },
+          {
+            "id": "Map",
+            "label": "Polling units",
+            "visible": false,
+            "order": 1,
+            "live": false
+          },
+          {
+            "id": "Live Results",
+            "label": "Live Results",
+            "visible": true,
+            "order": 2,
+            "live": true
+          },
+          {
+            "id": "Candidates",
+            "label": "Candidates",
+            "visible": true,
+            "order": 3,
+            "live": false
+          },
+          {
+            "id": "Parties",
+            "label": "Parties",
+            "visible": true,
+            "order": 4,
+            "live": false
+          },
+          {
+            "id": "Analysis",
+            "label": "Analysis",
+            "visible": true,
+            "order": 5,
+            "live": false
+          },
+          {
+            "id": "Data",
+            "label": "Data",
+            "visible": true,
+            "order": 6,
+            "live": false
+          },
+          {
+            "id": "About",
+            "label": "About",
+            "visible": true,
+            "order": 7,
+            "live": false
+          }
+        ],
+        "subTabs": {
+          "Analysis": [
+            {
+              "id": "overview",
+              "label": "Overview",
+              "icon": "insights",
+              "visible": true,
+              "order": 0
+            },
+            {
+              "id": "geography",
+              "label": "Geography",
+              "icon": "map",
+              "visible": true,
+              "order": 1
+            },
+            {
+              "id": "turnout",
+              "label": "Turnout",
+              "icon": "how_to_vote",
+              "visible": true,
+              "order": 2
+            },
+            {
+              "id": "trends",
+              "label": "Trends",
+              "icon": "timeline",
+              "visible": true,
+              "order": 3
+            },
+            {
+              "id": "demographics",
+              "label": "Demographics",
+              "icon": "groups",
+              "visible": true,
+              "order": 4
+            },
+            {
+              "id": "quality",
+              "label": "Data Quality",
+              "icon": "fact_check",
+              "visible": true,
+              "order": 5
+            }
+          ]
+        },
+        "editorial": {
+          "headline": "",
+          "subhead": "",
+          "notes": "",
+          "comingSoonMessage": "",
+          "kpiCards": []
+        },
+        "widgets": [
+          {
+            "id": "ana-history",
+            "section": "Analysis",
+            "subTab": "trends",
+            "type": "chart",
+            "visible": true,
+            "order": 0,
+            "title": "Vote-share trend",
+            "config": {
+              "chartType": "line",
+              "canvasId": "anaChartHistory",
+              "dataKey": "history.voteShareTrend",
+              "source": "analysis",
+              "meta": "major parties"
+            }
+          },
+          {
+            "id": "ana-regions",
+            "section": "Analysis",
+            "subTab": "geography",
+            "type": "chart",
+            "visible": true,
+            "order": 0,
+            "title": "Regional performance",
+            "config": {
+              "chartType": "bar",
+              "canvasId": "anaChartRegions",
+              "dataKey": "geographic.regions",
+              "source": "analysis",
+              "meta": "wins / share"
+            }
+          },
+          {
+            "id": "ana-turnout-trend",
+            "section": "Analysis",
+            "subTab": "turnout",
+            "type": "chart",
+            "visible": true,
+            "order": 0,
+            "title": "Turnout by cycle",
+            "config": {
+              "chartType": "line",
+              "canvasId": "anaChartTurnoutTrend",
+              "dataKey": "history.turnoutTrend",
+              "source": "analysis",
+              "meta": "national"
+            }
+          },
+          {
+            "id": "ana-vote-share",
+            "section": "Analysis",
+            "subTab": "overview",
+            "type": "chart",
+            "visible": true,
+            "order": 0,
+            "title": "Vote share",
+            "config": {
+              "chartType": "bar",
+              "canvasId": "anaChartPerfShare",
+              "dataKey": "performance.voteShare",
+              "source": "analysis",
+              "meta": "current vs previous"
+            }
+          },
+          {
+            "id": "ana-seat-history",
+            "section": "Analysis",
+            "subTab": "trends",
+            "type": "chart",
+            "visible": true,
+            "order": 1,
+            "title": "Seat / win-share trend",
+            "config": {
+              "chartType": "line",
+              "canvasId": "anaChartSeatHistory",
+              "dataKey": "history.seatShareTrend",
+              "source": "analysis",
+              "meta": "across cycles"
+            }
+          },
+          {
+            "id": "ana-seat-vote",
+            "section": "Analysis",
+            "subTab": "overview",
+            "type": "chart",
+            "visible": true,
+            "order": 1,
+            "title": "Seat distribution",
+            "config": {
+              "chartType": "scatter",
+              "canvasId": "anaChartSeatVote",
+              "dataKey": "performance.seatVsVote",
+              "source": "analysis",
+              "meta": "seat share vs vote share"
+            }
+          },
+          {
+            "id": "ana-swing",
+            "section": "Analysis",
+            "subTab": "geography",
+            "type": "chart",
+            "visible": true,
+            "order": 1,
+            "title": "Unit swing",
+            "config": {
+              "chartType": "bar",
+              "canvasId": "anaChartSwing",
+              "dataKey": "geographic.units",
+              "source": "analysis",
+              "meta": "focus party"
+            }
+          },
+          {
+            "id": "ana-turnout-swing",
+            "section": "Analysis",
+            "subTab": "turnout",
+            "type": "chart",
+            "visible": true,
+            "order": 1,
+            "title": "Turnout vs party swing",
+            "config": {
+              "chartType": "scatter",
+              "canvasId": "anaChartTurnoutSwing",
+              "dataKey": "turnout.byUnit",
+              "source": "analysis",
+              "meta": "state proxy"
+            }
+          },
+          {
+            "id": "ana-margins",
+            "section": "Analysis",
+            "subTab": "geography",
+            "type": "chart",
+            "visible": true,
+            "order": 2,
+            "title": "Margin distribution",
+            "config": {
+              "chartType": "bar",
+              "canvasId": "anaChartMargins",
+              "dataKey": "competitiveness.distribution",
+              "source": "analysis",
+              "meta": "histogram"
+            }
+          },
+          {
+            "id": "ana-outlook",
+            "section": "Analysis",
+            "subTab": "trends",
+            "type": "chart",
+            "visible": true,
+            "order": 2,
+            "title": "Outlook momentum",
+            "config": {
+              "chartType": "bar",
+              "canvasId": "anaChartOutlook",
+              "dataKey": "prediction.partyMomentum",
+              "source": "analysis",
+              "meta": "heuristic"
+            }
+          },
+          {
+            "id": "ana-turnout-by-unit",
+            "section": "Analysis",
+            "subTab": "turnout",
+            "type": "chart",
+            "visible": true,
+            "order": 2,
+            "title": "Turnout by region / unit",
+            "config": {
+              "chartType": "horizontalBar",
+              "canvasId": "anaChartTurnoutByUnit",
+              "dataKey": "turnout.byUnit",
+              "source": "analysis",
+              "meta": "high → low"
+            }
+          },
+          {
+            "id": "ana-geo-table",
+            "section": "Analysis",
+            "subTab": "geography",
+            "type": "table",
+            "visible": true,
+            "order": 3,
+            "title": "Constituency / unit results",
+            "config": {
+              "dataKey": "geographic.units",
+              "source": "analysis",
+              "columns": [
+                "unit",
+                "winner",
+                "share",
+                "margin"
+              ],
+              "meta": ""
+            }
+          }
+        ],
+        "dataSources": [
+          {
+            "id": "analysis",
+            "label": "Election analysis bundle",
+            "endpoint": "/api/election-results/analysis",
+            "enabled": true,
+            "notes": "Drives Analysis charts and tables."
+          },
+          {
+            "id": "dashboards-overview",
+            "label": "Overview dashboard layout",
+            "endpoint": "/api/dashboards/overview",
+            "enabled": true,
+            "notes": "Published KPI/widget grid from Dashboards admin."
+          },
+          {
+            "id": "dashboards-live",
+            "label": "Live dashboard layout",
+            "endpoint": "/api/dashboards/live",
+            "enabled": true,
+            "notes": "Published KPI/widget grid for Live Results."
+          },
+          {
+            "id": "map-views",
+            "label": "Map Studio views",
+            "endpoint": "/api/maps/views",
+            "enabled": true,
+            "notes": "Basemap / layers / extent for Overview, Polling, Live."
+          },
+          {
+            "id": "nigeria-kpis",
+            "label": "Nigeria KPIs",
+            "endpoint": "/api/nigeria-kpis",
+            "enabled": false,
+            "notes": "Scoped KPI row for state / LGA / ward / PU."
+          },
+          {
+            "id": "candidates-presidential",
+            "label": "Presidential candidates",
+            "endpoint": "/data/presidential-candidates.json",
+            "enabled": true,
+            "notes": "Static catalog; editable via Content hub."
+          }
+        ],
+        "capabilities": {
+          "liveData": true,
+          "maps": false,
+          "analysis": true,
+          "candidates": true,
+          "parties": true,
+          "liveResults": true,
+          "dataExplorer": true,
+          "comingSoon": false
+        },
+        "links": {
+          "dashboardOverview": true,
+          "dashboardLive": true,
+          "mapStudio": false
+        },
+        "codeLocked": [
+          {
+            "surface": "Analysis Chart.js renderers",
+            "note": "Chart algorithms and canvas wiring stay in eid-analysis.js. Titles, visibility, and order are editable here."
+          },
+          {
+            "surface": "Map geometry & GRID3 layers",
+            "note": "Basemap/layers use Map Studio. Boundary polygons and PU coordinates remain code/data-pipeline locked."
+          },
+          {
+            "surface": "Live submission moderation UI",
+            "note": "In-app Admin moderation flow is not page-studio editable."
+          },
+          {
+            "surface": "dc-runtime template shells",
+            "note": "Major HTML section shells in index.html are code-locked; studio toggles visibility/labels and injects extras."
+          }
+        ]
+      }
+    },
+    "ng": {
+      "draft": {
+        "version": 1,
+        "country": "ng",
+        "updatedAt": "2026-09-16T13:44:05.338Z",
+        "publishedAt": "2026-09-16T13:44:05.338Z",
+        "nav": [
+          {
+            "id": "Overview",
+            "label": "Overview",
+            "visible": true,
+            "order": 0,
+            "live": false
+          },
+          {
+            "id": "Map",
+            "label": "Polling units",
+            "visible": true,
+            "order": 1,
+            "live": false
+          },
+          {
+            "id": "Live Results",
+            "label": "Live Results",
+            "visible": true,
+            "order": 2,
+            "live": true
+          },
+          {
+            "id": "Candidates",
+            "label": "Candidates",
+            "visible": true,
+            "order": 3,
+            "live": false
+          },
+          {
+            "id": "Parties",
+            "label": "Parties",
+            "visible": true,
+            "order": 4,
+            "live": false
+          },
+          {
+            "id": "Analysis",
+            "label": "Analysis",
+            "visible": true,
+            "order": 5,
+            "live": false
+          },
+          {
+            "id": "Data",
+            "label": "Data",
+            "visible": true,
+            "order": 6,
+            "live": false
+          },
+          {
+            "id": "About",
+            "label": "About",
+            "visible": true,
+            "order": 7,
+            "live": false
+          }
+        ],
+        "subTabs": {
+          "Analysis": [
+            {
+              "id": "overview",
+              "label": "Overview",
+              "icon": "insights",
+              "visible": true,
+              "order": 0
+            },
+            {
+              "id": "geography",
+              "label": "Geography",
+              "icon": "map",
+              "visible": true,
+              "order": 1
+            },
+            {
+              "id": "turnout",
+              "label": "Turnout",
+              "icon": "how_to_vote",
+              "visible": true,
+              "order": 2
+            },
+            {
+              "id": "trends",
+              "label": "Trends",
+              "icon": "timeline",
+              "visible": true,
+              "order": 3
+            },
+            {
+              "id": "demographics",
+              "label": "Demographics",
+              "icon": "groups",
+              "visible": true,
+              "order": 4
+            },
+            {
+              "id": "quality",
+              "label": "Data Quality",
+              "icon": "fact_check",
+              "visible": true,
+              "order": 5
+            }
+          ]
+        },
+        "editorial": {
+          "headline": "",
+          "subhead": "",
+          "notes": "",
+          "comingSoonMessage": "",
+          "kpiCards": []
+        },
+        "widgets": [
+          {
+            "id": "ana-history",
+            "section": "Analysis",
+            "subTab": "trends",
+            "type": "chart",
+            "visible": true,
+            "order": 0,
+            "title": "Vote-share trend",
+            "config": {
+              "chartType": "line",
+              "canvasId": "anaChartHistory",
+              "dataKey": "history.voteShareTrend",
+              "source": "analysis",
+              "meta": "major parties"
+            }
+          },
+          {
+            "id": "ana-regions",
+            "section": "Analysis",
+            "subTab": "geography",
+            "type": "chart",
+            "visible": true,
+            "order": 0,
+            "title": "Regional performance",
+            "config": {
+              "chartType": "bar",
+              "canvasId": "anaChartRegions",
+              "dataKey": "geographic.regions",
+              "source": "analysis",
+              "meta": "wins / share"
+            }
+          },
+          {
+            "id": "ana-turnout-trend",
+            "section": "Analysis",
+            "subTab": "turnout",
+            "type": "chart",
+            "visible": true,
+            "order": 0,
+            "title": "Turnout by cycle",
+            "config": {
+              "chartType": "line",
+              "canvasId": "anaChartTurnoutTrend",
+              "dataKey": "history.turnoutTrend",
+              "source": "analysis",
+              "meta": "national"
+            }
+          },
+          {
+            "id": "ana-vote-share",
+            "section": "Analysis",
+            "subTab": "overview",
+            "type": "chart",
+            "visible": true,
+            "order": 0,
+            "title": "Vote share",
+            "config": {
+              "chartType": "bar",
+              "canvasId": "anaChartPerfShare",
+              "dataKey": "performance.voteShare",
+              "source": "analysis",
+              "meta": "current vs previous"
+            }
+          },
+          {
+            "id": "ana-seat-history",
+            "section": "Analysis",
+            "subTab": "trends",
+            "type": "chart",
+            "visible": true,
+            "order": 1,
+            "title": "Seat / win-share trend",
+            "config": {
+              "chartType": "line",
+              "canvasId": "anaChartSeatHistory",
+              "dataKey": "history.seatShareTrend",
+              "source": "analysis",
+              "meta": "across cycles"
+            }
+          },
+          {
+            "id": "ana-seat-vote",
+            "section": "Analysis",
+            "subTab": "overview",
+            "type": "chart",
+            "visible": true,
+            "order": 1,
+            "title": "Seat distribution",
+            "config": {
+              "chartType": "scatter",
+              "canvasId": "anaChartSeatVote",
+              "dataKey": "performance.seatVsVote",
+              "source": "analysis",
+              "meta": "seat share vs vote share"
+            }
+          },
+          {
+            "id": "ana-swing",
+            "section": "Analysis",
+            "subTab": "geography",
+            "type": "chart",
+            "visible": true,
+            "order": 1,
+            "title": "Unit swing",
+            "config": {
+              "chartType": "bar",
+              "canvasId": "anaChartSwing",
+              "dataKey": "geographic.units",
+              "source": "analysis",
+              "meta": "focus party"
+            }
+          },
+          {
+            "id": "ana-turnout-swing",
+            "section": "Analysis",
+            "subTab": "turnout",
+            "type": "chart",
+            "visible": true,
+            "order": 1,
+            "title": "Turnout vs party swing",
+            "config": {
+              "chartType": "scatter",
+              "canvasId": "anaChartTurnoutSwing",
+              "dataKey": "turnout.byUnit",
+              "source": "analysis",
+              "meta": "state proxy"
+            }
+          },
+          {
+            "id": "ana-margins",
+            "section": "Analysis",
+            "subTab": "geography",
+            "type": "chart",
+            "visible": true,
+            "order": 2,
+            "title": "Margin distribution",
+            "config": {
+              "chartType": "bar",
+              "canvasId": "anaChartMargins",
+              "dataKey": "competitiveness.distribution",
+              "source": "analysis",
+              "meta": "histogram"
+            }
+          },
+          {
+            "id": "ana-outlook",
+            "section": "Analysis",
+            "subTab": "trends",
+            "type": "chart",
+            "visible": true,
+            "order": 2,
+            "title": "Outlook momentum",
+            "config": {
+              "chartType": "bar",
+              "canvasId": "anaChartOutlook",
+              "dataKey": "prediction.partyMomentum",
+              "source": "analysis",
+              "meta": "heuristic"
+            }
+          },
+          {
+            "id": "ana-turnout-by-unit",
+            "section": "Analysis",
+            "subTab": "turnout",
+            "type": "chart",
+            "visible": true,
+            "order": 2,
+            "title": "Turnout by region / unit",
+            "config": {
+              "chartType": "horizontalBar",
+              "canvasId": "anaChartTurnoutByUnit",
+              "dataKey": "turnout.byUnit",
+              "source": "analysis",
+              "meta": "high → low"
+            }
+          },
+          {
+            "id": "ana-geo-table",
+            "section": "Analysis",
+            "subTab": "geography",
+            "type": "table",
+            "visible": true,
+            "order": 3,
+            "title": "Constituency / unit results",
+            "config": {
+              "dataKey": "geographic.units",
+              "source": "analysis",
+              "columns": [
+                "unit",
+                "winner",
+                "share",
+                "margin"
+              ],
+              "meta": ""
+            }
+          }
+        ],
+        "dataSources": [
+          {
+            "id": "analysis",
+            "label": "Election analysis bundle",
+            "endpoint": "/api/election-results/analysis",
+            "enabled": true,
+            "notes": "Drives Analysis charts and tables."
+          },
+          {
+            "id": "dashboards-overview",
+            "label": "Overview dashboard layout",
+            "endpoint": "/api/dashboards/overview",
+            "enabled": true,
+            "notes": "Published KPI/widget grid from Dashboards admin."
+          },
+          {
+            "id": "dashboards-live",
+            "label": "Live dashboard layout",
+            "endpoint": "/api/dashboards/live",
+            "enabled": true,
+            "notes": "Published KPI/widget grid for Live Results."
+          },
+          {
+            "id": "map-views",
+            "label": "Map Studio views",
+            "endpoint": "/api/maps/views",
+            "enabled": true,
+            "notes": "Basemap / layers / extent for Overview, Polling, Live."
+          },
+          {
+            "id": "nigeria-kpis",
+            "label": "Nigeria KPIs",
+            "endpoint": "/api/nigeria-kpis",
+            "enabled": true,
+            "notes": "Scoped KPI row for state / LGA / ward / PU."
+          },
+          {
+            "id": "candidates-presidential",
+            "label": "Presidential candidates",
+            "endpoint": "/data/presidential-candidates.json",
+            "enabled": true,
+            "notes": "Static catalog; editable via Content hub."
+          }
+        ],
+        "capabilities": {
+          "liveData": true,
+          "maps": true,
+          "analysis": true,
+          "candidates": true,
+          "parties": true,
+          "liveResults": true,
+          "dataExplorer": true,
+          "comingSoon": false
+        },
+        "links": {
+          "dashboardOverview": true,
+          "dashboardLive": true,
+          "mapStudio": true
+        },
+        "codeLocked": [
+          {
+            "surface": "Analysis Chart.js renderers",
+            "note": "Chart algorithms and canvas wiring stay in eid-analysis.js. Titles, visibility, and order are editable here."
+          },
+          {
+            "surface": "Map geometry & GRID3 layers",
+            "note": "Basemap/layers use Map Studio. Boundary polygons and PU coordinates remain code/data-pipeline locked."
+          },
+          {
+            "surface": "Live submission moderation UI",
+            "note": "In-app Admin moderation flow is not page-studio editable."
+          },
+          {
+            "surface": "dc-runtime template shells",
+            "note": "Major HTML section shells in index.html are code-locked; studio toggles visibility/labels and injects extras."
+          }
+        ]
+      },
+      "published": {
+        "version": 1,
+        "country": "ng",
+        "updatedAt": "2026-09-16T13:44:05.338Z",
+        "publishedAt": "2026-09-16T13:44:05.338Z",
+        "nav": [
+          {
+            "id": "Overview",
+            "label": "Overview",
+            "visible": true,
+            "order": 0,
+            "live": false
+          },
+          {
+            "id": "Map",
+            "label": "Polling units",
+            "visible": true,
+            "order": 1,
+            "live": false
+          },
+          {
+            "id": "Live Results",
+            "label": "Live Results",
+            "visible": true,
+            "order": 2,
+            "live": true
+          },
+          {
+            "id": "Candidates",
+            "label": "Candidates",
+            "visible": true,
+            "order": 3,
+            "live": false
+          },
+          {
+            "id": "Parties",
+            "label": "Parties",
+            "visible": true,
+            "order": 4,
+            "live": false
+          },
+          {
+            "id": "Analysis",
+            "label": "Analysis",
+            "visible": true,
+            "order": 5,
+            "live": false
+          },
+          {
+            "id": "Data",
+            "label": "Data",
+            "visible": true,
+            "order": 6,
+            "live": false
+          },
+          {
+            "id": "About",
+            "label": "About",
+            "visible": true,
+            "order": 7,
+            "live": false
+          }
+        ],
+        "subTabs": {
+          "Analysis": [
+            {
+              "id": "overview",
+              "label": "Overview",
+              "icon": "insights",
+              "visible": true,
+              "order": 0
+            },
+            {
+              "id": "geography",
+              "label": "Geography",
+              "icon": "map",
+              "visible": true,
+              "order": 1
+            },
+            {
+              "id": "turnout",
+              "label": "Turnout",
+              "icon": "how_to_vote",
+              "visible": true,
+              "order": 2
+            },
+            {
+              "id": "trends",
+              "label": "Trends",
+              "icon": "timeline",
+              "visible": true,
+              "order": 3
+            },
+            {
+              "id": "demographics",
+              "label": "Demographics",
+              "icon": "groups",
+              "visible": true,
+              "order": 4
+            },
+            {
+              "id": "quality",
+              "label": "Data Quality",
+              "icon": "fact_check",
+              "visible": true,
+              "order": 5
+            }
+          ]
+        },
+        "editorial": {
+          "headline": "",
+          "subhead": "",
+          "notes": "",
+          "comingSoonMessage": "",
+          "kpiCards": []
+        },
+        "widgets": [
+          {
+            "id": "ana-history",
+            "section": "Analysis",
+            "subTab": "trends",
+            "type": "chart",
+            "visible": true,
+            "order": 0,
+            "title": "Vote-share trend",
+            "config": {
+              "chartType": "line",
+              "canvasId": "anaChartHistory",
+              "dataKey": "history.voteShareTrend",
+              "source": "analysis",
+              "meta": "major parties"
+            }
+          },
+          {
+            "id": "ana-regions",
+            "section": "Analysis",
+            "subTab": "geography",
+            "type": "chart",
+            "visible": true,
+            "order": 0,
+            "title": "Regional performance",
+            "config": {
+              "chartType": "bar",
+              "canvasId": "anaChartRegions",
+              "dataKey": "geographic.regions",
+              "source": "analysis",
+              "meta": "wins / share"
+            }
+          },
+          {
+            "id": "ana-turnout-trend",
+            "section": "Analysis",
+            "subTab": "turnout",
+            "type": "chart",
+            "visible": true,
+            "order": 0,
+            "title": "Turnout by cycle",
+            "config": {
+              "chartType": "line",
+              "canvasId": "anaChartTurnoutTrend",
+              "dataKey": "history.turnoutTrend",
+              "source": "analysis",
+              "meta": "national"
+            }
+          },
+          {
+            "id": "ana-vote-share",
+            "section": "Analysis",
+            "subTab": "overview",
+            "type": "chart",
+            "visible": true,
+            "order": 0,
+            "title": "Vote share",
+            "config": {
+              "chartType": "bar",
+              "canvasId": "anaChartPerfShare",
+              "dataKey": "performance.voteShare",
+              "source": "analysis",
+              "meta": "current vs previous"
+            }
+          },
+          {
+            "id": "ana-seat-history",
+            "section": "Analysis",
+            "subTab": "trends",
+            "type": "chart",
+            "visible": true,
+            "order": 1,
+            "title": "Seat / win-share trend",
+            "config": {
+              "chartType": "line",
+              "canvasId": "anaChartSeatHistory",
+              "dataKey": "history.seatShareTrend",
+              "source": "analysis",
+              "meta": "across cycles"
+            }
+          },
+          {
+            "id": "ana-seat-vote",
+            "section": "Analysis",
+            "subTab": "overview",
+            "type": "chart",
+            "visible": true,
+            "order": 1,
+            "title": "Seat distribution",
+            "config": {
+              "chartType": "scatter",
+              "canvasId": "anaChartSeatVote",
+              "dataKey": "performance.seatVsVote",
+              "source": "analysis",
+              "meta": "seat share vs vote share"
+            }
+          },
+          {
+            "id": "ana-swing",
+            "section": "Analysis",
+            "subTab": "geography",
+            "type": "chart",
+            "visible": true,
+            "order": 1,
+            "title": "Unit swing",
+            "config": {
+              "chartType": "bar",
+              "canvasId": "anaChartSwing",
+              "dataKey": "geographic.units",
+              "source": "analysis",
+              "meta": "focus party"
+            }
+          },
+          {
+            "id": "ana-turnout-swing",
+            "section": "Analysis",
+            "subTab": "turnout",
+            "type": "chart",
+            "visible": true,
+            "order": 1,
+            "title": "Turnout vs party swing",
+            "config": {
+              "chartType": "scatter",
+              "canvasId": "anaChartTurnoutSwing",
+              "dataKey": "turnout.byUnit",
+              "source": "analysis",
+              "meta": "state proxy"
+            }
+          },
+          {
+            "id": "ana-margins",
+            "section": "Analysis",
+            "subTab": "geography",
+            "type": "chart",
+            "visible": true,
+            "order": 2,
+            "title": "Margin distribution",
+            "config": {
+              "chartType": "bar",
+              "canvasId": "anaChartMargins",
+              "dataKey": "competitiveness.distribution",
+              "source": "analysis",
+              "meta": "histogram"
+            }
+          },
+          {
+            "id": "ana-outlook",
+            "section": "Analysis",
+            "subTab": "trends",
+            "type": "chart",
+            "visible": true,
+            "order": 2,
+            "title": "Outlook momentum",
+            "config": {
+              "chartType": "bar",
+              "canvasId": "anaChartOutlook",
+              "dataKey": "prediction.partyMomentum",
+              "source": "analysis",
+              "meta": "heuristic"
+            }
+          },
+          {
+            "id": "ana-turnout-by-unit",
+            "section": "Analysis",
+            "subTab": "turnout",
+            "type": "chart",
+            "visible": true,
+            "order": 2,
+            "title": "Turnout by region / unit",
+            "config": {
+              "chartType": "horizontalBar",
+              "canvasId": "anaChartTurnoutByUnit",
+              "dataKey": "turnout.byUnit",
+              "source": "analysis",
+              "meta": "high → low"
+            }
+          },
+          {
+            "id": "ana-geo-table",
+            "section": "Analysis",
+            "subTab": "geography",
+            "type": "table",
+            "visible": true,
+            "order": 3,
+            "title": "Constituency / unit results",
+            "config": {
+              "dataKey": "geographic.units",
+              "source": "analysis",
+              "columns": [
+                "unit",
+                "winner",
+                "share",
+                "margin"
+              ],
+              "meta": ""
+            }
+          }
+        ],
+        "dataSources": [
+          {
+            "id": "analysis",
+            "label": "Election analysis bundle",
+            "endpoint": "/api/election-results/analysis",
+            "enabled": true,
+            "notes": "Drives Analysis charts and tables."
+          },
+          {
+            "id": "dashboards-overview",
+            "label": "Overview dashboard layout",
+            "endpoint": "/api/dashboards/overview",
+            "enabled": true,
+            "notes": "Published KPI/widget grid from Dashboards admin."
+          },
+          {
+            "id": "dashboards-live",
+            "label": "Live dashboard layout",
+            "endpoint": "/api/dashboards/live",
+            "enabled": true,
+            "notes": "Published KPI/widget grid for Live Results."
+          },
+          {
+            "id": "map-views",
+            "label": "Map Studio views",
+            "endpoint": "/api/maps/views",
+            "enabled": true,
+            "notes": "Basemap / layers / extent for Overview, Polling, Live."
+          },
+          {
+            "id": "nigeria-kpis",
+            "label": "Nigeria KPIs",
+            "endpoint": "/api/nigeria-kpis",
+            "enabled": true,
+            "notes": "Scoped KPI row for state / LGA / ward / PU."
+          },
+          {
+            "id": "candidates-presidential",
+            "label": "Presidential candidates",
+            "endpoint": "/data/presidential-candidates.json",
+            "enabled": true,
+            "notes": "Static catalog; editable via Content hub."
+          }
+        ],
+        "capabilities": {
+          "liveData": true,
+          "maps": true,
+          "analysis": true,
+          "candidates": true,
+          "parties": true,
+          "liveResults": true,
+          "dataExplorer": true,
+          "comingSoon": false
+        },
+        "links": {
+          "dashboardOverview": true,
+          "dashboardLive": true,
+          "mapStudio": true
+        },
+        "codeLocked": [
+          {
+            "surface": "Analysis Chart.js renderers",
+            "note": "Chart algorithms and canvas wiring stay in eid-analysis.js. Titles, visibility, and order are editable here."
+          },
+          {
+            "surface": "Map geometry & GRID3 layers",
+            "note": "Basemap/layers use Map Studio. Boundary polygons and PU coordinates remain code/data-pipeline locked."
+          },
+          {
+            "surface": "Live submission moderation UI",
+            "note": "In-app Admin moderation flow is not page-studio editable."
+          },
+          {
+            "surface": "dc-runtime template shells",
+            "note": "Major HTML section shells in index.html are code-locked; studio toggles visibility/labels and injects extras."
+          }
+        ]
+      }
+    },
+    "us": {
+      "draft": {
+        "version": 1,
+        "country": "us",
+        "updatedAt": null,
+        "nav": [
+          {
+            "id": "Overview",
+            "label": "Overview",
+            "visible": true,
+            "order": 0,
+            "live": false
+          },
+          {
+            "id": "Map",
+            "label": "Polling units",
+            "visible": false,
+            "order": 1,
+            "live": false
+          },
+          {
+            "id": "Live Results",
+            "label": "Live Results",
+            "visible": false,
+            "order": 2,
+            "live": true
+          },
+          {
+            "id": "Candidates",
+            "label": "Candidates",
+            "visible": false,
+            "order": 3,
+            "live": false
+          },
+          {
+            "id": "Parties",
+            "label": "Parties",
+            "visible": false,
+            "order": 4,
+            "live": false
+          },
+          {
+            "id": "Analysis",
+            "label": "Analysis",
+            "visible": false,
+            "order": 5,
+            "live": false
+          },
+          {
+            "id": "Data",
+            "label": "Data",
+            "visible": false,
+            "order": 6,
+            "live": false
+          },
+          {
+            "id": "About",
+            "label": "About",
+            "visible": true,
+            "order": 7,
+            "live": false
+          }
+        ],
+        "subTabs": {
+          "Analysis": [
+            {
+              "id": "overview",
+              "label": "Overview",
+              "icon": "insights",
+              "visible": true,
+              "order": 0
+            },
+            {
+              "id": "geography",
+              "label": "Geography",
+              "icon": "map",
+              "visible": true,
+              "order": 1
+            },
+            {
+              "id": "turnout",
+              "label": "Turnout",
+              "icon": "how_to_vote",
+              "visible": true,
+              "order": 2
+            },
+            {
+              "id": "trends",
+              "label": "Trends",
+              "icon": "timeline",
+              "visible": true,
+              "order": 3
+            },
+            {
+              "id": "demographics",
+              "label": "Demographics",
+              "icon": "groups",
+              "visible": true,
+              "order": 4
+            },
+            {
+              "id": "quality",
+              "label": "Data Quality",
+              "icon": "fact_check",
+              "visible": true,
+              "order": 5
+            }
+          ]
+        },
+        "editorial": {
+          "headline": "",
+          "subhead": "",
+          "notes": "",
+          "comingSoonMessage": "Live results and KPIs for this country are not loaded yet. Nigeria is the live scope.",
+          "kpiCards": []
+        },
+        "widgets": [],
+        "dataSources": [
+          {
+            "id": "placeholder",
+            "label": "Country data (pending)",
+            "endpoint": "",
+            "enabled": false,
+            "notes": "Attach APIs when this country goes live."
+          }
+        ],
+        "capabilities": {
+          "liveData": false,
+          "maps": false,
+          "analysis": false,
+          "candidates": false,
+          "parties": false,
+          "liveResults": false,
+          "dataExplorer": false,
+          "comingSoon": true
+        },
+        "links": {
+          "dashboardOverview": true,
+          "dashboardLive": true,
+          "mapStudio": false
+        },
+        "codeLocked": [
+          {
+            "surface": "Analysis Chart.js renderers",
+            "note": "Chart algorithms and canvas wiring stay in eid-analysis.js. Titles, visibility, and order are editable here."
+          },
+          {
+            "surface": "Map geometry & GRID3 layers",
+            "note": "Basemap/layers use Map Studio. Boundary polygons and PU coordinates remain code/data-pipeline locked."
+          },
+          {
+            "surface": "Live submission moderation UI",
+            "note": "In-app Admin moderation flow is not page-studio editable."
+          },
+          {
+            "surface": "dc-runtime template shells",
+            "note": "Major HTML section shells in index.html are code-locked; studio toggles visibility/labels and injects extras."
+          }
+        ]
+      },
+      "published": null
+    },
+    "gb": {
+      "draft": {
+        "version": 1,
+        "country": "gb",
+        "updatedAt": null,
+        "nav": [
+          {
+            "id": "Overview",
+            "label": "Overview",
+            "visible": true,
+            "order": 0,
+            "live": false
+          },
+          {
+            "id": "Map",
+            "label": "Polling units",
+            "visible": false,
+            "order": 1,
+            "live": false
+          },
+          {
+            "id": "Live Results",
+            "label": "Live Results",
+            "visible": false,
+            "order": 2,
+            "live": true
+          },
+          {
+            "id": "Candidates",
+            "label": "Candidates",
+            "visible": false,
+            "order": 3,
+            "live": false
+          },
+          {
+            "id": "Parties",
+            "label": "Parties",
+            "visible": false,
+            "order": 4,
+            "live": false
+          },
+          {
+            "id": "Analysis",
+            "label": "Analysis",
+            "visible": false,
+            "order": 5,
+            "live": false
+          },
+          {
+            "id": "Data",
+            "label": "Data",
+            "visible": false,
+            "order": 6,
+            "live": false
+          },
+          {
+            "id": "About",
+            "label": "About",
+            "visible": true,
+            "order": 7,
+            "live": false
+          }
+        ],
+        "subTabs": {
+          "Analysis": [
+            {
+              "id": "overview",
+              "label": "Overview",
+              "icon": "insights",
+              "visible": true,
+              "order": 0
+            },
+            {
+              "id": "geography",
+              "label": "Geography",
+              "icon": "map",
+              "visible": true,
+              "order": 1
+            },
+            {
+              "id": "turnout",
+              "label": "Turnout",
+              "icon": "how_to_vote",
+              "visible": true,
+              "order": 2
+            },
+            {
+              "id": "trends",
+              "label": "Trends",
+              "icon": "timeline",
+              "visible": true,
+              "order": 3
+            },
+            {
+              "id": "demographics",
+              "label": "Demographics",
+              "icon": "groups",
+              "visible": true,
+              "order": 4
+            },
+            {
+              "id": "quality",
+              "label": "Data Quality",
+              "icon": "fact_check",
+              "visible": true,
+              "order": 5
+            }
+          ]
+        },
+        "editorial": {
+          "headline": "",
+          "subhead": "",
+          "notes": "",
+          "comingSoonMessage": "Live results and KPIs for this country are not loaded yet. Nigeria is the live scope.",
+          "kpiCards": []
+        },
+        "widgets": [],
+        "dataSources": [
+          {
+            "id": "placeholder",
+            "label": "Country data (pending)",
+            "endpoint": "",
+            "enabled": false,
+            "notes": "Attach APIs when this country goes live."
+          }
+        ],
+        "capabilities": {
+          "liveData": false,
+          "maps": false,
+          "analysis": false,
+          "candidates": false,
+          "parties": false,
+          "liveResults": false,
+          "dataExplorer": false,
+          "comingSoon": true
+        },
+        "links": {
+          "dashboardOverview": true,
+          "dashboardLive": true,
+          "mapStudio": false
+        },
+        "codeLocked": [
+          {
+            "surface": "Analysis Chart.js renderers",
+            "note": "Chart algorithms and canvas wiring stay in eid-analysis.js. Titles, visibility, and order are editable here."
+          },
+          {
+            "surface": "Map geometry & GRID3 layers",
+            "note": "Basemap/layers use Map Studio. Boundary polygons and PU coordinates remain code/data-pipeline locked."
+          },
+          {
+            "surface": "Live submission moderation UI",
+            "note": "In-app Admin moderation flow is not page-studio editable."
+          },
+          {
+            "surface": "dc-runtime template shells",
+            "note": "Major HTML section shells in index.html are code-locked; studio toggles visibility/labels and injects extras."
+          }
+        ]
+      },
+      "published": null
+    },
+    "gh": {
+      "draft": {
+        "version": 1,
+        "country": "gh",
+        "updatedAt": null,
+        "nav": [
+          {
+            "id": "Overview",
+            "label": "Overview",
+            "visible": true,
+            "order": 0,
+            "live": false
+          },
+          {
+            "id": "Map",
+            "label": "Polling units",
+            "visible": false,
+            "order": 1,
+            "live": false
+          },
+          {
+            "id": "Live Results",
+            "label": "Live Results",
+            "visible": false,
+            "order": 2,
+            "live": true
+          },
+          {
+            "id": "Candidates",
+            "label": "Candidates",
+            "visible": false,
+            "order": 3,
+            "live": false
+          },
+          {
+            "id": "Parties",
+            "label": "Parties",
+            "visible": false,
+            "order": 4,
+            "live": false
+          },
+          {
+            "id": "Analysis",
+            "label": "Analysis",
+            "visible": false,
+            "order": 5,
+            "live": false
+          },
+          {
+            "id": "Data",
+            "label": "Data",
+            "visible": false,
+            "order": 6,
+            "live": false
+          },
+          {
+            "id": "About",
+            "label": "About",
+            "visible": true,
+            "order": 7,
+            "live": false
+          }
+        ],
+        "subTabs": {
+          "Analysis": [
+            {
+              "id": "overview",
+              "label": "Overview",
+              "icon": "insights",
+              "visible": true,
+              "order": 0
+            },
+            {
+              "id": "geography",
+              "label": "Geography",
+              "icon": "map",
+              "visible": true,
+              "order": 1
+            },
+            {
+              "id": "turnout",
+              "label": "Turnout",
+              "icon": "how_to_vote",
+              "visible": true,
+              "order": 2
+            },
+            {
+              "id": "trends",
+              "label": "Trends",
+              "icon": "timeline",
+              "visible": true,
+              "order": 3
+            },
+            {
+              "id": "demographics",
+              "label": "Demographics",
+              "icon": "groups",
+              "visible": true,
+              "order": 4
+            },
+            {
+              "id": "quality",
+              "label": "Data Quality",
+              "icon": "fact_check",
+              "visible": true,
+              "order": 5
+            }
+          ]
+        },
+        "editorial": {
+          "headline": "",
+          "subhead": "",
+          "notes": "",
+          "comingSoonMessage": "Live results and KPIs for this country are not loaded yet. Nigeria is the live scope.",
+          "kpiCards": []
+        },
+        "widgets": [],
+        "dataSources": [
+          {
+            "id": "placeholder",
+            "label": "Country data (pending)",
+            "endpoint": "",
+            "enabled": false,
+            "notes": "Attach APIs when this country goes live."
+          }
+        ],
+        "capabilities": {
+          "liveData": false,
+          "maps": false,
+          "analysis": false,
+          "candidates": false,
+          "parties": false,
+          "liveResults": false,
+          "dataExplorer": false,
+          "comingSoon": true
+        },
+        "links": {
+          "dashboardOverview": true,
+          "dashboardLive": true,
+          "mapStudio": false
+        },
+        "codeLocked": [
+          {
+            "surface": "Analysis Chart.js renderers",
+            "note": "Chart algorithms and canvas wiring stay in eid-analysis.js. Titles, visibility, and order are editable here."
+          },
+          {
+            "surface": "Map geometry & GRID3 layers",
+            "note": "Basemap/layers use Map Studio. Boundary polygons and PU coordinates remain code/data-pipeline locked."
+          },
+          {
+            "surface": "Live submission moderation UI",
+            "note": "In-app Admin moderation flow is not page-studio editable."
+          },
+          {
+            "surface": "dc-runtime template shells",
+            "note": "Major HTML section shells in index.html are code-locked; studio toggles visibility/labels and injects extras."
+          }
+        ]
+      },
+      "published": null
+    },
+    "ke": {
+      "draft": {
+        "version": 1,
+        "country": "ke",
+        "updatedAt": null,
+        "nav": [
+          {
+            "id": "Overview",
+            "label": "Overview",
+            "visible": true,
+            "order": 0,
+            "live": false
+          },
+          {
+            "id": "Map",
+            "label": "Polling units",
+            "visible": false,
+            "order": 1,
+            "live": false
+          },
+          {
+            "id": "Live Results",
+            "label": "Live Results",
+            "visible": false,
+            "order": 2,
+            "live": true
+          },
+          {
+            "id": "Candidates",
+            "label": "Candidates",
+            "visible": false,
+            "order": 3,
+            "live": false
+          },
+          {
+            "id": "Parties",
+            "label": "Parties",
+            "visible": false,
+            "order": 4,
+            "live": false
+          },
+          {
+            "id": "Analysis",
+            "label": "Analysis",
+            "visible": false,
+            "order": 5,
+            "live": false
+          },
+          {
+            "id": "Data",
+            "label": "Data",
+            "visible": false,
+            "order": 6,
+            "live": false
+          },
+          {
+            "id": "About",
+            "label": "About",
+            "visible": true,
+            "order": 7,
+            "live": false
+          }
+        ],
+        "subTabs": {
+          "Analysis": [
+            {
+              "id": "overview",
+              "label": "Overview",
+              "icon": "insights",
+              "visible": true,
+              "order": 0
+            },
+            {
+              "id": "geography",
+              "label": "Geography",
+              "icon": "map",
+              "visible": true,
+              "order": 1
+            },
+            {
+              "id": "turnout",
+              "label": "Turnout",
+              "icon": "how_to_vote",
+              "visible": true,
+              "order": 2
+            },
+            {
+              "id": "trends",
+              "label": "Trends",
+              "icon": "timeline",
+              "visible": true,
+              "order": 3
+            },
+            {
+              "id": "demographics",
+              "label": "Demographics",
+              "icon": "groups",
+              "visible": true,
+              "order": 4
+            },
+            {
+              "id": "quality",
+              "label": "Data Quality",
+              "icon": "fact_check",
+              "visible": true,
+              "order": 5
+            }
+          ]
+        },
+        "editorial": {
+          "headline": "",
+          "subhead": "",
+          "notes": "",
+          "comingSoonMessage": "Live results and KPIs for this country are not loaded yet. Nigeria is the live scope.",
+          "kpiCards": []
+        },
+        "widgets": [],
+        "dataSources": [
+          {
+            "id": "placeholder",
+            "label": "Country data (pending)",
+            "endpoint": "",
+            "enabled": false,
+            "notes": "Attach APIs when this country goes live."
+          }
+        ],
+        "capabilities": {
+          "liveData": false,
+          "maps": false,
+          "analysis": false,
+          "candidates": false,
+          "parties": false,
+          "liveResults": false,
+          "dataExplorer": false,
+          "comingSoon": true
+        },
+        "links": {
+          "dashboardOverview": true,
+          "dashboardLive": true,
+          "mapStudio": false
+        },
+        "codeLocked": [
+          {
+            "surface": "Analysis Chart.js renderers",
+            "note": "Chart algorithms and canvas wiring stay in eid-analysis.js. Titles, visibility, and order are editable here."
+          },
+          {
+            "surface": "Map geometry & GRID3 layers",
+            "note": "Basemap/layers use Map Studio. Boundary polygons and PU coordinates remain code/data-pipeline locked."
+          },
+          {
+            "surface": "Live submission moderation UI",
+            "note": "In-app Admin moderation flow is not page-studio editable."
+          },
+          {
+            "surface": "dc-runtime template shells",
+            "note": "Major HTML section shells in index.html are code-locked; studio toggles visibility/labels and injects extras."
+          }
+        ]
+      },
+      "published": null
+    },
+    "in": {
+      "draft": {
+        "version": 1,
+        "country": "in",
+        "updatedAt": null,
+        "nav": [
+          {
+            "id": "Overview",
+            "label": "Overview",
+            "visible": true,
+            "order": 0,
+            "live": false
+          },
+          {
+            "id": "Map",
+            "label": "Polling units",
+            "visible": false,
+            "order": 1,
+            "live": false
+          },
+          {
+            "id": "Live Results",
+            "label": "Live Results",
+            "visible": false,
+            "order": 2,
+            "live": true
+          },
+          {
+            "id": "Candidates",
+            "label": "Candidates",
+            "visible": false,
+            "order": 3,
+            "live": false
+          },
+          {
+            "id": "Parties",
+            "label": "Parties",
+            "visible": false,
+            "order": 4,
+            "live": false
+          },
+          {
+            "id": "Analysis",
+            "label": "Analysis",
+            "visible": false,
+            "order": 5,
+            "live": false
+          },
+          {
+            "id": "Data",
+            "label": "Data",
+            "visible": false,
+            "order": 6,
+            "live": false
+          },
+          {
+            "id": "About",
+            "label": "About",
+            "visible": true,
+            "order": 7,
+            "live": false
+          }
+        ],
+        "subTabs": {
+          "Analysis": [
+            {
+              "id": "overview",
+              "label": "Overview",
+              "icon": "insights",
+              "visible": true,
+              "order": 0
+            },
+            {
+              "id": "geography",
+              "label": "Geography",
+              "icon": "map",
+              "visible": true,
+              "order": 1
+            },
+            {
+              "id": "turnout",
+              "label": "Turnout",
+              "icon": "how_to_vote",
+              "visible": true,
+              "order": 2
+            },
+            {
+              "id": "trends",
+              "label": "Trends",
+              "icon": "timeline",
+              "visible": true,
+              "order": 3
+            },
+            {
+              "id": "demographics",
+              "label": "Demographics",
+              "icon": "groups",
+              "visible": true,
+              "order": 4
+            },
+            {
+              "id": "quality",
+              "label": "Data Quality",
+              "icon": "fact_check",
+              "visible": true,
+              "order": 5
+            }
+          ]
+        },
+        "editorial": {
+          "headline": "",
+          "subhead": "",
+          "notes": "",
+          "comingSoonMessage": "Live results and KPIs for this country are not loaded yet. Nigeria is the live scope.",
+          "kpiCards": []
+        },
+        "widgets": [],
+        "dataSources": [
+          {
+            "id": "placeholder",
+            "label": "Country data (pending)",
+            "endpoint": "",
+            "enabled": false,
+            "notes": "Attach APIs when this country goes live."
+          }
+        ],
+        "capabilities": {
+          "liveData": false,
+          "maps": false,
+          "analysis": false,
+          "candidates": false,
+          "parties": false,
+          "liveResults": false,
+          "dataExplorer": false,
+          "comingSoon": true
+        },
+        "links": {
+          "dashboardOverview": true,
+          "dashboardLive": true,
+          "mapStudio": false
+        },
+        "codeLocked": [
+          {
+            "surface": "Analysis Chart.js renderers",
+            "note": "Chart algorithms and canvas wiring stay in eid-analysis.js. Titles, visibility, and order are editable here."
+          },
+          {
+            "surface": "Map geometry & GRID3 layers",
+            "note": "Basemap/layers use Map Studio. Boundary polygons and PU coordinates remain code/data-pipeline locked."
+          },
+          {
+            "surface": "Live submission moderation UI",
+            "note": "In-app Admin moderation flow is not page-studio editable."
+          },
+          {
+            "surface": "dc-runtime template shells",
+            "note": "Major HTML section shells in index.html are code-locked; studio toggles visibility/labels and injects extras."
+          }
+        ]
+      },
+      "published": null
+    },
+    "de": {
+      "draft": {
+        "version": 1,
+        "country": "de",
+        "updatedAt": null,
+        "nav": [
+          {
+            "id": "Overview",
+            "label": "Overview",
+            "visible": true,
+            "order": 0,
+            "live": false
+          },
+          {
+            "id": "Map",
+            "label": "Polling units",
+            "visible": false,
+            "order": 1,
+            "live": false
+          },
+          {
+            "id": "Live Results",
+            "label": "Live Results",
+            "visible": false,
+            "order": 2,
+            "live": true
+          },
+          {
+            "id": "Candidates",
+            "label": "Candidates",
+            "visible": false,
+            "order": 3,
+            "live": false
+          },
+          {
+            "id": "Parties",
+            "label": "Parties",
+            "visible": false,
+            "order": 4,
+            "live": false
+          },
+          {
+            "id": "Analysis",
+            "label": "Analysis",
+            "visible": false,
+            "order": 5,
+            "live": false
+          },
+          {
+            "id": "Data",
+            "label": "Data",
+            "visible": false,
+            "order": 6,
+            "live": false
+          },
+          {
+            "id": "About",
+            "label": "About",
+            "visible": true,
+            "order": 7,
+            "live": false
+          }
+        ],
+        "subTabs": {
+          "Analysis": [
+            {
+              "id": "overview",
+              "label": "Overview",
+              "icon": "insights",
+              "visible": true,
+              "order": 0
+            },
+            {
+              "id": "geography",
+              "label": "Geography",
+              "icon": "map",
+              "visible": true,
+              "order": 1
+            },
+            {
+              "id": "turnout",
+              "label": "Turnout",
+              "icon": "how_to_vote",
+              "visible": true,
+              "order": 2
+            },
+            {
+              "id": "trends",
+              "label": "Trends",
+              "icon": "timeline",
+              "visible": true,
+              "order": 3
+            },
+            {
+              "id": "demographics",
+              "label": "Demographics",
+              "icon": "groups",
+              "visible": true,
+              "order": 4
+            },
+            {
+              "id": "quality",
+              "label": "Data Quality",
+              "icon": "fact_check",
+              "visible": true,
+              "order": 5
+            }
+          ]
+        },
+        "editorial": {
+          "headline": "",
+          "subhead": "",
+          "notes": "",
+          "comingSoonMessage": "Live results and KPIs for this country are not loaded yet. Nigeria is the live scope.",
+          "kpiCards": []
+        },
+        "widgets": [],
+        "dataSources": [
+          {
+            "id": "placeholder",
+            "label": "Country data (pending)",
+            "endpoint": "",
+            "enabled": false,
+            "notes": "Attach APIs when this country goes live."
+          }
+        ],
+        "capabilities": {
+          "liveData": false,
+          "maps": false,
+          "analysis": false,
+          "candidates": false,
+          "parties": false,
+          "liveResults": false,
+          "dataExplorer": false,
+          "comingSoon": true
+        },
+        "links": {
+          "dashboardOverview": true,
+          "dashboardLive": true,
+          "mapStudio": false
+        },
+        "codeLocked": [
+          {
+            "surface": "Analysis Chart.js renderers",
+            "note": "Chart algorithms and canvas wiring stay in eid-analysis.js. Titles, visibility, and order are editable here."
+          },
+          {
+            "surface": "Map geometry & GRID3 layers",
+            "note": "Basemap/layers use Map Studio. Boundary polygons and PU coordinates remain code/data-pipeline locked."
+          },
+          {
+            "surface": "Live submission moderation UI",
+            "note": "In-app Admin moderation flow is not page-studio editable."
+          },
+          {
+            "surface": "dc-runtime template shells",
+            "note": "Major HTML section shells in index.html are code-locked; studio toggles visibility/labels and injects extras."
+          }
+        ]
+      },
+      "published": null
+    },
+    "fr": {
+      "draft": {
+        "version": 1,
+        "country": "fr",
+        "updatedAt": null,
+        "nav": [
+          {
+            "id": "Overview",
+            "label": "Overview",
+            "visible": true,
+            "order": 0,
+            "live": false
+          },
+          {
+            "id": "Map",
+            "label": "Polling units",
+            "visible": false,
+            "order": 1,
+            "live": false
+          },
+          {
+            "id": "Live Results",
+            "label": "Live Results",
+            "visible": false,
+            "order": 2,
+            "live": true
+          },
+          {
+            "id": "Candidates",
+            "label": "Candidates",
+            "visible": false,
+            "order": 3,
+            "live": false
+          },
+          {
+            "id": "Parties",
+            "label": "Parties",
+            "visible": false,
+            "order": 4,
+            "live": false
+          },
+          {
+            "id": "Analysis",
+            "label": "Analysis",
+            "visible": false,
+            "order": 5,
+            "live": false
+          },
+          {
+            "id": "Data",
+            "label": "Data",
+            "visible": false,
+            "order": 6,
+            "live": false
+          },
+          {
+            "id": "About",
+            "label": "About",
+            "visible": true,
+            "order": 7,
+            "live": false
+          }
+        ],
+        "subTabs": {
+          "Analysis": [
+            {
+              "id": "overview",
+              "label": "Overview",
+              "icon": "insights",
+              "visible": true,
+              "order": 0
+            },
+            {
+              "id": "geography",
+              "label": "Geography",
+              "icon": "map",
+              "visible": true,
+              "order": 1
+            },
+            {
+              "id": "turnout",
+              "label": "Turnout",
+              "icon": "how_to_vote",
+              "visible": true,
+              "order": 2
+            },
+            {
+              "id": "trends",
+              "label": "Trends",
+              "icon": "timeline",
+              "visible": true,
+              "order": 3
+            },
+            {
+              "id": "demographics",
+              "label": "Demographics",
+              "icon": "groups",
+              "visible": true,
+              "order": 4
+            },
+            {
+              "id": "quality",
+              "label": "Data Quality",
+              "icon": "fact_check",
+              "visible": true,
+              "order": 5
+            }
+          ]
+        },
+        "editorial": {
+          "headline": "",
+          "subhead": "",
+          "notes": "",
+          "comingSoonMessage": "Live results and KPIs for this country are not loaded yet. Nigeria is the live scope.",
+          "kpiCards": []
+        },
+        "widgets": [],
+        "dataSources": [
+          {
+            "id": "placeholder",
+            "label": "Country data (pending)",
+            "endpoint": "",
+            "enabled": false,
+            "notes": "Attach APIs when this country goes live."
+          }
+        ],
+        "capabilities": {
+          "liveData": false,
+          "maps": false,
+          "analysis": false,
+          "candidates": false,
+          "parties": false,
+          "liveResults": false,
+          "dataExplorer": false,
+          "comingSoon": true
+        },
+        "links": {
+          "dashboardOverview": true,
+          "dashboardLive": true,
+          "mapStudio": false
+        },
+        "codeLocked": [
+          {
+            "surface": "Analysis Chart.js renderers",
+            "note": "Chart algorithms and canvas wiring stay in eid-analysis.js. Titles, visibility, and order are editable here."
+          },
+          {
+            "surface": "Map geometry & GRID3 layers",
+            "note": "Basemap/layers use Map Studio. Boundary polygons and PU coordinates remain code/data-pipeline locked."
+          },
+          {
+            "surface": "Live submission moderation UI",
+            "note": "In-app Admin moderation flow is not page-studio editable."
+          },
+          {
+            "surface": "dc-runtime template shells",
+            "note": "Major HTML section shells in index.html are code-locked; studio toggles visibility/labels and injects extras."
+          }
+        ]
+      },
+      "published": null
+    },
+    "br": {
+      "draft": {
+        "version": 1,
+        "country": "br",
+        "updatedAt": null,
+        "nav": [
+          {
+            "id": "Overview",
+            "label": "Overview",
+            "visible": true,
+            "order": 0,
+            "live": false
+          },
+          {
+            "id": "Map",
+            "label": "Polling units",
+            "visible": false,
+            "order": 1,
+            "live": false
+          },
+          {
+            "id": "Live Results",
+            "label": "Live Results",
+            "visible": false,
+            "order": 2,
+            "live": true
+          },
+          {
+            "id": "Candidates",
+            "label": "Candidates",
+            "visible": false,
+            "order": 3,
+            "live": false
+          },
+          {
+            "id": "Parties",
+            "label": "Parties",
+            "visible": false,
+            "order": 4,
+            "live": false
+          },
+          {
+            "id": "Analysis",
+            "label": "Analysis",
+            "visible": false,
+            "order": 5,
+            "live": false
+          },
+          {
+            "id": "Data",
+            "label": "Data",
+            "visible": false,
+            "order": 6,
+            "live": false
+          },
+          {
+            "id": "About",
+            "label": "About",
+            "visible": true,
+            "order": 7,
+            "live": false
+          }
+        ],
+        "subTabs": {
+          "Analysis": [
+            {
+              "id": "overview",
+              "label": "Overview",
+              "icon": "insights",
+              "visible": true,
+              "order": 0
+            },
+            {
+              "id": "geography",
+              "label": "Geography",
+              "icon": "map",
+              "visible": true,
+              "order": 1
+            },
+            {
+              "id": "turnout",
+              "label": "Turnout",
+              "icon": "how_to_vote",
+              "visible": true,
+              "order": 2
+            },
+            {
+              "id": "trends",
+              "label": "Trends",
+              "icon": "timeline",
+              "visible": true,
+              "order": 3
+            },
+            {
+              "id": "demographics",
+              "label": "Demographics",
+              "icon": "groups",
+              "visible": true,
+              "order": 4
+            },
+            {
+              "id": "quality",
+              "label": "Data Quality",
+              "icon": "fact_check",
+              "visible": true,
+              "order": 5
+            }
+          ]
+        },
+        "editorial": {
+          "headline": "",
+          "subhead": "",
+          "notes": "",
+          "comingSoonMessage": "Live results and KPIs for this country are not loaded yet. Nigeria is the live scope.",
+          "kpiCards": []
+        },
+        "widgets": [],
+        "dataSources": [
+          {
+            "id": "placeholder",
+            "label": "Country data (pending)",
+            "endpoint": "",
+            "enabled": false,
+            "notes": "Attach APIs when this country goes live."
+          }
+        ],
+        "capabilities": {
+          "liveData": false,
+          "maps": false,
+          "analysis": false,
+          "candidates": false,
+          "parties": false,
+          "liveResults": false,
+          "dataExplorer": false,
+          "comingSoon": true
+        },
+        "links": {
+          "dashboardOverview": true,
+          "dashboardLive": true,
+          "mapStudio": false
+        },
+        "codeLocked": [
+          {
+            "surface": "Analysis Chart.js renderers",
+            "note": "Chart algorithms and canvas wiring stay in eid-analysis.js. Titles, visibility, and order are editable here."
+          },
+          {
+            "surface": "Map geometry & GRID3 layers",
+            "note": "Basemap/layers use Map Studio. Boundary polygons and PU coordinates remain code/data-pipeline locked."
+          },
+          {
+            "surface": "Live submission moderation UI",
+            "note": "In-app Admin moderation flow is not page-studio editable."
+          },
+          {
+            "surface": "dc-runtime template shells",
+            "note": "Major HTML section shells in index.html are code-locked; studio toggles visibility/labels and injects extras."
+          }
+        ]
+      },
+      "published": null
+    },
+    "za": {
+      "draft": {
+        "version": 1,
+        "country": "za",
+        "updatedAt": null,
+        "nav": [
+          {
+            "id": "Overview",
+            "label": "Overview",
+            "visible": true,
+            "order": 0,
+            "live": false
+          },
+          {
+            "id": "Map",
+            "label": "Polling units",
+            "visible": false,
+            "order": 1,
+            "live": false
+          },
+          {
+            "id": "Live Results",
+            "label": "Live Results",
+            "visible": false,
+            "order": 2,
+            "live": true
+          },
+          {
+            "id": "Candidates",
+            "label": "Candidates",
+            "visible": false,
+            "order": 3,
+            "live": false
+          },
+          {
+            "id": "Parties",
+            "label": "Parties",
+            "visible": false,
+            "order": 4,
+            "live": false
+          },
+          {
+            "id": "Analysis",
+            "label": "Analysis",
+            "visible": false,
+            "order": 5,
+            "live": false
+          },
+          {
+            "id": "Data",
+            "label": "Data",
+            "visible": false,
+            "order": 6,
+            "live": false
+          },
+          {
+            "id": "About",
+            "label": "About",
+            "visible": true,
+            "order": 7,
+            "live": false
+          }
+        ],
+        "subTabs": {
+          "Analysis": [
+            {
+              "id": "overview",
+              "label": "Overview",
+              "icon": "insights",
+              "visible": true,
+              "order": 0
+            },
+            {
+              "id": "geography",
+              "label": "Geography",
+              "icon": "map",
+              "visible": true,
+              "order": 1
+            },
+            {
+              "id": "turnout",
+              "label": "Turnout",
+              "icon": "how_to_vote",
+              "visible": true,
+              "order": 2
+            },
+            {
+              "id": "trends",
+              "label": "Trends",
+              "icon": "timeline",
+              "visible": true,
+              "order": 3
+            },
+            {
+              "id": "demographics",
+              "label": "Demographics",
+              "icon": "groups",
+              "visible": true,
+              "order": 4
+            },
+            {
+              "id": "quality",
+              "label": "Data Quality",
+              "icon": "fact_check",
+              "visible": true,
+              "order": 5
+            }
+          ]
+        },
+        "editorial": {
+          "headline": "",
+          "subhead": "",
+          "notes": "",
+          "comingSoonMessage": "Live results and KPIs for this country are not loaded yet. Nigeria is the live scope.",
+          "kpiCards": []
+        },
+        "widgets": [],
+        "dataSources": [
+          {
+            "id": "placeholder",
+            "label": "Country data (pending)",
+            "endpoint": "",
+            "enabled": false,
+            "notes": "Attach APIs when this country goes live."
+          }
+        ],
+        "capabilities": {
+          "liveData": false,
+          "maps": false,
+          "analysis": false,
+          "candidates": false,
+          "parties": false,
+          "liveResults": false,
+          "dataExplorer": false,
+          "comingSoon": true
+        },
+        "links": {
+          "dashboardOverview": true,
+          "dashboardLive": true,
+          "mapStudio": false
+        },
+        "codeLocked": [
+          {
+            "surface": "Analysis Chart.js renderers",
+            "note": "Chart algorithms and canvas wiring stay in eid-analysis.js. Titles, visibility, and order are editable here."
+          },
+          {
+            "surface": "Map geometry & GRID3 layers",
+            "note": "Basemap/layers use Map Studio. Boundary polygons and PU coordinates remain code/data-pipeline locked."
+          },
+          {
+            "surface": "Live submission moderation UI",
+            "note": "In-app Admin moderation flow is not page-studio editable."
+          },
+          {
+            "surface": "dc-runtime template shells",
+            "note": "Major HTML section shells in index.html are code-locked; studio toggles visibility/labels and injects extras."
+          }
+        ]
+      },
+      "published": null
+    }
+  }
+}

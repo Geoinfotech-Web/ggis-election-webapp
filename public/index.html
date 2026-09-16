@@ -10,6 +10,7 @@
 <script src="./js/eid-maps.js?v=20260908coords"></script>
 <script src="./js/eid-analysis.js?v=20260916d"></script>
 <script src="./js/eid-dashboard.js?v=20260916dash"></script>
+<script src="./js/eid-page-content.js?v=20260916pages"></script>
 <script src="./support.js?v=20260819c"></script>
 </head>
 <body>
@@ -144,6 +145,17 @@ a:hover{color:var(--primary)}
 .eid-analysis-panels{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
 .eid-analysis-panel{flex:1;min-height:0;overflow-y:auto;padding:2px 0 8px;display:flex;flex-direction:column;gap:10px}
 .eid-analysis-panel--fill{overflow:hidden;padding-bottom:0;height:100%}
+/* Non-fill panels must grow with content; section overflow:hidden was clipping tables below chart grids */
+.eid-analysis-panel:not(.eid-analysis-panel--fill)>.eid-analysis-section{flex:none;min-height:auto;overflow:visible}
+.eid-analysis-turnout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+.eid-analysis-turnout__col{display:flex;flex-direction:column;gap:12px;min-width:0}
+.eid-analysis-turnout__col>.eid-analysis-card{flex:none}
+.eid-analysis-turnout__col>.eid-analysis-card--grow{flex:1 1 auto;min-height:280px}
+.eid-analysis-turnout__swing{min-height:420px}
+.eid-analysis-turnout__swing .eid-analysis-card__body{display:flex;flex-direction:column;gap:8px;min-height:360px;padding-bottom:8px}
+.eid-analysis-turnout__swing-chart{flex:0 0 200px;min-height:180px;position:relative}
+.eid-analysis-turnout__swing-chart canvas{position:absolute;inset:0;width:100%!important;height:100%!important}
+.eid-analysis-turnout__swing-table{flex:1;min-height:140px;max-height:320px;overflow:auto;border:1px solid var(--border);border-radius:8px}
 .eid-analysis-ov{flex:1;min-height:0;height:100%;display:grid;grid-template-columns:minmax(280px,.9fr) minmax(0,1.2fr);gap:10px;overflow:hidden}
 .eid-analysis-ov__left{min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:8px;padding-right:2px}
 .eid-analysis-ov__charts{min-height:0;height:100%;display:grid;grid-template-rows:minmax(0,1fr) minmax(0,1fr);gap:10px;overflow:hidden}
@@ -184,6 +196,7 @@ a:hover{color:var(--primary)}
 @media (max-width:900px){
   .eid-analysis-grid{grid-template-columns:1fr}
   .eid-analysis-card--wide{grid-column:auto}
+  .eid-analysis-turnout{grid-template-columns:1fr}
   .eid-analysis-predict__grid{display:flex;flex-direction:column}
   .eid-analysis-drivers li{grid-template-columns:22px 1fr}
   .eid-analysis-drivers .drv-val{grid-column:2;text-align:left}
@@ -920,7 +933,7 @@ a:hover{color:var(--primary)}
         <img class="eid-flag" ref="{{ country.flagRef }}" alt="{{ country.name }} flag" style="width:72px;height:48px;margin:0 auto 16px;box-shadow:0 2px 10px rgba(0,0,0,.25)">
         <div style="font-family:'IBM Plex Sans';font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);margin-bottom:8px">Coming soon</div>
         <h1 style="margin:0 0 8px;font-size:24px;font-weight:600;letter-spacing:-.02em">{{ country.name }}</h1>
-        <p style="margin:0 0 16px;font-size:13.5px;color:var(--dim);line-height:1.55">{{ country.region }} · live results and KPIs for this country are not loaded. Nigeria is the live scope.</p>
+        <p style="margin:0 0 16px;font-size:13.5px;color:var(--dim);line-height:1.55">{{ country.region }} · {{ comingSoonMessage }}</p>
         <div style="display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 14px;border:1px solid var(--border);border-radius:9px;font-size:13px;color:var(--text)"><span class="msi" style="font-size:16px;color:var(--up)">event_upcoming</span>Next: {{ country.next.date }} · {{ country.next.countdown }}</div>
       </div>
     </div>
@@ -1728,15 +1741,21 @@ a:hover{color:var(--primary)}
                 <div class="eid-analysis-kpi"><div class="eid-analysis-kpi__meta"><div class="eid-analysis-kpi__label">{{ k.label }}</div><div class="eid-analysis-kpi__row"><span class="eid-analysis-kpi__value">{{ k.value }}</span></div><div class="eid-analysis-kpi__cap">{{ k.note }}</div></div></div>
               </sc-for>
             </div>
-            <div class="eid-analysis-grid">
-              <div class="eid-analysis-card"><div class="eid-analysis-card__hd"><h2>Turnout by cycle</h2><span class="meta">national</span></div><div class="eid-analysis-card__body"><canvas id="anaChartTurnoutTrend"></canvas></div></div>
-              <div class="eid-analysis-card"><div class="eid-analysis-card__hd"><h2>Turnout vs party swing</h2><span class="meta">state proxy</span></div><div class="eid-analysis-card__body"><canvas id="anaChartTurnoutSwing"></canvas></div></div>
-              <div class="eid-analysis-card"><div class="eid-analysis-card__hd"><h2>Turnout by region / unit</h2><span class="meta">high → low</span></div><div class="eid-analysis-card__body"><canvas id="anaChartTurnoutByUnit"></canvas></div></div>
-            </div>
-            <div style="overflow:auto;max-height:260px;border:1px solid var(--border);border-radius:10px">
-              <table class="eid-analysis-table"><thead><tr><th>State</th><th>Turnout %</th><th>Δ vs prev</th><th>Focus share</th><th>Swing</th></tr></thead><tbody>
-                <sc-for list="{{ analysisUI.turnoutRows }}" as="t" hint-placeholder-count="6"><tr><td>{{ t.state }}</td><td>{{ t.turnout }}</td><td>{{ t.change }}</td><td>{{ t.share }}</td><td>{{ t.swing }}</td></tr></sc-for>
-              </tbody></table>
+            <div class="eid-analysis-turnout">
+              <div class="eid-analysis-turnout__col">
+                <div class="eid-analysis-card"><div class="eid-analysis-card__hd"><h2>Turnout by cycle</h2><span class="meta">national</span></div><div class="eid-analysis-card__body"><canvas id="anaChartTurnoutTrend"></canvas></div></div>
+                <div class="eid-analysis-card eid-analysis-card--grow"><div class="eid-analysis-card__hd"><h2>Turnout by region / unit</h2><span class="meta">high → low</span></div><div class="eid-analysis-card__body"><canvas id="anaChartTurnoutByUnit"></canvas></div></div>
+              </div>
+              <div class="eid-analysis-turnout__col">
+                <div class="eid-analysis-card eid-analysis-turnout__swing eid-analysis-card--grow"><div class="eid-analysis-card__hd"><h2>Turnout vs party swing</h2><span class="meta">state proxy + table</span></div><div class="eid-analysis-card__body">
+                  <div class="eid-analysis-turnout__swing-chart"><canvas id="anaChartTurnoutSwing"></canvas></div>
+                  <div class="eid-analysis-turnout__swing-table eid-scroll">
+                    <table class="eid-analysis-table"><thead><tr><th>State</th><th>Turnout %</th><th>Δ vs prev</th><th>Focus share</th><th>Swing</th></tr></thead><tbody>
+                      <sc-for list="{{ analysisUI.turnoutRows }}" as="t" hint-placeholder-count="6"><tr><td>{{ t.state }}</td><td>{{ t.turnout }}</td><td>{{ t.change }}</td><td>{{ t.share }}</td><td>{{ t.swing }}</td></tr></sc-for>
+                    </tbody></table>
+                  </div>
+                </div></div>
+              </div>
             </div>
           </div>
         </div>
@@ -3327,6 +3346,7 @@ class Component extends DCLogic {
   componentDidMount(){
     this.syncPartyPalette(); this.apply(); this.loadRealData(); this.loadPuDirectory(); this.fetchNgKpis();
     if (window.EidDashboard) window.EidDashboard.load().then(()=>this.apply()).catch(()=>{});
+    this.loadPageContent(this.state.scope || 'global');
     this.fetchGovCatalog();
     this.fetchCandidateCatalog();
     this.fetchGovCandidateCatalog();
@@ -3382,6 +3402,9 @@ class Component extends DCLogic {
     const bundle = this.state.analysisBundle;
     if (!root || !bundle || !window.EIDAnalysis) return;
     window.EIDAnalysis.render(root, bundle);
+    if (window.EidPageContent) {
+      try { window.EidPageContent.applyDomOverrides(this.state.scope, root); } catch (_) {}
+    }
     if (window.EIDAnalysis.resizeAll) {
       requestAnimationFrame(() => {
         window.EIDAnalysis.resizeAll();
@@ -3939,7 +3962,21 @@ class Component extends DCLogic {
 
   openWelcome(){ this.setState({view:'welcome', switcherOpen:false}); }
   exitAdmin(){ this.setState({ section:'Overview' }); }
-  selectScope(s){ this.setState({view:'app', scope:s, section:'Overview', switcherOpen:false}, ()=>{ if(s==='ng') this.flyToElectionView(); }); }
+  selectScope(s){
+    this.setState({view:'app', scope:s, section:'Overview', switcherOpen:false}, ()=>{
+      if(s==='ng') this.flyToElectionView();
+      this.loadPageContent(s);
+    });
+  }
+  async loadPageContent(scope){
+    if (!window.EidPageContent) return;
+    const key = scope != null ? scope : this.state.scope;
+    try {
+      await window.EidPageContent.load(key);
+      this.apply();
+      if (this.state.section === 'Analysis') this.queueAnalysisCharts();
+    } catch (_) { /* keep hardcoded defaults */ }
+  }
   openFeaturedRace(){
     const race = this.state.ekitiResult;
     const state = (race && race.state) || 'Ekiti';
@@ -4418,14 +4455,17 @@ class Component extends DCLogic {
       outlook: 'trends',
       notes: anaAdvanced ? 'quality' : 'overview',
     };
-    const ANA_SUB_TABS = [
-      { id: 'overview', label: 'Overview', icon: 'insights' },
-      { id: 'geography', label: 'Geography', icon: 'map' },
-      { id: 'turnout', label: 'Turnout', icon: 'how_to_vote' },
-      { id: 'trends', label: 'Trends', icon: 'timeline' },
-    ];
-    if (demoAvailable) ANA_SUB_TABS.push({ id: 'demographics', label: 'Demographics', icon: 'groups' });
-    if (anaAdvanced) ANA_SUB_TABS.push({ id: 'quality', label: 'Data Quality', icon: 'fact_check' });
+    const ANA_SUB_TABS = window.EidPageContent
+      ? window.EidPageContent.analysisSubTabs(this.state.scope, { demoAvailable, anaAdvanced })
+      : [
+          { id: 'overview', label: 'Overview', icon: 'insights' },
+          { id: 'geography', label: 'Geography', icon: 'map' },
+          { id: 'turnout', label: 'Turnout', icon: 'how_to_vote' },
+          { id: 'trends', label: 'Trends', icon: 'timeline' },
+        ].concat(
+          demoAvailable ? [{ id: 'demographics', label: 'Demographics', icon: 'groups' }] : [],
+          anaAdvanced ? [{ id: 'quality', label: 'Data Quality', icon: 'fact_check' }] : []
+        );
     const anaSubTabRaw = LEGACY_TAB_MAP[this.state.anaSubTab] || this.state.anaSubTab || 'overview';
     const anaSubTab = ANA_SUB_TABS.some((t) => t.id === anaSubTabRaw) ? anaSubTabRaw : 'overview';
     const gained = (geo.gained || []).length;
@@ -5230,7 +5270,8 @@ class Component extends DCLogic {
         })
       : { usedLayout:false, kpis: topKpisRaw, extras: [] };
     const topKpis = dashOverview.kpis;
-    const overviewDashExtras = dashOverview.extras || [];
+    const pageExtras = window.EidPageContent ? window.EidPageContent.overviewExtras(this.state.scope) : [];
+    const overviewDashExtras = (dashOverview.extras || []).concat(pageExtras);
 
     // ── Candidates & Parties (Nigeria / INEC) ──
     let ngCandidates=null, ngParties=null, ngPartyDetail=null, ngCandidateDetail=null;
@@ -5543,7 +5584,14 @@ class Component extends DCLogic {
       isApp: view==='app' && section!=='Admin',
       isOverviewGlobal: view==='app' && section==='Overview' && isGlobal,
       isOverviewCountry: view==='app' && section==='Overview' && isNigeria,
-      isComingSoon: view==='app' && section!=='Admin' && !isGlobal && !isNigeria,
+      isComingSoon: view==='app' && section!=='Admin' && !isGlobal && (
+        window.EidPageContent
+          ? !!window.EidPageContent.capabilities(this.state.scope).comingSoon
+          : !isNigeria
+      ),
+      comingSoonMessage: window.EidPageContent
+        ? window.EidPageContent.comingSoonMessage(this.state.scope)
+        : 'live results and KPIs for this country are not loaded. Nigeria is the live scope.',
       isSection: false,
       isMap: view==='app' && section==='Map' && isNigeria,
       isElections: view==='app' && section==='Elections' && (isGlobal || isNigeria),
@@ -5635,11 +5683,13 @@ class Component extends DCLogic {
           statusLabel: code==='ng'?'Live now':'Coming soon', statusColor: code==='ng'?st.color:'var(--mute)', onClick:()=>this.openCountry(code) };
       }),
 
-      nav: [
-        this.navItem('Overview'), this.navItem('Map', false, 'Polling units'), this.navItem('Live Results', true),
-        this.navItem('Candidates'), this.navItem('Parties'),
-        this.navItem('Analysis'), this.navItem('Data'), this.navItem('About'),
-      ],
+      nav: (window.EidPageContent
+        ? window.EidPageContent.navItems(this.state.scope).map((item) => this.navItem(item.id, item.live, item.label))
+        : [
+            this.navItem('Overview'), this.navItem('Map', false, 'Polling units'), this.navItem('Live Results', true),
+            this.navItem('Candidates'), this.navItem('Parties'),
+            this.navItem('Analysis'), this.navItem('Data'), this.navItem('About'),
+          ]),
 
       selects: [
         { label:'Region', options:['All regions','Africa','Americas','Europe','Asia','Oceania'] },

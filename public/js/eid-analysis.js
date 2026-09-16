@@ -464,6 +464,37 @@
     });
   }
 
+  function turnoutByUnitBars(canvas, points, t) {
+    if (!canvas) return;
+    const rows = (points || [])
+      .filter((p) => p.turnoutPct != null)
+      .slice()
+      .sort((a, b) => b.turnoutPct - a.turnoutPct)
+      .slice(0, 18);
+    if (!rows.length) {
+      emptyCanvas(canvas, t, 'Unit turnout proxies unavailable for this office/year');
+      return;
+    }
+    clearEmpty(canvas);
+    upsertChart(canvas.id, canvas, {
+      type: 'bar',
+      data: {
+        labels: rows.map((r) => r.state),
+        datasets: [{
+          label: 'Turnout %',
+          data: rows.map((r) => r.turnoutPct),
+          backgroundColor: rows.map((r, i) => (i < 3 || i >= rows.length - 3 ? t.up : t.primary)),
+          borderRadius: 3,
+          maxBarThickness: 16,
+        }],
+      },
+      options: {
+        ...baseOptions(t, { indexAxis: 'y', percent: true }),
+        plugins: { ...baseOptions(t).plugins, legend: { display: false } },
+      },
+    });
+  }
+
   /**
    * @param {HTMLElement} root
    * @param {object} bundle
@@ -487,16 +518,18 @@
     swingBars(root.querySelector('#anaChartSwing'), geo.units, geo.focusParty || perf.focusParty, t);
     marginHist(root.querySelector('#anaChartMargins'), comp.distribution, t);
     turnoutScatter(root.querySelector('#anaChartTurnoutSwing'), turnout.byUnit, t);
+    turnoutByUnitBars(root.querySelector('#anaChartTurnoutByUnit'), turnout.byUnit, t);
 
-    const histTrend = (history.voteShareTrend && history.voteShareTrend.length)
-      ? history.voteShareTrend
-      : history.seatShareTrend;
-    historyLines(root.querySelector('#anaChartHistory'), histTrend, history.years, t, { percent: true });
+    historyLines(root.querySelector('#anaChartHistory'), history.voteShareTrend, history.years, t, { percent: true });
+    historyLines(root.querySelector('#anaChartSeatHistory'), history.seatShareTrend, history.years, t, { percent: true });
 
     const turnoutYears = (history.turnoutTrend || []).map((r) => r.year);
     const turnoutVals = (history.turnoutTrend || []).map((r) => r.turnoutPct);
-    const turnoutCanvas = root.querySelector('#anaChartTurnoutTrend');
-    if (turnoutCanvas) {
+    const turnoutCanvases = [
+      root.querySelector('#anaChartTurnoutTrend'),
+      root.querySelector('#anaChartTrendTurnout'),
+    ].filter(Boolean);
+    turnoutCanvases.forEach((turnoutCanvas) => {
       if (turnoutVals.some((v) => v != null)) {
         clearEmpty(turnoutCanvas);
         upsertChart(turnoutCanvas.id, turnoutCanvas, {
@@ -518,10 +551,18 @@
       } else {
         emptyCanvas(turnoutCanvas, t, 'National turnout series only for presidential cycles');
       }
-    }
+    });
 
     outlookBars(root.querySelector('#anaChartOutlook'), bundle.prediction?.partyMomentum, t);
   }
 
-  global.EIDAnalysis = { render, destroyAll };
+  function resizeAll() {
+    Object.keys(charts).forEach((k) => {
+      try {
+        if (charts[k] && typeof charts[k].resize === 'function') charts[k].resize();
+      } catch (e) { /* ignore */ }
+    });
+  }
+
+  global.EIDAnalysis = { render, destroyAll, resizeAll };
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pages | Admin portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/admin/admin-shell.css" />
+    <style>
+      .admin-shell.admin-shell--wide { width: min(1280px, calc(100% - 32px)); }
+      .ps-toolbar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:14px; }
+      .ps-toolbar label { display:inline-flex; align-items:center; gap:8px; font-size:0.85rem; color:var(--dim); }
+      .ps-toolbar select { min-height:36px; border-radius:8px; border:1px solid var(--border2); background:var(--surface2); color:var(--text); padding:0 10px; font:inherit; }
+      .ps-tabs { display:inline-flex; flex-wrap:wrap; gap:6px; margin:0 0 14px; }
+      .ps-tabs button { min-height:34px; padding:0 12px; border:1px solid var(--border); border-radius:8px; background:var(--surface2); color:var(--dim); font:inherit; cursor:pointer; }
+      .ps-tabs button.is-active { color:var(--text); border-color:var(--primary); background:var(--primary-soft); }
+      .ps-meta { color:var(--mute); font-size:0.85rem; margin-bottom:12px; }
+      .ps-grid { display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:16px; align-items:start; }
+      .ps-panel { border:1px solid var(--border); border-radius:12px; background:var(--surface); padding:14px; }
+      .ps-side { border:1px solid var(--border); border-radius:12px; background:var(--surface); padding:14px; position:sticky; top:12px; }
+      .ps-row { display:grid; grid-template-columns:28px minmax(90px,1.1fr) minmax(120px,1.4fr) 70px 44px; gap:8px; align-items:center; padding:8px 0; border-bottom:1px solid var(--border); }
+      .ps-row:last-child { border-bottom:none; }
+      .ps-row--head { font-size:0.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--mute); font-weight:600; padding-top:0; }
+      .ps-row input[type="text"], .ps-row select, .ps-fields input, .ps-fields select, .ps-fields textarea {
+        width:100%; min-height:34px; border-radius:8px; border:1px solid var(--border2); background:var(--surface2); color:var(--text); padding:0 10px; font:inherit;
+      }
+      .ps-fields textarea { min-height:88px; padding:8px 10px; resize:vertical; }
+      .ps-fields label { display:grid; gap:6px; margin-bottom:10px; font-size:0.82rem; font-weight:600; }
+      .ps-fields .ps-inline { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+      .ps-widget { border:1px solid var(--border2); border-radius:10px; background:var(--surface2); padding:10px 12px; margin-bottom:10px; }
+      .ps-widget.is-selected { border-color:var(--primary); box-shadow:0 0 0 1px var(--primary); }
+      .ps-widget__head { display:flex; gap:8px; align-items:center; margin-bottom:8px; }
+      .ps-widget__type { font-size:0.68rem; text-transform:uppercase; letter-spacing:.06em; color:var(--primary); border:1px solid var(--border); border-radius:999px; padding:2px 8px; }
+      .ps-widget__actions { margin-left:auto; display:flex; gap:6px; }
+      .ps-chip { display:inline-flex; align-items:center; gap:6px; font-size:0.78rem; color:var(--dim); padding:4px 8px; border:1px solid var(--border); border-radius:999px; background:var(--surface2); }
+      .ps-locked li { margin:0 0 8px; color:var(--dim); font-size:0.85rem; line-height:1.4; }
+      .ps-locked strong { color:var(--text); }
+      .ps-empty { color:var(--mute); text-align:center; padding:24px; border:1px dashed var(--border2); border-radius:10px; }
+      .ps-hint { font-size:0.8rem; color:var(--mute); line-height:1.45; margin:0 0 12px; }
+      .ps-cap-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+      .ps-cap-grid label { display:flex; align-items:center; gap:8px; font-size:0.85rem; font-weight:500; color:var(--text); }
+      @media (max-width:1100px){ .ps-grid{ grid-template-columns:1fr; } .ps-side{ position:static; } .ps-row{ grid-template-columns:24px 1fr 1fr; } .ps-row .ps-hide-sm{ display:none; } }
+    </style>
+  </head>
+  <body>
+    <div class="admin-layout">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <div class="admin-brand-mark">EI</div>
+          <div>
+            <strong>Admin portal</strong>
+            <span>Election Intelligence</span>
+          </div>
+        </div>
+        <nav class="admin-nav" aria-label="Admin modules" id="adminNav"></nav>
+        <div class="admin-sidebar-foot">
+          <a class="admin-btn admin-btn-ghost" href="/">Open public app</a>
+          <button type="button" class="admin-btn admin-btn-ghost" id="logoutButton">Sign out</button>
+        </div>
+      </aside>
+      <div class="admin-shell admin-shell--wide">
+        <header class="admin-header">
+          <div>
+            <div class="admin-kicker" id="adminKicker">Page / Content Studio</div>
+            <h1 id="adminPageTitle">Pages</h1>
+          </div>
+          <div class="admin-header-actions">
+            <span class="admin-user" id="adminUser">Signed in</span>
+          </div>
+        </header>
+        <main class="admin-main">
+          <section class="admin-card" style="padding-top:16px">
+            <div class="ps-toolbar">
+              <label>
+                Country
+                <select id="psCountry" aria-label="Country scope"></select>
+              </label>
+              <button type="button" class="admin-btn admin-btn-ghost" id="psSave">Save draft</button>
+              <button type="button" class="admin-btn" id="psPublish">Publish</button>
+              <button type="button" class="admin-btn admin-btn-ghost" id="psRevert">Revert</button>
+              <a class="admin-btn admin-btn-ghost" id="psPreviewLink" href="/" target="_blank" rel="noopener">Open public</a>
+            </div>
+            <div class="ps-tabs" role="tablist" aria-label="Studio panels">
+              <button type="button" data-ps-tab="nav" class="is-active">Tabs</button>
+              <button type="button" data-ps-tab="subtabs">Sub-tabs</button>
+              <button type="button" data-ps-tab="editorial">Editorial</button>
+              <button type="button" data-ps-tab="widgets">Widgets</button>
+              <button type="button" data-ps-tab="sources">Data sources</button>
+              <button type="button" data-ps-tab="caps">Capabilities</button>
+            </div>
+            <div class="ps-meta" id="psMeta">Loading…</div>
+            <div class="ps-grid">
+              <div class="ps-panel" id="psMain"></div>
+              <aside class="ps-side" id="psSide">
+                <p class="admin-muted">Select an item to edit details.</p>
+              </aside>
+            </div>
+            <div class="admin-status" id="psStatus"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="/admin/auth-check.js"></script>
+    <script src="/admin/admin-common.js"></script>
+    <script src="/admin/page-studio.js"></script>
+  </body>
+</html>

@@ -51,6 +51,7 @@ const { getSessionSecret: getConfiguredSessionSecret } = require('./src/config')
 const { storeSource } = require('./src/storage');
 const mapConfigsStore = require('./src/map-configs-store');
 const dashboardLayouts = require('./src/dashboard-layouts');
+const pageContentStore = require('./src/page-content-store');
 
 const boundaryUpload = multer({
   storage: multer.memoryStorage(),
@@ -2545,6 +2546,70 @@ app.get('/api/maps/:id', async (req, res) => {
     return res.json({ ok: true, map });
   } catch (error) {
     return mapConfigError(res, error);
+  }
+});
+
+// ── Page Content Studio — country-scoped nav / sub-tabs / widgets / editorial ──
+function pageContentError(res, error) {
+  const status = error.status
+    || (/unknown country|no published/i.test(error.message || '') ? 400 : 500);
+  return res.status(status).json({ error: error.message || 'Page content operation failed.' });
+}
+
+app.get('/api/admin/pages', requireAdminApi, async (_req, res) => {
+  try {
+    const payload = await pageContentStore.listCountries();
+    return res.json({ ok: true, ...payload });
+  } catch (error) {
+    return pageContentError(res, error);
+  }
+});
+
+app.get('/api/admin/pages/:country', requireAdminApi, async (req, res) => {
+  try {
+    const payload = await pageContentStore.getAdminCountry(req.params.country);
+    return res.json({ ok: true, ...payload });
+  } catch (error) {
+    return pageContentError(res, error);
+  }
+});
+
+app.put('/api/admin/pages/:country', requireAdminWrite, async (req, res) => {
+  try {
+    const bundle = req.body?.bundle != null ? req.body.bundle : req.body;
+    const payload = await pageContentStore.saveDraft(req.params.country, bundle);
+    return res.json({ ok: true, ...payload });
+  } catch (error) {
+    return pageContentError(res, error);
+  }
+});
+
+app.post('/api/admin/pages/:country/publish', requireAdminWrite, async (req, res) => {
+  try {
+    const payload = await pageContentStore.publishCountry(req.params.country);
+    return res.json({ ok: true, ...payload });
+  } catch (error) {
+    return pageContentError(res, error);
+  }
+});
+
+app.post('/api/admin/pages/:country/revert', requireAdminWrite, async (req, res) => {
+  try {
+    const payload = await pageContentStore.revertCountry(req.params.country);
+    return res.json({ ok: true, ...payload });
+  } catch (error) {
+    return pageContentError(res, error);
+  }
+});
+
+/** Public: published page content for a country/global scope (null → client fallback). */
+app.get('/api/page-content/:country', async (req, res) => {
+  try {
+    const payload = await pageContentStore.getPublished(req.params.country);
+    res.setHeader('Cache-Control', 'public, max-age=15');
+    return res.json({ ok: true, ...payload });
+  } catch (error) {
+    return pageContentError(res, error);
   }
 });
 

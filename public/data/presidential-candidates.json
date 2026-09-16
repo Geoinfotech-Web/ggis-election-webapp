@@ -1,6 +1,6 @@
 {
-  "source": "INEC final list of candidates for national elections (2023) Â· Wikipedia summaries for biography where available",
-  "updated": "2026-09-15",
+  "source": "INEC final list of candidates for national elections - Wikipedia / Wikidata biographies (enriched)",
+  "updated": "2026-09-16",
   "ballots": {
     "2015": [
       {
@@ -208,16 +208,21 @@
       "born": "1952-03-29",
       "birthPlace": "Lagos, Nigeria",
       "roles": [
-        "President of Nigeria (2023-present)",
-        "Governor of Lagos State (1999-2007)"
+        "Governor of Lagos State",
+        "President of Nigeria",
+        "Senator of Nigeria",
+        "Chairperson of ECOWAS",
+        "accountant"
       ],
       "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Bola_Tinubu_portrait.jpg?width=480",
       "photoCredit": "Wikimedia Commons",
       "wiki": "https://en.wikipedia.org/wiki/Bola_Tinubu",
-      "summary": "Nigerian politician serving as the 16th president of Nigeria since 2023. He previously served as governor of Lagos State from 1999 to 2007 and as senator for Lagos West in the Third Republic.",
+      "summary": "Asiwaju Bola Ahmed Adekunle Tinubu (born 29 March 1952) is a Nigerian politician serving as the 16th and current president of Nigeria since 2023. He previously served as the governor of Lagos State from 1999 to 2007 and senator for Lagos West in the Third Republic. Tinubu spent his early life in southwestern Nigeria and later moved to the United States where he studied accounting at Chicago State University.",
       "biography": [
-        "Tinubu rose to national prominence as a leading figure in the progressive opposition that later formed the All Progressives Congress (APC).",
-        "As Lagos governor he oversaw reforms in revenue collection, urban planning and transport. In 2023 he won the presidential election on the APC ticket with Kashim Shettima as running mate."
+        "He returned to Nigeria in the 1980s and was employed by Mobil Nigeria as an accountant, before entering politics as a Lagos West senatorial candidate in 1992 under the banner of the Social Democratic Party. After the military dictator Sani Abacha dissolved the Senate in 1993, Tinubu went into exile and became an activist campaigning for the return of democracy as a part of the National Democratic Coalition movement. In the first post-transition Lagos State gubernatorial election, Tinubu won by a wide margin as a member of the Alliance for Democracy.",
+        "Four years later, he won re-election to a second term. After leaving office in 2007, he played a key role in forming the All Progressives Congress in 2013. In 2023, he was elected president, defeating Atiku Abubakar and Peter Obi.",
+        "Under his leadership the government ended prior fuel subsidies, citing fiscal pressures, dissolved the governing boards of numerous federal agencies and state-owned enterprises, replaced the majority of military and paramilitary leadership, supported regional efforts to respond to the 2025 Benin coup d'etat while engaging with security cooperation with the United States against the Islamic State and survived an alleged coup attempt.",
+        "In 2023, Bola Ahmed Tinubu ran for president on the All Progressives Congress ticket with Kashim Shettima as running mate. He won the 2023 presidential election as All Progressives Congress nominee."
       ],
       "history": [
         {
@@ -237,6 +242,11 @@
         },
         {
           "year": "2023",
+          "title": "All Progressives Congress presidential candidate",
+          "detail": "Won the 2023 presidential election as All Progressives Congress nominee."
+        },
+        {
+          "year": "2023",
           "title": "Elected President",
           "detail": "Defeated Atiku Abubakar (PDP) and Peter Obi (LP) in the February 2023 election."
         }
@@ -249,17 +259,20 @@
       "born": "1946-11-25",
       "birthPlace": "Jada, Adamawa State",
       "roles": [
-        "Vice President of Nigeria (1999-2007)",
-        "Businessman",
-        "Presidential candidate"
+        "Vice President of Nigeria",
+        "customs officer",
+        "minister",
+        "politician"
       ],
       "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Atiku_Abubakar_2023.jpg?width=480",
       "photoCredit": "Wikimedia Commons",
       "wiki": "https://en.wikipedia.org/wiki/Atiku_Abubakar",
-      "summary": "Nigerian politician and businessman who served as vice president from 1999 to 2007 under President Olusegun Obasanjo. He has contested the presidency multiple times, including as PDP flag bearer in 2019 and 2023.",
+      "summary": "Atiku Abubakar (; born 25 November 1946) is a Nigerian politician and businessman who served as the vice president of Nigeria from 1999 to 2007 during the presidency of Olusegun Obasanjo. He ran for the office of governor of Adamawa State in 1990 and 1996 unsuccessfully, but won in 1998. Before he was sworn in, he was selected as running mate to former military leader, Olusegun Obasanjo, during the 1999 presidential election and was re-elected in 2003.",
       "biography": [
-        "Atiku began his career in the Nigeria Customs Service before entering politics and business. He was elected governor of Adamawa in 1999 but became Obasanjo's running mate before inauguration.",
-        "He remains one of Nigeria's most persistent presidential aspirants, finishing runner-up in both 2019 and 2023."
+        "Atiku Abubakar ran unsuccessfully for President of Nigeria six times, in 1993, 2007, 2011, 2015, 2019, and 2023. He ran in the Social Democratic Party presidential primaries in 1993, but lost to Moshood Abiola and Baba Gana Kingibe. He was a presidential candidate of the Action Congress in the 2007 presidential election coming in third to Umaru Yar'Adua of the PDP and Muhammadu Buhari of the ANPP.",
+        "He contested the presidential primaries of the People's Democratic Party during the 2011 presidential election losing out to incumbent President Goodluck Jonathan. In 2014, he joined the All Progressives Congress ahead of the 2015 presidential election and contested the presidential primaries losing to Muhammadu Buhari. In 2017, he returned to the Peoples Democratic Party and was the party presidential candidate during the 2019 presidential election, again losing to incumbent President Muhammadu Buhari.",
+        "In May 2022, he was chosen as the Peoples Democratic Party presidential candidate again, this time for the 2023 general election after he defeated Nyesom Wike, the former Governor of Rivers State, in the primaries. He came in second in the general election, being defeated by Bola Tinubu, though Abubakar joined other opposition candidates in demanding a revote.",
+        "In 2019, Atiku Abubakar ran for president on the People's Democratic Party ticket with Peter Obi as running mate. He finished runner-up in the 2019 election on the People's Democratic Party ticket (41.2% nationally). In 2023, Atiku Abubakar ran for president on the People's Democratic Party ticket with Ifeanyi Okowa as running mate. He finished runner-up in the 2023 election on the People's Democratic Party ticket (29.1% nationally)."
       ],
       "history": [
         {
@@ -271,6 +284,16 @@
           "year": "2007-2023",
           "title": "Presidential campaigns",
           "detail": "Multiple bids across parties; PDP nominee in 2019 and 2023."
+        },
+        {
+          "year": "2019",
+          "title": "People's Democratic Party presidential candidate",
+          "detail": "Finished runner-up in the 2019 election on the People's Democratic Party ticket (41.2% nationally)."
+        },
+        {
+          "year": "2023",
+          "title": "People's Democratic Party presidential candidate",
+          "detail": "Finished runner-up in the 2023 election on the People's Democratic Party ticket (29.1% nationally)."
         },
         {
           "year": "2023",
@@ -286,17 +309,22 @@
       "born": "1961-07-19",
       "birthPlace": "Onitsha, Anambra State",
       "roles": [
-        "Governor of Anambra State (2006-2014)",
-        "Businessman",
-        "2023 LP presidential candidate"
+        "Governor of Anambra State",
+        "banker",
+        "politician",
+        "businessperson",
+        "Governor Of Anambra State From 17 March 2006 Until h",
+        "Businessman"
       ],
       "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Peter_Obi.png?width=480",
       "photoCredit": "Wikimedia Commons",
       "wiki": "https://en.wikipedia.org/wiki/Peter_Obi",
-      "summary": "Nigerian politician and businessman who served as governor of Anambra State. He was the Labour Party presidential candidate in 2023 and finished third nationally.",
+      "summary": "Peter Onwubuasi Gregory Obi (born 19 July 1961) is a Nigerian politician, and businessman who served as the governor of Anambra State from 17 March 2006 until his impeachment on 2 November 2006. Reinstated on 9 February 2007, he continued his tenure until 2010 when he was re-elected for a second term which ended on 7 March 2014. A member of the Nigeria Democratic Congress since 2026, Obi was the presidential candidate for Labour Party in the 2023 Nigerian presidential election and he is contesting the 2027 presidential election under Nigeria Democratic Congress.",
       "biography": [
-        "Obi built a reputation for frugal public finance as Anambra governor. In 2022 he left the PDP and emerged as Labour Party's presidential candidate, galvanising a large youth and diaspora following.",
-        "His 2023 campaign with Yusuf Datti Baba-Ahmed reshaped Nigeria's three-way presidential contest."
+        "Born in Onitsha, Anambra State, Nigeria, Obi attended Christ the King College in Onitsha and University of Nigeria in Nsukka for his secondary and tertiary education, respectively. He worked as a banker before becoming a full-time politician following his contest in the 2003 Anambra State gubernatorial election under APGA. He was defeated by Chris Ngige but Ngige's victory was later annulled by the court, hence declared Obi as the winner.",
+        "He started his administration on 17 March 2006. He was removed from office by the state assembly on 3 November 2006, citing \"gross misconduct\". His deputy, Virginia Etiaba, replaced him as the first female governor in Nigeria.",
+        "Obi was restored to office after a court ruling, and he resumed office on 9 February 2007. On 17 March 2010, he was re-elected for a second tenure, which ended on 17 March 2014 when he passed power to the governor-elect, Willie Obiano.",
+        "In 2023, Peter Obi ran for president on the Labour Party ticket with Yusuf Datti Baba-Ahmed as running mate. He finished third in the 2023 election on the Labour Party ticket (25.4% nationally)."
       ],
       "history": [
         {
@@ -308,6 +336,11 @@
           "year": "2019",
           "title": "PDP vice-presidential nominee",
           "detail": "Running mate to Atiku Abubakar."
+        },
+        {
+          "year": "2023",
+          "title": "Labour Party presidential candidate",
+          "detail": "Finished third in the 2023 election on the Labour Party ticket (25.4% nationally)."
         },
         {
           "year": "2023",
@@ -323,16 +356,22 @@
       "born": "1956-10-21",
       "birthPlace": "Kwankwaso, Kano State",
       "roles": [
-        "Governor of Kano (1999-2003, 2011-2015)",
-        "Minister of Defence",
-        "Senator"
+        "Governor of Kano State",
+        "Minister of Defence of Nigeria",
+        "minister",
+        "member of the House of Representatives of Nigeria",
+        "member of the Senate of Nigeria",
+        "politician"
       ],
       "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Rabiu_Kwankwaso.jpg?width=480",
       "photoCredit": "Wikimedia Commons",
       "wiki": "https://en.wikipedia.org/wiki/Rabiu_Kwankwaso",
-      "summary": "Influential Kano politician and leader of the Kwankwasiyya movement. He contested the 2023 presidency on the NNPP platform and finished fourth.",
+      "summary": "Mohammed Rabi'u Musa Kwankwaso, FNSE FNIQS (born 21 October 1956) is a Nigerian politician who served as governor of Kano state from 1999 to 2003 and from 2011 to 2015. After he lost his re-election in 2003, he was appointed the first Minister of Defence of the Fourth Republic with no prior military background, from 2003 to 2007, under the administration of President Olusegun Obasanjo. He was later elected to the Senate in 2015, serving one term under the platform of the All Progressives Congress (APC) representing Kano Central Senatorial District. Finished fourth in the 2023 election on the New Nigeria Peoples Party ticket.",
       "biography": [
-        "Kwankwaso has been a dominant figure in Kano politics for more than two decades, alternating between PDP and APC before leading NNPP's national ticket in 2023."
+        "Formerly the national leader of the New Nigeria Peoples Party (NNPP), Kwankwaso resigned in March 2026 to facilitate a strategic political realignment. After a brief tenure with the African Democratic Congress (ADC), he defected to the Nigeria Democratic Congress (NDC) in May 2026. He currently serves as a key figure in the OK Movement an alliance between his Kwankwasiyya base and Peter Obi's supporters maintaining a powerful opposition bloc with significant influence in Kano and across Nigeria.",
+        "Kwankwaso enjoys widespread support in Kano and north-western Nigeria; he has been viewed as a charismatic populist. In 2011, he was re-elected governor of the state and went on to join the All Progressives Congress (APC) in 2014. In 2015, Kwankwaso unsuccessfully contested the presidential primaries nomination under the opposition of the All Progressives Congress but lost to Muhammadu Buhari.",
+        "In 2018, he returned to Peoples Democratic Party and contested the presidential primaries, losing to Atiku Abubakar.",
+        "In 2023, Rabiu Musa Kwankwaso ran for president on the New Nigeria Peoples Party ticket with Isaac Idahosa as running mate. He finished fourth in the 2023 election on the New Nigeria Peoples Party ticket."
       ],
       "history": [
         {
@@ -352,6 +391,11 @@
         },
         {
           "year": "2023",
+          "title": "New Nigeria Peoples Party presidential candidate",
+          "detail": "Finished fourth in the 2023 election on the New Nigeria Peoples Party ticket."
+        },
+        {
+          "year": "2023",
           "title": "NNPP presidential candidate",
           "detail": "Fourth place nationally."
         }
@@ -364,15 +408,21 @@
       "born": "1971-02-16",
       "birthPlace": "Ondo State, Nigeria",
       "roles": [
+        "human rights defender",
+        "blogger",
+        "businessperson",
         "Founder, Sahara Reporters",
         "AAC presidential candidate"
       ],
       "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Omoyele_Sowore_(29682338514).jpg?width=480",
       "photoCredit": "Wikimedia Commons",
       "wiki": "https://en.wikipedia.org/wiki/Omoyele_Sowore",
-      "summary": "Journalist, activist and founder of Sahara Reporters. He founded the African Action Congress and contested the presidency in 2019 and 2023.",
+      "summary": "Omoyele Yele Sowore (; born 16 February 1971) is a Nigerian politician, human rights activist, citizen reporter, writer, lecturer and pro-democracy campaigner, known for founding the online news agency Sahara Reporters. In August 2018, he founded the African Action Congress party and ran as its presidential candidate in the 2019 Nigerian general election. Sowore also ran for President in the 2023 Nigerian General elections.",
       "biography": [
-        "Sowore is known for citizen reporting and pro-democracy activism. He launched AAC in 2018 and has remained a vocal critic of successive Nigerian governments."
+        "On 3 August 2019, Sowore was arrested by the Nigerian State Security Service (SSS), for alleged treason after calling for a protest tagged RevolutionNow. He was arrested again and assaulted during a protest in Abuja on 1 January 2021. Sowore was injured by a police officer during a protest in Abuja on 31 May 2021.",
+        "== Early life and education == Yele Sowore is from Ese-Odo, Ondo State in South West Nigeria. Sowore was born in the Niger Delta region of the country (comprising six states in South-South region, Ondo, Abia and Imo States) where he was also raised in a polygamous home with sixteen children. At age 12, he learned to ride a motorcycle so that he could go to the lake to go fish for food to feed his entire family every morning before going to school.",
+        "Sowore's passion and interest in media was sparked during the military rule in Nigeria.",
+        "In 2019, Omoyele Sowore ran for president on the African Action Congress ticket with Rabiu Garba Kwankwaso as running mate. 2019 African Action Congress presidential candidate (contested). In 2023, Omoyele Sowore ran for president on the African Action Congress ticket with Haruna Magashi as running mate. 2023 African Action Congress presidential candidate (contested)."
       ],
       "history": [
         {
@@ -386,9 +436,19 @@
           "detail": "Launched African Action Congress."
         },
         {
+          "year": "2019",
+          "title": "African Action Congress presidential candidate",
+          "detail": "2019 African Action Congress presidential candidate (contested)."
+        },
+        {
           "year": "2019 & 2023",
           "title": "Presidential candidate",
           "detail": "AAC flag bearer in two general elections."
+        },
+        {
+          "year": "2023",
+          "title": "African Action Congress presidential candidate",
+          "detail": "2023 African Action Congress presidential candidate (contested)."
         }
       ]
     },
@@ -399,15 +459,22 @@
       "born": "1942-12-17",
       "birthPlace": "Daura, Katsina State",
       "roles": [
-        "President of Nigeria (2015-2023)",
-        "Military Head of State (1983-1985)"
+        "President of Nigeria",
+        "Governor of Borno State",
+        "Minister of Petroleum Resources",
+        "president",
+        "military personnel",
+        "teacher"
       ],
       "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Muhammadu_Buhari,_President_of_the_Federal_Republic_of_Nigeria_(3x4_cropped).jpg?width=480",
       "photoCredit": "Wikimedia Commons",
       "wiki": "https://en.wikipedia.org/wiki/Muhammadu_Buhari",
-      "summary": "Nigerian general and politician who served as military head of state (1983-1985) and as civilian president from 2015 to 2023.",
+      "summary": "Muhammadu Buhari ( 17 December 1942 13 July 2025) was a Nigerian general and politician who ruled as military dictator of Nigeria from 1983 to 1985, and later served as the democratically elected civilian president of Nigeria from 2015 to 2023. Buhari joined the Nigerian Army fighting in the Nigerian Civil War, before advancing in subsequent military governments. Buhari earned a taciturn reputation during the presidency of Shehu Shagari due to his leading troops in the Chadian Nigerian War. Won the 2019 presidential election as All Progressives Congress nominee.",
       "biography": [
-        "After decades of opposition politics, Buhari won the 2015 election as APC candidate, becoming the first opposition candidate to defeat an incumbent Nigerian president, and was re-elected in 2019."
+        "Buhari was a main figure behind the 1983 Nigerian coup d'etat which led to the overthrow of the Second Republic. Although not the ringleader, Buhari became head of the military junta amid a period of deep economic crisis and widespread corruption. Citing economic mismanagement and a lack of discipline under the civilian administration, Buhari adopted a strict and austere approach to governance, with a strong emphasis on discipline, anti-corruption, and economic recovery through what became known as the War Against Indiscipline (WAI).",
+        "The authoritarian political system he created is known as Buharism. Ultimately, Buhari's rigid style of governance and strained economic measures led to growing dissatisfaction within the military. On 27 August 1985, he was overthrown in a palace coup led by General Ibrahim Babangida.",
+        "Buhari ran for president of Nigeria on the platform and support of the All Nigeria Peoples Party (ANPP) in 2003 and 2007, and on the Congress for Progressive Change (CPC) platform in 2011.",
+        "In 2015, Muhammadu Buhari ran for president on the All Progressives Congress ticket with Yemi Osinbajo as running mate. He won the 2015 presidential election as All Progressives Congress nominee. In 2019, Muhammadu Buhari ran for president on the All Progressives Congress ticket with Yemi Osinbajo as running mate. He won the 2019 presidential election as All Progressives Congress nominee."
       ],
       "history": [
         {
@@ -417,8 +484,18 @@
         },
         {
           "year": "2015",
+          "title": "All Progressives Congress presidential candidate",
+          "detail": "Won the 2015 presidential election as All Progressives Congress nominee."
+        },
+        {
+          "year": "2015",
           "title": "Elected President",
           "detail": "Defeated incumbent Goodluck Jonathan."
+        },
+        {
+          "year": "2019",
+          "title": "All Progressives Congress presidential candidate",
+          "detail": "Won the 2019 presidential election as All Progressives Congress nominee."
         },
         {
           "year": "2019",
@@ -439,15 +516,21 @@
       "born": "1957-11-20",
       "birthPlace": "Ogbia, Bayelsa State",
       "roles": [
-        "President of Nigeria (2010-2015)",
-        "Vice President (2007-2010)"
+        "Vice President of Nigeria",
+        "President of Nigeria",
+        "Governor of Bayelsa State",
+        "Minister of Power",
+        "Chairperson of ECOWAS",
+        "politician"
       ],
       "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Goodluck_Jonathan_World_Economic_Forum_2013.jpg?width=480",
       "photoCredit": "Wikimedia Commons",
       "wiki": "https://en.wikipedia.org/wiki/Goodluck_Jonathan",
-      "summary": "Nigerian politician who served as president from 2010 to 2015. He was the first sitting president to concede defeat after losing re-election.",
+      "summary": "Goodluck Ebele Azikiwe Jonathan () (born 20 November 1957) is a Nigerian politician who served as the president of Nigeria from 2010 to 2015. He lost the 2015 presidential election to former military head of state General Muhammadu Buhari and was the first incumbent president in Nigerian history to lose re-election. He was named Azikiwe by his grandmother in honor of Nigeria s first President Dr.",
       "biography": [
-        "Jonathan rose from Bayelsa deputy governor to vice president, then president after Umaru Yar'Adua's death. He lost the 2015 election to Muhammadu Buhari."
+        "Previously, Jonathan served as the vice president of Nigeria from 2007 to 2010 under the administration of Umaru Musa Yar'Adua; and in oil-rich Bayelsa State as governor from 2005 to 2007, and deputy governor from 1999 to 2005. In 2015, Jonathan became the first Nigerian president to concede election defeat. It allowed the transfer of power to the opposition party in Africa's biggest democracy a country that had hitherto experienced vote-rigging and violence.",
+        "== Early life and education == Jonathan was born on 20 November 1957 in Ogbia to a Christian Ijaw family of canoe makers, in Otuoke, Bayelsa State. His father, Lawrence Ebele Jonathan, was a canoe maker and his mother, Eunice Ayi Ebele Jonathan, was a retired farmer. Their middle name Ebele or Ebelechukwu is of Igbo origin of the Igbo people.",
+        "In 2015, Goodluck Jonathan ran for president on the People's Democratic Party ticket with Namadi Sambo as running mate. He lost re-election as incumbent in 2015 on the People's Democratic Party ticket."
       ],
       "history": [
         {
@@ -459,6 +542,11 @@
           "year": "2010-2015",
           "title": "President",
           "detail": "Completed Yar'Adua's term and won the 2011 election."
+        },
+        {
+          "year": "2015",
+          "title": "People's Democratic Party presidential candidate",
+          "detail": "Lost re-election as incumbent in 2015 on the People's Democratic Party ticket."
         },
         {
           "year": "2015",
@@ -474,21 +562,32 @@
       "born": "1960",
       "birthPlace": "Nguru, Yobe State",
       "roles": [
+        "military officer",
         "Former Chief Security Officer to Gen. Sani Abacha",
         "2023 AA presidential candidate"
       ],
       "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/Hamza_al-Mustapha_2023.jpg?width=480",
       "photoCredit": "Wikimedia Commons",
       "wiki": "https://en.wikipedia.org/wiki/Hamza_al-Mustapha",
-      "summary": "Retired Nigerian Army major and intelligence officer who served as Chief Security Officer to Head of State Gen. Sani Abacha. He was the Action Alliance presidential candidate in 2023.",
+      "summary": "Hamza Al-Mustapha (born 27 July 1960) is a retired Nigerian Army major, intelligence officer and politician who served as Chief Security Officer to Head of State General Sani Abacha from 1993 until his death on 8 June 1998. == Early life == Hamza Al-Mustapha was born into a Hausa family and educated in Nguru. He enrolled at the Nigerian Defence Academy in Kaduna and was commissioned into the Nigerian Army in 1983. 2023 Action Alliance presidential candidate (contested).",
       "biography": [
-        "Al-Mustapha was a central figure in Abacha's security apparatus. After years in detention and subsequent release, he entered partisan politics and contested the 2023 presidency."
+        "== Military career == From August 1985 to August 1990, Al-Mustapha was Aide-de-camp (ADC) (but recently clarified in an open television interview with Channels Television's Seun Okinbaloye that he wasn't ADC that he was the chief security officer) to Chief of Army Staff, General Sani Abacha. Both his principal and head of state, General Ibrahim Babangida had absolute confidence in his abilities, and entrusted him with exceptional powers, considerably greater than other officers who were nominally his superior. This further projected him as a strongman of the military hierarchy.",
+        "=== Military intelligence === Al-Mustapha was trained as a military intelligence operative. He held various command posts in the Ministry of Internal Affairs, Security Group of the Directorate of Military Intelligence (SG-DMI), 82 Division and Army Headquarters; Ministry of Defence and The Presidency. He was also involved in counter-intelligence activities and at least two investigations of coup attempts; which brought him to the attention of General Sani Abacha.",
+        "Hamza Al-Mustapha was born into a Hausa family and educated in Nguru . He enrolled at the Nigerian Defence Academy in Kaduna and was commissioned into the Nigerian Army in 1983.",
+        "Al-Mustapha oversaw the reorganisation of the entire territory of Nigeria into six geopolitical zones , in this he cultivated a vast network of spies and informants across the federation; North Central : Benue State , Kogi State , Kwara State , Nasarawa State , Niger State , Plateau State and Federal Capital Territory, Nigeria . North East : Adamawa State , Bauchi State , Borno State , Gombe State , Taraba State and Yobe State . North West : Jigawa State , Kaduna State , Kano State , Katsina State , Kebbi State , Sokoto State and Zamfara State .",
+        "South East : Abia State , Anambra State , Ebonyi State , Enugu State and Imo State . South South : Akwa Ibom State , Bayelsa State , Cross River State , Delta State , Edo State and Rivers State . South West : Ekiti State , Lagos State , Ogun State , Ondo State , Osun State and Oyo State .",
+        "In 2023, Hamza Al-Mustapha ran for president on the Action Alliance ticket with Emmanuel Chukwuka Johnson as running mate. 2023 Action Alliance presidential candidate (contested)."
       ],
       "history": [
         {
           "year": "1993-1998",
           "title": "CSO to Head of State",
           "detail": "Served under Gen. Sani Abacha."
+        },
+        {
+          "year": "2023",
+          "title": "Action Alliance presidential candidate",
+          "detail": "2023 Action Alliance presidential candidate (contested)."
         },
         {
           "year": "2023",
@@ -504,6 +603,7 @@
       "born": "1972",
       "birthPlace": "Ondo State, Nigeria",
       "roles": [
+        "politician",
         "Lawyer",
         "Media entrepreneur",
         "SDP presidential candidate"
@@ -511,11 +611,19 @@
       "photo": "https://commons.wikimedia.org/wiki/Special:FilePath/PAA_Wikipedia_Speech_(2).jpg?width=480",
       "photoCredit": "Wikimedia Commons",
       "wiki": "https://en.wikipedia.org/wiki/Adewole_Adebayo",
-      "summary": "Nigerian lawyer, activist and media entrepreneur. He was the Social Democratic Party presidential candidate in 2023.",
+      "summary": "Prince Adewole Adebayo (born 8 January 1972) is a Nigerian political activist, lawyer, and media entrepreneur. He is the presidential candidate for the Social Democratic Party (Nigeria) in the 2027 Nigerian elections and is the founder of KAFTAN TV. == Early life and education == Adebayo was born in Ondo City, Ondo State, on January 8, 1972. 2023 Social Democratic Party presidential candidate (contested).",
       "biography": [
-        "Adebayo is known for public commentary on law and governance and for founding KAFTAN TV. He ran for president on the SDP platform in 2023."
+        "He is a member of the Ondo royal family whose family trace their lineage back to 1510. Between 1978 and 1983, he attended St. Stephen Primary School in Ondo.",
+        "From 1983 to 1989, he attended St. Joseph College in Ondo. From 1991 to 1997, he attended Obafemi Awolowo University, where he earned a law degree.",
+        "He was admitted to the Nigerian Bar in 2000 after graduating from the Nigerian Law School in Lagos and passing his bar exams. Adebayo later attended law school in the United States of America, where he passed the New York Bar Exams.",
+        "In 2023, Adewole Adebayo ran for president on the Social Democratic Party ticket with Yusuf Bala as running mate. 2023 Social Democratic Party presidential candidate (contested)."
       ],
       "history": [
+        {
+          "year": "2023",
+          "title": "Social Democratic Party presidential candidate",
+          "detail": "2023 Social Democratic Party presidential candidate (contested)."
+        },
         {
           "year": "2023",
           "title": "SDP presidential candidate",
@@ -537,15 +645,16 @@
       "photo": null,
       "photoCredit": null,
       "wiki": null,
-      "summary": "Businessman and son of the late Chief MKO Abiola. He was the Peoples Redemption Party presidential candidate in 2023.",
+      "summary": "Kola Abiola was a Peoples Redemption Party presidential candidate in Nigeria's 2023 general election(s). 2023 Peoples Redemption Party presidential candidate (contested).",
       "biography": [
-        "Kola Abiola entered the 2023 race on the PRP ticket, invoking the democratic legacy associated with his father's June 12 mandate."
+        "Kola Abiola appeared on INEC's final presidential ballot as the Peoples Redemption Party flag bearer (2023).",
+        "Public encyclopedic coverage of Kola is limited; this profile reflects verified ballot and party context rather than extended biographical sources."
       ],
       "history": [
         {
           "year": "2023",
-          "title": "PRP presidential candidate",
-          "detail": "Contested the February 25 national election."
+          "title": "Peoples Redemption Party presidential candidate",
+          "detail": "2023 Peoples Redemption Party presidential candidate (contested)."
         }
       ]
     },
@@ -554,21 +663,34 @@
       "name": "Christopher Imumolen",
       "fullName": "Irene Christopher Imumolen",
       "roles": [
-        "Entrepreneur",
+        "entrepreneur",
+        "professor",
+        "politician",
+        "Senator Dino Melaye is one Of The Institution's",
         "2023 Accord presidential candidate"
       ],
       "photo": null,
-      "summary": "Accord Party presidential candidate in the 2023 general election, cleared on INEC's final national list.",
+      "summary": "Christopher Irene Imumolen (born 5 September 1983) is the Addo of Abaji, an educationist, a university professor, a serial entrepreneur, a business mogul and a Nigerian politician. He is the founder of Joint Professional Training and Support International Limited (JPTS) and UNIC Foundation, a non-profit, non governmental organization. He was a presidential candidate on the platform of the Accord Party, ahead of the 2023 Nigerian presidential elections.",
       "biography": [
-        "Imumolen contested the 2023 presidency as the Accord (A) flag bearer."
+        "== Biography == Imumolen is an indigene of Esan West, Ekpoma in Edo State. He started his career as a Plant Engineer at BOC Gases Nigeria Plc in February 2005. In 2009, he went on to establish the Joint Professional Training and Support International Limited (JPTS), an educational body that has trained 30,000+ certified Professionals.",
+        "It is acclaimed that ex-Senator Dino Melaye is one of the institution's alumni, following honorary conferment. Years after establishing JPTS, Imumolen, on 14 January 2014, proceeded to establish the UNIC Foundation; an empowerment and employment scheme that envisions the goal of supporting four million Nigerian businesses every year with grants and granting reliefs and scholarships to widows and students respectively. He is the President of the Onshore Offshore Oil and Gas Professional and was also appointed as the Senior Technical Adviser to the Akwa-Ibom state government on Oil and Gas matters.",
+        "In 2023, Christopher Imumolen ran for president on the Accord Party ticket with Hamza Ibrahim as running mate. 2023 Accord Party presidential candidate (contested)."
       ],
       "history": [
+        {
+          "year": "2023",
+          "title": "Accord Party presidential candidate",
+          "detail": "2023 Accord Party presidential candidate (contested)."
+        },
         {
           "year": "2023",
           "title": "Accord presidential candidate",
           "detail": "INEC final list - national ballot."
         }
-      ]
+      ],
+      "wiki": "https://en.wikipedia.org/wiki/Christopher_Imumolen",
+      "born": "1983-09-05",
+      "birthPlace": "Ekpoma"
     },
     "dumebi-kachikwu": {
       "id": "dumebi-kachikwu",
@@ -579,15 +701,16 @@
         "2023 ADC presidential candidate"
       ],
       "photo": null,
-      "summary": "African Democratic Congress presidential candidate on INEC's 2023 final list.",
+      "summary": "Dumebi Kachikwu was a African Democratic Congress presidential candidate in Nigeria's 2023 general election(s). 2023 African Democratic Congress presidential candidate (contested).",
       "biography": [
-        "Kachikwu was listed by INEC as ADC's presidential candidate for the February 2023 election."
+        "Dumebi Kachikwu appeared on INEC's final presidential ballot as the African Democratic Congress flag bearer (2023).",
+        "Public encyclopedic coverage of Dumebi is limited; this profile reflects verified ballot and party context rather than extended biographical sources."
       ],
       "history": [
         {
           "year": "2023",
-          "title": "ADC presidential candidate",
-          "detail": "INEC final list - national ballot."
+          "title": "African Democratic Congress presidential candidate",
+          "detail": "2023 African Democratic Congress presidential candidate (contested)."
         }
       ]
     },
@@ -596,21 +719,33 @@
       "name": "Yabagi Sani Yusuf",
       "fullName": "Yabagi Sani Yusuf",
       "roles": [
-        "Politician",
+        "engineer",
+        "politician",
         "2023 ADP presidential candidate"
       ],
       "photo": null,
-      "summary": "Action Democratic Party presidential candidate for the 2023 election.",
+      "summary": "Yabagi Yusuf Sani, known mostly as (YYSani or Jakardan Nupe) meaning Ambassador of Nupe, (born 1 July 1957) is a Nigerian politician, Energy and Crude oil expert and is the current National Chairman of The Action Democratic Party (ADP). He was a presidential candidate in the 2019 Nigerian general election. == Background and education == Sani was born in Bida, his father was the title holder of Ciroman Samarin Nupe. 2023 Action Democratic Party presidential candidate (contested).",
       "biography": [
-        "Sani contested as ADP flag bearer in the February 2023 presidential election."
+        "He began his early education at East School Bida in 1961, then Technical college, Kontagora in 1970. He graduated from Harvard University and Institute of Technology, New York in 1976. He also graduated from Columbia University, New York in 1978 with B.Sc in management engineering.",
+        "He also participated in the compulsory National Youth Service Corps. == Career == Yabagi started as an administrative officer-depot chief in (PPMC Depot) Kano in 1980 under Nigerian National Petroleum Corporation. Sani began his political ambitions in 1991, he was also a founding member of (ANPP), and member board of trustees of All Nigeria Peoples Party (ANP).",
+        "In 1999, Sani was the candidate of All Peoples Party (APP) in Niger State for the governorship election, he was also the financial secretary of the then Nigeria Liberal Convention (NLC/NRC), he was the North Central presidential coordinator of Alhaji Bashir Tofa in 1993.",
+        "In 2023, Yabagi Sani Yusuf ran for president on the Action Democratic Party ticket with Sani Abubakar Danladi as running mate. 2023 Action Democratic Party presidential candidate (contested)."
       ],
       "history": [
+        {
+          "year": "2023",
+          "title": "Action Democratic Party presidential candidate",
+          "detail": "2023 Action Democratic Party presidential candidate (contested)."
+        },
         {
           "year": "2023",
           "title": "ADP presidential candidate",
           "detail": "INEC final list - national ballot."
         }
-      ]
+      ],
+      "wiki": "https://en.wikipedia.org/wiki/Yabagi_Sani",
+      "born": "1957-07-01",
+      "birthPlace": "Bida"
     },
     "peter-umeadi": {
       "id": "peter-umeadi",
@@ -621,15 +756,16 @@
         "2023 APGA presidential candidate"
       ],
       "photo": null,
-      "summary": "Former Chief Judge of Anambra State and APGA presidential candidate in 2023.",
+      "summary": "Peter Umeadi was a All Progressives Grand Alliance presidential candidate in Nigeria's 2023 general election(s). 2023 All Progressives Grand Alliance presidential candidate (contested).",
       "biography": [
-        "Umeadi was APGA's presidential nominee on INEC's final 2023 list."
+        "Peter Umeadi appeared on INEC's final presidential ballot as the All Progressives Grand Alliance flag bearer (2023).",
+        "Public encyclopedic coverage of Peter is limited; this profile reflects verified ballot and party context rather than extended biographical sources."
       ],
       "history": [
         {
           "year": "2023",
-          "title": "APGA presidential candidate",
-          "detail": "INEC final list - national ballot."
+          "title": "All Progressives Grand Alliance presidential candidate",
+          "detail": "2023 All Progressives Grand Alliance presidential candidate (contested)."
         }
       ]
     },
@@ -638,21 +774,30 @@
       "name": "Princess Chichi Ojei",
       "fullName": "Princess Chichi Ojei",
       "roles": [
-        "Politician",
+        "administrator",
+        "politician",
         "2023 APM presidential candidate"
       ],
       "photo": null,
-      "summary": "Allied Peoples Movement presidential candidate in 2023 - one of the few women on the national ballot.",
+      "summary": "Chichi Ojei is a Nigerian politician. == Background == Chichi Ojei is a Nigerian who was born in Delta, South-South Nigeria, in 1978. She got her education in Nigeria and overseas. 2023 Allied Peoples Movement presidential candidate (contested).",
       "biography": [
-        "Ojei contested the presidency on the APM ticket in February 2023."
+        "She attended the American International School, Lagos, Nigeria, Institut Le Rosay in Rolle, Switzerland, she later obtained a bachelor's degree in business administration from the Northeastern University, USA, and also got an MBA from the Regent's Business School, London. Before joining politics, Ojei was a finance specialist and the executive director of Nuel Ojei Holdings. Ahead of the 2023 elections, she joined the Allied People's Movement.",
+        "She was endorsed as the presidential candidate of the party on August 14, 2022. During her campaigns, she expressed optimism about winning the election in the male dominated race. Her hope of becoming the president in 2023 could, however, not be realized, as her party dropped her and adopted the presidential candidate of the People's Democratic Party (PDP), Atiku Abubakar, as its candidate."
       ],
       "history": [
+        {
+          "year": "2023",
+          "title": "Allied Peoples Movement presidential candidate",
+          "detail": "2023 Allied Peoples Movement presidential candidate (contested)."
+        },
         {
           "year": "2023",
           "title": "APM presidential candidate",
           "detail": "INEC final list - national ballot."
         }
-      ]
+      ],
+      "wiki": "https://en.wikipedia.org/wiki/Chichi_Ojei",
+      "birthPlace": "Delta State"
     },
     "osita-nnadi": {
       "id": "osita-nnadi",
@@ -663,15 +808,16 @@
         "2023 APP presidential candidate"
       ],
       "photo": null,
-      "summary": "Action Peoples Party presidential candidate for the 2023 election.",
+      "summary": "Osita Nnadi was a Action Peoples Party presidential candidate in Nigeria's 2023 general election(s). 2023 Action Peoples Party presidential candidate (contested).",
       "biography": [
-        "Nnadi was APP's presidential candidate on INEC's final national list."
+        "Osita Nnadi appeared on INEC's final presidential ballot as the Action Peoples Party flag bearer (2023).",
+        "Public encyclopedic coverage of Osita is limited; this profile reflects verified ballot and party context rather than extended biographical sources."
       ],
       "history": [
         {
           "year": "2023",
-          "title": "APP presidential candidate",
-          "detail": "INEC final list - national ballot."
+          "title": "Action Peoples Party presidential candidate",
+          "detail": "2023 Action Peoples Party presidential candidate (contested)."
         }
       ]
     },
@@ -684,15 +830,16 @@
         "2023 Boot Party presidential candidate"
       ],
       "photo": null,
-      "summary": "Boot Party presidential candidate in the 2023 general election.",
+      "summary": "Sunday Oluwafemi Adenuga was a Boot Party presidential candidate in Nigeria's 2023 general election(s). 2023 Boot Party presidential candidate (contested).",
       "biography": [
-        "Adenuga contested as Boot Party flag bearer in February 2023."
+        "Sunday Oluwafemi Adenuga appeared on INEC's final presidential ballot as the Boot Party flag bearer (2023).",
+        "Public encyclopedic coverage of Sunday is limited; this profile reflects verified ballot and party context rather than extended biographical sources."
       ],
       "history": [
         {
           "year": "2023",
           "title": "Boot Party presidential candidate",
-          "detail": "INEC final list - national ballot."
+          "detail": "2023 Boot Party presidential candidate (contested)."
         }
       ]
     },
@@ -705,15 +852,16 @@
         "2023 NRM presidential candidate"
       ],
       "photo": null,
-      "summary": "National Rescue Movement presidential candidate for 2023.",
+      "summary": "Felix Johnson Osakwe was a National Rescue Movement presidential candidate in Nigeria's 2023 general election(s). 2023 National Rescue Movement presidential candidate (contested).",
       "biography": [
-        "Osakwe was NRM's presidential candidate on INEC's final list."
+        "Felix Johnson Osakwe appeared on INEC's final presidential ballot as the National Rescue Movement flag bearer (2023).",
+        "Public encyclopedic coverage of Felix is limited; this profile reflects verified ballot and party context rather than extended biographical sources."
       ],
       "history": [
         {
           "year": "2023",
-          "title": "NRM presidential candidate",
-          "detail": "INEC final list - national ballot."
+          "title": "National Rescue Movement presidential candidate",
+          "detail": "2023 National Rescue Movement presidential candidate (contested)."
         }
       ]
     },
@@ -726,15 +874,16 @@
         "2023 YPP presidential candidate"
       ],
       "photo": null,
-      "summary": "Young Progressives Party presidential candidate in 2023.",
+      "summary": "Abdulmalik Ado-Ibrahim was a Young Progressives Party presidential candidate in Nigeria's 2023 general election(s). 2023 Young Progressives Party presidential candidate (contested).",
       "biography": [
-        "Ado-Ibrahim contested the presidency on the YPP ticket."
+        "Abdulmalik Ado-Ibrahim appeared on INEC's final presidential ballot as the Young Progressives Party flag bearer (2023).",
+        "Public encyclopedic coverage of Abdulmalik is limited; this profile reflects verified ballot and party context rather than extended biographical sources."
       ],
       "history": [
         {
           "year": "2023",
-          "title": "YPP presidential candidate",
-          "detail": "INEC final list - national ballot."
+          "title": "Young Progressives Party presidential candidate",
+          "detail": "2023 Young Progressives Party presidential candidate (contested)."
         }
       ]
     },
@@ -747,15 +896,16 @@
         "2023 ZLP presidential candidate"
       ],
       "photo": null,
-      "summary": "Zenith Labour Party presidential candidate for the 2023 election.",
+      "summary": "Daniel Daberechukwu Nwanyanwu was a Zenith Labour Party presidential candidate in Nigeria's 2023 general election(s). 2023 Zenith Labour Party presidential candidate (contested).",
       "biography": [
-        "Nwanyanwu was ZLP's presidential candidate on INEC's final national list."
+        "Daniel Daberechukwu Nwanyanwu appeared on INEC's final presidential ballot as the Zenith Labour Party flag bearer (2023).",
+        "Public encyclopedic coverage of Daniel is limited; this profile reflects verified ballot and party context rather than extended biographical sources."
       ],
       "history": [
         {
           "year": "2023",
-          "title": "ZLP presidential candidate",
-          "detail": "INEC final list - national ballot."
+          "title": "Zenith Labour Party presidential candidate",
+          "detail": "2023 Zenith Labour Party presidential candidate (contested)."
         }
       ]
     },
@@ -764,22 +914,35 @@
       "name": "Obadiah Mailafia",
       "fullName": "Obadiah Mailafia",
       "roles": [
-        "Economist",
+        "economist",
+        "banker",
+        "politician",
+        "Governor Of The Central Bank Of Nigeria (cbn)",
         "Former CBN deputy governor",
         "2019 ADC presidential candidate"
       ],
       "photo": null,
-      "summary": "Economist and former Central Bank of Nigeria deputy governor. He was ADC's presidential candidate in 2019.",
+      "summary": "Obadiah Mailafia (24 December 1956 19 September 2021) was a Nigerian development economist and the 2019 Nigeria Presidential election Candidate of African Democratic Congress (ADC). He was a former official of the African Development Bank Group and one-time Deputy Governor of the Central Bank of Nigeria (CBN). He was also the Chief of Staff of the African, Caribbean and Pacific Group of States (ACP), the 79-nation multilateral development institution based in Brussels, Belgium.",
       "biography": [
-        "Mailafia contested the 2019 presidency on the ADC platform."
+        "== Early life and education == Mailafia was born on 24 December 1956 in the village of Randa in Sanga Local Government Area of Kaduna State. His father Baba Mailafia Gambo Galadima was an Evangelist with the Evangelical Reformed Church of Central Nigeria (ERCC). Mailafia was raised as a missionary child in a multiracial environment.",
+        "His parents later transferred to Murya, Lafia, in Nasarawa State, where he grew up. He started his elementary education at Musha Sudan United Mission School from 1964 to 1969 and proceeded to Mada Hills Secondary School, Akwanga from 1970 to 1974. He won the Commissioner of Education's Award and for his 'A' Levels, he attended the School of Basic Studies (SBS) at Ahmadu Bello University, Zaria, between 1974 and 1975.",
+        "In 2019, Obadiah Mailafia ran for president on the African Democratic Congress ticket with Nafiu Muhammad as running mate. 2019 African Democratic Congress presidential candidate (contested)."
       ],
       "history": [
+        {
+          "year": "2019",
+          "title": "African Democratic Congress presidential candidate",
+          "detail": "2019 African Democratic Congress presidential candidate (contested)."
+        },
         {
           "year": "2019",
           "title": "ADC presidential candidate",
           "detail": "Contested the February 2019 election."
         }
-      ]
+      ],
+      "wiki": "https://en.wikipedia.org/wiki/Obadiah_Mailafia",
+      "born": "1956-12-24",
+      "birthPlace": "Randa"
     },
     "donald-duke": {
       "id": "donald-duke",
@@ -788,13 +951,20 @@
       "born": "1961-09-30",
       "birthPlace": "Calabar, Cross River State",
       "roles": [
+        "Governor of Cross River State",
+        "politician",
+        "Governor Of Cross River State, Nigeria From 29 May 1",
         "Governor of Cross River (1999-2007)",
         "2019 SDP presidential candidate"
       ],
       "photo": null,
-      "summary": "Former Cross River State governor and 2019 Social Democratic Party presidential candidate.",
+      "summary": "Duke (; born 30 September 1961 in Calabar) is a Nigerian politician. He was the Governor of Cross River State, Nigeria from 29 May 1999 to 29 May 2007. He is currently a member of the People's Redemption Party (PRP) and was the 2019 Nigeria Presidential candidate for Social Democratic Party, SDP.",
       "biography": [
-        "Duke governed Cross River for two terms and later sought the presidency on the SDP ticket in 2019."
+        "== Background == Duke was born to Henry Etim Duke, the second indigenous (after Ayodele Diyan) and longest serving Comptroller-General of the Nigeria Customs Service (then referred to as Chairman of the Board of Customs and Excise Duties). His father was a member of the Duke chieftaincy family of Duke Town, one of Efik Kingdom's most powerful ruling dynasties. == Education == He attended Corona School, Apapa, and Federal Government College, Sokoto.",
+        "He received his LLB degree in 1982 from Ahmadu Bello University, Zaria Nigeria, his B.L. in 1983 from the Nigerian Law School, Lagos, and an L.L.M. in Business and Admiralty Law in 1984 from the University of Pennsylvania.",
+        "== Personal life == Duke is married to Onari Duke. In 2018, their daughter Xerona married the musician DJ Caise, a grandson of the billionaire Nigerian aristocrat Chief Antonio Deinde Fernandez. == Political career == Spearheading the incumbent debt of Nigeria, Duke pushed for democracy and against military control.",
+        "He stated: \"What got the military out of power was not democracy but the dreadful state of the economy.",
+        "In 2019, Donald Duke ran for president on the Social Democratic Party ticket with Khadijah Okunnu-Lamidi as running mate. 2019 Social Democratic Party presidential candidate (contested)."
       ],
       "history": [
         {
@@ -804,10 +974,16 @@
         },
         {
           "year": "2019",
+          "title": "Social Democratic Party presidential candidate",
+          "detail": "2019 Social Democratic Party presidential candidate (contested)."
+        },
+        {
+          "year": "2019",
           "title": "SDP presidential candidate",
           "detail": "Contested the national election."
         }
-      ]
+      ],
+      "wiki": "https://en.wikipedia.org/wiki/Donald_Duke"
     }
   }
 }
