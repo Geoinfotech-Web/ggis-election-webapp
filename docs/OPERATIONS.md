@@ -10,7 +10,15 @@ Liveness is `/health/live`. Readiness is `/health/ready` and remains 503 until m
 
 ## Editor setup
 
-Create an OAuth web client with callback `http://localhost:3010/auth/google/callback`. Put the client ID and secret in the untracked `.env`. Create an untracked `admin-access.json` from `admin-access.example.json` and replace the placeholder with the second real editor. Two different emails are required to prepare and approve.
+Set local admin credentials in `.env`:
+
+- `ADMIN_USERNAME` (default `admin`)
+- `ADMIN_PASSWORD` or `ADMIN_PASSWORD_HASH` (generate a hash with `node scripts/hash-admin-password.js`)
+- `PRIMARY_ADMIN_EMAIL` (session identity and Access manager)
+
+On first boot without `data/admin-credentials.json`, the server hashes `ADMIN_PASSWORD` into that file when writable (otherwise keeps it in memory for the process) and ensures the primary email is on the allow-list. You can also copy `admin-credentials.example.json` to `data/admin-credentials.json` and `admin-access.example.json` to `admin-access.json`. Two different editor identities are still required to prepare and approve editorial revisions.
+
+Google OAuth is no longer used for admin sign-in. Optional server-side Drive browse still needs separate `credentials.json` + `token.json` on the host; otherwise use local population data.
 
 ## Backup and restore rehearsal
 

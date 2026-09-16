@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "idFormat": "^[a-z][a-z0-9-]{1,62}$",
+  "dashboardWidgetHint": {
+    "type": "map",
+    "config": {
+      "mapId": "<map-config-id>"
+    }
+  },
+  "assignments": {
+    "overview": "overview-default",
+    "polling": "polling-default",
+    "live": "live-default"
+  },
+  "maps": {
+    "overview-default": {
+      "id": "overview-default",
+      "name": "Overview default",
+      "description": "National Overview map (state outlines).",
+      "published": true,
+      "basemap": "streets",
+      "layerStack": [
+        {
+          "id": "state",
+          "enabled": true,
+          "order": 0
+        },
+        {
+          "id": "lga",
+          "enabled": false,
+          "order": 1
+        },
+        {
+          "id": "ward",
+          "enabled": false,
+          "order": 2
+        },
+        {
+          "id": "polling",
+          "enabled": false,
+          "order": 3
+        },
+        {
+          "id": "health",
+          "enabled": false,
+          "order": 4
+        }
+      ],
+      "grid3Fallback": true,
+      "extent": {
+        "center": [
+          9.08,
+          8.68
+        ],
+        "zoom": 6
+      },
+      "choroplethTheme": "party-winner",
+      "createdAt": "2026-09-16T00:00:00.000Z",
+      "updatedAt": "2026-09-16T12:23:03.744Z"
+    },
+    "polling-default": {
+      "id": "polling-default",
+      "name": "Polling units default",
+      "description": "Polling units map with state + LGA boundaries.",
+      "published": true,
+      "basemap": "streets",
+      "layerStack": [
+        {
+          "id": "state",
+          "enabled": true,
+          "order": 0
+        },
+        {
+          "id": "lga",
+          "enabled": true,
+          "order": 1
+        },
+        {
+          "id": "ward",
+          "enabled": false,
+          "order": 2
+        },
+        {
+          "id": "polling",
+          "enabled": false,
+          "order": 3
+        },
+        {
+          "id": "health",
+          "enabled": false,
+          "order": 4
+        }
+      ],
+      "grid3Fallback": true,
+      "extent": {
+        "center": [
+          9.08,
+          8.68
+        ],
+        "zoom": 6
+      },
+      "choroplethTheme": "none",
+      "createdAt": "2026-09-16T00:00:00.000Z",
+      "updatedAt": "2026-09-16T00:00:00.000Z"
+    },
+    "live-default": {
+      "id": "live-default",
+      "name": "Live Results default",
+      "description": "Live Results choropleth stage (state fills).",
+      "published": true,
+      "basemap": "streets",
+      "layerStack": [
+        {
+          "id": "state",
+          "enabled": true,
+          "order": 0
+        },
+        {
+          "id": "lga",
+          "enabled": false,
+          "order": 1
+        },
+        {
+          "id": "ward",
+          "enabled": false,
+          "order": 2
+        },
+        {
+          "id": "polling",
+          "enabled": false,
+          "order": 3
+        },
+        {
+          "id": "health",
+          "enabled": false,
+          "order": 4
+        }
+      ],
+      "grid3Fallback": true,
+      "extent": {
+        "center": [
+          9.08,
+          8.68
+        ],
+        "zoom": 6
+      },
+      "choroplethTheme": "party-winner",
+      "createdAt": "2026-09-16T00:00:00.000Z",
+      "updatedAt": "2026-09-16T00:00:00.000Z"
+    }
+  }
+}

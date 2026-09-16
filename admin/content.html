@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content | Admin portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/admin/admin-shell.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <div class="admin-brand-mark">EI</div>
+          <div>
+            <strong>Admin portal</strong>
+            <span>Election Intelligence</span>
+          </div>
+        </div>
+        <nav class="admin-nav" aria-label="Admin modules" id="adminNav"></nav>
+        <div class="admin-sidebar-foot">
+          <a class="admin-btn admin-btn-ghost" href="/">Open public app</a>
+          <button type="button" class="admin-btn admin-btn-ghost" id="logoutButton">Sign out</button>
+        </div>
+      </aside>
+      <div class="admin-shell">
+        <header class="admin-header">
+          <div>
+            <div class="admin-kicker" id="adminKicker">Data hub</div>
+            <h1 id="adminPageTitle">Content</h1>
+          </div>
+          <div class="admin-header-actions">
+            <span class="admin-user" id="adminUser">Signed in</span>
+          </div>
+        </header>
+
+        <main class="admin-main">
+          <div class="admin-tabs" role="tablist" aria-label="Content sections">
+            <button type="button" class="admin-tab is-active" data-panel="datasets" role="tab" aria-selected="true">Datasets</button>
+            <button type="button" class="admin-tab" data-panel="boundaries" role="tab" aria-selected="false">Boundaries</button>
+            <button type="button" class="admin-tab" data-panel="population" role="tab" aria-selected="false">Population / Drive</button>
+            <button type="button" class="admin-tab" data-panel="candidates" role="tab" aria-selected="false">Candidates</button>
+            <button type="button" class="admin-tab" data-panel="ingest" role="tab" aria-selected="false">INEC ingest</button>
+          </div>
+
+          <p class="admin-status" id="hubStatus" role="status"></p>
+
+          <!-- Datasets -->
+          <section class="admin-panel" id="panel-datasets" role="tabpanel">
+            <section class="admin-card">
+              <div class="admin-card-head">
+                <div>
+                  <h2>Editorial datasets</h2>
+                  <p class="admin-muted">Draft → validate → submit → review → publish. Evidence must be archived before draft creation.</p>
+                </div>
+                <div class="admin-actions">
+                  <button type="button" class="admin-btn admin-btn-ghost" id="refreshDatasets">Refresh</button>
+                  <button type="button" class="admin-btn" id="loadTemplateBtn">Load template</button>
+                </div>
+              </div>
+
+              <div class="admin-table-wrap">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Office</th>
+                      <th>Jurisdiction</th>
+                      <th>Status</th>
+                      <th>Prepared by</th>
+                      <th>Created</th>
+                    </tr>
+                  </thead>
+                  <tbody id="datasetRows">
+                    <tr><td colspan="6" class="admin-muted">Loading…</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="admin-detail-box" id="datasetDetail" hidden>
+                <div class="row"><span>Selected</span><strong id="detailTitle">—</strong></div>
+                <div class="row"><span>Id</span><code id="detailId">—</code></div>
+                <div class="row"><span>Status</span><span id="detailStatus">—</span></div>
+                <div class="admin-actions" id="datasetActions"></div>
+                <pre class="admin-pre" id="detailValidation" hidden></pre>
+              </div>
+            </section>
+
+            <div class="admin-split">
+              <section class="admin-card">
+                <h2>Upload evidence</h2>
+                <p class="admin-inline-note">
+                  <code>POST /api/v1/admin/sources</code> — archives the original and returns <code>sha256</code> + <code>storageKey</code> for the draft JSON.
+                </p>
+                <form id="sourceForm" class="admin-form-grid">
+                  <label>
+                    Storage key
+                    <input id="sourceStorageKey" name="storageKey" type="text" required placeholder="president/2015/nigeria/declaration.pdf" />
+                  </label>
+                  <label>
+                    Evidence file
+                    <input id="sourceFile" name="file" type="file" required />
+                  </label>
+                  <div class="admin-actions">
+                    <button type="submit" class="admin-btn" id="sourceUploadBtn">Upload source</button>
+                  </div>
+                </form>
+                <pre class="admin-pre" id="sourceResult" hidden></pre>
+              </section>
+
+              <section class="admin-card">
+                <h2>Create draft</h2>
+                <p class="admin-inline-note">
+                  Starts from <code>result-dataset.example.json</code>. Paste checksums from evidence upload, then create.
+                </p>
+                <form id="draftForm" class="admin-form-grid">
+                  <label>
+                    Dataset JSON
+                    <textarea id="draftJson" class="tall" spellcheck="false" required></textarea>
+                  </label>
+                  <div class="admin-actions">
+                    <button type="submit" class="admin-btn" id="createDraftBtn">Create draft</button>
+                  </div>
+                </form>
+              </section>
+            </div>
+
+            <section class="admin-card">
+              <div class="admin-card-head">
+                <div>
+                  <h2>Audit trail</h2>
+                  <p class="admin-muted">Recent editorial actions from <code>GET /api/v1/admin/audit-events</code>.</p>
+                </div>
+                <button type="button" class="admin-btn admin-btn-ghost" id="refreshAudit">Refresh</button>
+              </div>
+              <div class="admin-table-wrap">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>When</th>
+                      <th>Actor</th>
+                      <th>Action</th>
+                      <th>Entity</th>
+                    </tr>
+                  </thead>
+                  <tbody id="auditRows">
+                    <tr><td colspan="4" class="admin-muted">Loading…</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </section>
+
+          <!-- Boundaries -->
+          <section class="admin-panel" id="panel-boundaries" role="tabpanel" hidden>
+            <section class="admin-card">
+              <h2>Boundaries &amp; polling units</h2>
+              <p class="admin-muted">
+                Shapefile upload and layer management stay on the dedicated upload page. Polling-unit reimport and status live on Home.
+              </p>
+              <div class="admin-actions" style="margin-top: 14px">
+                <a class="admin-btn" href="/admin/upload.html">Boundary upload</a>
+                <a class="admin-btn admin-btn-ghost" href="/admin/">Home — reimport &amp; layers</a>
+                <button type="button" class="admin-btn admin-btn-ghost" id="reimportPollingContent">Reimport polling units</button>
+              </div>
+              <div class="admin-table-wrap" style="margin-top: 18px">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Layer</th>
+                      <th>Features</th>
+                      <th>Source</th>
+                      <th>Uploaded</th>
+                    </tr>
+                  </thead>
+                  <tbody id="boundaryPreviewRows">
+                    <tr><td colspan="4" class="admin-muted">Loading…</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </section>
+
+          <!-- Population / Drive -->
+          <section class="admin-panel" id="panel-population" role="tabpanel" hidden>
+            <section class="admin-card">
+              <div class="admin-card-head">
+                <div>
+                  <h2>Population / Drive source</h2>
+                  <p class="admin-muted">Embedded Drive console. Open full page if the iframe is blocked by browser settings.</p>
+                </div>
+                <a class="admin-btn admin-btn-ghost" href="/admin.html" target="_blank" rel="noopener">Open /admin.html</a>
+              </div>
+              <iframe class="admin-iframe" title="Population and Drive admin" src="/admin.html" loading="lazy"></iframe>
+            </section>
+          </section>
+
+          <!-- Candidates -->
+          <section class="admin-panel" id="panel-candidates" role="tabpanel" hidden>
+            <section class="admin-card">
+              <div class="admin-card-head">
+                <div>
+                  <h2>Candidate catalogs</h2>
+                  <p class="admin-muted">
+                    Edit JSON under <code>public/data/</code>. Saves validate shape, write atomically, and keep a timestamped backup in <code>.backups/</code>.
+                  </p>
+                </div>
+                <button type="button" class="admin-btn admin-btn-ghost" id="refreshCatalogList">Refresh list</button>
+              </div>
+              <div class="admin-table-wrap">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Catalog</th>
+                      <th>File</th>
+                      <th>Size</th>
+                      <th>Modified</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="catalogRows">
+                    <tr><td colspan="5" class="admin-muted">Loading…</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section class="admin-card">
+              <h2 id="catalogEditorTitle">Catalog editor</h2>
+              <p class="admin-inline-note" id="catalogEditorHint">Select a catalog to load, or upload a replacement JSON file.</p>
+              <form id="catalogForm" class="admin-form-grid">
+                <label>
+                  Catalog
+                  <select id="catalogSelect">
+                    <option value="presidential">Presidential</option>
+                    <option value="gubernatorial">Gubernatorial</option>
+                    <option value="senatorial">Senatorial</option>
+                    <option value="reps">House of Representatives</option>
+                  </select>
+                </label>
+                <label>
+                  JSON
+                  <textarea id="catalogJson" class="tall" spellcheck="false"></textarea>
+                </label>
+                <label>
+                  Or upload JSON file
+                  <input id="catalogFile" type="file" accept=".json,application/json" />
+                </label>
+                <div class="admin-actions">
+                  <button type="button" class="admin-btn admin-btn-ghost" id="loadCatalogBtn">Load</button>
+                  <button type="button" class="admin-btn admin-btn-ghost" id="uploadCatalogBtn">Save from file</button>
+                  <button type="submit" class="admin-btn" id="saveCatalogBtn">Save editor</button>
+                </div>
+              </form>
+            </section>
+          </section>
+
+          <!-- INEC ingest -->
+          <section class="admin-panel" id="panel-ingest" role="tabpanel" hidden>
+            <section class="admin-card">
+              <h2>INEC ingest</h2>
+              <p class="admin-muted">
+                Runs <code>POST /api/admin/inec-ingest</code> (same control as Home). Use after reference CSV or discovery updates.
+              </p>
+              <div class="admin-kpis" style="margin-top: 16px">
+                <div class="admin-kpi"><span class="label">Status</span><strong id="ingestStatusLabel">—</strong></div>
+                <div class="admin-kpi"><span class="label">Last success</span><strong id="ingestLastSuccess">—</strong></div>
+              </div>
+              <div class="admin-actions">
+                <button type="button" class="admin-btn" id="runIngestBtn">Run INEC ingest</button>
+                <button type="button" class="admin-btn admin-btn-ghost" id="refreshIngestBtn">Refresh status</button>
+              </div>
+            </section>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="/admin/auth-check.js"></script>
+    <script src="/admin/admin-common.js"></script>
+    <script>
+      (function () {
+        const { apiFetch, mountShell, formatDate, getCsrfToken } = window.AdminCommon;
+        const hubStatus = document.getElementById('hubStatus');
+        let selectedDatasetId = null;
+        let datasetsById = new Map();
+
+        function setStatus(message, isError) {
+          hubStatus.textContent = message || '';
+          hubStatus.className = 'admin-status' + (isError ? ' is-error' : message ? ' is-ok' : '');
+        }
+
+        function escapeHtml(value) {
+          return String(value ?? '')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;');
+        }
+
+        function statusBadge(status) {
+          const key = String(status || 'unknown').toLowerCase();
+          return `<span class="admin-badge admin-badge-${escapeHtml(key)}">${escapeHtml(key)}</span>`;
+        }
+
+        function switchPanel(panelId) {
+          document.querySelectorAll('.admin-tab').forEach((tab) => {
+            const active = tab.getAttribute('data-panel') === panelId;
+            tab.classList.toggle('is-active', active);
+            tab.setAttribute('aria-selected', active ? 'true' : 'false');
+          });
+          document.querySelectorAll('.admin-panel').forEach((panel) => {
+            panel.hidden = panel.id !== `panel-${panelId}`;
+          });
+          if (panelId === 'boundaries') loadBoundariesPreview();
+          if (panelId === 'candidates') loadCatalogList();
+          if (panelId === 'ingest') loadIngestStatus();
+        }
+
+        document.querySelectorAll('.admin-tab').forEach((tab) => {
+          tab.addEventListener('click', () => switchPanel(tab.getAttribute('data-panel')));
+        });
+
+        /* —— Datasets —— */
+        async function loadDatasets() {
+          const tbody = document.getElementById('datasetRows');
+          try {
+            const data = await apiFetch('/api/v1/admin/datasets');
+            const rows = Array.isArray(data.datasets) ? data.datasets : [];
+            datasetsById = new Map(rows.map((row) => [row.id, row]));
+            if (!rows.length) {
+              tbody.innerHTML = '<tr><td colspan="6" class="admin-muted">No drafts or in-flight datasets.</td></tr>';
+              return;
+            }
+            tbody.innerHTML = rows
+              .map((row) => {
+                const selected = row.id === selectedDatasetId ? ' is-selected' : '';
+                return `<tr class="${selected}" data-id="${escapeHtml(row.id)}">
+                  <td><button type="button" class="linkish" data-select="${escapeHtml(row.id)}">${escapeHtml(row.title || 'Untitled')}</button></td>
+                  <td>${escapeHtml(row.office || '—')}</td>
+                  <td>${escapeHtml(row.jurisdictionName || row.constituencyName || '—')}</td>
+                  <td>${statusBadge(row.status)}</td>
+                  <td>${escapeHtml(row.preparedBy || '—')}</td>
+                  <td>${escapeHtml(formatDate(row.createdAt))}</td>
+                </tr>`;
+              })
+              .join('');
+            tbody.querySelectorAll('[data-select]').forEach((btn) => {
+              btn.addEventListener('click', () => selectDataset(btn.getAttribute('data-select')));
+            });
+          } catch (error) {
+            tbody.innerHTML = `<tr><td colspan="6" class="admin-muted">${escapeHtml(error.message)}</td></tr>`;
+            setStatus(error.message, true);
+          }
+        }
+
+        async function selectDataset(id) {
+          selectedDatasetId = id;
+          const detail = document.getElementById('datasetDetail');
+          detail.hidden = false;
+          document.getElementById('detailId').textContent = id;
+          document.getElementById('detailTitle').textContent = 'Loading…';
+          document.getElementById('detailStatus').innerHTML = '—';
+          document.getElementById('datasetActions').innerHTML = '';
+          document.getElementById('detailValidation').hidden = true;
+
+          try {
+            const dataset = await apiFetch(`/api/v1/admin/datasets/${id}`);
+            const status = dataset.status || datasetsById.get(id)?.status;
+            const title = dataset.title || datasetsById.get(id)?.title || 'Dataset';
+            document.getElementById('detailTitle').textContent = title;
+            document.getElementById('detailStatus').innerHTML = statusBadge(status);
+            renderDatasetActions(id, status);
+
+            const report = dataset.validation_report || dataset.validationReport;
+            if (report) {
+              const pre = document.getElementById('detailValidation');
+              pre.hidden = false;
+              pre.textContent = typeof report === 'string' ? report : JSON.stringify(report, null, 2);
+            }
+            await loadDatasets();
+          } catch (error) {
+            setStatus(error.message, true);
+          }
+        }
+
+        function renderDatasetActions(id, status) {
+          const actions = document.getElementById('datasetActions');
+          const buttons = [];
+          const s = String(status || '').toLowerCase();
+
+          if (s === 'draft' || s === 'validation_failed') {
+            buttons.push(['Validate', 'validate']);
+            buttons.push(['Submit for review', 'submit']);
+          }
+          if (s === 'in_review') {
+            buttons.push(['Approve', 'review-approved']);
+            buttons.push(['Reject', 'review-rejected']);
+          }
+          if (s === 'verified') {
+            buttons.push(['Publish', 'publish']);
+          }
+          if (s !== 'published' && s !== 'quarantined') {
+            buttons.push(['Quarantine', 'quarantine', true]);
+          }
+
+          actions.innerHTML = buttons
+            .map(([label, action, danger]) => {
+              const cls = danger ? 'admin-btn admin-btn-danger admin-btn-small' : 'admin-btn admin-btn-small';
+              return `<button type="button" class="${cls}" data-action="${action}" data-id="${escapeHtml(id)}">${escapeHtml(label)}</button>`;
+            })
+            .join('');
+
+          actions.querySelectorAll('[data-action]').forEach((btn) => {
+            btn.addEventListener('click', () => runDatasetAction(btn.getAttribute('data-id'), btn.getAttribute('data-action'), btn));
+          });
+        }
+
+        async function runDatasetAction(id, action, button) {
+          button.disabled = true;
+          try {
+            let url = '';
+            let body = '{}';
+            if (action === 'validate') url = `/api/v1/admin/datasets/${id}/validate`;
+            else if (action === 'submit') url = `/api/v1/admin/datasets/${id}/submit`;
+            else if (action === 'publish') url = `/api/v1/admin/datasets/${id}/publish`;
+            else if (action === 'review-approved' || action === 'review-rejected') {
+              url = `/api/v1/admin/datasets/${id}/review`;
+              const decision = action === 'review-approved' ? 'approved' : 'rejected';
+              const notes = window.prompt(decision === 'approved' ? 'Optional approval notes' : 'Rejection notes', '') || '';
+              body = JSON.stringify({ decision, notes });
+            } else if (action === 'quarantine') {
+              url = `/api/v1/admin/datasets/${id}/quarantine`;
+              const reason = window.prompt('Quarantine reason', '');
+              if (reason == null) {
+                button.disabled = false;
+                return;
+              }
+              body = JSON.stringify({ reason });
+            } else {
+              throw new Error('Unknown action.');
+            }
+
+            setStatus(`Running ${action}…`);
+            const result = await apiFetch(url, { method: 'POST', body });
+            setStatus(`${action} complete.`);
+            if (result?.validation) {
+              const pre = document.getElementById('detailValidation');
+              pre.hidden = false;
+              pre.textContent = JSON.stringify(result.validation, null, 2);
+            }
+            await selectDataset(id);
+            await loadAudit();
+          } catch (error) {
+            setStatus(error.message, true);
+            button.disabled = false;
+          }
+        }
+
+        document.getElementById('refreshDatasets').addEventListener('click', () => {
+          loadDatasets().then(() => setStatus('Datasets refreshed.'));
+        });
+
+        document.getElementById('loadTemplateBtn').addEventListener('click', async () => {
+          try {
+            const template = await apiFetch('/api/v1/admin/dataset-template');
+            document.getElementById('draftJson').value = JSON.stringify(template, null, 2);
+            setStatus('Template loaded into draft editor.');
+          } catch (error) {
+            setStatus(error.message, true);
+          }
+        });
+
+        document.getElementById('sourceForm').addEventListener('submit', async (event) => {
+          event.preventDefault();
+          const storageKey = document.getElementById('sourceStorageKey').value.trim();
+          const fileInput = document.getElementById('sourceFile');
+          if (!storageKey || !fileInput.files?.length) {
+            setStatus('Storage key and file are required.', true);
+            return;
+          }
+          const btn = document.getElementById('sourceUploadBtn');
+          btn.disabled = true;
+          setStatus('Uploading evidence…');
+          try {
+            if (!getCsrfToken()) await window.AdminCommon.loadSession();
+            const form = new FormData();
+            form.append('storageKey', storageKey);
+            form.append('file', fileInput.files[0]);
+            const result = await apiFetch('/api/v1/admin/sources', { method: 'POST', body: form });
+            const pre = document.getElementById('sourceResult');
+            pre.hidden = false;
+            pre.textContent = JSON.stringify(result, null, 2);
+            setStatus('Evidence archived. Copy sha256 into the draft sources[].');
+            try {
+              const draft = JSON.parse(document.getElementById('draftJson').value || '{}');
+              if (Array.isArray(draft.sources) && draft.sources[0]) {
+                draft.sources[0].storageKey = result.storageKey || storageKey;
+                draft.sources[0].sha256 = result.sha256 || draft.sources[0].sha256;
+                document.getElementById('draftJson').value = JSON.stringify(draft, null, 2);
+              }
+            } catch {
+              /* draft JSON may be empty / invalid — ignore auto-fill */
+            }
+          } catch (error) {
+            setStatus(error.message, true);
+          } finally {
+            btn.disabled = false;
+          }
+        });
+
+        document.getElementById('draftForm').addEventListener('submit', async (event) => {
+          event.preventDefault();
+          const btn = document.getElementById('createDraftBtn');
+          btn.disabled = true;
+          try {
+            const payload = JSON.parse(document.getElementById('draftJson').value);
+            setStatus('Creating draft…');
+            const created = await apiFetch('/api/v1/admin/datasets/drafts', {
+              method: 'POST',
+              body: JSON.stringify(payload),
+            });
+            setStatus(`Draft created${created?.id ? `: ${created.id}` : '.'}`);
+            selectedDatasetId = created?.id || selectedDatasetId;
+            await loadDatasets();
+            await loadAudit();
+            if (created?.id) await selectDataset(created.id);
+          } catch (error) {
+            setStatus(error.message || 'Invalid JSON or create failed.', true);
+          } finally {
+            btn.disabled = false;
+          }
+        });
+
+        async function loadAudit() {
+          const tbody = document.getElementById('auditRows');
+          try {
+            const data = await apiFetch('/api/v1/admin/audit-events?limit=40');
+            const events = Array.isArray(data.events) ? data.events : [];
+            if (!events.length) {
+              tbody.innerHTML = '<tr><td colspan="4" class="admin-muted">No audit events yet.</td></tr>';
+              return;
+            }
+            tbody.innerHTML = events
+              .map(
+                (ev) => `<tr>
+                  <td>${escapeHtml(formatDate(ev.createdAt))}</td>
+                  <td>${escapeHtml(ev.actorEmail || '—')}</td>
+                  <td><code>${escapeHtml(ev.action || '—')}</code></td>
+                  <td>${escapeHtml(ev.entityType || '')} ${escapeHtml(ev.entityId || '')}</td>
+                </tr>`
+              )
+              .join('');
+          } catch (error) {
+            tbody.innerHTML = `<tr><td colspan="4" class="admin-muted">${escapeHtml(error.message)}</td></tr>`;
+          }
+        }
+
+        document.getElementById('refreshAudit').addEventListener('click', () => loadAudit());
+
+        /* —— Boundaries —— */
+        async function loadBoundariesPreview() {
+          const tbody = document.getElementById('boundaryPreviewRows');
+          try {
+            const status = await apiFetch('/api/admin/db/status');
+            const layers = status.boundaries || [];
+            if (!layers.length) {
+              tbody.innerHTML = '<tr><td colspan="4" class="admin-muted">No boundary layers yet.</td></tr>';
+              return;
+            }
+            tbody.innerHTML = layers
+              .map(
+                (layer) => `<tr>
+                  <td><strong>${escapeHtml(layer.layer)}</strong></td>
+                  <td>${Number(layer.feature_count || 0).toLocaleString()}</td>
+                  <td>${escapeHtml(layer.source_file || '—')}</td>
+                  <td>${escapeHtml(formatDate(layer.uploaded_at))}</td>
+                </tr>`
+              )
+              .join('');
+          } catch (error) {
+            tbody.innerHTML = `<tr><td colspan="4" class="admin-muted">${escapeHtml(error.message)}</td></tr>`;
+          }
+        }
+
+        document.getElementById('reimportPollingContent').addEventListener('click', async () => {
+          setStatus('Reimporting polling units…');
+          try {
+            await apiFetch('/api/admin/db/reimport-polling-units', { method: 'POST', body: '{}' });
+            setStatus('Polling unit reimport complete.');
+          } catch (error) {
+            setStatus(error.message, true);
+          }
+        });
+
+        /* —— Candidates —— */
+        function formatBytes(n) {
+          const num = Number(n) || 0;
+          if (num < 1024) return `${num} B`;
+          if (num < 1024 * 1024) return `${(num / 1024).toFixed(1)} KB`;
+          return `${(num / (1024 * 1024)).toFixed(2)} MB`;
+        }
+
+        async function loadCatalogList() {
+          const tbody = document.getElementById('catalogRows');
+          try {
+            const data = await apiFetch('/api/admin/candidates');
+            const catalogs = Array.isArray(data.catalogs) ? data.catalogs : [];
+            tbody.innerHTML = catalogs
+              .map(
+                (row) => `<tr>
+                  <td><strong>${escapeHtml(row.label || row.catalog)}</strong></td>
+                  <td><code>${escapeHtml(row.file)}</code></td>
+                  <td>${row.exists ? formatBytes(row.bytes) : 'Missing'}</td>
+                  <td>${escapeHtml(formatDate(row.mtime))}</td>
+                  <td><button type="button" class="admin-btn admin-btn-small admin-btn-ghost" data-load-catalog="${escapeHtml(row.catalog)}">Edit</button></td>
+                </tr>`
+              )
+              .join('');
+            tbody.querySelectorAll('[data-load-catalog]').forEach((btn) => {
+              btn.addEventListener('click', () => {
+                document.getElementById('catalogSelect').value = btn.getAttribute('data-load-catalog');
+                loadSelectedCatalog();
+              });
+            });
+          } catch (error) {
+            tbody.innerHTML = `<tr><td colspan="5" class="admin-muted">${escapeHtml(error.message)}</td></tr>`;
+          }
+        }
+
+        async function loadSelectedCatalog() {
+          const catalog = document.getElementById('catalogSelect').value;
+          setStatus(`Loading ${catalog}…`);
+          try {
+            const data = await apiFetch(`/api/admin/candidates/${catalog}`);
+            document.getElementById('catalogJson').value = JSON.stringify(data.data, null, 2);
+            document.getElementById('catalogEditorTitle').textContent = `${data.label || catalog} editor`;
+            document.getElementById('catalogEditorHint').textContent =
+              `${data.file} · ${formatBytes(data.bytes)} · modified ${formatDate(data.mtime)}`;
+            setStatus(`Loaded ${catalog}.`);
+          } catch (error) {
+            setStatus(error.message, true);
+          }
+        }
+
+        document.getElementById('refreshCatalogList').addEventListener('click', loadCatalogList);
+        document.getElementById('loadCatalogBtn').addEventListener('click', loadSelectedCatalog);
+
+        document.getElementById('catalogForm').addEventListener('submit', async (event) => {
+          event.preventDefault();
+          const catalog = document.getElementById('catalogSelect').value;
+          const btn = document.getElementById('saveCatalogBtn');
+          btn.disabled = true;
+          try {
+            const payload = JSON.parse(document.getElementById('catalogJson').value);
+            setStatus(`Saving ${catalog}…`);
+            const saved = await apiFetch(`/api/admin/candidates/${catalog}`, {
+              method: 'PUT',
+              body: JSON.stringify(payload),
+            });
+            setStatus(
+              `Saved ${catalog}` +
+                (saved.backup ? ` (backup: ${saved.backup})` : '') +
+                '.'
+            );
+            await loadCatalogList();
+          } catch (error) {
+            setStatus(error.message || 'Invalid JSON.', true);
+          } finally {
+            btn.disabled = false;
+          }
+        });
+
+        document.getElementById('uploadCatalogBtn').addEventListener('click', async () => {
+          const catalog = document.getElementById('catalogSelect').value;
+          const fileInput = document.getElementById('catalogFile');
+          if (!fileInput.files?.length) {
+            setStatus('Choose a JSON file first.', true);
+            return;
+          }
+          const btn = document.getElementById('uploadCatalogBtn');
+          btn.disabled = true;
+          try {
+            if (!getCsrfToken()) await window.AdminCommon.loadSession();
+            const form = new FormData();
+            form.append('file', fileInput.files[0]);
+            setStatus(`Uploading ${catalog}…`);
+            const saved = await apiFetch(`/api/admin/candidates/${catalog}`, {
+              method: 'PUT',
+              body: form,
+            });
+            setStatus(
+              `Uploaded ${catalog}` +
+                (saved.backup ? ` (backup: ${saved.backup})` : '') +
+                '.'
+            );
+            await loadSelectedCatalog();
+            await loadCatalogList();
+          } catch (error) {
+            setStatus(error.message, true);
+          } finally {
+            btn.disabled = false;
+          }
+        });
+
+        /* —— INEC —— */
+        async function loadIngestStatus() {
+          try {
+            const ingest = await fetch('/api/inec-ingest/status', { credentials: 'include' })
+              .then((r) => (r.ok ? r.json() : null))
+              .catch(() => null);
+            const state = ingest?.status || ingest?.state || (ingest ? 'Available' : 'Unavailable');
+            document.getElementById('ingestStatusLabel').textContent =
+              typeof state === 'string' ? state : JSON.stringify(state);
+            document.getElementById('ingestLastSuccess').textContent = formatDate(
+              ingest?.lastSuccessAt || ingest?.last_success_at || ingest?.updatedAt || ingest?.status?.lastSuccessAt
+            );
+          } catch (error) {
+            document.getElementById('ingestStatusLabel').textContent = 'Error';
+            setStatus(error.message, true);
+          }
+        }
+
+        document.getElementById('refreshIngestBtn').addEventListener('click', () => {
+          loadIngestStatus().then(() => setStatus('Ingest status refreshed.'));
+        });
+
+        document.getElementById('runIngestBtn').addEventListener('click', async () => {
+          const btn = document.getElementById('runIngestBtn');
+          btn.disabled = true;
+          setStatus('Running INEC ingest…');
+          try {
+            await apiFetch('/api/admin/inec-ingest', { method: 'POST', body: '{}' });
+            setStatus('INEC ingest complete.');
+            await loadIngestStatus();
+          } catch (error) {
+            setStatus(error.message, true);
+          } finally {
+            btn.disabled = false;
+          }
+        });
+
+        mountShell({ active: 'content', title: 'Content', kicker: 'Data hub' }).then(async () => {
+          await Promise.all([loadDatasets(), loadAudit()]);
+          try {
+            const template = await apiFetch('/api/v1/admin/dataset-template');
+            if (!document.getElementById('draftJson').value) {
+              document.getElementById('draftJson').value = JSON.stringify(template, null, 2);
+            }
+          } catch {
+            /* template optional on load */
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

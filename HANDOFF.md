@@ -25,7 +25,7 @@ Integration tests require a dedicated disposable database through `TEST_DATABASE
 
 The canonical workflow and evidence requirements are documented in `docs/DATA_EDITORIAL_WORKFLOW.md`. The supported public surface is `/api/v1/*`; the old result endpoints return only verified published data or an explicit quarantined/deprecated response.
 
-Password login has been removed. Configure Google OAuth and an explicit editor allow-list as described in `docs/OPERATIONS.md`. A preparer cannot approve their own dataset.
+Admin sign-in uses local username/password (see `docs/OPERATIONS.md`). Configure `ADMIN_USERNAME` / `ADMIN_PASSWORD` or `admin-credentials.json` plus the editor allow-list. A preparer cannot approve their own dataset.
 
 Source originals are immutable. Local development stores them under `D:\Election Dashboard Data\source-archive`; Cloud deployments use the Google Cloud Storage adapter. Large source files, generated INEC snapshots, databases, uploads, and spreadsheet binaries are ignored by Git.
 

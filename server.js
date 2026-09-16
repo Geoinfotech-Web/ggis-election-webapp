@@ -16,8 +16,8 @@ function disableProxyForGoogleAuth() {
 
 disableProxyForGoogleAuth();
 
-const { google } = require('googleapis');
 const { getFileMetadata, listFilesInFolderTree, searchFiles, readFile, readPopulationData } = require('./drive');
+const adminAuth = require('./src/admin-auth');
 const { buildPollingUnitDashboardData, normalizeLookupKey } = require('./polling-data');
 const { runIngest, loadLatestSnapshot, getIngestStatus, hydrateIngestStatus } = require('./inec-ingest');
 const { computeNigeriaKpis } = require('./nigeria-kpis');
@@ -49,6 +49,8 @@ const multer = require('multer');
 const editorialStore = require('./src/editorial-store');
 const { getSessionSecret: getConfiguredSessionSecret } = require('./src/config');
 const { storeSource } = require('./src/storage');
+const mapConfigsStore = require('./src/map-configs-store');
+const dashboardLayouts = require('./src/dashboard-layouts');
 
 const boundaryUpload = multer({
   storage: multer.memoryStorage(),
@@ -113,10 +115,18 @@ const LOCAL_POPULATION_DATA_PATH = path.join(__dirname, 'data', 'reference', 'po
 const LOCAL_POLLING_UNIT_DATA_PATH = path.join(__dirname, 'data', 'reference', 'Nigeria_polling_units.csv');
 const ADMIN_SETTINGS_PATH = path.join(__dirname, 'admin-settings.json');
 const ADMIN_ACCESS_PATH = path.join(__dirname, 'admin-access.json');
-const CREDENTIALS_PATH = path.join(__dirname, 'credentials.json');
+const GOOGLE_CREDENTIALS_PATH = path.join(__dirname, 'credentials.json');
+const GOOGLE_TOKEN_PATH = path.join(__dirname, 'token.json');
 const ADMIN_COOKIE_NAME = 'election_admin_session';
-const OAUTH_STATE_COOKIE_NAME = 'election_admin_oauth_state';
+const PRIMARY_ADMIN_EMAIL = String(process.env.PRIMARY_ADMIN_EMAIL || '').trim().toLowerCase();
 const SESSION_TTL_MS = 12 * 60 * 60 * 1000;
+const loginRateLimit = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 10,
+  standardHeaders: 'draft-8',
+  legacyHeaders: false,
+  message: { error: 'Too many login attempts. Try again later.' },
+});
 const DEV_SESSION_SECRET = crypto.randomBytes(48).toString('base64url');
 const DRIVE_DASHBOARD_FOLDER_NAME = 'Election Dashboard';
 const POLLING_UNIT_POINTS_SOURCE_URL =
@@ -198,7 +208,7 @@ app.use(cors({
     return callback(new Error('Cross-origin request denied.'));
   },
 }));
-app.use(express.json({ limit: '1mb' }));
+app.use(express.json({ limit: '5mb' }));
 app.use('/auth', rateLimit({ windowMs: 15 * 60 * 1000, limit: 30, standardHeaders: 'draft-8', legacyHeaders: false }));
 app.use('/api/admin', rateLimit({ windowMs: 15 * 60 * 1000, limit: 240, standardHeaders: 'draft-8', legacyHeaders: false }));
 app.use('/api/v1/admin', rateLimit({ windowMs: 15 * 60 * 1000, limit: 240, standardHeaders: 'draft-8', legacyHeaders: false }));
@@ -663,22 +673,14 @@ function buildPollingUnitPointResponse(points, { state, lga, ward, q, bbox, limi
   return filteredPoints;
 }
 
-async function getCredentialsConfig() {
-  if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
-    return {
-      client_id: process.env.GOOGLE_CLIENT_ID,
-      client_secret: process.env.GOOGLE_CLIENT_SECRET,
-      redirect_uris: [process.env.GOOGLE_REDIRECT_URI || `${getBaseUrl()}/auth/google/callback`],
-    };
+async function isServerDriveConfigured() {
+  try {
+    await fs.access(GOOGLE_CREDENTIALS_PATH);
+    await fs.access(GOOGLE_TOKEN_PATH);
+    return true;
+  } catch {
+    return false;
   }
-  const credentials = await readJsonFile(CREDENTIALS_PATH, {});
-  const config = credentials.web || credentials.installed;
-
-  if (!config?.client_id || !config?.client_secret) {
-    throw new Error('credentials.json is missing Google OAuth client details.');
-  }
-
-  return config;
 }
 
 function parseCookies(req) {
@@ -749,14 +751,13 @@ async function getAdminAccess() {
 }
 
 async function isAllowedAdmin(email) {
-  const access = await getAdminAccess();
-  return access.admins.includes((email || '').toLowerCase());
+  return adminAuth.isEmailAllowListed(email);
 }
 
 async function requireAdminApi(req, res, next) {
-  const oauthSession = await readSession(req);
-  if (oauthSession && (await isAllowedAdmin(oauthSession.email))) {
-    req.admin = oauthSession;
+  const session = await readSession(req);
+  if (session && (await isAllowedAdmin(session.email))) {
+    req.admin = session;
     return next();
   }
   return res.status(401).json({ error: 'Admin access required.' });
@@ -804,16 +805,6 @@ async function requireAdminPage(req, res, next) {
 
 function getBaseUrl(req) {
   return process.env.BASE_URL || LOCAL_BASE_URL;
-}
-
-function getRedirectUri(req) {
-  return `${getBaseUrl(req)}/auth/google/callback`;
-}
-
-function createOAuthClient(req) {
-  return getCredentialsConfig().then(
-    (config) => new google.auth.OAuth2(config.client_id, config.client_secret, getRedirectUri(req))
-  );
 }
 
 async function readAdminSettings() {
@@ -886,59 +877,12 @@ async function getDashboardDriveDataFiles() {
   return files.filter(isSupportedPopulationFile).sort((a, b) => a.path.localeCompare(b.path));
 }
 
-app.get('/auth/google', async (req, res) => {
-  try {
-    const oauth2Client = await createOAuthClient(req);
-    const state = crypto.randomBytes(24).toString('base64url');
-    setCookie(res, OAUTH_STATE_COOKIE_NAME, state, 10 * 60 * 1000);
-
-    const url = oauth2Client.generateAuthUrl({
-      access_type: 'online',
-      prompt: 'select_account',
-      scope: ['openid', 'email', 'profile'],
-      state,
-    });
-
-    return res.redirect(url);
-  } catch (error) {
-    console.error('Error starting admin Google login:', error.message || error);
-    return res.status(500).send('Unable to start Google sign-in.');
-  }
+app.get('/auth/google', (_req, res) => {
+  return res.redirect(302, '/admin-login.html');
 });
 
-app.get('/auth/google/callback', async (req, res) => {
-  const expectedState = parseCookies(req)[OAUTH_STATE_COOKIE_NAME];
-
-  if (!req.query.state || !timingSafeTextEqual(req.query.state, expectedState)) {
-    return res.status(400).send('Invalid admin login state.');
-  }
-
-  try {
-    const oauth2Client = await createOAuthClient(req);
-    const { tokens } = await oauth2Client.getToken(String(req.query.code || ''));
-    oauth2Client.setCredentials(tokens);
-
-    const oauth2 = google.oauth2({ auth: oauth2Client, version: 'v2' });
-    const profile = await oauth2.userinfo.get();
-    const email = (profile.data.email || '').toLowerCase();
-
-    if (!email || !(await isAllowedAdmin(email))) {
-      clearCookie(res, OAUTH_STATE_COOKIE_NAME);
-      return res.status(403).send('This Google account is not allowed to access the admin page.');
-    }
-
-    const session = await editorialStore.createAdminSession({
-      email,
-      name: profile.data.name,
-      picture: profile.data.picture,
-    }, SESSION_TTL_MS);
-    setCookie(res, ADMIN_COOKIE_NAME, session.token, SESSION_TTL_MS);
-    clearCookie(res, OAUTH_STATE_COOKIE_NAME);
-    return res.redirect('/admin.html');
-  } catch (error) {
-    console.error('Error completing admin Google login:', error.message || error);
-    return res.status(500).send('Unable to complete Google sign-in.');
-  }
+app.get('/auth/google/callback', (_req, res) => {
+  return res.status(410).send('Google admin sign-in has been removed. Use the local admin login at /admin-login.html.');
 });
 
 app.post('/auth/logout', requireAdminWrite, async (req, res) => {
@@ -947,8 +891,68 @@ app.post('/auth/logout', requireAdminWrite, async (req, res) => {
   return res.json({ ok: true });
 });
 
-app.post('/api/admin/login', (req, res) => {
-  return res.status(410).json({ error: 'Password login has been removed. Use Google OAuth.' });
+app.post('/api/admin/login', loginRateLimit, async (req, res) => {
+  try {
+    if (!(await adminAuth.isLocalAdminConfigured())) {
+      return res.status(503).json({
+        error: 'Admin login is not configured. Set ADMIN_USERNAME and ADMIN_PASSWORD (or ADMIN_PASSWORD_HASH), or create data/admin-credentials.json.',
+      });
+    }
+
+    if (!editorialStore.isEnabled()) {
+      return res.status(503).json({ error: 'Editorial database is not configured; admin sessions are unavailable.' });
+    }
+
+    const ready = await editorialStore.readiness();
+    if (!ready.ready) {
+      return res.status(503).json({ error: 'Admin sessions are not ready yet. Try again shortly.' });
+    }
+
+    const username = String(req.body?.username || req.body?.email || '').trim();
+    const password = String(req.body?.password || '');
+
+    if (!username || !password) {
+      return res.status(400).json({ error: 'Username and password are required.' });
+    }
+
+    if (password.length > adminAuth.MAX_PASSWORD_LENGTH) {
+      return res.status(400).json({ error: 'Invalid username or password.' });
+    }
+
+    const user = await adminAuth.authenticateLocalAdmin(username, password);
+    if (!user) {
+      return res.status(401).json({ error: 'Invalid username or password.' });
+    }
+
+    // Credential-file / env-bootstrap users are admins. Sync the allow-list so a
+    // missing or stale admin-access.json (common in Docker images) cannot 403 a
+    // valid password login.
+    try {
+      await adminAuth.ensureEmailOnAllowList(user.email);
+    } catch (error) {
+      console.warn('Unable to sync admin allow-list after login:', error.message || error);
+    }
+
+    if (!(await isAllowedAdmin(user.email))) {
+      return res.status(403).json({ error: 'This account is not on the admin allow-list.' });
+    }
+
+    const session = await editorialStore.createAdminSession({
+      email: user.email,
+      name: user.name,
+      picture: '',
+    }, SESSION_TTL_MS);
+    setCookie(res, ADMIN_COOKIE_NAME, session.token, SESSION_TTL_MS);
+    return res.json({
+      ok: true,
+      email: user.email,
+      name: user.name,
+      csrfToken: session.csrfToken,
+    });
+  } catch (error) {
+    console.error('Error handling /api/admin/login:', error.message || error);
+    return res.status(500).json({ error: 'Unable to complete admin sign-in.' });
+  }
 });
 
 app.get('/api/admin/verify', requireAdminApi, (req, res) => res.json({ success: true, admin: req.admin }));
@@ -1023,6 +1027,12 @@ app.post('/api/admin/population-source', requireAdminWrite, async (req, res) => 
     const fileId = String(req.body.fileId || '').trim();
     const mimeType = String(req.body.mimeType || '').trim();
 
+    if (!(await isServerDriveConfigured())) {
+      return res.status(503).json({
+        error: 'Google Drive is not configured on the server. Use local population data instead.',
+      });
+    }
+
     if (!fileId) {
       return res.status(400).json({ error: 'Select a Google Drive file first.' });
     }
@@ -1058,7 +1068,23 @@ app.post('/api/admin/population-source', requireAdminWrite, async (req, res) => 
   }
 });
 
+app.get('/api/admin/drive/status', requireAdminApi, async (_req, res) => {
+  const configured = await isServerDriveConfigured();
+  return res.json({
+    configured,
+    message: configured
+      ? 'Server Google Drive credentials are available (credentials.json + token.json).'
+      : 'Google Drive is not configured on the server. Admin sign-in no longer uses Google. Place server-side credentials.json and token.json to enable Drive browse/search, or use local population data.',
+  });
+});
+
 app.get('/api/admin/drive/search', requireAdminApi, async (req, res) => {
+  if (!(await isServerDriveConfigured())) {
+    return res.status(503).json({
+      error: 'Google Drive is not configured on the server. Use local population data, or add credentials.json and token.json for server-side Drive access.',
+    });
+  }
+
   const term = sanitizeDriveSearchTerm(req.query.q);
 
   if (!term) {
@@ -1078,6 +1104,12 @@ app.get('/api/admin/drive/search', requireAdminApi, async (req, res) => {
 });
 
 app.get('/api/admin/drive/files', requireAdminApi, async (req, res) => {
+  if (!(await isServerDriveConfigured())) {
+    return res.status(503).json({
+      error: 'Google Drive is not configured on the server. Use local population data, or add credentials.json and token.json for server-side Drive access.',
+    });
+  }
+
   try {
     const files = await getDashboardDriveDataFiles();
     return res.json(files);
@@ -1225,8 +1257,18 @@ app.post('/api/v1/admin/datasets/:id/quarantine', editorialRequired, requireAdmi
   }
 });
 
-app.get('/admin/index.html', requireAdminPage, (_req, res) => res.redirect('/admin/dashboard.html'));
+app.get('/api/v1/admin/dataset-template', requireAdminApi, async (_req, res) => {
+  try {
+    const templatePath = path.join(__dirname, 'data', 'templates', 'result-dataset.example.json');
+    const raw = await fs.readFile(templatePath, 'utf8');
+    return res.type('json').send(raw);
+  } catch (error) {
+    return res.status(500).json({ error: 'Dataset template is unavailable.' });
+  }
+});
+
 app.use('/admin', requireAdminPage, express.static(path.join(__dirname, 'admin'), {
+  index: ['index.html'],
   setHeaders(res, filePath) {
     if (/\.(html|js)$/i.test(filePath)) res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
   },
@@ -1240,6 +1282,12 @@ app.use(express.static(path.join(__dirname, 'public'), {
 }));
 
 app.get('/api/drive/search', requireAdminApi, async (req, res) => {
+  if (!(await isServerDriveConfigured())) {
+    return res.status(503).json({
+      error: 'Google Drive is not configured on the server. Admin sign-in no longer uses Google.',
+    });
+  }
+
   const { q } = req.query;
 
   if (!q) {
@@ -2156,6 +2204,350 @@ app.post('/api/admin/inec-ingest', requireAdminWrite, async (_req, res) => {
   }
 });
 
+/** Phase 1 — candidate catalog hub (distinct from Phase 2/3 dashboard/map routes). */
+const CANDIDATE_CATALOGS = {
+  presidential: {
+    file: 'presidential-candidates.json',
+    label: 'Presidential',
+    requiredKeys: ['ballots'],
+  },
+  gubernatorial: {
+    file: 'gubernatorial-candidates.json',
+    label: 'Gubernatorial',
+    requiredKeys: ['years', 'statesByYear', 'ballots'],
+  },
+  senatorial: {
+    file: 'senatorial-candidates.json',
+    label: 'Senatorial',
+    requiredKeys: ['years', 'statesByYear'],
+  },
+  reps: {
+    file: 'reps-candidates.json',
+    label: 'House of Representatives',
+    requiredKeys: ['years', 'statesByYear'],
+  },
+};
+const CANDIDATE_DATA_DIR = path.join(__dirname, 'public', 'data');
+const CANDIDATE_BACKUP_DIR = path.join(CANDIDATE_DATA_DIR, '.backups');
+const candidateCatalogUpload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 8 * 1024 * 1024, files: 1 },
+});
+
+function resolveCandidateCatalog(name) {
+  const key = String(name || '').trim().toLowerCase();
+  return CANDIDATE_CATALOGS[key] ? { key, ...CANDIDATE_CATALOGS[key] } : null;
+}
+
+function validateCandidateCatalogPayload(catalog, data) {
+  if (!data || typeof data !== 'object' || Array.isArray(data)) {
+    throw new Error('Catalog must be a JSON object.');
+  }
+  for (const field of catalog.requiredKeys) {
+    if (data[field] == null) {
+      throw new Error(`Catalog is missing required field: ${field}.`);
+    }
+  }
+  if (catalog.key === 'presidential' && (typeof data.ballots !== 'object' || Array.isArray(data.ballots))) {
+    throw new Error('presidential.ballots must be an object keyed by election year.');
+  }
+  if (Array.isArray(data.years) && data.years.length === 0) {
+    throw new Error('years must not be empty when present.');
+  }
+  return true;
+}
+
+async function readCandidateCatalogFile(catalog) {
+  const filePath = path.join(CANDIDATE_DATA_DIR, catalog.file);
+  const raw = await fs.readFile(filePath, 'utf8');
+  const data = JSON.parse(raw);
+  const stat = await fs.stat(filePath);
+  return {
+    catalog: catalog.key,
+    label: catalog.label,
+    file: catalog.file,
+    bytes: stat.size,
+    mtime: stat.mtime.toISOString(),
+    data,
+  };
+}
+
+async function backupCandidateCatalog(catalog) {
+  const sourcePath = path.join(CANDIDATE_DATA_DIR, catalog.file);
+  await fs.mkdir(CANDIDATE_BACKUP_DIR, { recursive: true });
+  const stamp = new Date().toISOString().replace(/[:.]/g, '-');
+  const backupName = `${catalog.key}-${stamp}.json`;
+  const backupPath = path.join(CANDIDATE_BACKUP_DIR, backupName);
+  try {
+    await fs.copyFile(sourcePath, backupPath);
+    return { backup: backupName, path: `public/data/.backups/${backupName}` };
+  } catch (error) {
+    if (error.code === 'ENOENT') return { backup: null, path: null };
+    throw error;
+  }
+}
+
+async function writeCandidateCatalogFile(catalog, data, actorEmail) {
+  validateCandidateCatalogPayload(catalog, data);
+  const backup = await backupCandidateCatalog(catalog);
+  const next = { ...data };
+  if (!next.updated) next.updated = new Date().toISOString().slice(0, 10);
+  const filePath = path.join(CANDIDATE_DATA_DIR, catalog.file);
+  const tmpPath = `${filePath}.${process.pid}.tmp`;
+  const body = `${JSON.stringify(next, null, 2)}\n`;
+  await fs.writeFile(tmpPath, body, 'utf8');
+  await fs.rename(tmpPath, filePath);
+  return {
+    catalog: catalog.key,
+    label: catalog.label,
+    file: catalog.file,
+    bytes: Buffer.byteLength(body, 'utf8'),
+    backup: backup.backup,
+    updatedBy: actorEmail || null,
+    updated: next.updated,
+  };
+}
+
+app.get('/api/admin/candidates', requireAdminApi, async (_req, res) => {
+  try {
+    const catalogs = await Promise.all(
+      Object.keys(CANDIDATE_CATALOGS).map(async (key) => {
+        const catalog = resolveCandidateCatalog(key);
+        const filePath = path.join(CANDIDATE_DATA_DIR, catalog.file);
+        try {
+          const stat = await fs.stat(filePath);
+          return {
+            catalog: key,
+            label: catalog.label,
+            file: catalog.file,
+            bytes: stat.size,
+            mtime: stat.mtime.toISOString(),
+            exists: true,
+          };
+        } catch {
+          return {
+            catalog: key,
+            label: catalog.label,
+            file: catalog.file,
+            bytes: 0,
+            mtime: null,
+            exists: false,
+          };
+        }
+      })
+    );
+    return res.json({ catalogs });
+  } catch (error) {
+    return res.status(500).json({ error: error.message || 'Failed to list candidate catalogs.' });
+  }
+});
+
+app.get('/api/admin/candidates/:catalog', requireAdminApi, async (req, res) => {
+  const catalog = resolveCandidateCatalog(req.params.catalog);
+  if (!catalog) return res.status(404).json({ error: 'Unknown candidate catalog.' });
+  try {
+    return res.json(await readCandidateCatalogFile(catalog));
+  } catch (error) {
+    if (error.code === 'ENOENT') return res.status(404).json({ error: 'Catalog file not found.' });
+    if (error instanceof SyntaxError) return res.status(500).json({ error: 'Catalog file is not valid JSON.' });
+    return res.status(500).json({ error: error.message || 'Failed to read catalog.' });
+  }
+});
+
+app.put('/api/admin/candidates/:catalog', requireAdminWrite, (req, res, next) => {
+  const contentType = String(req.headers['content-type'] || '');
+  if (contentType.includes('multipart/form-data')) {
+    return candidateCatalogUpload.single('file')(req, res, next);
+  }
+  return next();
+}, async (req, res) => {
+  const catalog = resolveCandidateCatalog(req.params.catalog);
+  if (!catalog) return res.status(404).json({ error: 'Unknown candidate catalog.' });
+
+  try {
+    let payload = null;
+    if (req.file) {
+      const text = req.file.buffer.toString('utf8');
+      payload = JSON.parse(text);
+    } else if (req.body && typeof req.body === 'object' && (req.body.data || req.body.catalog === undefined)) {
+      payload = req.body.data != null ? req.body.data : req.body;
+    }
+
+    if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
+      return res.status(400).json({ error: 'Provide a JSON object body or multipart file field named file.' });
+    }
+
+    const saved = await writeCandidateCatalogFile(catalog, payload, req.admin?.email);
+    return res.json({ ok: true, ...saved });
+  } catch (error) {
+    if (error instanceof SyntaxError) {
+      return res.status(400).json({ error: 'Uploaded file is not valid JSON.' });
+    }
+    const clientError = /missing|must be|must not|invalid|required/i.test(error.message || '');
+    return res.status(clientError ? 400 : 500).json({ error: error.message || 'Failed to save catalog.' });
+  }
+});
+
+// ── Dashboard builder (Phase 2) — routes under /api/admin/dashboards* and /api/dashboards/:page only ──
+function dashboardLayoutError(res, error) {
+  const status = error.status
+    || (/unknown dashboard|no published/i.test(error.message || '') ? 400 : 500);
+  return res.status(status).json({ error: error.message || 'Dashboard layout operation failed.' });
+}
+
+app.get('/api/admin/dashboards', requireAdminApi, async (_req, res) => {
+  try {
+    const payload = await dashboardLayouts.listDashboards();
+    return res.json({ ok: true, ...payload });
+  } catch (error) {
+    return dashboardLayoutError(res, error);
+  }
+});
+
+app.get('/api/admin/dashboards/:page', requireAdminApi, async (req, res) => {
+  try {
+    const payload = await dashboardLayouts.getAdminPage(req.params.page);
+    return res.json({ ok: true, ...payload });
+  } catch (error) {
+    return dashboardLayoutError(res, error);
+  }
+});
+
+app.put('/api/admin/dashboards/:page', requireAdminWrite, async (req, res) => {
+  try {
+    const layout = req.body?.layout != null ? req.body.layout : req.body;
+    const payload = await dashboardLayouts.saveDraft(req.params.page, layout);
+    return res.json({ ok: true, ...payload });
+  } catch (error) {
+    return dashboardLayoutError(res, error);
+  }
+});
+
+app.post('/api/admin/dashboards/:page/publish', requireAdminWrite, async (req, res) => {
+  try {
+    const payload = await dashboardLayouts.publishPage(req.params.page);
+    return res.json({ ok: true, ...payload });
+  } catch (error) {
+    return dashboardLayoutError(res, error);
+  }
+});
+
+app.post('/api/admin/dashboards/:page/revert', requireAdminWrite, async (req, res) => {
+  try {
+    const payload = await dashboardLayouts.revertPage(req.params.page);
+    return res.json({ ok: true, ...payload });
+  } catch (error) {
+    return dashboardLayoutError(res, error);
+  }
+});
+
+/** Public: published layout for Overview / Live (null when unpublished → client fallback). */
+app.get('/api/dashboards/:page', async (req, res) => {
+  try {
+    const payload = await dashboardLayouts.getPublished(req.params.page);
+    res.setHeader('Cache-Control', 'public, max-age=15');
+    return res.json({ ok: true, ...payload });
+  } catch (error) {
+    return dashboardLayoutError(res, error);
+  }
+});
+
+// ── Map Studio (Phase 3) — routes under /api/admin/maps* and /api/maps* only ──
+function mapConfigError(res, error) {
+  const status = error.status
+    || (/not found/i.test(error.message || '') ? 404
+      : /already exists|invalid|unknown|cannot assign/i.test(error.message || '') ? 400
+        : 500);
+  return res.status(status).json({ error: error.message || 'Map config operation failed.' });
+}
+
+app.get('/api/admin/maps', requireAdminApi, async (_req, res) => {
+  try {
+    const payload = await mapConfigsStore.listMaps();
+    return res.json({
+      ok: true,
+      ...payload,
+      idFormat: mapConfigsStore.ID_PATTERN.source,
+      dashboardWidgetHint: { type: 'map', config: { mapId: '<map-config-id>' } },
+    });
+  } catch (error) {
+    return mapConfigError(res, error);
+  }
+});
+
+app.put('/api/admin/maps/assignments', requireAdminWrite, async (req, res) => {
+  try {
+    const assignments = await mapConfigsStore.setAssignments(req.body || {});
+    return res.json({ ok: true, assignments });
+  } catch (error) {
+    return mapConfigError(res, error);
+  }
+});
+
+app.get('/api/admin/maps/:id', requireAdminApi, async (req, res) => {
+  try {
+    const map = await mapConfigsStore.getMap(req.params.id);
+    if (!map) return res.status(404).json({ error: 'Map config not found.' });
+    return res.json({ ok: true, map });
+  } catch (error) {
+    return mapConfigError(res, error);
+  }
+});
+
+app.post('/api/admin/maps', requireAdminWrite, async (req, res) => {
+  try {
+    const map = await mapConfigsStore.createMap(req.body || {});
+    return res.status(201).json({ ok: true, map });
+  } catch (error) {
+    return mapConfigError(res, error);
+  }
+});
+
+app.put('/api/admin/maps/:id', requireAdminWrite, async (req, res) => {
+  try {
+    const map = await mapConfigsStore.updateMap(req.params.id, req.body || {});
+    return res.json({ ok: true, map });
+  } catch (error) {
+    return mapConfigError(res, error);
+  }
+});
+
+app.delete('/api/admin/maps/:id', requireAdminWrite, async (req, res) => {
+  try {
+    const result = await mapConfigsStore.deleteMap(req.params.id);
+    return res.json(result);
+  } catch (error) {
+    return mapConfigError(res, error);
+  }
+});
+
+/** Public: published configs assigned to Overview / Polling units / Live. */
+app.get('/api/maps/views', async (_req, res) => {
+  try {
+    const payload = await mapConfigsStore.getPublishedViews();
+    res.setHeader('Cache-Control', 'public, max-age=30');
+    return res.json({ ok: true, ...payload });
+  } catch (error) {
+    return mapConfigError(res, error);
+  }
+});
+
+/** Public: single published map config by id (Dashboard widgets: config.mapId). */
+app.get('/api/maps/:id', async (req, res) => {
+  try {
+    const id = String(req.params.id || '').toLowerCase();
+    if (!mapConfigsStore.isValidId(id)) {
+      return res.status(400).json({ error: 'Invalid map id.' });
+    }
+    const map = await mapConfigsStore.getPublishedMap(id);
+    if (!map) return res.status(404).json({ error: 'Published map config not found.' });
+    res.setHeader('Cache-Control', 'public, max-age=30');
+    return res.json({ ok: true, map });
+  } catch (error) {
+    return mapConfigError(res, error);
+  }
+});
+
 app.get('/api/elections', editorialRequired, async (_req, res) => {
   try {
     const published = await editorialStore.listPublishedContests({});
@@ -2179,6 +2571,9 @@ app.get('/api/elections', editorialRequired, async (_req, res) => {
 app.use((error, _req, res, _next) => {
   if (error?.message === 'Cross-origin request denied.') {
     return res.status(403).json({ error: error.message });
+  }
+  if (error instanceof SyntaxError && 'body' in error) {
+    return res.status(400).json({ error: 'Invalid JSON body.' });
   }
   if (error instanceof multer.MulterError || /Unsupported boundary|Source evidence/i.test(error?.message || '')) {
     return res.status(400).json({ error: error.message });
@@ -2230,6 +2625,21 @@ async function initializeApp() {
 }
 
 async function start() {
+  if (!PRIMARY_ADMIN_EMAIL) {
+    console.warn('PRIMARY_ADMIN_EMAIL is not set; primary-admin Access APIs will deny all callers.');
+  }
+  if (!(await adminAuth.isLocalAdminConfigured())) {
+    console.warn('Local admin login is not configured. Set ADMIN_USERNAME/ADMIN_PASSWORD or create data/admin-credentials.json.');
+  } else {
+    try {
+      const users = await adminAuth.listCredentialUsers();
+      for (const user of users) {
+        await adminAuth.ensureEmailOnAllowList(user.email);
+      }
+    } catch (error) {
+      console.warn('Unable to sync credential emails onto admin allow-list:', error.message || error);
+    }
+  }
   await initializeApp();
   return new Promise((resolve) => {
     const server = app.listen(PORT, HOST, () => {

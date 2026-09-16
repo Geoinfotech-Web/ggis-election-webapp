@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Access | Admin portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/admin/admin-shell.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <div class="admin-brand-mark">EI</div>
+          <div>
+            <strong>Admin portal</strong>
+            <span>Election Intelligence</span>
+          </div>
+        </div>
+        <nav class="admin-nav" aria-label="Admin modules" id="adminNav"></nav>
+        <div class="admin-sidebar-foot">
+          <a class="admin-btn admin-btn-ghost" href="/">Open public app</a>
+          <button type="button" class="admin-btn admin-btn-ghost" id="logoutButton">Sign out</button>
+        </div>
+      </aside>
+      <div class="admin-shell">
+        <header class="admin-header">
+          <div>
+            <div class="admin-kicker" id="adminKicker">Admin portal</div>
+            <h1 id="adminPageTitle">Access</h1>
+          </div>
+          <div class="admin-header-actions">
+            <span class="admin-user" id="adminUser">Signed in</span>
+          </div>
+        </header>
+        <main class="admin-main">
+          <section class="admin-card">
+            <h2>Admin allow-list</h2>
+            <p class="admin-muted" id="accessHint">
+              Primary admin can add or remove emails allowed into this portal
+              (<code>GET/POST/DELETE /api/admin/access</code>).
+              Each allow-listed email still needs a matching username/password in
+              <code>data/admin-credentials.json</code> (or env bootstrap).
+            </p>
+            <ul class="admin-file-list" id="adminList"><li class="admin-muted">Loading…</li></ul>
+            <form class="admin-access-form" id="accessForm" hidden>
+              <input id="accessEmail" type="email" placeholder="editor@example.com" required />
+              <button type="submit" class="admin-btn">Add admin</button>
+            </form>
+            <p class="admin-status" id="accessStatus" role="status"></p>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="/admin/auth-check.js"></script>
+    <script src="/admin/admin-common.js"></script>
+    <script>
+      const { apiFetch, mountShell, getAdmin } = window.AdminCommon;
+      const accessStatus = document.getElementById('accessStatus');
+      const accessForm = document.getElementById('accessForm');
+      const adminList = document.getElementById('adminList');
+
+      function setStatus(message, isError) {
+        accessStatus.textContent = message || '';
+        accessStatus.className = 'admin-status' + (isError ? ' is-error' : message ? ' is-ok' : '');
+      }
+
+      async function loadAccess() {
+        const admin = getAdmin();
+        if (!admin?.isPrimary) {
+          document.getElementById('accessHint').textContent =
+            'Only the primary admin (PRIMARY_ADMIN_EMAIL) can manage the allow-list. You can view this page, but list management requires primary access.';
+          try {
+            const access = await apiFetch('/api/admin/access');
+            renderList(access.admins || [], false);
+          } catch (error) {
+            adminList.innerHTML = `<li class="admin-muted">${error.message}</li>`;
+          }
+          return;
+        }
+
+        accessForm.hidden = false;
+        const access = await apiFetch('/api/admin/access');
+        renderList(access.admins || [], true);
+      }
+
+      function renderList(admins, canManage) {
+        if (!admins.length) {
+          adminList.innerHTML = '<li class="admin-muted">No admins configured.</li>';
+          return;
+        }
+        adminList.innerHTML = admins
+          .map((email) => {
+            const remove =
+              canManage
+                ? ` <button type="button" class="admin-btn admin-btn-danger admin-btn-small" data-email="${email}">Remove</button>`
+                : '';
+            return `<li><strong>${email}</strong>${remove}</li>`;
+          })
+          .join('');
+
+        adminList.querySelectorAll('[data-email]').forEach((button) => {
+          button.addEventListener('click', async () => {
+            const email = button.getAttribute('data-email');
+            if (!window.confirm(`Remove ${email}?`)) return;
+            try {
+              await apiFetch(`/api/admin/access/${encodeURIComponent(email)}`, { method: 'DELETE' });
+              setStatus(`Removed ${email}.`);
+              await loadAccess();
+            } catch (error) {
+              setStatus(error.message, true);
+            }
+          });
+        });
+      }
+
+      accessForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const email = document.getElementById('accessEmail').value.trim();
+        try {
+          await apiFetch('/api/admin/access', { method: 'POST', body: JSON.stringify({ email }) });
+          document.getElementById('accessEmail').value = '';
+          setStatus(`Added ${email}.`);
+          await loadAccess();
+        } catch (error) {
+          setStatus(error.message, true);
+        }
+      });
+
+      mountShell({ active: 'access', title: 'Access', kicker: 'Allow-list' }).then(loadAccess);
+    </script>
+  </body>
+</html>

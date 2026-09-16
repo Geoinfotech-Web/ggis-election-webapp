@@ -1,0 +1,156 @@
+{
+  "overview": {
+    "draft": {
+      "version": 1,
+      "grid": {
+        "columns": 12,
+        "rowHeight": 80
+      },
+      "widgets": [
+        {
+          "id": "kpi-registered",
+          "type": "kpi",
+          "x": 0,
+          "y": 0,
+          "w": 3,
+          "h": 1,
+          "config": {
+            "metric": "registered",
+            "label": "Registered voters",
+            "icon": "badge",
+            "unit": "",
+            "value": "",
+            "caption": ""
+          }
+        },
+        {
+          "id": "kpi-turnout",
+          "type": "kpi",
+          "x": 3,
+          "y": 0,
+          "w": 3,
+          "h": 1,
+          "config": {
+            "metric": "turnout",
+            "label": "Turnout",
+            "icon": "how_to_vote",
+            "unit": "%",
+            "value": "",
+            "caption": ""
+          }
+        },
+        {
+          "id": "kpi-elections",
+          "type": "kpi",
+          "x": 6,
+          "y": 0,
+          "w": 3,
+          "h": 1,
+          "config": {
+            "metric": "elections",
+            "label": "Elections",
+            "icon": "ballot",
+            "unit": "",
+            "value": "",
+            "caption": ""
+          }
+        },
+        {
+          "id": "kpi-parties",
+          "type": "kpi",
+          "x": 9,
+          "y": 0,
+          "w": 3,
+          "h": 1,
+          "config": {
+            "metric": "parties",
+            "label": "Parties",
+            "icon": "groups",
+            "unit": "",
+            "value": "",
+            "caption": ""
+          }
+        }
+      ],
+      "updatedAt": null
+    },
+    "published": null
+  },
+  "live": {
+    "draft": {
+      "version": 1,
+      "grid": {
+        "columns": 12,
+        "rowHeight": 80
+      },
+      "widgets": [
+        {
+          "id": "kpi-winner",
+          "type": "kpi",
+          "x": 0,
+          "y": 0,
+          "w": 3,
+          "h": 1,
+          "config": {
+            "metric": "live_winner",
+            "label": "Winner",
+            "icon": "emoji_events",
+            "unit": "",
+            "value": "",
+            "caption": ""
+          }
+        },
+        {
+          "id": "kpi-reports",
+          "type": "kpi",
+          "x": 3,
+          "y": 0,
+          "w": 3,
+          "h": 1,
+          "config": {
+            "metric": "live_reports",
+            "label": "Public reports",
+            "icon": "sensors",
+            "unit": "",
+            "value": "",
+            "caption": ""
+          }
+        },
+        {
+          "id": "kpi-approved",
+          "type": "kpi",
+          "x": 6,
+          "y": 0,
+          "w": 3,
+          "h": 1,
+          "config": {
+            "metric": "live_approved",
+            "label": "Approved",
+            "icon": "verified",
+            "unit": "",
+            "value": "",
+            "caption": ""
+          }
+        },
+        {
+          "id": "kpi-official",
+          "type": "kpi",
+          "x": 9,
+          "y": 0,
+          "w": 3,
+          "h": 1,
+          "config": {
+            "metric": "live_official",
+            "label": "Official",
+            "icon": "assured_workload",
+            "unit": "",
+            "value": "",
+            "caption": ""
+          }
+        }
+      ],
+      "updatedAt": null
+    },
+    "published": null
+  }
+}

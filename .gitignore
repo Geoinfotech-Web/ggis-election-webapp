@@ -12,6 +12,8 @@ client_secret_*.json
 token.json
 admin-settings.json
 admin-access.json
+admin-credentials.json
+data/admin-credentials.json
 
 # logs
 server.err.log
@@ -58,5 +60,6 @@ backups/
 *.kmz
 public/data/*.xlsx
 public/data/*-source.html
+public/data/.backups/
 Election Dashboard/
 tmp/

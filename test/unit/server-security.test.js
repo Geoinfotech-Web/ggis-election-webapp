@@ -14,10 +14,19 @@ test('health and security headers are available without starting a port', async 
   assert.equal(response.headers['x-frame-options'], 'SAMEORIGIN');
 });
 
-test('password login is permanently disabled', async () => {
-  const response = await request(app).post('/api/admin/login').send({ username: 'admin', password: 'admin123' }).expect(410);
-  assert.match(response.body.error, /removed/);
+test('local password login rejects bad credentials without Google OAuth', async () => {
+  const response = await request(app).post('/api/admin/login').send({ username: 'admin', password: 'admin123' });
+  assert.notEqual(response.status, 410);
+  assert.ok([401, 503].includes(response.status));
   assert.equal(response.body.token, undefined);
+  assert.match(String(response.body.error || ''), /password|configured|sessions|ready/i);
+});
+
+test('legacy Google admin routes are retired', async () => {
+  const start = await request(app).get('/auth/google').redirects(0);
+  assert.ok([302, 301].includes(start.status));
+  assert.match(String(start.headers.location || ''), /admin-login/);
+  await request(app).get('/auth/google/callback').expect(410);
 });
 
 test('unconfigured editorial APIs fail closed', async () => {

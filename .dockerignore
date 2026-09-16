@@ -9,6 +9,7 @@ token.json
 admin-settings.json
 .git
 .env
+admin-credentials.json
 data/election-dashboard.db
 *.log
 proposal

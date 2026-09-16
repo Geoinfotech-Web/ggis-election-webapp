@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboards | Admin portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/admin/admin-shell.css" />
+    <style>
+      .admin-shell.admin-shell--wide { width: min(1480px, calc(100% - 32px)); }
+      .db-toolbar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:14px; }
+      .db-tabs { display:inline-flex; gap:6px; margin-right:auto; }
+      .db-tabs button { min-height:36px; padding:0 14px; border:1px solid var(--border); border-radius:8px; background:var(--surface2); color:var(--dim); font:inherit; cursor:pointer; }
+      .db-tabs button.is-active { color:var(--text); border-color:var(--primary); background:var(--primary-soft); }
+      .db-toolbar .admin-btn.is-active { outline:2px solid var(--primary); }
+      .db-meta { color:var(--mute); font-size:0.85rem; margin-bottom:12px; }
+      .db-layout { display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:16px; align-items:start; }
+      .db-canvas-wrap { border:1px solid var(--border); border-radius:12px; background:var(--surface); padding:12px; overflow:auto; min-height:520px; }
+      .db-canvas { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:8px; min-height:480px; position:relative; }
+      .db-canvas.is-preview .db-widget { cursor:default; }
+      .db-empty { display:grid; place-items:center; color:var(--mute); border:1px dashed var(--border2); border-radius:10px; padding:24px; text-align:center; }
+      .db-widget { position:relative; border:1px solid var(--border2); border-radius:10px; background:var(--surface2); padding:10px 12px; cursor:grab; user-select:none; overflow:hidden; min-height:0; }
+      .db-widget.is-selected { border-color:var(--primary); box-shadow:0 0 0 1px var(--primary); }
+      .db-widget__head { display:flex; gap:8px; align-items:center; margin-bottom:6px; }
+      .db-widget__type { font-size:0.68rem; text-transform:uppercase; letter-spacing:.06em; color:var(--primary); border:1px solid var(--border); border-radius:999px; padding:2px 8px; }
+      .db-widget__head strong { font-size:0.92rem; }
+      .db-widget__body { color:var(--dim); font-size:0.82rem; line-height:1.4; }
+      .db-widget__resize { position:absolute; right:4px; bottom:4px; width:14px; height:14px; border-right:2px solid var(--mute); border-bottom:2px solid var(--mute); cursor:nwse-resize; }
+      .db-props { border:1px solid var(--border); border-radius:12px; background:var(--surface); padding:14px; position:sticky; top:12px; }
+      .db-props-head { display:flex; justify-content:space-between; gap:8px; align-items:center; margin-bottom:12px; }
+      .db-props-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:12px; }
+      .db-props-fields, .db-props label { display:grid; gap:6px; margin-bottom:10px; font-size:0.82rem; font-weight:600; }
+      .db-props input, .db-props select, .db-props textarea { font:inherit; font-weight:400; min-height:36px; border-radius:8px; border:1px solid var(--border2); background:var(--surface2); color:var(--text); padding:0 10px; }
+      .db-props textarea { min-height:88px; padding:8px 10px; resize:vertical; }
+      .db-palette { position:fixed; inset:0; background:rgba(0,0,0,.55); display:grid; place-items:center; z-index:40; padding:20px; }
+      .db-palette[hidden] { display:none !important; }
+      .db-palette-card { width:min(720px,100%); background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px; box-shadow:var(--shadow); }
+      .db-palette-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
+      .db-palette-head h2 { margin:0; font-size:1.1rem; }
+      .db-palette-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px; }
+      .db-palette-item { text-align:left; border:1px solid var(--border); border-radius:10px; background:var(--surface2); color:var(--text); padding:14px; cursor:pointer; font:inherit; display:grid; gap:6px; }
+      .db-palette-item:hover { border-color:var(--primary); background:var(--primary-soft); }
+      .db-palette-item span { color:var(--dim); font-size:0.82rem; }
+      @media (max-width:1100px){ .db-layout{ grid-template-columns:1fr; } .db-props{ position:static; } }
+    </style>
+  </head>
+  <body>
+    <div class="admin-layout">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <div class="admin-brand-mark">EI</div>
+          <div>
+            <strong>Admin portal</strong>
+            <span>Election Intelligence</span>
+          </div>
+        </div>
+        <nav class="admin-nav" aria-label="Admin modules" id="adminNav"></nav>
+        <div class="admin-sidebar-foot">
+          <a class="admin-btn admin-btn-ghost" href="/">Open public app</a>
+          <button type="button" class="admin-btn admin-btn-ghost" id="logoutButton">Sign out</button>
+        </div>
+      </aside>
+      <div class="admin-shell admin-shell--wide">
+        <header class="admin-header">
+          <div>
+            <div class="admin-kicker" id="adminKicker">Layout builder</div>
+            <h1 id="adminPageTitle">Dashboards</h1>
+          </div>
+          <div class="admin-header-actions">
+            <span class="admin-user" id="adminUser">Signed in</span>
+          </div>
+        </header>
+        <main class="admin-main">
+          <section class="admin-card" style="padding-top:16px">
+            <div class="db-toolbar">
+              <div class="db-tabs" role="tablist" aria-label="Dashboard page">
+                <button type="button" data-page-tab="overview" class="is-active">Overview</button>
+                <button type="button" data-page-tab="live">Live</button>
+              </div>
+              <button type="button" class="admin-btn admin-btn-ghost" id="dbAdd">Add element</button>
+              <button type="button" class="admin-btn admin-btn-ghost" id="dbPreview">Preview</button>
+              <button type="button" class="admin-btn admin-btn-ghost" id="dbSave">Save draft</button>
+              <button type="button" class="admin-btn" id="dbPublish">Publish</button>
+              <button type="button" class="admin-btn admin-btn-ghost" id="dbRevert">Revert</button>
+            </div>
+            <div class="db-meta" id="dbMeta">Loading…</div>
+            <div class="db-layout">
+              <div class="db-canvas-wrap">
+                <div class="db-canvas" id="dbCanvas" aria-label="Dashboard layout canvas"></div>
+              </div>
+              <aside class="db-props" id="dbProps">
+                <p class="admin-muted">Select a widget on the canvas to edit its properties.</p>
+              </aside>
+            </div>
+            <div class="admin-status" id="dbStatus"></div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="db-palette" id="dbPalette" hidden></div>
+    <script src="/admin/auth-check.js"></script>
+    <script src="/admin/admin-common.js"></script>
+    <script src="/admin/dashboard-builder.js"></script>
+  </body>
+</html>

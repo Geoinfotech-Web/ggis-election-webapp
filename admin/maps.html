@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maps | Admin portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/admin/admin-shell.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <div class="admin-brand-mark">EI</div>
+          <div>
+            <strong>Admin portal</strong>
+            <span>Election Intelligence</span>
+          </div>
+        </div>
+        <nav class="admin-nav" aria-label="Admin modules" id="adminNav"></nav>
+        <div class="admin-sidebar-foot">
+          <a class="admin-btn admin-btn-ghost" href="/">Open public app</a>
+          <button type="button" class="admin-btn admin-btn-ghost" id="logoutButton">Sign out</button>
+        </div>
+      </aside>
+      <div class="admin-shell">
+        <header class="admin-header">
+          <div>
+            <div class="admin-kicker" id="adminKicker">Admin portal</div>
+            <h1 id="adminPageTitle">Maps</h1>
+          </div>
+          <div class="admin-header-actions">
+            <span class="admin-user" id="adminUser">Signed in</span>
+          </div>
+        </header>
+        <main class="admin-main" id="mapsRoot">
+          <section class="admin-card">
+            <p class="admin-muted">Loading Map studio…</p>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="/admin/auth-check.js"></script>
+    <script src="/admin/admin-common.js"></script>
+    <script>
+      (function () {
+        const { mountShell, apiFetch, formatDate } = window.AdminCommon;
+
+        const LAYER_LABELS = {
+          state: 'State boundaries',
+          lga: 'LGA boundaries',
+          ward: 'Ward boundaries',
+          polling: 'Polling unit points',
+          health: 'Health facilities (GRID3)',
+        };
+        const VIEW_LABELS = {
+          overview: 'Overview',
+          polling: 'Polling units',
+          live: 'Live Results',
+        };
+
+        const state = {
+          maps: [],
+          assignments: { overview: null, polling: null, live: null },
+          basemapIds: ['streets', 'hybrid', 'satellite', 'terrain', 'dark', 'light'],
+          layerIds: ['state', 'lga', 'ward', 'polling', 'health'],
+          choroplethThemes: ['party-winner', 'turnout', 'none'],
+          boundaryStatus: null,
+          selectedId: null,
+          draft: null,
+          status: '',
+          statusOk: true,
+          busy: false,
+        };
+
+        function setStatus(message, ok) {
+          state.status = message || '';
+          state.statusOk = ok !== false;
+          const el = document.getElementById('mapsStatus');
+          if (!el) return;
+          el.textContent = state.status;
+          el.className = 'admin-status' + (state.status ? (state.statusOk ? ' is-ok' : ' is-error') : '');
+        }
+
+        function emptyDraft() {
+          return {
+            id: '',
+            name: '',
+            description: '',
+            published: true,
+            basemap: 'streets',
+            layerStack: state.layerIds.map((id, order) => ({
+              id,
+              enabled: id === 'state',
+              order,
+            })),
+            grid3Fallback: true,
+            extent: { center: [9.08, 8.68], zoom: 6 },
+            choroplethTheme: 'party-winner',
+          };
+        }
+
+        function cloneMap(map) {
+          return JSON.parse(JSON.stringify(map));
+        }
+
+        function selectMap(id) {
+          const map = state.maps.find((m) => m.id === id);
+          state.selectedId = id || null;
+          state.draft = map ? cloneMap(map) : emptyDraft();
+          render();
+        }
+
+        function readFormIntoDraft() {
+          const draft = state.draft || emptyDraft();
+          const idEl = document.getElementById('mapId');
+          const nameEl = document.getElementById('mapName');
+          const descEl = document.getElementById('mapDescription');
+          const basemapEl = document.getElementById('mapBasemap');
+          const themeEl = document.getElementById('mapTheme');
+          const publishedEl = document.getElementById('mapPublished');
+          const grid3El = document.getElementById('mapGrid3');
+          const latEl = document.getElementById('mapLat');
+          const lngEl = document.getElementById('mapLng');
+          const zoomEl = document.getElementById('mapZoom');
+
+          if (!nameEl) return draft;
+
+          if (idEl && !state.selectedId) draft.id = String(idEl.value || '').trim().toLowerCase();
+          draft.name = String(nameEl.value || '').trim();
+          draft.description = String(descEl?.value || '').trim();
+          draft.basemap = String(basemapEl?.value || 'streets');
+          draft.choroplethTheme = String(themeEl?.value || 'party-winner');
+          draft.published = !!(publishedEl && publishedEl.checked);
+          draft.grid3Fallback = !!(grid3El && grid3El.checked);
+          draft.extent = {
+            center: [Number(latEl?.value), Number(lngEl?.value)],
+            zoom: Number(zoomEl?.value),
+          };
+
+          const stack = [];
+          document.querySelectorAll('[data-layer-row]').forEach((row, index) => {
+            const id = row.getAttribute('data-layer-row');
+            const enabled = row.querySelector('[data-layer-enabled]')?.checked;
+            stack.push({ id, enabled: !!enabled, order: index });
+          });
+          if (stack.length) draft.layerStack = stack;
+          state.draft = draft;
+          return draft;
+        }
+
+        async function loadAll() {
+          setStatus('Loading…', true);
+          const [mapsPayload, boundaryStatus] = await Promise.all([
+            apiFetch('/api/admin/maps'),
+            fetch('/api/boundaries/status', { cache: 'no-store' }).then((r) => r.json()).catch(() => null),
+          ]);
+          state.maps = mapsPayload.maps || [];
+          state.assignments = mapsPayload.assignments || state.assignments;
+          state.basemapIds = mapsPayload.basemapIds || state.basemapIds;
+          state.layerIds = mapsPayload.layerIds || state.layerIds;
+          state.choroplethThemes = mapsPayload.choroplethThemes || state.choroplethThemes;
+          state.boundaryStatus = boundaryStatus;
+          if (!state.selectedId && state.maps[0]) state.selectedId = state.maps[0].id;
+          const current = state.maps.find((m) => m.id === state.selectedId);
+          state.draft = current ? cloneMap(current) : emptyDraft();
+          setStatus(`Loaded ${state.maps.length} map config(s).`, true);
+          render();
+        }
+
+        async function saveMap() {
+          const draft = readFormIntoDraft();
+          state.busy = true;
+          render();
+          try {
+            if (state.selectedId) {
+              const result = await apiFetch('/api/admin/maps/' + encodeURIComponent(state.selectedId), {
+                method: 'PUT',
+                body: JSON.stringify(draft),
+              });
+              setStatus('Saved “' + result.map.id + '”.', true);
+              state.selectedId = result.map.id;
+            } else {
+              if (!draft.id) throw new Error('Map id is required (slug like overview-default).');
+              const result = await apiFetch('/api/admin/maps', {
+                method: 'POST',
+                body: JSON.stringify(draft),
+              });
+              setStatus('Created “' + result.map.id + '”.', true);
+              state.selectedId = result.map.id;
+            }
+            await loadAll();
+          } catch (error) {
+            setStatus(error.message || 'Save failed.', false);
+            state.busy = false;
+            render();
+          }
+        }
+
+        async function deleteMap() {
+          if (!state.selectedId) return;
+          if (!window.confirm('Delete map config “' + state.selectedId + '”?')) return;
+          state.busy = true;
+          render();
+          try {
+            await apiFetch('/api/admin/maps/' + encodeURIComponent(state.selectedId), { method: 'DELETE' });
+            state.selectedId = null;
+            setStatus('Deleted.', true);
+            await loadAll();
+          } catch (error) {
+            setStatus(error.message || 'Delete failed.', false);
+            state.busy = false;
+            render();
+          }
+        }
+
+        async function saveAssignments() {
+          const body = {};
+          Object.keys(VIEW_LABELS).forEach((view) => {
+            const el = document.getElementById('assign-' + view);
+            body[view] = el && el.value ? el.value : null;
+          });
+          state.busy = true;
+          render();
+          try {
+            const result = await apiFetch('/api/admin/maps/assignments', {
+              method: 'PUT',
+              body: JSON.stringify(body),
+            });
+            state.assignments = result.assignments;
+            setStatus('View assignments updated.', true);
+            state.busy = false;
+            render();
+          } catch (error) {
+            setStatus(error.message || 'Assignment save failed.', false);
+            state.busy = false;
+            render();
+          }
+        }
+
+        function moveLayer(id, dir) {
+          readFormIntoDraft();
+          const stack = state.draft.layerStack.slice().sort((a, b) => a.order - b.order);
+          const index = stack.findIndex((row) => row.id === id);
+          const next = index + dir;
+          if (index < 0 || next < 0 || next >= stack.length) return;
+          const tmp = stack[index];
+          stack[index] = stack[next];
+          stack[next] = tmp;
+          state.draft.layerStack = stack.map((row, order) => ({ ...row, order }));
+          render();
+        }
+
+        function boundaryBadge(layerId) {
+          const layers = state.boundaryStatus && state.boundaryStatus.layers;
+          if (!layers) return '<span class="admin-muted">status unknown</span>';
+          const row = Array.isArray(layers)
+            ? layers.find((l) => String(l.layer || l.id || l.name) === layerId)
+            : layers[layerId];
+          if (!row) {
+            if (layerId === 'polling' || layerId === 'health') {
+              return '<span class="admin-pill">API / GRID3</span>';
+            }
+            return '<span class="admin-pill admin-pill-warn">not local</span>';
+          }
+          const count = row.feature_count ?? row.count ?? row.featureCount ?? row.features;
+          const label = count != null ? `${count} features` : 'available';
+          return `<span class="admin-pill admin-pill-ok">${label}</span>`;
+        }
+
+        function renderLayerRows(draft) {
+          const stack = (draft.layerStack || []).slice().sort((a, b) => a.order - b.order);
+          return stack
+            .map((row) => {
+              const label = LAYER_LABELS[row.id] || row.id;
+              return `<div class="maps-layer-row" data-layer-row="${row.id}">
+                <label class="maps-layer-toggle">
+                  <input type="checkbox" data-layer-enabled ${row.enabled ? 'checked' : ''} />
+                  <span>${label}</span>
+                </label>
+                <div class="maps-layer-meta">${boundaryBadge(row.id)}</div>
+                <div class="maps-layer-order">
+                  <button type="button" class="admin-btn admin-btn-ghost admin-btn-small" data-move-up="${row.id}" title="Move up">↑</button>
+                  <button type="button" class="admin-btn admin-btn-ghost admin-btn-small" data-move-down="${row.id}" title="Move down">↓</button>
+                </div>
+              </div>`;
+            })
+            .join('');
+        }
+
+        function render() {
+          const root = document.getElementById('mapsRoot');
+          const draft = state.draft || emptyDraft();
+          const isNew = !state.selectedId;
+          const mapOptions = state.maps
+            .map((m) => `<option value="${m.id}">${m.name} (${m.id})</option>`)
+            .join('');
+
+          root.innerHTML = `
+            <section class="admin-card">
+              <div class="admin-card-head">
+                <div>
+                  <h2>Map studio</h2>
+                  <p class="admin-muted">Basemaps, layer stacks, and view assignments for Overview, Polling units, and Live. Dashboard map widgets reference configs by <code>mapId</code> (slug id).</p>
+                </div>
+                <div class="admin-actions">
+                  <button type="button" class="admin-btn admin-btn-ghost" id="btnNewMap" ${state.busy ? 'disabled' : ''}>New config</button>
+                  <button type="button" class="admin-btn" id="btnReload" ${state.busy ? 'disabled' : ''}>Reload</button>
+                </div>
+              </div>
+              <p class="admin-muted" style="margin:0">Id format: <code>^[a-z][a-z0-9-]{1,62}$</code> · widget example: <code>{"type":"map","config":{"mapId":"overview-default"}}</code></p>
+              <div id="mapsStatus" class="admin-status${state.status ? (state.statusOk ? ' is-ok' : ' is-error') : ''}">${state.status || ''}</div>
+            </section>
+
+            <div class="maps-layout">
+              <section class="admin-card">
+                <h2>Configs</h2>
+                <div class="admin-table-wrap">
+                  <table class="admin-table">
+                    <thead>
+                      <tr><th>Name</th><th>Id</th><th>Basemap</th><th>Published</th></tr>
+                    </thead>
+                    <tbody>
+                      ${state.maps
+                        .map(
+                          (m) => `<tr class="${m.id === state.selectedId ? 'is-selected' : ''}" data-select-map="${m.id}">
+                            <td>${m.name}</td>
+                            <td><code>${m.id}</code></td>
+                            <td>${m.basemap}</td>
+                            <td>${m.published ? 'yes' : 'draft'}</td>
+                          </tr>`
+                        )
+                        .join('') || '<tr><td colspan="4">No configs yet.</td></tr>'}
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+
+              <section class="admin-card">
+                <div class="admin-card-head">
+                  <h2>${isNew ? 'Create map config' : 'Edit map config'}</h2>
+                </div>
+                <form class="admin-upload-form maps-form" id="mapForm">
+                  <label>Id ${isNew ? '' : '(immutable)'}
+                    <input id="mapId" type="text" ${isNew ? '' : 'readonly'} value="${draft.id || ''}" placeholder="overview-default" pattern="[a-z][a-z0-9-]{1,62}" required />
+                  </label>
+                  <label>Name
+                    <input id="mapName" type="text" value="${(draft.name || '').replace(/"/g, '&quot;')}" required />
+                  </label>
+                  <label>Description
+                    <textarea id="mapDescription" rows="2">${draft.description || ''}</textarea>
+                  </label>
+                  <label>Basemap
+                    <select id="mapBasemap">
+                      ${state.basemapIds
+                        .map((id) => `<option value="${id}" ${draft.basemap === id ? 'selected' : ''}>${id}</option>`)
+                        .join('')}
+                    </select>
+                  </label>
+                  <label>Choropleth theme
+                    <select id="mapTheme">
+                      ${state.choroplethThemes
+                        .map((id) => `<option value="${id}" ${draft.choroplethTheme === id ? 'selected' : ''}>${id}</option>`)
+                        .join('')}
+                    </select>
+                  </label>
+                  <div class="maps-extent">
+                    <label>Center lat
+                      <input id="mapLat" type="number" step="any" value="${draft.extent?.center?.[0] ?? 9.08}" />
+                    </label>
+                    <label>Center lng
+                      <input id="mapLng" type="number" step="any" value="${draft.extent?.center?.[1] ?? 8.68}" />
+                    </label>
+                    <label>Zoom
+                      <input id="mapZoom" type="number" min="1" max="18" step="1" value="${draft.extent?.zoom ?? 6}" />
+                    </label>
+                  </div>
+                  <label class="maps-check">
+                    <input id="mapPublished" type="checkbox" ${draft.published !== false ? 'checked' : ''} />
+                    <span>Published (public / dashboard consumers)</span>
+                  </label>
+                  <label class="maps-check">
+                    <input id="mapGrid3" type="checkbox" ${draft.grid3Fallback !== false ? 'checked' : ''} />
+                    <span>GRID3 fallback when local boundaries are empty</span>
+                  </label>
+
+                  <div>
+                    <strong>Layer stack</strong>
+                    <p class="admin-muted" style="margin:6px 0 10px">Toggle visibility and order. Availability from <code>/api/boundaries/status</code>.</p>
+                    <div class="maps-layers">${renderLayerRows(draft)}</div>
+                  </div>
+
+                  <div class="admin-actions">
+                    <button type="submit" class="admin-btn" ${state.busy ? 'disabled' : ''}>${isNew ? 'Create' : 'Save'}</button>
+                    ${!isNew ? `<button type="button" class="admin-btn admin-btn-danger" id="btnDelete" ${state.busy ? 'disabled' : ''}>Delete</button>` : ''}
+                  </div>
+                </form>
+                ${draft.updatedAt ? `<p class="admin-muted" style="margin-top:12px">Updated ${formatDate(draft.updatedAt)}</p>` : ''}
+              </section>
+            </div>
+
+            <section class="admin-card">
+              <div class="admin-card-head">
+                <div>
+                  <h2>Assign to app views</h2>
+                  <p class="admin-muted">Public stages load these published configs; missing or unpublished assignments fall back to hardcoded defaults.</p>
+                </div>
+                <button type="button" class="admin-btn" id="btnSaveAssignments" ${state.busy ? 'disabled' : ''}>Save assignments</button>
+              </div>
+              <div class="maps-assign-grid">
+                ${Object.keys(VIEW_LABELS)
+                  .map((view) => {
+                    const current = state.assignments[view] || '';
+                    return `<label>${VIEW_LABELS[view]}
+                      <select id="assign-${view}">
+                        <option value="">— none (hardcoded fallback) —</option>
+                        ${state.maps
+                          .map((m) => `<option value="${m.id}" ${current === m.id ? 'selected' : ''}>${m.name} (${m.id})${m.published ? '' : ' · draft'}</option>`)
+                          .join('')}
+                      </select>
+                    </label>`;
+                  })
+                  .join('')}
+              </div>
+            </section>
+          `;
+
+          root.querySelectorAll('[data-select-map]').forEach((row) => {
+            row.addEventListener('click', () => selectMap(row.getAttribute('data-select-map')));
+          });
+          document.getElementById('btnNewMap')?.addEventListener('click', () => {
+            state.selectedId = null;
+            state.draft = emptyDraft();
+            render();
+          });
+          document.getElementById('btnReload')?.addEventListener('click', () => loadAll().catch((e) => setStatus(e.message, false)));
+          document.getElementById('btnDelete')?.addEventListener('click', () => deleteMap());
+          document.getElementById('btnSaveAssignments')?.addEventListener('click', () => saveAssignments());
+          document.getElementById('mapForm')?.addEventListener('submit', (event) => {
+            event.preventDefault();
+            saveMap();
+          });
+          root.querySelectorAll('[data-move-up]').forEach((btn) => {
+            btn.addEventListener('click', () => moveLayer(btn.getAttribute('data-move-up'), -1));
+          });
+          root.querySelectorAll('[data-move-down]').forEach((btn) => {
+            btn.addEventListener('click', () => moveLayer(btn.getAttribute('data-move-down'), 1));
+          });
+        }
+
+        mountShell({ active: 'maps', title: 'Maps', kicker: 'Map studio' });
+        loadAll().catch((error) => {
+          setStatus(error.message || 'Failed to load Map studio.', false);
+          render();
+        });
+      })();
+    </script>
+  </body>
+</html>

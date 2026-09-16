@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moderation | Admin portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/admin/admin-shell.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <div class="admin-brand-mark">EI</div>
+          <div>
+            <strong>Admin portal</strong>
+            <span>Election Intelligence</span>
+          </div>
+        </div>
+        <nav class="admin-nav" aria-label="Admin modules" id="adminNav"></nav>
+        <div class="admin-sidebar-foot">
+          <a class="admin-btn admin-btn-ghost" href="/">Open public app</a>
+          <button type="button" class="admin-btn admin-btn-ghost" id="logoutButton">Sign out</button>
+        </div>
+      </aside>
+      <div class="admin-shell">
+        <header class="admin-header">
+          <div>
+            <div class="admin-kicker" id="adminKicker">Admin portal</div>
+            <h1 id="adminPageTitle">Moderation</h1>
+          </div>
+          <div class="admin-header-actions">
+            <span class="admin-user" id="adminUser">Signed in</span>
+          </div>
+        </header>
+        <main class="admin-main">
+          <section class="admin-card">
+            <div class="admin-phase-badge">Phase 0 bridge</div>
+            <h2>EC8A submission review</h2>
+            <p class="admin-muted">
+              Citizen Live Results uploads are still moderated in the thin in-app Admin console.
+              This portal page will host moderation directly in a later pass; for now use the deep link below
+              (requires an active Google admin session for approve/reject CSRF writes).
+            </p>
+            <div class="admin-actions">
+              <a class="admin-btn" href="/index.html#/Admin">Open in-app moderation</a>
+              <a class="admin-btn admin-btn-ghost" href="/admin/">Back to Home</a>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="/admin/auth-check.js"></script>
+    <script src="/admin/admin-common.js"></script>
+    <script>
+      window.AdminCommon.mountShell({ active: 'moderation', title: 'Moderation', kicker: 'Live Results' });
+    </script>
+  </body>
+</html>

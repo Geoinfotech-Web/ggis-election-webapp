@@ -1,24 +1,16 @@
 (async () => {
-  const loginPath = '/admin/index.html';
-  const token = sessionStorage.getItem('admin_token');
-
-  if (!token) {
-    window.location.replace(loginPath);
-    return;
-  }
+  const loginPath = '/admin-login.html';
 
   try {
-    const response = await fetch('/api/admin/verify', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+    const response = await fetch('/api/admin/me', {
+      credentials: 'include',
+      cache: 'no-store',
     });
 
     if (!response.ok) {
-      throw new Error('Invalid admin session.');
+      throw new Error('Admin session required.');
     }
   } catch {
-    sessionStorage.removeItem('admin_token');
     window.location.replace(loginPath);
   }
 })();

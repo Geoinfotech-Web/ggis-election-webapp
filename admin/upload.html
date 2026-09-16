@@ -3,70 +3,85 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Upload Boundaries | Election GIS Dashboard</title>
+    <title>Upload Boundaries | Admin portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/admin/admin-shell.css" />
   </head>
   <body>
-    <div class="admin-shell">
-      <header class="admin-header">
-        <div>
-          <div class="admin-kicker">Protected GIS Console</div>
-          <h1>Upload boundaries</h1>
+    <div class="admin-layout">
+      <aside class="admin-sidebar">
+        <div class="admin-brand">
+          <div class="admin-brand-mark">EI</div>
+          <div>
+            <strong>Admin portal</strong>
+            <span>Election Intelligence</span>
+          </div>
         </div>
-        <nav class="admin-nav" aria-label="Admin sections" id="adminNav"></nav>
-        <div class="admin-header-actions">
-          <a class="admin-btn admin-btn-ghost" href="/admin/dashboard.html">Dashboard</a>
+        <nav class="admin-nav" aria-label="Admin modules" id="adminNav"></nav>
+        <div class="admin-sidebar-foot">
+          <a class="admin-btn admin-btn-ghost" href="/">Open public app</a>
           <button type="button" class="admin-btn admin-btn-ghost" id="logoutButton">Sign out</button>
         </div>
-      </header>
+      </aside>
 
-      <main class="admin-main">
-        <section class="admin-card">
-          <h2>Shapefile upload</h2>
-          <p class="admin-muted">
-            Upload a zipped shapefile or a complete <code>.shp</code> + <code>.dbf</code> + <code>.shx</code> set.
-            Import <strong>state</strong> boundaries before <strong>LGA</strong> files. Data is stored in the Docker SQLite database.
-          </p>
+      <div class="admin-shell">
+        <header class="admin-header">
+          <div>
+            <div class="admin-kicker" id="adminKicker">Content</div>
+            <h1 id="adminPageTitle">Upload boundaries</h1>
+          </div>
+          <div class="admin-header-actions">
+            <span class="admin-user" id="adminUser">Signed in</span>
+          </div>
+        </header>
 
-          <form id="uploadForm" class="admin-upload-form">
-            <label>
-              Layer hint (optional)
-              <select id="layerHint" name="layer">
-                <option value="">Auto-detect</option>
-                <option value="state">State</option>
-                <option value="lga">LGA</option>
-                <option value="ward">Ward</option>
-              </select>
-            </label>
+        <main class="admin-main">
+          <section class="admin-card">
+            <h2>Shapefile upload</h2>
+            <p class="admin-muted">
+              Upload a zipped shapefile or a complete <code>.shp</code> + <code>.dbf</code> + <code>.shx</code> set.
+              Import <strong>state</strong> boundaries before <strong>LGA</strong> files. Data is stored in the Docker SQLite database.
+            </p>
 
-            <label class="admin-dropzone" for="uploadFiles">
-              <span class="admin-drop-title">Choose files or drop here</span>
-              <span class="admin-muted">.zip, .shp, .dbf, .shx, .geojson</span>
-              <input id="uploadFiles" name="files" type="file" multiple accept=".zip,.shp,.dbf,.shx,.geojson,.json" />
-            </label>
+            <form id="uploadForm" class="admin-upload-form">
+              <label>
+                Layer hint (optional)
+                <select id="layerHint" name="layer">
+                  <option value="">Auto-detect</option>
+                  <option value="state">State</option>
+                  <option value="lga">LGA</option>
+                  <option value="ward">Ward</option>
+                </select>
+              </label>
 
-            <ul id="fileList" class="admin-file-list"></ul>
+              <label class="admin-dropzone" for="uploadFiles">
+                <span class="admin-drop-title">Choose files or drop here</span>
+                <span class="admin-muted">.zip, .shp, .dbf, .shx, .geojson</span>
+                <input id="uploadFiles" name="files" type="file" multiple accept=".zip,.shp,.dbf,.shx,.geojson,.json" />
+              </label>
 
-            <button type="submit" class="admin-btn admin-btn-primary" id="uploadButton">Upload to database</button>
-          </form>
+              <ul id="fileList" class="admin-file-list"></ul>
 
-          <p class="admin-status" id="uploadStatus" role="status"></p>
-        </section>
+              <button type="submit" class="admin-btn admin-btn-primary" id="uploadButton">Upload to database</button>
+            </form>
 
-        <section class="admin-card">
-          <h2>Current layers</h2>
-          <div id="layerSummary" class="admin-muted">Loading…</div>
-        </section>
-      </main>
+            <p class="admin-status" id="uploadStatus" role="status"></p>
+          </section>
+
+          <section class="admin-card">
+            <h2>Current layers</h2>
+            <div id="layerSummary" class="admin-muted">Loading…</div>
+          </section>
+        </main>
+      </div>
     </div>
 
     <script src="/admin/auth-check.js"></script>
     <script src="/admin/admin-common.js"></script>
     <script>
-      const { apiFetch, logout, renderNav, formatDate } = window.AdminCommon;
-
-      document.getElementById('adminNav').innerHTML = renderNav('upload');
-      document.getElementById('logoutButton').addEventListener('click', logout);
+      const { apiFetch, mountShell, formatDate, getCsrfToken } = window.AdminCommon;
 
       const uploadForm = document.getElementById('uploadForm');
       const uploadFiles = document.getElementById('uploadFiles');
@@ -126,16 +141,19 @@
         setStatus('Uploading and importing…');
 
         try {
-          const token = window.AdminCommon.getToken();
+          const csrf = getCsrfToken();
           const response = await fetch('/api/admin/boundaries/upload', {
             method: 'POST',
-            headers: token ? { Authorization: `Bearer ${token}` } : {},
+            credentials: 'include',
+            headers: csrf ? { 'X-CSRF-Token': csrf } : {},
             body: formData,
           });
           const result = await response.json().catch(() => ({}));
           if (!response.ok) throw new Error(result.error || 'Upload failed.');
 
-          setStatus(`Imported ${result.layer || 'boundary'} layer (${result.featureCount || result.feature_count || 'updated'} features).`);
+          setStatus(
+            `Imported ${result.layer || 'boundary'} layer (${result.featureCount || result.feature_count || 'updated'} features).`
+          );
           uploadFiles.value = '';
           renderSelectedFiles();
           await loadLayers();
@@ -147,7 +165,7 @@
         }
       });
 
-      loadLayers();
+      mountShell({ active: 'content', title: 'Upload boundaries', kicker: 'Content' }).then(loadLayers);
     </script>
   </body>
 </html>

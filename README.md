@@ -12,7 +12,7 @@ docker compose ps
 curl.exe http://localhost:3010/health/ready
 ```
 
-Compose creates persistent random database and session secrets in a private Docker volume. Configure `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, and `GOOGLE_REDIRECT_URI` in an untracked `.env` before using the editor. Add two real editor emails to an untracked `admin-access.json`.
+Compose creates persistent random database and session secrets in a private Docker volume. Set `ADMIN_USERNAME`, `ADMIN_PASSWORD` (or `ADMIN_PASSWORD_HASH`), and `PRIMARY_ADMIN_EMAIL` in an untracked `.env` before using the editor. Optionally create `data/admin-credentials.json` from `admin-credentials.example.json` and keep emails in `admin-access.json`.
 
 ## Quality gates
 

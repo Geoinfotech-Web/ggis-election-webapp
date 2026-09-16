@@ -601,11 +601,13 @@
     return GRID3_DIRECT[layerId].replace(/\/$/, "") + "/query?" + params.toString();
   }
 
-  async function loadLayer(layerId, bbox) {
+  async function loadLayer(layerId, bbox, preferLocalOnly) {
     if (LOCAL_BOUNDARIES[layerId]) {
       const local = await loadJson(LOCAL_BOUNDARIES[layerId] + "?bbox=" + encodeURIComponent(bbox));
       if (local && local.features && local.features.length) return local;
+      if (preferLocalOnly) return local;
     }
+    if (preferLocalOnly && layerId !== "health" && layerId !== "polling") return null;
     const proxied = await loadJson(GRID3[layerId] + "?bbox=" + encodeURIComponent(bbox));
     if (proxied && (proxied.features || proxied.points)) return proxied;
     if (GRID3_DIRECT[layerId]) return loadJson(grid3Query(layerId, bbox));
@@ -629,6 +631,7 @@
       return;
     }
     const layers = inst.cfg.layers || {};
+    const preferLocalOnly = !!inst.cfg.preferLocalOnly;
     const zoom = inst.map.getZoom();
     const bbox = bboxOf(inst.map);
     const themeKey = inst.cfg.resultTheme && inst.cfg.resultTheme.key ? inst.cfg.resultTheme.key : '';
@@ -637,7 +640,7 @@
     const showOfficial = inst.cfg.showOfficial !== false;
     const showCitizen = inst.cfg.showCitizen !== false;
     const key = JSON.stringify({
-      layers, zoom: Math.floor(zoom), bbox, themeKey, citizenKey, compareMode, showOfficial, showCitizen,
+      layers, preferLocalOnly, zoom: Math.floor(zoom), bbox, themeKey, citizenKey, compareMode, showOfficial, showCitizen,
       comparePct: Math.round(inst.comparePct || 50),
     });
     if (inst.overlayKey === key) return;
@@ -648,7 +651,7 @@
     const citizenPane = isLive && compareMode === 'compare' ? 'citizen' : 'grid3';
 
     if (layers.state || (isLive && (showOfficial || showCitizen))) {
-      const data = await loadLayer("state", bbox);
+      const data = await loadLayer("state", bbox, preferLocalOnly);
       if (inst.overlayKey !== key) return;
 
       if (isLive) {
@@ -722,18 +725,18 @@
           };
         }
       } else {
-        data = await loadLayer("lga", bbox);
+        data = await loadLayer("lga", bbox, preferLocalOnly);
       }
       if (inst.overlayKey === key) putGeoJson(inst, "lga", data);
     } else clearOverlay(inst, "lga");
 
     if (layers.ward && zoom >= 8) {
-      const data = await loadLayer("ward", bbox);
+      const data = await loadLayer("ward", bbox, preferLocalOnly);
       if (inst.overlayKey === key) putGeoJson(inst, "ward", data);
     } else clearOverlay(inst, "ward");
 
     if (layers.health && zoom >= 8) {
-      const data = await loadLayer("health", bbox);
+      const data = await loadLayer("health", bbox, preferLocalOnly);
       if (inst.overlayKey === key) putGeoJson(inst, "health", data, true);
     } else clearOverlay(inst, "health");
 
@@ -941,6 +944,11 @@
       inst.citizenMarkers = global.L.layerGroup().addTo(inst.map);
     }
     const view = GEO[cfg.scope] || GEO.global;
+    const studioCenter = Array.isArray(cfg.center) && cfg.center.length >= 2
+      ? [Number(cfg.center[0]), Number(cfg.center[1])]
+      : null;
+    const defaultCenter = (studioCenter && studioCenter.every(Number.isFinite)) ? studioCenter : view.center;
+    const defaultZoom = Number.isFinite(Number(cfg.zoom)) ? Number(cfg.zoom) : view.zoom;
     setBasemap(el, cfg.basemap || "streets");
     const user = cfg.user && cfg.user.lat != null ? cfg.user : null;
     const focus = cfg.focus && cfg.focus.lat != null ? cfg.focus : null;
@@ -951,7 +959,7 @@
         ? adminViewKey(admin)
         : user
           ? "user:" + user.lat.toFixed(4) + "," + user.lng.toFixed(4)
-          : (cfg.scope || "global") + ":" + (cfg.zoom || view.zoom);
+          : (cfg.scope || "global") + ":" + defaultZoom + ":" + defaultCenter.join(",");
     if (inst.viewKey !== viewKey) {
       inst.viewKey = viewKey;
       if (focus) goToPoint(inst, focus.lat, focus.lng, cfg.focusZoom || 16);
@@ -963,7 +971,7 @@
         inst.map.setView([user.lat, user.lng], 13);
       } else if (!admin && !focus) {
         beginNav(inst);
-        inst.map.setView(view.center, cfg.zoom || view.zoom);
+        inst.map.setView(defaultCenter, defaultZoom);
       }
     }
     inst.markers.clearLayers();
@@ -1287,5 +1295,17 @@
     refreshOverlays(el);
   }
 
-  global.EIDMaps = { attach, setBasemap, zoomIn, zoomOut, focusPoint, resetView, flyToAdmin, flyToResultScope, GEO };
+  global.EIDMaps = {
+    attach,
+    setBasemap,
+    zoomIn,
+    zoomOut,
+    focusPoint,
+    resetView,
+    flyToAdmin,
+    flyToResultScope,
+    GEO,
+    BASEMAPS: Object.keys(TILES),
+    LAYER_IDS: ["state", "lga", "ward", "polling", "health"],
+  };
 })(window);

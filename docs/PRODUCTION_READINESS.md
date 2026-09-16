@@ -10,7 +10,7 @@ The polling-cache migration fingerprints the canonical CSV and replaces obsolete
 
 - localhost-only Compose publishing and no host Postgres port
 - generated persistent local secrets, required production configuration, non-root container
-- Google OAuth-only admin sessions, allow-list, CSRF, session revocation, preparer/approver separation
+- Local admin username/password sessions, allow-list, CSRF, session revocation, preparer/approver separation
 - Helmet/CSP, same-origin CORS, rate limits, request limits, upload filename/signature/archive limits
 - PostgreSQL 16/PostGIS provenance, version, review, audit, source, contest, result, and geography schema
 - evidence/checksum/arithmetic/date/duplicate/methodology validation
@@ -28,7 +28,7 @@ The polling-cache migration fingerprints the canonical CSV and replaces obsolete
 - Obtain and archive each original source; achieve 100% evidence links and two-person review.
 - Resolve or formally annotate the 185,099 INEC PVC national-total discrepancy.
 - Identify population product, vintage, methodology, and licence before exposing population estimates.
-- Configure Google OAuth and two named editor accounts.
+- Configure local admin credentials (`ADMIN_USERNAME` / `ADMIN_PASSWORD` or `admin-credentials.json`) and two named editor accounts.
 - Configure a versioned GCS bucket and test cloud restore/PITR; only the local dump/restore path has been exercised.
 - Rehearse migration rollback, run security tests beyond the included regression suite, and complete representative map/API load tests.
 - Keep the D: source archive connected while the local stack is running; add an explicit startup warning or degraded mode for archive-drive loss.

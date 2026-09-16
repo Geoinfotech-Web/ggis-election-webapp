@@ -39,10 +39,10 @@
             <div class="eid-kpi"><div class="label">File</div><div class="value" id="sourceName" style="font-size:16px">--</div></div>
             <div class="eid-kpi"><div class="label">Updated</div><div class="value" id="sourceUpdatedAt" style="font-size:16px">--</div></div>
           </div>
-          <section class="eid-card" style="padding:16px">
+          <section class="eid-card" style="padding:16px" id="drivePanel">
             <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px">
               <div>
-                <div class="eid-kicker">Google Drive</div>
+                <div class="eid-kicker">Population data</div>
                 <h2 style="margin:6px 0 0;font-size:16px">Update dashboard data</h2>
               </div>
               <div style="display:flex;gap:8px">
@@ -50,12 +50,18 @@
                 <button id="useLocalButton" class="eid-btn eid-btn-ghost" type="button">Use local data</button>
               </div>
             </div>
-            <form id="driveSearchForm" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
-              <input id="driveSearchInput" class="eid-input" style="flex:1;min-width:200px;height:40px" type="search" placeholder="Search population, pvc, election…" autocomplete="off" />
-              <button class="eid-btn eid-btn-primary" type="submit" style="height:40px">Search</button>
-            </form>
-            <div id="searchMessage" style="font-size:12.5px;color:var(--dim);margin-bottom:10px"></div>
-            <div id="driveResults"></div>
+            <p id="driveUnavailableNote" class="admin-muted" hidden style="font-size:12.5px;color:var(--dim);margin:0 0 12px;padding:10px 12px;border:1px dashed var(--border);border-radius:8px">
+              Google Drive browse/search needs server-side <code>credentials.json</code> and <code>token.json</code>.
+              Admin login no longer uses Google. Use local population data, or configure server Drive credentials separately.
+            </p>
+            <div id="driveControls">
+              <form id="driveSearchForm" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
+                <input id="driveSearchInput" class="eid-input" style="flex:1;min-width:200px;height:40px" type="search" placeholder="Search population, pvc, election…" autocomplete="off" />
+                <button class="eid-btn eid-btn-primary" type="submit" style="height:40px">Search</button>
+              </form>
+              <div id="searchMessage" style="font-size:12.5px;color:var(--dim);margin-bottom:10px"></div>
+              <div id="driveResults"></div>
+            </div>
           </section>
           <section class="eid-card" style="padding:16px">
             <div class="eid-kicker">Current source</div>

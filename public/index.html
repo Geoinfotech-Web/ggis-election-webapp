@@ -8,7 +8,8 @@
 <script src="./vendor/leaflet/leaflet.js"></script>
 <script src="./vendor/chart.js/chart.umd.min.js"></script>
 <script src="./js/eid-maps.js?v=20260908coords"></script>
-<script src="./js/eid-analysis.js?v=20260915b"></script>
+<script src="./js/eid-analysis.js?v=20260916d"></script>
+<script src="./js/eid-dashboard.js?v=20260916dash"></script>
 <script src="./support.js?v=20260819c"></script>
 </head>
 <body>
@@ -30,6 +31,11 @@ body{font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:ant
 .ov-work{align-items:stretch !important;overflow:hidden !important;min-height:0}
 .ov-work>.ov-main{min-height:0;height:100%;overflow:hidden !important}
 .ov-left,.ov-aside-right{min-height:0;max-height:100%;overflow-y:auto}
+.eid-dash-extras{flex:none;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:10px;padding:0 12px 8px}
+.eid-dash-extra{grid-column:span 4;background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:12px 14px;min-height:72px}
+.eid-dash-extra__type{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+.eid-dash-extra__title{font-size:13px;font-weight:600;margin-bottom:4px}
+.eid-dash-extra__body{font-size:12px;color:var(--dim);line-height:1.4}
 .eid-kpi-overlay{position:absolute;left:12px;right:12px;top:12px;z-index:420;display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:8px;pointer-events:none}
 .eid-kpi-overlay>div{pointer-events:auto;backdrop-filter:blur(8px)}
 .eid-map-fab{width:36px;height:36px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:9px;cursor:pointer;display:grid;place-items:center;box-shadow:var(--shadow)}
@@ -43,6 +49,9 @@ a:hover{color:var(--primary)}
 .eid-scroll::-webkit-scrollbar-track{background:transparent}
 .eid-nav::-webkit-scrollbar{height:0}
 .eid-flag{border-radius:3px;object-fit:cover;box-shadow:0 1px 4px rgba(0,0,0,.35);background:var(--surface3)}
+.eid-app-main{isolation:isolate}
+.eid-scope-flag-bg{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;background-repeat:no-repeat;background-position:center;background-size:cover;opacity:var(--flag-wm-opacity,.05);filter:saturate(.75) contrast(.9)}
+.eid-app-main>:not(.eid-scope-flag-bg){position:relative;z-index:1}
 .eid-cand-photo{overflow:hidden!important}
 .eid-cand-photo-img{width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center center!important}
 .msi{font-family:'Material Symbols Rounded';font-weight:400;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;white-space:nowrap;-webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased;user-select:none}
@@ -66,29 +75,42 @@ a:hover{color:var(--primary)}
 .eid-gov-prompt__hint{font-size:10.5px;color:var(--dim);line-height:1.35}
 .eid-gov-prompt__arrow{color:var(--primary);font-size:22px;line-height:1;animation:eidnudge 1.1s ease-in-out infinite}
 .eid-gov-state-target{outline:2px solid var(--primary);outline-offset:2px;border-radius:9px;box-shadow:0 0 0 4px var(--primary-soft)}
-.eid-analysis-root{display:flex;flex-direction:column;gap:14px;padding-bottom:28px}
-.eid-analysis-filters{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end;position:sticky;top:0;z-index:20;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 14px;box-shadow:var(--shadow)}
-.eid-analysis-filters label{display:flex;flex-direction:column;gap:4px;font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)}
-.eid-analysis-filters select,.eid-analysis-filters input[type=range]{height:34px;min-width:120px;padding:0 10px;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:8px;font-family:inherit;font-size:12.5px}
-.eid-analysis-filters input[type=range]{padding:0;min-width:140px;height:28px;accent-color:var(--primary)}
+.eid-analysis-filters{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:flex-end;flex:none;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:8px 10px;box-shadow:var(--shadow)}
+.eid-analysis-filters label{display:flex;flex-direction:column;gap:3px;font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)}
+.eid-analysis-filters select,.eid-analysis-filters input[type=range]{height:30px;min-width:110px;padding:0 8px;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:7px;font-family:inherit;font-size:12px}
+.eid-analysis-filters input[type=range]{padding:0;min-width:120px;height:24px;accent-color:var(--primary)}
+.eid-analysis-kpis{flex:none;display:flex;flex-wrap:wrap;gap:6px;align-items:stretch;min-height:0}
+.eid-analysis-kpi{flex:1 1 108px;min-width:96px;display:flex;align-items:center;gap:8px;padding:6px 10px;min-height:40px;max-height:52px;background:var(--surface2);border:1px solid var(--border);border-radius:8px}
+.eid-analysis-kpi .msi{font-size:16px;flex:none;line-height:1}
+.eid-analysis-kpi__meta{min-width:0;flex:1;display:flex;flex-direction:column;gap:1px;justify-content:center}
+.eid-analysis-kpi__label{font-size:9px;letter-spacing:.03em;text-transform:uppercase;color:var(--mute);line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.eid-analysis-kpi__row{display:flex;align-items:baseline;gap:4px;min-width:0}
+.eid-analysis-kpi__value{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:15px;color:var(--text);line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.eid-analysis-kpi__unit{font-size:10px;color:var(--dim);flex:none}
+.eid-analysis-kpi__cap{font-size:9.5px;color:var(--mute);line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .eid-analysis-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .eid-analysis-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-height:260px}
-.eid-analysis-card__hd{padding:11px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
-.eid-analysis-card__hd h2{margin:0;font-size:13px;font-weight:600}
-.eid-analysis-card__hd span.meta{margin-left:auto;font-size:10.5px;color:var(--mute)}
-.eid-analysis-card__body{flex:1;min-height:200px;padding:10px 12px 14px;position:relative}
+.eid-analysis-card__hd{padding:8px 12px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;flex:none}
+.eid-analysis-card__hd h2{margin:0;font-size:12.5px;font-weight:600}
+.eid-analysis-card__hd span.meta{margin-left:auto;font-size:10px;color:var(--mute)}
+.eid-analysis-card__body{flex:1;min-height:200px;padding:8px 10px 10px;position:relative}
 .eid-analysis-card--wide{grid-column:1 / -1}
-.eid-analysis-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.eid-analysis-section__hd{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
-.eid-analysis-section__hd h2{margin:0;font-size:14px;font-weight:600}
-.eid-analysis-section__hd .meta{margin-left:auto;font-size:11px;color:var(--mute)}
-.eid-analysis-section__bd{padding:14px 16px}
-.eid-analysis-narrative{margin:0;font-size:13.5px;color:var(--dim);line-height:1.55}
-.eid-analysis-drivers{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
-.eid-analysis-drivers li{display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:start;padding:10px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:10px}
-.eid-analysis-drivers .drv-title{font-size:12.5px;font-weight:600;color:var(--text)}
-.eid-analysis-drivers .drv-text{font-size:12px;color:var(--dim);line-height:1.45;margin-top:2px}
-.eid-analysis-drivers .drv-val{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:14px;color:var(--primary);text-align:right;white-space:nowrap}
+.eid-analysis-card--fill{min-height:0;height:100%}
+.eid-analysis-card--fill .eid-analysis-card__body{min-height:0}
+.eid-analysis-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-height:0}
+.eid-analysis-section__hd{padding:8px 12px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;flex:none}
+.eid-analysis-section__hd h2{margin:0;font-size:13px;font-weight:600}
+.eid-analysis-section__hd .meta{margin-left:auto;font-size:10.5px;color:var(--mute)}
+.eid-analysis-section__bd{padding:10px 12px;min-height:0}
+.eid-analysis-section--fill{flex:1;min-height:0;height:100%}
+.eid-analysis-section--fill>.eid-analysis-section__bd{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column}
+.eid-analysis-narrative{margin:0;font-size:12.5px;color:var(--dim);line-height:1.45}
+.eid-analysis-drivers{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.eid-analysis-drivers li{display:grid;grid-template-columns:22px 1fr auto;gap:8px;align-items:start;padding:7px 9px;background:var(--surface2);border:1px solid var(--border);border-radius:8px}
+.eid-analysis-drivers .msi{font-size:18px}
+.eid-analysis-drivers .drv-title{font-size:11.5px;font-weight:600;color:var(--text)}
+.eid-analysis-drivers .drv-text{font-size:11px;color:var(--dim);line-height:1.35;margin-top:1px}
+.eid-analysis-drivers .drv-val{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12.5px;color:var(--primary);text-align:right;white-space:nowrap}
 .eid-analysis-table{width:100%;border-collapse:collapse;font-size:12px}
 .eid-analysis-table th{text-align:left;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute);padding:8px 10px;border-bottom:1px solid var(--border);font-weight:500}
 .eid-analysis-table td{padding:8px 10px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:middle}
@@ -98,18 +120,80 @@ a:hover{color:var(--primary)}
 .eid-analysis-flag{display:grid;grid-template-columns:88px 1fr;gap:10px;padding:10px 12px;border-bottom:1px solid var(--border);font-size:12px}
 .eid-analysis-flag:last-child{border-bottom:none}
 .eid-analysis-flag .kind{font-size:10.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--mute)}
-.eid-analysis-predict{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.eid-analysis-predict__banner{padding:10px 14px;background:var(--primary-soft);border-bottom:1px solid var(--border);font-size:12px;color:var(--dim);line-height:1.45}
+.eid-analysis-predict{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-height:0;height:100%}
+.eid-analysis-predict__banner{padding:8px 12px;background:var(--primary-soft);border-bottom:1px solid var(--border);font-size:11.5px;color:var(--dim);line-height:1.4;flex:none}
 .eid-analysis-predict__banner strong{color:var(--primary);font-weight:600}
-.eid-analysis-predict__grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);gap:14px;padding:14px}
-.eid-analysis-caveats{margin:0;padding:0 0 0 18px;font-size:11.5px;color:var(--mute);line-height:1.5}
-.eid-analysis-caveats li{margin:4px 0}
+.eid-analysis-predict__grid{display:flex;flex-direction:column;gap:10px;padding:10px 12px;flex:1;min-height:0;overflow:hidden}
+.eid-analysis-predict__controls{flex:none}
+.eid-analysis-predict__chart{flex:1;min-height:0;position:relative}
+.eid-analysis-predict__caveats{flex:none;max-height:28%;overflow:auto}
+.eid-analysis-caveats{margin:0;padding:0 0 0 16px;font-size:11px;color:var(--mute);line-height:1.45}
+.eid-analysis-caveats li{margin:3px 0}
+.eid-analysis-shell{flex:1;min-height:0;height:100%;display:flex;flex-direction:column;overflow:hidden;padding:10px 12px}
+.eid-analysis-root{flex:1;min-height:0;height:100%;display:flex;flex-direction:column;gap:8px;padding-bottom:0;max-width:none;margin:0;width:100%;overflow:hidden}
+.eid-analysis-toolbar{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;flex:none;border-bottom:1px solid var(--border);margin:0 -2px;padding:0 2px}
+.eid-analysis-subtabs{display:flex;align-items:stretch;gap:2px;flex:1;min-width:0;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.eid-analysis-subtabs::-webkit-scrollbar{height:0}
+.eid-analysis-subtab{flex:none;display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 12px;border:none;background:transparent;color:var(--dim);font-family:inherit;font-size:12px;font-weight:400;white-space:nowrap;cursor:pointer;border-radius:8px 8px 0 0;box-shadow:inset 0 -2px 0 transparent;transition:color .15s,box-shadow .15s,background .15s}
+.eid-analysis-subtab:hover{color:var(--text);background:var(--surface2)}
+.eid-analysis-subtab.is-active{color:var(--text);font-weight:600;box-shadow:inset 0 -2px 0 var(--primary);background:var(--primary-soft)}
+.eid-analysis-subtab .msi{font-size:16px;color:var(--primary)}
+.eid-analysis-advanced{flex:none;height:30px;margin-bottom:2px;padding:0 10px;display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--dim);font-family:inherit;font-size:11px;font-weight:500;cursor:pointer}
+.eid-analysis-advanced:hover{border-color:var(--primary);color:var(--text)}
+.eid-analysis-advanced.is-on{background:var(--primary-soft);border-color:var(--primary);color:var(--primary)}
+.eid-analysis-panels{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+.eid-analysis-panel{flex:1;min-height:0;overflow-y:auto;padding:2px 0 8px;display:flex;flex-direction:column;gap:10px}
+.eid-analysis-panel--fill{overflow:hidden;padding-bottom:0;height:100%}
+.eid-analysis-ov{flex:1;min-height:0;height:100%;display:grid;grid-template-columns:minmax(280px,.9fr) minmax(0,1.2fr);gap:10px;overflow:hidden}
+.eid-analysis-ov__left{min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:8px;padding-right:2px}
+.eid-analysis-ov__charts{min-height:0;height:100%;display:grid;grid-template-rows:minmax(0,1fr) minmax(0,1fr);gap:10px;overflow:hidden}
+.eid-analysis-ov__charts .eid-analysis-card{min-height:0;height:100%}
+.eid-analysis-ov__charts .eid-analysis-card__body{min-height:0}
+.eid-analysis-ov__block{background:var(--surface2);border:1px solid var(--border);border-radius:10px;overflow:hidden;flex:none}
+.eid-analysis-ov__block-hd{padding:7px 10px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:var(--text)}
+.eid-analysis-ov__block-hd .meta{margin-left:auto;font-size:10px;font-weight:400;color:var(--mute)}
+.eid-analysis-ov__block-bd{padding:8px 10px}
+.eid-analysis-ov__block-bd--flush{padding:0}
+.eid-analysis-trends{flex:1;min-height:0;height:100%;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(280px,1fr);gap:10px;overflow:hidden}
+.eid-analysis-trends__main{min-height:0;height:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:8px;overflow:hidden}
+.eid-analysis-trends__main .eid-analysis-card{min-height:0;height:100%}
+.eid-analysis-trends__main .eid-analysis-card__body{min-height:0}
+.eid-analysis-trends__compare .eid-analysis-card__body{overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0}
+.eid-analysis-trends__compare-col{min-height:0;overflow:auto;border-right:1px solid var(--border)}
+.eid-analysis-trends__compare-col:last-child{border-right:none}
+.eid-analysis-trends__compare-hd{padding:6px 8px;border-bottom:1px solid var(--border);font-size:10.5px;font-weight:600;position:sticky;top:0;background:var(--surface);z-index:1}
+.eid-analysis-trends__compare-row{display:flex;justify-content:space-between;gap:6px;padding:5px 8px;border-bottom:1px solid var(--border);font-size:11px}
+.eid-analysis-trends__outlook{min-height:0;height:100%;overflow:hidden;display:flex;flex-direction:column}
+.eid-analysis-geo{flex:1;min-height:0;display:flex;flex-direction:column;gap:8px;overflow:hidden;height:100%}
+.eid-analysis-geo__stats{flex:none}
+.eid-analysis-geo__charts{flex:1.15;min-height:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;overflow:hidden}
+.eid-analysis-geo__bottom{flex:1;min-height:0;display:grid;grid-template-columns:minmax(200px,.85fr) minmax(0,1.6fr);gap:10px;overflow:hidden}
+.eid-analysis-geo__bottom .eid-analysis-card,.eid-analysis-geo__charts .eid-analysis-card{min-height:0;height:100%}
+.eid-analysis-geo__bottom .eid-analysis-card__body{min-height:0;overflow:auto;padding:0}
+.eid-analysis-geo__charts .eid-analysis-card__body{min-height:0}
+.eid-analysis-table thead th{position:sticky;top:0;background:var(--surface);z-index:1}
+.eid-analysis-mapstub{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:var(--surface2);border:1px dashed var(--border);border-radius:10px}
+.eid-analysis-mapstub .msi{font-size:28px;color:var(--primary);flex:none}
+.eid-analysis-mapstub p{margin:4px 0 0;font-size:12.5px;color:var(--dim);line-height:1.45}
+.eid-analysis-mapstub strong{color:var(--text);font-weight:600;font-size:13px}
+.eid-analysis-mapstub a,.eid-analysis-mapstub button.linkish,button.linkish{border:none;background:none;padding:0;color:var(--primary);font:inherit;font-weight:600;cursor:pointer;text-decoration:underline}
+.eid-page-shell{flex:1;min-height:0;height:100%;display:flex;flex-direction:column;overflow:hidden;padding:12px 14px}
+.eid-page-root{flex:1;min-height:0;height:100%;display:flex;flex-direction:column;gap:12px;width:100%;max-width:none;margin:0;overflow:hidden}
+.eid-page-head{flex:none}
+.eid-page-body{flex:1;min-height:0;overflow:auto}
 @media (max-width:900px){
   .eid-analysis-grid{grid-template-columns:1fr}
   .eid-analysis-card--wide{grid-column:auto}
-  .eid-analysis-predict__grid{grid-template-columns:1fr}
-  .eid-analysis-drivers li{grid-template-columns:28px 1fr}
+  .eid-analysis-predict__grid{display:flex;flex-direction:column}
+  .eid-analysis-drivers li{grid-template-columns:22px 1fr}
   .eid-analysis-drivers .drv-val{grid-column:2;text-align:left}
+  .eid-analysis-ov{grid-template-columns:1fr;overflow:auto}
+  .eid-analysis-ov__charts{grid-template-rows:minmax(180px,28vh) minmax(180px,28vh);flex:none}
+  .eid-analysis-trends{grid-template-columns:1fr;overflow:auto}
+  .eid-analysis-trends__main{grid-template-rows:repeat(2,minmax(150px,22vh));flex:none}
+  .eid-analysis-trends__outlook{min-height:320px}
+  .eid-analysis-geo__charts{grid-template-columns:1fr;flex:none;max-height:42vh;overflow-y:auto}
+  .eid-analysis-geo__bottom{grid-template-columns:1fr}
 }
 /* ── responsive ── */
 @media (max-width:1200px){
@@ -346,7 +430,7 @@ a:hover{color:var(--primary)}
 
   <!-- ═══════════ APP SHELL ═══════════ -->
   <sc-if value="{{ isApp }}" hint-placeholder-val="{{ false }}">
-  <div style="height:100%;height:100dvh;display:flex;flex-direction:column;overflow:hidden">
+  <div class="eid-app-shell" style="height:100%;height:100dvh;display:flex;flex-direction:column;overflow:hidden">
     <header class="eid-app-header" style="height:58px;flex:none;display:flex;align-items:center;gap:14px;padding:0 16px;border-bottom:1px solid var(--border);background:var(--surface);position:relative;z-index:20">
       <button onClick="{{ openWelcome }}" title="Home" style="display:flex;align-items:center;gap:9px;flex:none;border:none;background:transparent;cursor:pointer;padding:0">
         <div style="width:30px;height:30px;border-radius:8px;background:var(--primary);display:grid;place-items:center;color:var(--primary-ink)"><span class="msi" style="font-size:20px">public</span></div>
@@ -390,6 +474,11 @@ a:hover{color:var(--primary)}
         <div style="width:30px;height:30px;border-radius:50%;background:var(--surface3);display:grid;place-items:center;color:var(--dim);font-size:12px;font-weight:600">AO</div>
       </div>
     </header>
+
+    <div class="eid-app-main" style="flex:1;min-height:0;position:relative;display:flex;flex-direction:column;overflow:hidden;background:var(--bg)">
+    <sc-if value="{{ scopeIsCountry }}" hint-placeholder-val="{{ false }}">
+      <div class="eid-scope-flag-bg" aria-hidden="true" ref="{{ scopeFlagBgRef }}"></div>
+    </sc-if>
 
     <!-- ── GLOBAL OVERVIEW ── -->
     <sc-if value="{{ isOverviewGlobal }}" hint-placeholder-val="{{ true }}">
@@ -554,6 +643,13 @@ a:hover{color:var(--primary)}
           </div>
         </sc-for>
       </div>
+      <sc-if value="{{ overviewDashExtras.length }}" hint-placeholder-val="{{ false }}">
+      <div class="eid-dash-extras">
+        <sc-for list="{{ overviewDashExtras }}" as="x" hint-placeholder-count="1">
+          <div class="eid-dash-extra" style="grid-column:span {{ x.w || 4 }}"><div class="eid-dash-extra__type">{{ x.type }}</div><div class="eid-dash-extra__title">{{ x.title }}</div><div class="eid-dash-extra__body">{{ x.body }}</div></div>
+        </sc-for>
+      </div>
+      </sc-if>
       <div class="ov-work" style="flex:1;min-height:0;display:grid;grid-template-columns:minmax(220px,290px) minmax(0,1fr) minmax(250px,300px);gap:12px;padding:12px;overflow:hidden;align-items:stretch">
         <aside class="eid-scroll ov-left" style="display:flex;flex-direction:column;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px">
           <sc-if value="{{ isNigeria }}" hint-placeholder-val="{{ false }}">
@@ -1063,14 +1159,14 @@ a:hover{color:var(--primary)}
 
     <!-- ── ELECTIONS ── -->
     <sc-if value="{{ isElections }}" hint-placeholder-val="{{ false }}">
-    <div class="eid-scroll" style="flex:1;min-height:0;overflow-y:auto;padding:16px 18px">
-      <div style="max-width:1040px;margin:0 auto">
-        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:16px;flex-wrap:wrap">
+    <div class="eid-page-shell">
+      <div class="eid-page-root">
+        <div class="eid-page-head" style="display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap">
           <div><div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><span style="width:8px;height:8px;border-radius:50%;background:var(--primary)"></span><span style="font-family:'IBM Plex Sans';font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--primary)">{{ scopeLabel }} · Elections</span></div><h1 style="margin:0;font-size:22px;font-weight:600;letter-spacing:-.02em">Elections</h1></div>
           <div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap"><sc-for list="{{ electionTypes }}" as="ft" hint-placeholder-count="4"><button style="{{ ft.style }}">{{ ft.label }}</button></sc-for></div>
         </div>
-        <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden">
-          <div style="display:grid;grid-template-columns:2.2fr 1.2fr 0.8fr 1fr;gap:12px;padding:11px 16px;border-bottom:1px solid var(--border);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute)"><span>Election</span><span>Type</span><span>Year</span><span>Status</span></div>
+        <div class="eid-page-body eid-scroll" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:auto">
+          <div style="display:grid;grid-template-columns:2.2fr 1.2fr 0.8fr 1fr;gap:12px;padding:11px 16px;border-bottom:1px solid var(--border);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute);position:sticky;top:0;background:var(--surface);z-index:1"><span>Election</span><span>Type</span><span>Year</span><span>Status</span></div>
           <sc-for list="{{ electionsRows }}" as="e" hint-placeholder-count="4">
             <a href="#" style="display:grid;grid-template-columns:2.2fr 1.2fr 0.8fr 1fr;gap:12px;align-items:center;padding:13px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:inherit" style-hover="background:var(--surface2)">
               <div style="min-width:0"><div style="font-size:13.5px;font-weight:500;color:var(--text)">{{ e.name }}</div><div style="font-size:11px;color:var(--mute)">{{ e.detail }}</div></div>
@@ -1093,6 +1189,13 @@ a:hover{color:var(--primary)}
             <div class="live-kpi"><div class="live-kpi__label">{{ s.label }}</div><div class="live-kpi__value">{{ s.value }}</div><sc-if value="{{ s.sub }}" hint-placeholder-val="{{ false }}"><div class="live-kpi__sub">{{ s.sub }}</div></sc-if></div>
           </sc-for>
         </div>
+        <sc-if value="{{ liveDashExtras.length }}" hint-placeholder-val="{{ false }}">
+        <div class="eid-dash-extras" style="padding:0;grid-area:kpis;margin-top:6px">
+          <sc-for list="{{ liveDashExtras }}" as="x" hint-placeholder-count="1">
+            <div class="eid-dash-extra" style="grid-column:span {{ x.w || 4 }}"><div class="eid-dash-extra__type">{{ x.type }}</div><div class="eid-dash-extra__title">{{ x.title }}</div><div class="eid-dash-extra__body">{{ x.body }}</div></div>
+          </sc-for>
+        </div>
+        </sc-if>
 
         <aside class="live-submit eid-scroll" style="display:flex;flex-direction:column;gap:12px">
         <sc-if value="{{ sub.isNigeria }}" hint-placeholder-val="{{ true }}">
@@ -1356,13 +1459,13 @@ a:hover{color:var(--primary)}
                     <div style="padding:4px 15px 10px;font-size:12px;color:var(--dim)"><span style="color:var(--mute)">Running mate · </span>{{ ngCandidateDetail.runningMate }}</div>
                     </sc-if>
                     <sc-if value="{{ ngCandidateDetail.summary }}" hint-placeholder-val="{{ false }}">
-                    <div style="padding:0 15px 12px;font-size:13px;line-height:1.55;color:var(--text)">{{ ngCandidateDetail.summary }}</div>
+                    <div style="padding:0 15px 12px;font-family:inherit;font-size:13px;line-height:1.55;color:var(--text)">{{ ngCandidateDetail.summary }}</div>
                     </sc-if>
                     <sc-if value="{{ ngCandidateDetail.hasBio }}" hint-placeholder-val="{{ false }}">
                     <div style="padding:0 15px 4px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)">Biography</div>
                     <div style="padding:0 15px 12px;display:flex;flex-direction:column;gap:8px">
                       <sc-for list="{{ ngCandidateDetail.biography }}" as="para" hint-placeholder-count="2">
-                        <p style="margin:0;font-size:12.5px;line-height:1.55;color:var(--dim)">{{ para.text }}</p>
+                        <p style="margin:0;font-family:inherit;font-size:13px;line-height:1.55;color:var(--text)">{{ para.text }}</p>
                       </sc-for>
                     </div>
                     </sc-if>
@@ -1422,13 +1525,13 @@ a:hover{color:var(--primary)}
 
     <!-- ── PARTIES ── -->
     <sc-if value="{{ isParties }}" hint-placeholder-val="{{ false }}">
-    <div class="eid-scroll" style="flex:1;min-height:0;overflow-y:auto;padding:16px 18px">
-      <div style="max-width:1040px;margin:0 auto">
-        <div style="margin-bottom:16px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><span style="width:8px;height:8px;border-radius:50%;background:var(--primary)"></span><span style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--primary)">{{ scopeLabel }} · Parties</span></div><h1 style="margin:0;font-size:22px;font-weight:600;letter-spacing:-.02em">Political parties</h1></div>
+    <div class="eid-page-shell">
+      <div class="eid-page-root">
+        <div class="eid-page-head"><div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><span style="width:8px;height:8px;border-radius:50%;background:var(--primary)"></span><span style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--primary)">{{ scopeLabel }} · Parties</span></div><h1 style="margin:0;font-size:22px;font-weight:600;letter-spacing:-.02em">Political parties</h1></div>
         <sc-if value="{{ ngParties }}" hint-placeholder-val="{{ false }}">
-          <div style="font-size:11.5px;color:var(--mute);margin-bottom:12px">{{ ngParties.count }} parties registered with INEC · select a party to see its flag bearers</div>
-          <div class="parties-split" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,360px);gap:14px;align-items:start">
-            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px">
+          <div style="font-size:11.5px;color:var(--mute);flex:none">{{ ngParties.count }} parties registered with INEC · select a party to see its flag bearers</div>
+          <div class="parties-split" style="flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,360px);gap:14px;align-items:stretch;overflow:hidden">
+            <div class="eid-scroll" style="min-height:0;overflow:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;align-content:start">
               <sc-for list="{{ ngParties.list }}" as="p" hint-placeholder-count="9">
                 <button onClick="{{ p.onClick }}" style="{{ p.cardStyle }}" style-hover="border-color:var(--primary)">
                   <div style="height:4px;background:{{ p.color }}"></div>
@@ -1439,7 +1542,7 @@ a:hover{color:var(--primary)}
                 </button>
               </sc-for>
             </div>
-            <aside style="position:sticky;top:0">
+            <aside class="eid-scroll" style="min-height:0;overflow:auto">
               <sc-if value="{{ ngPartyDetail }}" hint-placeholder-val="{{ false }}">
               <section style="background:var(--surface);border:1px solid var(--border);border-radius:13px;overflow:hidden">
                 <div style="height:5px;background:{{ ngPartyDetail.color }}"></div>
@@ -1467,7 +1570,7 @@ a:hover{color:var(--primary)}
           </div>
         </sc-if>
         <sc-if value="{{ partiesGeneric }}" hint-placeholder-val="{{ false }}">
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px">
+        <div class="eid-page-body eid-scroll" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;align-content:start">
           <sc-for list="{{ partiesGeneric }}" as="p" hint-placeholder-count="4">
             <div style="background:var(--surface);border:1px solid var(--border);border-radius:13px;overflow:hidden">
               <div style="height:5px;background:{{ p.color }}"></div>
@@ -1489,15 +1592,16 @@ a:hover{color:var(--primary)}
 
     <!-- ── ANALYSIS ── -->
     <sc-if value="{{ isAnalysis }}" hint-placeholder-val="{{ false }}">
-    <div class="eid-scroll" style="flex:1;min-height:0;overflow-y:auto;padding:16px 18px">
-      <div class="eid-analysis-root" ref="{{ bindAnalysisRoot }}" style="max-width:1180px;margin:0 auto">
-        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap">
-          <div>
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><span style="width:8px;height:8px;border-radius:50%;background:var(--primary)"></span><span style="font-family:'IBM Plex Sans';font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--primary)">{{ scopeLabel }} · Analysis</span></div>
-            <h1 style="margin:0;font-size:22px;font-weight:600;letter-spacing:-.02em">What drove the result?</h1>
-            <p style="margin:6px 0 0;font-size:12.5px;color:var(--dim);max-width:56ch;line-height:1.45">Explain archived presidential, governorship, Senate and House outcomes — geography, swing, turnout and competitiveness — not a Live Results replay.</p>
-          </div>
-          <sc-if value="{{ analysisUI.loading }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mute)"><span class="msi" style="font-size:16px;display:inline-block;animation:eidspin 1s linear infinite">progress_activity</span>Loading archives…</div></sc-if>
+    <div class="eid-analysis-shell">
+      <div class="eid-analysis-root" ref="{{ bindAnalysisRoot }}">
+        <div class="eid-analysis-toolbar">
+          <nav class="eid-analysis-subtabs" aria-label="Analysis sections">
+            <sc-for list="{{ analysisUI.subTabs }}" as="t" hint-placeholder-count="5">
+              <button type="button" class="{{ t.tabClass }}" onClick="{{ t.onClick }}" title="{{ t.label }}"><span class="msi">{{ t.icon }}</span>{{ t.label }}</button>
+            </sc-for>
+          </nav>
+          <sc-if value="{{ analysisUI.loading }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mute);margin-bottom:4px;flex:none"><span class="msi" style="font-size:16px;display:inline-block;animation:eidspin 1s linear infinite">progress_activity</span>Loading…</div></sc-if>
+          <button type="button" class="{{ analysisUI.advancedClass }}" onClick="{{ analysisUI.onAdvanced }}" title="Show analyst data-quality tools"><span class="msi" style="font-size:16px">science</span>{{ analysisUI.advancedLabel }}</button>
         </div>
 
         <div class="eid-analysis-filters">
@@ -1511,173 +1615,225 @@ a:hover{color:var(--primary)}
               <sc-for list="{{ analysisUI.officeOpts }}" as="o" hint-placeholder-count="4"><option value="{{ o.id }}">{{ o.label }}</option></sc-for>
             </select>
           </label>
-          <label>Party
-            <select value="{{ analysisUI.party }}" onChange="{{ analysisUI.onParty }}">
-              <sc-for list="{{ analysisUI.partyOpts }}" as="p" hint-placeholder-count="5"><option value="{{ p.value }}">{{ p.label }}</option></sc-for>
-            </select>
-          </label>
           <label>Region
             <select value="{{ analysisUI.region }}" onChange="{{ analysisUI.onRegion }}">
               <sc-for list="{{ analysisUI.regionOpts }}" as="r" hint-placeholder-count="7"><option value="{{ r.value }}">{{ r.label }}</option></sc-for>
             </select>
           </label>
-          <label>Compare with
+          <label>Party
+            <select value="{{ analysisUI.party }}" onChange="{{ analysisUI.onParty }}">
+              <sc-for list="{{ analysisUI.partyOpts }}" as="p" hint-placeholder-count="5"><option value="{{ p.value }}">{{ p.label }}</option></sc-for>
+            </select>
+          </label>
+          <label>Compare election
             <select value="{{ analysisUI.compare }}" onChange="{{ analysisUI.onCompare }}">
               <sc-for list="{{ analysisUI.compareOpts }}" as="y" hint-placeholder-count="4"><option value="{{ y.value }}">{{ y.label }}</option></sc-for>
             </select>
           </label>
         </div>
 
+        <div class="eid-analysis-kpis">
+          <sc-for list="{{ analysisMetrics }}" as="m" hint-placeholder-count="6">
+            <div class="eid-analysis-kpi"><span class="msi" style="color:{{ m.color }}">{{ m.icon }}</span><div class="eid-analysis-kpi__meta"><div class="eid-analysis-kpi__label">{{ m.label }}</div><div class="eid-analysis-kpi__row"><span class="eid-analysis-kpi__value">{{ m.value }}</span><span class="eid-analysis-kpi__unit">{{ m.unit }}</span></div><sc-if value="{{ m.caption }}" hint-placeholder-val="{{ false }}"><div class="eid-analysis-kpi__cap">{{ m.caption }}</div></sc-if></div></div>
+          </sc-for>
+        </div>
+
+        <div class="eid-analysis-panels">
+        <sc-if value="{{ analysisUI.isTabOverview }}" hint-placeholder-val="{{ false }}">
+        <div class="eid-analysis-panel eid-analysis-panel--fill">
+        <div class="eid-analysis-section eid-analysis-section--fill">
+          <div class="eid-analysis-section__hd"><span class="msi" style="font-size:17px;color:var(--primary)">insights</span><h2>What happened?</h2><span class="meta">{{ analysisUI.compareLabel }}</span></div>
+          <div class="eid-analysis-section__bd" style="padding:10px">
+            <div class="eid-analysis-ov">
+              <div class="eid-analysis-ov__left eid-scroll">
+                <p class="eid-analysis-narrative">{{ analysisUI.narrative }}</p>
+                <div class="eid-analysis-ov__block">
+                  <div class="eid-analysis-ov__block-hd"><span class="msi" style="font-size:15px;color:var(--primary)">bolt</span>Drivers &amp; key findings</div>
+                  <div class="eid-analysis-ov__block-bd">
+                    <ul class="eid-analysis-drivers">
+                      <sc-for list="{{ analysisUI.drivers }}" as="d" hint-placeholder-count="4">
+                        <li><span class="msi" style="color:var(--primary)">{{ d.icon }}</span><div><div class="drv-title">{{ d.title }}</div><div class="drv-text">{{ d.text }}</div></div><div class="drv-val">{{ d.valueLabel }}</div></li>
+                      </sc-for>
+                    </ul>
+                  </div>
+                </div>
+                <div class="eid-analysis-ov__block">
+                  <div class="eid-analysis-ov__block-hd"><span class="msi" style="font-size:15px;color:var(--primary)">leaderboard</span>Top gains / losses<span class="meta">{{ analysisUI.focusParty }}</span></div>
+                  <div class="eid-analysis-ov__block-bd--flush">
+                    <table class="eid-analysis-table"><thead><tr><th>Strongest</th><th>Share</th><th>Weakest</th><th>Share</th></tr></thead><tbody>
+                      <sc-for list="{{ analysisUI.rankRows }}" as="row" hint-placeholder-count="5"><tr><td>{{ row.strongState }}</td><td>{{ row.strongShare }}</td><td>{{ row.weakState }}</td><td>{{ row.weakShare }}</td></tr></sc-for>
+                    </tbody></table>
+                  </div>
+                </div>
+                <div class="eid-analysis-mapstub" style="padding:10px 12px">
+                  <span class="msi">map</span>
+                  <div>
+                    <strong>Result map on Map / Live Results</strong>
+                    <p>{{ analysisUI.mapHint }} <button type="button" class="linkish" onClick="{{ analysisUI.openMap }}">Go to Map →</button></p>
+                  </div>
+                </div>
+                <sc-if value="{{ analysisUI.incumbentNote }}" hint-placeholder-val="{{ false }}"><div class="eid-analysis-stub" style="padding:10px 12px;font-size:12px">{{ analysisUI.incumbentNote }}</div></sc-if>
+              </div>
+              <div class="eid-analysis-ov__charts">
+                <div class="eid-analysis-card eid-analysis-card--fill"><div class="eid-analysis-card__hd"><h2>Vote share</h2><span class="meta">current vs previous</span></div><div class="eid-analysis-card__body"><canvas id="anaChartPerfShare"></canvas></div></div>
+                <div class="eid-analysis-card eid-analysis-card--fill"><div class="eid-analysis-card__hd"><h2>Seat distribution</h2><span class="meta">seat share vs vote share</span></div><div class="eid-analysis-card__body"><canvas id="anaChartSeatVote"></canvas></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ analysisUI.isTabGeography }}" hint-placeholder-val="{{ false }}">
+        <div class="eid-analysis-panel eid-analysis-panel--fill">
+        <div class="eid-analysis-section eid-analysis-section--fill">
+          <div class="eid-analysis-section__hd"><span class="msi" style="font-size:18px;color:var(--primary)">map</span><h2>Where did it happen?</h2><span class="meta">{{ analysisUI.geoMeta }}</span><button type="button" class="linkish" onClick="{{ analysisUI.openMap }}" style="margin-left:8px;font-size:11.5px">Map →</button></div>
+          <div class="eid-analysis-section__bd" style="padding:10px 12px">
+            <div class="eid-analysis-geo">
+              <div class="eid-analysis-geo__stats eid-analysis-kpis">
+                <sc-for list="{{ analysisUI.compStats }}" as="s" hint-placeholder-count="5">
+                  <div class="eid-analysis-kpi"><div class="eid-analysis-kpi__meta"><div class="eid-analysis-kpi__label">{{ s.label }}</div><div class="eid-analysis-kpi__row"><span class="eid-analysis-kpi__value">{{ s.value }}</span></div></div></div>
+                </sc-for>
+              </div>
+              <div class="eid-analysis-geo__charts">
+                <div class="eid-analysis-card eid-analysis-card--fill"><div class="eid-analysis-card__hd"><h2>Regional performance</h2><span class="meta">wins / share</span></div><div class="eid-analysis-card__body"><canvas id="anaChartRegions"></canvas></div></div>
+                <div class="eid-analysis-card eid-analysis-card--fill"><div class="eid-analysis-card__hd"><h2>Unit swing</h2><span class="meta">{{ analysisUI.focusParty }}</span></div><div class="eid-analysis-card__body"><canvas id="anaChartSwing"></canvas></div></div>
+                <div class="eid-analysis-card eid-analysis-card--fill"><div class="eid-analysis-card__hd"><h2>Margin distribution</h2><span class="meta">{{ analysisUI.compMeta }}</span></div><div class="eid-analysis-card__body"><canvas id="anaChartMargins"></canvas></div></div>
+              </div>
+              <div class="eid-analysis-geo__bottom">
+                <div class="eid-analysis-card eid-analysis-card--fill"><div class="eid-analysis-card__hd"><h2>Battlegrounds</h2><span class="meta">closest</span></div><div class="eid-analysis-card__body eid-scroll">
+                  <table class="eid-analysis-table"><thead><tr><th>Contest</th><th>Winner</th><th>Margin</th></tr></thead><tbody>
+                    <sc-for list="{{ battlegrounds }}" as="b" hint-placeholder-count="5"><tr><td>{{ b.name }}</td><td style="color:{{ b.color }}">{{ b.margin }}</td><td>{{ b.swing }}</td></tr></sc-for>
+                  </tbody></table>
+                </div></div>
+                <div class="eid-analysis-card eid-analysis-card--fill"><div class="eid-analysis-card__hd"><h2>Constituency / unit results</h2><span class="meta">{{ analysisUI.geoFlipMeta }}</span></div><div class="eid-analysis-card__body eid-scroll">
+                  <table class="eid-analysis-table"><thead><tr><th>Unit</th><th>Region</th><th>Winner</th><th>Margin</th><th>Prev</th><th>Swing</th><th>Flip</th></tr></thead><tbody>
+                    <sc-for list="{{ analysisUI.geoRows }}" as="g" hint-placeholder-count="8"><tr><td>{{ g.unit }}</td><td>{{ g.region }}</td><td style="color:{{ g.color }};font-weight:600">{{ g.winner }}</td><td>{{ g.margin }}</td><td>{{ g.prev }}</td><td>{{ g.swing }}</td><td>{{ g.flip }}</td></tr></sc-for>
+                  </tbody></table>
+                </div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ analysisUI.isTabTurnout }}" hint-placeholder-val="{{ false }}">
+        <div class="eid-analysis-panel eid-scroll">
         <div class="eid-analysis-section">
-          <div class="eid-analysis-section__hd"><span class="msi" style="font-size:18px;color:var(--primary)">insights</span><h2>Analysis summary</h2><span class="meta">{{ analysisUI.compareLabel }}</span></div>
-          <div class="eid-analysis-section__bd" style="display:flex;flex-direction:column;gap:14px">
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px">
-              <sc-for list="{{ analysisMetrics }}" as="m" hint-placeholder-count="6">
-                <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 14px"><div style="display:flex;align-items:center;gap:7px;margin-bottom:8px"><span class="msi" style="font-size:17px;color:{{ m.color }}">{{ m.icon }}</span><span style="font-size:10px;letter-spacing:.03em;text-transform:uppercase;color:var(--mute)">{{ m.label }}</span></div><div style="display:flex;align-items:baseline;gap:4px;flex-wrap:wrap"><span style="font-family:'IBM Plex Sans';font-weight:600;font-size:22px;color:var(--text)">{{ m.value }}</span><span style="font-size:11px;color:var(--dim)">{{ m.unit }}</span></div><sc-if value="{{ m.caption }}" hint-placeholder-val="{{ false }}"><div style="margin-top:4px;font-size:11px;color:var(--mute)">{{ m.caption }}</div></sc-if></div>
+          <div class="eid-analysis-section__hd"><span class="msi" style="font-size:18px;color:var(--primary)">how_to_vote</span><h2>How did participation affect the result?</h2><span class="meta">{{ analysisUI.turnoutMeta }}</span></div>
+          <div class="eid-analysis-section__bd" style="display:flex;flex-direction:column;gap:10px">
+            <div class="eid-analysis-kpis">
+              <sc-for list="{{ analysisUI.turnoutKpis }}" as="k" hint-placeholder-count="4">
+                <div class="eid-analysis-kpi"><div class="eid-analysis-kpi__meta"><div class="eid-analysis-kpi__label">{{ k.label }}</div><div class="eid-analysis-kpi__row"><span class="eid-analysis-kpi__value">{{ k.value }}</span></div><div class="eid-analysis-kpi__cap">{{ k.note }}</div></div></div>
               </sc-for>
             </div>
-            <p class="eid-analysis-narrative">{{ analysisUI.narrative }}</p>
-          </div>
-        </div>
-
-        <div class="eid-analysis-section">
-          <div class="eid-analysis-section__hd"><span class="msi" style="font-size:18px;color:var(--primary)">bolt</span><h2>What drove the result?</h2><span class="meta">geography · turnout · swing</span></div>
-          <div class="eid-analysis-section__bd">
-            <ul class="eid-analysis-drivers">
-              <sc-for list="{{ analysisUI.drivers }}" as="d" hint-placeholder-count="4">
-                <li><span class="msi" style="font-size:20px;color:var(--primary)">{{ d.icon }}</span><div><div class="drv-title">{{ d.title }}</div><div class="drv-text">{{ d.text }}</div></div><div class="drv-val">{{ d.valueLabel }}</div></li>
-              </sc-for>
-            </ul>
-          </div>
-        </div>
-
-        <div class="eid-analysis-section">
-          <div class="eid-analysis-section__hd"><span class="msi" style="font-size:18px;color:var(--primary)">monitoring</span><h2>Performance analysis</h2><span class="meta">focus: {{ analysisUI.focusParty }}</span></div>
-          <div class="eid-analysis-section__bd" style="display:flex;flex-direction:column;gap:12px">
             <div class="eid-analysis-grid">
-              <div class="eid-analysis-card"><div class="eid-analysis-card__hd"><h2>Vote / seat share</h2><span class="meta">current vs previous</span></div><div class="eid-analysis-card__body"><canvas id="anaChartPerfShare"></canvas></div></div>
-              <div class="eid-analysis-card"><div class="eid-analysis-card__hd"><h2>Change vs previous</h2><span class="meta">pts</span></div><div class="eid-analysis-card__body"><canvas id="anaChartPerfDelta"></canvas></div></div>
-              <div class="eid-analysis-card"><div class="eid-analysis-card__hd"><h2>Seat share vs vote share</h2><span class="meta">scatter</span></div><div class="eid-analysis-card__body"><canvas id="anaChartSeatVote"></canvas></div></div>
-              <div class="eid-analysis-card"><div class="eid-analysis-card__hd"><h2>Strongest / weakest</h2><span class="meta">{{ analysisUI.focusParty }}</span></div><div class="eid-analysis-card__body" style="overflow:auto;padding:0">
-                <table class="eid-analysis-table"><thead><tr><th>Strongest</th><th>Share</th><th>Weakest</th><th>Share</th></tr></thead><tbody>
-                  <sc-for list="{{ analysisUI.rankRows }}" as="row" hint-placeholder-count="5"><tr><td>{{ row.strongState }}</td><td>{{ row.strongShare }}</td><td>{{ row.weakState }}</td><td>{{ row.weakShare }}</td></tr></sc-for>
-                </tbody></table>
-              </div></div>
-            </div>
-            <sc-if value="{{ analysisUI.incumbentNote }}" hint-placeholder-val="{{ false }}"><div class="eid-analysis-stub">{{ analysisUI.incumbentNote }}</div></sc-if>
-          </div>
-        </div>
-
-        <div class="eid-analysis-section">
-          <div class="eid-analysis-section__hd"><span class="msi" style="font-size:18px;color:var(--primary)">map</span><h2>Geographic swing analysis</h2><span class="meta">{{ analysisUI.geoMeta }}</span></div>
-          <div class="eid-analysis-section__bd" style="display:flex;flex-direction:column;gap:12px">
-            <div class="eid-analysis-stub">{{ analysisUI.mapHint }}</div>
-            <div class="eid-analysis-grid">
-              <div class="eid-analysis-card"><div class="eid-analysis-card__hd"><h2>Regional contribution</h2><span class="meta">wins / share</span></div><div class="eid-analysis-card__body"><canvas id="anaChartRegions"></canvas></div></div>
-              <div class="eid-analysis-card"><div class="eid-analysis-card__hd"><h2>Unit swing</h2><span class="meta">{{ analysisUI.focusParty }}</span></div><div class="eid-analysis-card__body"><canvas id="anaChartSwing"></canvas></div></div>
-              <div class="eid-analysis-card eid-analysis-card--wide"><div class="eid-analysis-card__hd"><h2>Units — margin, swing &amp; flips</h2><span class="meta">select region filter above</span></div><div class="eid-analysis-card__body" style="overflow:auto;max-height:320px;padding:0">
-                <table class="eid-analysis-table"><thead><tr><th>Unit</th><th>Region</th><th>Winner</th><th>Margin</th><th>Prev</th><th>Swing</th><th>Flip</th></tr></thead><tbody>
-                  <sc-for list="{{ analysisUI.geoRows }}" as="g" hint-placeholder-count="8"><tr><td>{{ g.unit }}</td><td>{{ g.region }}</td><td style="color:{{ g.color }};font-weight:600">{{ g.winner }}</td><td>{{ g.margin }}</td><td>{{ g.prev }}</td><td>{{ g.swing }}</td><td>{{ g.flip }}</td></tr></sc-for>
-                </tbody></table>
-              </div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="eid-analysis-section">
-          <div class="eid-analysis-section__hd"><span class="msi" style="font-size:18px;color:var(--primary)">how_to_vote</span><h2>Turnout analysis</h2><span class="meta">{{ analysisUI.turnoutMeta }}</span></div>
-          <div class="eid-analysis-section__bd" style="display:flex;flex-direction:column;gap:12px">
-            <sc-if value="{{ analysisUI.turnoutStub }}" hint-placeholder-val="{{ false }}"><div class="eid-analysis-stub">{{ analysisUI.turnoutNote }}</div></sc-if>
-            <div class="eid-analysis-grid">
-              <div class="eid-analysis-card"><div class="eid-analysis-card__hd"><h2>National turnout trend</h2><span class="meta">presidential</span></div><div class="eid-analysis-card__body"><canvas id="anaChartTurnoutTrend"></canvas></div></div>
+              <div class="eid-analysis-card"><div class="eid-analysis-card__hd"><h2>Turnout by cycle</h2><span class="meta">national</span></div><div class="eid-analysis-card__body"><canvas id="anaChartTurnoutTrend"></canvas></div></div>
               <div class="eid-analysis-card"><div class="eid-analysis-card__hd"><h2>Turnout vs party swing</h2><span class="meta">state proxy</span></div><div class="eid-analysis-card__body"><canvas id="anaChartTurnoutSwing"></canvas></div></div>
+              <div class="eid-analysis-card"><div class="eid-analysis-card__hd"><h2>Turnout by region / unit</h2><span class="meta">high → low</span></div><div class="eid-analysis-card__body"><canvas id="anaChartTurnoutByUnit"></canvas></div></div>
             </div>
-            <sc-if value="{{ analysisUI.hasTurnoutRows }}" hint-placeholder-val="{{ false }}">
-            <div style="overflow:auto;max-height:240px;border:1px solid var(--border);border-radius:10px">
-              <table class="eid-analysis-table"><thead><tr><th>State</th><th>Turnout %</th><th>Focus share</th><th>Swing</th></tr></thead><tbody>
-                <sc-for list="{{ analysisUI.turnoutRows }}" as="t" hint-placeholder-count="6"><tr><td>{{ t.state }}</td><td>{{ t.turnout }}</td><td>{{ t.share }}</td><td>{{ t.swing }}</td></tr></sc-for>
+            <div style="overflow:auto;max-height:260px;border:1px solid var(--border);border-radius:10px">
+              <table class="eid-analysis-table"><thead><tr><th>State</th><th>Turnout %</th><th>Δ vs prev</th><th>Focus share</th><th>Swing</th></tr></thead><tbody>
+                <sc-for list="{{ analysisUI.turnoutRows }}" as="t" hint-placeholder-count="6"><tr><td>{{ t.state }}</td><td>{{ t.turnout }}</td><td>{{ t.change }}</td><td>{{ t.share }}</td><td>{{ t.swing }}</td></tr></sc-for>
               </tbody></table>
             </div>
-            </sc-if>
           </div>
         </div>
-
-        <div class="eid-analysis-section">
-          <div class="eid-analysis-section__hd"><span class="msi" style="font-size:18px;color:var(--primary)">speed</span><h2>Competitiveness analysis</h2><span class="meta">{{ analysisUI.compMeta }}</span></div>
-          <div class="eid-analysis-section__bd" style="display:flex;flex-direction:column;gap:12px">
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px">
-              <sc-for list="{{ analysisUI.compStats }}" as="s" hint-placeholder-count="5">
-                <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px"><div style="font-size:10px;letter-spacing:.03em;text-transform:uppercase;color:var(--mute);margin-bottom:6px">{{ s.label }}</div><div style="font-weight:600;font-size:20px;color:var(--text)">{{ s.value }}</div></div>
-              </sc-for>
-            </div>
-            <div class="eid-analysis-grid">
-              <div class="eid-analysis-card"><div class="eid-analysis-card__hd"><h2>Margin distribution</h2><span class="meta">bins</span></div><div class="eid-analysis-card__body"><canvas id="anaChartMargins"></canvas></div></div>
-              <div class="eid-analysis-card"><div class="eid-analysis-card__hd"><h2>Closest contests</h2><span class="meta">tightest first</span></div><div class="eid-analysis-card__body" style="overflow:auto;padding:0">
-                <table class="eid-analysis-table"><thead><tr><th>Contest</th><th>Winner</th><th>Margin</th></tr></thead><tbody>
-                  <sc-for list="{{ battlegrounds }}" as="b" hint-placeholder-count="5"><tr><td>{{ b.name }}</td><td style="color:{{ b.color }}">{{ b.margin }}</td><td>{{ b.swing }}</td></tr></sc-for>
-                </tbody></table>
-              </div></div>
-            </div>
-          </div>
         </div>
+        </sc-if>
 
-        <div class="eid-analysis-section">
-          <div class="eid-analysis-section__hd"><span class="msi" style="font-size:18px;color:var(--primary)">timeline</span><h2>Historical comparison</h2><span class="meta">{{ analysisUI.historyNote }}</span></div>
-          <div class="eid-analysis-section__bd" style="display:flex;flex-direction:column;gap:12px">
-            <div class="eid-analysis-grid">
-              <div class="eid-analysis-card eid-analysis-card--wide"><div class="eid-analysis-card__hd"><h2>Share over cycles</h2><span class="meta">vote or seats</span></div><div class="eid-analysis-card__body"><canvas id="anaChartHistory"></canvas></div></div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-              <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden">
-                <div style="padding:10px 12px;border-bottom:1px solid var(--border);font-size:12px;font-weight:600">{{ analysisUI.sideCurrentYear }}</div>
-                <sc-for list="{{ analysisUI.sideCurrent }}" as="p" hint-placeholder-count="4"><div style="display:flex;justify-content:space-between;padding:8px 12px;border-bottom:1px solid var(--border);font-size:12px"><span style="color:{{ p.color }};font-weight:600">{{ p.party }}</span><span style="color:var(--dim)">{{ p.label }}</span></div></sc-for>
+        <sc-if value="{{ analysisUI.isTabTrends }}" hint-placeholder-val="{{ false }}">
+        <div class="eid-analysis-panel eid-analysis-panel--fill">
+        <div class="eid-analysis-section eid-analysis-section--fill">
+          <div class="eid-analysis-section__hd"><span class="msi" style="font-size:17px;color:var(--primary)">timeline</span><h2>How does this compare historically?</h2><span class="meta">{{ analysisUI.historyNote }}</span></div>
+          <div class="eid-analysis-section__bd" style="padding:10px">
+            <div class="eid-analysis-trends">
+              <div class="eid-analysis-trends__main">
+                <div class="eid-analysis-card eid-analysis-card--fill"><div class="eid-analysis-card__hd"><h2>Vote-share trend</h2><span class="meta">major parties</span></div><div class="eid-analysis-card__body"><canvas id="anaChartHistory"></canvas></div></div>
+                <div class="eid-analysis-card eid-analysis-card--fill"><div class="eid-analysis-card__hd"><h2>Seat / win-share trend</h2><span class="meta">across cycles</span></div><div class="eid-analysis-card__body"><canvas id="anaChartSeatHistory"></canvas></div></div>
+                <div class="eid-analysis-card eid-analysis-card--fill"><div class="eid-analysis-card__hd"><h2>Turnout trend</h2><span class="meta">national</span></div><div class="eid-analysis-card__body"><canvas id="anaChartTrendTurnout"></canvas></div></div>
+                <div class="eid-analysis-card eid-analysis-card--fill eid-analysis-trends__compare">
+                  <div class="eid-analysis-card__hd"><h2>Compare cycles</h2><span class="meta">{{ analysisUI.compareLabel }}</span></div>
+                  <div class="eid-analysis-card__body">
+                    <div class="eid-analysis-trends__compare-col">
+                      <div class="eid-analysis-trends__compare-hd">{{ analysisUI.sideCurrentYear }}</div>
+                      <sc-for list="{{ analysisUI.sideCurrent }}" as="p" hint-placeholder-count="4"><div class="eid-analysis-trends__compare-row"><span style="color:{{ p.color }};font-weight:600">{{ p.party }}</span><span style="color:var(--dim)">{{ p.label }}</span></div></sc-for>
+                    </div>
+                    <div class="eid-analysis-trends__compare-col">
+                      <div class="eid-analysis-trends__compare-hd">{{ analysisUI.sidePrevYear }}</div>
+                      <sc-for list="{{ analysisUI.sidePrev }}" as="p" hint-placeholder-count="4"><div class="eid-analysis-trends__compare-row"><span style="color:{{ p.color }};font-weight:600">{{ p.party }}</span><span style="color:var(--dim)">{{ p.label }}</span></div></sc-for>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden">
-                <div style="padding:10px 12px;border-bottom:1px solid var(--border);font-size:12px;font-weight:600">{{ analysisUI.sidePrevYear }}</div>
-                <sc-for list="{{ analysisUI.sidePrev }}" as="p" hint-placeholder-count="4"><div style="display:flex;justify-content:space-between;padding:8px 12px;border-bottom:1px solid var(--border);font-size:12px"><span style="color:{{ p.color }};font-weight:600">{{ p.party }}</span><span style="color:var(--dim)">{{ p.label }}</span></div></sc-for>
+              <div class="eid-analysis-trends__outlook">
+                <div class="eid-analysis-predict">
+                  <div class="eid-analysis-predict__banner"><strong>Outlook</strong> — {{ analysisUI.predictLabel }}. Horizon: {{ analysisUI.horizonLabel }}. Scenario card — not part of explaining the selected result.</div>
+                  <div class="eid-analysis-predict__grid">
+                    <div class="eid-analysis-predict__controls">
+                      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:8px">
+                        <label style="flex:1;min-width:140px;font-size:10.5px;color:var(--mute)">Momentum weight <strong style="color:var(--text)">{{ analysisUI.momentumPct }}%</strong>
+                          <input type="range" min="0" max="100" step="5" value="{{ analysisUI.momentumPct }}" onInput="{{ analysisUI.onMomentum }}">
+                        </label>
+                        <label style="flex:1;min-width:140px;font-size:10.5px;color:var(--mute)">Incumbent retention weight <strong style="color:var(--text)">{{ analysisUI.retentionPct }}%</strong>
+                          <input type="range" min="0" max="100" step="5" value="{{ analysisUI.retentionPct }}" onInput="{{ analysisUI.onRetention }}">
+                        </label>
+                      </div>
+                      <div style="font-size:11px;color:var(--dim)">{{ analysisUI.retentionNote }}</div>
+                    </div>
+                    <div class="eid-analysis-predict__chart"><canvas id="anaChartOutlook"></canvas></div>
+                    <div class="eid-analysis-predict__caveats eid-scroll">
+                      <div style="font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute);margin-bottom:4px">Caveats</div>
+                      <ul class="eid-analysis-caveats">
+                        <sc-for list="{{ analysisUI.caveats }}" as="cv" hint-placeholder-count="3"><li>{{ cv.text }}</li></sc-for>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        </div>
+        </sc-if>
 
+        <sc-if value="{{ analysisUI.isTabDemographics }}" hint-placeholder-val="{{ false }}">
+        <div class="eid-analysis-panel eid-scroll">
         <div class="eid-analysis-section">
-          <div class="eid-analysis-section__hd"><span class="msi" style="font-size:18px;color:var(--primary)">groups</span><h2>Demographic and issue analysis</h2><span class="meta">data gate</span></div>
+          <div class="eid-analysis-section__hd"><span class="msi" style="font-size:18px;color:var(--primary)">groups</span><h2>Demographics</h2><span class="meta">survey-linked</span></div>
           <div class="eid-analysis-section__bd">
             <div class="eid-analysis-stub"><strong>{{ analysisUI.demoTitle }}</strong><br>{{ analysisUI.demoMessage }}<br><br>{{ analysisUI.demoDistinction }}</div>
           </div>
         </div>
+        </div>
+        </sc-if>
 
+        <sc-if value="{{ analysisUI.isTabQuality }}" hint-placeholder-val="{{ false }}">
+        <div class="eid-analysis-panel eid-scroll">
         <div class="eid-analysis-section">
-          <div class="eid-analysis-section__hd"><span class="msi" style="font-size:18px;color:var(--primary)">flag</span><h2>Unusual patterns</h2><span class="meta">data quality · not fraud detection</span></div>
+          <div class="eid-analysis-section__hd"><span class="msi" style="font-size:18px;color:var(--primary)">fact_check</span><h2>Data quality</h2><span class="meta">investigation · not fraud detection</span></div>
+          <div class="eid-analysis-section__bd" style="display:flex;flex-direction:column;gap:12px">
+            <p class="eid-analysis-narrative">Flags below highlight missing coverage, turnout/swing outliers, and reporting inconsistencies for analyst review. They are heuristics for data investigation — not evidence of misconduct.</p>
+            <div class="eid-analysis-kpis">
+              <sc-for list="{{ analysisUI.qualityStats }}" as="q" hint-placeholder-count="4">
+                <div class="eid-analysis-kpi"><div class="eid-analysis-kpi__meta"><div class="eid-analysis-kpi__label">{{ q.label }}</div><div class="eid-analysis-kpi__row"><span class="eid-analysis-kpi__value">{{ q.value }}</span></div><div class="eid-analysis-kpi__cap">{{ q.note }}</div></div></div>
+              </sc-for>
+            </div>
+            <div class="eid-analysis-stub"><strong>Source coverage</strong><br>{{ analysisUI.sourceCoverage }}</div>
+            <div class="eid-analysis-stub"><strong>Provisional vs certified</strong><br>{{ analysisUI.certNote }}</div>
+          </div>
+        </div>
+        <div class="eid-analysis-section">
+          <div class="eid-analysis-section__hd"><span class="msi" style="font-size:18px;color:var(--primary)">flag</span><h2>Review flags</h2><span class="meta">{{ analysisUI.anomalyCount }} items</span></div>
           <div class="eid-analysis-section__bd" style="padding:0">
             <sc-for list="{{ analysisUI.anomalies }}" as="a" hint-placeholder-count="4">
               <div class="eid-analysis-flag"><div><div class="kind">{{ a.kind }}</div><div style="font-weight:600;color:var(--text);margin-top:4px">{{ a.unit }}</div></div><div><div style="color:var(--text);line-height:1.45">{{ a.why }}</div><div style="margin-top:4px;font-size:11.5px;color:var(--mute)">{{ a.detail }}</div></div></div>
             </sc-for>
           </div>
         </div>
-
-        <div class="eid-analysis-predict">
-          <div class="eid-analysis-predict__banner"><strong>Outlook scenario</strong> — {{ analysisUI.predictLabel }}. Horizon: {{ analysisUI.horizonLabel }}. Optional sensitivity tool — not part of explaining the selected result.</div>
-          <div class="eid-analysis-predict__grid">
-            <div>
-              <div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:12px">
-                <label style="flex:1;min-width:160px;font-size:11px;color:var(--mute)">Momentum weight <strong style="color:var(--text)">{{ analysisUI.momentumPct }}%</strong>
-                  <input type="range" min="0" max="100" step="5" value="{{ analysisUI.momentumPct }}" onInput="{{ analysisUI.onMomentum }}">
-                </label>
-                <label style="flex:1;min-width:160px;font-size:11px;color:var(--mute)">Incumbent retention weight <strong style="color:var(--text)">{{ analysisUI.retentionPct }}%</strong>
-                  <input type="range" min="0" max="100" step="5" value="{{ analysisUI.retentionPct }}" onInput="{{ analysisUI.onRetention }}">
-                </label>
-              </div>
-              <div style="font-size:11.5px;color:var(--dim);margin-bottom:8px">{{ analysisUI.retentionNote }}</div>
-              <div style="height:240px;position:relative"><canvas id="anaChartOutlook"></canvas></div>
-            </div>
-            <div>
-              <div style="font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute);margin-bottom:6px">Caveats</div>
-              <ul class="eid-analysis-caveats">
-                <sc-for list="{{ analysisUI.caveats }}" as="cv" hint-placeholder-count="3"><li>{{ cv.text }}</li></sc-for>
-              </ul>
-            </div>
-          </div>
+        </div>
+        </sc-if>
         </div>
       </div>
     </div>
@@ -1685,14 +1841,14 @@ a:hover{color:var(--primary)}
 
     <!-- ── DATA ── -->
     <sc-if value="{{ isData }}" hint-placeholder-val="{{ false }}">
-    <div class="eid-scroll" style="flex:1;min-height:0;overflow-y:auto;padding:16px 18px">
-      <div style="max-width:1040px;margin:0 auto">
-        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:16px;flex-wrap:wrap">
+    <div class="eid-page-shell">
+      <div class="eid-page-root">
+        <div class="eid-page-head" style="display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap">
           <div><div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><span style="width:8px;height:8px;border-radius:50%;background:var(--primary)"></span><span style="font-family:'IBM Plex Sans';font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--primary)">{{ scopeLabel }} · Data</span></div><h1 style="margin:0;font-size:22px;font-weight:600;letter-spacing:-.02em">Data explorer</h1></div>
           <div style="position:relative;display:flex;align-items:center;width:min(280px,60vw)"><span class="msi" style="position:absolute;left:11px;color:var(--mute);font-size:18px;pointer-events:none">search</span><input placeholder="Search datasets…" style="width:100%;height:38px;padding:0 12px 0 37px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:9px;font-family:inherit;font-size:12.5px;outline:none" style-focus="border-color:var(--primary)"></div>
         </div>
-        <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden">
-          <div style="display:grid;grid-template-columns:2fr 1fr 1.4fr 1fr auto;gap:12px;padding:11px 16px;border-bottom:1px solid var(--border);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute)"><span>Dataset</span><span>Type</span><span>Format</span><span>Updated</span><span></span></div>
+        <div class="eid-page-body eid-scroll" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:auto">
+          <div style="display:grid;grid-template-columns:2fr 1fr 1.4fr 1fr auto;gap:12px;padding:11px 16px;border-bottom:1px solid var(--border);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute);position:sticky;top:0;background:var(--surface);z-index:1"><span>Dataset</span><span>Type</span><span>Format</span><span>Updated</span><span></span></div>
           <sc-for list="{{ datasets }}" as="d" hint-placeholder-count="6">
             <div style="display:grid;grid-template-columns:2fr 1fr 1.4fr 1fr auto;gap:12px;align-items:center;padding:13px 16px;border-bottom:1px solid var(--border)">
               <div style="display:flex;align-items:center;gap:10px;min-width:0"><span class="msi" style="font-size:19px;color:var(--primary)">{{ d.icon }}</span><div style="min-width:0"><div style="font-size:13px;font-weight:500;color:var(--text)">{{ d.name }}</div><div style="font-size:11px;color:var(--mute)">{{ d.coverage }} · {{ d.source }}</div></div></div>
@@ -1709,12 +1865,14 @@ a:hover{color:var(--primary)}
 
     <!-- ── ABOUT ── -->
     <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
-    <div class="eid-scroll" style="flex:1;min-height:0;overflow-y:auto;padding:16px 18px">
-      <div style="max-width:820px;margin:0 auto">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><span style="width:8px;height:8px;border-radius:50%;background:var(--primary)"></span><span style="font-family:'IBM Plex Sans';font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--primary)">{{ scopeLabel }} · About</span></div>
-        <h1 style="margin:0 0 10px;font-size:24px;font-weight:600;letter-spacing:-.02em">A global election intelligence platform</h1>
-        <p style="margin:0 0 22px;font-size:14.5px;color:var(--dim);line-height:1.6">The dashboard models elections across different electoral systems — presidential, parliamentary, governorship and regional — using a configurable geographic hierarchy so each country keeps its own administrative and electoral structure rather than a single fixed template.</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px">
+    <div class="eid-page-shell">
+      <div class="eid-page-root">
+        <div class="eid-page-head">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><span style="width:8px;height:8px;border-radius:50%;background:var(--primary)"></span><span style="font-family:'IBM Plex Sans';font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--primary)">{{ scopeLabel }} · About</span></div>
+          <h1 style="margin:0 0 10px;font-size:24px;font-weight:600;letter-spacing:-.02em">A global election intelligence platform</h1>
+          <p style="margin:0;font-size:14.5px;color:var(--dim);line-height:1.6;max-width:72ch">The dashboard models elections across different electoral systems — presidential, parliamentary, governorship and regional — using a configurable geographic hierarchy so each country keeps its own administrative and electoral structure rather than a single fixed template.</p>
+        </div>
+        <div class="eid-page-body eid-scroll" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;align-content:start">
           <sc-for list="{{ aboutCards }}" as="a" hint-placeholder-count="4">
             <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px"><span class="msi" style="font-size:22px;color:var(--primary)">{{ a.icon }}</span><h2 style="margin:9px 0 6px;font-size:14px;font-weight:600">{{ a.title }}</h2><p style="margin:0;font-size:12.5px;color:var(--dim);line-height:1.5">{{ a.body }}</p></div>
           </sc-for>
@@ -1723,6 +1881,7 @@ a:hover{color:var(--primary)}
     </div>
     </sc-if>
 
+    </div><!-- /.eid-app-main -->
   </div>
   </sc-if>
 
@@ -1736,6 +1895,7 @@ a:hover{color:var(--primary)}
       <div style="margin-left:auto;display:flex;align-items:center;gap:9px">
         <button onClick="{{ toggleTheme }}" title="Toggle theme" style="width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--border);background:var(--surface2);color:var(--dim);border-radius:9px;cursor:pointer"><span class="msi" style="font-size:19px">{{ themeIcon }}</span></button>
         <button onClick="{{ exitAdmin }}" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:7px;border:1px solid var(--border);background:var(--surface2);color:var(--text);border-radius:9px;font-family:inherit;font-size:12.5px;cursor:pointer" style-hover="border-color:var(--primary)"><span class="msi" style="font-size:17px">arrow_back</span>Exit to dashboard</button>
+        <a href="/admin/" style="height:36px;padding:0 14px;display:inline-flex;align-items:center;gap:7px;border:1px solid var(--border);background:transparent;color:var(--text);border-radius:9px;font-family:inherit;font-size:12.5px;font-weight:600;text-decoration:none">Admin portal</a>
       </div>
     </header>
     <div class="eid-scroll" style="flex:1;min-height:0;overflow-y:auto;padding:22px 18px">
@@ -1767,13 +1927,13 @@ a:hover{color:var(--primary)}
                 <div style="font-size:12.5px;color:var(--text)">{{ adminIntegrations.ingestSource }}</div>
                 <div style="font-size:11.5px;color:var(--mute)">Last success: {{ adminIntegrations.lastSuccess }}</div>
                 <div style="font-size:11px;color:var(--dim);line-height:1.45">There is no official INEC stats API. This job polls public INEC pages and writes snapshots the dashboard reads.</div>
-                <a href="/admin/dashboard.html" style="height:38px;display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid var(--border);background:transparent;color:var(--text);border-radius:9px;font-family:inherit;font-size:12.5px;font-weight:600;text-decoration:none">Open admin console</a>
+                <a href="/admin/" style="height:38px;display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid var(--border);background:transparent;color:var(--text);border-radius:9px;font-family:inherit;font-size:12.5px;font-weight:600;text-decoration:none">Open admin portal</a>
                 <button onClick="{{ adminIntegrations.refreshStatus }}" style="height:38px;display:inline-flex;align-items:center;justify-content:center;gap:7px;border:none;background:var(--primary);color:var(--primary-ink);border-radius:9px;font-family:inherit;font-size:12.5px;font-weight:600;cursor:pointer">Refresh ingest status</button>
               </div>
             </div>
             <div style="padding:15px 16px">
               <div style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:10px">Upload datasets</div>
-              <div style="font-size:11px;color:var(--dim);line-height:1.45;margin-bottom:10px">Shapefiles and GeoJSON are saved to the SQLite database inside Docker. <a href="/admin/index.html" style="color:var(--primary)">Sign in to the admin console</a> to upload boundaries, or use the file picker below if you are already signed in. Import <strong>state</strong> boundaries before <strong>LGA</strong> files.</div>
+              <div style="font-size:11px;color:var(--dim);line-height:1.45;margin-bottom:10px">Shapefiles and GeoJSON are saved to the SQLite database inside Docker. <a href="/admin/" style="color:var(--primary)">Open the admin portal</a> to upload boundaries, or use the file picker below if you are already signed in. Import <strong>state</strong> boundaries before <strong>LGA</strong> files.</div>
               <label style="border:1px dashed var(--border2);border-radius:10px;padding:16px;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;text-align:center" style-hover="border-color:var(--primary)">
                 <span class="msi" style="font-size:24px;color:var(--primary)">upload_file</span>
                 <span style="font-size:12.5px;color:var(--text)">Drop CSV, GeoJSON, Shapefile or JSON</span>
@@ -1887,10 +2047,11 @@ class Component extends DCLogic {
     puDistOrigin:null, puDistQuery:'', puDistStatus:'idle', puDistError:null, puRoute:null,
     analysisBundle:null, analysisLoading:false,
     anaOffice:'pres', anaYear:'', anaCompare:'', anaParty:'all', anaRegion:'all', anaYearFrom:'', anaYearTo:'', anaState:'all', anaMetric:'wins',
-    anaMomentum:65, anaRetention:25,
+    anaMomentum:65, anaRetention:25, anaSubTab:'overview', anaAdvanced:false,
     apiUrl:'', apiKey:'', apiStatus:'idle', uploads:[],
     layersOpen:false, basemapOpen:false,
     layers:{ state:true, lga:false, ward:false, polling:false, health:false },
+    mapStudioViews:null,
     status:{ live:true, upcoming:true, recent:true, nodata:false } };
 
   THEMES = {
@@ -2831,6 +2992,54 @@ class Component extends DCLogic {
     if(!el || !window.EIDMaps) return;
     window.EIDMaps.attach(el, this.mapAttachCfg('live'));
   }
+  /** Map Studio view key for a Leaflet stage: overview | polling | live */
+  mapStudioViewKey(kind){
+    if (kind === 'live') return 'live';
+    if (kind === 'full') return 'polling';
+    return 'overview';
+  }
+  studioMapFor(kind){
+    const views = this.state.mapStudioViews || {};
+    return views[this.mapStudioViewKey(kind)] || null;
+  }
+  mapStudioStatePatch(viewKey){
+    const studio = (this.state.mapStudioViews || {})[viewKey];
+    if (!studio) return {};
+    const patch = {};
+    if (studio.basemap) patch.basemap = studio.basemap;
+    if (studio.layers) {
+      patch.layers = {
+        state: false, lga: false, ward: false, polling: false, health: false,
+        ...studio.layers,
+      };
+    }
+    return patch;
+  }
+  async loadMapStudioConfigs(){
+    try {
+      const res = await fetch('/api/maps/views', { cache: 'no-store' });
+      if (!res.ok) return;
+      const data = await res.json();
+      const views = (data && data.views) || {};
+      const patch = { mapStudioViews: views };
+      const overview = views.overview;
+      if (overview) {
+        if (overview.basemap) patch.basemap = overview.basemap;
+        if (overview.layers) {
+          patch.layers = {
+            state: false, lga: false, ward: false, polling: false, health: false,
+            ...overview.layers,
+          };
+        }
+      }
+      this.setState(patch, () => {
+        this.syncActiveMap();
+        this.syncLiveMap();
+      });
+    } catch (_) {
+      /* keep hardcoded defaults */
+    }
+  }
   buildCitizenMapTheme(subs){
     // Public Live map is choropleth-only (state fills), not submission points.
     const usable = (subs||[]).filter(r=> !/rejected/i.test(String(r.status||'')) && String(r.state||'').trim());
@@ -2880,10 +3089,9 @@ class Component extends DCLogic {
     } catch(e){}
   }
   adminAuthHeaders(){
-    try {
-      const token = sessionStorage.getItem('admin_token');
-      return token ? { Authorization: 'Bearer ' + token } : {};
-    } catch(e){ return {}; }
+    const headers = {};
+    if(this.state.adminCsrf) headers['x-csrf-token'] = this.state.adminCsrf;
+    return headers;
   }
   async onDatasetUpload(e){
     const files=[...(e.target.files||[])]; if(!files.length) return;
@@ -2897,9 +3105,13 @@ class Component extends DCLogic {
     const form = new FormData();
     files.forEach((f)=>form.append('files', f));
     try {
+      const csrf = await this.ensureAdminCsrf();
+      const headers = this.adminAuthHeaders();
+      if(csrf) headers['x-csrf-token'] = csrf;
       const res = await fetch('/api/admin/boundaries/upload', {
         method: 'POST',
-        headers: this.adminAuthHeaders(),
+        credentials: 'include',
+        headers,
         body: form,
       });
       const data = await res.json().catch(()=>({}));
@@ -3109,17 +3321,33 @@ class Component extends DCLogic {
   }
 
   flagSrc(code){ return `https://flagcdn.com/w160/${code}.png`; }
+  flagBgSrc(code){ return `https://flagcdn.com/${code}.svg`; }
   hexRgba(hex,a){ const h=hex.replace('#',''); const n=parseInt(h.length===3?h.split('').map(c=>c+c).join(''):h,16); return `rgba(${(n>>16)&255},${(n>>8)&255},${n&255},${a})`; }
 
   componentDidMount(){
     this.syncPartyPalette(); this.apply(); this.loadRealData(); this.loadPuDirectory(); this.fetchNgKpis();
+    if (window.EidDashboard) window.EidDashboard.load().then(()=>this.apply()).catch(()=>{});
     this.fetchGovCatalog();
     this.fetchCandidateCatalog();
     this.fetchGovCandidateCatalog();
     this.loadLiveSubmissions();
+    this.loadMapStudioConfigs();
     (this.OFFICE_YEARS.gov || ['2026']).forEach((y)=>this.fetchGovStates(y));
     this.flyToElectionView();
     if (this.state.section === 'Analysis') this.loadAnalysisBundle();
+    const hashTarget = String(location.hash || '').replace(/^#\/?/, '').toLowerCase();
+    if (hashTarget === 'admin') {
+      this.ensureAdminCsrf();
+      this.setState({ view: 'app', section: 'Admin' });
+    }
+    this._onWinResize = () => {
+      if (this.state.section !== 'Analysis') return;
+      if (window.EIDAnalysis && window.EIDAnalysis.resizeAll) window.EIDAnalysis.resizeAll();
+    };
+    window.addEventListener('resize', this._onWinResize);
+  }
+  componentWillUnmount(){
+    if (this._onWinResize) window.removeEventListener('resize', this._onWinResize);
   }
   componentDidUpdate(){
     this.apply();
@@ -3154,6 +3382,30 @@ class Component extends DCLogic {
     const bundle = this.state.analysisBundle;
     if (!root || !bundle || !window.EIDAnalysis) return;
     window.EIDAnalysis.render(root, bundle);
+    if (window.EIDAnalysis.resizeAll) {
+      requestAnimationFrame(() => {
+        window.EIDAnalysis.resizeAll();
+        setTimeout(() => window.EIDAnalysis.resizeAll && window.EIDAnalysis.resizeAll(), 60);
+      });
+    }
+  }
+
+  setAnaSubTab(id){
+    const tab = String(id || 'overview');
+    if (tab === (this.state.anaSubTab || 'overview')) {
+      this.queueAnalysisCharts();
+      return;
+    }
+    this.setState({ anaSubTab: tab }, () => this.queueAnalysisCharts());
+  }
+
+  toggleAnaAdvanced(){
+    const next = !this.state.anaAdvanced;
+    const patch = { anaAdvanced: next };
+    if (!next && (this.state.anaSubTab === 'quality' || this.state.anaSubTab === 'notes')) {
+      patch.anaSubTab = 'overview';
+    }
+    this.setState(patch, () => this.queueAnalysisCharts());
   }
 
   async loadAnalysisBundle(force){
@@ -3193,6 +3445,7 @@ class Component extends DCLogic {
     for(const k in v) this.root.style.setProperty(k, v[k]);
     document.body.style.background = v['--bg'];
     try { localStorage.setItem('eid-theme', this.state.theme); } catch(e){}
+    this.root.style.setProperty('--flag-wm-opacity', this.state.theme==='dark' ? '0.06' : '0.045');
     if(this.state.scope!=='global' && this.COUNTRIES[this.state.scope]){
       const c = this.COUNTRIES[this.state.scope];
       this.root.style.setProperty('--primary', c.flag);
@@ -3502,6 +3755,7 @@ class Component extends DCLogic {
   }
   mapAttachCfg(kind){
     const scope = this.state.scope;
+    const studio = this.studioMapFor(kind);
     const world = [
       {code:'ng',label:'NG',title:'Nigeria',live:true,onClick:()=>this.openCountry('ng')},
       {code:'us',label:'US',title:'United States',onClick:()=>this.openCountry('us')},
@@ -3519,11 +3773,21 @@ class Component extends DCLogic {
     const isFull = kind==='full';
     const isCountry = kind==='country';
     const hasAdmin = !!(this.state.mapAdminFocus && this.state.mapAdminFocus.state);
+    const liveDefaultLayers = { state: true, lga: false, ward: false, polling: false, health: false };
+    const layers = kind==='live'
+      ? ((studio && studio.layers) || liveDefaultLayers)
+      : this.state.layers;
+    const extent = studio && studio.extent ? studio.extent : null;
     return {
       scope: kind==='live' ? 'ng' : (scope==='global' ? 'global' : scope),
       live: kind==='live',
-      basemap: this.state.basemap || 'streets',
-      layers: kind==='live' ? { state: true, lga: false, ward: false, polling: false, health: false } : this.state.layers,
+      mapConfigId: studio && studio.id ? studio.id : null,
+      basemap: this.state.basemap || (studio && studio.basemap) || 'streets',
+      layers,
+      center: extent && Array.isArray(extent.center) ? extent.center : undefined,
+      zoom: extent && extent.zoom != null ? extent.zoom : undefined,
+      preferLocalOnly: studio ? studio.grid3Fallback === false : false,
+      choroplethTheme: studio && studio.choroplethTheme ? studio.choroplethTheme : null,
       resultTheme: kind==='live'
         ? ((this.state.liveMapTheme && this.state.liveMapTheme.ok) ? this.state.liveMapTheme : null)
         : (isFull ? null : ((this.state.elecMapTheme && this.state.elecMapTheme.ok) ? this.state.elecMapTheme : null)),
@@ -3713,7 +3977,9 @@ class Component extends DCLogic {
       onClick:(e)=>{
         e.preventDefault();
         if(label==='Countries') this.openWelcome();
-        else if(label==='Map') this.setState({ view:'app', scope:'ng', section:'Map' });
+        else if(label==='Map') this.setState({ view:'app', scope:'ng', section:'Map', ...this.mapStudioStatePatch('polling') });
+        else if(label==='Live Results') this.setState({ view:'app', section:'Live Results', ...this.mapStudioStatePatch('live') }, ()=>this.syncLiveMap());
+        else if(label==='Overview') this.setState({ view:'app', section:'Overview', ...this.mapStudioStatePatch('overview') });
         else if(label==='Analysis') this.setState({ view:'app', section:'Analysis' }, ()=> this.loadAnalysisBundle());
         else this.setState({ view:'app', section:label });
       },
@@ -4057,175 +4323,270 @@ class Component extends DCLogic {
       const total = sorted.reduce((a,c)=>a+Number(c.votes||0),0) || 1;
       return ((Number(sorted[0].votes)-Number(sorted[1].votes))/total*100).toFixed(1);
     })();
-    const analysisBundle = this.state.analysisBundle;
-    const resolvedFilters = analysisBundle?.filters || {};
-    const analysisMetrics = (analysisBundle && analysisBundle.summary && analysisBundle.summary.kpis && analysisBundle.summary.kpis.length)
-      ? analysisBundle.summary.kpis.map((m) => ({ ...m, caption: m.caption || '' }))
-      : (analysisBundle && analysisBundle.metrics && analysisBundle.metrics.length)
-        ? analysisBundle.metrics
-        : [
-      {icon:'inventory_2',label:'Avg PVC collection',value: avgPvc?avgPvc.toFixed(1):'—',unit:'%',color:'var(--good)',caption:''},
-      {icon:'where_to_vote',label:'Polling units',value: puSummary.totalPollingUnits? Number(puSummary.totalPollingUnits).toLocaleString():'—',unit:'',color:'var(--primary)',caption:''},
-      {icon:'density_medium',label:'PU per 100k people',value: puSummary.nationalPollingUnitsPer100k!=null? String(puSummary.nationalPollingUnitsPer100k):'—',unit:'',color:'var(--dim)',caption:''},
-      {icon:'emoji_events',label:'Ekiti 2026 margin',value: ekMargin||'—',unit: ekMargin?'pts':'',color:'var(--up)',caption:''},
-    ];
-    const battlegrounds = ((analysisBundle && analysisBundle.battlegrounds && analysisBundle.battlegrounds.length)
-      ? analysisBundle.battlegrounds
-      : pvcRows.slice(0,6).map(s=>({
-      name:s.state, swing: Number(s.pvcCollectionRate||0).toFixed(1)+'% PVC', margin: this.fmtInt(s.collectedPVCs||s.pvcCollected||0)+' collected', color:'var(--primary)',
-    }))).slice();
-    if(!battlegrounds.length){
-      battlegrounds.push({ name:'Needs election archives', swing:'—', margin:'Open Analysis after data loads', color:'var(--mute)' });
-    }
-
-    const anaOffice = this.state.anaOffice || resolvedFilters.office || 'pres';
-    const anaOfficeMeta = (analysisBundle?.offices || []).find((o) => o.id === anaOffice) || { id: anaOffice, label: anaOffice, years: [] };
-    const anaOfficeYears = (anaOfficeMeta.years || []).slice().sort((a, b) => Number(a) - Number(b));
-    const yearOpts = anaOfficeYears.length
-      ? anaOfficeYears.map((y) => ({ value: y, label: y }))
-      : [{ value: '', label: '—' }];
-    const anaYear = this.state.anaYear || resolvedFilters.year || (anaOfficeYears[anaOfficeYears.length - 1] || '');
-    const compareOpts = anaOfficeYears.filter((y) => y !== anaYear).map((y) => ({ value: y, label: y }));
-    if (!compareOpts.length && anaOfficeYears.length) compareOpts.push({ value: '', label: 'No prior cycle' });
-    const anaCompare = this.state.anaCompare || resolvedFilters.compare || (compareOpts[0]?.value || '');
-    const partySet = new Set(['APC', 'PDP', 'LP', 'NNPP', 'APGA', 'ADC']);
-    (analysisBundle?.performance?.voteShare || []).forEach((p) => partySet.add(p.party));
-    (analysisBundle?.charts?.partyWins?.[anaOffice]?.parties || []).forEach((p) => partySet.add(p.party));
-    const partyOpts = [{ value: 'all', label: 'Winner (auto)' }].concat(
-      [...partySet].map((p) => ({ value: p, label: p }))
-    );
-    const regionOpts = [{ value: 'all', label: 'All regions' }].concat(
-      (analysisBundle?.regions || []).map((r) => ({ value: r, label: r }))
-    );
-    const pred = analysisBundle?.prediction || {};
-    const perf = analysisBundle?.performance || {};
-    const geo = analysisBundle?.geographic || {};
-    const turnout = analysisBundle?.turnout || {};
-    const comp = analysisBundle?.competitiveness || {};
-    const hist = analysisBundle?.history || {};
-    const demo = analysisBundle?.demographics || {};
-    const focusParty = perf.focusParty || geo.focusParty || 'APC';
-    const strong = perf.strongest || [];
-    const weak = perf.weakest || [];
-    const rankRows = Array.from({ length: Math.max(strong.length, weak.length, 1) }, (_, i) => ({
-      strongState: strong[i]?.state || '—',
-      strongShare: strong[i] ? `${Number(strong[i].share).toFixed(1)}%` : '—',
-      weakState: weak[i]?.state || '—',
-      weakShare: weak[i] ? `${Number(weak[i].share).toFixed(1)}%` : '—',
-    })).slice(0, 8);
-    const geoRows = (geo.units || []).slice(0, 80).map((u) => ({
-      unit: u.state || u.district || '—',
-      region: u.region || '—',
-      winner: u.winnerParty || '—',
-      color: this.partyColor(u.winnerParty),
-      margin: u.marginPct != null ? `${Number(u.marginPct).toFixed(1)}%` : '—',
-      prev: u.previousWinner || '—',
-      swing: u.swings?.[focusParty] != null
-        ? `${u.swings[focusParty] > 0 ? '+' : ''}${Number(u.swings[focusParty]).toFixed(1)}`
-        : (u.swingWinnerPts != null ? `${u.swingWinnerPts > 0 ? '+' : ''}${Number(u.swingWinnerPts).toFixed(1)}` : '—'),
-      flip: u.flipped ? 'Yes' : '—',
-    }));
-    const turnoutRows = (turnout.byUnit || []).slice(0, 40).map((t) => ({
-      state: t.state,
-      turnout: t.turnoutPct != null ? String(t.turnoutPct) : '—',
-      share: t.focusShare != null ? `${Number(t.focusShare).toFixed(1)}%` : '—',
-      swing: t.swing != null ? `${t.swing > 0 ? '+' : ''}${Number(t.swing).toFixed(1)}` : '—',
-    }));
-    const sideLabel = (p) => {
-      if (p.voteShare) return `${Number(p.voteShare).toFixed(1)}% votes · ${p.wins || 0} wins`;
-      if (p.seatShare) return `${Number(p.seatShare).toFixed(1)}% seats · ${p.wins || p.seats || 0}`;
-      return `${p.wins || 0} wins`;
-    };
-    const reload = () => this.loadAnalysisBundle(true);
-    const analysisUI = {
-      loading: !!this.state.analysisLoading && !analysisBundle,
-      office: anaOffice,
-      year: anaYear,
-      compare: anaCompare,
-      party: this.state.anaParty || 'all',
-      region: this.state.anaRegion || 'all',
-      officeOpts: (analysisBundle?.offices || [
-        { id: 'pres', label: 'Presidential' },
-        { id: 'gov', label: 'Governorship' },
-        { id: 'sen', label: 'Senate' },
-        { id: 'reps', label: 'House of Reps' },
-      ]),
-      yearOpts,
-      compareOpts: compareOpts.length ? compareOpts : [{ value: '', label: '—' }],
-      partyOpts,
-      regionOpts,
-      compareLabel: anaCompare ? `${anaYear} vs ${anaCompare}` : (anaYear || 'Archives'),
-      narrative: analysisBundle?.summary?.narrative || 'Load archives to generate a result narrative.',
-      drivers: (analysisBundle?.drivers || []).map((d) => ({
-        icon: d.icon || 'info',
-        title: d.title || d.kind || 'Driver',
-        text: d.text || '',
-        valueLabel: d.value != null ? `${d.value}${d.unit ? ' ' + d.unit : ''}` : '—',
-      })),
-      focusParty,
-      rankRows,
-      incumbentNote: perf.incumbent?.note || '',
-      geoMeta: geo.mode === 'district' ? 'district seats' : 'state units',
-      mapHint: geo.mapHint || 'Geographic tables and charts below; Leaflet choropleths remain on Map / Live Results.',
-      geoRows: geoRows.length ? geoRows : [{ unit: '—', region: '—', winner: '—', color: 'var(--mute)', margin: '—', prev: '—', swing: '—', flip: '—' }],
-      turnoutMeta: turnout.current != null ? `National ${turnout.current}%` : 'Limited fields',
-      turnoutStub: true,
-      turnoutNote: turnout.note || 'Turnout fields incomplete in archives.',
-      hasTurnoutRows: turnoutRows.length > 0,
-      turnoutRows,
-      compMeta: comp.available ? `avg margin ${comp.averageMargin ?? '—'}%` : (comp.note || 'Limited margins'),
-      compStats: [
-        { label: '<1% margin', value: String(comp.counts?.under1 ?? '—') },
-        { label: '<5% margin', value: String(comp.counts?.under5 ?? '—') },
-        { label: '<10% margin', value: String(comp.counts?.under10 ?? '—') },
-        { label: 'Safe ≥20%', value: String(comp.counts?.safe20 ?? '—') },
-        { label: 'ENP', value: comp.enp != null ? String(comp.enp) : '—' },
-        { label: 'Wasted votes', value: comp.wastedVotes?.pct != null ? `${comp.wastedVotes.pct}%` : '—' },
-      ],
-      historyNote: hist.realignmentNote || '',
-      sideCurrentYear: hist.compareSideBySide?.current?.year || anaYear || 'Current',
-      sidePrevYear: hist.compareSideBySide?.previous?.year || anaCompare || 'Previous',
-      sideCurrent: (hist.compareSideBySide?.current?.parties || []).map((p) => ({
-        party: p.party, color: p.color || this.partyColor(p.party), label: sideLabel(p),
-      })),
-      sidePrev: (hist.compareSideBySide?.previous?.parties || []).map((p) => ({
-        party: p.party, color: p.color || this.partyColor(p.party), label: sideLabel(p),
-      })),
-      demoTitle: demo.title || 'Demographic & issue analysis',
-      demoMessage: demo.message || 'No survey/census-linked microdata in this repo.',
-      demoDistinction: demo.distinction || 'Official results ≠ opinion surveys.',
-      anomalies: (analysisBundle?.anomalies || []).map((a) => ({
-        kind: a.kind || 'flag',
-        unit: a.unit || a.region || '—',
-        why: a.why || '',
-        detail: a.detail || '',
-      })),
-      predictLabel: pred.label || 'Scenario estimate — not an official forecast',
-      horizonLabel: pred.horizon
-        ? ('Pres ' + pred.horizon.pres + ' · Sen/Reps ' + pred.horizon.sen + ' · Gov ' + pred.horizon.gov)
-        : 'Coming cycles',
-      momentumPct: String(this.state.anaMomentum ?? 65),
-      retentionPct: String(this.state.anaRetention ?? 25),
-      retentionNote: pred.incumbentRetention?.note || 'Retention rate loads with archives.',
-      caveats: (pred.caveats || ['Load analysis archives to see model caveats.']).map((text) => ({ text })),
-      onOffice: (e) => {
-        const office = e.target.value || 'pres';
-        this.setState({ anaOffice: office, anaYear: '', anaCompare: '' }, () => reload());
-      },
-      onYear: (e) => this.setState({ anaYear: e.target.value || '', anaCompare: '' }, () => reload()),
-      onCompare: (e) => this.setState({ anaCompare: e.target.value || '' }, () => reload()),
-      onParty: (e) => this.setState({ anaParty: e.target.value || 'all' }, () => reload()),
-      onRegion: (e) => this.setState({ anaRegion: e.target.value || 'all' }, () => reload()),
-      onMomentum: (e) => {
-        const v = Number(e.target.value);
-        this.setState({ anaMomentum: Number.isFinite(v) ? v : 65 }, () => this.scheduleAnalysisAssumptions());
-      },
-      onRetention: (e) => {
-        const v = Number(e.target.value);
-        this.setState({ anaRetention: Number.isFinite(v) ? v : 25 }, () => this.scheduleAnalysisAssumptions());
-      },
-    };
-
+    const analysisBundle = this.state.analysisBundle;
+    const resolvedFilters = analysisBundle?.filters || {};
+    const analysisMetrics = (analysisBundle && analysisBundle.summary && analysisBundle.summary.kpis && analysisBundle.summary.kpis.length)
+      ? analysisBundle.summary.kpis.map((m) => ({ ...m, caption: m.caption || '' }))
+      : (analysisBundle && analysisBundle.metrics && analysisBundle.metrics.length)
+        ? analysisBundle.metrics
+        : [
+      {icon:'inventory_2',label:'Avg PVC collection',value: avgPvc?avgPvc.toFixed(1):'—',unit:'%',color:'var(--good)',caption:''},
+      {icon:'where_to_vote',label:'Polling units',value: puSummary.totalPollingUnits? Number(puSummary.totalPollingUnits).toLocaleString():'—',unit:'',color:'var(--primary)',caption:''},
+      {icon:'density_medium',label:'PU per 100k people',value: puSummary.nationalPollingUnitsPer100k!=null? String(puSummary.nationalPollingUnitsPer100k):'—',unit:'',color:'var(--dim)',caption:''},
+      {icon:'emoji_events',label:'Ekiti 2026 margin',value: ekMargin||'—',unit: ekMargin?'pts':'',color:'var(--up)',caption:''},
+    ];
+    const battlegrounds = ((analysisBundle && analysisBundle.battlegrounds && analysisBundle.battlegrounds.length)
+      ? analysisBundle.battlegrounds
+      : pvcRows.slice(0,6).map(s=>({
+      name:s.state, swing: Number(s.pvcCollectionRate||0).toFixed(1)+'% PVC', margin: this.fmtInt(s.collectedPVCs||s.pvcCollected||0)+' collected', color:'var(--primary)',
+    }))).slice();
+    if(!battlegrounds.length){
+      battlegrounds.push({ name:'Needs election archives', swing:'—', margin:'Open Analysis after data loads', color:'var(--mute)' });
+    }
+
+    const anaOffice = this.state.anaOffice || resolvedFilters.office || 'pres';
+    const anaOfficeMeta = (analysisBundle?.offices || []).find((o) => o.id === anaOffice) || { id: anaOffice, label: anaOffice, years: [] };
+    const anaOfficeYears = (anaOfficeMeta.years || []).slice().sort((a, b) => Number(a) - Number(b));
+    const yearOpts = anaOfficeYears.length
+      ? anaOfficeYears.map((y) => ({ value: y, label: y }))
+      : [{ value: '', label: '—' }];
+    const anaYear = this.state.anaYear || resolvedFilters.year || (anaOfficeYears[anaOfficeYears.length - 1] || '');
+    const compareOpts = anaOfficeYears.filter((y) => y !== anaYear).map((y) => ({ value: y, label: y }));
+    if (!compareOpts.length && anaOfficeYears.length) compareOpts.push({ value: '', label: 'No prior cycle' });
+    const anaCompare = this.state.anaCompare || resolvedFilters.compare || (compareOpts[0]?.value || '');
+    const partySet = new Set(['APC', 'PDP', 'LP', 'NNPP', 'APGA', 'ADC']);
+    (analysisBundle?.performance?.voteShare || []).forEach((p) => partySet.add(p.party));
+    (analysisBundle?.charts?.partyWins?.[anaOffice]?.parties || []).forEach((p) => partySet.add(p.party));
+    const partyOpts = [{ value: 'all', label: 'Winner (auto)' }].concat(
+      [...partySet].map((p) => ({ value: p, label: p }))
+    );
+    const regionOpts = [{ value: 'all', label: 'All regions' }].concat(
+      (analysisBundle?.regions || []).map((r) => ({ value: r, label: r }))
+    );
+    const pred = analysisBundle?.prediction || {};
+    const perf = analysisBundle?.performance || {};
+    const geo = analysisBundle?.geographic || {};
+    const turnout = analysisBundle?.turnout || {};
+    const comp = analysisBundle?.competitiveness || {};
+    const hist = analysisBundle?.history || {};
+    const demo = analysisBundle?.demographics || {};
+    const focusParty = perf.focusParty || geo.focusParty || 'APC';
+    const strong = perf.strongest || [];
+    const weak = perf.weakest || [];
+    const rankRows = Array.from({ length: Math.max(strong.length, weak.length, 1) }, (_, i) => ({
+      strongState: strong[i]?.state || '—',
+      strongShare: strong[i] ? `${Number(strong[i].share).toFixed(1)}%` : '—',
+      weakState: weak[i]?.state || '—',
+      weakShare: weak[i] ? `${Number(weak[i].share).toFixed(1)}%` : '—',
+    })).slice(0, 8);
+    const geoRows = (geo.units || []).slice(0, 80).map((u) => ({
+      unit: u.state || u.district || '—',
+      region: u.region || '—',
+      winner: u.winnerParty || '—',
+      color: this.partyColor(u.winnerParty),
+      margin: u.marginPct != null ? `${Number(u.marginPct).toFixed(1)}%` : '—',
+      prev: u.previousWinner || '—',
+      swing: u.swings?.[focusParty] != null
+        ? `${u.swings[focusParty] > 0 ? '+' : ''}${Number(u.swings[focusParty]).toFixed(1)}`
+        : (u.swingWinnerPts != null ? `${u.swingWinnerPts > 0 ? '+' : ''}${Number(u.swingWinnerPts).toFixed(1)}` : '—'),
+      flip: u.flipped ? 'Yes' : '—',
+    }));
+    const turnoutRowsRaw = (turnout.byUnit || []).slice().sort((a, b) => (b.turnoutPct ?? -1) - (a.turnoutPct ?? -1));
+    const turnoutRows = turnoutRowsRaw.slice(0, 40).map((t) => ({
+      state: t.state,
+      turnout: t.turnoutPct != null ? String(t.turnoutPct) : '—',
+      change: t.change != null ? `${t.change > 0 ? '+' : ''}${Number(t.change).toFixed(1)}` : '—',
+      share: t.focusShare != null ? `${Number(t.focusShare).toFixed(1)}%` : '—',
+      swing: t.swing != null ? `${t.swing > 0 ? '+' : ''}${Number(t.swing).toFixed(1)}` : '—',
+    }));
+    if (!turnoutRows.length) {
+      turnoutRows.push({ state: '—', turnout: '—', change: '—', share: '—', swing: '—' });
+    }
+    const sideLabel = (p) => {
+      if (p.voteShare) return `${Number(p.voteShare).toFixed(1)}% votes · ${p.wins || 0} wins`;
+      if (p.seatShare) return `${Number(p.seatShare).toFixed(1)}% seats · ${p.wins || p.seats || 0}`;
+      return `${p.wins || 0} wins`;
+    };
+    const reload = () => this.loadAnalysisBundle(true);
+    const demoAvailable = !!(demo && demo.available);
+    const anaAdvanced = !!this.state.anaAdvanced;
+    const LEGACY_TAB_MAP = {
+      drivers: 'overview',
+      performance: 'overview',
+      competition: 'geography',
+      history: 'trends',
+      outlook: 'trends',
+      notes: anaAdvanced ? 'quality' : 'overview',
+    };
+    const ANA_SUB_TABS = [
+      { id: 'overview', label: 'Overview', icon: 'insights' },
+      { id: 'geography', label: 'Geography', icon: 'map' },
+      { id: 'turnout', label: 'Turnout', icon: 'how_to_vote' },
+      { id: 'trends', label: 'Trends', icon: 'timeline' },
+    ];
+    if (demoAvailable) ANA_SUB_TABS.push({ id: 'demographics', label: 'Demographics', icon: 'groups' });
+    if (anaAdvanced) ANA_SUB_TABS.push({ id: 'quality', label: 'Data Quality', icon: 'fact_check' });
+    const anaSubTabRaw = LEGACY_TAB_MAP[this.state.anaSubTab] || this.state.anaSubTab || 'overview';
+    const anaSubTab = ANA_SUB_TABS.some((t) => t.id === anaSubTabRaw) ? anaSubTabRaw : 'overview';
+    const gained = (geo.gained || []).length;
+    const lost = (geo.lost || []).length;
+    const anomalies = (analysisBundle?.anomalies || []).map((a) => ({
+      kind: a.kind || 'flag',
+      unit: a.unit || a.region || '—',
+      why: a.why || '',
+      detail: a.detail || '',
+    }));
+    if (!anomalies.length) {
+      anomalies.push({
+        kind: 'coverage',
+        unit: 'Archives',
+        why: 'No outlier flags for the current filter. Missing fields still appear as “—” in tables.',
+        detail: 'Heuristics only — not a fraud screen.',
+      });
+    }
+    const sources = analysisBundle?.sources || [];
+    const sourceCoverage = sources.length
+      ? sources.map((s) => {
+          if (s.files) return `${s.office}: ${s.files.join(', ')}`;
+          if (s.years) return `${s.office}: years ${s.years.join(', ')}${s.seatsLatest != null ? ` · ${s.seatsLatest} seats` : ''}`;
+          if (s.count != null) return `${s.office}: ${s.count} contests`;
+          return String(s.office || s);
+        }).join(' · ')
+      : 'Source inventory loads with analysis archives.';
+    const analysisUI = {
+      loading: !!this.state.analysisLoading && !analysisBundle,
+      subTab: anaSubTab,
+      subTabs: ANA_SUB_TABS.map((t) => ({
+        label: t.label,
+        icon: t.icon,
+        tabClass: anaSubTab === t.id ? 'eid-analysis-subtab is-active' : 'eid-analysis-subtab',
+        onClick: () => this.setAnaSubTab(t.id),
+      })),
+      isTabOverview: anaSubTab === 'overview',
+      isTabGeography: anaSubTab === 'geography',
+      isTabTurnout: anaSubTab === 'turnout',
+      isTabTrends: anaSubTab === 'trends',
+      isTabDemographics: anaSubTab === 'demographics' && demoAvailable,
+      isTabQuality: anaSubTab === 'quality' && anaAdvanced,
+      advancedClass: anaAdvanced ? 'eid-analysis-advanced is-on' : 'eid-analysis-advanced',
+      advancedLabel: anaAdvanced ? 'Advanced on' : 'Advanced',
+      onAdvanced: () => this.toggleAnaAdvanced(),
+      openMap: () => this.setState({ view: 'app', scope: 'ng', section: 'Map' }),
+      office: anaOffice,
+      year: anaYear,
+      compare: anaCompare,
+      party: this.state.anaParty || 'all',
+      region: this.state.anaRegion || 'all',
+      officeOpts: (analysisBundle?.offices || [
+        { id: 'pres', label: 'Presidential' },
+        { id: 'gov', label: 'Governorship' },
+        { id: 'sen', label: 'Senate' },
+        { id: 'reps', label: 'House of Reps' },
+      ]),
+      yearOpts,
+      compareOpts: compareOpts.length ? compareOpts : [{ value: '', label: '—' }],
+      partyOpts,
+      regionOpts,
+      compareLabel: anaCompare ? `${anaYear} vs ${anaCompare}` : (anaYear || 'Archives'),
+      narrative: analysisBundle?.summary?.narrative || 'Load archives to generate a result narrative.',
+      drivers: (analysisBundle?.drivers || []).map((d) => ({
+        icon: d.icon || 'info',
+        title: d.title || d.kind || 'Driver',
+        text: d.text || '',
+        valueLabel: d.value != null ? `${d.value}${d.unit ? ' ' + d.unit : ''}` : '—',
+      })),
+      focusParty,
+      rankRows,
+      incumbentNote: perf.incumbent?.note || '',
+      geoMeta: geo.mode === 'district' ? 'district seats' : 'state units',
+      geoFlipMeta: anaCompare
+        ? `${gained} gained · ${lost} lost for ${focusParty}`
+        : 'select compare election for flips',
+      mapHint: geo.mapHint || 'Geographic tables and charts below; Leaflet choropleths remain on Map / Live Results.',
+      geoRows: geoRows.length ? geoRows : [{ unit: '—', region: '—', winner: '—', color: 'var(--mute)', margin: '—', prev: '—', swing: '—', flip: '—' }],
+      turnoutMeta: turnout.current != null ? `National ${turnout.current}%` : 'Limited fields',
+      turnoutStub: false,
+      turnoutNote: '',
+      turnoutKpis: [
+        {
+          label: 'National turnout',
+          value: turnout.current != null ? `${turnout.current}%` : '—',
+          note: turnout.change != null ? `${turnout.change > 0 ? '+' : ''}${turnout.change} pts vs previous` : 'change —',
+        },
+        {
+          label: 'Registered',
+          value: turnout.registered != null ? Number(turnout.registered).toLocaleString() : '—',
+          note: 'from national archive when present',
+        },
+        {
+          label: 'Votes cast',
+          value: turnout.votesCast != null ? Number(turnout.votesCast).toLocaleString() : '—',
+          note: 'stub when archive omits total ballots',
+        },
+        {
+          label: 'Rejected / invalid',
+          value: turnout.rejected != null ? Number(turnout.rejected).toLocaleString() : '—',
+          note: 'not in most declared state files',
+        },
+      ],
+      turnoutRows,
+      compMeta: comp.available ? `avg margin ${comp.averageMargin ?? '—'}%` : (comp.note || 'Limited margins'),
+      compStats: [
+        { label: '<1% margin', value: String(comp.counts?.under1 ?? '—') },
+        { label: '<5% margin', value: String(comp.counts?.under5 ?? '—') },
+        { label: '<10% margin', value: String(comp.counts?.under10 ?? '—') },
+        { label: 'Safe ≥20%', value: String(comp.counts?.safe20 ?? '—') },
+        { label: 'Gained', value: anaCompare ? String(gained) : '—' },
+        { label: 'Lost', value: anaCompare ? String(lost) : '—' },
+      ],
+      historyNote: hist.realignmentNote || '',
+      sideCurrentYear: hist.compareSideBySide?.current?.year || anaYear || 'Current',
+      sidePrevYear: hist.compareSideBySide?.previous?.year || anaCompare || 'Previous',
+      sideCurrent: (hist.compareSideBySide?.current?.parties || []).map((p) => ({
+        party: p.party, color: p.color || this.partyColor(p.party), label: sideLabel(p),
+      })),
+      sidePrev: (hist.compareSideBySide?.previous?.parties || []).map((p) => ({
+        party: p.party, color: p.color || this.partyColor(p.party), label: sideLabel(p),
+      })),
+      demoTitle: demo.title || 'Demographic & issue analysis',
+      demoMessage: demo.message || 'No survey/census-linked microdata in this repo.',
+      demoDistinction: demo.distinction || 'Official results ≠ opinion surveys.',
+      anomalies,
+      anomalyCount: String((analysisBundle?.anomalies || []).length || 0),
+      qualityStats: [
+        { label: 'Review flags', value: String((analysisBundle?.anomalies || []).length || 0), note: 'heuristic outliers' },
+        { label: 'Units in view', value: String((geo.units || []).length || '—'), note: 'after region filter' },
+        { label: 'Missing turnout rows', value: String((geo.units || []).filter((u) => u.turnoutPct == null).length || 0), note: 'show as — in Turnout' },
+        { label: 'Compare year', value: anaCompare || '—', note: 'needed for swing / flips' },
+      ],
+      sourceCoverage,
+      certNote: 'Declared archive results are treated as certified returns for Analysis. Live / provisional citizen submissions are excluded from this section.',
+      predictLabel: pred.label || 'Scenario estimate — not an official forecast',
+      horizonLabel: pred.horizon
+        ? ('Pres ' + pred.horizon.pres + ' · Sen/Reps ' + pred.horizon.sen + ' · Gov ' + pred.horizon.gov)
+        : 'Coming cycles',
+      momentumPct: String(this.state.anaMomentum ?? 65),
+      retentionPct: String(this.state.anaRetention ?? 25),
+      retentionNote: pred.incumbentRetention?.note || 'Retention rate loads with archives.',
+      caveats: (pred.caveats || ['Load analysis archives to see model caveats.']).map((text) => ({ text })),
+      onOffice: (e) => {
+        const office = e.target.value || 'pres';
+        this.setState({ anaOffice: office, anaYear: '', anaCompare: '' }, () => reload());
+      },
+      onYear: (e) => this.setState({ anaYear: e.target.value || '', anaCompare: '' }, () => reload()),
+      onCompare: (e) => this.setState({ anaCompare: e.target.value || '' }, () => reload()),
+      onParty: (e) => this.setState({ anaParty: e.target.value || 'all' }, () => reload()),
+      onRegion: (e) => this.setState({ anaRegion: e.target.value || 'all' }, () => reload()),
+      onMomentum: (e) => {
+        const v = Number(e.target.value);
+        this.setState({ anaMomentum: Number.isFinite(v) ? v : 65 }, () => this.scheduleAnalysisAssumptions());
+      },
+      onRetention: (e) => {
+        const v = Number(e.target.value);
+        this.setState({ anaRetention: Number.isFinite(v) ? v : 25 }, () => this.scheduleAnalysisAssumptions());
+      },
+    };
+
     const anaC=this.state.anaCoords;
     const locating=this.state.anaGeo==='locating';
     const focus=this.state.mapFocus;
@@ -4431,12 +4792,24 @@ class Component extends DCLogic {
       return (b.w||0) - (a.w||0);
     });
 
-    const liveStats = [
+    const liveStatsFallback = [
       { label:'Winner', value: winnerName, sub: winnerSub },
       { label:'Public reports', value: String(subsAll.length), sub: `${pendingSubs.length} pending` },
       { label:'Approved', value: String(approvedSubs.length), sub: `${new Set(approvedSubs.map(r=>r.state).filter(Boolean)).size} states` },
       { label:'Official', value: officialAvailable ? 'Declared' : 'Awaiting', sub: liveYear + ' cycle' },
     ];
+    const dashLive = window.EidDashboard
+      ? window.EidDashboard.applyLive(liveStatsFallback, {
+          metrics: {
+            live_winner: { value: winnerName, unit: '', sub: winnerSub },
+            live_reports: { value: String(subsAll.length), unit: '', sub: `${pendingSubs.length} pending` },
+            live_approved: { value: String(approvedSubs.length), unit: '', sub: `${new Set(approvedSubs.map(r=>r.state).filter(Boolean)).size} states` },
+            live_official: { value: officialAvailable ? 'Declared' : 'Awaiting', unit: '', sub: liveYear + ' cycle' },
+          }
+        })
+      : { usedLayout:false, stats: liveStatsFallback, extras: [] };
+    const liveStats = dashLive.stats;
+    const liveDashExtras = dashLive.extras || [];
     liveFeat.reportBar = `display:block;height:100%;width:${Math.min(100, (approvedSubs.length||0)*10)}%;background:var(--good)`;
     liveFeat.cands = (liveFeat.cands||[]).map(cd=>({ ...cd, bar:`display:block;height:100%;width:${cd.w}%;background:${cd.color}` }));
     const liveNewsItems = this.state.electionNews||[];
@@ -4842,7 +5215,22 @@ class Component extends DCLogic {
         }
       }
     }
-    const topKpis = ngKpis || (c ? c.kpis : []);
+    const topKpisRaw = ngKpis || (c ? c.kpis : []);
+    const dashOverview = window.EidDashboard
+      ? window.EidDashboard.applyOverview(topKpisRaw, {
+          metrics: {
+            registered: topKpisRaw[0] ? { value: topKpisRaw[0].value, unit: topKpisRaw[0].unit || '', sub: topKpisRaw[0].delta || '' } : undefined,
+            turnout: (topKpisRaw.find(k=>/turnout/i.test(k.label||'')) || topKpisRaw[1]) ? (()=>{ const t=topKpisRaw.find(k=>/turnout/i.test(k.label||''))||topKpisRaw[1]; return { value:t.value, unit:t.unit||'%', sub:t.delta||'' }; })() : undefined,
+            elections: topKpisRaw.find(k=>/election/i.test(k.label||'')) ? { value: topKpisRaw.find(k=>/election/i.test(k.label||'')).value, unit: '' } : undefined,
+            parties: topKpisRaw.find(k=>/part/i.test(k.label||'')) ? { value: topKpisRaw.find(k=>/part/i.test(k.label||'')).value, unit: topKpisRaw.find(k=>/part/i.test(k.label||'')).unit||'' } : undefined,
+            countries: { value: String((this.ORDER||[]).length), unit: '' },
+            citizen_reports: { value: String((this.state.submissions||[]).length), unit: '' },
+            population: this.state.realPop ? { value: this.state.realPop.populationM, unit: 'M' } : undefined,
+          }
+        })
+      : { usedLayout:false, kpis: topKpisRaw, extras: [] };
+    const topKpis = dashOverview.kpis;
+    const overviewDashExtras = dashOverview.extras || [];
 
     // ── Candidates & Parties (Nigeria / INEC) ──
     let ngCandidates=null, ngParties=null, ngPartyDetail=null, ngCandidateDetail=null;
@@ -5166,7 +5554,7 @@ class Component extends DCLogic {
       isData: view==='app' && section==='Data' && (isGlobal || isNigeria),
       isAbout: view==='app' && section==='About',
       isAdmin: view==='app' && section==='Admin',
-      topKpis, adminStats, adminData, ngCandidates, ngCandidateDetail, ngParties, ngPartyDetail,
+      topKpis, overviewDashExtras: (typeof overviewDashExtras!=='undefined'?overviewDashExtras:[]), liveDashExtras: (typeof liveDashExtras!=='undefined'?liveDashExtras:[]), adminStats, adminData, ngCandidates, ngCandidateDetail, ngParties, ngPartyDetail,
       candGeneric: null,
       partiesGeneric: null,
       ngPartySelectHint: (isNigeria || isGlobal) && !this.state.selParty,
@@ -5178,7 +5566,8 @@ class Component extends DCLogic {
       toggleTheme: ()=> this.setState(s=>({theme: s.theme==='dark'?'light':'dark'})),
       openWelcome: ()=> this.openWelcome(),
       exitAdmin: ()=> this.exitAdmin(),
-      openAdmin: ()=> { this.loadLiveSubmissions(); this.ensureAdminCsrf(); this.setState({ view:'app', section:'Admin' }); },
+      openAdmin: ()=> { window.location.href = '/admin/'; },
+      openInAppModeration: ()=> { this.loadLiveSubmissions(); this.ensureAdminCsrf(); this.setState({ view:'app', section:'Admin' }); },
       openOverview: ()=> this.openOverview(),
       resetFilters: ()=> this.resetAll(),
       resetAll: ()=> this.resetAll(),
@@ -5232,6 +5621,11 @@ class Component extends DCLogic {
       scopeLabel: isGlobal ? 'Global' : c.name,
       scopeFlagRef: (el)=>{ if(el && c) el.src=this.flagSrc(c.code); },
       scopeFlagRef2: (el)=>{ if(el && c) el.src=this.flagSrc(c.code); },
+      scopeFlagBgRef: (el)=>{
+        if(!el) return;
+        if(c) el.style.backgroundImage = `url("${this.flagBgSrc(c.code)}")`;
+        else el.style.backgroundImage = '';
+      },
       sectionInfo: this.SECTIONS[section] ? { title: this.SECTIONS[section].title || section, icon:this.SECTIONS[section].icon, desc:this.SECTIONS[section].desc } : { title:section, icon:'dashboard', desc:'' },
       sectionMarkers,
 
@@ -5272,12 +5666,22 @@ class Component extends DCLogic {
       layerFabStyle: `color:${this.state.layersOpen?'var(--primary)':'var(--text)'}`,
       basemapFabStyle: `color:${this.state.basemapOpen?'var(--primary)':'var(--text)'}`,
 
-      kpis: [
+      kpis: (window.EidDashboard ? window.EidDashboard.applyOverview([
         { icon:'public', label:'Countries', value:String(this.ORDER.length), unit:'', delta:'Tracked in this dashboard', deltaIcon:'trending_up', deltaColor:'var(--good)' },
         { icon:'how_to_vote', label:'NG registered', value: this.state.realPop?this.state.realPop.registeredM:'—', unit:'M', delta: this.state.realPop?`${this.state.realPop.states} states in dataset`:'Loading population…', deltaIcon:'check_circle', deltaColor:'var(--dim)' },
         { icon:'sensors', label:'Citizen reports', value: String((this.state.submissions||[]).length), unit:'', delta:'Live dual-source map', deltaIcon:'bolt', deltaColor:'var(--live)' },
         { icon:'groups', label:'NG population', value: this.state.realPop?this.state.realPop.populationM:'—', unit:'M', delta:'Official population series', deltaIcon:'database', deltaColor:'var(--dim)' },
-      ],
+      ], { metrics: {
+        countries: { value: String(this.ORDER.length), unit: '' },
+        registered: this.state.realPop ? { value: this.state.realPop.registeredM, unit: 'M' } : undefined,
+        citizen_reports: { value: String((this.state.submissions||[]).length), unit: '' },
+        population: this.state.realPop ? { value: this.state.realPop.populationM, unit: 'M' } : undefined,
+      }}).kpis : [
+        { icon:'public', label:'Countries', value:String(this.ORDER.length), unit:'', delta:'Tracked in this dashboard', deltaIcon:'trending_up', deltaColor:'var(--good)' },
+        { icon:'how_to_vote', label:'NG registered', value: this.state.realPop?this.state.realPop.registeredM:'—', unit:'M', delta: this.state.realPop?`${this.state.realPop.states} states in dataset`:'Loading population…', deltaIcon:'check_circle', deltaColor:'var(--dim)' },
+        { icon:'sensors', label:'Citizen reports', value: String((this.state.submissions||[]).length), unit:'', delta:'Live dual-source map', deltaIcon:'bolt', deltaColor:'var(--live)' },
+        { icon:'groups', label:'NG population', value: this.state.realPop?this.state.realPop.populationM:'—', unit:'M', delta:'Official population series', deltaIcon:'database', deltaColor:'var(--dim)' },
+      ]),
       markers: worldMarkers.map(d=>({ label:d.label, title:this.COUNTRIES[d.code].name, onClick:()=>this.openCountry(d.code),
         wrap:`position:absolute;left:${d.x}%;top:${d.y}%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer`,
         dot:`width:13px;height:13px;border-radius:50%;background:${d.c};border:2.5px solid var(--surface);box-shadow:var(--shadow)${d.live?';animation:eidpulse 1.8s infinite':''}` })),

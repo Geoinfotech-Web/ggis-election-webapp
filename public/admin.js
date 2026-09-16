@@ -12,18 +12,30 @@ const searchMessage = document.getElementById('searchMessage');
 const useLocalButton = document.getElementById('useLocalButton');
 const refreshDriveFiles = document.getElementById('refreshDriveFiles');
 const logoutButton = document.getElementById('logoutButton');
+const driveUnavailableNote = document.getElementById('driveUnavailableNote');
+const driveControls = document.getElementById('driveControls');
 
 let currentAdmin = null;
 let currentSource = null;
+let csrfToken = '';
+let driveConfigured = false;
 const POPULATION_DATA_RECONNECT_KEY = 'populationDataReconnectAt';
 
 async function apiFetch(url, options = {}) {
+  const method = String(options.method || 'GET').toUpperCase();
+  const headers = {
+    'Content-Type': 'application/json',
+    ...(options.headers || {}),
+  };
+  if (method !== 'GET' && method !== 'HEAD' && method !== 'OPTIONS' && csrfToken) {
+    headers['X-CSRF-Token'] = csrfToken;
+  }
+
   const response = await fetch(url, {
     ...options,
-    headers: {
-      'Content-Type': 'application/json',
-      ...(options.headers || {}),
-    },
+    method,
+    credentials: 'include',
+    headers,
   });
 
   const data = await response.json().catch(() => ({}));
@@ -130,7 +142,8 @@ async function saveDriveSource(file, button) {
 
 async function loadAdmin() {
   currentAdmin = await apiFetch('/api/admin/me');
-  adminEmail.textContent = 'Authenticated admin';
+  csrfToken = currentAdmin.csrfToken || '';
+  adminEmail.textContent = currentAdmin.email || currentAdmin.name || 'Authenticated admin';
 }
 
 async function loadSource() {
@@ -138,7 +151,29 @@ async function loadSource() {
   renderSource(source);
 }
 
+async function loadDriveStatus() {
+  try {
+    const status = await apiFetch('/api/admin/drive/status');
+    driveConfigured = Boolean(status.configured);
+  } catch {
+    driveConfigured = false;
+  }
+
+  if (!driveConfigured) {
+    if (driveUnavailableNote) driveUnavailableNote.hidden = false;
+    if (driveControls) driveControls.hidden = true;
+    if (refreshDriveFiles) refreshDriveFiles.disabled = true;
+    if (searchMessage) {
+      searchMessage.textContent = 'Drive browse is disabled until server credentials are configured.';
+    }
+  }
+}
+
 async function loadDriveFiles() {
+  if (!driveConfigured) {
+    return;
+  }
+
   searchMessage.textContent = 'Loading supported files from the Election Dashboard folder and subfolders...';
   driveResults.innerHTML = '';
 
@@ -152,6 +187,8 @@ async function loadDriveFiles() {
 
 driveSearchForm.addEventListener('submit', async (event) => {
   event.preventDefault();
+  if (!driveConfigured) return;
+
   const searchTerm = driveSearchInput.value.trim();
 
   if (!searchTerm) {
@@ -181,7 +218,7 @@ useLocalButton.addEventListener('click', async () => {
     });
     renderSource(source);
     signalPopulationDashboardReconnect();
-    await loadDriveFiles();
+    if (driveConfigured) await loadDriveFiles();
     searchMessage.textContent = 'Dashboard is using the local JSON data again.';
   } catch (error) {
     searchMessage.textContent = error.message;
@@ -195,6 +232,7 @@ logoutButton.addEventListener('click', async () => {
 
 loadAdmin()
   .then(loadSource)
+  .then(loadDriveStatus)
   .then(loadDriveFiles)
   .catch(() => {
     window.location.href = 'admin-login.html';
