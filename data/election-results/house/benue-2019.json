@@ -6,16 +6,179 @@
     "state": "Benue",
     "level": "district",
     "title": "Benue House of Representatives Election 2019",
-    "source": "Public National Assembly membership scaffold",
-    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
-    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
-    "updated": "2026-09-15",
-    "collated": false,
-    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+    "source": "Stears Elections + INEC",
+    "sourceDetail": "Stears 2019 house-of-representatives constituency results (__NEXT_DATA__); underlying INEC/IREV and LGA collation",
+    "attribution": "Stears Elections; Independent National Electoral Commission (INEC)",
+    "sourceUrl": "https://www.stears.co/elections/2019/house-of-representatives/",
+    "updated": "2026-09-17",
+    "collated": true,
+    "note": "Constituency vote totals collated from Stears Elections (__NEXT_DATA__), sourced from INEC/IREV and LGA collation."
   },
   "seats": [
     {
-      "district": "Ado/Obadigbo/Opkokwu",
+      "district": "Katsina-Ala/Ukum/Logo",
+      "winner": {
+        "name": "Iorkyaw Richard Gbande",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Iorkyaw Richard Gbande",
+          "party": "PDP",
+          "votes": 54573,
+          "outcome": "Won"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 37020,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Wombo Solomon",
+          "party": "APC",
+          "votes": 25524,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Guma/Makurdi",
+      "winner": {
+        "name": "Mzondu Bem Benjamin",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Mzondu Bem Benjamin",
+          "party": "PDP",
+          "votes": 50454,
+          "outcome": "Won"
+        },
+        {
+          "name": "Utaan Terhide Conrad",
+          "party": "APC",
+          "votes": 37743,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 11079,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Gboko/Tarka",
+      "winner": {
+        "name": "Dyegh John",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Dyegh John",
+          "party": "APC",
+          "votes": 48239,
+          "outcome": "Won"
+        },
+        {
+          "name": "Bernard Bem Nenger",
+          "party": "PDP",
+          "votes": 35916,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 623,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Konshisha/Vandeikya",
+      "winner": {
+        "name": "Others",
+        "party": "Others"
+      },
+      "candidates": [
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 39516,
+          "outcome": "Won"
+        },
+        {
+          "name": "Mato Kpentomun Dorathy",
+          "party": "APC",
+          "votes": 29280,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Benedict Terver Kume",
+          "party": "PDP",
+          "votes": 19745,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Kwande/Ushongo",
+      "winner": {
+        "name": "Tyough Robert Aondona",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Tyough Robert Aondona",
+          "party": "PDP",
+          "votes": 34439,
+          "outcome": "Won"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 24776,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Wayo Benjamin Iorember",
+          "party": "APC",
+          "votes": 24306,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Gwer East/Gwer West",
+      "winner": {
+        "name": "Mark Terseer Gbillah",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Mark Terseer Gbillah",
+          "party": "PDP",
+          "votes": 32249,
+          "outcome": "Won"
+        },
+        {
+          "name": "Ormin Torsar Victor",
+          "party": "APC",
+          "votes": 17298,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 2841,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Ado/Obadigbo/Okpokwu",
       "winner": {
         "name": "Francis Ottah Agbo",
         "party": "PDP"
@@ -24,228 +187,330 @@
         {
           "name": "Francis Ottah Agbo",
           "party": "PDP",
-          "votes": null,
+          "votes": 29340,
           "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Apa/Agatu",
-      "winner": {
-        "name": "Godday Samuel",
-        "party": "LP"
-      },
-      "candidates": [
+        },
         {
-          "name": "Godday Samuel",
-          "party": "LP",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Buruku",
-      "winner": {
-        "name": "Kpam Sokpo",
-        "party": "PDP"
-      },
-      "candidates": [
-        {
-          "name": "Kpam Sokpo",
-          "party": "PDP",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Gboko/Tarka",
-      "winner": {
-        "name": "John Dyegh",
-        "party": "APC"
-      },
-      "candidates": [
-        {
-          "name": "John Dyegh",
+          "name": "Unogwu Oche Michael",
           "party": "APC",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Guma/Makurdi",
-      "winner": {
-        "name": "Benjamin Mzondu",
-        "party": "PDP"
-      },
-      "candidates": [
+          "votes": 15371,
+          "outcome": "Lost"
+        },
         {
-          "name": "Benjamin Mzondu",
-          "party": "PDP",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Gwer East/Gwer West",
-      "winner": {
-        "name": "Mark Gbillah",
-        "party": "PDP"
-      },
-      "candidates": [
-        {
-          "name": "Mark Gbillah",
-          "party": "PDP",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Katsina-Ala/Ukum/Logo",
-      "winner": {
-        "name": "Richard Gbande",
-        "party": "PDP"
-      },
-      "candidates": [
-        {
-          "name": "Richard Gbande",
-          "party": "PDP",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Konshisha/Vandeikya",
-      "winner": {
-        "name": "Herman Hembe",
-        "party": "APGA"
-      },
-      "candidates": [
-        {
-          "name": "Herman Hembe",
-          "party": "APGA",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Kwande/Ushongo",
-      "winner": {
-        "name": "Robert Tyough",
-        "party": "PDP"
-      },
-      "candidates": [
-        {
-          "name": "Robert Tyough",
-          "party": "PDP",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Oju/Obi",
-      "winner": {
-        "name": "David Agada Ogewu",
-        "party": "APGA"
-      },
-      "candidates": [
-        {
-          "name": "David Agada Ogewu",
-          "party": "APGA",
-          "votes": null,
-          "outcome": "Won"
+          "name": "Others",
+          "party": "Others",
+          "votes": 6181,
+          "outcome": "Lost"
         }
       ]
     },
     {
       "district": "Otukpo/Ohimini",
       "winner": {
-        "name": "Blessing Onuh",
-        "party": "APGA"
+        "name": "Others",
+        "party": "Others"
       },
       "candidates": [
         {
-          "name": "Blessing Onuh",
-          "party": "APGA",
-          "votes": null,
+          "name": "Others",
+          "party": "Others",
+          "votes": 27625,
           "outcome": "Won"
+        },
+        {
+          "name": "Egli Johnson Ahubi",
+          "party": "PDP",
+          "votes": 16725,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Eche Ocheje Wilson",
+          "party": "APC",
+          "votes": 7828,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Buruku",
+      "winner": {
+        "name": "Sokpo Kpam Jimin",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Sokpo Kpam Jimin",
+          "party": "PDP",
+          "votes": 20804,
+          "outcome": "Won"
+        },
+        {
+          "name": "Ityav Joseph Terfa",
+          "party": "APC",
+          "votes": 13664,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 6618,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Apa/Agatu",
+      "winner": {
+        "name": "Others",
+        "party": "Others"
+      },
+      "candidates": [
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 14130,
+          "outcome": "Won"
+        },
+        {
+          "name": "Adamu Ochepo Entonu",
+          "party": "PDP",
+          "votes": 10867,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Oga Matthew Om",
+          "party": "APC",
+          "votes": 6899,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Oju/Obi",
+      "winner": {
+        "name": "Others",
+        "party": "Others"
+      },
+      "candidates": [
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 13967,
+          "outcome": "Won"
+        },
+        {
+          "name": "Okwu Samson",
+          "party": "PDP",
+          "votes": 6759,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Peter Oboh Egbodo",
+          "party": "APC",
+          "votes": 4864,
+          "outcome": "Lost"
         }
       ]
     }
   ],
   "candidates": [
     {
-      "name": "Francis Ottah Agbo",
-      "party": "PDP",
-      "district": "Ado/Obadigbo/Opkokwu",
-      "votes": null
-    },
-    {
-      "name": "Godday Samuel",
-      "party": "LP",
-      "district": "Apa/Agatu",
-      "votes": null
-    },
-    {
-      "name": "Kpam Sokpo",
-      "party": "PDP",
-      "district": "Buruku",
-      "votes": null
-    },
-    {
-      "name": "John Dyegh",
-      "party": "APC",
-      "district": "Gboko/Tarka",
-      "votes": null
-    },
-    {
-      "name": "Benjamin Mzondu",
-      "party": "PDP",
-      "district": "Guma/Makurdi",
-      "votes": null
-    },
-    {
-      "name": "Mark Gbillah",
-      "party": "PDP",
-      "district": "Gwer East/Gwer West",
-      "votes": null
-    },
-    {
-      "name": "Richard Gbande",
+      "name": "Iorkyaw Richard Gbande",
       "party": "PDP",
       "district": "Katsina-Ala/Ukum/Logo",
-      "votes": null
+      "votes": 54573
     },
     {
-      "name": "Herman Hembe",
-      "party": "APGA",
+      "name": "Others",
+      "party": "Others",
+      "district": "Katsina-Ala/Ukum/Logo",
+      "votes": 37020
+    },
+    {
+      "name": "Wombo Solomon",
+      "party": "APC",
+      "district": "Katsina-Ala/Ukum/Logo",
+      "votes": 25524
+    },
+    {
+      "name": "Mzondu Bem Benjamin",
+      "party": "PDP",
+      "district": "Guma/Makurdi",
+      "votes": 50454
+    },
+    {
+      "name": "Utaan Terhide Conrad",
+      "party": "APC",
+      "district": "Guma/Makurdi",
+      "votes": 37743
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Guma/Makurdi",
+      "votes": 11079
+    },
+    {
+      "name": "Dyegh John",
+      "party": "APC",
+      "district": "Gboko/Tarka",
+      "votes": 48239
+    },
+    {
+      "name": "Bernard Bem Nenger",
+      "party": "PDP",
+      "district": "Gboko/Tarka",
+      "votes": 35916
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Gboko/Tarka",
+      "votes": 623
+    },
+    {
+      "name": "Others",
+      "party": "Others",
       "district": "Konshisha/Vandeikya",
-      "votes": null
+      "votes": 39516
     },
     {
-      "name": "Robert Tyough",
+      "name": "Mato Kpentomun Dorathy",
+      "party": "APC",
+      "district": "Konshisha/Vandeikya",
+      "votes": 29280
+    },
+    {
+      "name": "Benedict Terver Kume",
+      "party": "PDP",
+      "district": "Konshisha/Vandeikya",
+      "votes": 19745
+    },
+    {
+      "name": "Tyough Robert Aondona",
       "party": "PDP",
       "district": "Kwande/Ushongo",
-      "votes": null
+      "votes": 34439
     },
     {
-      "name": "David Agada Ogewu",
-      "party": "APGA",
-      "district": "Oju/Obi",
-      "votes": null
+      "name": "Others",
+      "party": "Others",
+      "district": "Kwande/Ushongo",
+      "votes": 24776
     },
     {
-      "name": "Blessing Onuh",
-      "party": "APGA",
+      "name": "Wayo Benjamin Iorember",
+      "party": "APC",
+      "district": "Kwande/Ushongo",
+      "votes": 24306
+    },
+    {
+      "name": "Mark Terseer Gbillah",
+      "party": "PDP",
+      "district": "Gwer East/Gwer West",
+      "votes": 32249
+    },
+    {
+      "name": "Ormin Torsar Victor",
+      "party": "APC",
+      "district": "Gwer East/Gwer West",
+      "votes": 17298
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Gwer East/Gwer West",
+      "votes": 2841
+    },
+    {
+      "name": "Francis Ottah Agbo",
+      "party": "PDP",
+      "district": "Ado/Obadigbo/Okpokwu",
+      "votes": 29340
+    },
+    {
+      "name": "Unogwu Oche Michael",
+      "party": "APC",
+      "district": "Ado/Obadigbo/Okpokwu",
+      "votes": 15371
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Ado/Obadigbo/Okpokwu",
+      "votes": 6181
+    },
+    {
+      "name": "Others",
+      "party": "Others",
       "district": "Otukpo/Ohimini",
-      "votes": null
+      "votes": 27625
+    },
+    {
+      "name": "Egli Johnson Ahubi",
+      "party": "PDP",
+      "district": "Otukpo/Ohimini",
+      "votes": 16725
+    },
+    {
+      "name": "Eche Ocheje Wilson",
+      "party": "APC",
+      "district": "Otukpo/Ohimini",
+      "votes": 7828
+    },
+    {
+      "name": "Sokpo Kpam Jimin",
+      "party": "PDP",
+      "district": "Buruku",
+      "votes": 20804
+    },
+    {
+      "name": "Ityav Joseph Terfa",
+      "party": "APC",
+      "district": "Buruku",
+      "votes": 13664
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Buruku",
+      "votes": 6618
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Apa/Agatu",
+      "votes": 14130
+    },
+    {
+      "name": "Adamu Ochepo Entonu",
+      "party": "PDP",
+      "district": "Apa/Agatu",
+      "votes": 10867
+    },
+    {
+      "name": "Oga Matthew Om",
+      "party": "APC",
+      "district": "Apa/Agatu",
+      "votes": 6899
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Oju/Obi",
+      "votes": 13967
+    },
+    {
+      "name": "Okwu Samson",
+      "party": "PDP",
+      "district": "Oju/Obi",
+      "votes": 6759
+    },
+    {
+      "name": "Peter Oboh Egbodo",
+      "party": "APC",
+      "district": "Oju/Obi",
+      "votes": 4864
     }
   ]
 }

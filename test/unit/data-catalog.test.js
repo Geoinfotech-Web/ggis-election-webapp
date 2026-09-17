@@ -19,8 +19,13 @@ test('data catalog lists public static and result datasets', () => {
   assert.ok(ids.has('candidates:presidential'));
   assert.ok(ids.has('reference:population-pvc'));
   assert.ok(ids.has('geography:boundaries-state'));
-  assert.ok(catalog.datasets.every((d) => d.downloads && (d.downloads.json || d.downloads.zip)));
+  assert.ok(ids.has('reference:stears-africa-past-tracker'));
+  assert.ok(ids.has('reference:stears-africa-upcoming-tracker'));
+  assert.ok(catalog.datasets.every((d) => d.downloads && (d.downloads.json || d.downloads.zip || d.downloads.csv)));
   assert.ok(Array.isArray(catalog.gated) && catalog.gated.length >= 1);
+  const stearsPast = catalog.datasets.find((d) => d.id === 'reference:stears-africa-past-tracker');
+  assert.equal(stearsPast.country, 'global');
+  assert.equal(stearsPast.downloads.csv, '/data/stears-open-data/africa-past-tracker.csv');
 });
 
 test('public catalog omits internal file paths', () => {

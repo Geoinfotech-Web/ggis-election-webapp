@@ -2,82 +2,155 @@
   "meta": {
     "office": "sen",
     "year": "2019",
-    "electionDate": "2019-02-23",
+    "electionDate": "2019-02-25",
     "state": "Niger",
     "level": "district",
     "title": "Niger Senatorial Election 2019",
-    "source": "Public National Assembly membership scaffold",
-    "sourceDetail": "Wikipedia: Nigerian senators of the 9th National Assembly (elected 2019)",
-    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
-    "updated": "2026-09-15",
-    "collated": false,
-    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+    "source": "Stears Elections + INEC",
+    "sourceDetail": "Stears 2019 senate constituency results (__NEXT_DATA__); underlying INEC/IREV and LGA collation",
+    "attribution": "Stears Elections; Independent National Electoral Commission (INEC)",
+    "sourceUrl": "https://www.stears.co/elections/2019/senate/",
+    "updated": "2026-09-17",
+    "collated": true,
+    "note": "Constituency vote totals collated from Stears Elections (__NEXT_DATA__), sourced from INEC/IREV and LGA collation."
   },
   "seats": [
     {
       "district": "Niger East",
       "winner": {
-        "name": "Sani Musa",
+        "name": "Umaru David",
         "party": "APC"
       },
       "candidates": [
         {
-          "name": "Sani Musa",
+          "name": "Umaru David",
           "party": "APC",
-          "votes": null,
+          "votes": 229415,
           "outcome": "Won"
+        },
+        {
+          "name": "Isiyaku Ibrahim",
+          "party": "PDP",
+          "votes": 116143,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 6617,
+          "outcome": "Lost"
         }
       ]
     },
     {
       "district": "Niger North",
       "winner": {
-        "name": "Aliyu Sabi Abdullahi",
+        "name": "Abdullahi Aliyu",
         "party": "APC"
       },
       "candidates": [
         {
-          "name": "Aliyu Sabi Abdullahi",
+          "name": "Abdullahi Aliyu",
           "party": "APC",
-          "votes": null,
+          "votes": 161420,
           "outcome": "Won"
+        },
+        {
+          "name": "Duba Mohammed",
+          "party": "PDP",
+          "votes": 77109,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 9202,
+          "outcome": "Lost"
         }
       ]
     },
     {
       "district": "Niger South",
       "winner": {
-        "name": "Muhammad Bima Enagi",
+        "name": "Bima Muhammad",
         "party": "APC"
       },
       "candidates": [
         {
-          "name": "Muhammad Bima Enagi",
+          "name": "Bima Muhammad",
           "party": "APC",
-          "votes": null,
+          "votes": 160614,
           "outcome": "Won"
+        },
+        {
+          "name": "Shehu Baba",
+          "party": "PDP",
+          "votes": 90978,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 9001,
+          "outcome": "Lost"
         }
       ]
     }
   ],
   "candidates": [
     {
-      "name": "Sani Musa",
+      "name": "Umaru David",
       "party": "APC",
       "district": "Niger East",
-      "votes": null
+      "votes": 229415
     },
     {
-      "name": "Aliyu Sabi Abdullahi",
+      "name": "Isiyaku Ibrahim",
+      "party": "PDP",
+      "district": "Niger East",
+      "votes": 116143
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Niger East",
+      "votes": 6617
+    },
+    {
+      "name": "Abdullahi Aliyu",
       "party": "APC",
       "district": "Niger North",
-      "votes": null
+      "votes": 161420
     },
     {
-      "name": "Muhammad Bima Enagi",
+      "name": "Duba Mohammed",
+      "party": "PDP",
+      "district": "Niger North",
+      "votes": 77109
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Niger North",
+      "votes": 9202
+    },
+    {
+      "name": "Bima Muhammad",
       "party": "APC",
       "district": "Niger South",
-      "votes": null
+      "votes": 160614
+    },
+    {
+      "name": "Shehu Baba",
+      "party": "PDP",
+      "district": "Niger South",
+      "votes": 90978
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Niger South",
+      "votes": 9001
     }
   ]
 }

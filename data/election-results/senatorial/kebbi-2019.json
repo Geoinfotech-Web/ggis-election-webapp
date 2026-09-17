@@ -2,82 +2,155 @@
   "meta": {
     "office": "sen",
     "year": "2019",
-    "electionDate": "2019-02-23",
+    "electionDate": "2019-02-25",
     "state": "Kebbi",
     "level": "district",
     "title": "Kebbi Senatorial Election 2019",
-    "source": "Public National Assembly membership scaffold",
-    "sourceDetail": "Wikipedia: Nigerian senators of the 9th National Assembly (elected 2019)",
-    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
-    "updated": "2026-09-15",
-    "collated": false,
-    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+    "source": "Stears Elections + INEC",
+    "sourceDetail": "Stears 2019 senate constituency results (__NEXT_DATA__); underlying INEC/IREV and LGA collation",
+    "attribution": "Stears Elections; Independent National Electoral Commission (INEC)",
+    "sourceUrl": "https://www.stears.co/elections/2019/senate/",
+    "updated": "2026-09-17",
+    "collated": true,
+    "note": "Constituency vote totals collated from Stears Elections (__NEXT_DATA__), sourced from INEC/IREV and LGA collation."
   },
   "seats": [
     {
       "district": "Kebbi Central",
       "winner": {
-        "name": "Adamu Aliero",
-        "party": "PDP"
+        "name": "Adamu Mohammed Mainasara Aliero",
+        "party": "APC"
       },
       "candidates": [
         {
-          "name": "Adamu Aliero",
-          "party": "PDP",
-          "votes": null,
+          "name": "Adamu Mohammed Mainasara Aliero",
+          "party": "APC",
+          "votes": 232000,
           "outcome": "Won"
+        },
+        {
+          "name": "Shehu Abubakar",
+          "party": "PDP",
+          "votes": 75638,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 8622,
+          "outcome": "Lost"
         }
       ]
     },
     {
       "district": "Kebbi North",
       "winner": {
-        "name": "Yahaya Abubakar Abdullahi",
-        "party": "PDP"
+        "name": "Abdullahi Abubakar",
+        "party": "APC"
       },
       "candidates": [
         {
-          "name": "Yahaya Abubakar Abdullahi",
-          "party": "PDP",
-          "votes": null,
+          "name": "Abdullahi Abubakar",
+          "party": "APC",
+          "votes": 170624,
           "outcome": "Won"
+        },
+        {
+          "name": "Usman Bello",
+          "party": "PDP",
+          "votes": 66815,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 3306,
+          "outcome": "Lost"
         }
       ]
     },
     {
       "district": "Kebbi South",
       "winner": {
-        "name": "Bala Ibn Na'Allah",
+        "name": "Na Allah Bala Ibn",
         "party": "APC"
       },
       "candidates": [
         {
-          "name": "Bala Ibn Na'Allah",
+          "name": "Na Allah Bala Ibn",
           "party": "APC",
-          "votes": null,
+          "votes": 136287,
           "outcome": "Won"
+        },
+        {
+          "name": "Dikku Benjamin",
+          "party": "PDP",
+          "votes": 62733,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 3437,
+          "outcome": "Lost"
         }
       ]
     }
   ],
   "candidates": [
     {
-      "name": "Adamu Aliero",
+      "name": "Adamu Mohammed Mainasara Aliero",
+      "party": "APC",
+      "district": "Kebbi Central",
+      "votes": 232000
+    },
+    {
+      "name": "Shehu Abubakar",
       "party": "PDP",
       "district": "Kebbi Central",
-      "votes": null
+      "votes": 75638
     },
     {
-      "name": "Yahaya Abubakar Abdullahi",
+      "name": "Others",
+      "party": "Others",
+      "district": "Kebbi Central",
+      "votes": 8622
+    },
+    {
+      "name": "Abdullahi Abubakar",
+      "party": "APC",
+      "district": "Kebbi North",
+      "votes": 170624
+    },
+    {
+      "name": "Usman Bello",
       "party": "PDP",
       "district": "Kebbi North",
-      "votes": null
+      "votes": 66815
     },
     {
-      "name": "Bala Ibn Na'Allah",
+      "name": "Others",
+      "party": "Others",
+      "district": "Kebbi North",
+      "votes": 3306
+    },
+    {
+      "name": "Na Allah Bala Ibn",
       "party": "APC",
       "district": "Kebbi South",
-      "votes": null
+      "votes": 136287
+    },
+    {
+      "name": "Dikku Benjamin",
+      "party": "PDP",
+      "district": "Kebbi South",
+      "votes": 62733
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Kebbi South",
+      "votes": 3437
     }
   ]
 }

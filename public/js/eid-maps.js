@@ -507,7 +507,8 @@
       if (!bits.length && hit.count != null) bits.push(hit.count + ' public returns');
       return '<strong>' + label.replace(/</g, '&lt;') + '</strong><br>Public: ' + bits.join(' · ');
     }
-    if (theme && theme.coverage) {
+    // Only governorship archive picker (coverage===true / mapMode). Choropleth uses coverage as a level string.
+    if (theme && (theme.mapMode === 'gov-coverage' || theme.coverage === true)) {
       const tip = hit.coverage
         ? ('Archive · ' + String(hit.winner || '').replace(/</g, '&lt;') + ' · click to open')
         : 'No archive yet · click to select';

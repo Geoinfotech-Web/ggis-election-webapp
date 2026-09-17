@@ -433,7 +433,6 @@ window.EID_DATA = (function () {
     { v: "reps", l: "House of Representatives" },
     { v: "gov", l: "Gubernatorial" },
     { v: "assembly", l: "State House of Assembly" },
-    { v: "lga", l: "LGA Chairman" },
   ];
 
   const LEADS = {

@@ -90,6 +90,11 @@
         const fallbackItem = pickFromFallback(fallback, c.metric) || fallback[i] || null;
         const resolved = resolveMetric(c.metric || 'custom', ctx, fallbackItem);
         const custom = c.metric === 'custom';
+        const delta = resolved.delta || '';
+        const captionRaw = c.caption || resolved.caption || '';
+        // Prefer resolved delta; only fall back to caption for delta when no delta exists
+        const deltaOut = delta || captionRaw;
+        const captionOut = (captionRaw && captionRaw !== deltaOut) ? captionRaw : '';
         return {
           key: w.id,
           icon: c.icon || resolved.icon || 'analytics',
@@ -97,10 +102,10 @@
           value: custom && c.value ? c.value : (resolved.value != null ? resolved.value : '—'),
           unit: c.unit != null && c.unit !== '' ? c.unit : (resolved.unit || ''),
           sub: resolved.sub || '',
-          delta: resolved.delta || c.caption || '',
+          delta: deltaOut,
           deltaIcon: resolved.deltaIcon || 'info',
           deltaColor: resolved.deltaColor || 'var(--dim)',
-          caption: c.caption || resolved.caption || '',
+          caption: captionOut,
         };
       });
   }

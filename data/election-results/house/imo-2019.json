@@ -6,55 +6,119 @@
     "state": "Imo",
     "level": "district",
     "title": "Imo House of Representatives Election 2019",
-    "source": "Public National Assembly membership scaffold",
-    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
-    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
-    "updated": "2026-09-15",
-    "collated": false,
-    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+    "source": "Stears Elections + INEC",
+    "sourceDetail": "Stears 2019 house-of-representatives constituency results (__NEXT_DATA__); underlying INEC/IREV and LGA collation",
+    "attribution": "Stears Elections; Independent National Electoral Commission (INEC)",
+    "sourceUrl": "https://www.stears.co/elections/2019/house-of-representatives/",
+    "updated": "2026-09-17",
+    "collated": true,
+    "note": "Constituency vote totals collated from Stears Elections (__NEXT_DATA__), sourced from INEC/IREV and LGA collation."
   },
   "seats": [
     {
       "district": "Aboh Mbaise/Ngor Okpala",
       "winner": {
-        "name": "Bede Eke",
+        "name": "Bede Uchenna Eke",
         "party": "PDP"
       },
       "candidates": [
         {
-          "name": "Bede Eke",
+          "name": "Bede Uchenna Eke",
           "party": "PDP",
-          "votes": null,
+          "votes": 37714,
           "outcome": "Won"
+        },
+        {
+          "name": "Amaji Rionwu Byeden.O",
+          "party": "APC",
+          "votes": 12274,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 10631,
+          "outcome": "Lost"
         }
       ]
     },
     {
       "district": "Ahiazu Mbaise/Ezinihitte",
       "winner": {
-        "name": "Emeka Chinedu",
+        "name": "Chinedu Emeka Martins",
         "party": "PDP"
       },
       "candidates": [
         {
-          "name": "Emeka Chinedu",
+          "name": "Chinedu Emeka Martins",
           "party": "PDP",
-          "votes": null,
+          "votes": 35579,
           "outcome": "Won"
+        },
+        {
+          "name": "Raphael Uzochi Igbokwe",
+          "party": "APC",
+          "votes": 8290,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 4817,
+          "outcome": "Lost"
         }
       ]
     },
     {
-      "district": "Ehime Mbano/Ihitte Uboma/Obowo",
+      "district": "Owerri Municipal/Owerri North/Owerri West",
       "winner": {
-        "name": "Chukwuemeka Nwajiuba",
-        "party": "A"
+        "name": "Elezieanya Ikenna Onyechere",
+        "party": "PDP"
       },
       "candidates": [
         {
-          "name": "Chukwuemeka Nwajiuba",
-          "party": "A",
-          "votes": null,
+          "name": "Elezieanya Ikenna Onyechere",
+          "party": "PDP",
+          "votes": 32694,
+          "outcome": "Won"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 13745,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Obinna Mbata",
+          "party": "APC",
+          "votes": 6371,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Ikeduru/Mbaitoli",
+      "winner": {
+        "name": "Nwawuba Henry N",
+        "party": "PDP"
+      },
+      "candidates": [
+        {
+          "name": "Nwawuba Henry N",
+          "party": "PDP",
+          "votes": 31600,
+          "outcome": "Won"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 14160,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Iwuorie Daniel C",
+          "party": "APC",
+          "votes": 11338,
           "outcome": "Won"
         }
       ]
@@ -62,75 +126,81 @@
     {
       "district": "Ideato North/Ideato South",
       "winner": {
-        "name": "Paschal Chigozie Obi",
-        "party": "APC"
+        "name": "Others",
+        "party": "Others"
       },
       "candidates": [
         {
-          "name": "Paschal Chigozie Obi",
+          "name": "Others",
+          "party": "Others",
+          "votes": 28889,
+          "outcome": "Won"
+        },
+        {
+          "name": "Austine Chukwukere",
           "party": "APC",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Ikeduru/Mbaitoli",
-      "winner": {
-        "name": "Henry Nwawuba",
-        "party": "PDP"
-      },
-      "candidates": [
+          "votes": 11593,
+          "outcome": "Lost"
+        },
         {
-          "name": "Henry Nwawuba",
+          "name": "George Onyeabor Igbo",
           "party": "PDP",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Isiala Mbano/Okigwe/Onuimo",
-      "winner": {
-        "name": "Obinna Onwubuariri",
-        "party": "PDP"
-      },
-      "candidates": [
-        {
-          "name": "Obinna Onwubuariri",
-          "party": "PDP",
-          "votes": null,
-          "outcome": "Won"
+          "votes": 1409,
+          "outcome": "Lost"
         }
       ]
     },
     {
       "district": "Isu/Njaba/Nkwerre/Nwangele",
       "winner": {
-        "name": "Ugonna Ozurigbo",
+        "name": "Ugonna Uzorigbo",
         "party": "APC"
       },
       "candidates": [
         {
-          "name": "Ugonna Ozurigbo",
+          "name": "Ugonna Uzorigbo",
           "party": "APC",
-          "votes": null,
+          "votes": 22795,
           "outcome": "Won"
+        },
+        {
+          "name": "Kingsley Chibuzo Echendu",
+          "party": "PDP",
+          "votes": 22356,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 6712,
+          "outcome": "Lost"
         }
       ]
     },
     {
       "district": "Oguta/Ohaji-Egbema/Oru West",
       "winner": {
-        "name": "Uju Kingsley Chima",
-        "party": "APC"
+        "name": "Others",
+        "party": "Others"
       },
       "candidates": [
         {
-          "name": "Uju Kingsley Chima",
-          "party": "APC",
-          "votes": null,
+          "name": "Others",
+          "party": "Others",
+          "votes": 22643,
           "outcome": "Won"
+        },
+        {
+          "name": "Obed Chijioke Acholonu",
+          "party": "PDP",
+          "votes": 12208,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Opiah Goodluck Nana",
+          "party": "APC",
+          "votes": 8214,
+          "outcome": "Lost"
         }
       ]
     },
@@ -144,87 +214,213 @@
         {
           "name": "Jerry Alagbaoso",
           "party": "PDP",
-          "votes": null,
+          "votes": 21273,
           "outcome": "Won"
+        },
+        {
+          "name": "Edwin Ogechukwu I",
+          "party": "APC",
+          "votes": 20061,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 8726,
+          "outcome": "Lost"
         }
       ]
     },
     {
-      "district": "Owerri Municipal/Owerri North/Owerri West",
+      "district": "Isiala Mbano/Okigwe/Onuimo",
       "winner": {
-        "name": "Ikenna Elezieanya",
+        "name": "Obiinna Kingsley O Ariri",
         "party": "PDP"
       },
       "candidates": [
         {
-          "name": "Ikenna Elezieanya",
+          "name": "Others",
+          "party": "Others",
+          "votes": 20873,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Obiinna Kingsley O Ariri",
           "party": "PDP",
-          "votes": null,
+          "votes": 17903,
           "outcome": "Won"
+        },
+        {
+          "name": "Princess Miriam Onuoha",
+          "party": "APC",
+          "votes": 6015,
+          "outcome": "Lost"
         }
       ]
     }
   ],
   "candidates": [
     {
-      "name": "Bede Eke",
+      "name": "Bede Uchenna Eke",
       "party": "PDP",
       "district": "Aboh Mbaise/Ngor Okpala",
-      "votes": null
+      "votes": 37714
     },
     {
-      "name": "Emeka Chinedu",
+      "name": "Amaji Rionwu Byeden.O",
+      "party": "APC",
+      "district": "Aboh Mbaise/Ngor Okpala",
+      "votes": 12274
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Aboh Mbaise/Ngor Okpala",
+      "votes": 10631
+    },
+    {
+      "name": "Chinedu Emeka Martins",
       "party": "PDP",
       "district": "Ahiazu Mbaise/Ezinihitte",
-      "votes": null
+      "votes": 35579
     },
     {
-      "name": "Chukwuemeka Nwajiuba",
-      "party": "A",
-      "district": "Ehime Mbano/Ihitte Uboma/Obowo",
-      "votes": null
-    },
-    {
-      "name": "Paschal Chigozie Obi",
+      "name": "Raphael Uzochi Igbokwe",
       "party": "APC",
-      "district": "Ideato North/Ideato South",
-      "votes": null
+      "district": "Ahiazu Mbaise/Ezinihitte",
+      "votes": 8290
     },
     {
-      "name": "Henry Nwawuba",
+      "name": "Others",
+      "party": "Others",
+      "district": "Ahiazu Mbaise/Ezinihitte",
+      "votes": 4817
+    },
+    {
+      "name": "Elezieanya Ikenna Onyechere",
+      "party": "PDP",
+      "district": "Owerri Municipal/Owerri North/Owerri West",
+      "votes": 32694
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Owerri Municipal/Owerri North/Owerri West",
+      "votes": 13745
+    },
+    {
+      "name": "Obinna Mbata",
+      "party": "APC",
+      "district": "Owerri Municipal/Owerri North/Owerri West",
+      "votes": 6371
+    },
+    {
+      "name": "Nwawuba Henry N",
       "party": "PDP",
       "district": "Ikeduru/Mbaitoli",
-      "votes": null
+      "votes": 31600
     },
     {
-      "name": "Obinna Onwubuariri",
+      "name": "Others",
+      "party": "Others",
+      "district": "Ikeduru/Mbaitoli",
+      "votes": 14160
+    },
+    {
+      "name": "Iwuorie Daniel C",
+      "party": "APC",
+      "district": "Ikeduru/Mbaitoli",
+      "votes": 11338
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Ideato North/Ideato South",
+      "votes": 28889
+    },
+    {
+      "name": "Austine Chukwukere",
+      "party": "APC",
+      "district": "Ideato North/Ideato South",
+      "votes": 11593
+    },
+    {
+      "name": "George Onyeabor Igbo",
       "party": "PDP",
-      "district": "Isiala Mbano/Okigwe/Onuimo",
-      "votes": null
+      "district": "Ideato North/Ideato South",
+      "votes": 1409
     },
     {
-      "name": "Ugonna Ozurigbo",
+      "name": "Ugonna Uzorigbo",
       "party": "APC",
       "district": "Isu/Njaba/Nkwerre/Nwangele",
-      "votes": null
+      "votes": 22795
     },
     {
-      "name": "Uju Kingsley Chima",
+      "name": "Kingsley Chibuzo Echendu",
+      "party": "PDP",
+      "district": "Isu/Njaba/Nkwerre/Nwangele",
+      "votes": 22356
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Isu/Njaba/Nkwerre/Nwangele",
+      "votes": 6712
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Oguta/Ohaji-Egbema/Oru West",
+      "votes": 22643
+    },
+    {
+      "name": "Obed Chijioke Acholonu",
+      "party": "PDP",
+      "district": "Oguta/Ohaji-Egbema/Oru West",
+      "votes": 12208
+    },
+    {
+      "name": "Opiah Goodluck Nana",
       "party": "APC",
       "district": "Oguta/Ohaji-Egbema/Oru West",
-      "votes": null
+      "votes": 8214
     },
     {
       "name": "Jerry Alagbaoso",
       "party": "PDP",
       "district": "Oru East/Orsu/Orlu",
-      "votes": null
+      "votes": 21273
     },
     {
-      "name": "Ikenna Elezieanya",
+      "name": "Edwin Ogechukwu I",
+      "party": "APC",
+      "district": "Oru East/Orsu/Orlu",
+      "votes": 20061
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Oru East/Orsu/Orlu",
+      "votes": 8726
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Isiala Mbano/Okigwe/Onuimo",
+      "votes": 20873
+    },
+    {
+      "name": "Obiinna Kingsley O Ariri",
       "party": "PDP",
-      "district": "Owerri Municipal/Owerri North/Owerri West",
-      "votes": null
+      "district": "Isiala Mbano/Okigwe/Onuimo",
+      "votes": 17903
+    },
+    {
+      "name": "Princess Miriam Onuoha",
+      "party": "APC",
+      "district": "Isiala Mbano/Okigwe/Onuimo",
+      "votes": 6015
     }
   ]
 }

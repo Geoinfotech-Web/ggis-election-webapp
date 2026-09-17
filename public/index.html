@@ -11,7 +11,7 @@
 <script src="./js/eid-analysis.js?v=20260916e"></script>
 <script src="./js/eid-dashboard.js?v=20260916dash"></script>
 <script src="./js/eid-page-content.js?v=20260916pages"></script>
-<script src="./js/eid-data-explorer.js?v=20260916data"></script>
+<script src="./js/eid-data-explorer.js?v=20260917cat"></script>
 <script src="./support.js?v=20260819c"></script>
 </head>
 <body>
@@ -32,7 +32,21 @@ body{font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:ant
 .eid-map-stage{position:relative;flex:1;min-height:0;height:100%;overflow:hidden}
 .ov-work{align-items:stretch !important;overflow:hidden !important;min-height:0}
 .ov-work>.ov-main{min-height:0;height:100%;overflow:hidden !important}
-.ov-left,.ov-aside-right{min-height:0;max-height:100%;overflow-y:auto}
+/* Left filters: scroll the column. Right results: pin header, scroll body only. */
+.ov-left{min-height:0;height:100%;max-height:100%;overflow-y:auto !important;align-self:stretch}
+.ov-aside-right{min-height:0;height:100%;max-height:100%;overflow:hidden !important;align-self:stretch;display:flex;flex-direction:column}
+.ov-aside-right>.eid-elec-panel,
+.ov-aside-right>section{flex:1 1 0;min-height:0;height:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.ov-aside-right .eid-elec-panel__body{flex:1 1 0;min-height:0;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.eid-ov-kpis{flex:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;padding:10px 12px 0}
+.eid-ov-kpi{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;min-height:0;background:var(--surface);border:1px solid var(--border);border-radius:9px}
+.eid-ov-kpi .msi{font-size:18px;flex:none;color:var(--primary);line-height:1;margin-top:2px}
+.eid-ov-kpi__meta{min-width:0;flex:1;display:flex;flex-direction:column;gap:3px}
+.eid-ov-kpi__label{font-size:10.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--mute);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.eid-ov-kpi__row{display:flex;align-items:baseline;gap:5px;min-width:0;flex-wrap:wrap}
+.eid-ov-kpi__value{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:18px;color:var(--text);line-height:1.25;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.eid-ov-kpi__unit{font-size:11.5px;color:var(--dim);flex:none;line-height:1.3}
+.eid-ov-kpi__cap{font-size:11.5px;color:var(--mute);line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .eid-dash-extras{flex:none;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:10px;padding:0 12px 8px}
 .eid-dash-extra{grid-column:span 4;background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:12px 14px;min-height:72px}
 .eid-dash-extra__type{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
@@ -104,6 +118,16 @@ a:hover{color:var(--primary)}
 .eid-analysis-section__hd h2{margin:0;font-size:13px;font-weight:600}
 .eid-analysis-section__hd .meta{margin-left:auto;font-size:10.5px;color:var(--mute)}
 .eid-analysis-section__bd{padding:10px 12px;min-height:0}
+.eid-data-jump{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 4px}
+.eid-data-jump__btn{height:28px;padding:0 10px;display:inline-flex;align-items:center;gap:5px;border:1px solid var(--border);background:var(--surface);color:var(--dim);border-radius:8px;font-family:inherit;font-size:11.5px;cursor:pointer}
+.eid-data-jump__btn:hover{border-color:var(--primary);color:var(--text)}
+.eid-data-jump__n{font-family:'IBM Plex Sans',sans-serif;font-size:10.5px;color:var(--mute)}
+.eid-data-cat__hd{width:100%;display:flex;align-items:center;gap:8px;padding:10px 16px;border:none;border-bottom:1px solid var(--border);background:var(--surface2);color:var(--text);font-family:inherit;cursor:pointer;text-align:left}
+.eid-data-cat__hd:hover{background:var(--surface3)}
+.eid-data-cat__hd h2{margin:0;font-size:13px;font-weight:600}
+.eid-data-cat__count{margin-left:auto;font-size:11px;color:var(--mute);font-family:'IBM Plex Sans',sans-serif}
+.eid-data-cat__cols{display:grid;grid-template-columns:minmax(220px,2.2fr) 0.9fr 1.1fr 0.9fr auto;gap:12px;padding:9px 16px;border-bottom:1px solid var(--border);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute);background:var(--surface)}
+.eid-data-row{display:grid;grid-template-columns:minmax(220px,2.2fr) 0.9fr 1.1fr 0.9fr auto;gap:12px;align-items:center;padding:13px 16px;border-bottom:1px solid var(--border)}
 .eid-analysis-section--fill{flex:1;min-height:0;height:100%}
 .eid-analysis-section--fill>.eid-analysis-section__bd{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column}
 .eid-analysis-narrative{margin:0;font-size:12.5px;color:var(--dim);line-height:1.45}
@@ -220,7 +244,8 @@ a:hover{color:var(--primary)}
 @media (max-width:900px){
   .ov-work{grid-template-columns:1fr !important}
   .ov-main{position:static !important}
-  .ov-aside-right{order:3}
+  .ov-aside-right{order:3;height:auto;max-height:min(70vh,640px);overflow:hidden !important}
+  .ov-left{height:auto;max-height:min(50vh,420px)}
   .cand-layout{grid-template-columns:1fr !important;overflow:auto !important;height:auto !important}
   .cand-main__body{grid-template-columns:1fr !important}
   .cand-shell{overflow:auto}
@@ -647,13 +672,16 @@ a:hover{color:var(--primary)}
           <span style="display:inline-flex;align-items:center;gap:7px;height:32px;padding:0 12px;border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--dim)"><span style="width:7px;height:7px;border-radius:50%;background:{{ country.statusColor }}"></span>{{ country.statusLabel }}</span>
         </div>
       </div>
-      <div style="flex:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;padding:12px 12px 0">
+      <div class="eid-ov-kpis">
         <sc-for list="{{ topKpis }}" as="k" hint-placeholder-count="4">
-          <div style="background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:13px 15px">
-            <div style="display:flex;align-items:center;gap:7px;margin-bottom:9px"><span class="msi" style="font-size:16px;color:var(--primary)">{{ k.icon }}</span><span style="font-size:10.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--mute)">{{ k.label }}</span></div>
-            <div style="display:flex;align-items:baseline;gap:5px"><span style="font-family:'IBM Plex Sans';font-weight:600;font-size:25px;letter-spacing:-.02em;font-variant-numeric:tabular-nums">{{ k.value }}</span><span style="font-size:12px;color:var(--dim)">{{ k.unit }}</span></div>
-            <sc-if value="{{ k.delta }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:4px;margin-top:5px;font-size:10.5px;color:{{ k.deltaColor }}"><span class="msi" style="font-size:13px">{{ k.deltaIcon }}</span>{{ k.delta }}</div></sc-if>
-            <sc-if value="{{ k.caption }}" hint-placeholder-val="{{ false }}"><div style="margin-top:6px;font-size:10px;color:var(--mute);line-height:1.4">{{ k.caption }}</div></sc-if>
+          <div class="eid-ov-kpi">
+            <span class="msi">{{ k.icon }}</span>
+            <div class="eid-ov-kpi__meta">
+              <div class="eid-ov-kpi__label">{{ k.label }}</div>
+              <div class="eid-ov-kpi__row"><span class="eid-ov-kpi__value">{{ k.value }}</span><span class="eid-ov-kpi__unit">{{ k.unit }}</span></div>
+              <sc-if value="{{ k.delta }}" hint-placeholder-val="{{ false }}"><div class="eid-ov-kpi__cap" style="color:{{ k.deltaColor }}">{{ k.delta }}</div></sc-if>
+              <sc-if value="{{ k.caption }}" hint-placeholder-val="{{ false }}"><div class="eid-ov-kpi__cap">{{ k.caption }}</div></sc-if>
+            </div>
           </div>
         </sc-for>
       </div>
@@ -684,10 +712,9 @@ a:hover{color:var(--primary)}
                     <option value="reps">House of Representatives Election</option>
                   </optgroup>
                   <option value="assembly">State House of Assembly Election</option>
-                  <option value="lga">LGA Chairman Election</option>
                 </select>
               </div>
-              <sc-if value="{{ elecNeedsState }}" hint-placeholder-val="{{ false }}">
+              <sc-if value="{{ elecShowState }}" hint-placeholder-val="{{ false }}">
               <div>
                 <sc-if value="{{ govStatePrompt }}" hint-placeholder-val="{{ false }}">
                 <div class="eid-gov-prompt" role="status">
@@ -696,9 +723,15 @@ a:hover{color:var(--primary)}
                   <span class="msi eid-gov-prompt__arrow" aria-hidden="true">arrow_downward</span>
                 </div>
                 </sc-if>
-                <div style="font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:6px">Step 2 · State</div>
+                <sc-if value="{{ presLgaPrompt }}" hint-placeholder-val="{{ false }}">
+                <div style="font-size:11.5px;color:var(--mute);line-height:1.4;padding:0 0 6px">Click a state on the map (or pick below) for statewide votes + LGA drill.</div>
+                </sc-if>
+                <sc-if value="{{ presNoLgaHint }}" hint-placeholder-val="{{ false }}">
+                <div style="font-size:11px;color:var(--mute);line-height:1.4;padding:0 0 6px">{{ presNoLgaHint }}</div>
+                </sc-if>
+                <div style="font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:6px">{{ elecStateStepLabel }}</div>
                 <div class="{{ govStateSelectWrap }}">
-                  <select value="{{ ovElecStateVal }}" onChange="{{ onElecState }}" style="{{ selStyle }}"><option value="">Select state…</option><sc-for list="{{ govStateOptions }}" as="s" hint-placeholder-count="3"><option value="{{ s.name }}">{{ s.name }}</option></sc-for></select>
+                  <select value="{{ ovElecStateVal }}" onChange="{{ onElecState }}" style="{{ selStyle }}"><option value="">{{ elecStateEmptyLabel }}</option><sc-for list="{{ govStateOptions }}" as="s" hint-placeholder-count="3"><option value="{{ s.name }}">{{ s.name }}</option></sc-for></select>
                 </div>
               </div>
               </sc-if>
@@ -781,10 +814,20 @@ a:hover{color:var(--primary)}
             </div>
           </section>
         </main>
-        <aside class="eid-scroll ov-aside-right" style="display:flex;flex-direction:column;gap:12px;min-height:0;overflow:hidden">
+        <aside class="eid-scroll ov-aside-right" style="display:flex;flex-direction:column;gap:12px;min-height:0;height:100%;overflow:hidden">
           <sc-if value="{{ anaData.showElecPanel }}" hint-placeholder-val="{{ true }}">
-          <section style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden">
-            <div style="display:flex;align-items:center;gap:8px;padding:12px 14px;border-bottom:1px solid var(--border)"><span class="msi" style="font-size:16px;color:var(--primary)">how_to_vote</span><div style="min-width:0"><h2 style="margin:0;font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ ngElec.label }} · {{ ngElec.year }}</h2><div style="font-size:10px;color:var(--mute)">{{ ngElec.sourceLine }}</div></div></div>
+          <section class="eid-elec-panel" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;flex:1;min-height:0;display:flex;flex-direction:column">
+            <div style="display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--border);flex:none;position:sticky;top:0;z-index:1;background:var(--surface)">
+              <span class="msi" style="font-size:16px;color:var(--primary)">how_to_vote</span>
+              <div style="min-width:0;flex:1">
+                <h2 style="margin:0;font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ ngElec.panelTitle }}</h2>
+                <div style="font-size:10px;color:var(--mute)">{{ ngElec.sourceLine }}</div>
+              </div>
+              <sc-if value="{{ ngElec.canClearState }}" hint-placeholder-val="{{ false }}">
+              <button onClick="{{ ngElec.clearState }}" title="Back to national map" style="flex:none;height:28px;padding:0 8px;border:1px solid var(--border);background:transparent;border-radius:7px;font-family:inherit;font-size:11px;color:var(--dim);cursor:pointer">National</button>
+              </sc-if>
+            </div>
+            <div class="eid-elec-panel__body eid-scroll" style="flex:1;min-height:0;overflow-y:auto">
             <sc-if value="{{ ngElec.showEstimatedToggle }}" hint-placeholder-val="{{ false }}">
             <div style="padding:8px 14px;border-bottom:1px solid var(--border);background:var(--surface2);display:flex;flex-direction:column;gap:6px">
               <div style="font-size:10.5px;color:var(--dim);line-height:1.45">No official LGA collation for this year — LGA colours/votes are estimated from statewide totals (PVC-proportional). Official years paint true INEC LGA returns.</div>
@@ -792,16 +835,37 @@ a:hover{color:var(--primary)}
             </div>
             </sc-if>
             <sc-if value="{{ ngElec.isCands }}" hint-placeholder-val="{{ false }}">
+              <sc-if value="{{ ngElec.unitDetail }}" hint-placeholder-val="{{ false }}">
+              <div style="border-bottom:1px solid var(--border);padding:12px 14px;background:var(--surface2)">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><button onClick="{{ ngElec.unitDetail.onBack }}" style="height:28px;padding:0 10px;border:1px solid var(--border);background:transparent;border-radius:7px;font-family:inherit;font-size:11px;color:var(--dim);cursor:pointer">← Back</button><div style="min-width:0;flex:1"><div style="font-size:13px;font-weight:600;color:var(--text)">{{ ngElec.unitDetail.name }}</div><div style="font-size:10.5px;color:var(--mute)">{{ ngElec.unitDetail.winner }} · {{ ngElec.unitDetail.party }}</div></div></div>
+                <div style="font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute);margin-bottom:8px">Vote breakdown · {{ ngElec.unitDetail.totalVotes }} votes</div>
+                <div style="display:flex;flex-direction:column;gap:9px">
+                  <sc-for list="{{ ngElec.unitDetail.breakdown }}" as="b" hint-placeholder-count="4">
+                    <div>
+                      <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:4px">
+                        <span style="width:8px;height:8px;border-radius:2px;background:{{ b.color }};margin-top:4px;flex:none"></span>
+                        <span style="font-size:12px;color:var(--text);flex:1">{{ b.party }}</span>
+                        <div style="text-align:right;flex:none;font-variant-numeric:tabular-nums">
+                          <div style="font-family:'IBM Plex Sans';font-size:11.5px;font-weight:600;color:var(--text)">{{ b.share }}</div>
+                          <sc-if value="{{ b.hasVotes }}" hint-placeholder-val="{{ false }}"><div style="font-size:10px;color:var(--mute);margin-top:1px">{{ b.votesLabel }} votes</div></sc-if>
+                        </div>
+                      </div>
+                      <div style="height:4px;border-radius:3px;background:var(--surface3);overflow:hidden"><span style="{{ b.bar }}"></span></div>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+              </sc-if>
               <sc-if value="{{ ngElec.hasWinner }}" hint-placeholder-val="{{ false }}">
-              <div style="display:flex;align-items:center;gap:10px;padding:11px 14px;background:var(--primary-soft);border-bottom:1px solid var(--border)"><span class="msi" style="font-size:22px;color:{{ ngElec.winnerColor }}">emoji_events</span><div style="min-width:0"><div style="font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)">Winner</div><div style="font-size:13.5px;font-weight:600;color:var(--text)">{{ ngElec.winnerName }} · {{ ngElec.winnerParty }}</div></div></div>
+              <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--primary-soft);border-bottom:1px solid var(--border)"><span class="msi" style="font-size:20px;color:{{ ngElec.winnerColor }}">emoji_events</span><div style="min-width:0"><div style="font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)">{{ ngElec.winnerCaption }}</div><div style="font-size:13px;font-weight:600;color:var(--text)">{{ ngElec.winnerName }} · {{ ngElec.winnerParty }}</div></div></div>
               </sc-if>
               <sc-if value="{{ ngElec.upcoming }}" hint-placeholder-val="{{ false }}">
               <div style="display:flex;align-items:center;gap:9px;padding:11px 14px;border-bottom:1px solid var(--border);font-size:11.5px;color:var(--up)"><span class="msi" style="font-size:18px">schedule</span>Result pending — contest upcoming</div>
               </sc-if>
               <sc-if value="{{ ngElec.isPres || ngElec.isGovCands }}" hint-placeholder-val="{{ false }}">
-              <div style="padding:8px 14px 2px;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute)">All {{ ngElec.totalCands }} candidates · winner first</div>
+              <div style="padding:8px 12px 2px;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute)">{{ ngElec.candsCaption }}</div>
               </sc-if>
-              <div class="eid-scroll" style="padding:11px 14px;display:flex;flex-direction:column;gap:11px;max-height:360px;overflow-y:auto">
+              <div style="padding:10px 12px;display:flex;flex-direction:column;gap:10px">
                 <sc-for list="{{ elecCands }}" as="c" hint-placeholder-count="4">
                   <div>
                     <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:5px">
@@ -845,44 +909,64 @@ a:hover{color:var(--primary)}
                   </div>
                 </sc-for>
               </div>
-              <sc-if value="{{ ngElec.unitDetail }}" hint-placeholder-val="{{ false }}">
-              <div style="border-top:1px solid var(--border);padding:12px 14px;background:var(--surface2)">
-                <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><button onClick="{{ ngElec.unitDetail.onBack }}" style="height:28px;padding:0 10px;border:1px solid var(--border);background:transparent;border-radius:7px;font-family:inherit;font-size:11px;color:var(--dim);cursor:pointer">← Back</button><div style="min-width:0;flex:1"><div style="font-size:13px;font-weight:600;color:var(--text)">{{ ngElec.unitDetail.name }}</div><div style="font-size:10.5px;color:var(--mute)">{{ ngElec.unitDetail.winner }} · {{ ngElec.unitDetail.party }}</div></div></div>
-                <div style="font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute);margin-bottom:8px">Vote breakdown · {{ ngElec.unitDetail.totalVotes }} votes</div>
-                <div style="display:flex;flex-direction:column;gap:9px">
-                  <sc-for list="{{ ngElec.unitDetail.breakdown }}" as="b" hint-placeholder-count="4">
-                    <div>
-                      <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:4px">
-                        <span style="width:8px;height:8px;border-radius:2px;background:{{ b.color }};margin-top:4px;flex:none"></span>
-                        <span style="font-size:12px;color:var(--text);flex:1">{{ b.party }}</span>
-                        <div style="text-align:right;flex:none;font-variant-numeric:tabular-nums">
-                          <div style="font-family:'IBM Plex Sans';font-size:11.5px;font-weight:600;color:var(--text)">{{ b.share }}</div>
-                          <sc-if value="{{ b.hasVotes }}" hint-placeholder-val="{{ false }}"><div style="font-size:10px;color:var(--mute);margin-top:1px">{{ b.votesLabel }} votes</div></sc-if>
-                        </div>
-                      </div>
-                      <div style="height:4px;border-radius:3px;background:var(--surface3);overflow:hidden"><span style="{{ b.bar }}"></span></div>
+              <sc-if value="{{ ngElec.showLgaBrowse }}" hint-placeholder-val="{{ false }}">
+              <div style="border-top:1px solid var(--border);padding:8px 12px 4px;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute)">{{ ngElec.lgaBrowseLabel }}</div>
+              <div style="padding:4px 8px 10px;display:flex;flex-direction:column;gap:2px">
+                <sc-for list="{{ ngElec.lgaRows }}" as="u" hint-placeholder-count="6">
+                  <div onClick="{{ u.onClick }}" style="{{ u.rowStyle }}" style-hover="background:var(--surface2)">
+                    <span style="width:8px;height:8px;border-radius:2px;flex:none;background:{{ u.color }}"></span>
+                    <div style="min-width:0;flex:1">
+                      <div style="font-size:11.5px;font-weight:600;color:var(--text)">{{ u.name }}</div>
+                      <div style="font-size:10px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ u.winner }} · {{ u.party }}</div>
                     </div>
-                  </sc-for>
-                </div>
+                    <sc-if value="{{ u.hasVotes }}" hint-placeholder-val="{{ false }}">
+                    <div style="text-align:right;flex:none;font-variant-numeric:tabular-nums">
+                      <div style="font-size:11px;font-weight:600;color:var(--text)">{{ u.votesLabel }}</div>
+                      <div style="font-size:9px;color:var(--mute)">votes</div>
+                    </div>
+                    </sc-if>
+                  </div>
+                </sc-for>
               </div>
               </sc-if>
             </sc-if>
             <sc-if value="{{ ngElec.isNA }}" hint-placeholder-val="{{ false }}">
+              <sc-if value="{{ ngElec.unitDetail }}" hint-placeholder-val="{{ false }}">
+              <div style="padding:12px 14px;border-bottom:1px solid var(--border);background:var(--surface2)">
+                <button type="button" onClick="{{ ngElec.unitDetail.onBack }}" style="border:none;background:transparent;color:var(--primary);cursor:pointer;font-family:inherit;font-size:11.5px;padding:0;display:inline-flex;align-items:center;gap:4px;margin-bottom:8px"><span class="msi" style="font-size:15px">arrow_back</span>Back</button>
+                <div style="font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute);margin-bottom:4px">{{ ngElec.na.districtWord }}</div>
+                <div style="font-family:'IBM Plex Sans';font-size:16px;font-weight:600;color:var(--text)">{{ ngElec.unitDetail.name }}</div>
+                <div style="font-size:12px;color:var(--dim);margin-top:2px">{{ ngElec.unitDetail.winner }} · {{ ngElec.unitDetail.party }}</div>
+                <sc-if value="{{ ngElec.unitDetail.breakdown.length }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-top:10px;display:flex;flex-direction:column;gap:7px">
+                  <sc-for list="{{ ngElec.unitDetail.breakdown }}" as="b" hint-placeholder-count="3">
+                    <div>
+                      <div style="display:flex;align-items:center;gap:7px;margin-bottom:3px"><span style="width:8px;height:8px;border-radius:2px;background:{{ b.color }};flex:none"></span><span style="font-size:11.5px;font-weight:500;color:var(--text)">{{ b.party }}</span><span style="margin-left:auto;font-size:11px;font-variant-numeric:tabular-nums;color:var(--text)">{{ b.votesLabel }}</span><span style="font-size:10px;color:var(--mute);min-width:36px;text-align:right">{{ b.share }}</span></div>
+                      <div style="height:5px;border-radius:3px;background:var(--surface3);overflow:hidden"><span style="{{ b.bar }}"></span></div>
+                    </div>
+                  </sc-for>
+                </div>
+                </sc-if>
+              </div>
+              </sc-if>
               <div style="padding:12px 14px;border-bottom:1px solid var(--border)">
                 <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px"><span style="font-family:'IBM Plex Sans';font-weight:600;font-size:22px;color:var(--text)">{{ ngElec.na.total }}</span><span style="font-size:11.5px;color:var(--mute)">seats · {{ ngElec.na.chamber }}</span></div>
                 <div style="display:flex;height:9px;border-radius:5px;overflow:hidden;background:var(--surface3)"><sc-for list="{{ ngElec.na.parties }}" as="p" hint-placeholder-count="4"><span title="{{ p.party }}" style="{{ p.bar }}"></span></sc-for></div>
                 <div style="display:flex;align-items:center;gap:6px;margin-top:8px;font-size:11px;color:var(--dim)"><span class="msi" style="font-size:15px;color:{{ ngElec.na.leadColor }}">emoji_events</span>{{ ngElec.na.leadText }} · {{ ngElec.na.majorityText }}</div>
+                <sc-if value="{{ ngElec.sourceLine }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-top:8px;font-size:10.5px;color:var(--mute);line-height:1.4">{{ ngElec.sourceLine }}</div>
+                </sc-if>
               </div>
               <div style="padding:10px 14px;display:flex;flex-direction:column;gap:9px;border-bottom:1px solid var(--border)">
                 <sc-for list="{{ ngElec.na.parties }}" as="p" hint-placeholder-count="4">
                   <div style="display:flex;align-items:center;gap:8px"><span style="width:9px;height:9px;border-radius:2px;flex:none;background:{{ p.color }}"></span><span style="font-size:12px;font-weight:500;color:var(--text)">{{ p.party }}</span><span style="margin-left:auto;font-family:'IBM Plex Sans';font-size:12px;font-weight:600;color:var(--text);font-variant-numeric:tabular-nums">{{ p.seats }}</span><span style="font-family:'IBM Plex Sans';font-size:10.5px;color:var(--mute);min-width:42px;text-align:right">{{ p.pctLabel }}</span></div>
                 </sc-for>
               </div>
-              <div style="padding:11px 14px 0"><select value="{{ ngElec.na.stateVal }}" onChange="{{ ngElec.na.onState }}" style="{{ selStyle }}"><sc-for list="{{ ngElec.na.states }}" as="s" hint-placeholder-count="6"><option value="{{ s }}">{{ s }}</option></sc-for></select></div>
-              <div style="padding:9px 14px 4px;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute)">{{ ngElec.na.stateVal }} · {{ ngElec.na.stateSeatCount }} seat(s)</div>
+              <div style="padding:11px 14px 0"><select value="{{ ngElec.na.stateVal }}" onChange="{{ ngElec.na.onState }}" style="{{ selStyle }}"><option value="">All states · click map</option><sc-for list="{{ ngElec.na.states }}" as="s" hint-placeholder-count="6"><option value="{{ s }}">{{ s }}</option></sc-for></select></div>
+              <div style="padding:9px 14px 4px;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute)">{{ ngElec.na.seatsHeading }}</div>
               <div class="eid-scroll" style="max-height:280px;overflow-y:auto;padding:0 14px 10px">
                 <sc-for list="{{ ngElec.na.stateSeats }}" as="d" hint-placeholder-count="3">
-                  <div style="display:flex;align-items:center;gap:9px;padding:8px 0;border-bottom:1px solid var(--border)"><span style="width:8px;height:8px;border-radius:2px;flex:none;background:{{ d.color }}"></span><div style="min-width:0;flex:1"><div style="font-size:12px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ d.district }}</div><div style="font-size:10.5px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ d.winner }}</div></div><span style="font-family:'IBM Plex Sans';font-size:10.5px;font-weight:600;color:{{ d.color }}">{{ d.party }}</span></div>
+                  <div onClick="{{ d.onClick }}" style="{{ d.rowStyle }}" style-hover="background:var(--surface2)"><span style="width:8px;height:8px;border-radius:2px;flex:none;background:{{ d.color }}"></span><div style="min-width:0;flex:1"><div style="font-size:12px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ d.district }}</div><div style="font-size:10.5px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ d.winner }}</div></div><div style="text-align:right;flex:none"><span style="font-family:'IBM Plex Sans';font-size:10.5px;font-weight:600;color:{{ d.color }}">{{ d.party }}</span><sc-if value="{{ d.hasVotes }}" hint-placeholder-val="{{ false }}"><div style="font-size:9.5px;color:var(--mute);font-variant-numeric:tabular-nums">{{ d.votesLabel }}</div></sc-if></div></div>
                 </sc-for>
               </div>
             </sc-if>
@@ -911,15 +995,7 @@ a:hover{color:var(--primary)}
                 </sc-for>
               </div>
             </sc-if>
-            <sc-if value="{{ ngElec.isLga }}" hint-placeholder-val="{{ false }}">
-              <div style="padding:11px 14px 0"><select value="{{ ngElec.chairStateVal }}" onChange="{{ ngElec.onChairState }}" style="{{ selStyle }}"><sc-for list="{{ ngElec.chairStates }}" as="s" hint-placeholder-count="6"><option value="{{ s }}">{{ s }}</option></sc-for></select></div>
-              <div style="padding:9px 14px 4px;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute)">LGA chairmen · {{ ngElec.chairStateVal }}</div>
-              <div class="eid-scroll" style="max-height:320px;overflow-y:auto;padding:0 14px 10px">
-                <sc-for list="{{ ngElec.chairmen }}" as="g" hint-placeholder-count="4">
-                  <div style="display:flex;align-items:center;gap:9px;padding:8px 0;border-bottom:1px solid var(--border)"><span style="width:8px;height:8px;border-radius:2px;flex:none;background:{{ g.color }}"></span><div style="min-width:0;flex:1"><div style="font-size:12px;font-weight:600;color:var(--text)">{{ g.name }}</div><div style="font-size:10.5px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ g.winner }} · {{ g.party }}</div></div><span style="font-family:'IBM Plex Sans';font-size:11.5px;font-weight:600;color:var(--text);font-variant-numeric:tabular-nums">{{ g.share }}</span></div>
-                </sc-for>
-              </div>
-            </sc-if>
+            </div>
           </section>
           </sc-if>
         </aside>
@@ -1878,7 +1954,7 @@ a:hover{color:var(--primary)}
           </div>
           <div style="position:relative;display:flex;align-items:center;width:min(320px,70vw)"><span class="msi" style="position:absolute;left:11px;color:var(--mute);font-size:18px;pointer-events:none">search</span><input value="{{ dataExplorer.query }}" onInput="{{ dataExplorer.onQuery }}" placeholder="Search datasets…" style="width:100%;height:38px;padding:0 12px 0 37px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:9px;font-family:inherit;font-size:12.5px;outline:none" style-focus="border-color:var(--primary)"></div>
         </div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px">
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px">
           <label style="display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--mute)">Office
             <select value="{{ dataExplorer.office }}" onChange="{{ dataExplorer.onOffice }}" style="height:32px;padding:0 10px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:8px;font-family:inherit;font-size:12px">
               <sc-for list="{{ dataExplorer.officeOptions }}" as="o" hint-placeholder-count="5"><option value="{{ o.v }}">{{ o.l }}</option></sc-for>
@@ -1896,18 +1972,37 @@ a:hover{color:var(--primary)}
           </label>
           <sc-if value="{{ dataExplorer.loading }}" hint-placeholder-val="{{ false }}"><span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--mute)"><span class="msi" style="font-size:16px;display:inline-block;animation:eidspin 1s linear infinite">progress_activity</span>Loading catalog…</span></sc-if>
         </div>
+        <sc-if value="{{ dataExplorer.hasGroups }}" hint-placeholder-val="{{ true }}">
+          <div class="eid-data-jump">
+            <sc-for list="{{ datasetGroups }}" as="g" hint-placeholder-count="5">
+              <button type="button" class="eid-data-jump__btn" onClick="{{ g.jump }}" title="Jump to {{ g.label }}"><span class="msi" style="font-size:15px;color:var(--primary)">{{ g.icon }}</span>{{ g.label }}<span class="eid-data-jump__n">{{ g.countLabel }}</span></button>
+            </sc-for>
+          </div>
+        </sc-if>
         <div class="eid-page-body eid-scroll" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:auto">
-          <div style="display:grid;grid-template-columns:minmax(220px,2.2fr) 0.9fr 1.1fr 0.9fr auto;gap:12px;padding:11px 16px;border-bottom:1px solid var(--border);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--mute);position:sticky;top:0;background:var(--surface);z-index:1"><span>Dataset</span><span>Type</span><span>Format</span><span>Updated</span><span>Download</span></div>
-          <sc-for list="{{ datasets }}" as="d" hint-placeholder-count="8">
-            <div style="display:grid;grid-template-columns:minmax(220px,2.2fr) 0.9fr 1.1fr 0.9fr auto;gap:12px;align-items:center;padding:13px 16px;border-bottom:1px solid var(--border)">
-              <div style="display:flex;align-items:flex-start;gap:10px;min-width:0"><span class="msi" style="font-size:19px;color:var(--primary);margin-top:1px">{{ d.icon }}</span><div style="min-width:0"><div style="font-size:13px;font-weight:500;color:var(--text)">{{ d.name }}</div><div style="font-size:11px;color:var(--mute);line-height:1.4">{{ d.coverage }} · {{ d.source }}</div><sc-if value="{{ d.hasNotes }}" hint-placeholder-val="{{ false }}"><div style="font-size:10.5px;color:var(--dim);margin-top:3px;line-height:1.35">{{ d.notes }}</div></sc-if></div></div>
-              <span style="font-size:12px;color:var(--dim)">{{ d.type }}</span>
-              <span style="font-family:'IBM Plex Sans';font-size:11.5px;color:var(--dim)">{{ d.fmt }}</span>
-              <span style="font-size:11.5px;color:var(--mute)">{{ d.updated }}</span>
-              <div style="display:inline-flex;align-items:center;gap:6px;justify-content:flex-end">
-                <sc-if value="{{ d.hasJson }}" hint-placeholder-val="{{ true }}"><a href="{{ d.jsonHref }}" download target="_blank" rel="noopener" style="height:30px;padding:0 10px;display:inline-flex;align-items:center;gap:5px;border:1px solid var(--border);background:transparent;color:var(--text);border-radius:8px;font-family:inherit;font-size:11.5px;text-decoration:none" style-hover="border-color:var(--primary);color:var(--primary)"><span class="msi" style="font-size:15px">download</span>JSON</a></sc-if>
-                <sc-if value="{{ d.hasCsv }}" hint-placeholder-val="{{ false }}"><a href="{{ d.csvHref }}" download target="_blank" rel="noopener" style="height:30px;padding:0 10px;display:inline-flex;align-items:center;gap:5px;border:1px solid var(--border);background:transparent;color:var(--text);border-radius:8px;font-family:inherit;font-size:11.5px;text-decoration:none" style-hover="border-color:var(--primary);color:var(--primary)"><span class="msi" style="font-size:15px">table</span>CSV</a></sc-if>
-              </div>
+          <sc-for list="{{ datasetGroups }}" as="g" hint-placeholder-count="5">
+            <div id="{{ g.anchorId }}">
+              <button type="button" class="eid-data-cat__hd" onClick="{{ g.toggle }}" aria-expanded="{{ g.open }}">
+                <span class="msi" style="font-size:18px;color:var(--primary)">{{ g.icon }}</span>
+                <h2>{{ g.label }}</h2>
+                <span class="eid-data-cat__count">{{ g.countLabel }} datasets</span>
+                <span class="msi" style="font-size:18px;color:var(--mute)">{{ g.chevron }}</span>
+              </button>
+              <sc-if value="{{ g.showRows }}" hint-placeholder-val="{{ true }}">
+                <div class="eid-data-cat__cols"><span>Dataset</span><span>Type</span><span>Format</span><span>Updated</span><span>Download</span></div>
+                <sc-for list="{{ g.rows }}" as="d" hint-placeholder-count="4">
+                  <div class="eid-data-row">
+                    <div style="display:flex;align-items:flex-start;gap:10px;min-width:0"><span class="msi" style="font-size:19px;color:var(--primary);margin-top:1px">{{ d.icon }}</span><div style="min-width:0"><div style="font-size:13px;font-weight:500;color:var(--text)">{{ d.name }}</div><div style="font-size:11px;color:var(--mute);line-height:1.4">{{ d.coverage }} · {{ d.source }}</div><sc-if value="{{ d.hasNotes }}" hint-placeholder-val="{{ false }}"><div style="font-size:10.5px;color:var(--dim);margin-top:3px;line-height:1.35">{{ d.notes }}</div></sc-if></div></div>
+                    <span style="font-size:12px;color:var(--dim)">{{ d.type }}</span>
+                    <span style="font-family:'IBM Plex Sans';font-size:11.5px;color:var(--dim)">{{ d.fmt }}</span>
+                    <span style="font-size:11.5px;color:var(--mute)">{{ d.updated }}</span>
+                    <div style="display:inline-flex;align-items:center;gap:6px;justify-content:flex-end">
+                      <sc-if value="{{ d.hasJson }}" hint-placeholder-val="{{ true }}"><a href="{{ d.jsonHref }}" download target="_blank" rel="noopener" style="height:30px;padding:0 10px;display:inline-flex;align-items:center;gap:5px;border:1px solid var(--border);background:transparent;color:var(--text);border-radius:8px;font-family:inherit;font-size:11.5px;text-decoration:none" style-hover="border-color:var(--primary);color:var(--primary)"><span class="msi" style="font-size:15px">download</span>JSON</a></sc-if>
+                      <sc-if value="{{ d.hasCsv }}" hint-placeholder-val="{{ false }}"><a href="{{ d.csvHref }}" download target="_blank" rel="noopener" style="height:30px;padding:0 10px;display:inline-flex;align-items:center;gap:5px;border:1px solid var(--border);background:transparent;color:var(--text);border-radius:8px;font-family:inherit;font-size:11.5px;text-decoration:none" style-hover="border-color:var(--primary);color:var(--primary)"><span class="msi" style="font-size:15px">table</span>CSV</a></sc-if>
+                    </div>
+                  </div>
+                </sc-for>
+              </sc-if>
             </div>
           </sc-for>
           <sc-if value="{{ dataExplorer.empty }}" hint-placeholder-val="{{ false }}">
@@ -2100,7 +2195,7 @@ a:hover{color:var(--primary)}
 class Component extends DCLogic {
   state = { theme:(typeof localStorage!=='undefined' && localStorage.getItem('eid-theme')) || 'light', view:'welcome', scope:'global', section:'Overview', switcherOpen:false, mapSel:null, basemap:'streets',
     realPop:null, ekitiResult:null, nigeriaResult:null, pollPoints:[], puDir:{ states:[], lgas:[], wards:[], units:[] }, puSearchHits:[],
-    ngState:null, ngLga:null, ngWard:null, ngPU:null, ovElecYear:'2023', ovOffice:'pres', ovElecState:null, elecMapTheme:null, liveMapTheme:null, elecChoroMeta:null, elecSelectedUnit:null, elecExpandedCand:null, showEstimatedLga:true, govStatesByYear:{}, govCatalog:null, ngKpiRow:null, puLoading:null,
+    ngState:null, ngLga:null, ngWard:null, ngPU:null, ovElecYear:'2023', ovOffice:'pres', ovElecState:null, elecMapTheme:null, liveMapTheme:null, elecChoroMeta:null, elecSelectedUnit:null, elecExpandedCand:null, elecPresStateSnap:null, showEstimatedLga:true, govStatesByYear:{}, govCatalog:null, ngKpiRow:null, puLoading:null,
     electionsList:[], electionNews:[], ingestStatus:null, popStatus:null, puDash:null,
     subState:null, subLga:null, subWard:null, subPU:null, subCoords:null, subGeo:'idle', subFile:null, submissions:[], subSubmitError:null, subMineIds:[],
     liveCompareMode:'overlay', liveComparePct:50, liveShowOfficial:true, liveShowCitizen:true, citizenMapTheme:null, adminCsrf:null,
@@ -2113,6 +2208,7 @@ class Component extends DCLogic {
     anaMomentum:65, anaRetention:25, anaSubTab:'overview', anaAdvanced:false,
     apiUrl:'', apiKey:'', apiStatus:'idle', uploads:[],
     layersOpen:false, basemapOpen:false,
+    dataQuery:'', dataOffice:'all', dataYear:'all', dataCategory:'all', dataCatalog:null, dataCatalogLoading:false, dataCatCollapsed:{},
     layers:{ state:true, lga:false, ward:false, polling:false, health:false },
     mapStudioViews:null,
     status:{ live:true, upcoming:true, recent:true, nodata:false } };
@@ -2232,13 +2328,111 @@ class Component extends DCLogic {
       showEstimatedLga: true,
     }, ()=>{ this.fetchNgKpis(); this.flyToElectionView(); });
   }
+  isGovCoverageTheme(theme){
+    // Choropleth payloads set `coverage` to a level string ('state'/'lga'), which is truthy.
+    // Only the governorship archive picker uses coverage===true / mapMode gov-coverage.
+    return !!(theme && (theme.mapMode === 'gov-coverage' || theme.coverage === true));
+  }
+  buildElecUnitDetail(name, unit){
+    if (!unit) return null;
+    const votes = unit.votes || {};
+    const total = Object.values(votes).reduce((a,b)=>a+Number(b||0),0) || 1;
+    const breakdown = Object.entries(votes).map(([party, count])=>{
+      const pct = +((Number(count)/total)*100).toFixed(1);
+      const n = Number(count)||0;
+      return {
+        party, color:this.partyColor(party), votes:n,
+        share:pct.toFixed(1)+'%',
+        votesLabel: this.fmtInt(n),
+        bar:`display:block;height:100%;width:${pct}%;background:${this.partyColor(party)}`,
+      };
+    }).sort((a,b)=>b.votes-a.votes);
+    return {
+      name, winner:unit.winner, party:unit.party, color:this.partyColor(unit.party),
+      totalVotes:total, breakdown,
+    };
+  }
   onResultMapUnitClick(name, unit, layerKind){
     const theme = this.state.elecMapTheme;
-    if (theme && theme.coverage && (layerKind === 'state' || theme.level === 'state')) {
+    if (this.isGovCoverageTheme(theme) && (layerKind === 'state' || theme.level === 'state')) {
       this.selectGovState(name || (unit && unit._canonicalKey));
       return;
     }
+    // Senate / House national map → focus state seat list (keep national choropleth).
+    if (
+      theme &&
+      theme.ok &&
+      (theme.office === 'sen' || theme.office === 'reps') &&
+      theme.level === 'state' &&
+      (layerKind === 'state' || !layerKind)
+    ) {
+      const st = name || (unit && unit._canonicalKey);
+      if (st) {
+        this.setState({ ovElecState: st, elecSelectedUnit: null, elecExpandedCand: null }, ()=>{
+          try {
+            const aside = document.querySelector('.ov-aside-right');
+            if (aside) aside.scrollTop = 0;
+          } catch (e) {}
+        });
+      }
+      return;
+    }
+    // Presidential national map → always show statewide vote breakdown; drill to LGA when pack covers the state.
+    if (
+      theme &&
+      theme.ok &&
+      theme.office === 'pres' &&
+      theme.level === 'state' &&
+      (layerKind === 'state' || !layerKind)
+    ) {
+      const st = name || (unit && unit._canonicalKey);
+      const snap = unit || (theme.units && (theme.units[st] || theme.units[name])) || null;
+      const detail = st && snap ? this.buildElecUnitDetail(st, snap) : null;
+      const avail = Array.isArray(theme.availableStates) ? theme.availableStates : [];
+      const canDrill = !!(st && avail.length && avail.some((s)=> String(s).toLowerCase() === String(st).toLowerCase()));
+      if (st && canDrill) {
+        // Keep vote breakdown visible while the LGA pack loads (pending would otherwise hide the panel).
+        this.setState({
+          ovElecState: st,
+          elecPresStateSnap: snap,
+          elecMapTheme: null,
+          elecChoroMeta: null,
+          elecSelectedUnit: detail,
+          elecExpandedCand: null,
+          showEstimatedLga: true,
+        }, ()=>{
+          try {
+            const aside = document.querySelector('.ov-aside-right');
+            if (aside) aside.scrollTop = 0;
+          } catch (e) {}
+          this.fetchNgKpis();
+          this.flyToElectionView();
+        });
+        return;
+      }
+      // No LGA pack for this year/state — open statewide vote breakdown in the panel.
+      if (detail) {
+        this.setState({ elecSelectedUnit: detail, elecExpandedCand: null, elecPresStateSnap: snap }, ()=>{
+          try {
+            const aside = document.querySelector('.ov-aside-right');
+            if (aside) aside.scrollTop = 0;
+          } catch (e) {}
+        });
+        return;
+      }
+    }
     this.selectElecUnit(name, unit);
+  }
+  clearPresState(){
+    this.setState({
+      ovElecState: null,
+      elecPresStateSnap: null,
+      elecMapTheme: null,
+      elecChoroMeta: null,
+      elecSelectedUnit: null,
+      elecExpandedCand: null,
+      showEstimatedLga: true,
+    }, ()=>{ this.fetchNgKpis(); this.flyToElectionView(); });
   }
   toggleEstimatedLga(){
     const next = !this.state.showEstimatedLga;
@@ -2442,7 +2636,6 @@ class Component extends DCLogic {
     sen: ['2027','2023','2019','2015'],
     reps: ['2027','2023','2019','2015'],
     assembly: ['2027','2023','2019','2015'],
-    lga: ['2027','2023','2019','2015'],
   };
   GOV_STATES = [];
   NG_OFFICES = [
@@ -2451,7 +2644,6 @@ class Component extends DCLogic {
     {id:'sen', label:'Senatorial Election', group:'National Assembly'},
     {id:'reps', label:'House of Representatives Election', group:'National Assembly'},
     {id:'assembly', label:'State House of Assembly Election'},
-    {id:'lga', label:'LGA Chairman Election'},
   ];
   NG_PARTIES = [ {name:'APC',color:'#2f6fed'}, {name:'PDP',color:'#cf3a4e'}, {name:'LP',color:'#2fa84f'}, {name:'NNPP',color:'#7a53d1'} ];
   NG_NAMES = ['A. Bello','C. Okafor','M. Sani','T. Adeyemi','I. Musa','F. Eze','K. Danjuma','O. Balogun','U. Chukwu','H. Lawal','B. Nwosu','G. Aliyu','J. Onyeka','S. Ibrahim'];
@@ -2492,8 +2684,8 @@ class Component extends DCLogic {
   }
   syncElectionLayers(office, state, choroActive, level){
     const layers = { ...this.state.layers };
-    layers.lga = !!(office === 'gov' && state && choroActive && level === 'lga');
-    if (office === 'gov' && state && choroActive) {
+    layers.lga = !!((office === 'gov' || office === 'pres') && state && choroActive && level === 'lga');
+    if ((office === 'gov' || office === 'pres') && state && choroActive && level === 'lga') {
       layers.ward = false;
       layers.polling = false;
     }
@@ -2551,24 +2743,48 @@ class Component extends DCLogic {
     }));
   }
   selectElecUnit(name, unit){
-    const votes = unit.votes || {};
-    const total = Object.values(votes).reduce((a,b)=>a+Number(b||0),0) || 1;
-    const breakdown = Object.entries(votes).map(([party, count])=>{
-      const pct = +((Number(count)/total)*100).toFixed(1);
-      const n = Number(count)||0;
-      return {
-        party, color:this.partyColor(party), votes:n,
-        share:pct.toFixed(1)+'%',
-        votesLabel: this.fmtInt(n),
-        bar:`display:block;height:100%;width:${pct}%;background:${this.partyColor(party)}`,
-      };
-    }).sort((a,b)=>b.votes-a.votes);
-    this.setState({ elecSelectedUnit:{
-      name, winner:unit.winner, party:unit.party, color:this.partyColor(unit.party),
-      totalVotes:total, breakdown,
-    }, elecExpandedCand: null });
+    if (!unit) {
+      this.setState({ elecSelectedUnit: null });
+      return;
+    }
+    const detail = this.buildElecUnitDetail(name, unit);
+    if (detail) {
+      if (unit._naDistrict) detail._naDistrict = true;
+      if (unit._naState) detail._naState = unit._naState;
+    }
+    this.setState({ elecSelectedUnit: detail, elecExpandedCand: null }, ()=>{
+      // Keep the right panel readable after a map click.
+      try {
+        const aside = document.querySelector('.ov-aside-right');
+        if (aside) aside.scrollTop = 0;
+      } catch (e) {}
+    });
   }
   clearElecUnit(){ this.setState({ elecSelectedUnit:null }); }
+  buildLgaBrowseRows(units, colorOf){
+    const seen = new Set();
+    const rows = [];
+    Object.entries(units || {}).forEach(([name, u])=>{
+      const dedupe = (u && u._canonicalKey) || name;
+      if (seen.has(dedupe)) return;
+      seen.add(dedupe);
+      const votes = (u && u.votes) || {};
+      const total = Object.values(votes).reduce((a,b)=>a+Number(b||0),0);
+      rows.push({
+        name: dedupe,
+        winner: (u && u.winner) || '—',
+        party: (u && u.party) || '—',
+        color: colorOf((u && u.party) || 'Others'),
+        votesLabel: this.fmtInt(total),
+        hasVotes: total > 0,
+        unit: u,
+        onClick: ()=> this.selectElecUnit(dedupe, u),
+        rowStyle: 'display:flex;align-items:center;gap:9px;padding:7px 6px;border-radius:7px;cursor:pointer;border:1px solid transparent',
+      });
+    });
+    rows.sort((a,b)=> a.name.localeCompare(b.name));
+    return rows;
+  }
   sumPartyVotesFromUnits(units, party){
     const seen = new Set();
     let total = 0;
@@ -2586,11 +2802,18 @@ class Component extends DCLogic {
     const pack = (rows, extra={})=>{
       rows = (rows||[]).slice().sort((a,b)=>(b.won?1:0)-(a.won?1:0) || (b.share||0)-(a.share||0));
       const winner = rows.find(r=>r.won);
+      const stateLabel = extra.stateLabel || null;
+      const panelTitle = stateLabel
+        ? `${off.label} · ${stateLabel} · ${year}`
+        : `${off.group ? `${off.group} · ${off.label}` : off.label} · ${year}`;
       return {
         label: off.group ? `${off.group} · ${off.label}` : off.label, year, upcoming:!!upcoming,
+        panelTitle,
         isPres: officeId==='pres', isGov: officeId==='gov', totalCands: rows.length,
         hasWinner: !!winner,
         winnerName: winner? winner.name : '—', winnerParty: winner? winner.party : '—', winnerColor: winner? colorOf(winner.party) : 'var(--mute)',
+        winnerCaption: stateLabel ? `${stateLabel} winner` : 'Winner',
+        candsCaption: `All ${rows.length} candidates · winner first`,
         candidates: rows.map(r=>{
           const votes = r.votes != null ? Number(r.votes) : null;
           return {
@@ -2632,9 +2855,10 @@ class Component extends DCLogic {
             ? 'Statewide: sourced INEC totals · LGA map estimated (PVC-proportional)'
             : 'Statewide: sourced INEC totals · LGA map hidden (estimated only)')
           : 'Statewide sourced result');
+      const lgaRows = (choro.level === 'lga') ? this.buildLgaBrowseRows(choro.units, colorOf) : [];
       return pack(rows, {
         govLevel: choro.level || 'lga',
-        stateLabel: choro.state || 'State',
+        stateLabel: choro.state || selectedState || 'State',
         estimated: !!choro.estimated,
         collated: !!choro.collated,
         sourceLine,
@@ -2643,11 +2867,117 @@ class Component extends DCLogic {
         estimatedOn: !!this.state.showEstimatedLga,
         toggleEstimated: ()=>this.toggleEstimatedLga(),
         estimatedToggleLabel: this.state.showEstimatedLga ? 'Hide estimated LGA (statewide fill)' : 'Show estimated LGA map',
+        showLgaBrowse: lgaRows.length > 0,
+        lgaBrowseLabel: `LGAs in ${choro.state || selectedState || 'state'} · ${lgaRows.length}`,
+        lgaRows,
+        unitLevel: 'lga',
+      });
+    }
+    // Presidential with a selected state but no usable LGA pack yet — still show statewide snap votes.
+    if(officeId==='pres' && selectedState && (!choro || !choro.ok)){
+      const snap = this.state.elecPresStateSnap || null;
+      const snapVotes = (snap && snap.votes) || null;
+      if (snapVotes && Object.keys(snapVotes).length) {
+        const national = this.NG_PRES[String(year)] || [];
+        const total = Object.values(snapVotes).reduce((a,b)=>a+Number(b||0),0) || 1;
+        const rows = national.filter(r=>r[1]!=='—').map(r=>{
+          const party = r[1];
+          const votes = Number(snapVotes[party] || 0);
+          return {
+            name:r[0], party, votes,
+            share: +((votes/total)*100).toFixed(1),
+            won: !!(snap.party === party) && !upcoming,
+            statesWon: 0, unitsLabel: null, wonUnits: [],
+          };
+        });
+        // Include any snap parties missing from the national shortlist.
+        Object.keys(snapVotes).forEach((party)=>{
+          if (rows.some(r=>r.party===party)) return;
+          const votes = Number(snapVotes[party] || 0);
+          rows.push({
+            name: party, party, votes,
+            share: +((votes/total)*100).toFixed(1),
+            won: !!(snap.party === party) && !upcoming,
+            statesWon: 0, unitsLabel: null, wonUnits: [],
+          });
+        });
+        return pack(rows, {
+          stateLabel: selectedState,
+          unitLevel: 'state',
+          sourceLine: choro && choro.message
+            ? `INEC statewide totals · ${choro.message}`
+            : (choro ? `INEC statewide totals · ${choro.message || 'LGA map unavailable'}` : 'INEC statewide totals · loading LGA map…'),
+          candsCaption: `${selectedState} party totals · winner first`,
+          pending: false,
+        });
+      }
+      if (choro && !choro.ok) {
+        return pack([], {
+          pending: true,
+          stateLabel: selectedState,
+          pendingMsg: choro.message
+            || `No presidential LGA tallies for ${selectedState} in ${year}. Statewide map clicks still show INEC state totals when available.`,
+        });
+      }
+      return pack([], {
+        pending: true,
+        stateLabel: selectedState,
+        pendingMsg: `Loading ${selectedState} presidential results…`,
       });
     }
     if(officeId==='pres' && choro && choro.ok && choro.units){
+      const isLgaLevel = choro.level === 'lga' && !!(choro.state || selectedState);
       const byParty = this.groupWonUnits(choro.units, colorOf);
       const national = this.NG_PRES[String(year)] || [];
+      const snap = this.state.elecPresStateSnap || (choro && choro.stateUnit) || null;
+      const snapVotes = (snap && snap.votes) || null;
+
+      if (isLgaLevel) {
+        const stateName = choro.state || selectedState;
+        // Prefer official statewide votes from the clicked state unit; else sum published LGAs.
+        const partyVote = (party)=>{
+          if (snapVotes && snapVotes[party] != null) return Number(snapVotes[party]) || 0;
+          return this.sumPartyVotesFromUnits(choro.units, party);
+        };
+        const rows = national.filter(r=>r[1]!=='—').map(r=>{
+          const party = r[1];
+          const wonUnits = byParty[party] || [];
+          const votes = partyVote(party);
+          return {
+            name:r[0], party, votes, share: 0,
+            won: false,
+            statesWon: wonUnits.length,
+            unitsLabel: wonUnits.length ? `${wonUnits.length} LGA${wonUnits.length===1?'':'s'}` : null,
+            wonUnits,
+          };
+        });
+        const total = rows.reduce((a,r)=>a+Number(r.votes||0),0) || 1;
+        rows.forEach((r)=>{ r.share = +((Number(r.votes||0)/total)*100).toFixed(1); });
+        if (snap && snap.party) {
+          const hit = rows.find(r=>r.party===snap.party);
+          if (hit) hit.won = !upcoming;
+          else if (rows.length) rows[0].won = !upcoming;
+        } else if (rows.length) {
+          rows[0].won = !upcoming;
+        }
+        const lgaRows = this.buildLgaBrowseRows(choro.units, colorOf);
+        const usedSnap = !!(snapVotes && Object.keys(snapVotes).length);
+        const sourceLine = usedSnap
+          ? `INEC statewide totals · ${lgaRows.length} LGAs (Stears/INEC)${choro.sourceDetail ? ' · '+choro.sourceDetail : ''}`
+          : `LGA-summed votes (${lgaRows.length} LGAs) · coverage may be partial vs INEC statewide`;
+        return pack(rows, {
+          stateLabel: stateName,
+          level: 'lga',
+          unitLevel: 'lga',
+          sourceLine,
+          showLgaBrowse: lgaRows.length > 0,
+          lgaBrowseLabel: `LGAs in ${stateName} · click for votes`,
+          lgaRows,
+          candsCaption: `${stateName} party totals · winner first`,
+        });
+      }
+
+      // National state-level choropleth
       const rows = national.filter(r=>r[1]!=='—').map(r=>{
         const party = r[1];
         const wonUnits = byParty[party] || [];
@@ -2660,13 +2990,20 @@ class Component extends DCLogic {
           wonUnits,
         };
       });
-      return pack(rows);
+      return pack(rows, {
+        unitLevel: 'state',
+        sourceLine: choro.sourceDetail || choro.source || 'Official result · click a state for details',
+        candsCaption: 'National candidates · click a state on the map',
+      });
     }
     if(officeId==='pres' && this.NG_PRES[String(year)]){
       const rows = this.NG_PRES[String(year)].filter(r=>r[1]!=='—').map(r=>({
         name:r[0], party:r[1], share:r[2], votes: r[4] != null ? Number(r[4]) : null, won:!!r[3] && !upcoming,
       }));
-      return pack(rows);
+      return pack(rows, {
+        unitLevel: 'national',
+        sourceLine: 'Official national result · click a state on the map for statewide votes',
+      });
     }
     if(officeId==='gov'){
       if(!selectedState){
@@ -2679,6 +3016,128 @@ class Component extends DCLogic {
         return pack([], { pending:true, pendingMsg:'Loading governorship results for '+selectedState+'…' });
       }
       return pack([], { pending:true, pendingMsg:'Select a state to load official governorship results on the map.' });
+    }
+    if(officeId==='sen' || officeId==='reps'){
+      if(upcoming){
+        return pack([], { pending:true, pendingMsg:`${off.label} ${year} has not been held yet.` });
+      }
+      if(choro && !choro.ok){
+        return pack([], {
+          pending:true,
+          pendingMsg: choro.message || `No ${off.label} archive for ${year}.`,
+          isNA:true,
+        });
+      }
+      if(choro && choro.ok && choro.units){
+        const colorOfP = (nm) => this.partyColor(nm);
+        const seen = new Set();
+        const stateUnits = [];
+        Object.entries(choro.units).forEach(([name, u])=>{
+          const key = (u && u._canonicalKey) || name;
+          if (seen.has(key)) return;
+          seen.add(key);
+          stateUnits.push({ name: key, unit: u });
+        });
+        stateUnits.sort((a,b)=>a.name.localeCompare(b.name));
+        const seatTotal = Number(choro.seatTotal) || stateUnits.reduce((a,s)=>a+Number((s.unit && s.unit.seatCount) || 0),0) || (officeId==='sen'?109:360);
+        const partyRows = (choro.candidates || []).map((cd)=>{
+          const seats = Number(cd.votes != null ? cd.votes : cd.seats) || 0;
+          return {
+            party: cd.party,
+            color: colorOfP(cd.party),
+            seats,
+            pct: seatTotal ? (seats / seatTotal * 100) : 0,
+            pctLabel: seatTotal ? (seats / seatTotal * 100).toFixed(1)+'%' : '—',
+            bar: `flex:${Math.max(seats,0)};background:${colorOfP(cd.party)}`,
+          };
+        }).sort((a,b)=>b.seats-a.seats);
+        const lead = partyRows[0];
+        const majority = Math.floor(seatTotal / 2) + 1;
+        const focusState = selectedState || null;
+        const focusUnit = focusState
+          ? (stateUnits.find((s)=> s.name === focusState)?.unit || null)
+          : null;
+        const districtSeats = focusUnit && Array.isArray(focusUnit.seats)
+          ? focusUnit.seats
+          : [];
+        const districtWord = officeId==='sen' ? 'Senatorial district' : 'Federal constituency';
+        const stateSeats = districtSeats.map((seat)=>{
+          const voteTotal = Object.values(seat.votes || {}).reduce((a,n)=>a+Number(n||0),0);
+          const districtUnit = {
+            winner: seat.winner,
+            party: seat.party,
+            votes: seat.votes || {},
+            candidates: seat.candidates || [],
+            district: seat.district,
+            state: focusState || null,
+            _naDistrict: true,
+          };
+          return {
+            district: seat.district,
+            winner: seat.winner || '—',
+            party: seat.party || '—',
+            color: colorOfP(seat.party),
+            hasVotes: !!(seat.hasVotes && voteTotal > 0),
+            votesLabel: voteTotal > 0 ? this.fmtInt(voteTotal) : null,
+            onClick: ()=> this.selectElecUnit(seat.district, districtUnit),
+            rowStyle: 'display:flex;align-items:center;gap:9px;padding:8px 4px;border-bottom:1px solid var(--border);cursor:pointer;border-radius:6px',
+          };
+        });
+        return pack([], {
+          pending: false,
+          isNA: true,
+          unitLevel: 'state',
+          sourceLine: choro.sourceDetail || choro.source || 'Seat winners · click a state for districts',
+          na: {
+            total: String(seatTotal),
+            chamber: choro.chamber || (officeId==='sen' ? 'Senate' : 'House of Reps'),
+            parties: partyRows,
+            leadColor: lead ? lead.color : 'var(--mute)',
+            leadText: lead ? `${lead.party} leads with ${lead.seats}` : 'No seats loaded',
+            majorityText: lead && lead.seats >= majority ? 'majority' : `${majority} for majority`,
+            stateVal: focusState || '',
+            states: stateUnits.map((s)=>s.name),
+            stateSeatCount: String(districtSeats.length || (focusUnit && focusUnit.seatCount) || 0),
+            seatsHeading: focusState
+              ? `${focusState} · ${districtSeats.length} seat(s) · click for votes`
+              : 'Select a state on the map (or below) for district seats',
+            districtWord,
+            stateSeats,
+            onState: (e)=>{
+              const next = e.target.value || null;
+              this.setState({ ovElecState: next, elecSelectedUnit: null, elecExpandedCand: null });
+            },
+          },
+        });
+      }
+      return pack([], {
+        pending:true,
+        pendingMsg:`Loading ${off.label} results…`,
+        isNA:true,
+      });
+    }
+    if(officeId==='assembly'){
+      if(upcoming){
+        return pack([], { pending:true, pendingMsg:`State House of Assembly ${year} has not been held yet.` });
+      }
+      if(choro && !choro.ok){
+        return pack([], {
+          pending:true,
+          pendingMsg: choro.message
+            || 'State House of Assembly results are not archived yet. Stears does not publish assembly election pages for ingest.',
+        });
+      }
+      if(choro && choro.ok){
+        // Future: reuse sen/reps panel when assembly packs exist.
+        return pack([], {
+          pending:true,
+          pendingMsg: 'State House of Assembly map wiring is ready, but no seat packs are on disk yet.',
+        });
+      }
+      return pack([], {
+        pending:true,
+        pendingMsg: 'State House of Assembly results are not archived yet. Stears does not publish assembly election pages for ingest.',
+      });
     }
     return pack([], { pending:true, pendingMsg:'Official collated result not loaded yet for this office.' });
   }
@@ -3489,6 +3948,9 @@ class Component extends DCLogic {
       if ((this.state.anaOffice || 'pres') === 'gov' && this.state.anaState && this.state.anaState !== 'all') {
         qs.set('state', this.state.anaState);
       }
+      if ((this.state.anaOffice || 'pres') === 'pres' && this.state.anaState && this.state.anaState !== 'all') {
+        qs.set('state', this.state.anaState);
+      }
       qs.set('momentum', String((Number(this.state.anaMomentum) || 65) / 100));
       qs.set('retention', String((Number(this.state.anaRetention) || 25) / 100));
       const data = await fetch('/api/election-results/analysis?' + qs.toString(), { cache: 'no-store' })
@@ -3510,9 +3972,10 @@ class Component extends DCLogic {
             patch.anaYear = data.filters.year || '';
             patch.anaCompare = data.filters.compare || '';
           }
-          // Drop state selection when leaving governorship.
+          // Drop state selection when leaving offices that support state drill (gov + pres LGA years).
           const officeId = this.state.anaOffice || data.filters.office || 'pres';
-          if (officeId !== 'gov') {
+          const hasPresLga = officeId === 'pres' && !!(data.geographic && data.geographic.hasLga);
+          if (officeId !== 'gov' && !hasPresLga) {
             patch.anaState = 'all';
           }
         }
@@ -3628,7 +4091,7 @@ class Component extends DCLogic {
     if (scope !== 'ng' && scope !== 'global') return;
     const qs = new URLSearchParams();
     // Drill-down from "Find your polling unit" wins; else use selected gov state.
-    const state = ngState || (ovOffice === 'gov' ? ovElecState : null) || null;
+    const state = ngState || ((ovOffice === 'gov' || ovOffice === 'pres') ? ovElecState : null) || null;
     const lga = ngState ? ngLga : null;
     const ward = ngState ? ngWard : null;
     const pu = ngState ? ngPU : null;
@@ -3951,20 +4414,30 @@ class Component extends DCLogic {
     }
     const seq = (this._elecThemeSeq = (this._elecThemeSeq || 0) + 1);
     const q = new URLSearchParams({ office: office || 'pres', year: String(year || '2023') });
-    if (office === 'gov' && state) q.set('state', state);
+    if ((office === 'gov' || office === 'pres') && state) q.set('state', state);
     try {
       const raw = await fetch('/api/election-results/choropleth?' + q.toString()).then(r=>r.ok?r.json():null);
       if (seq !== this._elecThemeSeq) return;
       // Ignore stale responses after the user already switched state/year.
-      if (office === 'gov' && state && raw && raw.ok && raw.state && raw.state !== state) return;
-      const data = raw && raw.ok ? raw : raw;
+      if ((office === 'gov' || office === 'pres') && state && raw && raw.ok && raw.state && raw.state !== state) return;
+      let data = raw && raw.ok ? raw : raw;
+      // Fallback: build Senate/House state choropleth from Analysis seat archives when
+      // choropleth API has not been restarted with NASS loaders yet.
+      if ((!data || !data.ok) && (office === 'sen' || office === 'reps' || office === 'assembly')) {
+        const fallback = await this.loadNassThemeFromAnalysis(office, year);
+        if (seq !== this._elecThemeSeq) return;
+        if (fallback) data = fallback;
+      }
       const officeId = office || this.state.ovOffice || 'pres';
       const st = state || this.state.ovElecState || null;
       const mapTheme = data && data.ok ? this.buildMapTheme(data, this.state.showEstimatedLga) : null;
+      // On successful LGA load, clear unitDetail (state totals move into candidate rows).
+      // On failure/pending, keep the statewide click breakdown so the right panel never goes blank.
+      const clearUnit = !!(mapTheme && mapTheme.ok);
       this.setState({
         elecMapTheme: mapTheme,
         elecChoroMeta: data || null,
-        elecSelectedUnit: null,
+        elecSelectedUnit: clearUnit ? null : this.state.elecSelectedUnit,
         elecExpandedCand: null,
         layers: this.syncElectionLayers(officeId, st, !!(mapTheme && mapTheme.ok), mapTheme && mapTheme.level),
       }, ()=>{
@@ -3981,6 +4454,115 @@ class Component extends DCLogic {
       this.setState({ elecMapTheme: null, elecChoroMeta: null, elecExpandedCand: null }, ()=>this.syncCountryMap());
     }
   }
+  async loadNassThemeFromAnalysis(office, year){
+    const officeId = String(office || '');
+    const yearId = String(year || '');
+    if (officeId === 'assembly') {
+      return {
+        ok: false,
+        office: officeId,
+        year: yearId,
+        level: 'state',
+        message: 'State House of Assembly results are not archived yet. Stears does not publish assembly election pages for ingest.',
+        units: {},
+        legend: [],
+        availableStates: [],
+      };
+    }
+    if (officeId !== 'sen' && officeId !== 'reps') return null;
+    try {
+      const q = new URLSearchParams({ office: officeId, year: yearId });
+      const bundle = await fetch('/api/election-results/analysis?' + q.toString()).then((r)=> r.ok ? r.json() : null);
+      if (!bundle || !bundle.ok) return null;
+      const districts = (bundle.geographic && bundle.geographic.units) || [];
+      if (!districts.length) {
+        return {
+          ok: false,
+          office: officeId,
+          year: yearId,
+          level: 'state',
+          message: `No ${officeId === 'sen' ? 'Senate' : 'House'} archive for ${yearId}.`,
+          units: {},
+          legend: [],
+          availableStates: [],
+        };
+      }
+      const byState = {};
+      const nationalPartySeats = {};
+      districts.forEach((d)=>{
+        const state = d.state || 'Unknown';
+        if (!byState[state]) byState[state] = { seats: [], seatWins: {} };
+        const party = d.winnerParty || 'Others';
+        const votes = {};
+        (d.candidates || []).forEach((c)=>{
+          if (c.votes != null && Number(c.votes) > 0) votes[c.party || 'Others'] = Number(c.votes);
+        });
+        byState[state].seats.push({
+          district: d.district || 'Seat',
+          winner: d.winnerName || party,
+          party,
+          votes,
+          hasVotes: !!d.votesAvailable,
+          candidates: (d.candidates || []).map((c)=>({
+            name: c.name || c.party,
+            party: c.party || 'Others',
+            votes: c.votes != null ? Number(c.votes) : null,
+          })),
+        });
+        byState[state].seatWins[party] = (byState[state].seatWins[party] || 0) + 1;
+        nationalPartySeats[party] = (nationalPartySeats[party] || 0) + 1;
+      });
+      const units = {};
+      Object.entries(byState).forEach(([state, bucket])=>{
+        const ranked = Object.entries(bucket.seatWins).sort((a,b)=> b[1]-a[1] || a[0].localeCompare(b[0]));
+        const topParty = ranked[0]?.[0] || 'Others';
+        const topSeats = ranked[0]?.[1] || 0;
+        units[state] = {
+          winner: `${topParty} · ${topSeats}/${bucket.seats.length} seats`,
+          party: topParty,
+          votes: bucket.seatWins,
+          seatWins: bucket.seatWins,
+          seats: bucket.seats,
+          seatCount: bucket.seats.length,
+          color: this.partyColor(topParty),
+          _canonicalKey: state,
+        };
+      });
+      const candidates = Object.entries(nationalPartySeats)
+        .map(([party, seats])=>({ party, name: party, votes: seats, seats }))
+        .sort((a,b)=> b.votes - a.votes);
+      const legend = candidates.map((c)=>({
+        party: c.party,
+        name: c.party,
+        count: Object.values(units).filter((u)=> u.party === c.party).length,
+        color: this.partyColor(c.party),
+      })).filter((l)=> l.count > 0);
+      const seatTotal = districts.length;
+      const collated = districts.some((d)=> d.votesAvailable);
+      return {
+        ok: true,
+        office: officeId,
+        year: yearId,
+        electionYear: yearId,
+        level: 'state',
+        state: null,
+        title: `${yearId} ${officeId === 'sen' ? 'Senatorial' : 'House of Representatives'} Election`,
+        source: 'Stears Elections + INEC (via Analysis archives)',
+        sourceDetail: 'State fills = plurality of seat wins. Click a state for district winners and constituency votes when collated.',
+        collated,
+        estimated: false,
+        winner: candidates[0] ? { name: candidates[0].name, party: candidates[0].party, votes: candidates[0].votes } : null,
+        candidates,
+        units,
+        legend,
+        seatTotal,
+        chamber: officeId === 'sen' ? 'Senate' : 'House of Reps',
+        availableStates: Object.keys(units).sort((a,b)=> a.localeCompare(b)),
+      };
+    } catch (_) {
+      return null;
+    }
+  }
   flyToElectionView(){
     if(this.state.scope !== 'ng') return;
     if(this.state.ngState){
@@ -3990,7 +4572,7 @@ class Component extends DCLogic {
     }
     const office = this.state.ovOffice || 'pres';
     let year = this.state.ovElecYear || '2023';
-    const state = office === 'gov' ? (this.state.ovElecState || null) : null;
+    const state = (office === 'gov' || office === 'pres') ? (this.state.ovElecState || null) : null;
     if (office === 'gov') {
       if (!state) {
         const coverage = this.buildGovCoverageTheme(this.state.govCatalog);
@@ -4334,7 +4916,7 @@ class Component extends DCLogic {
       anaCoords:null, anaGeo:'idle', anaGeoError:null, nearPUs:[],
       puDistOrigin:null, puDistQuery:'', puDistStatus:'idle', puDistError:null, puRoute:null,
       ovElecYear:'2023', ovOffice:'pres', ovElecState:null, elecMapTheme:null, elecChoroMeta:null,
-      elecSelectedUnit:null, elecExpandedCand:null, showEstimatedLga:true,
+      elecSelectedUnit:null, elecExpandedCand:null, elecPresStateSnap:null, showEstimatedLga:true,
       layersOpen:false, basemapOpen:false,
       basemap:'streets',
     }, ()=>{
@@ -4484,7 +5066,8 @@ class Component extends DCLogic {
     const regionOpts = [{ value: 'all', label: 'All regions' }].concat(
       (analysisBundle?.regions || []).map((r) => ({ value: r, label: r }))
     );
-    const showStateFilter = anaOffice === 'gov';
+    const showStateFilter = anaOffice === 'gov'
+      || (anaOffice === 'pres' && !!(analysisBundle?.geographic?.hasLga));
     const anaStateRaw = showStateFilter ? (this.state.anaState || resolvedFilters.state || 'all') : 'all';
     // Year options for the dropdown; keep the current selection visible even if empty for this year.
     const yearStateNames = analysisBundle?.states || [];
@@ -4638,7 +5221,7 @@ class Component extends DCLogic {
       focusParty,
       rankRows,
       incumbentNote: perf.incumbent?.note || '',
-      geoMeta: geo.mode === 'district' ? 'district seats' : 'state units',
+      geoMeta: geo.mode === 'district' ? 'district seats' : (geo.mode === 'lga' ? 'LGA units' : 'state units'),
       geoFlipMeta: anaCompare
         ? `${gained} gained · ${lost} lost for ${focusParty}`
         : 'select compare election for flips',
@@ -4716,7 +5299,7 @@ class Component extends DCLogic {
       onOffice: (e) => {
         const office = e.target.value || 'pres';
         const patch = { anaOffice: office, anaYear: '', anaCompare: '' };
-        if (office !== 'gov') patch.anaState = 'all';
+        if (office !== 'gov' && office !== 'pres') patch.anaState = 'all';
         this.setState(patch, () => reload());
       },
       onYear: (e) => this.setState({ anaYear: e.target.value || '', anaCompare: '' }, () => reload()),
@@ -4795,13 +5378,48 @@ class Component extends DCLogic {
     let datasets = explorer ? explorer.toRows(filteredCatalog, catalog?.officeLabels) : [];
     if (!datasets.length && !catalog && !this.state.dataCatalogLoading) {
       datasets = [
-        {name:'Population / PVC',type:'Tabular',fmt:'JSON',icon:'bar_chart', href:'/api/population-data', action:'Open', coverage:'Nigeria states + FCT', source:'population-pvc-data.json', updated:popUpdated, hasJson:true, hasCsv:false, jsonHref:'/api/population-data', csvHref:'', notes:'', hasNotes:false},
-        {name:'Polling units GeoJSON',type:'Point',fmt:'GeoJSON',icon:'location_on', href:'/api/polling-units.geojson', action:'Download', coverage:'INEC PU CSV', source:'Nigeria_polling_units.csv', updated:popUpdated, hasJson:true, hasCsv:false, jsonHref:'/api/polling-units.geojson', csvHref:'', notes:'', hasNotes:false},
-        {name:'Result dataset catalog',type:'Tabular',fmt:'JSON',icon:'database', href:'/api/data-catalog', action:'Open', coverage:'Full public catalog', source:'Election Dashboard', updated:'Live', hasJson:true, hasCsv:false, jsonHref:'/api/data-catalog', csvHref:'', notes:'', hasNotes:false},
+        {name:'Population / PVC',type:'Tabular',fmt:'JSON',icon:'bar_chart', href:'/api/population-data', action:'Open', coverage:'Nigeria states + FCT', source:'population-pvc-data.json', updated:popUpdated, hasJson:true, hasCsv:false, jsonHref:'/api/population-data', csvHref:'', notes:'', hasNotes:false, category:'reference'},
+        {name:'Polling units GeoJSON',type:'Point',fmt:'GeoJSON',icon:'location_on', href:'/api/polling-units.geojson', action:'Download', coverage:'INEC PU CSV', source:'Nigeria_polling_units.csv', updated:popUpdated, hasJson:true, hasCsv:false, jsonHref:'/api/polling-units.geojson', csvHref:'', notes:'', hasNotes:false, category:'geography'},
+        {name:'Result dataset catalog',type:'Tabular',fmt:'JSON',icon:'database', href:'/api/data-catalog', action:'Open', coverage:'Full public catalog', source:'Election Dashboard', updated:'Live', hasJson:true, hasCsv:false, jsonHref:'/api/data-catalog', csvHref:'', notes:'', hasNotes:false, category:'catalogs'},
       ];
     }
     const officeLabels = (catalog && catalog.officeLabels) || { pres:'Presidential', gov:'Gubernatorial', sen:'Senatorial', reps:'House of Representatives' };
     const catLabels = (explorer && explorer.CATEGORY_LABELS) || {};
+    const collapsedCats = this.state.dataCatCollapsed || {};
+    const rawGroups = explorer
+      ? explorer.groupByCategory(datasets, { collapsed: collapsedCats })
+      : (datasets.length
+        ? [{ id: 'other', label: 'Datasets', icon: 'database', count: datasets.length, countLabel: String(datasets.length), open: true, showRows: true, chevron: 'expand_less', rows: datasets }]
+        : []);
+    const datasetGroups = rawGroups.map((g) => {
+      const catId = g.id;
+      return {
+        ...g,
+        open: !!g.open,
+        showRows: !!g.showRows,
+        anchorId: 'eid-data-cat-' + catId,
+        toggle: () => this.setState((s) => {
+          const next = { ...(s.dataCatCollapsed || {}) };
+          next[catId] = !next[catId];
+          return { dataCatCollapsed: next };
+        }),
+        jump: () => {
+          if (collapsedCats[catId]) {
+            this.setState((s) => {
+              const next = { ...(s.dataCatCollapsed || {}) };
+              delete next[catId];
+              return { dataCatCollapsed: next };
+            }, () => {
+              const el = document.getElementById('eid-data-cat-' + catId);
+              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+          } else {
+            const el = document.getElementById('eid-data-cat-' + catId);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        },
+      };
+    });
     const dataExplorer = {
       query: this.state.dataQuery || '',
       office: this.state.dataOffice || 'all',
@@ -4809,8 +5427,9 @@ class Component extends DCLogic {
       category: this.state.dataCategory || 'all',
       loading: !!this.state.dataCatalogLoading,
       empty: !this.state.dataCatalogLoading && datasets.length === 0,
+      hasGroups: datasetGroups.length > 0,
       summary: catalog
-        ? `${datasets.length} of ${catalog.count || catalogDatasets.length} public datasets`
+        ? `${datasets.length} of ${catalog.count || catalogDatasets.length} public datasets · ${datasetGroups.length} categor${datasetGroups.length === 1 ? 'y' : 'ies'}`
         : (this.state.dataCatalogLoading ? 'Loading catalog…' : 'Catalog unavailable — showing fallback links'),
       officeOptions: [{ v:'all', l:'All offices' }].concat((catalog?.offices || Object.keys(officeLabels)).map(v=>({ v, l: officeLabels[v] || v }))),
       yearOptions: [{ v:'all', l:'All years' }].concat((catalog?.years || []).map(v=>({ v, l:String(v) }))),
@@ -5152,25 +5771,50 @@ class Component extends DCLogic {
     const choroMap = this.state.elecMapTheme;
     const choroMeta = this.state.elecChoroMeta;
     const choroForYear = (choroMeta && choroMeta.ok && String(choroMeta.year) === String(yearVal)
-      && (ovOffice !== 'gov' || !ovElecState || choroMeta.state === ovElecState)) ? choroMeta : null;
+      && (ovOffice !== 'gov' || !ovElecState || choroMeta.state === ovElecState)
+      && (ovOffice !== 'pres' || !ovElecState || choroMeta.state === ovElecState || choroMeta.level === 'state')
+      && ((ovOffice !== 'sen' && ovOffice !== 'reps') || !choroMeta.level || choroMeta.level === 'state')
+    ) ? choroMeta : null;
     const hasGovData = !!(ovOffice === 'gov' && ovElecState && yearVal && ((choroForYear && choroForYear.ok) || govYearPool.includes(yearVal)));
     const elecSelT = ovOffice === 'gov'
       ? { year:yearVal || '—', name:`${ovElecState || 'Select state'} Governorship`, status: hasGovData ? 'Result' : 'Pending', icon:'how_to_vote', meta: ovElecState ? (yearVal ? `${ovElecState} · ${yearVal}` : `${ovElecState} · pick a year`) : 'Choose a state to see available years' }
       : (elecTl.find((t)=> String(t.year)===yearVal) || elecTl.find((t)=> t.status==='Result') || elecTl[0] || null);
     const elecYear = String(elecSelT ? elecSelT.year : yearVal);
+    // Presidential LGA years: Stears Phase 0 = 2023 only (extensible when more packs exist).
+    const PRES_LGA_YEARS = new Set(
+      (choroMeta && Array.isArray(choroMeta.availableStates) && choroMeta.availableStates.length && String(choroMeta.year) === String(yearVal))
+        ? [String(yearVal)]
+        : ['2023']
+    );
+    const hasPresLgaYear = ovOffice === 'pres' && PRES_LGA_YEARS.has(String(yearVal));
     const elecNeedsState = isNigeria && ovOffice === 'gov';
+    const elecShowState = isNigeria && (ovOffice === 'gov' || hasPresLgaYear);
     const govYearHint = !!(elecNeedsState && !ovElecState);
     const govStatePrompt = govYearHint;
+    const presLgaPrompt = !!(hasPresLgaYear && ovOffice === 'pres');
+    const presNoLgaHint = (ovOffice === 'pres' && !hasPresLgaYear && String(yearVal) !== '2027')
+      ? `Presidential LGA results are not published for ${yearVal} (Stears coverage starts at 2023). Click a state on the map for statewide INEC totals.`
+      : '';
     const govStateSelectWrap = govStatePrompt ? 'eid-gov-state-target' : '';
     const elecYearStepLabel = elecNeedsState ? 'Step 3 · Year' : 'Step 2 · Year';
-    const govStateOptions = govStatesList.map(s=>({ name:s }));
+    const elecStateStepLabel = elecNeedsState ? 'Step 2 · State' : (hasPresLgaYear ? 'State (LGA drill)' : 'Step 2 · State');
+    const elecStateEmptyLabel = elecNeedsState ? 'Select state…' : 'All states (national)';
+    const presStateList = hasPresLgaYear
+      ? (
+        (choroMeta && Array.isArray(choroMeta.availableStates) && choroMeta.availableStates.length)
+          ? choroMeta.availableStates
+          : Object.keys(this.NG_STATES || {}).sort((a, b) => a.localeCompare(b))
+      )
+      : [];
+    const stateOptionsSource = ovOffice === 'gov' ? govStatesList : presStateList;
+    const govStateOptions = stateOptionsSource.map(s=>({ name:s }));
     const elecYearOptions = yearPool.map((year)=>{
       const on = year===String(yearVal);
       return {
         year,
         label: year,
         onClick:()=>{
-          const next = { ovElecYear: year, ovOffice, elecMapTheme: null, elecChoroMeta: null, elecSelectedUnit: null, elecExpandedCand: null, showEstimatedLga: true };
+          const next = { ovElecYear: year, ovOffice, elecMapTheme: null, elecChoroMeta: null, elecSelectedUnit: null, elecExpandedCand: null, elecPresStateSnap: null, showEstimatedLga: true };
           this.setState(next, ()=>{ this.fetchNgKpis(); this.flyToElectionView(); });
         },
         style:`height:30px;padding:0 11px;border:1px solid ${on?'var(--primary)':'var(--border)'};background:${on?'var(--primary-soft)':'transparent'};color:${on?'var(--text)':'var(--dim)'};border-radius:8px;font-family:inherit;font-size:12px;font-weight:${on?'600':'400'};cursor:pointer`,
@@ -5183,14 +5827,23 @@ class Component extends DCLogic {
     } : null;
     const ngElec = isNigeria ? this.ngElection(elecYear, ovOffice, elecSelT && elecSelT.status==='Upcoming', choroForYear, ovElecState) : null;
     if(ngElec){
+      if (!ngElec.panelTitle) ngElec.panelTitle = `${ngElec.label} · ${ngElec.year}`;
+      if (!ngElec.winnerCaption) ngElec.winnerCaption = 'Winner';
+      if (!ngElec.candsCaption) ngElec.candsCaption = `All ${ngElec.totalCands || 0} candidates · winner first`;
       if (!ngElec.sourceLine) ngElec.sourceLine = choroForYear && choroForYear.ok ? (choroForYear.sourceDetail || choroForYear.source || 'Official result · winner first') : 'Official result · winner first';
       ngElec.showGovPicker = !!(ovOffice==='gov' && !ovElecState && (ngElec.showGovPicker || !ngElec.pending));
       // Never show seeded fake governor-elect rows; use the coverage picker instead.
       ngElec.isGov = false;
+      ngElec.isLga = false;
+      // National Assembly panel only when seat choropleth packed `na` (avoid empty chrome while pending).
+      ngElec.isNA = !!(ngElec.na && (ovOffice==='sen' || ovOffice==='reps') && !ngElec.pending);
+      // Keep candidate/vote UI when a statewide map click set unitDetail, even if LGA pack is still pending.
+      ngElec.isCands = (!ngElec.pending || !!this.state.elecSelectedUnit) && !ngElec.showGovPicker
+        && (((ngElec.candidates||[]).length>0) || !!this.state.elecSelectedUnit)
+        && (ovOffice==='pres' || ovOffice==='gov');
       ngElec.isGovCands = ovOffice==='gov' && ngElec.isCands;
-      ngElec.isLga = ovOffice==='lga';
-      ngElec.isNA = ovOffice==='sen' || ovOffice==='reps';
-      ngElec.isCands = !ngElec.pending && !ngElec.showGovPicker && (ngElec.candidates||[]).length>0 && (ovOffice==='pres' || ovOffice==='gov');
+      ngElec.canClearState = !!((ovOffice === 'pres' || ovOffice === 'sen' || ovOffice === 'reps') && ovElecState);
+      ngElec.clearState = ()=> this.clearPresState();
       if (ngElec.showGovPicker) {
         const byState = (this.state.govCatalog && this.state.govCatalog.byState) || {};
         const names = (this.state.govCatalog && this.state.govCatalog.states)
@@ -5208,9 +5861,10 @@ class Component extends DCLogic {
           };
         });
       }
+      const unitIsLga = ngElec.unitLevel === 'lga' || (choroForYear && choroForYear.level === 'lga') || ovOffice === 'gov';
       ngElec.candidates = (ngElec.candidates||[]).map((row,i)=>{
         const wonUnits = row.wonUnits || [];
-        const unitWord = (ovOffice === 'gov') ? 'LGA' : 'state';
+        const unitWord = unitIsLga ? 'LGA' : 'state';
         const unitWordCap = unitWord === 'LGA' ? 'LGAs' : 'states';
         const expanded = this.state.elecExpandedCand === row.party;
         return {
@@ -5237,27 +5891,30 @@ class Component extends DCLogic {
       });
       if (this.state.elecSelectedUnit) {
         const u = this.state.elecSelectedUnit;
-        ngElec.unitDetail = {
-          name:u.name, winner:u.winner, party:u.party, color:u.color,
-          totalVotes: this.fmtInt(u.totalVotes),
-          breakdown:(u.breakdown || []).map(b=>({
-            ...b,
-            votesLabel: b.votesLabel || this.fmtInt(b.votes || 0),
-            hasVotes: true,
-          })),
-          onBack: ()=>this.clearElecUnit(),
-        };
+        // For Senate/House, only surface vote breakdown when a district (not a state fill) is selected.
+        const showUnitDetail = !(ovOffice === 'sen' || ovOffice === 'reps') || !!u._naDistrict;
+        if (showUnitDetail) {
+          ngElec.unitDetail = {
+            name:u.name, winner:u.winner, party:u.party, color:u.color,
+            totalVotes: this.fmtInt(u.totalVotes),
+            breakdown:(u.breakdown || []).map(b=>({
+              ...b,
+              votesLabel: b.votesLabel || this.fmtInt(b.votes || 0),
+              hasVotes: true,
+            })),
+            onBack: ()=>this.clearElecUnit(),
+          };
+        }
+        // Statewide click on national presidential map: surface state in panel chrome.
+        if (ovOffice === 'pres' && !ovElecState && u.name) {
+          ngElec.panelTitle = `${u.name} · ${ngElec.year}`;
+          ngElec.sourceLine = 'INEC statewide totals · click another state or Back';
+          ngElec.hasWinner = false; // state winner is in unitDetail above
+          ngElec.candsCaption = 'National candidates · for context';
+        }
       }
-      if(ngElec.isNA){
-        ngElec.pending = true;
-        ngElec.pendingMsg = 'Official collated result not loaded yet.';
-        ngElec.isCands = false;
-      }
-      if(ngElec.isLga){
-        ngElec.pending = true;
-        ngElec.pendingMsg = 'Official collated result not loaded yet.';
-        ngElec.isCands = false;
-        ngElec.chairmen = [];
+      if(ovOffice==='assembly' && ngElec.pending && !ngElec.pendingMsg){
+        ngElec.pendingMsg = 'State House of Assembly results are not archived yet.';
       }
       if(countryData && ngElec.candidates && ngElec.candidates.length && !ngElec.pending){
         countryData.parties = ngElec.candidates.filter(c=>c.party && c.party!=='—').slice(0,4).map(c=>({
@@ -5274,21 +5931,26 @@ class Component extends DCLogic {
           : `width:14px;height:0;border-top:2px ${d.dash||'solid'} ${d.color};flex:none`),
       isPu: d.kind==='pu',
     }));
+    const govCoverageMap = this.isGovCoverageTheme(choroMap);
     const resultLegendTitle = (choroMap && choroMap.ok)
-      ? (choroMap.coverage ? 'Governorship coverage' : 'Result map')
+      ? (govCoverageMap ? 'Governorship coverage' : 'Result map')
       : 'Legend';
     const resultLegendItems = (choroMap && choroMap.ok && choroMap.legend && choroMap.legend.length)
-      ? (choroMap.coverage
+      ? (govCoverageMap
         ? choroMap.legend.map(p=>({
           label: `${p.name} · ${p.count}`,
           swatch: `width:14px;height:14px;border-radius:3px;background:${p.color};flex:none`,
         }))
         : choroMap.legend.map(p=>({ label:`${p.name || p.party} (${p.party}) · ${p.count} ${choroMap.level==='lga'?'LGAs':'states'}${choroMap.mapMode==='estimated-lga'?' · est.':''}`, swatch:`width:14px;height:14px;border-radius:3px;background:${p.color};flex:none` })))
       : boundaryLegend;
-    const elecMapSource = (choroMap && choroMap.ok && choroMap.coverage)
+    const elecMapSource = (choroMap && choroMap.ok && govCoverageMap)
       ? `Select a state · ${Object.values(choroMap.units || {}).filter(u=>u && u.coverage).length} with governorship archive`
       : ((choroForYear && choroForYear.ok)
-        ? `${choroForYear.estimated ? 'Estimated LGA · ' : (choroForYear.collated ? 'Official LGA · ' : '')}${choroForYear.sourceDetail || choroForYear.attribution || choroForYear.source}${choroForYear.updated ? ' · updated '+choroForYear.updated : ''}`
+        ? `${choroForYear.estimated ? 'Estimated LGA · ' : (
+            choroForYear.collated
+              ? ((ovOffice === 'sen' || ovOffice === 'reps') ? 'Collated seats · ' : 'Official LGA · ')
+              : ((ovOffice === 'sen' || ovOffice === 'reps') ? 'Seat winners · ' : '')
+          )}${choroForYear.sourceDetail || choroForYear.attribution || choroForYear.source}${choroForYear.updated ? ' · updated '+choroForYear.updated : ''}`
         : null);
 
     // ── citizen result upload (Nigeria) ──
@@ -5380,7 +6042,7 @@ class Component extends DCLogic {
           const winnerVoteLabel=Number(winnerVotes).toLocaleString();
           ngKpis = [
             { key:'reg-'+scopeKey, icon:'badge', label:'Registered voters', value:reg.value, unit:reg.unit, delta:`${row.level} · ${row.scope}`, deltaIcon:'place', deltaColor:'var(--dim)', caption:electionCaption },
-            { key:'votes-'+scopeKey, icon:'how_to_vote', label:'Valid votes', value:votes.value, unit:votes.unit, delta:electionCaption, deltaIcon:'ballot', deltaColor:'var(--good)', caption:electionCaption },
+            { key:'votes-'+scopeKey, icon:'how_to_vote', label:'Valid votes', value:votes.value, unit:votes.unit, delta:`${row.level} · ${row.scope}`, deltaIcon:'ballot', deltaColor:'var(--good)', caption:electionCaption },
             { key:'turn-'+scopeKey, icon:'donut_large', label:`Turnout ${yKey}`, value:turnoutPct != null ? String(turnoutPct) : '—', unit:'%', delta:electionCaption, deltaIcon:'insights', deltaColor:'var(--dim)', caption: ovOffice==='pres' && row.level==='National' ? 'INEC-declared national turnout' : 'Valid ÷ register (approx.)' },
             { key:'win-'+scopeKey, icon:'emoji_events', label:'Winner share', value:String(winnerShare), unit:`% · ${winnerVoteLabel} votes`, delta:winnerLabel, deltaIcon:'military_tech', deltaColor:'var(--primary)', caption:electionCaption },
           ];
@@ -5410,7 +6072,13 @@ class Component extends DCLogic {
           }
         })
       : { usedLayout:false, kpis: topKpisRaw, extras: [] };
-    const topKpis = dashOverview.kpis;
+    // Drop caption when it duplicates delta (avoids identical detail lines)
+    const topKpis = (dashOverview.kpis || []).map((k) => {
+      const d = String(k.delta || '').trim();
+      const cap = String(k.caption || '').trim();
+      if (d && cap && d === cap) return Object.assign({}, k, { caption: '' });
+      return k;
+    });
     const pageExtras = window.EidPageContent ? window.EidPageContent.overviewExtras(this.state.scope) : [];
     const overviewDashExtras = (dashOverview.extras || []).concat(pageExtras);
 
@@ -5440,7 +6108,7 @@ class Component extends DCLogic {
       if (co === 'pres' && !['2023','2019','2015'].includes(String(cy))) {
         cy = '2023';
       }
-      const officeLabel={pres:'Presidential',sen:'Senatorial',reps:'House of Reps',gov:'Gubernatorial',assembly:'State Assembly',lga:'LGA Chairman'}[co];
+      const officeLabel={pres:'Presidential',sen:'Senatorial',reps:'House of Reps',gov:'Gubernatorial',assembly:'State Assembly'}[co];
       const outcomeFilter = this.state.candOutcome || null;
       const partyFilter = this.state.candParty || null;
       const allCands=this.inecCandidates(cy, co);
@@ -5483,7 +6151,7 @@ class Component extends DCLogic {
         years: yearOptions,
         yearVal: cy,
         onYear:(e)=>this.setState({candYear:e.target.value, candParty: null, selCandidate:null}),
-        offices:[{v:'pres',l:'Presidential'},{v:'sen',l:'Senatorial'},{v:'reps',l:'House of Reps'},{v:'gov',l:'Gubernatorial'},{v:'lga',l:'LGA Chairman'}],
+        offices:[{v:'pres',l:'Presidential'},{v:'sen',l:'Senatorial'},{v:'reps',l:'House of Reps'},{v:'gov',l:'Gubernatorial'},{v:'assembly',l:'State Assembly'}],
         officeVal:co,
         onOffice:(e)=>{
           const next = e.target.value;
@@ -5747,7 +6415,7 @@ class Component extends DCLogic {
       candGeneric: null,
       partiesGeneric: null,
       ngPartySelectHint: (isNigeria || isGlobal) && !this.state.selParty,
-      mapInfo, mapInfoRows, mapMarkers, hierarchy, electionsRows, electionTypes, candidates, partiesList, analysisMetrics, battlegrounds, datasets, dataExplorer, liveFeat, liveStats, liveNews, aboutCards, adminIntegrations, anaData, puSearch,
+      mapInfo, mapInfoRows, mapMarkers, hierarchy, electionsRows, electionTypes, candidates, partiesList, analysisMetrics, battlegrounds, datasets, datasetGroups, dataExplorer, liveFeat, liveStats, liveNews, aboutCards, adminIntegrations, anaData, puSearch,
       analysisUI,
       bindAnalysisRoot: (el)=> this.bindAnalysisRoot(el),
       liveMapMode, liveLayerToggles,
@@ -5770,17 +6438,17 @@ class Component extends DCLogic {
         : ((ngView && ngView.selectedPU) ? { short:ngView.selectedPU.short||ngView.selectedPU.name, venue:ngView.selectedPU.address||ngView.selectedPU.venue||ngView.selectedPU.ward||'', address:ngView.selectedPU.address||ngView.selectedPU.venue||'Address not in the register', place:[ngView.selectedPU.ward,ngView.selectedPU.lga,ngView.stSel||this.state.ngState].filter(Boolean).join(' · '), code:ngView.selectedPU.code||'—', voters: ngView.selectedPU.voters!=null ? String(ngView.selectedPU.voters) : '—' } : null),
       ngPUInfo: ngView ? ngView.puInfo : null,
       selStyle, elecOfficeOptions, elecYearOptions, elecSel, elecYearVal: elecYear,
-      elecNeedsState, govStateOptions, ovElecStateVal: ovElecState,
+      elecNeedsState, elecShowState, govStateOptions, ovElecStateVal: ovElecState,
       elecCands: (ngElec && ngElec.candidates) || [],
       resultLegendTitle, resultLegendItems, elecMapSource,
-      elecYearStepLabel, govYearHint, govStatePrompt, govStateSelectWrap,
+      elecYearStepLabel, elecStateStepLabel, elecStateEmptyLabel, govYearHint, govStatePrompt, govStateSelectWrap, presLgaPrompt, presNoLgaHint,
       ngElec, ovOfficeVal:ovOffice,
       onOffice:(e)=>{
         const office = e.target.value || 'pres';
         if (office === 'gov') {
           this.setState({
             ovOffice: office, ovElecYear: null, ovElecState: null, elecMapTheme: null, elecChoroMeta: null,
-            elecSelectedUnit: null, elecExpandedCand: null, showEstimatedLga: true,
+            elecSelectedUnit: null, elecExpandedCand: null, elecPresStateSnap: null, showEstimatedLga: true,
             layers: this.syncElectionLayers(office, null, false, null),
           }, ()=>{
             this.fetchNgKpis();
@@ -5792,12 +6460,25 @@ class Component extends DCLogic {
         const nextYear = officeYears.includes(String(this.state.ovElecYear)) ? String(this.state.ovElecYear) : officeYears[0];
         this.setState({
           ovOffice: office, ovElecYear: nextYear, ovElecState: null, elecMapTheme: null, elecChoroMeta: null,
-          elecSelectedUnit: null, elecExpandedCand: null, showEstimatedLga: true,
+          elecSelectedUnit: null, elecExpandedCand: null, elecPresStateSnap: null, showEstimatedLga: true,
           layers: this.syncElectionLayers(office, null, false, null),
         }, ()=>{ this.fetchNgKpis(); this.flyToElectionView(); });
       },
       onElecState:(e)=>{
-        this.selectGovState(e.target.value || null);
+        const next = e.target.value || null;
+        if ((this.state.ovOffice || 'pres') === 'pres') {
+          this.setState({
+            ovElecState: next || null,
+            elecPresStateSnap: null,
+            elecMapTheme: null,
+            elecChoroMeta: null,
+            elecSelectedUnit: null,
+            elecExpandedCand: null,
+            showEstimatedLga: true,
+          }, ()=>{ this.fetchNgKpis(); this.flyToElectionView(); });
+          return;
+        }
+        this.selectGovState(next);
       },
       sub,
       ngStateVal:(ngView?ngView.stSel:null)||'',

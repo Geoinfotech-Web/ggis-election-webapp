@@ -6,86 +6,207 @@
     "state": "Taraba",
     "level": "district",
     "title": "Taraba House of Representatives Election 2023",
-    "source": "Public National Assembly membership scaffold",
-    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
-    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
-    "updated": "2023-06-13",
-    "collated": false,
-    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+    "source": "Stears Elections + INEC",
+    "sourceDetail": "Stears 2023 house-of-representatives constituency results (__NEXT_DATA__); underlying INEC/IREV and LGA collation",
+    "attribution": "Stears Elections; Independent National Electoral Commission (INEC)",
+    "sourceUrl": "https://www.stears.co/elections/2023/house-of-representatives/",
+    "updated": "2026-09-17",
+    "collated": true,
+    "note": "Constituency vote totals collated from Stears Elections (__NEXT_DATA__), sourced from INEC/IREV and LGA collation."
   },
   "seats": [
     {
-      "district": "Bali/Gassol",
-      "winner": {
-        "name": "Jaafaru Chiroma Yakubu",
-        "party": "NA"
-      },
-      "candidates": [
-        {
-          "name": "Jaafaru Chiroma Yakubu",
-          "party": "NA",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Gashaka/Kurmi/Sardauna",
-      "winner": {
-        "name": "David Abel Fuoh",
-        "party": "NA"
-      },
-      "candidates": [
-        {
-          "name": "David Abel Fuoh",
-          "party": "NA",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Ibi/Wukari",
-      "winner": {
-        "name": "Ayuba Aboki Zaku Dampar",
-        "party": "NA"
-      },
-      "candidates": [
-        {
-          "name": "Ayuba Aboki Zaku Dampar",
-          "party": "NA",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
       "district": "Jalingo/Yorro/Zing",
       "winner": {
-        "name": "Sadiq Abbas Tafida",
-        "party": "NA"
+        "name": "Ismaila Yushau Mohammed",
+        "party": "PDP"
       },
       "candidates": [
         {
-          "name": "Sadiq Abbas Tafida",
-          "party": "NA",
-          "votes": null,
+          "name": "Ismaila Yushau Mohammed",
+          "party": "PDP",
+          "votes": 43545,
           "outcome": "Won"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 28415,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Kasimu Bello Maigari",
+          "party": "APC",
+          "votes": 23943,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Bakari Sulaiman",
+          "party": "NNPP",
+          "votes": 9702,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Monshai Maxwell S",
+          "party": "LP",
+          "votes": 7228,
+          "outcome": "Lost"
         }
       ]
     },
     {
       "district": "Karim Lamido/Lau/Ardo-Kola",
       "winner": {
-        "name": "Audu Mohammed Lauya",
-        "party": "NA"
+        "name": "Mohammed Audu",
+        "party": "PDP"
       },
       "candidates": [
         {
-          "name": "Audu Mohammed Lauya",
-          "party": "NA",
+          "name": "Mohammed Audu",
+          "party": "PDP",
+          "votes": 34217,
+          "outcome": "Won"
+        },
+        {
+          "name": "Bello Mohammed Kabir",
+          "party": "APC",
+          "votes": 33119,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 20210,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Richard Emmanuel Benjamin",
+          "party": "LP",
+          "votes": 2935,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Sunday Stephen",
+          "party": "NNPP",
+          "votes": 872,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Sardauna/Kurmi/Gashaka",
+      "winner": {
+        "name": "Abel David Fuoh",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abel David Fuoh",
+          "party": "APC",
+          "votes": 32144,
+          "outcome": "Won"
+        },
+        {
+          "name": "Nagombe Joseph Titus",
+          "party": "PDP",
+          "votes": 30227,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Emmanuel Nuhu Tukura",
+          "party": "LP",
+          "votes": 2781,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Nuhu Abubakar Atta",
+          "party": "NNPP",
+          "votes": 2344,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 1417,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Ibi/Wukari",
+      "winner": {
+        "name": "Zaku Prince Ayuba Aboki Dampar",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Zaku Prince Ayuba Aboki Dampar",
+          "party": "APC",
+          "votes": 25949,
+          "outcome": "Won"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 19418,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Sabo Pius",
+          "party": "PDP",
+          "votes": 15721,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Daniel Angyu",
+          "party": "NNPP",
+          "votes": 1884,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Ishaku David Agbu",
+          "party": "LP",
+          "votes": 1767,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Bali/Gassol",
+      "winner": {
+        "name": "Gambo Abdulsalam Mubarak",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Gambo Abdulsalam Mubarak",
+          "party": "APC",
           "votes": null,
           "outcome": "Won"
+        },
+        {
+          "name": "Usman Simon Biyam",
+          "party": "LP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Aliyu Muhammadu Shafiu",
+          "party": "NNPP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Jaafaru Yakubu",
+          "party": "PDP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": null,
+          "outcome": null
         }
       ]
     },
@@ -93,52 +214,220 @@
       "district": "Takum/Donga/Ussa",
       "winner": {
         "name": "Useni Mark Bako",
-        "party": "NA"
+        "party": "APC"
       },
       "candidates": [
         {
           "name": "Useni Mark Bako",
-          "party": "NA",
+          "party": "APC",
           "votes": null,
           "outcome": "Won"
+        },
+        {
+          "name": "Sanda Nathan",
+          "party": "LP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Rimamnde Kwewum Shawulu",
+          "party": "NNPP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Haruna Istifanus Gbana",
+          "party": "PDP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": null,
+          "outcome": null
         }
       ]
     }
   ],
   "candidates": [
     {
-      "name": "Jaafaru Chiroma Yakubu",
-      "party": "NA",
+      "name": "Ismaila Yushau Mohammed",
+      "party": "PDP",
+      "district": "Jalingo/Yorro/Zing",
+      "votes": 43545
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Jalingo/Yorro/Zing",
+      "votes": 28415
+    },
+    {
+      "name": "Kasimu Bello Maigari",
+      "party": "APC",
+      "district": "Jalingo/Yorro/Zing",
+      "votes": 23943
+    },
+    {
+      "name": "Bakari Sulaiman",
+      "party": "NNPP",
+      "district": "Jalingo/Yorro/Zing",
+      "votes": 9702
+    },
+    {
+      "name": "Monshai Maxwell S",
+      "party": "LP",
+      "district": "Jalingo/Yorro/Zing",
+      "votes": 7228
+    },
+    {
+      "name": "Mohammed Audu",
+      "party": "PDP",
+      "district": "Karim Lamido/Lau/Ardo-Kola",
+      "votes": 34217
+    },
+    {
+      "name": "Bello Mohammed Kabir",
+      "party": "APC",
+      "district": "Karim Lamido/Lau/Ardo-Kola",
+      "votes": 33119
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Karim Lamido/Lau/Ardo-Kola",
+      "votes": 20210
+    },
+    {
+      "name": "Richard Emmanuel Benjamin",
+      "party": "LP",
+      "district": "Karim Lamido/Lau/Ardo-Kola",
+      "votes": 2935
+    },
+    {
+      "name": "Sunday Stephen",
+      "party": "NNPP",
+      "district": "Karim Lamido/Lau/Ardo-Kola",
+      "votes": 872
+    },
+    {
+      "name": "Abel David Fuoh",
+      "party": "APC",
+      "district": "Sardauna/Kurmi/Gashaka",
+      "votes": 32144
+    },
+    {
+      "name": "Nagombe Joseph Titus",
+      "party": "PDP",
+      "district": "Sardauna/Kurmi/Gashaka",
+      "votes": 30227
+    },
+    {
+      "name": "Emmanuel Nuhu Tukura",
+      "party": "LP",
+      "district": "Sardauna/Kurmi/Gashaka",
+      "votes": 2781
+    },
+    {
+      "name": "Nuhu Abubakar Atta",
+      "party": "NNPP",
+      "district": "Sardauna/Kurmi/Gashaka",
+      "votes": 2344
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Sardauna/Kurmi/Gashaka",
+      "votes": 1417
+    },
+    {
+      "name": "Zaku Prince Ayuba Aboki Dampar",
+      "party": "APC",
+      "district": "Ibi/Wukari",
+      "votes": 25949
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Ibi/Wukari",
+      "votes": 19418
+    },
+    {
+      "name": "Sabo Pius",
+      "party": "PDP",
+      "district": "Ibi/Wukari",
+      "votes": 15721
+    },
+    {
+      "name": "Daniel Angyu",
+      "party": "NNPP",
+      "district": "Ibi/Wukari",
+      "votes": 1884
+    },
+    {
+      "name": "Ishaku David Agbu",
+      "party": "LP",
+      "district": "Ibi/Wukari",
+      "votes": 1767
+    },
+    {
+      "name": "Gambo Abdulsalam Mubarak",
+      "party": "APC",
       "district": "Bali/Gassol",
       "votes": null
     },
     {
-      "name": "David Abel Fuoh",
-      "party": "NA",
-      "district": "Gashaka/Kurmi/Sardauna",
+      "name": "Usman Simon Biyam",
+      "party": "LP",
+      "district": "Bali/Gassol",
       "votes": null
     },
     {
-      "name": "Ayuba Aboki Zaku Dampar",
-      "party": "NA",
-      "district": "Ibi/Wukari",
+      "name": "Aliyu Muhammadu Shafiu",
+      "party": "NNPP",
+      "district": "Bali/Gassol",
       "votes": null
     },
     {
-      "name": "Sadiq Abbas Tafida",
-      "party": "NA",
-      "district": "Jalingo/Yorro/Zing",
+      "name": "Jaafaru Yakubu",
+      "party": "PDP",
+      "district": "Bali/Gassol",
       "votes": null
     },
     {
-      "name": "Audu Mohammed Lauya",
-      "party": "NA",
-      "district": "Karim Lamido/Lau/Ardo-Kola",
+      "name": "Others",
+      "party": "Others",
+      "district": "Bali/Gassol",
       "votes": null
     },
     {
       "name": "Useni Mark Bako",
-      "party": "NA",
+      "party": "APC",
+      "district": "Takum/Donga/Ussa",
+      "votes": null
+    },
+    {
+      "name": "Sanda Nathan",
+      "party": "LP",
+      "district": "Takum/Donga/Ussa",
+      "votes": null
+    },
+    {
+      "name": "Rimamnde Kwewum Shawulu",
+      "party": "NNPP",
+      "district": "Takum/Donga/Ussa",
+      "votes": null
+    },
+    {
+      "name": "Haruna Istifanus Gbana",
+      "party": "PDP",
+      "district": "Takum/Donga/Ussa",
+      "votes": null
+    },
+    {
+      "name": "Others",
+      "party": "Others",
       "district": "Takum/Donga/Ussa",
       "votes": null
     }

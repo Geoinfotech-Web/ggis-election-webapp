@@ -71,8 +71,16 @@ services:
     volumes:
       - legacy-db:/app/data/db
       - local-secrets:/run/local-secrets:ro
+      # Bind host app assets so local edits are visible without image rebuild
+      - ./public:/app/public
+      - ./data/election-results:/app/data/election-results
+      - ./data/reference:/app/data/reference
+      - ./src:/app/src
+      - ./server.js:/app/server.js
+      - ./election-results-data.js:/app/election-results-data.js
+      - ./election-analysis.js:/app/election-analysis.js
       - type: bind
-        source: "D:/Election Dashboard Data/source-archive"
+        source: "C:/Users/Geoinfotech/Documents/GIS Team/Election Dashboard Data/source-archive"
         target: /source-archive
         bind:
           create_host_path: false
@@ -97,7 +105,7 @@ services:
     volumes:
       - local-secrets:/run/local-secrets:ro
       - type: bind
-        source: "D:/Election Dashboard Data/database-backups"
+        source: "C:/Users/Geoinfotech/Documents/GIS Team/Election Dashboard Data/database-backups"
         target: /backups
         bind:
           create_host_path: false

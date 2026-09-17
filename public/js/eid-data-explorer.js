@@ -1,10 +1,20 @@
 window.EidDataExplorer = (function () {
+  const CATEGORY_ORDER = ['results', 'candidates', 'geography', 'reference', 'catalogs'];
+
   const CATEGORY_LABELS = {
     results: 'Election results',
     candidates: 'Candidates',
     geography: 'Geography & boundaries',
     reference: 'Reference & registers',
     catalogs: 'Indexes & published layouts',
+  };
+
+  const CATEGORY_ICONS = {
+    results: 'how_to_vote',
+    candidates: 'person',
+    geography: 'map',
+    reference: 'menu_book',
+    catalogs: 'list_alt',
   };
 
   function officeLabel(office, labels) {
@@ -96,10 +106,69 @@ window.EidDataExplorer = (function () {
     });
   }
 
+  /**
+   * Group filtered dataset rows by category (stable CATEGORY_ORDER).
+   * Empty categories are omitted. `collapsed` is a map of categoryId → true.
+   */
+  function groupByCategory(rows, opts) {
+    const order = (opts && opts.order) || CATEGORY_ORDER;
+    const collapsed = (opts && opts.collapsed) || {};
+    const labels = (opts && opts.labels) || CATEGORY_LABELS;
+    const icons = (opts && opts.icons) || CATEGORY_ICONS;
+    const buckets = new Map();
+    order.forEach((id) => buckets.set(id, []));
+    const other = [];
+
+    (rows || []).forEach((row) => {
+      const cat = row.category;
+      if (buckets.has(cat)) buckets.get(cat).push(row);
+      else other.push(row);
+    });
+
+    const groups = [];
+    order.forEach((id) => {
+      const items = buckets.get(id) || [];
+      if (!items.length) return;
+      const isCollapsed = !!collapsed[id];
+      groups.push({
+        id,
+        label: labels[id] || id,
+        icon: icons[id] || 'folder',
+        count: items.length,
+        countLabel: String(items.length),
+        open: !isCollapsed,
+        showRows: !isCollapsed,
+        chevron: isCollapsed ? 'expand_more' : 'expand_less',
+        rows: items,
+      });
+    });
+
+    if (other.length) {
+      const id = 'other';
+      const isCollapsed = !!collapsed[id];
+      groups.push({
+        id,
+        label: 'Other',
+        icon: 'folder',
+        count: other.length,
+        countLabel: String(other.length),
+        open: !isCollapsed,
+        showRows: !isCollapsed,
+        chevron: isCollapsed ? 'expand_more' : 'expand_less',
+        rows: other,
+      });
+    }
+
+    return groups;
+  }
+
   return {
+    CATEGORY_ORDER,
     CATEGORY_LABELS,
+    CATEGORY_ICONS,
     filterDatasets,
     toRows,
+    groupByCategory,
     officeLabel,
   };
 })();

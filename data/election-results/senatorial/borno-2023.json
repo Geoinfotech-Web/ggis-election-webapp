@@ -6,76 +6,185 @@
     "state": "Borno",
     "level": "district",
     "title": "Borno Senatorial Election 2023",
-    "source": "Public National Assembly membership scaffold",
-    "sourceDetail": "Wikipedia: Nigerian senators of the 10th National Assembly (elected 2023)",
-    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
-    "updated": "2023-06-13",
-    "collated": false,
-    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+    "source": "Stears Elections + INEC",
+    "sourceDetail": "Stears 2023 senate constituency results (__NEXT_DATA__); underlying INEC/IREV and LGA collation",
+    "attribution": "Stears Elections; Independent National Electoral Commission (INEC)",
+    "sourceUrl": "https://www.stears.co/elections/2023/senate/",
+    "updated": "2026-09-17",
+    "collated": true,
+    "note": "Constituency vote totals collated from Stears Elections (__NEXT_DATA__), sourced from INEC/IREV and LGA collation."
   },
   "seats": [
     {
       "district": "Borno Central",
       "winner": {
-        "name": "Kaka Shehu Lawan",
+        "name": "Lawan Kaka Shehu",
         "party": "APC"
       },
       "candidates": [
         {
-          "name": "Kaka Shehu Lawan",
+          "name": "Lawan Kaka Shehu",
           "party": "APC",
-          "votes": null,
+          "votes": 135043,
           "outcome": "Won"
+        },
+        {
+          "name": "Kumaila Mohammed Umara",
+          "party": "PDP",
+          "votes": 63338,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Attom Magira Tom",
+          "party": "NNPP",
+          "votes": 9043,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 4722,
+          "outcome": "Lost"
         }
       ]
     },
     {
       "district": "Borno North",
       "winner": {
-        "name": "Mohammed Tahir Monguno",
+        "name": "Monguno Mohammed Tahir",
         "party": "APC"
       },
       "candidates": [
         {
-          "name": "Mohammed Tahir Monguno",
+          "name": "Monguno Mohammed Tahir",
           "party": "APC",
-          "votes": null,
+          "votes": 44813,
           "outcome": "Won"
+        },
+        {
+          "name": "Lawan Isa",
+          "party": "PDP",
+          "votes": 19105,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Amos Dawa",
+          "party": "NNPP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": null,
+          "outcome": null
         }
       ]
     },
     {
       "district": "Borno South",
       "winner": {
-        "name": "Mohammed Ali Ndume",
+        "name": "Ndume Mohammed Ali",
         "party": "APC"
       },
       "candidates": [
         {
-          "name": "Mohammed Ali Ndume",
+          "name": "Ndume Mohammed Ali",
           "party": "APC",
           "votes": null,
           "outcome": "Won"
+        },
+        {
+          "name": "Stanley Dika Ngada",
+          "party": "NNPP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Kudla Milinda Satumari",
+          "party": "PDP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": null,
+          "outcome": null
         }
       ]
     }
   ],
   "candidates": [
     {
-      "name": "Kaka Shehu Lawan",
+      "name": "Lawan Kaka Shehu",
       "party": "APC",
       "district": "Borno Central",
-      "votes": null
+      "votes": 135043
     },
     {
-      "name": "Mohammed Tahir Monguno",
+      "name": "Kumaila Mohammed Umara",
+      "party": "PDP",
+      "district": "Borno Central",
+      "votes": 63338
+    },
+    {
+      "name": "Attom Magira Tom",
+      "party": "NNPP",
+      "district": "Borno Central",
+      "votes": 9043
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Borno Central",
+      "votes": 4722
+    },
+    {
+      "name": "Monguno Mohammed Tahir",
       "party": "APC",
+      "district": "Borno North",
+      "votes": 44813
+    },
+    {
+      "name": "Lawan Isa",
+      "party": "PDP",
+      "district": "Borno North",
+      "votes": 19105
+    },
+    {
+      "name": "Amos Dawa",
+      "party": "NNPP",
       "district": "Borno North",
       "votes": null
     },
     {
-      "name": "Mohammed Ali Ndume",
+      "name": "Others",
+      "party": "Others",
+      "district": "Borno North",
+      "votes": null
+    },
+    {
+      "name": "Ndume Mohammed Ali",
       "party": "APC",
+      "district": "Borno South",
+      "votes": null
+    },
+    {
+      "name": "Stanley Dika Ngada",
+      "party": "NNPP",
+      "district": "Borno South",
+      "votes": null
+    },
+    {
+      "name": "Kudla Milinda Satumari",
+      "party": "PDP",
+      "district": "Borno South",
+      "votes": null
+    },
+    {
+      "name": "Others",
+      "party": "Others",
       "district": "Borno South",
       "votes": null
     }

@@ -6,61 +6,44 @@
     "state": "Bauchi",
     "level": "district",
     "title": "Bauchi House of Representatives Election 2019",
-    "source": "Public National Assembly membership scaffold",
-    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
-    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
-    "updated": "2026-09-15",
-    "collated": false,
-    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+    "source": "Stears Elections + INEC",
+    "sourceDetail": "Stears 2019 house-of-representatives constituency results (__NEXT_DATA__); underlying INEC/IREV and LGA collation",
+    "attribution": "Stears Elections; Independent National Electoral Commission (INEC)",
+    "sourceUrl": "https://www.stears.co/elections/2019/house-of-representatives/",
+    "updated": "2026-09-17",
+    "collated": true,
+    "note": "Constituency vote totals collated from Stears Elections (__NEXT_DATA__), sourced from INEC/IREV and LGA collation."
   },
   "seats": [
     {
-      "district": "Alkaleri/Kirfi",
-      "winner": {
-        "name": "Musa Muhammad Pali",
-        "party": "APC"
-      },
-      "candidates": [
-        {
-          "name": "Musa Muhammad Pali",
-          "party": "APC",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
       "district": "Bauchi",
       "winner": {
-        "name": "Yakubu Shehu Abdullahi",
-        "party": "PRP"
+        "name": "Others",
+        "party": "Others"
       },
       "candidates": [
         {
-          "name": "Yakubu Shehu Abdullahi",
-          "party": "PRP",
-          "votes": null,
+          "name": "Others",
+          "party": "Others",
+          "votes": 75490,
           "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Darazo/Ganjuwa",
-      "winner": {
-        "name": "Mansur Manu Soro",
-        "party": "APC"
-      },
-      "candidates": [
+        },
         {
-          "name": "Mansur Manu Soro",
+          "name": "Muhammed Sabo .C",
           "party": "APC",
-          "votes": null,
-          "outcome": "Won"
+          "votes": 53470,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Aminu Aliyu .G",
+          "party": "PDP",
+          "votes": 43727,
+          "outcome": "Lost"
         }
       ]
     },
     {
-      "district": "Dass/Bogoro/Tafawa Balewa",
+      "district": "Bogoro/Dass/Tafawa Balewa",
       "winner": {
         "name": "Yakubu Dogara",
         "party": "PDP"
@@ -69,204 +52,441 @@
         {
           "name": "Yakubu Dogara",
           "party": "PDP",
-          "votes": null,
+          "votes": 73609,
           "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Gamawa",
-      "winner": {
-        "name": "Mohammed Garba Gololo",
-        "party": "APC"
-      },
-      "candidates": [
+        },
         {
-          "name": "Mohammed Garba Gololo",
+          "name": "Dalhatu Abubakar .K",
           "party": "APC",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Jama’Are/Itas-Gadau",
-      "winner": {
-        "name": "Bashir Uba Mashema",
-        "party": "APC"
-      },
-      "candidates": [
+          "votes": 50078,
+          "outcome": "Lost"
+        },
         {
-          "name": "Bashir Uba Mashema",
-          "party": "APC",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Katagum",
-      "winner": {
-        "name": "Umar Abdulkadir Sarki",
-        "party": "PRP"
-      },
-      "candidates": [
-        {
-          "name": "Umar Abdulkadir Sarki",
-          "party": "PRP",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Misau/Dambam",
-      "winner": {
-        "name": "Ibrahim Makama Misau",
-        "party": "APC"
-      },
-      "candidates": [
-        {
-          "name": "Ibrahim Makama Misau",
-          "party": "APC",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Ningi/Warji",
-      "winner": {
-        "name": "Abdullahi Sa'ad Abdulkadir",
-        "party": "APC"
-      },
-      "candidates": [
-        {
-          "name": "Abdullahi Sa'ad Abdulkadir",
-          "party": "APC",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Shira/Glade",
-      "winner": {
-        "name": "Abubakar Kani Faggo",
-        "party": "APC"
-      },
-      "candidates": [
-        {
-          "name": "Abubakar Kani Faggo",
-          "party": "APC",
-          "votes": null,
-          "outcome": "Won"
+          "name": "Others",
+          "party": "Others",
+          "votes": 2258,
+          "outcome": "Lost"
         }
       ]
     },
     {
       "district": "Toro",
       "winner": {
-        "name": "Umar Muda Lawal",
+        "name": "Muda Lawal .U",
         "party": "APC"
       },
       "candidates": [
         {
-          "name": "Umar Muda Lawal",
+          "name": "Muda Lawal .U",
           "party": "APC",
-          "votes": null,
+          "votes": 66070,
           "outcome": "Won"
+        },
+        {
+          "name": "Shehu Buba",
+          "party": "PDP",
+          "votes": 30256,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 4100,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Ningi/Warji",
+      "winner": {
+        "name": "Abdulkadir Saad .A",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Abdulkadir Saad .A",
+          "party": "APC",
+          "votes": 48303,
+          "outcome": "Won"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 23867,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Salisu Zakari",
+          "party": "PDP",
+          "votes": 20034,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Darazo/Gunjuwa",
+      "winner": {
+        "name": "Bashir Ibrahim Bello",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Bashir Ibrahim Bello",
+          "party": "APC",
+          "votes": 45867,
+          "outcome": "Won"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 27052,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Ibrahim Hassan .G",
+          "party": "PDP",
+          "votes": 19897,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Katagum",
+      "winner": {
+        "name": "Others",
+        "party": "Others"
+      },
+      "candidates": [
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 33031,
+          "outcome": "Won"
+        },
+        {
+          "name": "Maula Adamu .A",
+          "party": "PDP",
+          "votes": 4867,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Jamaare/Itas-Gadau",
+      "winner": {
+        "name": "Uba Bashir .M",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Uba Bashir .M",
+          "party": "APC",
+          "votes": 32553,
+          "outcome": "Won"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 18357,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Ahmed Abdulkadir /M",
+          "party": "PDP",
+          "votes": 13581,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Shira/Giade",
+      "winner": {
+        "name": "Abubakar Faggo .K",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 31786,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Abubakar Faggo .K",
+          "party": "APC",
+          "votes": 25835,
+          "outcome": "Won"
+        },
+        {
+          "name": "Usman Muhammad .S",
+          "party": "PDP",
+          "votes": 10916,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Misau/Dambam",
+      "winner": {
+        "name": "Makama Misau",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 28148,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Makama Misau",
+          "party": "APC",
+          "votes": 24212,
+          "outcome": "Won"
+        },
+        {
+          "name": "Ahmed Yarima",
+          "party": "PDP",
+          "votes": 14594,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Gamawa",
+      "winner": {
+        "name": "Garba Gololo .M",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Garba Gololo .M",
+          "party": "APC",
+          "votes": 16605,
+          "outcome": "Won"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 13229,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Ahmed Madaki",
+          "party": "PDP",
+          "votes": 9111,
+          "outcome": "Lost"
         }
       ]
     },
     {
       "district": "Zaki",
       "winner": {
-        "name": "Tata Omar",
+        "name": "Omar Tata",
         "party": "APC"
       },
       "candidates": [
         {
-          "name": "Tata Omar",
+          "name": "Omar Tata",
           "party": "APC",
-          "votes": null,
+          "votes": 15184,
           "outcome": "Won"
+        },
+        {
+          "name": "Muhammad Auwal Jatau",
+          "party": "PDP",
+          "votes": 14985,
+          "outcome": "Lost"
         }
       ]
     }
   ],
   "candidates": [
     {
-      "name": "Musa Muhammad Pali",
-      "party": "APC",
-      "district": "Alkaleri/Kirfi",
-      "votes": null
-    },
-    {
-      "name": "Yakubu Shehu Abdullahi",
-      "party": "PRP",
+      "name": "Others",
+      "party": "Others",
       "district": "Bauchi",
-      "votes": null
+      "votes": 75490
     },
     {
-      "name": "Mansur Manu Soro",
+      "name": "Muhammed Sabo .C",
       "party": "APC",
-      "district": "Darazo/Ganjuwa",
-      "votes": null
+      "district": "Bauchi",
+      "votes": 53470
+    },
+    {
+      "name": "Aminu Aliyu .G",
+      "party": "PDP",
+      "district": "Bauchi",
+      "votes": 43727
     },
     {
       "name": "Yakubu Dogara",
       "party": "PDP",
-      "district": "Dass/Bogoro/Tafawa Balewa",
-      "votes": null
+      "district": "Bogoro/Dass/Tafawa Balewa",
+      "votes": 73609
     },
     {
-      "name": "Mohammed Garba Gololo",
+      "name": "Dalhatu Abubakar .K",
       "party": "APC",
-      "district": "Gamawa",
-      "votes": null
+      "district": "Bogoro/Dass/Tafawa Balewa",
+      "votes": 50078
     },
     {
-      "name": "Bashir Uba Mashema",
-      "party": "APC",
-      "district": "Jama’Are/Itas-Gadau",
-      "votes": null
+      "name": "Others",
+      "party": "Others",
+      "district": "Bogoro/Dass/Tafawa Balewa",
+      "votes": 2258
     },
     {
-      "name": "Umar Abdulkadir Sarki",
-      "party": "PRP",
-      "district": "Katagum",
-      "votes": null
-    },
-    {
-      "name": "Ibrahim Makama Misau",
-      "party": "APC",
-      "district": "Misau/Dambam",
-      "votes": null
-    },
-    {
-      "name": "Abdullahi Sa'ad Abdulkadir",
-      "party": "APC",
-      "district": "Ningi/Warji",
-      "votes": null
-    },
-    {
-      "name": "Abubakar Kani Faggo",
-      "party": "APC",
-      "district": "Shira/Glade",
-      "votes": null
-    },
-    {
-      "name": "Umar Muda Lawal",
+      "name": "Muda Lawal .U",
       "party": "APC",
       "district": "Toro",
-      "votes": null
+      "votes": 66070
     },
     {
-      "name": "Tata Omar",
+      "name": "Shehu Buba",
+      "party": "PDP",
+      "district": "Toro",
+      "votes": 30256
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Toro",
+      "votes": 4100
+    },
+    {
+      "name": "Abdulkadir Saad .A",
+      "party": "APC",
+      "district": "Ningi/Warji",
+      "votes": 48303
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Ningi/Warji",
+      "votes": 23867
+    },
+    {
+      "name": "Salisu Zakari",
+      "party": "PDP",
+      "district": "Ningi/Warji",
+      "votes": 20034
+    },
+    {
+      "name": "Bashir Ibrahim Bello",
+      "party": "APC",
+      "district": "Darazo/Gunjuwa",
+      "votes": 45867
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Darazo/Gunjuwa",
+      "votes": 27052
+    },
+    {
+      "name": "Ibrahim Hassan .G",
+      "party": "PDP",
+      "district": "Darazo/Gunjuwa",
+      "votes": 19897
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Katagum",
+      "votes": 33031
+    },
+    {
+      "name": "Maula Adamu .A",
+      "party": "PDP",
+      "district": "Katagum",
+      "votes": 4867
+    },
+    {
+      "name": "Uba Bashir .M",
+      "party": "APC",
+      "district": "Jamaare/Itas-Gadau",
+      "votes": 32553
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Jamaare/Itas-Gadau",
+      "votes": 18357
+    },
+    {
+      "name": "Ahmed Abdulkadir /M",
+      "party": "PDP",
+      "district": "Jamaare/Itas-Gadau",
+      "votes": 13581
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Shira/Giade",
+      "votes": 31786
+    },
+    {
+      "name": "Abubakar Faggo .K",
+      "party": "APC",
+      "district": "Shira/Giade",
+      "votes": 25835
+    },
+    {
+      "name": "Usman Muhammad .S",
+      "party": "PDP",
+      "district": "Shira/Giade",
+      "votes": 10916
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Misau/Dambam",
+      "votes": 28148
+    },
+    {
+      "name": "Makama Misau",
+      "party": "APC",
+      "district": "Misau/Dambam",
+      "votes": 24212
+    },
+    {
+      "name": "Ahmed Yarima",
+      "party": "PDP",
+      "district": "Misau/Dambam",
+      "votes": 14594
+    },
+    {
+      "name": "Garba Gololo .M",
+      "party": "APC",
+      "district": "Gamawa",
+      "votes": 16605
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Gamawa",
+      "votes": 13229
+    },
+    {
+      "name": "Ahmed Madaki",
+      "party": "PDP",
+      "district": "Gamawa",
+      "votes": 9111
+    },
+    {
+      "name": "Omar Tata",
       "party": "APC",
       "district": "Zaki",
-      "votes": null
+      "votes": 15184
+    },
+    {
+      "name": "Muhammad Auwal Jatau",
+      "party": "PDP",
+      "district": "Zaki",
+      "votes": 14985
     }
   ]
 }

@@ -6,101 +6,51 @@
     "state": "Ogun",
     "level": "district",
     "title": "Ogun House of Representatives Election 2023",
-    "source": "Public National Assembly membership scaffold",
-    "sourceDetail": "CurrentAffairs.ng representatives directory (2023 winners) with Wikipedia party enrichment",
-    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
-    "updated": "2023-06-13",
-    "collated": false,
-    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+    "source": "Stears Elections + INEC",
+    "sourceDetail": "Stears 2023 house-of-representatives constituency results (__NEXT_DATA__); underlying INEC/IREV and LGA collation",
+    "attribution": "Stears Elections; Independent National Electoral Commission (INEC)",
+    "sourceUrl": "https://www.stears.co/elections/2023/house-of-representatives/",
+    "updated": "2026-09-17",
+    "collated": true,
+    "note": "Constituency vote totals collated from Stears Elections (__NEXT_DATA__), sourced from INEC/IREV and LGA collation."
   },
   "seats": [
-    {
-      "district": "Owode/Odeda",
-      "winner": {
-        "name": "Olumide Osoba",
-        "party": "NA"
-      },
-      "candidates": [
-        {
-          "name": "Olumide Osoba",
-          "party": "NA",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Abeokuta South",
-      "winner": {
-        "name": "Afuape Afolabi Moruf",
-        "party": "NA"
-      },
-      "candidates": [
-        {
-          "name": "Afuape Afolabi Moruf",
-          "party": "NA",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
     {
       "district": "Ado-Odo/Ota",
       "winner": {
         "name": "Akinosi Olatunji Akanni",
-        "party": "NA"
+        "party": "APC"
       },
       "candidates": [
         {
           "name": "Akinosi Olatunji Akanni",
-          "party": "NA",
-          "votes": null,
+          "party": "APC",
+          "votes": 44568,
           "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Egbado North/Imeko-Afon",
-      "winner": {
-        "name": "Isiaka Nasiru Adegboyega",
-        "party": "NA"
-      },
-      "candidates": [
+        },
         {
-          "name": "Isiaka Nasiru Adegboyega",
-          "party": "NA",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Egbado South/Ipokia",
-      "winner": {
-        "name": "Akinlade Abiodun Isiaq",
-        "party": "NA"
-      },
-      "candidates": [
+          "name": "Mustapha Sikiru Adekunle",
+          "party": "PDP",
+          "votes": 18509,
+          "outcome": "Lost"
+        },
         {
-          "name": "Akinlade Abiodun Isiaq",
-          "party": "NA",
+          "name": "Aduralere Oluwatosin Musa",
+          "party": "LP",
           "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Ifo/Ewekoro",
-      "winner": {
-        "name": "Ibrahim Isiaka",
-        "party": "NA"
-      },
-      "candidates": [
+          "outcome": null
+        },
         {
-          "name": "Ibrahim Isiaka",
-          "party": "NA",
+          "name": "Kareem Quadri Olaitan",
+          "party": "NNPP",
           "votes": null,
-          "outcome": "Won"
+          "outcome": null
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": null,
+          "outcome": null
         }
       ]
     },
@@ -108,101 +58,584 @@
       "district": "Ijebu North/Ijebu East/Ogun Waterside",
       "winner": {
         "name": "Adegbesan Joseph Folorunsho",
-        "party": "NA"
+        "party": "APC"
       },
       "candidates": [
         {
           "name": "Adegbesan Joseph Folorunsho",
-          "party": "NA",
-          "votes": null,
+          "party": "APC",
+          "votes": 35708,
           "outcome": "Won"
+        },
+        {
+          "name": "Adekoya Adesegun Abdelmajid",
+          "party": "PDP",
+          "votes": 25450,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Feyisola Olusegun Michael",
+          "party": "LP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Zaid Olarewaju",
+          "party": "NNPP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": null,
+          "outcome": null
         }
       ]
     },
     {
-      "district": "Ijebu Ode /Odogbolu /Ijebu North East",
+      "district": "Ifo/Ewekoro",
+      "winner": {
+        "name": "Isiaka Ayokunle Ibrahim",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Isiaka Ayokunle Ibrahim",
+          "party": "APC",
+          "votes": 30521,
+          "outcome": "Won"
+        },
+        {
+          "name": "Akala Simon Oluwole",
+          "party": "PDP",
+          "votes": 12578,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 12487,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Simeon Olabode Samuel",
+          "party": "LP",
+          "votes": 8539,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Ayobami Segun",
+          "party": "NNPP",
+          "votes": 294,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Egbado North/Imeko-Afon",
+      "winner": {
+        "name": "Isiaka Nasiru Adegboyega",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Isiaka Nasiru Adegboyega",
+          "party": "APC",
+          "votes": 29543,
+          "outcome": "Won"
+        },
+        {
+          "name": "Eweje Titus Olusoji",
+          "party": "PDP",
+          "votes": 17760,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 1300,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Ogunbona Ajibola Daniel",
+          "party": "NNPP",
+          "votes": 858,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Olaleye Sunday Abel",
+          "party": "LP",
+          "votes": 730,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Abeokuta South",
+      "winner": {
+        "name": "Afuape Afolabi Moruf",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Afuape Afolabi Moruf",
+          "party": "APC",
+          "votes": 19899,
+          "outcome": "Won"
+        },
+        {
+          "name": "Amuzu Oluwatoyin Anthony",
+          "party": "PDP",
+          "votes": 13663,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Ogunfidodo Michael Tomi",
+          "party": "LP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Bagbansomo Precious Foluro",
+          "party": "NNPP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": null,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "district": "Abeokuta North/Obafemi-Owode/Odeda",
+      "winner": {
+        "name": "Osoba Olumide Babatunde",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Osoba Olumide Babatunde",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        },
+        {
+          "name": "George-Taylor Oluwadurotimi",
+          "party": "LP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Fayoyin Adeyinka Temitope",
+          "party": "NNPP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Coker Emmanuel Soyemi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": null,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "district": "Egbado South/Ipokia",
+      "winner": {
+        "name": "Akinlade Abiodun Isiaq",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Akinlade Abiodun Isiaq",
+          "party": "APC",
+          "votes": null,
+          "outcome": "Won"
+        },
+        {
+          "name": "Kuponiyi Femi Olalekan",
+          "party": "LP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Odunfa Oluwatosin",
+          "party": "NNPP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Hosu Emmanuel Adeniyi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": null,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "district": "Ijebu Ode/Odogbolu/Ijebu North East",
       "winner": {
         "name": "Ogunbanwo Adeleke Olufemi",
-        "party": "NA"
+        "party": "APC"
       },
       "candidates": [
         {
           "name": "Ogunbanwo Adeleke Olufemi",
-          "party": "NA",
+          "party": "APC",
           "votes": null,
           "outcome": "Won"
+        },
+        {
+          "name": "Adenuga Olugbenga Oladipo",
+          "party": "LP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Adeniyi Saheed Olufowobi",
+          "party": "NNPP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Shote Taiwo Kabir",
+          "party": "PDP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": null,
+          "outcome": null
         }
       ]
     },
     {
-      "district": "Ikenne/Sagamu/Remo North",
+      "district": "Ikenne/Shagamu/Remo North",
       "winner": {
-        "name": "Adesola Elegbeji",
-        "party": "NA"
+        "name": "Onanuga Adewunmi Oriyomi",
+        "party": "APC"
       },
       "candidates": [
         {
-          "name": "Adesola Elegbeji",
-          "party": "NA",
+          "name": "Onanuga Adewunmi Oriyomi",
+          "party": "APC",
           "votes": null,
           "outcome": "Won"
+        },
+        {
+          "name": "George Olanrewaju Michael",
+          "party": "LP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Hon Salami Oluwatimileyin K",
+          "party": "NNPP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Oluwole Bolarinwa Adekunbi",
+          "party": "PDP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": null,
+          "outcome": null
         }
       ]
     }
   ],
   "candidates": [
     {
-      "name": "Olumide Osoba",
-      "party": "NA",
-      "district": "Owode/Odeda",
-      "votes": null
-    },
-    {
-      "name": "Afuape Afolabi Moruf",
-      "party": "NA",
-      "district": "Abeokuta South",
-      "votes": null
-    },
-    {
       "name": "Akinosi Olatunji Akanni",
-      "party": "NA",
+      "party": "APC",
+      "district": "Ado-Odo/Ota",
+      "votes": 44568
+    },
+    {
+      "name": "Mustapha Sikiru Adekunle",
+      "party": "PDP",
+      "district": "Ado-Odo/Ota",
+      "votes": 18509
+    },
+    {
+      "name": "Aduralere Oluwatosin Musa",
+      "party": "LP",
       "district": "Ado-Odo/Ota",
       "votes": null
     },
     {
-      "name": "Isiaka Nasiru Adegboyega",
-      "party": "NA",
-      "district": "Egbado North/Imeko-Afon",
+      "name": "Kareem Quadri Olaitan",
+      "party": "NNPP",
+      "district": "Ado-Odo/Ota",
       "votes": null
     },
     {
-      "name": "Akinlade Abiodun Isiaq",
-      "party": "NA",
-      "district": "Egbado South/Ipokia",
-      "votes": null
-    },
-    {
-      "name": "Ibrahim Isiaka",
-      "party": "NA",
-      "district": "Ifo/Ewekoro",
+      "name": "Others",
+      "party": "Others",
+      "district": "Ado-Odo/Ota",
       "votes": null
     },
     {
       "name": "Adegbesan Joseph Folorunsho",
-      "party": "NA",
+      "party": "APC",
+      "district": "Ijebu North/Ijebu East/Ogun Waterside",
+      "votes": 35708
+    },
+    {
+      "name": "Adekoya Adesegun Abdelmajid",
+      "party": "PDP",
+      "district": "Ijebu North/Ijebu East/Ogun Waterside",
+      "votes": 25450
+    },
+    {
+      "name": "Feyisola Olusegun Michael",
+      "party": "LP",
       "district": "Ijebu North/Ijebu East/Ogun Waterside",
       "votes": null
     },
     {
-      "name": "Ogunbanwo Adeleke Olufemi",
-      "party": "NA",
-      "district": "Ijebu Ode /Odogbolu /Ijebu North East",
+      "name": "Zaid Olarewaju",
+      "party": "NNPP",
+      "district": "Ijebu North/Ijebu East/Ogun Waterside",
       "votes": null
     },
     {
-      "name": "Adesola Elegbeji",
-      "party": "NA",
-      "district": "Ikenne/Sagamu/Remo North",
+      "name": "Others",
+      "party": "Others",
+      "district": "Ijebu North/Ijebu East/Ogun Waterside",
+      "votes": null
+    },
+    {
+      "name": "Isiaka Ayokunle Ibrahim",
+      "party": "APC",
+      "district": "Ifo/Ewekoro",
+      "votes": 30521
+    },
+    {
+      "name": "Akala Simon Oluwole",
+      "party": "PDP",
+      "district": "Ifo/Ewekoro",
+      "votes": 12578
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Ifo/Ewekoro",
+      "votes": 12487
+    },
+    {
+      "name": "Simeon Olabode Samuel",
+      "party": "LP",
+      "district": "Ifo/Ewekoro",
+      "votes": 8539
+    },
+    {
+      "name": "Ayobami Segun",
+      "party": "NNPP",
+      "district": "Ifo/Ewekoro",
+      "votes": 294
+    },
+    {
+      "name": "Isiaka Nasiru Adegboyega",
+      "party": "APC",
+      "district": "Egbado North/Imeko-Afon",
+      "votes": 29543
+    },
+    {
+      "name": "Eweje Titus Olusoji",
+      "party": "PDP",
+      "district": "Egbado North/Imeko-Afon",
+      "votes": 17760
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Egbado North/Imeko-Afon",
+      "votes": 1300
+    },
+    {
+      "name": "Ogunbona Ajibola Daniel",
+      "party": "NNPP",
+      "district": "Egbado North/Imeko-Afon",
+      "votes": 858
+    },
+    {
+      "name": "Olaleye Sunday Abel",
+      "party": "LP",
+      "district": "Egbado North/Imeko-Afon",
+      "votes": 730
+    },
+    {
+      "name": "Afuape Afolabi Moruf",
+      "party": "APC",
+      "district": "Abeokuta South",
+      "votes": 19899
+    },
+    {
+      "name": "Amuzu Oluwatoyin Anthony",
+      "party": "PDP",
+      "district": "Abeokuta South",
+      "votes": 13663
+    },
+    {
+      "name": "Ogunfidodo Michael Tomi",
+      "party": "LP",
+      "district": "Abeokuta South",
+      "votes": null
+    },
+    {
+      "name": "Bagbansomo Precious Foluro",
+      "party": "NNPP",
+      "district": "Abeokuta South",
+      "votes": null
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Abeokuta South",
+      "votes": null
+    },
+    {
+      "name": "Osoba Olumide Babatunde",
+      "party": "APC",
+      "district": "Abeokuta North/Obafemi-Owode/Odeda",
+      "votes": null
+    },
+    {
+      "name": "George-Taylor Oluwadurotimi",
+      "party": "LP",
+      "district": "Abeokuta North/Obafemi-Owode/Odeda",
+      "votes": null
+    },
+    {
+      "name": "Fayoyin Adeyinka Temitope",
+      "party": "NNPP",
+      "district": "Abeokuta North/Obafemi-Owode/Odeda",
+      "votes": null
+    },
+    {
+      "name": "Coker Emmanuel Soyemi",
+      "party": "PDP",
+      "district": "Abeokuta North/Obafemi-Owode/Odeda",
+      "votes": null
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Abeokuta North/Obafemi-Owode/Odeda",
+      "votes": null
+    },
+    {
+      "name": "Akinlade Abiodun Isiaq",
+      "party": "APC",
+      "district": "Egbado South/Ipokia",
+      "votes": null
+    },
+    {
+      "name": "Kuponiyi Femi Olalekan",
+      "party": "LP",
+      "district": "Egbado South/Ipokia",
+      "votes": null
+    },
+    {
+      "name": "Odunfa Oluwatosin",
+      "party": "NNPP",
+      "district": "Egbado South/Ipokia",
+      "votes": null
+    },
+    {
+      "name": "Hosu Emmanuel Adeniyi",
+      "party": "PDP",
+      "district": "Egbado South/Ipokia",
+      "votes": null
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Egbado South/Ipokia",
+      "votes": null
+    },
+    {
+      "name": "Ogunbanwo Adeleke Olufemi",
+      "party": "APC",
+      "district": "Ijebu Ode/Odogbolu/Ijebu North East",
+      "votes": null
+    },
+    {
+      "name": "Adenuga Olugbenga Oladipo",
+      "party": "LP",
+      "district": "Ijebu Ode/Odogbolu/Ijebu North East",
+      "votes": null
+    },
+    {
+      "name": "Adeniyi Saheed Olufowobi",
+      "party": "NNPP",
+      "district": "Ijebu Ode/Odogbolu/Ijebu North East",
+      "votes": null
+    },
+    {
+      "name": "Shote Taiwo Kabir",
+      "party": "PDP",
+      "district": "Ijebu Ode/Odogbolu/Ijebu North East",
+      "votes": null
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Ijebu Ode/Odogbolu/Ijebu North East",
+      "votes": null
+    },
+    {
+      "name": "Onanuga Adewunmi Oriyomi",
+      "party": "APC",
+      "district": "Ikenne/Shagamu/Remo North",
+      "votes": null
+    },
+    {
+      "name": "George Olanrewaju Michael",
+      "party": "LP",
+      "district": "Ikenne/Shagamu/Remo North",
+      "votes": null
+    },
+    {
+      "name": "Hon Salami Oluwatimileyin K",
+      "party": "NNPP",
+      "district": "Ikenne/Shagamu/Remo North",
+      "votes": null
+    },
+    {
+      "name": "Oluwole Bolarinwa Adekunbi",
+      "party": "PDP",
+      "district": "Ikenne/Shagamu/Remo North",
+      "votes": null
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Ikenne/Shagamu/Remo North",
       "votes": null
     }
   ]

@@ -6,77 +6,222 @@
     "state": "Oyo",
     "level": "district",
     "title": "Oyo Senatorial Election 2023",
-    "source": "Public National Assembly membership scaffold",
-    "sourceDetail": "Wikipedia: Nigerian senators of the 10th National Assembly (elected 2023)",
-    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
-    "updated": "2023-06-13",
-    "collated": false,
-    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+    "source": "Stears Elections + INEC",
+    "sourceDetail": "Stears 2023 senate constituency results (__NEXT_DATA__); underlying INEC/IREV and LGA collation",
+    "attribution": "Stears Elections; Independent National Electoral Commission (INEC)",
+    "sourceUrl": "https://www.stears.co/elections/2023/senate/",
+    "updated": "2026-09-17",
+    "collated": true,
+    "note": "Constituency vote totals collated from Stears Elections (__NEXT_DATA__), sourced from INEC/IREV and LGA collation."
   },
   "seats": [
     {
-      "district": "Oyo Central",
+      "district": "Oyo South",
       "winner": {
-        "name": "Yunus Akintunde",
+        "name": "Alli Sharafadeen Abiodun",
         "party": "APC"
       },
       "candidates": [
         {
-          "name": "Yunus Akintunde",
+          "name": "Alli Sharafadeen Abiodun",
           "party": "APC",
-          "votes": null,
+          "votes": 111513,
           "outcome": "Won"
+        },
+        {
+          "name": "Tegbe Joseph Olasunkanmi",
+          "party": "PDP",
+          "votes": 92481,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Oladimeji Olauwasegun Theophilius",
+          "party": "LP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Gbogbolomo Adewale Funmilola Maryam",
+          "party": "NNPP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": null,
+          "outcome": null
+        }
+      ]
+    },
+    {
+      "district": "Oyo Central",
+      "winner": {
+        "name": "Akintunde Yunus Abiodun",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Akintunde Yunus Abiodun",
+          "party": "APC",
+          "votes": 108776,
+          "outcome": "Won"
+        },
+        {
+          "name": "Ilaka Luqman Oyebisi",
+          "party": "PDP",
+          "votes": 101213,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 49450,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Lamidi Basiru Apapa",
+          "party": "LP",
+          "votes": 18133,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Balogun Aderoju Isma’L",
+          "party": "NNPP",
+          "votes": null,
+          "outcome": null
         }
       ]
     },
     {
       "district": "Oyo North",
       "winner": {
-        "name": "Abdulfatai Buhari",
+        "name": "Buhari Abdulfatai",
         "party": "APC"
       },
       "candidates": [
         {
-          "name": "Abdulfatai Buhari",
+          "name": "Buhari Abdulfatai",
           "party": "APC",
-          "votes": null,
+          "votes": 90078,
           "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Oyo South",
-      "winner": {
-        "name": "Sharafadeen Alli",
-        "party": "APC"
-      },
-      "candidates": [
+        },
         {
-          "name": "Sharafadeen Alli",
-          "party": "APC",
+          "name": "Akinwale Solomon Akinwole",
+          "party": "PDP",
+          "votes": 77034,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Salami Ganiyu Atanda",
+          "party": "LP",
           "votes": null,
-          "outcome": "Won"
+          "outcome": null
+        },
+        {
+          "name": "Shuaib Ahmed Adeniyi",
+          "party": "NNPP",
+          "votes": null,
+          "outcome": null
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": null,
+          "outcome": null
         }
       ]
     }
   ],
   "candidates": [
     {
-      "name": "Yunus Akintunde",
+      "name": "Alli Sharafadeen Abiodun",
       "party": "APC",
+      "district": "Oyo South",
+      "votes": 111513
+    },
+    {
+      "name": "Tegbe Joseph Olasunkanmi",
+      "party": "PDP",
+      "district": "Oyo South",
+      "votes": 92481
+    },
+    {
+      "name": "Oladimeji Olauwasegun Theophilius",
+      "party": "LP",
+      "district": "Oyo South",
+      "votes": null
+    },
+    {
+      "name": "Gbogbolomo Adewale Funmilola Maryam",
+      "party": "NNPP",
+      "district": "Oyo South",
+      "votes": null
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Oyo South",
+      "votes": null
+    },
+    {
+      "name": "Akintunde Yunus Abiodun",
+      "party": "APC",
+      "district": "Oyo Central",
+      "votes": 108776
+    },
+    {
+      "name": "Ilaka Luqman Oyebisi",
+      "party": "PDP",
+      "district": "Oyo Central",
+      "votes": 101213
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Oyo Central",
+      "votes": 49450
+    },
+    {
+      "name": "Lamidi Basiru Apapa",
+      "party": "LP",
+      "district": "Oyo Central",
+      "votes": 18133
+    },
+    {
+      "name": "Balogun Aderoju Isma’L",
+      "party": "NNPP",
       "district": "Oyo Central",
       "votes": null
     },
     {
-      "name": "Abdulfatai Buhari",
+      "name": "Buhari Abdulfatai",
       "party": "APC",
+      "district": "Oyo North",
+      "votes": 90078
+    },
+    {
+      "name": "Akinwale Solomon Akinwole",
+      "party": "PDP",
+      "district": "Oyo North",
+      "votes": 77034
+    },
+    {
+      "name": "Salami Ganiyu Atanda",
+      "party": "LP",
       "district": "Oyo North",
       "votes": null
     },
     {
-      "name": "Sharafadeen Alli",
-      "party": "APC",
-      "district": "Oyo South",
+      "name": "Shuaib Ahmed Adeniyi",
+      "party": "NNPP",
+      "district": "Oyo North",
+      "votes": null
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Oyo North",
       "votes": null
     }
   ]

@@ -1,0 +1,58 @@
+{
+  "generatedAt": "2026-09-17T11:45:00.000Z",
+  "attribution": "Stears Open Data (Flourish datasets hosted on AWS S3)",
+  "source": "https://www.stears.co/open-data",
+  "license": "See Stears Open Data terms; cite Stears when using these datasets.",
+  "downloadStatus": "complete",
+  "files": [
+    {
+      "filename": "africa-past-tracker.csv",
+      "url": "https://stears-flourish-data.s3.amazonaws.com/africa-past-tracker.csv",
+      "bytes": 20906,
+      "downloaded": true,
+      "status": 200
+    },
+    {
+      "filename": "africa-upcoming-tracker.csv",
+      "url": "https://stears-flourish-data.s3.amazonaws.com/africa-upcoming-tracker.csv",
+      "bytes": 4379,
+      "downloaded": true,
+      "status": 200
+    },
+    {
+      "filename": "africa-map-democracy-level.csv",
+      "url": "https://stears-flourish-data.s3.amazonaws.com/africa-map-democracy-level.csv",
+      "bytes": 1240,
+      "downloaded": true,
+      "status": 200
+    },
+    {
+      "filename": "africa-map-coup.csv",
+      "url": "https://stears-flourish-data.s3.amazonaws.com/africa-map-coup.csv",
+      "bytes": 1324,
+      "downloaded": true,
+      "status": 200
+    },
+    {
+      "filename": "africa-map-democracy-age.csv",
+      "url": "https://stears-flourish-data.s3.amazonaws.com/africa-map-democracy-age.csv",
+      "bytes": 1125,
+      "downloaded": true,
+      "status": 200
+    },
+    {
+      "filename": "africa-map-population.csv",
+      "url": "https://stears-flourish-data.s3.amazonaws.com/africa-map-population.csv",
+      "bytes": 986,
+      "downloaded": true,
+      "status": 200
+    },
+    {
+      "filename": "africa-map-gdp.csv",
+      "url": "https://stears-flourish-data.s3.amazonaws.com/africa-map-gdp.csv",
+      "bytes": 1128,
+      "downloaded": true,
+      "status": 200
+    }
+  ]
+}

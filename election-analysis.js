@@ -13,6 +13,10 @@ const {
   electionYearOf,
   isPublishableLegacyPayload,
   listGovCatalog,
+  availablePresLgaYears,
+  availablePresLgaStates,
+  filterPresLgaPayload,
+  presLgaFileForYear,
 } = require('./election-results-data');
 
 const MAJOR_PARTIES = ['APC', 'PDP', 'LP', 'NNPP', 'APGA', 'ADC', 'SDP'];
@@ -217,6 +221,7 @@ function statesForGovYear(base, year) {
 function loadPresidentialSeries(registeredByState) {
   const years = [];
   const byYear = {};
+  const lgaByYear = {};
   for (const year of ['2015', '2019', '2023']) {
     const file = path.join(DATA_DIR, `presidential-${year}-states.json`);
     if (!fs.existsSync(file)) continue;
@@ -298,8 +303,26 @@ function loadPresidentialSeries(registeredByState) {
       title: payload.meta?.title || `${year} Presidential Election`,
       source: payload.meta?.source || 'INEC',
     };
+
+    // Optional LGA pack (Stears). Phase 0: 2023 only today.
+    const lgaRel = presLgaFileForYear(year);
+    if (lgaRel) {
+      const lgaFull = path.join(DATA_DIR, lgaRel);
+      const lgaPayload = readJsonSafe(lgaFull);
+      if (lgaPayload && isPublishableLegacyPayload(lgaPayload)) {
+        lgaByYear[year] = lgaPayload;
+      }
+    }
   }
-  return { years, byYear };
+  // Discover additional presidential LGA years not in the state series loop above.
+  for (const y of availablePresLgaYears()) {
+    if (lgaByYear[y]) continue;
+    const lgaRel = presLgaFileForYear(y);
+    if (!lgaRel) continue;
+    const lgaPayload = readJsonSafe(path.join(DATA_DIR, lgaRel));
+    if (lgaPayload && isPublishableLegacyPayload(lgaPayload)) lgaByYear[y] = lgaPayload;
+  }
+  return { years, byYear, lgaByYear, lgaYears: Object.keys(lgaByYear).sort() };
 }
 
 function loadGubernatorialSeries() {
@@ -420,7 +443,7 @@ function loadSeatSeries(subdir, officeLabel) {
     const year = String(electionYearOf(payload.meta) || payload.meta?.year || '');
     if (!year) continue;
     yearsSet.add(year);
-    if (!byYear[year]) byYear[year] = { parties: {}, seats: 0, states: [], units: [] };
+    if (!byYear[year]) byYear[year] = { parties: {}, seats: 0, states: [], units: [], totalVotes: 0 };
     const state = canonicalState(payload.meta?.state || '');
     const seats = Array.isArray(payload.seats) ? payload.seats : [];
     seats.forEach((seat) => {
@@ -436,6 +459,10 @@ function loadSeatSeries(subdir, officeLabel) {
         .filter((c) => c.votes > 0);
       if (candVotes.length) hasVoteTotals = true;
       const total = candVotes.reduce((a, c) => a + c.votes, 0);
+      candVotes.forEach((c) => {
+        ensureParty(byYear[year].parties, c.party || 'Others').votes += c.votes;
+      });
+      byYear[year].totalVotes += total;
       candVotes.sort((a, b) => b.votes - a.votes);
       const marginPct = candVotes.length >= 2 && total
         ? round2(((candVotes[0].votes - candVotes[1].votes) / total) * 100)
@@ -450,6 +477,7 @@ function loadSeatSeries(subdir, officeLabel) {
         marginPct,
         totalVotes: total || null,
         votesAvailable: candVotes.length >= 2,
+        candidates: candVotes,
       });
     });
   }
@@ -458,8 +486,10 @@ function loadSeatSeries(subdir, officeLabel) {
   years.forEach((year) => {
     const bucket = byYear[year];
     bucket.states = [...new Set(bucket.states.filter(Boolean))].sort((a, b) => a.localeCompare(b));
+    const yearVotes = bucket.totalVotes || 0;
     Object.values(bucket.parties).forEach((p) => {
       p.seatShare = pct(p.wins, bucket.seats);
+      p.voteShare = yearVotes ? pct(p.votes || 0, yearVotes) : 0;
     });
   });
 
@@ -570,16 +600,19 @@ function resolveFilters(base, filters) {
   }
   const party = filters.party && filters.party !== 'all' ? String(filters.party) : 'all';
   const region = filters.region && filters.region !== 'all' ? String(filters.region) : 'all';
-  // State filter is governorship-scoped only (presidential is national).
+  // State filter: governorship always; presidential when an LGA pack exists for the year.
   let state = 'all';
-  if (office === 'gov') {
+  if (office === 'gov' || office === 'pres') {
     const raw = filters.state && filters.state !== 'all' ? canonicalState(String(filters.state)) : 'all';
     if (raw && raw !== 'all') {
-      // Accept any catalogued governorship state so year changes can yield an empty view.
-      const known = (base.states || []).length
-        ? base.states
-        : statesForGovYear(base, year);
-      if (known.some((s) => canonicalState(s) === raw)) state = raw;
+      const known = office === 'gov'
+        ? ((base.states || []).length ? base.states : statesForGovYear(base, year))
+        : (
+          (base.pres?.lgaByYear?.[year] && availablePresLgaStates(year))
+          || Object.keys(base.pres?.byYear?.[year]?.units || {})
+        );
+      if ((known || []).some((s) => canonicalState(s) === raw)) state = raw;
+      else if (office === 'pres' && base.pres?.byYear?.[year]?.units?.[raw]) state = raw;
     }
   }
   return { office, year, compare, party, region, state, series };
@@ -638,6 +671,50 @@ function buildPresUnits(cur, prev, region) {
       turnoutChange: (u.turnoutPct != null && p?.turnoutPct != null)
         ? round1(u.turnoutPct - p.turnoutPct)
         : null,
+    });
+  });
+  return units.sort((a, b) => a.state.localeCompare(b.state));
+}
+
+/** Build Geography LGA rows for a presidential year × state (Stears pack). */
+function buildPresLgaUnits(lgaPayload, stateName) {
+  if (!lgaPayload) return [];
+  const filtered = filterPresLgaPayload(lgaPayload, stateName);
+  const units = [];
+  Object.entries(filtered.units || {}).forEach(([lga, row]) => {
+    const votes = row.votes || {};
+    const totalVotes = sumVotes(votes);
+    const ranked = Object.entries(votes)
+      .map(([party, v]) => ({ party, votes: Number(v) || 0 }))
+      .sort((a, b) => b.votes - a.votes);
+    const marginPct = ranked.length >= 2 && totalVotes > 0
+      ? ((ranked[0].votes - ranked[1].votes) / totalVotes) * 100
+      : null;
+    const winnerParty = row.party || ranked[0]?.party || 'Others';
+    units.push({
+      state: lga,
+      district: lga,
+      parentState: stateName,
+      region: zoneOf(stateName),
+      winnerParty,
+      winnerName: row.winner || null,
+      votes: { ...votes },
+      totalVotes,
+      marginPct: marginPct != null ? round2(marginPct) : null,
+      runnerParty: ranked[1]?.party || null,
+      runnerVotes: ranked[1]?.votes || 0,
+      winnerVotes: ranked[0]?.votes || 0,
+      partyShares: Object.fromEntries(
+        Object.entries(votes).map(([p, v]) => [p, round2(pct(Number(v) || 0, totalVotes))])
+      ),
+      previousWinner: null,
+      previousMargin: null,
+      previousTurnout: null,
+      swingWinnerPts: null,
+      swings: {},
+      flipped: false,
+      turnoutPct: null,
+      turnoutChange: null,
     });
   });
   return units.sort((a, b) => a.state.localeCompare(b.state));
@@ -1012,10 +1089,14 @@ function assemblePayload(base, filters) {
 
   const prediction = buildPrediction(base, assumptions);
   // Dropdown lists states with data for the selected year; keep full catalog when year is empty.
-  const yearStates = office === 'gov' ? statesForGovYear(base, year) : [];
+  const yearStates = office === 'gov'
+    ? statesForGovYear(base, year)
+    : (office === 'pres' && base.pres?.lgaByYear?.[year]
+      ? availablePresLgaStates(year)
+      : []);
   const govStates = office === 'gov'
     ? (yearStates.length ? yearStates : base.states)
-    : base.states;
+    : (office === 'pres' && yearStates.length ? yearStates : base.states);
 
   return {
     ok: true,
@@ -1028,7 +1109,7 @@ function assemblePayload(base, filters) {
       { id: 'reps', label: 'House of Reps', years: base.reps.years },
     ],
     states: govStates.length ? govStates : base.states,
-    allStates: office === 'gov' ? (base.states || []) : undefined,
+    allStates: (office === 'gov' || office === 'pres') ? (base.states || []) : undefined,
     regions: Object.keys(GEO_ZONES),
     filters: { office, year, compare, party, region, state },
     availability: section.availability,
@@ -1070,7 +1151,13 @@ function assemblePayload(base, filters) {
     })),
     prediction,
     sources: [
-      { office: 'pres', files: base.pres.years.map((y) => `presidential-${y}-states.json`) },
+      {
+        office: 'pres',
+        files: [
+          ...base.pres.years.map((y) => `presidential-${y}-states.json`),
+          ...(base.pres.lgaYears || []).map((y) => `presidential-${y}-lga.json`),
+        ],
+      },
       { office: 'gov', count: base.gov.margins.length, years: base.gov.years },
       { office: 'sen', years: base.sen.years, seatsLatest: base.sen.byYear[base.sen.years[base.sen.years.length - 1]]?.seats || 0 },
       { office: 'reps', years: base.reps.years, seatsLatest: base.reps.byYear[base.reps.years[base.reps.years.length - 1]]?.seats || 0 },
@@ -1088,21 +1175,34 @@ function emptyDemographics() {
   };
 }
 
-function buildPresSections(base, { year, compare, party, region }) {
+function buildPresSections(base, { year, compare, party, region, state }) {
   const cur = base.pres.byYear[year];
   const prev = compare ? base.pres.byYear[compare] : null;
   const ranked = partyRankList(cur?.parties);
   const winnerRow = ranked[0] || null;
   const runnerRow = ranked[1] || null;
   const focusParty = party !== 'all' ? party : (winnerRow?.party || 'APC');
-  const units = buildPresUnits(cur, prev, region);
+  const stateFilter = state && state !== 'all' ? canonicalState(state) : 'all';
+  const hasLgaPack = !!(base.pres.lgaByYear && base.pres.lgaByYear[year]);
+  const drillLga = stateFilter !== 'all' && hasLgaPack;
+
+  let units = buildPresUnits(cur, prev, region);
+  if (stateFilter !== 'all') {
+    units = units.filter((u) => inState(u.state, stateFilter));
+  }
+  if (drillLga) {
+    units = buildPresLgaUnits(base.pres.lgaByYear[year], stateFilter);
+  }
+
   const flips = units.filter((u) => u.flipped).length;
   const swingRows = units
     .filter((u) => u.swings?.[focusParty] != null)
     .map((u) => ({ state: u.state, party: focusParty, swing: u.swings[focusParty], flipped: u.flipped }))
     .sort((a, b) => Math.abs(b.swing) - Math.abs(a.swing));
   const largestSwing = swingRows[0] || null;
-  const zoneSwing = zoneBreakdown(units, focusParty);
+  const zoneSwing = drillLga
+    ? []
+    : zoneBreakdown(units, focusParty);
 
   const nat = cur?.nationalTurnout;
   const prevNat = prev?.nationalTurnout;
@@ -1235,8 +1335,12 @@ function buildPresSections(base, { year, compare, party, region }) {
   };
 
   const geographic = {
-    mode: 'state',
-    mapHint: 'Use Live Results / Map for Leaflet choropleths; Analysis lists swing-ready state rows.',
+    mode: drillLga ? 'lga' : 'state',
+    mapHint: drillLga
+      ? `${stateFilter} presidential LGA tallies (${year}); choropleth also on Live Results / Map when a state is selected.`
+      : (hasLgaPack
+        ? 'Select a state to drill presidential LGA results (Stears + INEC). State rows below; Leaflet choropleths on Map / Live Results.'
+        : 'Use Live Results / Map for Leaflet choropleths; Analysis lists swing-ready state rows. Presidential LGA unavailable for this year on Stears.'),
     focusParty,
     regions: zoneSwing,
     units,
@@ -1244,7 +1348,8 @@ function buildPresSections(base, { year, compare, party, region }) {
     competitive: units.filter((u) => u.marginPct != null && u.marginPct < 10).sort((a, b) => a.marginPct - b.marginPct).slice(0, 12),
     gained: units.filter((u) => u.flipped && u.winnerParty === focusParty),
     lost: units.filter((u) => u.flipped && u.previousWinner === focusParty),
-    selected: null,
+    selected: stateFilter !== 'all' ? stateFilter : null,
+    hasLga: hasLgaPack,
   };
 
   const margins = units.filter((u) => u.marginPct != null).map((u) => u.marginPct);
@@ -1762,17 +1867,20 @@ function buildSeatSections(base, { office, year, compare, party, region }) {
   const cur = series.byYear[year];
   const prev = compare ? series.byYear[compare] : null;
   const ranked = partyRankList(cur?.parties);
+  const prevRanked = partyRankList(prev?.parties);
   const winnerRow = ranked[0] || null;
   const focusParty = party !== 'all' ? party : (winnerRow?.party || 'APC');
   const rawUnits = (cur?.units || []).filter((u) => inRegion(u.state, region));
   const { flips, units } = matchSeatFlips(rawUnits, (prev?.units || []).filter((u) => inRegion(u.state, region)));
   const zoneSwing = zoneBreakdown(units, focusParty);
+  const yearHasVotes = !!(cur?.totalVotes > 0);
+  const prevHasVotes = !!(prev?.totalVotes > 0);
   const winner = winnerRow ? {
     party: winnerRow.party,
     wins: units.filter((u) => u.winnerParty === winnerRow.party).length,
     totalUnits: units.length,
     seatShare: units.length ? round1(pct(units.filter((u) => u.winnerParty === winnerRow.party).length, units.length)) : round1(winnerRow.seatShare),
-    voteShare: null,
+    voteShare: yearHasVotes ? round1(winnerRow.voteShare) : null,
     marginPts: null,
   } : null;
 
@@ -1780,10 +1888,17 @@ function buildSeatSections(base, { office, year, compare, party, region }) {
     current: null,
     previous: null,
     change: null,
-    note: 'Legislative archives here are mostly winner-only; turnout fields are not present.',
+    note: yearHasVotes
+      ? 'Constituency vote totals available from Stears/INEC collations; registered-voter turnout fields are not present.'
+      : 'Legislative archives here are mostly winner-only; turnout fields are not present.',
     byUnit: [],
     fields: { registered: false, valid: false, rejected: false, abstentions: false },
   };
+
+  const voteUnits = units.filter((u) => u.votesAvailable && u.marginPct != null);
+  const largestSwingUnit = voteUnits.length
+    ? voteUnits.slice().sort((a, b) => (b.marginPct || 0) - (a.marginPct || 0))[0]
+    : null;
 
   const kpis = [
     {
@@ -1810,9 +1925,9 @@ function buildSeatSections(base, { office, year, compare, party, region }) {
     {
       icon: 'how_to_vote',
       label: 'Vote share',
-      value: '—',
-      unit: 'winner-only archive',
-      color: 'var(--mute)',
+      value: winner?.voteShare != null ? String(winner.voteShare) : '—',
+      unit: winner?.voteShare != null ? '% (summed)' : 'winner-only archive',
+      color: winner?.voteShare != null ? 'var(--good)' : 'var(--mute)',
     },
     {
       icon: 'sync_alt',
@@ -1823,10 +1938,12 @@ function buildSeatSections(base, { office, year, compare, party, region }) {
     },
     {
       icon: 'swap_vert',
-      label: 'Largest swing',
-      value: '—',
-      unit: 'needs vote totals',
-      color: 'var(--mute)',
+      label: largestSwingUnit ? 'Widest margin' : 'Largest swing',
+      value: largestSwingUnit ? String(round1(largestSwingUnit.marginPct)) : '—',
+      unit: largestSwingUnit
+        ? `pts · ${largestSwingUnit.state} ${largestSwingUnit.district}`
+        : 'needs vote totals',
+      color: largestSwingUnit ? 'var(--live)' : 'var(--mute)',
     },
   ];
 
@@ -1838,33 +1955,48 @@ function buildSeatSections(base, { office, year, compare, party, region }) {
   });
 
   const margins = units.filter((u) => u.marginPct != null).map((u) => u.marginPct);
+  const prevByParty = Object.fromEntries(prevRanked.map((p) => [p.party, p]));
 
   return {
     availability: {
-      voteShare: series.hasVoteTotals,
+      voteShare: yearHasVotes || series.hasVoteTotals,
       turnoutNational: false,
       turnoutByState: false,
       rejectedBallots: false,
       demographics: false,
       map: false,
-      legislativeVotes: series.hasVoteTotals,
+      legislativeVotes: yearHasVotes || series.hasVoteTotals,
     },
     summary: { kpis, narrative, winner, runner: ranked[1] || null, year, compare },
     drivers,
     performance: {
-      voteShare: ranked.map((p) => ({
-        party: p.party,
-        color: p.color,
-        currentShare: null,
-        previousShare: null,
-        deltaShare: null,
-        currentVotes: null,
-        previousVotes: null,
-        deltaVotes: null,
-        seatShare: round1(p.seatShare),
-        wins: p.wins,
-      })),
-      seatVsVote: [],
+      voteShare: ranked.map((p) => {
+        const was = prevByParty[p.party];
+        return {
+          party: p.party,
+          color: p.color,
+          currentShare: yearHasVotes ? round1(p.voteShare) : null,
+          previousShare: prevHasVotes && was ? round1(was.voteShare) : null,
+          deltaShare: yearHasVotes && prevHasVotes && was
+            ? round1(p.voteShare - was.voteShare)
+            : null,
+          currentVotes: yearHasVotes ? Math.round(p.votes || 0) : null,
+          previousVotes: prevHasVotes && was ? Math.round(was.votes || 0) : null,
+          deltaVotes: yearHasVotes && prevHasVotes && was
+            ? Math.round((p.votes || 0) - (was.votes || 0))
+            : null,
+          seatShare: round1(p.seatShare),
+          wins: p.wins,
+        };
+      }),
+      seatVsVote: yearHasVotes
+        ? ranked.filter((p) => p.votes > 0 || p.wins > 0).slice(0, 8).map((p) => ({
+          party: p.party,
+          color: p.color,
+          voteShare: round1(p.voteShare),
+          seatShare: round1(p.seatShare),
+        }))
+        : [],
       strongest: zoneSwing.slice(0, 6).map((z) => ({
         state: z.region,
         region: z.region,
@@ -1903,7 +2035,11 @@ function buildSeatSections(base, { office, year, compare, party, region }) {
         total: margins.length || units.length,
       },
       averageMargin: margins.length ? round1(margins.reduce((a, b) => a + b, 0) / margins.length) : null,
-      enp: effectiveNumberOfParties(ranked.map((p) => p.seatShare)),
+      enp: effectiveNumberOfParties(
+        yearHasVotes
+          ? ranked.map((p) => p.voteShare)
+          : ranked.map((p) => p.seatShare)
+      ),
       wastedVotes: null,
       distribution: margins,
       closest: units.filter((u) => u.marginPct != null).sort((a, b) => a.marginPct - b.marginPct).slice(0, 10).map((u) => ({
@@ -1919,7 +2055,6 @@ function buildSeatSections(base, { office, year, compare, party, region }) {
     },
     history: {
       years: series.years,
-      // Legislative archives are mostly winner-only — vote-share trend stays empty unless totals exist.
       voteShareTrend: series.hasVoteTotals
         ? historyTrendFromSeries(series, 'voteShare')
         : [],
@@ -1927,7 +2062,7 @@ function buildSeatSections(base, { office, year, compare, party, region }) {
       turnoutTrend: [],
       compareSideBySide: {
         current: { year, parties: ranked.slice(0, 6) },
-        previous: { year: compare, parties: partyRankList(prev?.parties).slice(0, 6) },
+        previous: { year: compare, parties: prevRanked.slice(0, 6) },
       },
       realignmentNote: compare
         ? `${flips} matched seats changed party between ${compare} and ${year}.`

@@ -6,204 +6,376 @@
     "state": "Kogi",
     "level": "district",
     "title": "Kogi House of Representatives Election 2019",
-    "source": "Public National Assembly membership scaffold",
-    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
-    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
-    "updated": "2026-09-15",
-    "collated": false,
-    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+    "source": "Stears Elections + INEC",
+    "sourceDetail": "Stears 2019 house-of-representatives constituency results (__NEXT_DATA__); underlying INEC/IREV and LGA collation",
+    "attribution": "Stears Elections; Independent National Electoral Commission (INEC)",
+    "sourceUrl": "https://www.stears.co/elections/2019/house-of-representatives/",
+    "updated": "2026-09-17",
+    "collated": true,
+    "note": "Constituency vote totals collated from Stears Elections (__NEXT_DATA__), sourced from INEC/IREV and LGA collation."
   },
   "seats": [
     {
-      "district": "Adavi/Okehi",
+      "district": "Okene/Ogori-Magogo",
       "winner": {
-        "name": "Joseph Bello",
+        "name": "Yusuf Ahmed Tijani",
         "party": "APC"
       },
       "candidates": [
         {
-          "name": "Joseph Bello",
+          "name": "Yusuf Ahmed Tijani",
           "party": "APC",
-          "votes": null,
+          "votes": 371997,
           "outcome": "Won"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 12293,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Isah Suka Mohammad",
+          "party": "PDP",
+          "votes": 17,
+          "outcome": "Lost"
         }
       ]
     },
     {
-      "district": "Ajaokuta",
+      "district": "Idah/Igalamela Odolu/Ibaji/Ofu",
       "winner": {
-        "name": "Lawal Muhammadu Idirisu",
+        "name": "Zacharias David Idris",
         "party": "APC"
       },
       "candidates": [
         {
-          "name": "Lawal Muhammadu Idirisu",
+          "name": "Zacharias David Idris",
           "party": "APC",
-          "votes": null,
+          "votes": 44884,
           "outcome": "Won"
+        },
+        {
+          "name": "John Ibrahim Uche",
+          "party": "PDP",
+          "votes": 27315,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 12120,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Adavi/Okehi",
+      "winner": {
+        "name": "Bello Joseph Asuku",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Bello Joseph Asuku",
+          "party": "APC",
+          "votes": 40085,
+          "outcome": "Won"
+        },
+        {
+          "name": "Itopa M. Onimisi",
+          "party": "PDP",
+          "votes": 19169,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 8325,
+          "outcome": "Lost"
         }
       ]
     },
     {
       "district": "Ankpa/Omala/Olamaboro",
       "winner": {
-        "name": "Ali Abdullahi Ibrahim",
+        "name": "Abdullahi Ibrahim Ali",
         "party": "APC"
       },
       "candidates": [
         {
-          "name": "Ali Abdullahi Ibrahim",
+          "name": "Abdullahi Ibrahim Ali",
           "party": "APC",
-          "votes": null,
+          "votes": 38398,
           "outcome": "Won"
+        },
+        {
+          "name": "Habiba Muhammed Deen",
+          "party": "PDP",
+          "votes": 26845,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 13733,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Kogi Lokoja/Kogi Kk",
+      "winner": {
+        "name": "Isah Abdulkareem Usman",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Isah Abdulkareem Usman",
+          "party": "APC",
+          "votes": 37356,
+          "outcome": "Won"
+        },
+        {
+          "name": "Ibrahim Isah Shaba",
+          "party": "PDP",
+          "votes": 33662,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 1083,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Yagba East/Yagba West/Mopamuro",
+      "winner": {
+        "name": "Others",
+        "party": "Others"
+      },
+      "candidates": [
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 18829,
+          "outcome": "Won"
+        },
+        {
+          "name": "Abimbola Henry Tuesday",
+          "party": "APC",
+          "votes": 12399,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Fabola Bola James",
+          "party": "PDP",
+          "votes": 11628,
+          "outcome": "Lost"
         }
       ]
     },
     {
       "district": "Bassa/Dekina",
       "winner": {
-        "name": "Hassan Abdullahi Baiwa",
-        "party": "APC"
-      },
-      "candidates": [
-        {
-          "name": "Hassan Abdullahi Baiwa",
-          "party": "APC",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Ibaji/Idah/Igalamela/Odolu",
-      "winner": {
-        "name": "David Idris Zacharias",
-        "party": "APC"
-      },
-      "candidates": [
-        {
-          "name": "David Idris Zacharias",
-          "party": "APC",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Kabba/Bunu/Ijumu",
-      "winner": {
-        "name": "Tajudeen Yusuf",
+        "name": "Benjamin Idani Okolo",
         "party": "PDP"
       },
       "candidates": [
         {
-          "name": "Tajudeen Yusuf",
+          "name": "Benjamin Idani Okolo",
           "party": "PDP",
-          "votes": null,
-          "outcome": "Won"
+          "votes": 17738,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 6555,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Adakeke Alhassan Salisu",
+          "party": "APC",
+          "votes": 19,
+          "outcome": "Lost"
         }
       ]
     },
     {
-      "district": "Kogi (Lokoja)/Kogi (K.K.)",
+      "district": "Ajaokuta",
       "winner": {
-        "name": "Abdulkareem Usman Isah",
+        "name": "Idris Awal Moh'D",
         "party": "APC"
       },
       "candidates": [
         {
-          "name": "Abdulkareem Usman Isah",
+          "name": "Idris Awal Moh'D",
           "party": "APC",
-          "votes": null,
+          "votes": 12796,
           "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Okene/Ogori-Magogo",
-      "winner": {
-        "name": "Yusuf Ahmed Tijjani",
-        "party": "APC"
-      },
-      "candidates": [
+        },
         {
-          "name": "Yusuf Ahmed Tijjani",
-          "party": "APC",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Yagba East/Yagba West/ Mopamuro",
-      "winner": {
-        "name": "Leke Abejide",
-        "party": "ADC"
-      },
-      "candidates": [
+          "name": "Ojono Adeza A.",
+          "party": "PDP",
+          "votes": 10891,
+          "outcome": "Lost"
+        },
         {
-          "name": "Leke Abejide",
-          "party": "ADC",
-          "votes": null,
-          "outcome": "Won"
+          "name": "Others",
+          "party": "Others",
+          "votes": 115,
+          "outcome": "Lost"
         }
       ]
     }
   ],
   "candidates": [
     {
-      "name": "Joseph Bello",
-      "party": "APC",
-      "district": "Adavi/Okehi",
-      "votes": null
-    },
-    {
-      "name": "Lawal Muhammadu Idirisu",
-      "party": "APC",
-      "district": "Ajaokuta",
-      "votes": null
-    },
-    {
-      "name": "Ali Abdullahi Ibrahim",
-      "party": "APC",
-      "district": "Ankpa/Omala/Olamaboro",
-      "votes": null
-    },
-    {
-      "name": "Hassan Abdullahi Baiwa",
-      "party": "APC",
-      "district": "Bassa/Dekina",
-      "votes": null
-    },
-    {
-      "name": "David Idris Zacharias",
-      "party": "APC",
-      "district": "Ibaji/Idah/Igalamela/Odolu",
-      "votes": null
-    },
-    {
-      "name": "Tajudeen Yusuf",
-      "party": "PDP",
-      "district": "Kabba/Bunu/Ijumu",
-      "votes": null
-    },
-    {
-      "name": "Abdulkareem Usman Isah",
-      "party": "APC",
-      "district": "Kogi (Lokoja)/Kogi (K.K.)",
-      "votes": null
-    },
-    {
-      "name": "Yusuf Ahmed Tijjani",
+      "name": "Yusuf Ahmed Tijani",
       "party": "APC",
       "district": "Okene/Ogori-Magogo",
-      "votes": null
+      "votes": 371997
     },
     {
-      "name": "Leke Abejide",
-      "party": "ADC",
-      "district": "Yagba East/Yagba West/ Mopamuro",
-      "votes": null
+      "name": "Others",
+      "party": "Others",
+      "district": "Okene/Ogori-Magogo",
+      "votes": 12293
+    },
+    {
+      "name": "Isah Suka Mohammad",
+      "party": "PDP",
+      "district": "Okene/Ogori-Magogo",
+      "votes": 17
+    },
+    {
+      "name": "Zacharias David Idris",
+      "party": "APC",
+      "district": "Idah/Igalamela Odolu/Ibaji/Ofu",
+      "votes": 44884
+    },
+    {
+      "name": "John Ibrahim Uche",
+      "party": "PDP",
+      "district": "Idah/Igalamela Odolu/Ibaji/Ofu",
+      "votes": 27315
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Idah/Igalamela Odolu/Ibaji/Ofu",
+      "votes": 12120
+    },
+    {
+      "name": "Bello Joseph Asuku",
+      "party": "APC",
+      "district": "Adavi/Okehi",
+      "votes": 40085
+    },
+    {
+      "name": "Itopa M. Onimisi",
+      "party": "PDP",
+      "district": "Adavi/Okehi",
+      "votes": 19169
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Adavi/Okehi",
+      "votes": 8325
+    },
+    {
+      "name": "Abdullahi Ibrahim Ali",
+      "party": "APC",
+      "district": "Ankpa/Omala/Olamaboro",
+      "votes": 38398
+    },
+    {
+      "name": "Habiba Muhammed Deen",
+      "party": "PDP",
+      "district": "Ankpa/Omala/Olamaboro",
+      "votes": 26845
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Ankpa/Omala/Olamaboro",
+      "votes": 13733
+    },
+    {
+      "name": "Isah Abdulkareem Usman",
+      "party": "APC",
+      "district": "Kogi Lokoja/Kogi Kk",
+      "votes": 37356
+    },
+    {
+      "name": "Ibrahim Isah Shaba",
+      "party": "PDP",
+      "district": "Kogi Lokoja/Kogi Kk",
+      "votes": 33662
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Kogi Lokoja/Kogi Kk",
+      "votes": 1083
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Yagba East/Yagba West/Mopamuro",
+      "votes": 18829
+    },
+    {
+      "name": "Abimbola Henry Tuesday",
+      "party": "APC",
+      "district": "Yagba East/Yagba West/Mopamuro",
+      "votes": 12399
+    },
+    {
+      "name": "Fabola Bola James",
+      "party": "PDP",
+      "district": "Yagba East/Yagba West/Mopamuro",
+      "votes": 11628
+    },
+    {
+      "name": "Benjamin Idani Okolo",
+      "party": "PDP",
+      "district": "Bassa/Dekina",
+      "votes": 17738
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Bassa/Dekina",
+      "votes": 6555
+    },
+    {
+      "name": "Adakeke Alhassan Salisu",
+      "party": "APC",
+      "district": "Bassa/Dekina",
+      "votes": 19
+    },
+    {
+      "name": "Idris Awal Moh'D",
+      "party": "APC",
+      "district": "Ajaokuta",
+      "votes": 12796
+    },
+    {
+      "name": "Ojono Adeza A.",
+      "party": "PDP",
+      "district": "Ajaokuta",
+      "votes": 10891
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Ajaokuta",
+      "votes": 115
     }
   ]
 }

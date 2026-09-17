@@ -6,141 +6,286 @@
     "state": "Gombe",
     "level": "district",
     "title": "Gombe House of Representatives Election 2019",
-    "source": "Public National Assembly membership scaffold",
-    "sourceDetail": "Wikipedia: List of members of the House of Representatives of Nigeria, 2019–2023",
-    "attribution": "Independent National Electoral Commission (INEC) / National Assembly public records",
-    "updated": "2026-09-15",
-    "collated": false,
-    "note": "Winner-only scaffold; runner-up and contested vote totals not in local archive."
+    "source": "Stears Elections + INEC",
+    "sourceDetail": "Stears 2019 house-of-representatives constituency results (__NEXT_DATA__); underlying INEC/IREV and LGA collation",
+    "attribution": "Stears Elections; Independent National Electoral Commission (INEC)",
+    "sourceUrl": "https://www.stears.co/elections/2019/house-of-representatives/",
+    "updated": "2026-09-17",
+    "collated": true,
+    "note": "Constituency vote totals collated from Stears Elections (__NEXT_DATA__), sourced from INEC/IREV and LGA collation."
   },
   "seats": [
     {
-      "district": "Akko",
-      "winner": {
-        "name": "Usman Bello Kumo",
-        "party": "APC"
-      },
-      "candidates": [
-        {
-          "name": "Usman Bello Kumo",
-          "party": "APC",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Balanga/Billiri",
-      "winner": {
-        "name": "Victor Mela Danzaria",
-        "party": "APC"
-      },
-      "candidates": [
-        {
-          "name": "Victor Mela Danzaria",
-          "party": "APC",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
-      "district": "Dukku/Nafada",
-      "winner": {
-        "name": "Aishatu Jibril Dukku",
-        "party": "APC"
-      },
-      "candidates": [
-        {
-          "name": "Aishatu Jibril Dukku",
-          "party": "APC",
-          "votes": null,
-          "outcome": "Won"
-        }
-      ]
-    },
-    {
       "district": "Gombe/Kwami/Funakaye",
       "winner": {
-        "name": "Yaya Bauchi Tango",
+        "name": "Bauchi Yaya Tongo",
         "party": "APC"
       },
       "candidates": [
         {
-          "name": "Yaya Bauchi Tango",
+          "name": "Bauchi Yaya Tongo",
           "party": "APC",
-          "votes": null,
+          "votes": 173416,
           "outcome": "Won"
+        },
+        {
+          "name": "Abubakar Shehu Durbi",
+          "party": "PDP",
+          "votes": 57365,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 29169,
+          "outcome": "Lost"
         }
       ]
     },
     {
-      "district": "Kaltungo/Shongom",
+      "district": "Akko",
       "winner": {
-        "name": "Simon Elisha Karu",
+        "name": "Bello Usman A Kumo",
         "party": "APC"
       },
       "candidates": [
         {
-          "name": "Simon Elisha Karu",
+          "name": "Bello Usman A Kumo",
           "party": "APC",
-          "votes": null,
+          "votes": 57490,
           "outcome": "Won"
+        },
+        {
+          "name": "Ahmad Aishatu Muhammad Bose",
+          "party": "PDP",
+          "votes": 28631,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 2110,
+          "outcome": "Lost"
         }
       ]
     },
     {
       "district": "Yamaltu/Deba",
       "winner": {
-        "name": "Yunusa Ahmad Abubakar",
+        "name": "Abubakar Yunusa Ahmed",
         "party": "APC"
       },
       "candidates": [
         {
-          "name": "Yunusa Ahmad Abubakar",
+          "name": "Abubakar Yunusa Ahmed",
           "party": "APC",
-          "votes": null,
+          "votes": 45315,
           "outcome": "Won"
+        },
+        {
+          "name": "Garba Inuwa",
+          "party": "PDP",
+          "votes": 30420,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 827,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Balanga/Billiri",
+      "winner": {
+        "name": "Mela Victor",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Mela Victor",
+          "party": "APC",
+          "votes": 45112,
+          "outcome": "Won"
+        },
+        {
+          "name": "Isa Ali Jc",
+          "party": "PDP",
+          "votes": 35385,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 2627,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Dukku/Nafada",
+      "winner": {
+        "name": "Jibril Dukku Aishatu",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Jibril Dukku Aishatu",
+          "party": "APC",
+          "votes": 40122,
+          "outcome": "Won"
+        },
+        {
+          "name": "Saidu Adamu Jodoma",
+          "party": "PDP",
+          "votes": 21474,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 1265,
+          "outcome": "Lost"
+        }
+      ]
+    },
+    {
+      "district": "Kaltungo/Shongom",
+      "winner": {
+        "name": "Karu Simon Elisha",
+        "party": "APC"
+      },
+      "candidates": [
+        {
+          "name": "Karu Simon Elisha",
+          "party": "APC",
+          "votes": 35316,
+          "outcome": "Won"
+        },
+        {
+          "name": "Kalba Gora Adamu",
+          "party": "PDP",
+          "votes": 28661,
+          "outcome": "Lost"
+        },
+        {
+          "name": "Others",
+          "party": "Others",
+          "votes": 987,
+          "outcome": "Lost"
         }
       ]
     }
   ],
   "candidates": [
     {
-      "name": "Usman Bello Kumo",
-      "party": "APC",
-      "district": "Akko",
-      "votes": null
-    },
-    {
-      "name": "Victor Mela Danzaria",
-      "party": "APC",
-      "district": "Balanga/Billiri",
-      "votes": null
-    },
-    {
-      "name": "Aishatu Jibril Dukku",
-      "party": "APC",
-      "district": "Dukku/Nafada",
-      "votes": null
-    },
-    {
-      "name": "Yaya Bauchi Tango",
+      "name": "Bauchi Yaya Tongo",
       "party": "APC",
       "district": "Gombe/Kwami/Funakaye",
-      "votes": null
+      "votes": 173416
     },
     {
-      "name": "Simon Elisha Karu",
+      "name": "Abubakar Shehu Durbi",
+      "party": "PDP",
+      "district": "Gombe/Kwami/Funakaye",
+      "votes": 57365
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Gombe/Kwami/Funakaye",
+      "votes": 29169
+    },
+    {
+      "name": "Bello Usman A Kumo",
       "party": "APC",
-      "district": "Kaltungo/Shongom",
-      "votes": null
+      "district": "Akko",
+      "votes": 57490
     },
     {
-      "name": "Yunusa Ahmad Abubakar",
+      "name": "Ahmad Aishatu Muhammad Bose",
+      "party": "PDP",
+      "district": "Akko",
+      "votes": 28631
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Akko",
+      "votes": 2110
+    },
+    {
+      "name": "Abubakar Yunusa Ahmed",
       "party": "APC",
       "district": "Yamaltu/Deba",
-      "votes": null
+      "votes": 45315
+    },
+    {
+      "name": "Garba Inuwa",
+      "party": "PDP",
+      "district": "Yamaltu/Deba",
+      "votes": 30420
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Yamaltu/Deba",
+      "votes": 827
+    },
+    {
+      "name": "Mela Victor",
+      "party": "APC",
+      "district": "Balanga/Billiri",
+      "votes": 45112
+    },
+    {
+      "name": "Isa Ali Jc",
+      "party": "PDP",
+      "district": "Balanga/Billiri",
+      "votes": 35385
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Balanga/Billiri",
+      "votes": 2627
+    },
+    {
+      "name": "Jibril Dukku Aishatu",
+      "party": "APC",
+      "district": "Dukku/Nafada",
+      "votes": 40122
+    },
+    {
+      "name": "Saidu Adamu Jodoma",
+      "party": "PDP",
+      "district": "Dukku/Nafada",
+      "votes": 21474
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Dukku/Nafada",
+      "votes": 1265
+    },
+    {
+      "name": "Karu Simon Elisha",
+      "party": "APC",
+      "district": "Kaltungo/Shongom",
+      "votes": 35316
+    },
+    {
+      "name": "Kalba Gora Adamu",
+      "party": "PDP",
+      "district": "Kaltungo/Shongom",
+      "votes": 28661
+    },
+    {
+      "name": "Others",
+      "party": "Others",
+      "district": "Kaltungo/Shongom",
+      "votes": 987
     }
   ]
 }
