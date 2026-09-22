@@ -1,4 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="PDP">
-  <rect width="64" height="64" rx="12" fill="#cf3a4e"/>
-  <text x="32" y="38" text-anchor="middle" font-family="IBM Plex Sans, Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">PDP</text>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- PDP party flag (illustration): green–white–red with umbrella emblem. Original work for Election Dashboard. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64" role="img" aria-label="Peoples Democratic Party flag">
+  <defs><clipPath id="c"><rect width="96" height="64" rx="3"/></clipPath></defs>
+  <g clip-path="url(#c)">
+    <rect width="32" height="64" fill="#008751"/>
+    <rect x="32" width="32" height="64" fill="#ffffff"/>
+    <rect x="64" width="32" height="64" fill="#e31b23"/>
+    <g transform="translate(48 30)" fill="#c8102e">
+      <path d="M0 -14 C-14 -14 -16 -2 -16 0 L16 0 C16 -2 14 -14 0 -14 Z"/>
+      <rect x="-1.5" y="0" width="3" height="16" rx="1"/>
+      <ellipse cx="0" cy="17" rx="4" ry="2"/>
+    </g>
+  </g>
 </svg>

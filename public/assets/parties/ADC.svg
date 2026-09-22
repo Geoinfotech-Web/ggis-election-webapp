@@ -1,4 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ADC">
-  <rect width="64" height="64" rx="12" fill="#6f8f2f"/>
-  <text x="32" y="38" text-anchor="middle" font-family="IBM Plex Sans, Arial, sans-serif" font-size="14" font-weight="700" fill="#fff">ADC</text>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- ADC party flag (illustration): green/gold with Africa outline motif. Original work. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64" role="img" aria-label="African Democratic Congress flag">
+  <defs><clipPath id="c"><rect width="96" height="64" rx="3"/></clipPath></defs>
+  <g clip-path="url(#c)">
+    <rect width="96" height="64" fill="#2d6a1e"/>
+    <rect y="0" width="96" height="10" fill="#c9a227"/>
+    <rect y="54" width="96" height="10" fill="#c9a227"/>
+    <path fill="#c9a227" d="M40 16 C36 20 34 28 36 36 C38 44 42 48 48 50 C54 48 58 44 60 36 C62 28 60 20 56 16 C52 14 44 14 40 16 Z M48 20 C50 24 52 30 50 38 C48 42 46 42 46 38 C44 30 46 24 48 20 Z"/>
+  </g>
 </svg>

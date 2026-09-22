@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- YPP party flag (illustration): orange/navy youth palette. Prefer Commons File:Ypp-logo-design.png (CC BY-SA 4.0) when hosted as YPP.png. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64" role="img" aria-label="Young Progressives Party flag">
+  <defs><clipPath id="c"><rect width="96" height="64" rx="3"/></clipPath></defs>
+  <g clip-path="url(#c)">
+    <rect width="96" height="64" fill="#1a237e"/>
+    <rect y="40" width="96" height="24" fill="#ef6c00"/>
+    <circle cx="48" cy="26" r="12" fill="#ef6c00"/>
+    <path d="M48 16 L51 24 L60 24 L53 29 L56 38 L48 33 L40 38 L43 29 L36 24 L45 24 Z" fill="#1a237e"/>
+  </g>
+</svg>

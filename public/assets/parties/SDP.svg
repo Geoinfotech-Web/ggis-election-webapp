@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- SDP party flag (illustration): green–white with horse motif (historic SDP association). Original work. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64" role="img" aria-label="Social Democratic Party flag">
+  <defs><clipPath id="c"><rect width="96" height="64" rx="3"/></clipPath></defs>
+  <g clip-path="url(#c)">
+    <rect width="96" height="64" fill="#ffffff"/>
+    <rect width="96" height="20" fill="#008751"/>
+    <rect y="44" width="96" height="20" fill="#008751"/>
+    <g fill="#1a5a9a" transform="translate(48 34)">
+      <ellipse cx="-4" cy="0" rx="12" ry="8"/>
+      <path d="M6 -2 L18 -10 L20 -6 L10 2 Z"/>
+      <rect x="-2" y="6" width="3" height="10"/><rect x="-10" y="6" width="3" height="10"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64" role="img" aria-label="Allied Peoples Movement flag">
+  <defs><clipPath id="c"><rect width="96" height="64" rx="3"/></clipPath></defs>
+  <g clip-path="url(#c)">
+    <rect width="96" height="64" fill="#0277bd"/>
+    <rect width="96" height="20" fill="#01579b"/>
+    <circle cx="48" cy="38" r="12" fill="#ffffff"/>
+    <path d="M40 38 h16 M48 30 v16" stroke="#0277bd" stroke-width="3"/>
+  </g>
+</svg>

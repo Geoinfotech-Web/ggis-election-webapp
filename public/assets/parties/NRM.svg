@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64" role="img" aria-label="National Rescue Movement flag">
+  <defs><clipPath id="c"><rect width="96" height="64" rx="3"/></clipPath></defs>
+  <g clip-path="url(#c)">
+    <rect width="96" height="64" fill="#00695c"/>
+    <circle cx="48" cy="32" r="16" fill="#ffffff"/>
+    <path d="M48 18 L52 28 L63 28 L54 35 L57 46 L48 40 L39 46 L42 35 L33 28 L44 28 Z" fill="#00695c"/>
+  </g>
+</svg>

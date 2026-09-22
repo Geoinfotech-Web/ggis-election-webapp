@@ -1,4 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="LP">
-  <rect width="64" height="64" rx="12" fill="#2fa84f"/>
-  <text x="32" y="38" text-anchor="middle" font-family="IBM Plex Sans, Arial, sans-serif" font-size="18" font-weight="700" fill="#fff">LP</text>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Labour Party (Nigeria) flag (illustration): red|green vertical per published description. Original work for Election Dashboard. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64" role="img" aria-label="Labour Party flag">
+  <defs><clipPath id="c"><rect width="96" height="64" rx="3"/></clipPath></defs>
+  <g clip-path="url(#c)">
+    <rect width="48" height="64" fill="#c8102e"/>
+    <rect x="48" width="48" height="64" fill="#008751"/>
+    <circle cx="48" cy="32" r="14" fill="#ffffff"/>
+    <circle cx="48" cy="32" r="11" fill="none" stroke="#222" stroke-width="2"/>
+    <!-- simplified family/wheel centre -->
+    <circle cx="48" cy="32" r="3.5" fill="#222"/>
+    <path d="M48 21 L48 28 M48 36 L48 43 M37 32 L44 32 M52 32 L59 32" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+  </g>
 </svg>

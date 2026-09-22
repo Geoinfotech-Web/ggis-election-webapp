@@ -1,4 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="NNPP">
-  <rect width="64" height="64" rx="12" fill="#7a53d1"/>
-  <text x="32" y="38" text-anchor="middle" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#fff">NNPP</text>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- NNPP party flag (illustration): green field, white charge, red stripe — Kwankwasiyya-associated palette. Original work. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64" role="img" aria-label="New Nigeria Peoples Party flag">
+  <defs><clipPath id="c"><rect width="96" height="64" rx="3"/></clipPath></defs>
+  <g clip-path="url(#c)">
+    <rect width="96" height="64" fill="#0b7a3e"/>
+    <rect y="24" width="96" height="16" fill="#ffffff"/>
+    <rect y="28" width="96" height="8" fill="#d32f2f"/>
+    <!-- horse head simplified (party motif often equine) -->
+    <g fill="#ffffff" transform="translate(20 18)">
+      <ellipse cx="0" cy="8" rx="8" ry="6"/>
+      <path d="M6 6 L16 -2 L18 2 L10 10 Z"/>
+      <circle cx="-3" cy="6" r="1.2" fill="#0b7a3e"/>
+    </g>
+  </g>
 </svg>

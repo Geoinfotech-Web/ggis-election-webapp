@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64" role="img" aria-label="Boot Party flag">
+  <defs><clipPath id="c"><rect width="96" height="64" rx="3"/></clipPath></defs>
+  <g clip-path="url(#c)">
+    <rect width="96" height="64" fill="#5d4037"/>
+    <rect y="44" width="96" height="20" fill="#3e2723"/>
+    <path fill="#ffcc80" d="M34 18 h18 v22 h8 l10 8 H30 v-8 h4 z"/>
+  </g>
+</svg>

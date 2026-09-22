@@ -1,4 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="APGA">
-  <rect width="64" height="64" rx="12" fill="#1f9e8a"/>
-  <text x="32" y="38" text-anchor="middle" font-family="IBM Plex Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#fff">APGA</text>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- APGA party flag (illustration): green field with cock/rooster emblem (INEC symbol). Original work. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64" role="img" aria-label="All Progressives Grand Alliance flag">
+  <defs><clipPath id="c"><rect width="96" height="64" rx="3"/></clipPath></defs>
+  <g clip-path="url(#c)">
+    <rect width="96" height="64" fill="#1b8f3a"/>
+    <rect y="48" width="96" height="16" fill="#f2c14e"/>
+    <g transform="translate(48 30)" fill="#f2c14e">
+      <ellipse cx="0" cy="4" rx="10" ry="8"/>
+      <circle cx="8" cy="-4" r="5"/>
+      <path d="M12 -4 L20 -2 L12 0 Z"/>
+      <path d="M-2 -6 L0 -16 L4 -6 Z M2 -5 L6 -14 L8 -4 Z M-6 -4 L-4 -12 L0 -4 Z"/>
+      <path d="M-6 10 L-8 18 L-4 12 M6 10 L8 18 L4 12" stroke="#f2c14e" stroke-width="2" fill="none"/>
+      <circle cx="9" cy="-5" r="1" fill="#1b8f3a"/>
+    </g>
+  </g>
 </svg>

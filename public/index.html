@@ -91,19 +91,28 @@ a:hover{color:var(--primary)}
 .eid-gov-prompt__hint{font-size:10.5px;color:var(--dim);line-height:1.35}
 .eid-gov-prompt__arrow{color:var(--primary);font-size:22px;line-height:1;animation:eidnudge 1.1s ease-in-out infinite}
 .eid-gov-state-target{outline:2px solid var(--primary);outline-offset:2px;border-radius:9px;box-shadow:0 0 0 4px var(--primary-soft)}
-.eid-party-flag{width:40px;height:40px;flex:none;border-radius:9px;overflow:hidden;display:grid;place-items:center;position:relative;background:var(--surface3);border:1px solid var(--border)}
-.eid-party-flag--lg{width:44px;height:44px;border-radius:10px}
-.eid-party-flag img{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
+.eid-party-flag{width:54px;height:36px;flex:none;border-radius:6px;overflow:hidden;display:grid;place-items:center;position:relative;background:var(--surface3);border:1px solid var(--border);box-shadow:inset 0 0 0 1px rgba(0,0,0,.04)}
+.eid-party-flag--lg{width:72px;height:48px;border-radius:7px}
+.eid-party-flag img{width:100%;height:100%;object-fit:contain;display:block;position:relative;z-index:1;background:var(--surface)}
 .eid-party-flag:has(img) .eid-party-flag__fallback{display:none}
-.eid-party-flag__fallback{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:11px;font-weight:700;letter-spacing:.02em}
-.eid-party-hist{margin:0;border-top:1px solid var(--border)}
-.eid-party-hist summary{cursor:pointer;list-style:none;padding:10px 15px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center;gap:6px;user-select:none}
-.eid-party-hist summary::-webkit-details-marker{display:none}
-.eid-party-hist summary::before{content:'expand_more';font-family:'Material Symbols Outlined';font-size:16px;color:var(--dim);transition:transform .15s ease}
-.eid-party-hist[open] summary::before{transform:rotate(180deg)}
-.eid-party-hist__body{padding:0 15px 14px;font-size:12.5px;color:var(--dim);line-height:1.55}
-.eid-party-hist__meta{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
-.eid-party-hist__chip{font-size:10.5px;padding:3px 8px;border-radius:999px;border:1px solid var(--border);background:var(--surface2);color:var(--text)}
+.eid-party-flag__fallback{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:10px;font-weight:700;letter-spacing:.04em}
+.eid-party-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.eid-party-card.is-active{border-color:var(--primary);box-shadow:0 0 0 1px var(--primary-soft)}
+.eid-party-card__btn{display:flex;align-items:center;gap:11px;padding:11px 12px;width:100%;border:0;background:transparent;cursor:pointer;text-align:left;font-family:inherit;color:inherit;min-height:56px}
+.eid-party-card__btn:focus-visible{outline:2px solid var(--primary);outline-offset:-2px}
+.eid-party-card__btn:hover{background:var(--surface2)}
+.eid-party-card.is-active .eid-party-card__btn{background:var(--primary-soft)}
+.eid-party-card__text{min-width:0;flex:1}
+.eid-party-card__abbr{font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.eid-party-card__name{font-size:10.5px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.eid-party-card__tag{font-size:10px;color:var(--dim);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.eid-party-hist__meta{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 8px}
+.eid-party-hist__chip{font-size:10.5px;padding:3px 8px;border-radius:999px;border:1px solid var(--border);background:var(--surface);color:var(--text)}
+.eid-party-hist__copy{font-size:12.5px;color:var(--dim);line-height:1.55;margin:0 0 8px}
+.eid-party-hist__note{font-size:11.5px;color:var(--text);line-height:1.45;margin:0}
+.eid-party-hist{margin:0;border-top:1px solid var(--border);padding:12px 15px 14px}
+.eid-party-hist__hd{margin:0 0 2px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.eid-party-hist__body{font-size:12.5px;color:var(--dim);line-height:1.55}
 .eid-about-refs{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
 .eid-about-refs h2{margin:0 0 8px;font-size:14px;font-weight:600}
 .eid-about-refs p{margin:0 0 10px;font-size:12.5px;color:var(--dim);line-height:1.5}
@@ -1643,20 +1652,23 @@ a:hover{color:var(--primary)}
       <div class="eid-page-root">
         <div class="eid-page-head"><div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><span style="width:8px;height:8px;border-radius:50%;background:var(--primary)"></span><span style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--primary)">{{ scopeLabel }} · Parties</span></div><h1 style="margin:0;font-size:22px;font-weight:600;letter-spacing:-.02em">Political parties</h1></div>
         <sc-if value="{{ ngParties }}" hint-placeholder-val="{{ false }}">
-          <div style="font-size:11.5px;color:var(--mute);flex:none">{{ ngParties.count }} parties registered with INEC · select a party for flag, history and flag bearers</div>
+          <div style="font-size:11.5px;color:var(--mute);flex:none">{{ ngParties.count }} parties registered with INEC · select a party to view history and flag bearers</div>
           <div class="parties-split" style="flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,360px);gap:14px;align-items:stretch;overflow:hidden">
-            <div class="eid-scroll" style="min-height:0;overflow:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;align-content:start">
+            <div class="eid-scroll" style="min-height:0;overflow:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;align-content:start" role="listbox" aria-label="Political parties">
               <sc-for list="{{ ngParties.list }}" as="p" hint-placeholder-count="9">
-                <button onClick="{{ p.onClick }}" style="{{ p.cardStyle }}" style-hover="border-color:var(--primary)">
-                  <div style="height:4px;background:{{ p.color }}"></div>
-                  <div style="display:flex;align-items:center;gap:11px;padding:12px 13px">
+                <article class="{{ p.cardClass }}" style="{{ p.cardStyle }}" role="option" aria-selected="{{ p.ariaSelected }}">
+                  <button type="button" class="eid-party-card__btn" onClick="{{ p.onSelect }}" aria-pressed="{{ p.ariaSelected }}" id="{{ p.toggleId }}">
                     <span class="eid-party-flag" title="{{ p.abbr }}">
-                      <sc-if value="{{ p.hasLogo }}" hint-placeholder-val="{{ false }}"><img src="{{ p.logo }}" alt="{{ p.abbr }}" width="40" height="40"></sc-if>
+                      <sc-if value="{{ p.hasLogo }}" hint-placeholder-val="{{ false }}"><img src="{{ p.logo }}" alt="" width="54" height="36"></sc-if>
                       <span class="eid-party-flag__fallback" style="background:{{ p.color }}">{{ p.initials }}</span>
                     </span>
-                    <div style="min-width:0"><div style="font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ p.abbr }}</div><div style="font-size:10.5px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ p.name }}</div><div style="font-size:10px;color:var(--dim);margin-top:1px">Est. {{ p.founded }} · 2023 share {{ p.voteShare }}</div></div>
-                  </div>
-                </button>
+                    <div class="eid-party-card__text">
+                      <div class="eid-party-card__abbr">{{ p.abbr }}</div>
+                      <div class="eid-party-card__name">{{ p.name }}</div>
+                      <div class="eid-party-card__tag">{{ p.tagline }}</div>
+                    </div>
+                  </button>
+                </article>
               </sc-for>
             </div>
             <aside class="eid-scroll" style="min-height:0;overflow:auto">
@@ -1665,22 +1677,25 @@ a:hover{color:var(--primary)}
                 <div style="height:5px;background:{{ ngPartyDetail.color }}"></div>
                 <div style="display:flex;align-items:center;gap:11px;padding:14px 15px;border-bottom:1px solid var(--border)">
                   <span class="eid-party-flag eid-party-flag--lg" title="{{ ngPartyDetail.abbr }}">
-                    <sc-if value="{{ ngPartyDetail.hasLogo }}" hint-placeholder-val="{{ false }}"><img src="{{ ngPartyDetail.logo }}" alt="{{ ngPartyDetail.abbr }}" width="44" height="44"></sc-if>
+                    <sc-if value="{{ ngPartyDetail.hasLogo }}" hint-placeholder-val="{{ false }}"><img src="{{ ngPartyDetail.logo }}" alt="{{ ngPartyDetail.abbr }} flag" width="72" height="48"></sc-if>
                     <span class="eid-party-flag__fallback" style="background:{{ ngPartyDetail.color }}">{{ ngPartyDetail.abbr }}</span>
                   </span>
-                  <div style="min-width:0;flex:1"><div style="font-size:15px;font-weight:600;color:var(--text)">{{ ngPartyDetail.abbr }}</div><div style="font-size:11px;color:var(--mute)">{{ ngPartyDetail.name }}</div></div>
-                  <button onClick="{{ ngPartyDetail.close }}" title="Close" style="width:28px;height:28px;flex:none;display:grid;place-items:center;border:1px solid var(--border);background:transparent;color:var(--dim);border-radius:7px;cursor:pointer"><span class="msi" style="font-size:16px">close</span></button>
+                  <div style="min-width:0;flex:1"><div style="font-size:15px;font-weight:600;color:var(--text)">{{ ngPartyDetail.abbr }}</div><div style="font-size:11px;color:var(--mute)">{{ ngPartyDetail.name }}</div><div style="font-size:10.5px;color:var(--dim);margin-top:2px">{{ ngPartyDetail.tagline }}</div></div>
+                  <button onClick="{{ ngPartyDetail.close }}" title="Close" aria-label="Close party detail" style="width:28px;height:28px;flex:none;display:grid;place-items:center;border:1px solid var(--border);background:transparent;color:var(--dim);border-radius:7px;cursor:pointer"><span class="msi" style="font-size:16px">close</span></button>
                 </div>
-                <details class="eid-party-hist" open>
-                  <summary>Brief history</summary>
+                <div class="eid-party-hist">
+                  <h3 class="eid-party-hist__hd">Brief history</h3>
                   <div class="eid-party-hist__body">
                     <div class="eid-party-hist__meta">
                       <span class="eid-party-hist__chip">Founded {{ ngPartyDetail.founded }}</span>
                       <span class="eid-party-hist__chip">2023 share {{ ngPartyDetail.voteShare }}</span>
                     </div>
                     <div>{{ ngPartyDetail.history }}</div>
+                    <div style="margin-top:8px;font-size:11.5px;color:var(--text)"><strong style="font-weight:600">Background.</strong> {{ ngPartyDetail.founders }}</div>
+                    <div style="margin-top:6px;font-size:11.5px;color:var(--text)"><strong style="font-weight:600">Ideology.</strong> {{ ngPartyDetail.ideology }}</div>
+                    <div style="margin-top:6px;font-size:11.5px;color:var(--text)"><strong style="font-weight:600">Notable.</strong> {{ ngPartyDetail.notable }}</div>
                   </div>
-                </details>
+                </div>
                 <div style="padding:9px 15px 4px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)">Presidential flag bearers · past to present</div>
                 <div style="padding:6px 15px 15px;display:flex;flex-direction:column">
                   <sc-for list="{{ ngPartyDetail.bearers }}" as="b" hint-placeholder-count="2">
@@ -1694,7 +1709,7 @@ a:hover{color:var(--primary)}
               </section>
               </sc-if>
               <sc-if value="{{ ngPartySelectHint }}" hint-placeholder-val="{{ true }}">
-              <div style="border:1px dashed var(--border2);border-radius:13px;padding:30px 18px;text-align:center"><span class="msi" style="font-size:30px;color:var(--mute)">touch_app</span><div style="font-size:12.5px;color:var(--dim);margin-top:8px">Select a party to view its history and presidential flag bearers.</div></div>
+              <div style="border:1px dashed var(--border2);border-radius:13px;padding:30px 18px;text-align:center"><span class="msi" style="font-size:30px;color:var(--mute)">touch_app</span><div style="font-size:12.5px;color:var(--dim);margin-top:8px">Select a party to view its brief history, ideology, and presidential flag bearers.</div></div>
               </sc-if>
             </aside>
           </div>
@@ -3285,45 +3300,117 @@ class Component extends DCLogic {
 
   INEC_PARTIES = [
     {abbr:'APC', name:'All Progressives Congress', color:'#2f6fed', founded:2013, logo:'/assets/parties/APC.svg',
-      history:'Formed in 2013 from a merger of ACN, CPC, ANPP and a faction of APGA. Won the presidency in 2015, 2019 and 2023; currently the largest governing party at federal level.'},
+      tagline:'Governing coalition · centre-right',
+      founders:'Merger of ACN, CPC, ANPP and an APGA faction (2013)',
+      ideology:'Progressive conservatism, federalism, market reforms',
+      notable:'Presidency 2015, 2019, 2023 · largest federal caucus',
+      history:'Formed in February 2013 to unite opposition against the PDP. Absorbed Action Congress of Nigeria, Congress for Progressive Change, All Nigeria Peoples Party and a faction of APGA. Muhammadu Buhari won the presidency in 2015 and 2019; Bola Ahmed Tinubu won in 2023. Remains the dominant governing party at federal level.'},
     {abbr:'PDP', name:'Peoples Democratic Party', color:'#cf3a4e', founded:1998, logo:'/assets/parties/PDP.svg',
-      history:'Founded ahead of the 1999 transition. Dominated Nigerian politics from 1999–2015 under Obasanjo, Yar’Adua and Jonathan. Remains a major opposition force nationwide.'},
+      tagline:'Umbrella party · centre to centre-left',
+      founders:'G-34 elders and pro-democracy figures ahead of 1999',
+      ideology:'Big-tent social democracy, federal power-sharing',
+      notable:'Presidency 1999–2015 · still major opposition nationwide',
+      history:'Founded in 1998 ahead of the Fourth Republic transition. Governed Nigeria under Olusegun Obasanjo, Umaru Musa Yar’Adua and Goodluck Jonathan (1999–2015). Lost the presidency in 2015 but remains a major opposition force with deep state and National Assembly footprints.'},
     {abbr:'LP', name:'Labour Party', color:'#2fa84f', founded:2002, logo:'/assets/parties/LP.svg',
-      history:'Registered in 2002 with roots in organised labour. Rose sharply in 2023 behind Peter Obi, finishing third nationally and winning several National Assembly seats.'},
+      tagline:'Labour roots · reform surge in 2023',
+      founders:'Organised labour networks; registered 2002',
+      ideology:'Social democracy, workers’ rights, anti-establishment reform',
+      notable:'Peter Obi 3rd nationally in 2023 · NASS seats gained',
+      history:'Registered in 2002 with roots in Nigeria’s labour movement. Remained a smaller party for two decades before a sharp rise in 2023 behind Peter Obi, finishing third nationally and winning several National Assembly seats—especially in the South-East and urban centres.'},
     {abbr:'NNPP', name:'New Nigeria Peoples Party', color:'#7a53d1', founded:2002, logo:'/assets/parties/NNPP.svg',
-      history:'Long-registered party revitalised in the 2020s around Rabiu Musa Kwankwaso’s Kwankwasiyya movement. Strongest in Kano and parts of the North-West.'},
+      tagline:'Kwankwasiyya · North-West strength',
+      founders:'Long-registered; revitalised around R. M. Kwankwaso',
+      ideology:'Populist progressivism, regional mobilisation',
+      notable:'Kwankwaso 4th in 2023 · strong in Kano',
+      history:'A long-registered INEC party revitalised in the 2020s around Rabiu Musa Kwankwaso’s Kwankwasiyya movement. Strongest in Kano and parts of the North-West; fielded Kwankwaso for president in 2023 (4th place) and holds state-level influence in its core base.'},
     {abbr:'APGA', name:'All Progressives Grand Alliance', color:'#1f9e8a', founded:2002, logo:'/assets/parties/APGA.svg',
-      history:'Founded in 2002 with a South-East base. Has held the Anambra governorship for multiple cycles and fields candidates across Igbo-speaking states.'},
+      tagline:'South-East base · Anambra staple',
+      founders:'Chekwas Okorie and Igbo progressive networks (2002)',
+      ideology:'Regional progressivism, Igbo political voice',
+      notable:'Anambra governorship across multiple cycles',
+      history:'Founded in 2002 with a South-East base. Best known for holding the Anambra governorship for multiple electoral cycles and fielding candidates across Igbo-speaking states. Contests presidential races with limited national share but durable state relevance.'},
     {abbr:'ADC', name:'African Democratic Congress', color:'#6f8f2f', founded:2005, logo:'/assets/parties/ADC.svg',
-      history:'Registered in 2005 as a reform-minded alternative. Contests presidential and legislative races; often collaborates with other smaller parties.'},
-    {abbr:'SDP', name:'Social Democratic Party', color:'#3f6f9e', founded:1990,
-      history:'Name revived from Nigeria’s Third Republic SDP. Contemporary SDP fields presidential and legislative candidates as a social-democratic option.'},
-    {abbr:'YPP', name:'Young Progressives Party', color:'#b5482f', founded:2017,
-      history:'Registered in 2017 with a youth-focused platform. Has won National Assembly seats and fields candidates in several states.'},
-    {abbr:'ADP', name:'Action Democratic Party', color:'#8a5fbf', founded:2016,
-      history:'Registered in 2016. Contests presidential and state races; known for reform messaging and coalition talks with other smaller parties.'},
-    {abbr:'AA', name:'Action Alliance', color:'#bf9a2f', founded:2005,
-      history:'INEC-registered party that fields presidential and legislative candidates; limited seat presence relative to the major four.'},
-    {abbr:'AAC', name:'African Action Congress', color:'#c0392f', founded:2018,
-      history:'Founded by Omoyele Sowore in 2018. Positions itself as a radical left / activist party with a strong online organising base.'},
-    {abbr:'APM', name:'Allied Peoples Movement', color:'#2f8fbf', founded:2017,
-      history:'Registered in 2017. Contests national and state elections; part of Nigeria’s wider multiparty field beyond the big four.'},
-    {abbr:'APP', name:'Action Peoples Party', color:'#5f9e6f', founded:2018,
-      history:'Relatively new INEC-registered party fielding candidates in presidential and National Assembly contests.'},
-    {abbr:'BP', name:'Boot Party', color:'#7f6f4f', founded:2018,
-      history:'Registered party that has fielded presidential candidates; limited geographic footprint to date.'},
-    {abbr:'NRM', name:'National Rescue Movement', color:'#4f8f8f', founded:2018,
-      history:'INEC-registered movement-style party contesting national elections with a reform agenda.'},
-    {abbr:'PRP', name:'Peoples Redemption Party', color:'#9e2f6f', founded:1978,
-      history:'Historic northern progressive party associated with Aminu Kano’s tradition; revived in the Fourth Republic and still fields candidates.'},
-    {abbr:'ZLP', name:'Zenith Labour Party', color:'#2f6f5f', founded:2018,
-      history:'Labour-aligned party registered in the late 2010s; contests presidential and legislative races.'},
-    {abbr:'A', name:'Accord', color:'#8f7f2f', founded:2006,
-      history:'Registered as Accord Party. Has held state-level offices historically and continues to field presidential flag bearers.'},
+      tagline:'Reform alternative · coalition partner',
+      founders:'Reform-minded founders; registered 2005',
+      ideology:'Centrist reform, democratic consolidation',
+      notable:'Presidential tickets 2019 & 2023 · coalition talks',
+      history:'Registered in 2005 as a reform-minded alternative to the big two. Contests presidential and legislative races and often collaborates with other smaller parties. Fielded Obadiah Mailafia (2019) and Dumebi Kachikwu (2023) among others.'},
+    {abbr:'SDP', name:'Social Democratic Party', color:'#3f6f9e', founded:1990, logo:'/assets/parties/SDP.svg',
+      tagline:'Third Republic name · social democrat',
+      founders:'Name revived from Babangida-era SDP',
+      ideology:'Social democracy, pluralist federalism',
+      notable:'Donald Duke 2019 · Adewole Adebayo 2023',
+      history:'Carries the name of Nigeria’s Third Republic SDP. The contemporary party fields presidential and legislative candidates as a social-democratic option outside the APC–PDP duopoly, including Donald Duke (2019) and Prince Adewole Adebayo (2023).'},
+    {abbr:'YPP', name:'Young Progressives Party', color:'#b5482f', founded:2017, logo:'/assets/parties/YPP.png',
+      tagline:'Youth platform · assembly wins',
+      founders:'Youth-focused organisers; registered 2017',
+      ideology:'Youth empowerment, progressive reform',
+      notable:'National Assembly seats · Ado-Ibrahim 2023',
+      history:'Registered in 2017 with a youth-focused platform. Has won National Assembly seats and fields candidates in several states. Abdulmalik Ado-Ibrahim was the 2023 presidential flag bearer.'},
+    {abbr:'ADP', name:'Action Democratic Party', color:'#8a5fbf', founded:2016, logo:'/assets/parties/ADP.svg',
+      tagline:'Reform messaging · small-party field',
+      founders:'Registered 2016 as a reform vehicle',
+      ideology:'Democratic reform, anti-corruption messaging',
+      notable:'Yabagi Sani Yusuf presidential run 2023',
+      history:'Registered in 2016. Contests presidential and state races with reform messaging and occasional coalition talks with other smaller parties. Yabagi Sani Yusuf ran for president in 2023.'},
+    {abbr:'AA', name:'Action Alliance', color:'#bf9a2f', founded:2005, logo:'/assets/parties/AA.svg',
+      tagline:'Multiparty field · limited seat share',
+      founders:'INEC-registered mid-2000s',
+      ideology:'Centrist, electoral participation',
+      notable:'Hamza Al-Mustapha presidential ticket 2023',
+      history:'INEC-registered party that fields presidential and legislative candidates. Seat presence remains limited relative to the major four, but it regularly appears on national ballots.'},
+    {abbr:'AAC', name:'African Action Congress', color:'#c0392f', founded:2018, logo:'/assets/parties/AAC.svg',
+      tagline:'Activist left · Sowore vehicle',
+      founders:'Omoyele Sowore (2018)',
+      ideology:'Radical left, activist organising',
+      notable:'Sowore presidential runs 2019 and 2023',
+      history:'Founded by Omoyele Sowore in 2018. Positions itself as a radical left / activist party with a strong online organising base. Sowore contested the presidency in 2019 and 2023 under the AAC banner.'},
+    {abbr:'APM', name:'Allied Peoples Movement', color:'#2f8fbf', founded:2017, logo:'/assets/parties/APM.svg',
+      tagline:'Newer entrant · national tickets',
+      founders:'Registered 2017',
+      ideology:'Centrist multiparty competition',
+      notable:'Princess Chichi Ojei 2023 presidential run',
+      history:'Registered in 2017. Contests national and state elections as part of Nigeria’s wider multiparty field beyond the big four. Fielded Princess Chichi Ojei for president in 2023.'},
+    {abbr:'APP', name:'Action Peoples Party', color:'#5f9e6f', founded:2018, logo:'/assets/parties/APP.svg',
+      tagline:'Late-2010s registrant · ballot presence',
+      founders:'Registered 2018',
+      ideology:'Centrist, participation-focused',
+      notable:'Osita Nnadi presidential ticket 2023',
+      history:'Relatively new INEC-registered party fielding candidates in presidential and National Assembly contests, including Osita Nnadi in 2023.'},
+    {abbr:'BP', name:'Boot Party', color:'#7f6f4f', founded:2018, logo:'/assets/parties/BP.svg',
+      tagline:'Niche national contender',
+      founders:'Registered 2018',
+      ideology:'Reform niche, limited footprint',
+      notable:'Adenuga presidential ticket 2023',
+      history:'Registered party that has fielded presidential candidates, including Sunday Oluwafemi Adenuga in 2023. Geographic footprint remains limited to date.'},
+    {abbr:'NRM', name:'National Rescue Movement', color:'#4f8f8f', founded:2018, logo:'/assets/parties/NRM.svg',
+      tagline:'Movement-style reform party',
+      founders:'Registered 2018',
+      ideology:'National reform agenda',
+      notable:'Felix Johnson Osakwe 2023 ticket',
+      history:'INEC-registered movement-style party contesting national elections with a reform agenda. Fielded Felix Johnson Osakwe for president in 2023.'},
+    {abbr:'PRP', name:'Peoples Redemption Party', color:'#9e2f6f', founded:1978, logo:'/assets/parties/PRP.svg',
+      tagline:'Aminu Kano tradition · northern progressive',
+      founders:'Aminu Kano progressive tradition (Second Republic roots)',
+      ideology:'Northern progressivism, social justice',
+      notable:'Revived in Fourth Republic · Kola Abiola 2023',
+      history:'Historic northern progressive party associated with Aminu Kano’s tradition. Revived in the Fourth Republic and still fields candidates, including Kola Abiola for president in 2023.'},
+    {abbr:'ZLP', name:'Zenith Labour Party', color:'#2f6f5f', founded:2018, logo:'/assets/parties/ZLP.svg',
+      tagline:'Labour-aligned · late-2010s',
+      founders:'Labour-aligned organisers; registered ~2018',
+      ideology:'Labour / social democratic lean',
+      notable:'Nwanyanwu presidential ticket 2023',
+      history:'Labour-aligned party registered in the late 2010s; contests presidential and legislative races. Daniel Daberechukwu Nwanyanwu was the 2023 presidential flag bearer.'},
+    {abbr:'A', name:'Accord', color:'#8f7f2f', founded:2006, logo:'/assets/parties/A.svg',
+      tagline:'Accord Party · state offices historically',
+      founders:'Registered as Accord Party (mid-2000s)',
+      ideology:'Centrist, pragmatic electoral vehicle',
+      notable:'State offices historically · Imumolen 2023',
+      history:'Registered as Accord Party. Has held state-level offices historically and continues to field presidential flag bearers, including Christopher Imumolen in 2023.'},
   ];
   partyLogoUrl(abbr){
     const p = (this.INEC_PARTIES || []).find((x)=> x.abbr === abbr);
-    return (p && p.logo) || null;
+    return (p && p.logo) || (abbr ? `/assets/parties/${abbr}.svg` : null);
   }
   partyHistory(abbr){
     const p = (this.INEC_PARTIES || []).find((x)=> x.abbr === abbr);
@@ -5782,6 +5869,7 @@ class Component extends DCLogic {
       { label: 'Governorship archives', body: 'State packs cite INEC collation centres and contemporaneous reporting (Channels, Punch, Premium Times, Blueprint, Wikipedia summaries, etc.) in each file’s sourceDetail.', url: '', linkLabel: '', hasUrl: false },
       { label: 'Analysis seat archives', body: 'National Assembly Overview can fall back to Analysis geographic units when the choropleth API has not yet loaded NASS loaders — same seat winners, shorter UI captions.', url: '', linkLabel: '', hasUrl: false },
       { label: 'Citizen EC8A', body: 'Live Results publishes geofenced citizen uploads separately from official layers so users can compare, not conflate, the two.', url: '', linkLabel: '', hasUrl: false },
+      { label: 'Party flags', body: 'Parties page marks use local assets under /assets/parties/. YPP.png is from Wikimedia Commons (CC BY-SA 4.0). Other SVGs are dashboard illustrations of published party colours/emblems — not official trademarked logos — because free redistributable APC/PDP/LP/NNPP/APGA/ADC flag files were not available. See public/assets/parties/README.md.', url: 'https://commons.wikimedia.org/wiki/File:Ypp-logo-design.png', linkLabel: 'YPP Commons file', hasUrl: true },
     ];
 
     const switcherItems = [
@@ -6447,18 +6535,41 @@ class Component extends DCLogic {
       const sel=this.state.selParty;
       const shareOf=(abbr)=>{ const hit=(this.NG_PRES['2023']||[]).find(r=>r[1]===abbr); return hit? hit[2]+'%' : '—'; };
       ngParties={
-        list:this.INEC_PARTIES.map(p=>({ ...p, initials:p.abbr, voteShare:shareOf(p.abbr), active:p.abbr===sel,
-          hasLogo: !!p.logo, logo: p.logo || '',
-          onClick:()=>this.setState({selParty:p.abbr}),
-          cardStyle:`background:var(--surface);border:1px solid ${p.abbr===sel?'var(--primary)':'var(--border)'};border-radius:12px;overflow:hidden;cursor:pointer;text-align:left;font-family:inherit;padding:0;width:100%` })),
+        list:this.INEC_PARTIES.map(p=>{
+          const selected = p.abbr === sel;
+          const logo = p.logo || this.partyLogoUrl(p.abbr) || '';
+          return {
+            ...p,
+            initials: p.abbr,
+            tagline: p.tagline || `Est. ${p.founded}`,
+            founders: p.founders || 'INEC-registered political party',
+            ideology: p.ideology || 'Multiparty democratic competition',
+            notable: p.notable || 'Contests national and state elections',
+            history: p.history || this.partyHistory(p.abbr),
+            voteShare: shareOf(p.abbr),
+            active: selected,
+            hasLogo: !!logo,
+            logo,
+            ariaSelected: selected ? 'true' : 'false',
+            toggleId: `party-select-${p.abbr}`,
+            cardClass: `eid-party-card${selected ? ' is-active' : ''}`,
+            cardStyle: `border-top:3px solid ${p.color}`,
+            onSelect: ()=> this.setState({ selParty: p.abbr }),
+          };
+        }),
         count:this.INEC_PARTIES.length, hasSel:!!sel,
       };
       if(sel){
         const p=this.INEC_PARTIES.find(x=>x.abbr===sel);
+        const logo = (p && p.logo) || this.partyLogoUrl(sel) || '';
         ngPartyDetail={
           ...p,
-          hasLogo: !!(p && p.logo),
-          logo: (p && p.logo) || '',
+          hasLogo: !!logo,
+          logo,
+          tagline: (p && p.tagline) || '',
+          founders: (p && p.founders) || '',
+          ideology: (p && p.ideology) || '',
+          notable: (p && p.notable) || '',
           voteShare: shareOf(sel),
           history: (p && p.history) || this.partyHistory(sel),
           bearers:this.partyBearers(sel),

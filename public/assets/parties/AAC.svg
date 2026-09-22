@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64" role="img" aria-label="African Action Congress flag">
+  <defs><clipPath id="c"><rect width="96" height="64" rx="3"/></clipPath></defs>
+  <g clip-path="url(#c)">
+    <rect width="96" height="64" fill="#b71c1c"/>
+    <rect y="0" width="96" height="14" fill="#212121"/>
+    <rect y="50" width="96" height="14" fill="#212121"/>
+    <path d="M30 40 L48 16 L66 40 Z" fill="#ffeb3b"/>
+  </g>
+</svg>
