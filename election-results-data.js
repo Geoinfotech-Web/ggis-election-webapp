@@ -563,8 +563,12 @@ function availableGovStates(year) {
 
 function electionYearOf(meta) {
   const m = meta || {};
-  const dated = m.electionDate || m.updated;
-  if (dated && /^\d{4}/.test(String(dated))) return String(dated).slice(0, 4);
+  // Prefer explicit election date/year — never treat file `updated` (ingest timestamp) as the election year.
+  if (m.electionDate && /^\d{4}/.test(String(m.electionDate))) return String(m.electionDate).slice(0, 4);
+  if (m.year && /^\d{4}$/.test(String(m.year))) return String(m.year);
+  if (m.coverage && m.coverage.year && /^\d{4}$/.test(String(m.coverage.year))) {
+    return String(m.coverage.year);
+  }
   return String(m.year || '');
 }
 

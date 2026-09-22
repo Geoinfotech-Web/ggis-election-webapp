@@ -431,7 +431,7 @@ window.EID_DATA = (function () {
     { v: "pres", l: "Presidential" },
     { v: "sen", l: "Senatorial" },
     { v: "reps", l: "House of Representatives" },
-    { v: "gov", l: "Gubernatorial" },
+    { v: "gov", l: "Governorship" },
     { v: "assembly", l: "State House of Assembly" },
   ];
 

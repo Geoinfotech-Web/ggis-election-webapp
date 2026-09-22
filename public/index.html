@@ -91,6 +91,25 @@ a:hover{color:var(--primary)}
 .eid-gov-prompt__hint{font-size:10.5px;color:var(--dim);line-height:1.35}
 .eid-gov-prompt__arrow{color:var(--primary);font-size:22px;line-height:1;animation:eidnudge 1.1s ease-in-out infinite}
 .eid-gov-state-target{outline:2px solid var(--primary);outline-offset:2px;border-radius:9px;box-shadow:0 0 0 4px var(--primary-soft)}
+.eid-party-flag{width:40px;height:40px;flex:none;border-radius:9px;overflow:hidden;display:grid;place-items:center;position:relative;background:var(--surface3);border:1px solid var(--border)}
+.eid-party-flag--lg{width:44px;height:44px;border-radius:10px}
+.eid-party-flag img{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
+.eid-party-flag:has(img) .eid-party-flag__fallback{display:none}
+.eid-party-flag__fallback{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:11px;font-weight:700;letter-spacing:.02em}
+.eid-party-hist{margin:0;border-top:1px solid var(--border)}
+.eid-party-hist summary{cursor:pointer;list-style:none;padding:10px 15px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center;gap:6px;user-select:none}
+.eid-party-hist summary::-webkit-details-marker{display:none}
+.eid-party-hist summary::before{content:'expand_more';font-family:'Material Symbols Outlined';font-size:16px;color:var(--dim);transition:transform .15s ease}
+.eid-party-hist[open] summary::before{transform:rotate(180deg)}
+.eid-party-hist__body{padding:0 15px 14px;font-size:12.5px;color:var(--dim);line-height:1.55}
+.eid-party-hist__meta{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.eid-party-hist__chip{font-size:10.5px;padding:3px 8px;border-radius:999px;border:1px solid var(--border);background:var(--surface2);color:var(--text)}
+.eid-about-refs{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
+.eid-about-refs h2{margin:0 0 8px;font-size:14px;font-weight:600}
+.eid-about-refs p{margin:0 0 10px;font-size:12.5px;color:var(--dim);line-height:1.5}
+.eid-about-refs ul{margin:0;padding:0 0 0 18px;display:flex;flex-direction:column;gap:8px}
+.eid-about-refs li{font-size:12.5px;color:var(--dim);line-height:1.45}
+.eid-about-refs a{color:var(--primary)}
 .eid-analysis-filters{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:flex-end;flex:none;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:8px 10px;box-shadow:var(--shadow)}
 .eid-analysis-filters label{display:flex;flex-direction:column;gap:3px;font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)}
 .eid-analysis-filters select,.eid-analysis-filters input[type=range]{height:30px;min-width:110px;padding:0 8px;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:7px;font-family:inherit;font-size:12px}
@@ -706,7 +725,7 @@ a:hover{color:var(--primary)}
                 <div style="font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:6px">Step 1 · Election type</div>
                 <select value="{{ ovOfficeVal }}" onChange="{{ onOffice }}" style="{{ selStyle }}">
                   <option value="pres">Presidential Election</option>
-                  <option value="gov">Gubernatorial Election</option>
+                  <option value="gov">Governorship Election</option>
                   <optgroup label="National Assembly">
                     <option value="sen">Senatorial Election</option>
                     <option value="reps">House of Representatives Election</option>
@@ -719,7 +738,7 @@ a:hover{color:var(--primary)}
                 <sc-if value="{{ govStatePrompt }}" hint-placeholder-val="{{ false }}">
                 <div class="eid-gov-prompt" role="status">
                   <div class="eid-gov-prompt__label">Select a state to continue</div>
-                  <div class="eid-gov-prompt__hint">Gubernatorial results are shown per state</div>
+                  <div class="eid-gov-prompt__hint">Governorship results are shown per state</div>
                   <span class="msi eid-gov-prompt__arrow" aria-hidden="true">arrow_downward</span>
                 </div>
                 </sc-if>
@@ -821,7 +840,9 @@ a:hover{color:var(--primary)}
               <span class="msi" style="font-size:16px;color:var(--primary)">how_to_vote</span>
               <div style="min-width:0;flex:1">
                 <h2 style="margin:0;font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ ngElec.panelTitle }}</h2>
+                <sc-if value="{{ ngElec.sourceLine }}" hint-placeholder-val="{{ false }}">
                 <div style="font-size:10px;color:var(--mute)">{{ ngElec.sourceLine }}</div>
+                </sc-if>
               </div>
               <sc-if value="{{ ngElec.canClearState }}" hint-placeholder-val="{{ false }}">
               <button onClick="{{ ngElec.clearState }}" title="Back to national map" style="flex:none;height:28px;padding:0 8px;border:1px solid var(--border);background:transparent;border-radius:7px;font-family:inherit;font-size:11px;color:var(--dim);cursor:pointer">National</button>
@@ -959,7 +980,10 @@ a:hover{color:var(--primary)}
               </div>
               <div style="padding:10px 14px;display:flex;flex-direction:column;gap:9px;border-bottom:1px solid var(--border)">
                 <sc-for list="{{ ngElec.na.parties }}" as="p" hint-placeholder-count="4">
-                  <div style="display:flex;align-items:center;gap:8px"><span style="width:9px;height:9px;border-radius:2px;flex:none;background:{{ p.color }}"></span><span style="font-size:12px;font-weight:500;color:var(--text)">{{ p.party }}</span><span style="margin-left:auto;font-family:'IBM Plex Sans';font-size:12px;font-weight:600;color:var(--text);font-variant-numeric:tabular-nums">{{ p.seats }}</span><span style="font-family:'IBM Plex Sans';font-size:10.5px;color:var(--mute);min-width:42px;text-align:right">{{ p.pctLabel }}</span></div>
+                  <div>
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="width:9px;height:9px;border-radius:2px;flex:none;background:{{ p.color }}"></span><span style="font-size:12px;font-weight:500;color:var(--text)">{{ p.party }}</span><span style="margin-left:auto;font-family:'IBM Plex Sans';font-size:12px;font-weight:600;color:var(--text);font-variant-numeric:tabular-nums">{{ p.seats }}</span><span style="font-family:'IBM Plex Sans';font-size:10.5px;color:var(--mute);min-width:42px;text-align:right">{{ p.pctLabel }}</span></div>
+                    <div style="height:5px;border-radius:3px;background:var(--surface3);overflow:hidden"><span style="{{ p.shareBar }}"></span></div>
+                  </div>
                 </sc-for>
               </div>
               <div style="padding:11px 14px 0"><select value="{{ ngElec.na.stateVal }}" onChange="{{ ngElec.na.onState }}" style="{{ selStyle }}"><option value="">All states · click map</option><sc-for list="{{ ngElec.na.states }}" as="s" hint-placeholder-count="6"><option value="{{ s }}">{{ s }}</option></sc-for></select></div>
@@ -1619,14 +1643,17 @@ a:hover{color:var(--primary)}
       <div class="eid-page-root">
         <div class="eid-page-head"><div style="display:flex;align-items:center;gap:8px;margin-bottom:5px"><span style="width:8px;height:8px;border-radius:50%;background:var(--primary)"></span><span style="font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--primary)">{{ scopeLabel }} · Parties</span></div><h1 style="margin:0;font-size:22px;font-weight:600;letter-spacing:-.02em">Political parties</h1></div>
         <sc-if value="{{ ngParties }}" hint-placeholder-val="{{ false }}">
-          <div style="font-size:11.5px;color:var(--mute);flex:none">{{ ngParties.count }} parties registered with INEC · select a party to see its flag bearers</div>
+          <div style="font-size:11.5px;color:var(--mute);flex:none">{{ ngParties.count }} parties registered with INEC · select a party for flag, history and flag bearers</div>
           <div class="parties-split" style="flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,360px);gap:14px;align-items:stretch;overflow:hidden">
             <div class="eid-scroll" style="min-height:0;overflow:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;align-content:start">
               <sc-for list="{{ ngParties.list }}" as="p" hint-placeholder-count="9">
                 <button onClick="{{ p.onClick }}" style="{{ p.cardStyle }}" style-hover="border-color:var(--primary)">
                   <div style="height:4px;background:{{ p.color }}"></div>
                   <div style="display:flex;align-items:center;gap:11px;padding:12px 13px">
-                    <span style="width:40px;height:40px;flex:none;border-radius:9px;background:{{ p.color }};display:grid;place-items:center;color:#fff;font-size:12px;font-weight:600">{{ p.initials }}</span>
+                    <span class="eid-party-flag" title="{{ p.abbr }}">
+                      <sc-if value="{{ p.hasLogo }}" hint-placeholder-val="{{ false }}"><img src="{{ p.logo }}" alt="{{ p.abbr }}" width="40" height="40"></sc-if>
+                      <span class="eid-party-flag__fallback" style="background:{{ p.color }}">{{ p.initials }}</span>
+                    </span>
                     <div style="min-width:0"><div style="font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ p.abbr }}</div><div style="font-size:10.5px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ p.name }}</div><div style="font-size:10px;color:var(--dim);margin-top:1px">Est. {{ p.founded }} · 2023 share {{ p.voteShare }}</div></div>
                   </div>
                 </button>
@@ -1637,10 +1664,23 @@ a:hover{color:var(--primary)}
               <section style="background:var(--surface);border:1px solid var(--border);border-radius:13px;overflow:hidden">
                 <div style="height:5px;background:{{ ngPartyDetail.color }}"></div>
                 <div style="display:flex;align-items:center;gap:11px;padding:14px 15px;border-bottom:1px solid var(--border)">
-                  <span style="width:44px;height:44px;flex:none;border-radius:10px;background:{{ ngPartyDetail.color }};display:grid;place-items:center;color:#fff;font-size:14px;font-weight:600">{{ ngPartyDetail.abbr }}</span>
+                  <span class="eid-party-flag eid-party-flag--lg" title="{{ ngPartyDetail.abbr }}">
+                    <sc-if value="{{ ngPartyDetail.hasLogo }}" hint-placeholder-val="{{ false }}"><img src="{{ ngPartyDetail.logo }}" alt="{{ ngPartyDetail.abbr }}" width="44" height="44"></sc-if>
+                    <span class="eid-party-flag__fallback" style="background:{{ ngPartyDetail.color }}">{{ ngPartyDetail.abbr }}</span>
+                  </span>
                   <div style="min-width:0;flex:1"><div style="font-size:15px;font-weight:600;color:var(--text)">{{ ngPartyDetail.abbr }}</div><div style="font-size:11px;color:var(--mute)">{{ ngPartyDetail.name }}</div></div>
                   <button onClick="{{ ngPartyDetail.close }}" title="Close" style="width:28px;height:28px;flex:none;display:grid;place-items:center;border:1px solid var(--border);background:transparent;color:var(--dim);border-radius:7px;cursor:pointer"><span class="msi" style="font-size:16px">close</span></button>
                 </div>
+                <details class="eid-party-hist" open>
+                  <summary>Brief history</summary>
+                  <div class="eid-party-hist__body">
+                    <div class="eid-party-hist__meta">
+                      <span class="eid-party-hist__chip">Founded {{ ngPartyDetail.founded }}</span>
+                      <span class="eid-party-hist__chip">2023 share {{ ngPartyDetail.voteShare }}</span>
+                    </div>
+                    <div>{{ ngPartyDetail.history }}</div>
+                  </div>
+                </details>
                 <div style="padding:9px 15px 4px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)">Presidential flag bearers · past to present</div>
                 <div style="padding:6px 15px 15px;display:flex;flex-direction:column">
                   <sc-for list="{{ ngPartyDetail.bearers }}" as="b" hint-placeholder-count="2">
@@ -1654,7 +1694,7 @@ a:hover{color:var(--primary)}
               </section>
               </sc-if>
               <sc-if value="{{ ngPartySelectHint }}" hint-placeholder-val="{{ true }}">
-              <div style="border:1px dashed var(--border2);border-radius:13px;padding:30px 18px;text-align:center"><span class="msi" style="font-size:30px;color:var(--mute)">touch_app</span><div style="font-size:12.5px;color:var(--dim);margin-top:8px">Select a party to view its presidential flag bearers from past to present.</div></div>
+              <div style="border:1px dashed var(--border2);border-radius:13px;padding:30px 18px;text-align:center"><span class="msi" style="font-size:30px;color:var(--mute)">touch_app</span><div style="font-size:12.5px;color:var(--dim);margin-top:8px">Select a party to view its history and presidential flag bearers.</div></div>
               </sc-if>
             </aside>
           </div>
@@ -2027,13 +2067,32 @@ a:hover{color:var(--primary)}
       <div class="eid-page-root">
         <div class="eid-page-head">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><span style="width:8px;height:8px;border-radius:50%;background:var(--primary)"></span><span style="font-family:'IBM Plex Sans';font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--primary)">{{ scopeLabel }} · About</span></div>
-          <h1 style="margin:0 0 10px;font-size:24px;font-weight:600;letter-spacing:-.02em">A global election intelligence platform</h1>
-          <p style="margin:0;font-size:14.5px;color:var(--dim);line-height:1.6;max-width:72ch">The dashboard models elections across different electoral systems — presidential, parliamentary, governorship and regional — using a configurable geographic hierarchy so each country keeps its own administrative and electoral structure rather than a single fixed template.</p>
+          <h1 style="margin:0 0 10px;font-size:24px;font-weight:600;letter-spacing:-.02em">Election intelligence for Nigeria — and beyond</h1>
+          <p style="margin:0;font-size:14.5px;color:var(--dim);line-height:1.6;max-width:72ch">This dashboard helps the public, journalists and analysts explore verified election results on a live map — from national winners down to state, LGA and constituency detail where packs exist. Nigeria is the live reference country; other countries use the same configurable hierarchy as they come online.</p>
         </div>
-        <div class="eid-page-body eid-scroll" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;align-content:start">
-          <sc-for list="{{ aboutCards }}" as="a" hint-placeholder-count="4">
-            <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px"><span class="msi" style="font-size:22px;color:var(--primary)">{{ a.icon }}</span><h2 style="margin:9px 0 6px;font-size:14px;font-weight:600">{{ a.title }}</h2><p style="margin:0;font-size:12.5px;color:var(--dim);line-height:1.5">{{ a.body }}</p></div>
-          </sc-for>
+        <div class="eid-page-body eid-scroll" style="display:flex;flex-direction:column;gap:14px;align-content:start">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px">
+            <sc-for list="{{ aboutCards }}" as="a" hint-placeholder-count="4">
+              <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px"><span class="msi" style="font-size:22px;color:var(--primary)">{{ a.icon }}</span><h2 style="margin:9px 0 6px;font-size:14px;font-weight:600">{{ a.title }}</h2><p style="margin:0;font-size:12.5px;color:var(--dim);line-height:1.5">{{ a.body }}</p></div>
+            </sc-for>
+          </div>
+          <section class="eid-about-refs">
+            <h2>Offices &amp; data levels</h2>
+            <p>{{ aboutCoverage }}</p>
+          </section>
+          <section class="eid-about-refs">
+            <h2>Methodology</h2>
+            <p>{{ aboutMethod }}</p>
+          </section>
+          <section class="eid-about-refs">
+            <h2>Sources &amp; references</h2>
+            <p>Long Stears / INEC attribution strings that used to sit under Overview panels are collected here so result panels stay readable.</p>
+            <ul>
+              <sc-for list="{{ aboutRefs }}" as="r" hint-placeholder-count="5">
+                <li><strong style="color:var(--text)">{{ r.label }}</strong> — {{ r.body }}<sc-if value="{{ r.hasUrl }}" hint-placeholder-val="{{ false }}"> · <a href="{{ r.url }}" target="_blank" rel="noopener noreferrer">{{ r.linkLabel }}</a></sc-if></li>
+              </sc-for>
+            </ul>
+          </section>
         </div>
       </div>
     </div>
@@ -2346,11 +2405,38 @@ class Component extends DCLogic {
         votesLabel: this.fmtInt(n),
         bar:`display:block;height:100%;width:${pct}%;background:${this.partyColor(party)}`,
       };
-    }).sort((a,b)=>b.votes-a.votes);
+    }).sort((a,b)=> this.partySortKey(a.party, b.party, b.votes - a.votes));
     return {
       name, winner:unit.winner, party:unit.party, color:this.partyColor(unit.party),
       totalVotes:total, breakdown,
     };
+  }
+  /** Prefer named parties over "Others"; stable major-party order when ties. */
+  partySortKey(aParty, bParty, primaryCmp){
+    const isOther = (p)=> /^others?$/i.test(String(p||'')) || String(p||'') === '—';
+    const aO = isOther(aParty), bO = isOther(bParty);
+    if (aO !== bO) return aO ? 1 : -1;
+    if (primaryCmp) return primaryCmp;
+    const order = ['APC','PDP','LP','NNPP','APGA','ADC','SDP'];
+    const ai = order.indexOf(String(aParty||''));
+    const bi = order.indexOf(String(bParty||''));
+    if (ai >= 0 || bi >= 0) return (ai < 0 ? 99 : ai) - (bi < 0 ? 99 : bi);
+    return String(aParty||'').localeCompare(String(bParty||''));
+  }
+  resolvePresStateSnap(stateName){
+    const key = String(stateName || '').trim();
+    if (!key) return this.state.elecPresStateSnap || null;
+    const theme = this.state.elecMapTheme || this.state.elecChoroMeta;
+    const units = theme && theme.units;
+    if (!units) return this.state.elecPresStateSnap || null;
+    if (units[key]) return units[key];
+    const lower = key.toLowerCase();
+    const hit = Object.entries(units).find(([n, u])=>{
+      if (String(n).toLowerCase() === lower) return true;
+      const ck = u && u._canonicalKey;
+      return ck && String(ck).toLowerCase() === lower;
+    });
+    return hit ? hit[1] : (this.state.elecPresStateSnap || null);
   }
   onResultMapUnitClick(name, unit, layerKind){
     const theme = this.state.elecMapTheme;
@@ -2386,17 +2472,15 @@ class Component extends DCLogic {
       (layerKind === 'state' || !layerKind)
     ) {
       const st = name || (unit && unit._canonicalKey);
-      const snap = unit || (theme.units && (theme.units[st] || theme.units[name])) || null;
+      const snap = unit || this.resolvePresStateSnap(st) || null;
       const detail = st && snap ? this.buildElecUnitDetail(st, snap) : null;
       const avail = Array.isArray(theme.availableStates) ? theme.availableStates : [];
       const canDrill = !!(st && avail.length && avail.some((s)=> String(s).toLowerCase() === String(st).toLowerCase()));
       if (st && canDrill) {
-        // Keep vote breakdown visible while the LGA pack loads (pending would otherwise hide the panel).
+        // Keep national theme + statewide snap while LGA pack loads (never blank the panel / shrink filters).
         this.setState({
           ovElecState: st,
           elecPresStateSnap: snap,
-          elecMapTheme: null,
-          elecChoroMeta: null,
           elecSelectedUnit: detail,
           elecExpandedCand: null,
           showEstimatedLga: true,
@@ -2412,7 +2496,12 @@ class Component extends DCLogic {
       }
       // No LGA pack for this year/state — open statewide vote breakdown in the panel.
       if (detail) {
-        this.setState({ elecSelectedUnit: detail, elecExpandedCand: null, elecPresStateSnap: snap }, ()=>{
+        this.setState({
+          ovElecState: st || this.state.ovElecState,
+          elecSelectedUnit: detail,
+          elecExpandedCand: null,
+          elecPresStateSnap: snap,
+        }, ()=>{
           try {
             const aside = document.querySelector('.ov-aside-right');
             if (aside) aside.scrollTop = 0;
@@ -2463,11 +2552,11 @@ class Component extends DCLogic {
     'Elections':{ icon:'how_to_vote', desc:'Browse every election — filter by type, year and status, then open any contest for full results, candidates and geography.' },
     'Live Results':{ icon:'sensors', desc:'Citizen EC8A uploads go live on the national map immediately. Official returns appear as a separate layer when available — compare with the swipe slider.' },
     'Map':{ icon:'where_to_vote', title:'Polling units', desc:'Find your polling unit: search or drill State → LGA → Ward, locate nearby PUs, and use the map controls for GRID3 layers and basemaps.' },
-    'Candidates':{ icon:'person', desc:'Presidential, senatorial, House and gubernatorial candidates from archived INEC results — open any profile for biography, vote totals and career notes.' },
+    'Candidates':{ icon:'person', desc:'Presidential, senatorial, House and governorship candidates from archived INEC results — open any profile for biography, vote totals and career notes.' },
     'Parties':{ icon:'groups', desc:'Party intelligence: participation, seats won, historical vote share and a geographic strength map across every tracked election.' },
     'Analysis':{ icon:'insights', desc:'Vote swing, turnout anomalies, competitive districts and battlegrounds — complex electoral statistics made legible through maps and visualization.' },
     'Data':{ icon:'database', desc:'Explore and download datasets — results, boundaries, voting locations, candidates and voter statistics — each with source, coverage and update date.' },
-    'About':{ icon:'info', desc:'How the platform models elections across different electoral systems, its data sources, methodology and the PostGIS / GeoServer spatial backend.' },
+    'About':{ icon:'info', desc:'How the platform models elections, offices and data levels, methodology, and the full list of INEC / Stears / archive references.' },
   };
 
   COUNTRIES = {
@@ -2640,7 +2729,7 @@ class Component extends DCLogic {
   GOV_STATES = [];
   NG_OFFICES = [
     {id:'pres', label:'Presidential Election'},
-    {id:'gov', label:'Gubernatorial Election'},
+    {id:'gov', label:'Governorship Election'},
     {id:'sen', label:'Senatorial Election', group:'National Assembly'},
     {id:'reps', label:'House of Representatives Election', group:'National Assembly'},
     {id:'assembly', label:'State House of Assembly Election'},
@@ -2823,7 +2912,7 @@ class Component extends DCLogic {
             votesLabel: votes != null ? this.fmtInt(votes) : null,
             hasVotes: votes != null,
             statesWon: r.statesWon != null ? r.statesWon : null,
-            statesLabel: r.unitsLabel || (r.statesWon != null ? `${r.statesWon} state${r.statesWon===1?'':'s'}` : null),
+            statesLabel: r.unitsLabel || (r.statesWon != null && r.statesWon > 0 ? `${r.statesWon} state${r.statesWon===1?'':'s'}` : null),
             wonUnits: r.wonUnits || [],
             won:!!r.won,
             bar:`display:block;height:100%;width:${r.share||0}%;background:${colorOf(r.party)}`,
@@ -2874,8 +2963,8 @@ class Component extends DCLogic {
       });
     }
     // Presidential with a selected state but no usable LGA pack yet — still show statewide snap votes.
-    if(officeId==='pres' && selectedState && (!choro || !choro.ok)){
-      const snap = this.state.elecPresStateSnap || null;
+    if(officeId==='pres' && selectedState && (!choro || !choro.ok || (choro.ok && choro.level === 'state' && choro.state !== selectedState))){
+      const snap = this.state.elecPresStateSnap || this.resolvePresStateSnap(selectedState) || null;
       const snapVotes = (snap && snap.votes) || null;
       if (snapVotes && Object.keys(snapVotes).length) {
         const national = this.NG_PRES[String(year)] || [];
@@ -2901,12 +2990,14 @@ class Component extends DCLogic {
             statesWon: 0, unitsLabel: null, wonUnits: [],
           });
         });
+        rows.sort((a,b)=> this.partySortKey(a.party, b.party, (b.share||0)-(a.share||0)));
+        const lgaHint = choro && choro.ok === false
+          ? (choro.message || 'LGA map unavailable')
+          : 'loading LGA map…';
         return pack(rows, {
           stateLabel: selectedState,
           unitLevel: 'state',
-          sourceLine: choro && choro.message
-            ? `INEC statewide totals · ${choro.message}`
-            : (choro ? `INEC statewide totals · ${choro.message || 'LGA map unavailable'}` : 'INEC statewide totals · loading LGA map…'),
+          sourceLine: `INEC statewide totals · ${lgaHint}`,
           candsCaption: `${selectedState} party totals · winner first`,
           pending: false,
         });
@@ -2916,9 +3007,10 @@ class Component extends DCLogic {
           pending: true,
           stateLabel: selectedState,
           pendingMsg: choro.message
-            || `No presidential LGA tallies for ${selectedState} in ${year}. Statewide map clicks still show INEC state totals when available.`,
+            || `No presidential LGA tallies for ${selectedState} in ${year}. Click National or pick another state.`,
         });
       }
+      // Still fetching — show a short status but do not block forever (snap path above is preferred).
       return pack([], {
         pending: true,
         stateLabel: selectedState,
@@ -2963,8 +3055,8 @@ class Component extends DCLogic {
         const lgaRows = this.buildLgaBrowseRows(choro.units, colorOf);
         const usedSnap = !!(snapVotes && Object.keys(snapVotes).length);
         const sourceLine = usedSnap
-          ? `INEC statewide totals · ${lgaRows.length} LGAs (Stears/INEC)${choro.sourceDetail ? ' · '+choro.sourceDetail : ''}`
-          : `LGA-summed votes (${lgaRows.length} LGAs) · coverage may be partial vs INEC statewide`;
+          ? `INEC statewide totals · ${lgaRows.length} LGAs`
+          : `LGA-summed votes (${lgaRows.length} LGAs)`;
         return pack(rows, {
           stateLabel: stateName,
           level: 'lga',
@@ -2992,7 +3084,7 @@ class Component extends DCLogic {
       });
       return pack(rows, {
         unitLevel: 'state',
-        sourceLine: choro.sourceDetail || choro.source || 'Official result · click a state for details',
+        sourceLine: 'Official result · click a state for details',
         candsCaption: 'National candidates · click a state on the map',
       });
     }
@@ -3042,15 +3134,17 @@ class Component extends DCLogic {
         const seatTotal = Number(choro.seatTotal) || stateUnits.reduce((a,s)=>a+Number((s.unit && s.unit.seatCount) || 0),0) || (officeId==='sen'?109:360);
         const partyRows = (choro.candidates || []).map((cd)=>{
           const seats = Number(cd.votes != null ? cd.votes : cd.seats) || 0;
+          const pct = seatTotal ? (seats / seatTotal * 100) : 0;
           return {
             party: cd.party,
             color: colorOfP(cd.party),
             seats,
-            pct: seatTotal ? (seats / seatTotal * 100) : 0,
-            pctLabel: seatTotal ? (seats / seatTotal * 100).toFixed(1)+'%' : '—',
+            pct,
+            pctLabel: seatTotal ? pct.toFixed(1)+'%' : '—',
             bar: `flex:${Math.max(seats,0)};background:${colorOfP(cd.party)}`,
+            shareBar: `display:block;height:100%;width:${pct}%;background:${colorOfP(cd.party)}`,
           };
-        }).sort((a,b)=>b.seats-a.seats);
+        }).sort((a,b)=> this.partySortKey(a.party, b.party, b.seats - a.seats));
         const lead = partyRows[0];
         const majority = Math.floor(seatTotal / 2) + 1;
         const focusState = selectedState || null;
@@ -3087,7 +3181,7 @@ class Component extends DCLogic {
           pending: false,
           isNA: true,
           unitLevel: 'state',
-          sourceLine: choro.sourceDetail || choro.source || 'Seat winners · click a state for districts',
+          sourceLine: '',
           na: {
             total: String(seatTotal),
             chamber: choro.chamber || (officeId==='sen' ? 'Senate' : 'House of Reps'),
@@ -3190,25 +3284,51 @@ class Component extends DCLogic {
   }
 
   INEC_PARTIES = [
-    {abbr:'APC', name:'All Progressives Congress', color:'#2f6fed', founded:2013},
-    {abbr:'PDP', name:'Peoples Democratic Party', color:'#cf3a4e', founded:1998},
-    {abbr:'LP', name:'Labour Party', color:'#2fa84f', founded:2002},
-    {abbr:'NNPP', name:'New Nigeria Peoples Party', color:'#7a53d1', founded:2002},
-    {abbr:'APGA', name:'All Progressives Grand Alliance', color:'#1f9e8a', founded:2002},
-    {abbr:'ADC', name:'African Democratic Congress', color:'#6f8f2f', founded:2005},
-    {abbr:'SDP', name:'Social Democratic Party', color:'#3f6f9e', founded:1990},
-    {abbr:'YPP', name:'Young Progressives Party', color:'#b5482f', founded:2017},
-    {abbr:'ADP', name:'Action Democratic Party', color:'#8a5fbf', founded:2016},
-    {abbr:'AA', name:'Action Alliance', color:'#bf9a2f', founded:2005},
-    {abbr:'AAC', name:'African Action Congress', color:'#c0392f', founded:2018},
-    {abbr:'APM', name:'Allied Peoples Movement', color:'#2f8fbf', founded:2017},
-    {abbr:'APP', name:'Action Peoples Party', color:'#5f9e6f', founded:2018},
-    {abbr:'BP', name:'Boot Party', color:'#7f6f4f', founded:2018},
-    {abbr:'NRM', name:'National Rescue Movement', color:'#4f8f8f', founded:2018},
-    {abbr:'PRP', name:'Peoples Redemption Party', color:'#9e2f6f', founded:1978},
-    {abbr:'ZLP', name:'Zenith Labour Party', color:'#2f6f5f', founded:2018},
-    {abbr:'A', name:'Accord', color:'#8f7f2f', founded:2006},
+    {abbr:'APC', name:'All Progressives Congress', color:'#2f6fed', founded:2013, logo:'/assets/parties/APC.svg',
+      history:'Formed in 2013 from a merger of ACN, CPC, ANPP and a faction of APGA. Won the presidency in 2015, 2019 and 2023; currently the largest governing party at federal level.'},
+    {abbr:'PDP', name:'Peoples Democratic Party', color:'#cf3a4e', founded:1998, logo:'/assets/parties/PDP.svg',
+      history:'Founded ahead of the 1999 transition. Dominated Nigerian politics from 1999–2015 under Obasanjo, Yar’Adua and Jonathan. Remains a major opposition force nationwide.'},
+    {abbr:'LP', name:'Labour Party', color:'#2fa84f', founded:2002, logo:'/assets/parties/LP.svg',
+      history:'Registered in 2002 with roots in organised labour. Rose sharply in 2023 behind Peter Obi, finishing third nationally and winning several National Assembly seats.'},
+    {abbr:'NNPP', name:'New Nigeria Peoples Party', color:'#7a53d1', founded:2002, logo:'/assets/parties/NNPP.svg',
+      history:'Long-registered party revitalised in the 2020s around Rabiu Musa Kwankwaso’s Kwankwasiyya movement. Strongest in Kano and parts of the North-West.'},
+    {abbr:'APGA', name:'All Progressives Grand Alliance', color:'#1f9e8a', founded:2002, logo:'/assets/parties/APGA.svg',
+      history:'Founded in 2002 with a South-East base. Has held the Anambra governorship for multiple cycles and fields candidates across Igbo-speaking states.'},
+    {abbr:'ADC', name:'African Democratic Congress', color:'#6f8f2f', founded:2005, logo:'/assets/parties/ADC.svg',
+      history:'Registered in 2005 as a reform-minded alternative. Contests presidential and legislative races; often collaborates with other smaller parties.'},
+    {abbr:'SDP', name:'Social Democratic Party', color:'#3f6f9e', founded:1990,
+      history:'Name revived from Nigeria’s Third Republic SDP. Contemporary SDP fields presidential and legislative candidates as a social-democratic option.'},
+    {abbr:'YPP', name:'Young Progressives Party', color:'#b5482f', founded:2017,
+      history:'Registered in 2017 with a youth-focused platform. Has won National Assembly seats and fields candidates in several states.'},
+    {abbr:'ADP', name:'Action Democratic Party', color:'#8a5fbf', founded:2016,
+      history:'Registered in 2016. Contests presidential and state races; known for reform messaging and coalition talks with other smaller parties.'},
+    {abbr:'AA', name:'Action Alliance', color:'#bf9a2f', founded:2005,
+      history:'INEC-registered party that fields presidential and legislative candidates; limited seat presence relative to the major four.'},
+    {abbr:'AAC', name:'African Action Congress', color:'#c0392f', founded:2018,
+      history:'Founded by Omoyele Sowore in 2018. Positions itself as a radical left / activist party with a strong online organising base.'},
+    {abbr:'APM', name:'Allied Peoples Movement', color:'#2f8fbf', founded:2017,
+      history:'Registered in 2017. Contests national and state elections; part of Nigeria’s wider multiparty field beyond the big four.'},
+    {abbr:'APP', name:'Action Peoples Party', color:'#5f9e6f', founded:2018,
+      history:'Relatively new INEC-registered party fielding candidates in presidential and National Assembly contests.'},
+    {abbr:'BP', name:'Boot Party', color:'#7f6f4f', founded:2018,
+      history:'Registered party that has fielded presidential candidates; limited geographic footprint to date.'},
+    {abbr:'NRM', name:'National Rescue Movement', color:'#4f8f8f', founded:2018,
+      history:'INEC-registered movement-style party contesting national elections with a reform agenda.'},
+    {abbr:'PRP', name:'Peoples Redemption Party', color:'#9e2f6f', founded:1978,
+      history:'Historic northern progressive party associated with Aminu Kano’s tradition; revived in the Fourth Republic and still fields candidates.'},
+    {abbr:'ZLP', name:'Zenith Labour Party', color:'#2f6f5f', founded:2018,
+      history:'Labour-aligned party registered in the late 2010s; contests presidential and legislative races.'},
+    {abbr:'A', name:'Accord', color:'#8f7f2f', founded:2006,
+      history:'Registered as Accord Party. Has held state-level offices historically and continues to field presidential flag bearers.'},
   ];
+  partyLogoUrl(abbr){
+    const p = (this.INEC_PARTIES || []).find((x)=> x.abbr === abbr);
+    return (p && p.logo) || null;
+  }
+  partyHistory(abbr){
+    const p = (this.INEC_PARTIES || []).find((x)=> x.abbr === abbr);
+    return (p && p.history) || 'INEC-registered political party in Nigeria.';
+  }
   PRES_BEARERS = {
     APC:[['2023','Bola Ahmed Tinubu','Won','#43a86a'],['2019','Muhammadu Buhari','Won','#43a86a'],['2015','Muhammadu Buhari','Won','#43a86a']],
     PDP:[['2023','Atiku Abubakar','Runner-up','#d69a34'],['2019','Atiku Abubakar','Runner-up','#d69a34'],['2015','Goodluck Jonathan','Lost (incumbent)','#e0564f'],['2011','Goodluck Jonathan','Won','#43a86a']],
@@ -4415,6 +4535,8 @@ class Component extends DCLogic {
     const seq = (this._elecThemeSeq = (this._elecThemeSeq || 0) + 1);
     const q = new URLSearchParams({ office: office || 'pres', year: String(year || '2023') });
     if ((office === 'gov' || office === 'pres') && state) q.set('state', state);
+    const prevTheme = this.state.elecMapTheme;
+    const prevMeta = this.state.elecChoroMeta;
     try {
       const raw = await fetch('/api/election-results/choropleth?' + q.toString()).then(r=>r.ok?r.json():null);
       if (seq !== this._elecThemeSeq) return;
@@ -4432,11 +4554,24 @@ class Component extends DCLogic {
       const st = state || this.state.ovElecState || null;
       const mapTheme = data && data.ok ? this.buildMapTheme(data, this.state.showEstimatedLga) : null;
       // On successful LGA load, clear unitDetail (state totals move into candidate rows).
-      // On failure/pending, keep the statewide click breakdown so the right panel never goes blank.
-      const clearUnit = !!(mapTheme && mapTheme.ok);
+      // On failure, keep statewide snap + previous national theme so the panel never sticks on Loading.
+      const clearUnit = !!(mapTheme && mapTheme.ok && mapTheme.level === 'lga');
+      const failedPresLga = !!(officeId === 'pres' && st && (!data || !data.ok));
       this.setState({
-        elecMapTheme: mapTheme,
-        elecChoroMeta: data || null,
+        elecMapTheme: mapTheme || (failedPresLga ? prevTheme : null),
+        elecChoroMeta: (data && typeof data === 'object')
+          ? data
+          : (failedPresLga
+            ? {
+                ok: false,
+                office: officeId,
+                year: String(year || ''),
+                state: st,
+                level: 'lga',
+                message: `No presidential LGA tallies for ${st}. Showing statewide totals.`,
+                availableStates: (prevMeta && prevMeta.availableStates) || [],
+              }
+            : null),
         elecSelectedUnit: clearUnit ? null : this.state.elecSelectedUnit,
         elecExpandedCand: null,
         layers: this.syncElectionLayers(officeId, st, !!(mapTheme && mapTheme.ok), mapTheme && mapTheme.level),
@@ -4451,7 +4586,23 @@ class Component extends DCLogic {
       });
     } catch(e){
       if (seq !== this._elecThemeSeq) return;
-      this.setState({ elecMapTheme: null, elecChoroMeta: null, elecExpandedCand: null }, ()=>this.syncCountryMap());
+      const officeId = office || this.state.ovOffice || 'pres';
+      const st = state || this.state.ovElecState || null;
+      this.setState({
+        elecMapTheme: (officeId === 'pres' && st) ? prevTheme : null,
+        elecChoroMeta: (officeId === 'pres' && st)
+          ? {
+              ok: false,
+              office: officeId,
+              year: String(year || ''),
+              state: st,
+              level: 'lga',
+              message: `Could not load LGA map for ${st}. Showing statewide totals.`,
+              availableStates: (prevMeta && prevMeta.availableStates) || [],
+            }
+          : null,
+        elecExpandedCand: null,
+      }, ()=>this.syncCountryMap());
     }
   }
   async loadNassThemeFromAnalysis(office, year){
@@ -4547,8 +4698,8 @@ class Component extends DCLogic {
         level: 'state',
         state: null,
         title: `${yearId} ${officeId === 'sen' ? 'Senatorial' : 'House of Representatives'} Election`,
-        source: 'Stears Elections + INEC (via Analysis archives)',
-        sourceDetail: 'State fills = plurality of seat wins. Click a state for district winners and constituency votes when collated.',
+        source: 'Seat archives',
+        sourceDetail: 'State fills = plurality of seat wins. Click a state for district winners.',
         collated,
         estimated: false,
         winner: candidates[0] ? { name: candidates[0].name, party: candidates[0].party, votes: candidates[0].votes } : null,
@@ -5383,7 +5534,7 @@ class Component extends DCLogic {
         {name:'Result dataset catalog',type:'Tabular',fmt:'JSON',icon:'database', href:'/api/data-catalog', action:'Open', coverage:'Full public catalog', source:'Election Dashboard', updated:'Live', hasJson:true, hasCsv:false, jsonHref:'/api/data-catalog', csvHref:'', notes:'', hasNotes:false, category:'catalogs'},
       ];
     }
-    const officeLabels = (catalog && catalog.officeLabels) || { pres:'Presidential', gov:'Gubernatorial', sen:'Senatorial', reps:'House of Representatives' };
+    const officeLabels = (catalog && catalog.officeLabels) || { pres:'Presidential', gov:'Governorship', sen:'Senatorial', reps:'House of Representatives' };
     const catLabels = (explorer && explorer.CATEGORY_LABELS) || {};
     const collapsedCats = this.state.dataCatCollapsed || {};
     const rawGroups = explorer
@@ -5616,10 +5767,21 @@ class Component extends DCLogic {
     const liveNews = { hasItems: liveNewsItems.length>0, empty: liveNewsItems.length===0, items: liveNewsItems };
     const electionTypes = ['All','Presidential','Parliamentary','Regional'].map((label,i)=>({ label, style:`height:30px;padding:0 12px;border:1px solid ${i===0?'var(--border2)':'var(--border)'};background:${i===0?'var(--surface3)':'transparent'};color:${i===0?'var(--text)':'var(--dim)'};border-radius:8px;font-family:inherit;font-size:12px;cursor:pointer` }));
     const aboutCards = [
-      {icon:'hub',title:'Configurable hierarchy',body:'Country → administrative level → electoral district → voting unit, mapped to each country rather than one fixed template.'},
-      {icon:'dataset',title:'Spatial backend',body:'Designed to connect to PostgreSQL / PostGIS with GeoServer serving vector tiles and WMS layers.'},
-      {icon:'verified',title:'Sources & methodology',body:'Results verified against official electoral commissions, each with a clear source and update date.'},
-      {icon:'groups',title:'Every audience',body:'From “who won?” to geographic swing analysis — progressive complexity for the public, journalists and analysts.'},
+      {icon:'hub',title:'Configurable hierarchy',body:'Country → state → LGA → ward → polling unit for Nigeria, with office-specific electoral districts (senatorial, federal constituencies) layered on the same map.'},
+      {icon:'how_to_vote',title:'Offices covered',body:'Presidential, Governorship, Senatorial and House of Representatives archives, plus citizen EC8A uploads on Live Results. State Assembly wiring is ready when packs land.'},
+      {icon:'layers',title:'Result depth',body:'National and statewide totals always; LGA drill for presidential 2023 and many governorship races; constituency seats/votes for Senate and House where collated.'},
+      {icon:'dataset',title:'Spatial backend',body:'Boundaries and polling units from PostGIS / GeoServer (and ArcGIS fallbacks) so every result paints onto real administrative geography.'},
+      {icon:'verified',title:'Verification',body:'Published packs prefer INEC-declared or collation-centre totals. Estimated LGA fills are labelled and can be hidden. Quarantined legacy files never reach the map.'},
+      {icon:'groups',title:'Audiences',body:'Progressive complexity — quick winners on Overview, candidate profiles, party history, Analysis charts and a Data catalog for deeper work.'},
+    ];
+    const aboutCoverage = 'Nigeria is the live scope. Overview supports Presidential (state map; 2023 LGA drill), Governorship (per-state archives), Senatorial (109 seats) and House of Representatives (360 seats). Candidates and Parties mirror those offices. Analysis and Data expose the same archives for charts and downloadable catalogs.';
+    const aboutMethod = 'Choropleths colour units by plurality winner. Statewide presidential/governorship bars use INEC state totals when available; LGA maps use collated LGA rows or clearly labelled estimates. Senate/House state fills use plurality of seat wins; open a state for district winners and constituency vote bars when votes were published.';
+    const aboutRefs = [
+      { label: 'INEC', body: 'Independent National Electoral Commission — official declarations, collation and IREV form images underpin verified totals.', url: 'https://www.inecnigeria.org/', linkLabel: 'inecnigeria.org', hasUrl: true },
+      { label: 'Stears Elections', body: '2023 presidential LGA tallies and many Senate/House constituency packs were ingested from Stears Elections pages (__NEXT_DATA__), with INEC as the underlying official source. Coverage can be partial where Stears publishes a subset of LGAs or seats.', url: 'https://www.stears.co/elections/', linkLabel: 'stears.co/elections', hasUrl: true },
+      { label: 'Governorship archives', body: 'State packs cite INEC collation centres and contemporaneous reporting (Channels, Punch, Premium Times, Blueprint, Wikipedia summaries, etc.) in each file’s sourceDetail.', url: '', linkLabel: '', hasUrl: false },
+      { label: 'Analysis seat archives', body: 'National Assembly Overview can fall back to Analysis geographic units when the choropleth API has not yet loaded NASS loaders — same seat winners, shorter UI captions.', url: '', linkLabel: '', hasUrl: false },
+      { label: 'Citizen EC8A', body: 'Live Results publishes geofenced citizen uploads separately from official layers so users can compare, not conflate, the two.', url: '', linkLabel: '', hasUrl: false },
     ];
 
     const switcherItems = [
@@ -5770,9 +5932,15 @@ class Component extends DCLogic {
         : (yearPool.find(y=>{ const t=elecTl.find(x=>String(x.year)===y); return t && t.status==='Result'; }) || yearPool[0] || '2023'));
     const choroMap = this.state.elecMapTheme;
     const choroMeta = this.state.elecChoroMeta;
-    const choroForYear = (choroMeta && choroMeta.ok && String(choroMeta.year) === String(yearVal)
+    const choroYearMatch = !!(choroMeta && (
+      String(choroMeta.year) === String(yearVal)
+      || String(choroMeta.storageYear || '') === String(yearVal)
+      || String(choroMeta.electionYear || '') === String(yearVal)
+    ));
+    const choroForYear = (choroMeta && choroMeta.ok && choroYearMatch
       && (ovOffice !== 'gov' || !ovElecState || choroMeta.state === ovElecState)
-      && (ovOffice !== 'pres' || !ovElecState || choroMeta.state === ovElecState || choroMeta.level === 'state')
+      // Presidential drill: only use the LGA pack for the selected state (never national state-level while drilled).
+      && (ovOffice !== 'pres' || !ovElecState || choroMeta.state === ovElecState)
       && ((ovOffice !== 'sen' && ovOffice !== 'reps') || !choroMeta.level || choroMeta.level === 'state')
     ) ? choroMeta : null;
     const hasGovData = !!(ovOffice === 'gov' && ovElecState && yearVal && ((choroForYear && choroForYear.ok) || govYearPool.includes(yearVal)));
@@ -5799,13 +5967,9 @@ class Component extends DCLogic {
     const elecYearStepLabel = elecNeedsState ? 'Step 3 · Year' : 'Step 2 · Year';
     const elecStateStepLabel = elecNeedsState ? 'Step 2 · State' : (hasPresLgaYear ? 'State (LGA drill)' : 'Step 2 · State');
     const elecStateEmptyLabel = elecNeedsState ? 'Select state…' : 'All states (national)';
-    const presStateList = hasPresLgaYear
-      ? (
-        (choroMeta && Array.isArray(choroMeta.availableStates) && choroMeta.availableStates.length)
-          ? choroMeta.availableStates
-          : Object.keys(this.NG_STATES || {}).sort((a, b) => a.localeCompare(b))
-      )
-      : [];
+    // Always offer the full state list for presidential LGA years — never rebuild from
+    // choropleth availableStates (or the 5-key NG_STATES demo map) after a drill.
+    const presStateList = hasPresLgaYear ? this.NG_ALL_STATES.slice() : [];
     const stateOptionsSource = ovOffice === 'gov' ? govStatesList : presStateList;
     const govStateOptions = stateOptionsSource.map(s=>({ name:s }));
     const elecYearOptions = yearPool.map((year)=>{
@@ -5830,7 +5994,9 @@ class Component extends DCLogic {
       if (!ngElec.panelTitle) ngElec.panelTitle = `${ngElec.label} · ${ngElec.year}`;
       if (!ngElec.winnerCaption) ngElec.winnerCaption = 'Winner';
       if (!ngElec.candsCaption) ngElec.candsCaption = `All ${ngElec.totalCands || 0} candidates · winner first`;
-      if (!ngElec.sourceLine) ngElec.sourceLine = choroForYear && choroForYear.ok ? (choroForYear.sourceDetail || choroForYear.source || 'Official result · winner first') : 'Official result · winner first';
+      if (!ngElec.sourceLine) ngElec.sourceLine = (ovOffice === 'sen' || ovOffice === 'reps')
+        ? ''
+        : (choroForYear && choroForYear.ok ? 'Official result · winner first' : 'Official result · winner first');
       ngElec.showGovPicker = !!(ovOffice==='gov' && !ovElecState && (ngElec.showGovPicker || !ngElec.pending));
       // Never show seeded fake governor-elect rows; use the coverage picker instead.
       ngElec.isGov = false;
@@ -5946,11 +6112,13 @@ class Component extends DCLogic {
     const elecMapSource = (choroMap && choroMap.ok && govCoverageMap)
       ? `Select a state · ${Object.values(choroMap.units || {}).filter(u=>u && u.coverage).length} with governorship archive`
       : ((choroForYear && choroForYear.ok)
-        ? `${choroForYear.estimated ? 'Estimated LGA · ' : (
-            choroForYear.collated
-              ? ((ovOffice === 'sen' || ovOffice === 'reps') ? 'Collated seats · ' : 'Official LGA · ')
-              : ((ovOffice === 'sen' || ovOffice === 'reps') ? 'Seat winners · ' : '')
-          )}${choroForYear.sourceDetail || choroForYear.attribution || choroForYear.source}${choroForYear.updated ? ' · updated '+choroForYear.updated : ''}`
+        ? ((ovOffice === 'sen' || ovOffice === 'reps')
+          ? `${choroForYear.collated ? 'Collated seats' : 'Seat winners'} · click a state for districts`
+          : `${choroForYear.estimated ? 'Estimated LGA · ' : (
+              choroForYear.collated
+                ? 'Official LGA · '
+                : ''
+            )}See About for sources${choroForYear.updated ? ' · updated '+choroForYear.updated : ''}`)
         : null);
 
     // ── citizen result upload (Nigeria) ──
@@ -6108,7 +6276,7 @@ class Component extends DCLogic {
       if (co === 'pres' && !['2023','2019','2015'].includes(String(cy))) {
         cy = '2023';
       }
-      const officeLabel={pres:'Presidential',sen:'Senatorial',reps:'House of Reps',gov:'Gubernatorial',assembly:'State Assembly'}[co];
+      const officeLabel={pres:'Presidential',sen:'Senatorial',reps:'House of Reps',gov:'Governorship',assembly:'State Assembly'}[co];
       const outcomeFilter = this.state.candOutcome || null;
       const partyFilter = this.state.candParty || null;
       const allCands=this.inecCandidates(cy, co);
@@ -6151,7 +6319,7 @@ class Component extends DCLogic {
         years: yearOptions,
         yearVal: cy,
         onYear:(e)=>this.setState({candYear:e.target.value, candParty: null, selCandidate:null}),
-        offices:[{v:'pres',l:'Presidential'},{v:'sen',l:'Senatorial'},{v:'reps',l:'House of Reps'},{v:'gov',l:'Gubernatorial'},{v:'assembly',l:'State Assembly'}],
+        offices:[{v:'pres',l:'Presidential'},{v:'sen',l:'Senatorial'},{v:'reps',l:'House of Reps'},{v:'gov',l:'Governorship'},{v:'assembly',l:'State Assembly'}],
         officeVal:co,
         onOffice:(e)=>{
           const next = e.target.value;
@@ -6280,13 +6448,22 @@ class Component extends DCLogic {
       const shareOf=(abbr)=>{ const hit=(this.NG_PRES['2023']||[]).find(r=>r[1]===abbr); return hit? hit[2]+'%' : '—'; };
       ngParties={
         list:this.INEC_PARTIES.map(p=>({ ...p, initials:p.abbr, voteShare:shareOf(p.abbr), active:p.abbr===sel,
+          hasLogo: !!p.logo, logo: p.logo || '',
           onClick:()=>this.setState({selParty:p.abbr}),
           cardStyle:`background:var(--surface);border:1px solid ${p.abbr===sel?'var(--primary)':'var(--border)'};border-radius:12px;overflow:hidden;cursor:pointer;text-align:left;font-family:inherit;padding:0;width:100%` })),
         count:this.INEC_PARTIES.length, hasSel:!!sel,
       };
       if(sel){
         const p=this.INEC_PARTIES.find(x=>x.abbr===sel);
-        ngPartyDetail={ ...p, bearers:this.partyBearers(sel), close:()=>this.setState({selParty:null}) };
+        ngPartyDetail={
+          ...p,
+          hasLogo: !!(p && p.logo),
+          logo: (p && p.logo) || '',
+          voteShare: shareOf(sel),
+          history: (p && p.history) || this.partyHistory(sel),
+          bearers:this.partyBearers(sel),
+          close:()=>this.setState({selParty:null}),
+        };
       }
     }
 
@@ -6415,7 +6592,7 @@ class Component extends DCLogic {
       candGeneric: null,
       partiesGeneric: null,
       ngPartySelectHint: (isNigeria || isGlobal) && !this.state.selParty,
-      mapInfo, mapInfoRows, mapMarkers, hierarchy, electionsRows, electionTypes, candidates, partiesList, analysisMetrics, battlegrounds, datasets, datasetGroups, dataExplorer, liveFeat, liveStats, liveNews, aboutCards, adminIntegrations, anaData, puSearch,
+      mapInfo, mapInfoRows, mapMarkers, hierarchy, electionsRows, electionTypes, candidates, partiesList, analysisMetrics, battlegrounds, datasets, datasetGroups, dataExplorer, liveFeat, liveStats, liveNews, aboutCards, aboutCoverage, aboutMethod, aboutRefs, adminIntegrations, anaData, puSearch,
       analysisUI,
       bindAnalysisRoot: (el)=> this.bindAnalysisRoot(el),
       liveMapMode, liveLayerToggles,
@@ -6467,12 +6644,16 @@ class Component extends DCLogic {
       onElecState:(e)=>{
         const next = e.target.value || null;
         if ((this.state.ovOffice || 'pres') === 'pres') {
+          if (!next) {
+            this.clearPresState();
+            return;
+          }
+          const snap = this.resolvePresStateSnap(next);
+          const detail = snap ? this.buildElecUnitDetail(next, snap) : null;
           this.setState({
-            ovElecState: next || null,
-            elecPresStateSnap: null,
-            elecMapTheme: null,
-            elecChoroMeta: null,
-            elecSelectedUnit: null,
+            ovElecState: next,
+            elecPresStateSnap: snap || null,
+            elecSelectedUnit: detail,
             elecExpandedCand: null,
             showEstimatedLga: true,
           }, ()=>{ this.fetchNgKpis(); this.flyToElectionView(); });
