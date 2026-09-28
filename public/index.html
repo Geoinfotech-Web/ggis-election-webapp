@@ -2331,6 +2331,7 @@ class Component extends DCLogic {
   }
   buildMapTheme(data, showEstimatedLga){
     if (!data || !data.ok) return null;
+    if (data.office === 'gov' && data.estimated) return null;
     const estimated = !!data.estimated;
     if (estimated && !showEstimatedLga && data.level === 'lga' && data.state) {
       const w = data.winner || {};
@@ -2363,7 +2364,7 @@ class Component extends DCLogic {
     let available = 0;
     this.NG_ALL_STATES.forEach((name)=>{
       if (name === 'FCT') return;
-      const entries = byState[name] || [];
+      const entries = (byState[name] || []).filter((e)=> e && e.collated && !e.estimated);
       const has = entries.length > 0;
       if (has) available += 1;
       const latest = has ? entries[0] : null;
@@ -2406,9 +2407,7 @@ class Component extends DCLogic {
       return;
     }
     const years = this.govYearsForState(next);
-    const nextYear = years.includes(String(this.state.ovElecYear))
-      ? String(this.state.ovElecYear)
-      : (years[0] || null);
+    const nextYear = this.nearestGovYear(years, this.state.ovElecYear);
     const mapEl = this.mapEls && this.mapEls.country;
     if (mapEl && window.EIDMaps) {
       if (window.EIDMaps.dropGovBlur) window.EIDMaps.dropGovBlur(mapEl);
@@ -2416,6 +2415,7 @@ class Component extends DCLogic {
       if (window.EIDMaps.flyToNamedState) window.EIDMaps.flyToNamedState(mapEl, next);
     }
     if (nextYear) this.fetchMemo(this.choroUrl('gov', nextYear, next));
+    else this._elecBusy = false;
     const cached = nextYear ? this.peekMemo(this.choroUrl('gov', nextYear, next)) : null;
     const cachedTheme = cached && cached.ok ? this.buildMapTheme(cached, this.state.showEstimatedLga !== false) : null;
     this._elecBusy = !cachedTheme;
@@ -2863,10 +2863,38 @@ class Component extends DCLogic {
       }
     } catch(e){}
   }
+  nearestGovYear(years, current){
+    const list = (years || []).map(String).filter(Boolean);
+    if (!list.length) return null;
+    const cur = String(current || '');
+    if (list.includes(cur)) return cur;
+    const n = Number(cur);
+    if (!Number.isFinite(n)) return list[0];
+    let best = list[0];
+    let bestDist = Infinity;
+    list.forEach((y)=>{
+      const d = Math.abs(Number(y) - n);
+      const tieNewer = d === bestDist && Number(y) > Number(best);
+      if (d < bestDist || tieNewer) {
+        best = y;
+        bestDist = d;
+      }
+    });
+    return best;
+  }
   govYearsForState(state){
     const catalog = this.state.govCatalog;
     if (!catalog || !state) return [];
-    return (catalog.byState[state] || []).map((e)=>String(e.electionYear));
+    const seen = new Set();
+    const years = [];
+    (catalog.byState[state] || []).forEach((e)=>{
+      if (!e || !e.collated || e.estimated) return;
+      const y = String(e.electionYear || '');
+      if (!y || seen.has(y)) return;
+      seen.add(y);
+      years.push(y);
+    });
+    return years;
   }
   toggleCandUnits(party){
     this.setState(s=>({
@@ -2964,6 +2992,9 @@ class Component extends DCLogic {
         ...extra,
       };
     };
+    if(officeId==='gov' && choro && choro.ok && choro.estimated){
+      return pack([], { pending:true, pendingMsg:'No verified LGA collation for this state and year.' });
+    }
     if(officeId==='gov' && choro && choro.ok && choro.candidates && choro.candidates.length){
       const total = choro.candidates.reduce((a,cd)=>a+Number(cd.votes||0),0) || 1;
       const showLgaWins = !choro.estimated || !!this.state.showEstimatedLga;
@@ -2995,7 +3026,7 @@ class Component extends DCLogic {
         collated: !!choro.collated,
         sourceLine,
         sourceDetail: choro.sourceDetail || choro.source || null,
-        showEstimatedToggle: !!choro.estimated,
+        showEstimatedToggle: officeId === 'gov' ? false : !!choro.estimated,
         estimatedOn: !!this.state.showEstimatedLga,
         toggleEstimated: ()=>this.toggleEstimatedLga(),
         estimatedToggleLabel: this.state.showEstimatedLga ? 'Hide estimated LGA (statewide fill)' : 'Show estimated LGA map',
@@ -4747,6 +4778,20 @@ class Component extends DCLogic {
       }
       const officeId = office || this.state.ovOffice || 'pres';
       const st = state || this.state.ovElecState || null;
+      if (officeId === 'gov' && data && data.ok && data.estimated) {
+        data = {
+          ok: false,
+          office: 'gov',
+          year: String(year || data.year || ''),
+          state: st,
+          level: 'lga',
+          message: 'No verified LGA collation for this state and year.',
+          units: {},
+          legend: [],
+          estimated: false,
+          collated: false,
+        };
+      }
       const mapTheme = data && data.ok ? this.buildMapTheme(data, this.state.showEstimatedLga) : null;
       // On successful LGA load, clear unitDetail (state totals move into candidate rows).
       // On failure, keep statewide snap + previous national theme so the panel never sticks on Loading.
@@ -4948,15 +4993,21 @@ class Component extends DCLogic {
       const years = this.govYearsForState(state);
       if (!years.length) {
         this.fetchGovCatalog().then(()=> {
+          if ((this.state.ovOffice || 'pres') !== 'gov' || this.state.ovElecState !== state) return;
           const next = this.govYearsForState(state);
-          if (next.length && next[0] !== String(this.state.ovElecYear)) {
-            this.setState({ ovElecYear: next[0] }, ()=>this.flyToElectionView());
+          const snapped = this.nearestGovYear(next, this.state.ovElecYear);
+          if (snapped && snapped !== String(this.state.ovElecYear || '')) {
+            this.setState({ ovElecYear: snapped }, ()=>this.flyToElectionView());
+          } else if (!snapped) {
+            this._elecBusy = false;
+            this.setState({ ovElecYear: null, elecMapTheme: null, elecChoroMeta: null, elecSelectedUnit: null });
           } else this._elecBusy = false;
         });
         return;
       }
-      if (!years.includes(String(year))) {
-        this.setState({ ovElecYear: years[0] }, ()=>this.flyToElectionView());
+      const snapped = this.nearestGovYear(years, year);
+      if (snapped !== String(year || '')) {
+        this.setState({ ovElecYear: snapped }, ()=>this.flyToElectionView());
         return;
       }
     }
@@ -5396,11 +5447,20 @@ class Component extends DCLogic {
 
     const anaOffice = this.state.anaOffice || resolvedFilters.office || 'pres';
     const anaOfficeMeta = (analysisBundle?.offices || []).find((o) => o.id === anaOffice) || { id: anaOffice, label: anaOffice, years: [] };
-    const anaOfficeYears = (anaOfficeMeta.years || []).slice().sort((a, b) => Number(a) - Number(b));
+    let anaOfficeYears = (anaOfficeMeta.years || []).slice().sort((a, b) => Number(a) - Number(b));
+    const showStateFilter = anaOffice === 'gov'
+      || (anaOffice === 'pres' && !!(analysisBundle?.geographic?.hasLga));
+    const anaStateRaw = showStateFilter ? (this.state.anaState || resolvedFilters.state || 'all') : 'all';
+    if (anaOffice === 'gov' && anaStateRaw && anaStateRaw !== 'all' && analysisBundle?.govYearsByState) {
+      anaOfficeYears = (analysisBundle.govYearsByState[anaStateRaw] || []).map(String).sort((a, b) => Number(a) - Number(b));
+    }
     const yearOpts = anaOfficeYears.length
       ? anaOfficeYears.map((y) => ({ value: y, label: y }))
       : [{ value: '', label: '—' }];
-    const anaYear = this.state.anaYear || resolvedFilters.year || (anaOfficeYears[anaOfficeYears.length - 1] || '');
+    const anaYearRaw = this.state.anaYear || resolvedFilters.year || (anaOfficeYears[anaOfficeYears.length - 1] || '');
+    const anaYear = (anaOfficeYears.length && !anaOfficeYears.map(String).includes(String(anaYearRaw)))
+      ? (this.nearestGovYear(anaOfficeYears, anaYearRaw) || anaOfficeYears[anaOfficeYears.length - 1] || '')
+      : anaYearRaw;
     const compareOpts = anaOfficeYears.filter((y) => y !== anaYear).map((y) => ({ value: y, label: y }));
     if (!compareOpts.length && anaOfficeYears.length) compareOpts.push({ value: '', label: 'No prior cycle' });
     const anaCompare = this.state.anaCompare || resolvedFilters.compare || (compareOpts[0]?.value || '');
@@ -5413,9 +5473,6 @@ class Component extends DCLogic {
     const regionOpts = [{ value: 'all', label: 'All regions' }].concat(
       (analysisBundle?.regions || []).map((r) => ({ value: r, label: r }))
     );
-    const showStateFilter = anaOffice === 'gov'
-      || (anaOffice === 'pres' && !!(analysisBundle?.geographic?.hasLga));
-    const anaStateRaw = showStateFilter ? (this.state.anaState || resolvedFilters.state || 'all') : 'all';
     // Year options for the dropdown; keep the current selection visible even if empty for this year.
     const yearStateNames = analysisBundle?.states || [];
     const catalogStates = analysisBundle?.allStates || yearStateNames;
@@ -5656,7 +5713,16 @@ class Component extends DCLogic {
       onCompare: (e) => this.setState({ anaCompare: e.target.value || '' }, () => reload()),
       onParty: (e) => this.setState({ anaParty: e.target.value || 'all' }, () => reload()),
       onRegion: (e) => this.setState({ anaRegion: e.target.value || 'all' }, () => reload()),
-      onState: (e) => this.setState({ anaState: e.target.value || 'all' }, () => reload()),
+      onState: (e) => {
+        const nextState = e.target.value || 'all';
+        const patch = { anaState: nextState, anaCompare: '' };
+        if ((this.state.anaOffice || 'pres') === 'gov' && nextState !== 'all') {
+          const years = ((this.state.analysisBundle && this.state.analysisBundle.govYearsByState) || {})[nextState] || [];
+          const snapped = this.nearestGovYear(years, this.state.anaYear);
+          if (snapped) patch.anaYear = snapped;
+        }
+        this.setState(patch, () => reload());
+      },
       onMomentum: (e) => {
         const v = Number(e.target.value);
         this.setState({ anaMomentum: Number.isFinite(v) ? v : 65 }, () => this.scheduleAnalysisAssumptions());
@@ -5970,11 +6036,11 @@ class Component extends DCLogic {
       {icon:'how_to_vote',title:'Offices covered',body:'Presidential, Governorship, Senatorial and House of Representatives archives, plus citizen EC8A uploads on Live Results. State Assembly wiring is ready when packs land.'},
       {icon:'layers',title:'Result depth',body:'National and statewide totals always; LGA drill for presidential 2023 and many governorship races; constituency seats/votes for Senate and House where collated.'},
       {icon:'dataset',title:'Spatial backend',body:'Boundaries and polling units from PostGIS / GeoServer (and ArcGIS fallbacks) so every result paints onto real administrative geography.'},
-      {icon:'verified',title:'Verification',body:'Published packs prefer INEC-declared or collation-centre totals. Estimated LGA fills are labelled and can be hidden. Quarantined legacy files never reach the map.'},
+      {icon:'verified',title:'Verification',body:'Published packs prefer INEC-declared or collation-centre totals. Governorship maps show verified LGA returns only. Quarantined legacy files never reach the map.'},
       {icon:'groups',title:'Audiences',body:'Progressive complexity — quick winners on Overview, candidate profiles, party history, Analysis charts and a Data catalog for deeper work.'},
     ];
     const aboutCoverage = 'Nigeria is the live scope. Overview supports Presidential (state map; 2023 LGA drill), Governorship (per-state archives), Senatorial (109 seats) and House of Representatives (360 seats). Candidates and Parties mirror those offices. Analysis and Data expose the same archives for charts and downloadable catalogs.';
-    const aboutMethod = 'Choropleths colour units by plurality winner. Statewide presidential/governorship bars use INEC state totals when available; LGA maps use collated LGA rows or clearly labelled estimates. Senate/House state fills use plurality of seat wins; open a state for district winners and constituency vote bars when votes were published.';
+    const aboutMethod = 'Choropleths colour units by plurality winner. Statewide presidential bars use INEC state totals when available; governorship and presidential LGA maps use collated LGA rows. Senate/House state fills use plurality of seat wins; open a state for district winners and constituency vote bars when votes were published.';
     const aboutRefs = [
       { label: 'INEC', body: 'Independent National Electoral Commission — official declarations, collation and IREV form images underpin verified totals.', url: 'https://www.inecnigeria.org/', linkLabel: 'inecnigeria.org', hasUrl: true },
       { label: 'Stears Elections', body: '2023 presidential LGA tallies and many Senate/House constituency packs were ingested from Stears Elections pages (__NEXT_DATA__), with INEC as the underlying official source. Coverage can be partial where Stears publishes a subset of LGAs or seats.', url: 'https://www.stears.co/elections/', linkLabel: 'stears.co/elections', hasUrl: true },
@@ -6113,18 +6179,21 @@ class Component extends DCLogic {
     const officeYears = this.OFFICE_YEARS[ovOffice] || elecTl.map(t=>String(t.year));
     const govCatalog = this.state.govCatalog;
     const govStatesList = ovOffice === 'gov'
-      ? ((govCatalog && govCatalog.states) || Object.keys((govCatalog && govCatalog.byState) || {}) || [])
+      ? (((govCatalog && govCatalog.states) || Object.keys((govCatalog && govCatalog.byState) || {}))
+          .filter((name)=> this.govYearsForState(name).length))
       : [];
     const govYearPool = ovOffice === 'gov' && ovElecState ? this.govYearsForState(ovElecState) : [];
     const yearPoolRaw = ovOffice === 'gov'
       ? govYearPool
       : officeYears.filter(y=> elecTl.some(t=>String(t.year)===y) || y==='2027');
-    const yearPool = (()=>{
-      const pool = yearPoolRaw.slice();
-      const cur = this.state.ovElecYear != null ? String(this.state.ovElecYear) : '';
-      if (cur && !pool.includes(cur)) pool.unshift(cur);
-      return pool;
-    })();
+    const yearPool = ovOffice === 'gov'
+      ? yearPoolRaw.slice()
+      : (()=>{
+          const pool = yearPoolRaw.slice();
+          const cur = this.state.ovElecYear != null ? String(this.state.ovElecYear) : '';
+          if (cur && !pool.includes(cur)) pool.unshift(cur);
+          return pool;
+        })();
     const yearVal = yearPool.includes(String(this.state.ovElecYear))
       ? String(this.state.ovElecYear)
       : (ovOffice === 'gov'
@@ -6230,9 +6299,9 @@ class Component extends DCLogic {
         const byState = (this.state.govCatalog && this.state.govCatalog.byState) || {};
         const names = (this.state.govCatalog && this.state.govCatalog.states)
           || Object.keys(byState).sort((a,b)=>a.localeCompare(b));
-        ngElec.govPickerCount = String(names.length);
         ngElec.govPickerStates = names.map((name)=>{
-          const entries = byState[name] || [];
+          const entries = (byState[name] || []).filter((e)=> e && e.collated && !e.estimated);
+          if (!entries.length) return null;
           const latest = entries[0];
           const years = entries.map((e)=> String(e.electionYear || e.storageYear || '')).filter(Boolean);
           return {
@@ -6241,7 +6310,8 @@ class Component extends DCLogic {
             latestYear: latest ? String(latest.electionYear || latest.storageYear || '—') : '—',
             onClick: ()=> this.selectGovState(name),
           };
-        });
+        }).filter(Boolean);
+        ngElec.govPickerCount = String(ngElec.govPickerStates.length);
       }
       const unitIsLga = ngElec.unitLevel === 'lga' || (choroForYear && choroForYear.level === 'lga') || ovOffice === 'gov';
       ngElec.candidates = (ngElec.candidates||[]).map((row,i)=>{

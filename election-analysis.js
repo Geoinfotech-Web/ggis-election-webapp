@@ -332,17 +332,23 @@ function loadGubernatorialSeries() {
   const margins = [];
   const retentionPairs = [];
   const byStateYear = {};
+  const yearsByState = {};
 
   for (const [state, entries] of Object.entries(catalog.byState || {})) {
     const chronological = [...entries].sort((a, b) => Number(a.electionYear) - Number(b.electionYear));
     let prevParty = null;
     let prevYear = null;
     for (const entry of chronological) {
+      if (entry.estimated || !entry.collated) continue;
       const full = path.join(DATA_DIR, entry.file);
       const payload = readJsonSafe(full);
       if (!payload || !isPublishableLegacyPayload(payload)) continue;
+      if (payload.meta?.lgaMethod === 'pvc-proportional' || payload.meta?.modeled === true || payload.meta?.synthetic === true) continue;
+      if (payload.meta?.collated !== true) continue;
       const year = String(entry.electionYear || electionYearOf(payload.meta) || entry.storageYear);
       yearsSet.add(year);
+      if (!yearsByState[state]) yearsByState[state] = [];
+      if (!yearsByState[state].includes(year)) yearsByState[state].push(year);
       if (!byYear[year]) byYear[year] = { parties: {}, races: 0, totalVotes: 0, units: [] };
       const winnerParty = payload.winner?.party || payload.candidates?.[0]?.party || 'Others';
       const winnerName = payload.winner?.name || payload.candidates?.[0]?.name || null;
@@ -418,6 +424,9 @@ function loadGubernatorialSeries() {
   }
 
   const years = [...yearsSet].sort((a, b) => Number(a) - Number(b));
+  Object.keys(yearsByState).forEach((state) => {
+    yearsByState[state].sort((a, b) => Number(a) - Number(b));
+  });
   years.forEach((year) => {
     const bucket = byYear[year];
     Object.values(bucket.parties).forEach((p) => {
@@ -426,7 +435,7 @@ function loadGubernatorialSeries() {
     });
   });
 
-  return { years, byYear, margins, retentionPairs, byStateYear };
+  return { years, byYear, margins, retentionPairs, byStateYear, yearsByState };
 }
 
 function loadSeatSeries(subdir, officeLabel) {
@@ -585,6 +594,26 @@ function pickCompareYear(series, year) {
   return years[idx - 1] || '';
 }
 
+function nearestListedYear(years, current) {
+  const list = (years || []).map(String).filter(Boolean);
+  if (!list.length) return '';
+  const cur = String(current || '');
+  if (list.includes(cur)) return cur;
+  const n = Number(cur);
+  if (!Number.isFinite(n)) return list[list.length - 1];
+  let best = list[0];
+  let bestDist = Infinity;
+  for (const y of list) {
+    const d = Math.abs(Number(y) - n);
+    const tieNewer = d === bestDist && Number(y) > Number(best);
+    if (d < bestDist || tieNewer) {
+      best = y;
+      bestDist = d;
+    }
+  }
+  return best;
+}
+
 function resolveFilters(base, filters) {
   const office = ['pres', 'gov', 'sen', 'reps'].includes(filters.office) ? filters.office : 'pres';
   const series = office === 'pres' ? base.pres
@@ -613,6 +642,16 @@ function resolveFilters(base, filters) {
         );
       if ((known || []).some((s) => canonicalState(s) === raw)) state = raw;
       else if (office === 'pres' && base.pres?.byYear?.[year]?.units?.[raw]) state = raw;
+    }
+  }
+  if (office === 'gov' && state !== 'all') {
+    const stateYears = (base.gov?.yearsByState?.[state] || []).map(String);
+    if (stateYears.length) {
+      year = nearestListedYear(stateYears, year);
+      if (!compare || compare === year || !stateYears.includes(String(compare))) {
+        const idx = stateYears.indexOf(String(year));
+        compare = idx > 0 ? stateYears[idx - 1] : '';
+      }
     }
   }
   return { office, year, compare, party, region, state, series };
@@ -1112,6 +1151,7 @@ function assemblePayload(base, filters) {
     allStates: (office === 'gov' || office === 'pres') ? (base.states || []) : undefined,
     regions: Object.keys(GEO_ZONES),
     filters: { office, year, compare, party, region, state },
+    govYearsByState: base.gov.yearsByState || {},
     availability: section.availability,
     summary: section.summary,
     drivers: section.drivers,
@@ -2219,7 +2259,7 @@ function buildPrediction(base, assumptions) {
     caveats: [
       'Estimates use archived results only (presidential state wins, governorship winners, National Assembly seat winners).',
       'Senatorial / House archives are often winner-only scaffolds without contested vote totals.',
-      'Governorship files may include PVC-proportional LGA estimates; margins use candidate totals when present.',
+      'Governorship charts use verified LGA-collated years only. Years that exist only as PVC-proportional estimates are omitted.',
       'Real elections depend on candidates, coalitions, turnout, court outcomes, and events not modeled here.',
       'Toggle assumptions below to explore sensitivity — this is a scenario tool, not a prediction market.',
     ],

@@ -551,12 +551,12 @@ function availableGovStates(year) {
   const suffix = `-${yearId}.json`;
   for (const file of fsSync.readdirSync(govDir)) {
     if (!file.endsWith(suffix)) continue;
-    try {
-      const payload = JSON.parse(fsSync.readFileSync(path.join(govDir, file), 'utf8'));
-      if (payload.meta?.state && isPublishableLegacyPayload(payload)) states.push(payload.meta.state);
-    } catch (e) {
-      /* skip */
-    }
+      try {
+        const payload = JSON.parse(fsSync.readFileSync(path.join(govDir, file), 'utf8'));
+        if (payload.meta?.state && isVerifiedGovMeta(payload.meta)) states.push(payload.meta.state);
+      } catch (e) {
+        /* skip */
+      }
   }
   return [...new Set(states)].sort((a, b) => a.localeCompare(b));
 }
@@ -572,8 +572,73 @@ function electionYearOf(meta) {
   return String(m.year || '');
 }
 
+/** PVC-proportional / modeled LGA splits are not official collation. */
+function isEstimatedGovMeta(meta) {
+  const m = meta || {};
+  return m.lgaMethod === 'pvc-proportional' || m.modeled === true || m.synthetic === true;
+}
+
+/** Stears or INEC LGA packs: collated and not a modeled split of statewide totals. */
+function isVerifiedGovMeta(meta) {
+  const m = meta || {};
+  return m.collated === true && !isEstimatedGovMeta(m);
+}
+
+function unverifiedGovChoropleth(officeId, yearId, stateName, govStates) {
+  return {
+    ok: false,
+    office: officeId,
+    year: yearId,
+    state: stateName,
+    level: 'lga',
+    message: 'No verified LGA collation for this state and year.',
+    units: {},
+    legend: [],
+    availableStates: govStates || [],
+    collated: false,
+    estimated: false,
+  };
+}
+
+/**
+ * Calendar year of the election inside a governorship pack.
+ * File names and meta.year are storage buckets (often the cycle before the poll,
+ * plus a later "incumbent as of 2026" copy). The collation date lives in
+ * electionDate or updated (YYYY-MM-DD), not in the bucket year.
+ */
+function govCalendarYear(meta) {
+  const m = meta || {};
+  if (m.electionDate && /^\d{4}/.test(String(m.electionDate))) return String(m.electionDate).slice(0, 4);
+  if (m.updated && /^\d{4}-\d{2}-\d{2}/.test(String(m.updated))) return String(m.updated).slice(0, 4);
+  const named = String(m.sourceDetail || '').match(/\((20\d{2})\b/);
+  if (named) return named[1];
+  return '';
+}
+
+/** Stable signature of statewide totals and LGA votes, used to drop duplicate packs. */
+function govResultFingerprint(payload) {
+  const cands = (payload.candidates || [])
+    .map((c) => `${String(c.party || '')}:${Number(c.votes) || 0}`)
+    .sort()
+    .join('|');
+  const units = payload.units || {};
+  const unitPart = Object.keys(units).sort().map((name) => {
+    const u = units[name] || {};
+    const votes = u.votes && typeof u.votes === 'object'
+      ? Object.keys(u.votes).sort().map((party) => `${party}:${Number(u.votes[party]) || 0}`).join(',')
+      : '';
+    return `${name}:${u.party || ''}:${votes}`;
+  }).join(';');
+  return `${cands}#${unitPart}`;
+}
+
 function scoreGovEntry(entry) {
-  return (entry.collated ? 1000 : 0) + Number(entry.storageYear || 0);
+  const verified = entry.collated && !entry.estimated ? 10000 : 0;
+  const storage = Number(entry.storageYear || 0);
+  const election = Number(entry.electionYear || 0);
+  const laterCopy = Number.isFinite(storage) && Number.isFinite(election) && storage > election ? 1000 : 0;
+  const distance = Number.isFinite(storage) && Number.isFinite(election) ? Math.abs(storage - election) : 0;
+  return verified - laterCopy - distance;
 }
 
 let govCatalogCache = null;
@@ -592,7 +657,7 @@ function listGovCatalog() {
         if (!isPublishableLegacyPayload(payload) || !payload.meta?.state) continue;
         const state = canonicalState(payload.meta.state);
         const storageYear = String(payload.meta.year || m[2]);
-        const electionYear = electionYearOf(payload.meta) || storageYear;
+        const electionYear = govCalendarYear(payload.meta) || electionYearOf(payload.meta) || storageYear;
         const entry = {
           state,
           electionYear,
@@ -601,12 +666,16 @@ function listGovCatalog() {
           collated: !!payload.meta.collated && payload.meta.lgaMethod !== 'pvc-proportional',
           estimated: payload.meta.lgaMethod === 'pvc-proportional' || payload.meta.modeled === true,
           file: path.join('gubernatorial', file),
-          title: payload.meta.title || `${state} Governorship ${electionYear}`,
+          title: `${state} Governorship ${electionYear}`,
+          fingerprint: govResultFingerprint(payload),
         };
         if (!byState[state]) byState[state] = [];
-        const existingIdx = byState[state].findIndex((e) => e.electionYear === electionYear);
+        // Same calendar year, or a later bucket that repeats the same returns (2026 incumbent copies).
+        const existingIdx = byState[state].findIndex((e) =>
+          e.electionYear === electionYear || (entry.fingerprint && e.fingerprint === entry.fingerprint)
+        );
         if (existingIdx < 0) byState[state].push(entry);
-        else if (scoreGovEntry(entry) >= scoreGovEntry(byState[state][existingIdx])) {
+        else if (scoreGovEntry(entry) > scoreGovEntry(byState[state][existingIdx])) {
           byState[state][existingIdx] = entry;
         }
       } catch {
@@ -615,6 +684,13 @@ function listGovCatalog() {
     }
   }
   for (const state of Object.keys(byState)) {
+    // Public catalog is verified LGA years only. Estimated JSON stays on disk for ingest.
+    byState[state] = byState[state].filter((e) => e.collated && !e.estimated);
+    if (!byState[state].length) {
+      delete byState[state];
+      continue;
+    }
+    byState[state].forEach((e) => { delete e.fingerprint; });
     byState[state].sort((a, b) => Number(b.electionYear) - Number(a.electionYear));
   }
   const states = Object.keys(byState).sort((a, b) => a.localeCompare(b));
@@ -631,14 +707,9 @@ function resolveGovEntry(stateName, yearId) {
 
 async function findGovFile(stateName, yearId) {
   const resolved = resolveGovEntry(stateName, yearId);
-  if (resolved?.file) {
-    const full = path.join(DATA_DIR, resolved.file);
-    if (fsSync.existsSync(full)) return resolved.file;
-  }
-  const slug = stateSlug(stateName);
-  const rel = path.join('gubernatorial', `${slug}-${yearId}.json`);
-  const full = path.join(DATA_DIR, rel);
-  if (fsSync.existsSync(full)) return rel;
+  if (!resolved?.file || !resolved.collated || resolved.estimated) return null;
+  const full = path.join(DATA_DIR, resolved.file);
+  if (fsSync.existsSync(full)) return resolved.file;
   return null;
 }
 
@@ -687,10 +758,13 @@ function availablePresLgaStates(yearId) {
   }
 }
 
-function packChoropleth(payload, officeId, yearId, stateName, level) {
+function packChoropleth(payload, officeId, yearId, stateName, level, displayYear) {
   const units = decorateUnits(payload.units, level);
   const legend = buildLegend(units, payload.candidates);
-  const electionYear = electionYearOf(payload.meta) || String(yearId);
+  const calendarYear = officeId === 'gov' ? govCalendarYear(payload.meta) : '';
+  const electionYear = (officeId === 'gov' && (displayYear || calendarYear))
+    ? String(displayYear || calendarYear)
+    : (electionYearOf(payload.meta) || String(yearId));
   const storageYear = String(payload.meta?.year || yearId);
   const key = [officeId, electionYear, stateName || 'ng', level].filter(Boolean).join(':');
   const integrity = deriveResultIntegrity(payload.meta, level);
@@ -711,7 +785,9 @@ function packChoropleth(payload, officeId, yearId, stateName, level) {
     electionYear,
     state: stateName || payload.meta?.state || null,
     level,
-    title: payload.meta?.title || `${electionYear} ${officeId} election`,
+    title: officeId === 'gov'
+      ? `${stateName || payload.meta?.state || 'State'} Governorship ${electionYear}`
+      : (payload.meta?.title || `${electionYear} ${officeId} election`),
     source: payload.meta?.source || 'Verified publication',
     sourceUrl: payload.meta?.sourceUrl || null,
     sourceDetail: integrity.sourceDetail,
@@ -1036,7 +1112,8 @@ async function loadChoropleth({ office, year, state }) {
   try {
     const fromDb = loadElectionDataset({ office: officeId, year: storageYearId, state: stateName })
       || (storageYearId !== yearId ? loadElectionDataset({ office: officeId, year: yearId, state: stateName }) : null);
-    if (fromDb && isPublishableLegacyPayload(fromDb.meta) && fromDb.units && Object.keys(fromDb.units).length) {
+    const dbVerified = !(officeId === 'gov' && !isVerifiedGovMeta(fromDb?.meta));
+    if (dbVerified && fromDb && isPublishableLegacyPayload(fromDb.meta) && fromDb.units && Object.keys(fromDb.units).length) {
       const level = fromDb.level || (officeId === 'gov' ? 'state' : 'state');
       return packChoropleth(
         {
@@ -1048,7 +1125,8 @@ async function loadChoropleth({ office, year, state }) {
         officeId,
         yearId,
         stateName || fromDb.meta?.state || null,
-        level
+        level,
+        officeId === 'gov' ? (resolvedGov?.electionYear || null) : null,
       );
     }
   } catch (error) {
@@ -1065,8 +1143,11 @@ async function loadChoropleth({ office, year, state }) {
           message: 'This legacy dataset is quarantined pending source verification.', units: {}, legend: [], availableStates: govStates,
         };
       }
+      if (!isVerifiedGovMeta(payload.meta)) {
+        return unverifiedGovChoropleth(officeId, yearId, stateName, govStates);
+      }
       const level = payload.meta?.level || 'state';
-      return packChoropleth(payload, officeId, yearId, stateName, level);
+      return packChoropleth(payload, officeId, yearId, stateName, level, resolvedGov?.electionYear || null);
     }
     const lgaMatch = STATIC_INDEX.find((row) =>
       row.office === 'gov' &&
@@ -1075,14 +1156,18 @@ async function loadChoropleth({ office, year, state }) {
     );
     if (lgaMatch) {
       const payload = await readDataset(lgaMatch.file);
+      if (!isVerifiedGovMeta(payload.meta)) {
+        return unverifiedGovChoropleth(officeId, yearId, stateName, govStates);
+      }
       if (!isPublishableLegacyPayload(payload)) {
         return {
           ok: false, office: officeId, year: yearId, state: stateName, level: lgaMatch.level,
           message: 'This legacy dataset is quarantined pending source verification.', units: {}, legend: [], availableStates: govStates,
         };
       }
-      return packChoropleth(payload, officeId, yearId, stateName, lgaMatch.level);
+      return packChoropleth(payload, officeId, yearId, stateName, lgaMatch.level, resolvedGov?.electionYear || null);
     }
+    return unverifiedGovChoropleth(officeId, yearId, stateName, govStates);
   }
 
   // Presidential LGA drill: when a state is selected and an LGA pack exists for the year.
@@ -1167,7 +1252,7 @@ function listAvailableDatasets() {
       const state = m[1].split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
       try {
         const payload = JSON.parse(fsSync.readFileSync(path.join(govDir, file), 'utf8'));
-        if (isPublishableLegacyPayload(payload)) {
+        if (isVerifiedGovMeta(payload.meta)) {
           rows.push({ office: 'gov', year: m[2], state, level: 'state', file: path.join('gubernatorial', file) });
         }
       } catch { /* unavailable or quarantined */ }
@@ -1201,6 +1286,8 @@ module.exports = {
   listAvailableGovStates,
   listGovCatalog,
   electionYearOf,
+  isEstimatedGovMeta,
+  isVerifiedGovMeta,
   resolveGovEntry,
   isPublishableLegacyPayload,
   deriveResultIntegrity,
