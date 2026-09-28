@@ -85,6 +85,30 @@
   };
 
   const store = new WeakMap();
+  const jsonCache = new Map();
+  const stateBoundsSync = new Map();
+
+  function themeSig(theme) {
+    if (!theme || !theme.units) return '';
+    const units = theme.units;
+    const names = Object.keys(units);
+    let hash = names.length;
+    const step = Math.max(1, Math.floor(names.length / 32));
+    for (let i = 0; i < names.length; i += step) {
+      const u = units[names[i]] || {};
+      const s = names[i] + '|' + (u.party || '') + '|' + (u.color || '') + '|' + (u.fillOpacity != null ? u.fillOpacity : '');
+      for (let j = 0; j < s.length; j++) hash = (hash * 33 + s.charCodeAt(j)) | 0;
+    }
+    return [
+      theme.key || '',
+      theme.office || '',
+      theme.year || theme.electionYear || '',
+      theme.level || '',
+      theme.state || '',
+      theme.mapMode || '',
+      hash,
+    ].join('|');
+  }
 
   function pickProp(props, keys) {
     if (!props) return "";
@@ -118,6 +142,8 @@
       zoomControl: false,
       attributionControl: true,
       preferCanvas: true,
+      fadeAnimation: false,
+      markerZoomAnimation: false,
     });
     map.createPane("grid3");
     map.getPane("grid3").style.zIndex = 450;
@@ -140,13 +166,11 @@
     if (typeof ResizeObserver !== "undefined") {
       const ro = new ResizeObserver(() => {
         const w = el.clientWidth, h = el.clientHeight;
-        map.invalidateSize();
-        if (inst.lastW !== w || inst.lastH !== h) {
-          inst.lastW = w;
-          inst.lastH = h;
-          inst.overlayKey = null;
-          refreshOverlays(el);
-        }
+        map.invalidateSize({ animate: false });
+        if (inst.lastW === w && inst.lastH === h) return;
+        inst.lastW = w;
+        inst.lastH = h;
+        if (inst._needsPaint || !inst.overlayKey) refreshOverlays(el);
       });
       ro.observe(el);
       inst.ro = ro;
@@ -214,9 +238,11 @@
     const inst = ensure(el);
     if (!inst) return;
     const spec = TILES[key] || TILES.streets;
+    const resolved = TILES[key] ? key : 'streets';
+    if (inst.basemap === resolved && inst.tile) return;
     if (inst.tile) inst.map.removeLayer(inst.tile);
     inst.tile = global.L.tileLayer(spec.url, spec.options).addTo(inst.map);
-    inst.basemap = key;
+    inst.basemap = resolved;
   }
 
   function clearOverlay(inst, id) {
@@ -522,16 +548,44 @@
     ].filter(Boolean).join('<br>');
   }
 
+  function overlayKind(id) {
+    return String(id || '').replace(/^citizen-/, '').replace(/^official-/, '');
+  }
+
+  function liveTheme(inst, fallback) {
+    return (inst && inst.cfg && inst.cfg.resultTheme) || fallback || null;
+  }
+
+  function restyleOverlay(inst, id, theme) {
+    const group = inst.overlays && inst.overlays[id];
+    if (!group || typeof group.eachLayer !== 'function') return false;
+    const cfg = inst.cfg || {};
+    const kind = overlayKind(id);
+    group.eachLayer((layer) => {
+      const props = layer.feature && layer.feature.properties;
+      if (!props || typeof layer.setStyle !== 'function') return;
+      layer.setStyle(styleForFeature(kind, props, cfg, theme));
+      if (typeof layer.setPopupContent === 'function' && layer.getPopup && layer.getPopup()) {
+        layer.setPopupContent(popupForFeature(kind, props, cfg, theme));
+      }
+    });
+    return true;
+  }
+
   function putGeoJson(inst, id, data, isPoint, opts) {
-    clearOverlay(inst, id);
-    if (!data || !data.features || !data.features.length) return;
+    if (!data || !data.features || !data.features.length) {
+      clearOverlay(inst, id);
+      if (inst.overlaySource) inst.overlaySource[id] = null;
+      return;
+    }
     const cfg = inst.cfg || {};
     const options = opts || {};
     const pane = options.pane || 'grid3';
     const theme = options.theme || cfg.resultTheme;
-    inst.overlays[id] = global.L.geoJSON(data, {
+    const kind = overlayKind(id);
+    const layer = global.L.geoJSON(data, {
       pane,
-      style: (feat) => styleForFeature(id.replace(/^citizen-/, '').replace(/^official-/, ''), feat.properties, cfg, theme),
+      style: (feat) => styleForFeature(kind, feat.properties, cfg, liveTheme(inst, theme)),
       pointToLayer: isPoint
         ? (feat, latlng) => {
             if (id === 'polling' || id.indexOf('polling') >= 0) {
@@ -551,22 +605,50 @@
             });
           }
         : undefined,
-      onEachFeature: (feat, layer) => {
-        const layerKind = id.replace(/^citizen-/, '').replace(/^official-/, '');
-        const label = featureLabel(layerKind, feat.properties);
+      onEachFeature: (feat, lyr) => {
+        const label = featureLabel(kind, feat.properties);
         if (label) {
-          layer.bindTooltip(label, { sticky: true, direction: 'top' });
-          layer.bindPopup(popupForFeature(layerKind, feat.properties, cfg, theme));
+          lyr.bindTooltip(label, { sticky: true, direction: 'top' });
+          lyr.bindPopup(() => popupForFeature(kind, feat.properties, inst.cfg || cfg, liveTheme(inst, theme)));
         }
-        if (theme && theme.units && cfg.onResultUnitClick && !options.skipClick) {
-          layer.on('click', () => {
-            const hit = resolveResultUnit(theme, layerKind, feat.properties);
-            const hitKey = (hit && hit._canonicalKey) || resultKey(layerKind, feat.properties, theme);
-            if (hitKey && hit) cfg.onResultUnitClick(hitKey, hit, layerKind);
+        if (cfg.onResultUnitClick && !options.skipClick) {
+          lyr.on('click', () => {
+            const current = liveTheme(inst, theme);
+            if (!current || !current.units) return;
+            const hit = resolveResultUnit(current, kind, feat.properties);
+            const hitKey = (hit && hit._canonicalKey) || resultKey(kind, feat.properties, current);
+            const click = inst.cfg && inst.cfg.onResultUnitClick;
+            if (hitKey && hit && click) click(hitKey, hit, kind);
           });
         }
       },
-    }).addTo(inst.map);
+    });
+    const prev = inst.overlays[id];
+    layer.addTo(inst.map);
+    inst.overlays[id] = layer;
+    if (prev) inst.map.removeLayer(prev);
+    inst.overlaySource = inst.overlaySource || {};
+    inst.overlaySource[id] = data;
+  }
+
+  function paintOverlay(inst, id, data, isPoint, opts) {
+    const theme = (opts && opts.theme) || (inst.cfg && inst.cfg.resultTheme) || null;
+    const sig = themeSig(theme) + '|' + ((opts && opts.pane) || '') + '|' + (opts && opts.skipClick ? '1' : '0');
+    inst.overlayStyleSig = inst.overlayStyleSig || {};
+    inst.overlaySource = inst.overlaySource || {};
+    if (
+      data &&
+      inst.overlaySource[id] === data &&
+      inst.overlays[id] &&
+      inst.overlayStyleSig[id] === sig
+    ) return;
+    if (data && inst.overlaySource[id] === data && inst.overlays[id] && !isPoint) {
+      restyleOverlay(inst, id, theme);
+      inst.overlayStyleSig[id] = sig;
+      return;
+    }
+    putGeoJson(inst, id, data, isPoint, opts);
+    inst.overlayStyleSig[id] = sig;
   }
 
   function bboxOf(map) {
@@ -575,13 +657,24 @@
   }
 
   async function loadJson(url) {
-    try {
+    if (jsonCache.has(url)) {
+      try { return await jsonCache.get(url); } catch (e) { jsonCache.delete(url); }
+    }
+    const pending = (async () => {
       const res = await fetch(url);
       if (!res.ok) return null;
       const data = await res.json();
       if (data && data.error) return null;
       return data;
+    })();
+    jsonCache.set(url, pending);
+    try {
+      const data = await pending;
+      if (data == null) jsonCache.delete(url);
+      else maybeIndexStateBounds(url, data);
+      return data;
     } catch (e) {
+      jsonCache.delete(url);
       return null;
     }
   }
@@ -603,6 +696,10 @@
   }
 
   async function loadLayer(layerId, bbox, preferLocalOnly) {
+    if (layerId === 'state') {
+      const all = await loadJson(LOCAL_BOUNDARIES.state);
+      if (all && all.features && all.features.length) return all;
+    }
     if (LOCAL_BOUNDARIES[layerId]) {
       const local = await loadJson(LOCAL_BOUNDARIES[layerId] + "?bbox=" + encodeURIComponent(bbox));
       if (local && local.features && local.features.length) return local;
@@ -624,137 +721,193 @@
     return loadJson(url);
   }
 
+  function hasDrawnOverlay(inst) {
+    const o = inst && inst.overlays;
+    if (!o) return false;
+    return !!(o.state || o.lga || o['official-state'] || o['citizen-state'] || o.ward);
+  }
+
+  function restyleDrawn(inst) {
+    const cfg = inst.cfg || {};
+    if (inst.overlays.state) restyleOverlay(inst, 'state', cfg.resultTheme || null);
+    if (inst.overlays['official-state']) restyleOverlay(inst, 'official-state', cfg.resultTheme || null);
+    if (inst.overlays['citizen-state']) restyleOverlay(inst, 'citizen-state', cfg.citizenTheme || null);
+    if (inst.overlays.lga) restyleOverlay(inst, 'lga', cfg.resultTheme || null);
+    const sig = themeSig(cfg.resultTheme) + '||' + themeSig(cfg.citizenTheme);
+    inst.overlayStyleSig = inst.overlayStyleSig || {};
+    ['state', 'official-state', 'citizen-state', 'lga'].forEach((id) => {
+      if (inst.overlays[id]) inst.overlayStyleSig[id] = sig + '|' + id;
+    });
+  }
+
+  function lgaCollectionForState(data, state) {
+    if (!data || !data.features) return data;
+    const bag = data._eidByState || (data._eidByState = {});
+    const key = String(state || '');
+    if (!bag[key]) {
+      bag[key] = {
+        type: 'FeatureCollection',
+        features: pickAdminFeatures(data, 'statename', state),
+      };
+    }
+    return bag[key];
+  }
+
   async function refreshOverlays(el) {
     const inst = store.get(el);
     if (!inst || !inst.map) return;
     if (el.clientWidth < 40 || el.clientHeight < 40) {
-      inst.overlayKey = null;
+      inst._needsPaint = true;
       return;
     }
     const layers = inst.cfg.layers || {};
     const preferLocalOnly = !!inst.cfg.preferLocalOnly;
     const zoom = inst.map.getZoom();
     const bbox = bboxOf(inst.map);
-    const themeKey = inst.cfg.resultTheme && inst.cfg.resultTheme.key ? inst.cfg.resultTheme.key : '';
-    const citizenKey = inst.cfg.citizenTheme && inst.cfg.citizenTheme.key ? inst.cfg.citizenTheme.key : '';
     const compareMode = inst.cfg.compareMode === 'compare' ? 'compare' : 'overlay';
     const showOfficial = inst.cfg.showOfficial !== false;
     const showCitizen = inst.cfg.showCitizen !== false;
-    const key = JSON.stringify({
-      layers, preferLocalOnly, zoom: Math.floor(zoom), bbox, themeKey, citizenKey, compareMode, showOfficial, showCitizen,
-      comparePct: Math.round(inst.comparePct || 50),
-    });
-    if (inst.overlayKey === key) return;
-    inst.overlayKey = key;
-
     const isLive = !!inst.cfg.live;
+    const theme = inst.cfg.resultTheme;
+    const zoomBand = zoom < 5 ? 0 : zoom < 8 ? 1 : zoom < 9 ? 2 : 3;
+    const lgaThemeState = theme && theme.level === 'lga' && theme.state ? String(theme.state) : '';
+    const lgaStale = !!(lgaThemeState && inst._framedState && stateBoundsKey(lgaThemeState) !== inst._framedState);
+    const lgaState = lgaStale ? '' : lgaThemeState;
+    const styleKey = themeSig(theme) + '||' + themeSig(inst.cfg.citizenTheme);
+    const geomKey = JSON.stringify({
+      layers, preferLocalOnly, zoomBand,
+      bbox: zoomBand >= 2 ? bbox : '',
+      lgaState, compareMode, showOfficial, showCitizen, isLive,
+    });
+    const key = geomKey + '||' + styleKey;
+    if (inst.overlayKey === key && !inst._needsPaint) {
+      if (isLive && compareMode === 'compare') {
+        applyCompareClip(inst, inst.comparePct != null ? inst.comparePct : (inst.cfg.comparePct || 50));
+      }
+      return;
+    }
+    const styleOnly = inst._geomKey === geomKey && !inst._needsPaint && hasDrawnOverlay(inst);
+    inst._geomKey = geomKey;
+    inst.overlayKey = key;
+    inst._needsPaint = false;
+    if (styleOnly) {
+      restyleDrawn(inst);
+      if (isLive && compareMode === 'compare') {
+        applyCompareClip(inst, inst.comparePct != null ? inst.comparePct : (inst.cfg.comparePct || 50));
+      } else if (isLive) clearCompareClip(inst);
+      if (isLive) paintCitizenMarkers(inst);
+      return;
+    }
+
     const officialPane = isLive && compareMode === 'compare' ? 'official' : 'grid3';
     const citizenPane = isLive && compareMode === 'compare' ? 'citizen' : 'grid3';
+    const needState = !!(layers.state || (isLive && (showOfficial || showCitizen)));
+    const needLga = !!(layers.lga && zoom >= 5 && !lgaStale);
+    const needWard = !!(layers.ward && zoom >= 8);
+    const needHealth = !!(layers.health && zoom >= 8);
+    const needPolling = !!(layers.polling && zoom >= 9);
 
-    if (layers.state || (isLive && (showOfficial || showCitizen))) {
-      const data = await loadLayer("state", bbox, preferLocalOnly);
+    const stateData = needState ? await loadLayer('state', bbox, preferLocalOnly) : null;
+    if (inst.overlayKey !== key) return;
+
+    let lgaData = null;
+    if (needLga) {
+      if (lgaState) {
+        const stateWhere = "UPPER(statename)='" + escWhere(lgaState).toUpperCase() + "'";
+        lgaData = await queryLocalAdmin('lga', lgaState);
+        if (!lgaData || !lgaData.features || !lgaData.features.length) {
+          lgaData = await queryAdmin('lga', stateWhere, 200);
+        }
+        if (lgaData && lgaData.features && lgaData.features.length) {
+          lgaData = lgaCollectionForState(lgaData, lgaState);
+        }
+      } else {
+        lgaData = await loadLayer('lga', bbox, preferLocalOnly);
+      }
       if (inst.overlayKey !== key) return;
+    }
 
+    const wardData = needWard ? await loadLayer('ward', bbox, preferLocalOnly) : null;
+    if (inst.overlayKey !== key) return;
+    const healthData = needHealth ? await loadLayer('health', bbox, preferLocalOnly) : null;
+    if (inst.overlayKey !== key) return;
+    let pollingFc = null;
+    if (needPolling) {
+      const data = await loadJson('/api/polling-unit-points?bbox=' + encodeURIComponent(bbox));
+      if (inst.overlayKey !== key) return;
+      pollingFc = {
+        type: 'FeatureCollection',
+        features: (data?.points || []).slice(0, 800).map((p) => ({
+          type: 'Feature',
+          geometry: { type: 'Point', coordinates: [p.longitude, p.latitude] },
+          properties: { name: p.pollingUnit, address: p.address || p.name, code: p.code, ward: p.ward, lga: p.lga, state: p.state },
+        })),
+      };
+    }
+    if (inst.overlayKey !== key) return;
+
+    if (needState && stateData) {
       if (isLive) {
-        clearOverlay(inst, "state");
-        clearOverlay(inst, "official-state");
-        clearOverlay(inst, "citizen-state");
-
         if (compareMode === 'compare') {
-          // Left: official choropleth (or muted outlines)
           if (showOfficial) {
-            putGeoJson(inst, "official-state", data, false, {
+            paintOverlay(inst, 'official-state', stateData, false, {
               pane: officialPane,
               theme: (inst.cfg.resultTheme && inst.cfg.resultTheme.ok) ? inst.cfg.resultTheme : null,
               skipClick: true,
             });
-          }
-          // Right: citizen choropleth
+          } else clearOverlay(inst, 'official-state');
           if (showCitizen) {
-            putGeoJson(inst, "citizen-state", data, false, {
+            paintOverlay(inst, 'citizen-state', stateData, false, {
               pane: citizenPane,
               theme: (inst.cfg.citizenTheme && inst.cfg.citizenTheme.ok) ? inst.cfg.citizenTheme : null,
               skipClick: true,
             });
-          }
+          } else clearOverlay(inst, 'citizen-state');
+          clearOverlay(inst, 'state');
           applyCompareClip(inst, inst.comparePct != null ? inst.comparePct : (inst.cfg.comparePct || 50));
         } else {
-          // Overlay: outlines + optional official fill + citizen fill on top when toggled
           if (showOfficial && inst.cfg.resultTheme && inst.cfg.resultTheme.ok) {
-            putGeoJson(inst, "official-state", data, false, {
-              pane: 'grid3',
-              theme: inst.cfg.resultTheme,
-            });
+            paintOverlay(inst, 'official-state', stateData, false, { pane: 'grid3', theme: inst.cfg.resultTheme });
+            clearOverlay(inst, 'state');
           } else if (layers.state) {
-            putGeoJson(inst, "state", data, false, { pane: 'grid3', theme: null });
+            paintOverlay(inst, 'state', stateData, false, { pane: 'grid3', theme: null });
+            clearOverlay(inst, 'official-state');
+          } else {
+            clearOverlay(inst, 'state');
+            clearOverlay(inst, 'official-state');
           }
           if (showCitizen && inst.cfg.citizenTheme && inst.cfg.citizenTheme.ok) {
-            putGeoJson(inst, "citizen-state", data, false, {
+            paintOverlay(inst, 'citizen-state', stateData, false, {
               pane: 'citizen',
               theme: inst.cfg.citizenTheme,
               skipClick: true,
             });
-          }
+          } else clearOverlay(inst, 'citizen-state');
           clearCompareClip(inst);
         }
       } else if (layers.state) {
-        putGeoJson(inst, "state", data);
-      } else {
-        clearOverlay(inst, "state");
+        paintOverlay(inst, 'state', stateData, false);
+        clearOverlay(inst, 'official-state');
+        clearOverlay(inst, 'citizen-state');
       }
     } else {
-      clearOverlay(inst, "state");
-      clearOverlay(inst, "official-state");
-      clearOverlay(inst, "citizen-state");
+      clearOverlay(inst, 'state');
+      clearOverlay(inst, 'official-state');
+      clearOverlay(inst, 'citizen-state');
     }
 
-    if (layers.lga && zoom >= 5) {
-      const theme = inst.cfg.resultTheme;
-      let data = null;
-      // Governorship LGA choropleth: only draw the selected state's LGAs so
-      // neighbouring states (and shared names like Bassa) never bleed through.
-      if (theme && theme.level === 'lga' && theme.state) {
-        const stateWhere = "UPPER(statename)='" + escWhere(theme.state).toUpperCase() + "'";
-        data = await queryLocalAdmin('lga', theme.state);
-        if (!data || !data.features || !data.features.length) {
-          data = await queryAdmin('lga', stateWhere, 200);
-        }
-        if (data && data.features && data.features.length) {
-          data = {
-            type: 'FeatureCollection',
-            features: pickAdminFeatures(data, 'statename', theme.state),
-          };
-        }
-      } else {
-        data = await loadLayer("lga", bbox, preferLocalOnly);
-      }
-      if (inst.overlayKey === key) putGeoJson(inst, "lga", data);
-    } else clearOverlay(inst, "lga");
+    if (needLga && lgaState) paintStateLga(inst, lgaState, lgaData, theme);
+    else if (needLga) paintOverlay(inst, 'lga', lgaData, false);
+    else clearOverlay(inst, 'lga');
 
-    if (layers.ward && zoom >= 8) {
-      const data = await loadLayer("ward", bbox, preferLocalOnly);
-      if (inst.overlayKey === key) putGeoJson(inst, "ward", data);
-    } else clearOverlay(inst, "ward");
+    if (needWard) paintOverlay(inst, 'ward', wardData, false);
+    else clearOverlay(inst, 'ward');
 
-    if (layers.health && zoom >= 8) {
-      const data = await loadLayer("health", bbox, preferLocalOnly);
-      if (inst.overlayKey === key) putGeoJson(inst, "health", data, true);
-    } else clearOverlay(inst, "health");
+    if (needHealth) paintOverlay(inst, 'health', healthData, true);
+    else clearOverlay(inst, 'health');
 
-    if (layers.polling && zoom >= 9) {
-      const data = await loadJson("/api/polling-unit-points?bbox=" + encodeURIComponent(bbox));
-      const fc = {
-        type: "FeatureCollection",
-        features: (data?.points || []).slice(0, 800).map((p) => ({
-          type: "Feature",
-          geometry: { type: "Point", coordinates: [p.longitude, p.latitude] },
-          properties: { name: p.pollingUnit, address: p.address || p.name, code: p.code, ward: p.ward, lga: p.lga, state: p.state },
-        })),
-      };
-      if (inst.overlayKey === key) putGeoJson(inst, "polling", fc, true);
-    } else if (!inst.cfg.keepLocalPoints) {
-      clearOverlay(inst, "polling");
-    }
+    if (needPolling) paintOverlay(inst, 'polling', pollingFc, true);
+    else if (!inst.cfg.keepLocalPoints) clearOverlay(inst, 'polling');
 
     if (isLive) paintCitizenMarkers(inst);
   }
@@ -928,6 +1081,174 @@
     inst.map.fitBounds(bounds, o);
   }
 
+  function stateBoundsKey(name) {
+    return normalizeAdminKey(canonicalAdminState(name));
+  }
+
+  function maybeIndexStateBounds(url, data) {
+    const path = String(url || '').split('?')[0];
+    if (!path.endsWith('/api/boundaries/state')) return;
+    indexStateBounds(data);
+  }
+
+  function indexStateBounds(data) {
+    if (!data || !data.features || data._eidStateBounds) return;
+    data._eidStateBounds = true;
+    data.features.forEach((feat) => {
+      const name = pickProp(feat.properties, ['statename', 'state']);
+      if (!name) return;
+      const pair = boundsFromFeatures([feat]);
+      if (!pair) return;
+      stateBoundsSync.set(stateBoundsKey(name), global.L.latLngBounds(pair[0], pair[1]));
+    });
+  }
+
+  function asLatLngBounds(bounds) {
+    if (!bounds) return null;
+    if (typeof bounds.getSouthWest === 'function') return bounds;
+    try { return global.L.latLngBounds(bounds[0], bounds[1]); } catch (_) { return null; }
+  }
+
+  function boundsForState(inst, stateName) {
+    const key = stateBoundsKey(stateName);
+    if (!key) return null;
+    if (stateBoundsSync.has(key)) return stateBoundsSync.get(key);
+    const group = inst && inst.overlays && inst.overlays.state;
+    if (!group || typeof group.eachLayer !== 'function') return null;
+    let found = null;
+    group.eachLayer((layer) => {
+      if (found) return;
+      const props = layer.feature && layer.feature.properties;
+      const name = pickProp(props, ['statename', 'state']);
+      if (!name || stateBoundsKey(name) !== key) return;
+      if (typeof layer.getBounds === 'function') found = layer.getBounds();
+    });
+    if (found) stateBoundsSync.set(key, found);
+    return found;
+  }
+
+  function dropGovBlur(el) {
+    let node = el;
+    while (node) {
+      if (node.classList && node.classList.contains('is-gov-blur')) node.classList.remove('is-gov-blur');
+      node = node.parentElement;
+    }
+  }
+
+  function parkLgaIfOtherState(inst, stateName) {
+    const key = stateBoundsKey(stateName);
+    if (!inst || !inst._lgaDrawnKey || inst._lgaDrawnKey === key) return;
+    const group = inst.overlays && inst.overlays.lga;
+    inst._lgaLayers = inst._lgaLayers || new Map();
+    if (group) {
+      inst._lgaLayers.set(inst._lgaDrawnKey, group);
+      if (inst.map && inst.map.hasLayer(group)) inst.map.removeLayer(group);
+    }
+    if (inst.overlays) inst.overlays.lga = null;
+    if (inst.overlaySource) inst.overlaySource.lga = null;
+    inst._lgaDrawnKey = null;
+    inst.overlayKey = null;
+    inst._geomKey = null;
+  }
+
+  function paintStateLga(inst, stateName, data, theme) {
+    if (!data || !data.features || !data.features.length) {
+      clearOverlay(inst, 'lga');
+      inst._lgaDrawnKey = null;
+      return;
+    }
+    const key = stateBoundsKey(stateName);
+    const sig = themeSig(theme);
+    inst._lgaLayers = inst._lgaLayers || new Map();
+    const cached = inst._lgaLayers.get(key);
+    if (cached && cached._eidData === data) {
+      const current = inst.overlays && inst.overlays.lga;
+      if (current && current !== cached && inst.map.hasLayer(current)) inst.map.removeLayer(current);
+      if (!inst.map.hasLayer(cached)) cached.addTo(inst.map);
+      inst.overlays.lga = cached;
+      inst.overlaySource = inst.overlaySource || {};
+      inst.overlaySource.lga = data;
+      inst._lgaDrawnKey = key;
+      if (cached._eidStyle !== sig) {
+        restyleOverlay(inst, 'lga', theme);
+        cached._eidStyle = sig;
+      }
+      inst.overlayStyleSig = inst.overlayStyleSig || {};
+      inst.overlayStyleSig.lga = sig;
+      return;
+    }
+    paintOverlay(inst, 'lga', data, false, { theme });
+    const layer = inst.overlays && inst.overlays.lga;
+    if (layer) {
+      layer._eidData = data;
+      layer._eidStyle = sig;
+      inst._lgaLayers.set(key, layer);
+      inst._lgaDrawnKey = key;
+    }
+  }
+
+  function frameBounds(inst, bounds, opts) {
+    const box = asLatLngBounds(bounds);
+    if (!inst || !inst.map || !box || !box.isValid()) return;
+    const o = Object.assign({ padding: [36, 36], maxZoom: 9, duration: 0.32 }, opts || {});
+    let center = null;
+    let zoom = null;
+    try {
+      if (typeof inst.map._getBoundsCenterZoom === 'function') {
+        const target = inst.map._getBoundsCenterZoom(box, { padding: o.padding, maxZoom: o.maxZoom });
+        center = target.center;
+        zoom = target.zoom;
+      }
+    } catch (_) {
+      center = null;
+    }
+    if (center && zoom != null && typeof inst.map.flyTo === 'function') {
+      const sameFlight = inst._flyTargetKey && inst._flyTargetKey === inst._frameReq && inst.map._flyToFrame;
+      if (sameFlight) return;
+      const here = inst.map.getCenter();
+      const close = here && typeof here.distanceTo === 'function'
+        && here.distanceTo(center) < 1200
+        && Math.abs(inst.map.getZoom() - zoom) < 0.35;
+      if (close) return;
+      beginNav(inst);
+      inst._flyTargetKey = inst._frameReq || null;
+      inst.map.flyTo(center, zoom, { duration: o.duration, easeLinearity: 0.25 });
+      return;
+    }
+    beginNav(inst);
+    inst.map.fitBounds(box, { padding: o.padding, maxZoom: o.maxZoom, animate: false });
+  }
+
+  function prefetchStateLga(stateName) {
+    if (!stateName) return;
+    queryLocalAdmin('lga', stateName, null, null);
+  }
+
+  function flyToNamedState(el, stateName) {
+    const inst = ensure(el);
+    if (!inst || !stateName) return false;
+    dropGovBlur(el);
+    const key = stateBoundsKey(stateName);
+    inst._frameReq = key;
+    inst._framedState = key;
+    parkLgaIfOtherState(inst, stateName);
+    prefetchStateLga(stateName);
+    const bounds = boundsForState(inst, stateName);
+    if (bounds) {
+      frameBounds(inst, bounds, { padding: [36, 36], maxZoom: 9, duration: 0.32 });
+      return true;
+    }
+    const pending = jsonCache.get(LOCAL_BOUNDARIES.state);
+    const apply = () => {
+      if (!inst.map || inst._frameReq !== key) return;
+      const next = boundsForState(inst, stateName);
+      if (next) frameBounds(inst, next, { padding: [36, 36], maxZoom: 9, duration: 0.32 });
+    };
+    if (pending && typeof pending.then === 'function') pending.then(apply);
+    else loadJson(LOCAL_BOUNDARIES.state).then(apply);
+    return false;
+  }
+
   function attach(el, cfg) {
     const inst = ensure(el);
     if (!inst) return;
@@ -975,50 +1296,59 @@
         inst.map.setView(defaultCenter, defaultZoom);
       }
     }
-    inst.markers.clearLayers();
-    inst.points.clearLayers();
+    const markerSig = [
+      user ? user.lat.toFixed(5) + ',' + user.lng.toFixed(5) : '',
+      (cfg.markers || []).map((m) => (m.code || '') + (m.live ? '!' : '')).join(','),
+      (cfg.points || []).slice(0, 800).map((p) => (p.code || p.name || '') + '@' + p.lat + ',' + p.lng).join(';'),
+      focus ? Number(focus.lat).toFixed(5) + ',' + Number(focus.lng).toFixed(5) + ',' + (focus.name || '') : '',
+      cfg.route ? String(cfg.route.key || (cfg.route.coords && cfg.route.coords.length) || '') : '',
+    ].join('|');
+    if (inst.markerSig !== markerSig) {
+      inst.markerSig = markerSig;
+      inst.markers.clearLayers();
+      inst.points.clearLayers();
 
-    if (user) {
-      inst.markers.addLayer(
-        global.L.circleMarker([user.lat, user.lng], {
-          radius: 8,
+      if (user) {
+        inst.markers.addLayer(
+          global.L.circleMarker([user.lat, user.lng], {
+            radius: 8,
+            color: "#ffffff",
+            weight: 2,
+            fillColor: "#cf3f36",
+            fillOpacity: 1,
+          }).bindTooltip("You are here")
+        );
+      }
+
+      (cfg.markers || []).forEach((m) => {
+        const ll = MARKER_LL[m.code];
+        if (!ll) return;
+        const marker = global.L.circleMarker(ll, {
+          radius: m.live ? 8 : 6,
           color: "#ffffff",
           weight: 2,
-          fillColor: "#cf3f36",
-          fillOpacity: 1,
-        }).bindTooltip("You are here")
-      );
-    }
-
-    (cfg.markers || []).forEach((m) => {
-      const ll = MARKER_LL[m.code];
-      if (!ll) return;
-      const marker = global.L.circleMarker(ll, {
-        radius: m.live ? 8 : 6,
-        color: "#ffffff",
-        weight: 2,
-        fillColor: m.live ? "#e0564f" : "#1c8f86",
-        fillOpacity: 0.95,
+          fillColor: m.live ? "#e0564f" : "#1c8f86",
+          fillOpacity: 0.95,
+        });
+        marker.bindTooltip(m.title || m.label, { direction: "top" });
+        if (typeof m.onClick === "function") marker.on("click", m.onClick);
+        inst.markers.addLayer(marker);
       });
-      marker.bindTooltip(m.title || m.label, { direction: "top" });
-      if (typeof m.onClick === "function") marker.on("click", m.onClick);
-      inst.markers.addLayer(marker);
-    });
 
-    (cfg.points || []).slice(0, 800).forEach((p) => {
-      if (p.lat == null || p.lng == null) return;
-      const tip = [p.code, p.address || p.name, p.place].filter(Boolean).join(" · ");
-      const marker = global.L.marker([p.lat, p.lng], {
-        icon: pollingUnitIcon(),
-        keyboard: false,
-      }).bindPopup("<strong>" + String(p.name || "Polling unit").replace(/</g, "&lt;") + "</strong><br>" + String(tip).replace(/</g, "&lt;"));
-      if (typeof p.onClick === "function") marker.on("click", p.onClick);
-      inst.points.addLayer(marker);
-    });
+      (cfg.points || []).slice(0, 800).forEach((p) => {
+        if (p.lat == null || p.lng == null) return;
+        const tip = [p.code, p.address || p.name, p.place].filter(Boolean).join(" · ");
+        const marker = global.L.marker([p.lat, p.lng], {
+          icon: pollingUnitIcon(),
+          keyboard: false,
+        }).bindPopup("<strong>" + String(p.name || "Polling unit").replace(/</g, "&lt;") + "</strong><br>" + String(tip).replace(/</g, "&lt;"));
+        if (typeof p.onClick === "function") marker.on("click", p.onClick);
+        inst.points.addLayer(marker);
+      });
 
-    // Paint selection last so its red pin and halo remain above ordinary markers.
-    paintFocus(inst, focus);
-    paintRoute(inst, cfg.route);
+      paintFocus(inst, focus);
+      paintRoute(inst, cfg.route);
+    }
 
     if (cfg.live) {
       ensureCompareUi(inst, el);
@@ -1031,7 +1361,6 @@
       inst.compareUi.style.display = 'none';
     }
 
-    inst.overlayKey = null;
     refreshOverlays(el);
     requestAnimationFrame(() => {
       if (inst.map) inst.map.invalidateSize({ animate: false });
@@ -1208,7 +1537,6 @@
     if (!opts.skipViewKey) inst.viewKey = viewKey;
 
     applyAdminLayers(inst, opts, state, lga, ward);
-    inst.overlayKey = null;
     const token = beginNav(inst);
 
     if (ward && lga) {
@@ -1270,29 +1598,56 @@
       polling: false,
       health: false,
     });
-    inst.overlayKey = null;
 
-    if (theme.level === 'lga' && theme.state) {
-      const stateWhere = "UPPER(statename)='" + escWhere(theme.state).toUpperCase() + "'";
-      const data = await queryAdmin('lga', stateWhere, 200);
-      const bounds = boundsFromFeatures(data && data.features);
-      if (bounds) {
-        goToBounds(inst, bounds, { padding: [32, 32], maxZoom: 10 });
+    const stateName = theme.state || null;
+    if (stateName && (theme.level === 'lga' || theme.level === 'state')) {
+      const key = stateBoundsKey(stateName);
+      if (theme.level === 'lga') prefetchStateLga(stateName);
+      if (inst._framedState === key && boundsForState(inst, stateName)) {
         refreshOverlays(el);
         return;
       }
-      await flyToAdmin(el, { state: theme.state, preserveLayers: true });
+      dropGovBlur(el);
+      parkLgaIfOtherState(inst, stateName);
+      let bounds = boundsForState(inst, stateName);
+      if (!bounds) {
+        const stateFeats = await queryLocalAdmin('state', stateName, null, null);
+        if (inst._frameReq && inst._frameReq !== key) return;
+        const pair = boundsFromFeatures(stateFeats);
+        if (pair) {
+          bounds = global.L.latLngBounds(pair[0], pair[1]);
+          stateBoundsSync.set(key, bounds);
+        } else {
+          const all = await loadJson(LOCAL_BOUNDARIES.state);
+          if (inst._frameReq && inst._frameReq !== key) return;
+          indexStateBounds(all);
+          bounds = boundsForState(inst, stateName);
+        }
+      }
+      if (bounds) {
+        inst._frameReq = key;
+        inst._framedState = key;
+        frameBounds(inst, bounds, {
+          padding: [36, 36],
+          maxZoom: theme.level === 'lga' ? 9 : 8,
+          duration: 0.32,
+        });
+        refreshOverlays(el);
+        return;
+      }
+      await flyToAdmin(el, { state: stateName, preserveLayers: true });
       return;
     }
 
-    if (theme.level === 'state' && theme.state) {
-      await flyToAdmin(el, { state: theme.state, preserveLayers: true });
-      return;
-    }
-
+    inst._framedState = null;
+    inst._frameReq = null;
     const view = GEO.ng || GEO.global;
     beginNav(inst);
-    inst.map.setView(view.center, view.zoom, { animate: true });
+    if (typeof inst.map.flyTo === 'function') {
+      inst.map.flyTo(view.center, view.zoom, { duration: 0.35, easeLinearity: 0.25 });
+    } else {
+      inst.map.setView(view.center, view.zoom, { animate: false });
+    }
     refreshOverlays(el);
   }
 
@@ -1305,6 +1660,9 @@
     resetView,
     flyToAdmin,
     flyToResultScope,
+    flyToNamedState,
+    prefetchStateLga,
+    dropGovBlur,
     GEO,
     BASEMAPS: Object.keys(TILES),
     LAYER_IDS: ["state", "lga", "ward", "polling", "health"],

@@ -576,7 +576,10 @@ function scoreGovEntry(entry) {
   return (entry.collated ? 1000 : 0) + Number(entry.storageYear || 0);
 }
 
+let govCatalogCache = null;
+
 function listGovCatalog() {
+  if (govCatalogCache) return govCatalogCache;
   const govDir = path.join(DATA_DIR, 'gubernatorial');
   const byState = {};
   if (fsSync.existsSync(govDir)) {
@@ -615,7 +618,8 @@ function listGovCatalog() {
     byState[state].sort((a, b) => Number(b.electionYear) - Number(a.electionYear));
   }
   const states = Object.keys(byState).sort((a, b) => a.localeCompare(b));
-  return { states, byState, count: states.length };
+  govCatalogCache = { states, byState, count: states.length };
+  return govCatalogCache;
 }
 
 function resolveGovEntry(stateName, yearId) {
@@ -1175,6 +1179,13 @@ function listAvailableDatasets() {
 function listAvailableGovStates(year) {
   return availableGovStates(year);
 }
+
+// Parse the governorship catalog once so the first state click is not a full directory scan.
+setImmediate(() => {
+  try { listGovCatalog(); } catch (err) {
+    console.warn('Governorship catalog warm failed:', err.message || err);
+  }
+});
 
 module.exports = {
   PARTY_COLORS,

@@ -40,6 +40,8 @@
     const opts = {
       responsive: true,
       maintainAspectRatio: false,
+      animation: false,
+      transitions: { active: { animation: { duration: 0 } } },
       interaction: { mode: 'nearest', intersect: false },
       plugins: {
         legend: {
@@ -91,8 +93,22 @@
 
   function upsertChart(key, canvas, config) {
     if (!canvas || !global.Chart) return null;
-    if (charts[key]) {
-      try { charts[key].destroy(); } catch (e) { /* ignore */ }
+    config.options = config.options || {};
+    config.options.animation = false;
+    const prev = charts[key];
+    if (prev && prev.canvas === canvas && prev.config && prev.config.type === config.type) {
+      try {
+        prev.data.labels = config.data.labels;
+        prev.data.datasets = config.data.datasets;
+        prev.options = config.options;
+        prev.update('none');
+        return prev;
+      } catch (e) {
+        try { prev.destroy(); } catch (e2) { /* ignore */ }
+      }
+    }
+    if (prev) {
+      try { prev.destroy(); } catch (e) { /* ignore */ }
     }
     charts[key] = new global.Chart(canvas, config);
     return charts[key];
@@ -514,6 +530,10 @@
   function render(root, bundle) {
     if (!root || !bundle || !bundle.ok || !global.Chart) return;
     const t = themeColors(root);
+    const canvasIds = Array.prototype.map.call(root.querySelectorAll('canvas[id]'), (c) => c.id).join(',');
+    const sig = canvasIds + '|' + t.text + '|' + t.primary + '|' + JSON.stringify(bundle.filters || {}) + '|' + String(bundle.generatedAt || bundle.updatedAt || '');
+    if (root._eidAnaSig === sig) return;
+    root._eidAnaSig = sig;
     lastThemeKey = `${t.text}|${t.primary}|${t.border}`;
     global.EID_PARTY_COLORS = bundle.partyColors || global.EID_PARTY_COLORS || {};
 

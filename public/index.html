@@ -7,8 +7,8 @@
 <link rel="stylesheet" href="./vendor/leaflet/leaflet.css">
 <script src="./vendor/leaflet/leaflet.js"></script>
 <script src="./vendor/chart.js/chart.umd.min.js"></script>
-<script src="./js/eid-maps.js?v=20260908coords"></script>
-<script src="./js/eid-analysis.js?v=20260916e"></script>
+<script src="./js/eid-maps.js?v=20260928govzoom2"></script>
+<script src="./js/eid-analysis.js?v=20260928perf"></script>
 <script src="./js/eid-dashboard.js?v=20260916dash"></script>
 <script src="./js/eid-page-content.js?v=20260916pages"></script>
 <script src="./js/eid-data-explorer.js?v=20260917cat"></script>
@@ -91,6 +91,14 @@ a:hover{color:var(--primary)}
 .eid-gov-prompt__hint{font-size:10.5px;color:var(--dim);line-height:1.35}
 .eid-gov-prompt__arrow{color:var(--primary);font-size:22px;line-height:1;animation:eidnudge 1.1s ease-in-out infinite}
 .eid-gov-state-target{outline:2px solid var(--primary);outline-offset:2px;border-radius:9px;box-shadow:0 0 0 4px var(--primary-soft)}
+/* Governorship gate: blur the choropleth until a state is chosen. Overlay does not eat map clicks. */
+.eid-map-canvas{position:absolute;inset:0;z-index:1;overflow:hidden}
+.eid-map-canvas.is-gov-blur .eid-leaflet{filter:blur(7px);transition:none}
+.eid-gov-map-gate{position:absolute;inset:0;z-index:420;display:flex;align-items:center;justify-content:center;pointer-events:none;background:color-mix(in srgb, var(--bg) 42%, transparent)}
+.eid-gov-map-gate__card{display:flex;flex-direction:column;align-items:center;gap:4px;max-width:260px;padding:14px 16px;border:1px dashed var(--primary);border-radius:12px;background:color-mix(in srgb, var(--surface) 92%, transparent);box-shadow:var(--shadow);text-align:center}
+.eid-gov-map-gate__icon{font-size:22px;color:var(--primary);line-height:1}
+.eid-gov-map-gate__label{font-size:13px;font-weight:600;color:var(--text);line-height:1.35}
+.eid-gov-map-gate__hint{font-size:11px;color:var(--dim);line-height:1.4}
 .eid-party-flag{width:54px;height:36px;flex:none;border-radius:6px;overflow:hidden;display:grid;place-items:center;position:relative;background:var(--surface3);border:1px solid var(--border);box-shadow:inset 0 0 0 1px rgba(0,0,0,.04)}
 .eid-party-flag--lg{width:72px;height:48px;border-radius:7px}
 .eid-party-flag img{width:100%;height:100%;object-fit:contain;display:block;position:relative;z-index:1;background:var(--surface)}
@@ -788,7 +796,16 @@ a:hover{color:var(--primary)}
         <main class="ov-main eid-map-stage" style="display:flex;flex-direction:column;min-height:0;height:100%;overflow:hidden">
           <section style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;flex:1;min-height:0;height:100%">
             <div style="position:relative;flex:1;min-height:0;overflow:hidden">
-              <div class="eid-leaflet" ref="{{ bindCountryMap }}"></div>
+              <div class="{{ govMapCanvasClass }}"><div class="eid-leaflet" ref="{{ bindCountryMap }}"></div></div>
+              <sc-if value="{{ govMapGate }}" hint-placeholder-val="{{ false }}">
+              <div class="eid-gov-map-gate" role="status" aria-live="polite">
+                <div class="eid-gov-map-gate__card">
+                  <span class="msi eid-gov-map-gate__icon" aria-hidden="true">ads_click</span>
+                  <div class="eid-gov-map-gate__label">Select a state</div>
+                  <div class="eid-gov-map-gate__hint">Governorship results are shown per state</div>
+                </div>
+              </div>
+              </sc-if>
               <div class="eid-map-ui" style="left:12px;bottom:12px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 12px;box-shadow:var(--shadow);min-width:158px;max-width:220px">
                 <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:7px">{{ resultLegendTitle }}</div>
                 <div style="display:flex;flex-direction:column;gap:6px">
@@ -2367,6 +2384,7 @@ class Component extends DCLogic {
       level: 'state',
       mapMode: 'gov-coverage',
       coverage: true,
+      office: 'gov',
       units,
       legend: [
         { name: 'Archive available', party: 'Archive', count: available, color: '#1c8f86' },
@@ -2377,11 +2395,10 @@ class Component extends DCLogic {
   selectGovState(state){
     const next = String(state || '').trim();
     if (!next) {
+      this._elecBusy = true;
       this.setState({
         ovElecState: null,
         ovElecYear: null,
-        elecMapTheme: null,
-        elecChoroMeta: null,
         elecSelectedUnit: null,
         elecExpandedCand: null,
         showEstimatedLga: true,
@@ -2392,14 +2409,27 @@ class Component extends DCLogic {
     const nextYear = years.includes(String(this.state.ovElecYear))
       ? String(this.state.ovElecYear)
       : (years[0] || null);
+    const mapEl = this.mapEls && this.mapEls.country;
+    if (mapEl && window.EIDMaps) {
+      if (window.EIDMaps.dropGovBlur) window.EIDMaps.dropGovBlur(mapEl);
+      if (window.EIDMaps.prefetchStateLga) window.EIDMaps.prefetchStateLga(next);
+      if (window.EIDMaps.flyToNamedState) window.EIDMaps.flyToNamedState(mapEl, next);
+    }
+    if (nextYear) this.fetchMemo(this.choroUrl('gov', nextYear, next));
+    const cached = nextYear ? this.peekMemo(this.choroUrl('gov', nextYear, next)) : null;
+    const cachedTheme = cached && cached.ok ? this.buildMapTheme(cached, this.state.showEstimatedLga !== false) : null;
+    this._elecBusy = !cachedTheme;
     this.setState({
       ovElecState: next,
       ovElecYear: nextYear,
-      elecMapTheme: null,
-      elecChoroMeta: null,
       elecSelectedUnit: null,
       elecExpandedCand: null,
       showEstimatedLga: true,
+      ...(cachedTheme ? {
+        elecMapTheme: cachedTheme,
+        elecChoroMeta: cached,
+        layers: this.syncElectionLayers('gov', next, true, cachedTheme.level),
+      } : {}),
     }, ()=>{ this.fetchNgKpis(); this.flyToElectionView(); });
   }
   isGovCoverageTheme(theme){
@@ -2531,8 +2561,6 @@ class Component extends DCLogic {
     this.setState({
       ovElecState: null,
       elecPresStateSnap: null,
-      elecMapTheme: null,
-      elecChoroMeta: null,
       elecSelectedUnit: null,
       elecExpandedCand: null,
       showEstimatedLga: true,
@@ -3439,7 +3467,7 @@ class Component extends DCLogic {
   async fetchCandidateCatalog(){
     if (this.state.candCatalog && this.state.candCatalog.profiles) return this.state.candCatalog;
     try {
-      const data = await fetch('/data/presidential-candidates.json', { cache:'no-store' }).then(r=>r.ok?r.json():null);
+      const data = await fetch('/data/presidential-candidates.json', { cache:'force-cache' }).then(r=>r.ok?r.json():null);
       if (data && data.profiles) {
         await new Promise((resolve)=> this.setState({ candCatalog: data }, resolve));
         return data;
@@ -3450,7 +3478,7 @@ class Component extends DCLogic {
   async fetchGovCandidateCatalog(){
     if (this.state.govCandCatalog && this.state.govCandCatalog.ballots) return this.state.govCandCatalog;
     try {
-      const data = await fetch('/data/gubernatorial-candidates.json', { cache:'no-store' }).then(r=>r.ok?r.json():null);
+      const data = await fetch('/data/gubernatorial-candidates.json', { cache:'force-cache' }).then(r=>r.ok?r.json():null);
       if (data && data.ballots) {
         await new Promise((resolve)=> this.setState({ govCandCatalog: data }, resolve));
         return data;
@@ -3461,7 +3489,7 @@ class Component extends DCLogic {
   async fetchSenCandidateCatalog(){
     if (this.state.senCandCatalog && this.state.senCandCatalog.ballots) return this.state.senCandCatalog;
     try {
-      const data = await fetch('/data/senatorial-candidates.json', { cache:'no-store' }).then(r=>r.ok?r.json():null);
+      const data = await fetch('/data/senatorial-candidates.json', { cache:'force-cache' }).then(r=>r.ok?r.json():null);
       if (data && data.ballots) {
         await new Promise((resolve)=> this.setState({ senCandCatalog: data }, resolve));
         return data;
@@ -3472,7 +3500,7 @@ class Component extends DCLogic {
   async fetchRepsCandidateCatalog(){
     if (this.state.repsCandCatalog && this.state.repsCandCatalog.ballots) return this.state.repsCandCatalog;
     try {
-      const data = await fetch('/data/reps-candidates.json', { cache:'no-store' }).then(r=>r.ok?r.json():null);
+      const data = await fetch('/data/reps-candidates.json', { cache:'force-cache' }).then(r=>r.ok?r.json():null);
       if (data && data.ballots) {
         await new Promise((resolve)=> this.setState({ repsCandCatalog: data }, resolve));
         return data;
@@ -4054,16 +4082,16 @@ class Component extends DCLogic {
   hexRgba(hex,a){ const h=hex.replace('#',''); const n=parseInt(h.length===3?h.split('').map(c=>c+c).join(''):h,16); return `rgba(${(n>>16)&255},${(n>>8)&255},${n&255},${a})`; }
 
   componentDidMount(){
-    this.syncPartyPalette(); this.apply(); this.loadRealData(); this.loadPuDirectory(); this.fetchNgKpis();
-    if (window.EidDashboard) window.EidDashboard.load().then(()=>this.apply()).catch(()=>{});
-    this.loadPageContent(this.state.scope || 'global');
-    this.fetchGovCatalog();
-    this.fetchCandidateCatalog();
-    this.fetchGovCandidateCatalog();
-    this.loadLiveSubmissions();
-    this.loadMapStudioConfigs();
-    (this.OFFICE_YEARS.gov || ['2026']).forEach((y)=>this.fetchGovStates(y));
+    this.syncPartyPalette(); this.apply(); this.loadRealData(); this.fetchNgKpis();
     this.flyToElectionView();
+    const warm = () => {
+      this.fetchGovCatalog();
+      this.loadPageContent(this.state.scope || 'global');
+      this.loadMapStudioConfigs();
+      if (window.EidDashboard) window.EidDashboard.load().then(()=>this.apply()).catch(()=>{});
+    };
+    if (typeof requestIdleCallback === 'function') requestIdleCallback(warm, { timeout: 1500 });
+    else setTimeout(warm, 500);
     if (this.state.section === 'Analysis') this.loadAnalysisBundle();
     const hashTarget = String(location.hash || '').replace(/^#\/?/, '').toLowerCase();
     if (hashTarget === 'admin') {
@@ -4093,6 +4121,39 @@ class Component extends DCLogic {
     if (s.section === 'Analysis') {
       if (!s.analysisBundle && !s.analysisLoading) this.loadAnalysisBundle();
       else this.queueAnalysisCharts();
+    }
+    if (s.view === 'app' && (s.section === 'Overview' || s.section === 'Map' || s.section === 'Live Results')) {
+      const mapSig = [
+        s.section, s.scope, s.basemap, JSON.stringify(s.layers || {}),
+        s.showEstimatedLga ? 1 : 0, s.liveCompareMode, s.liveComparePct,
+        s.liveShowOfficial ? 1 : 0, s.liveShowCitizen ? 1 : 0,
+        s.mapFocus && s.mapFocus.name, s.puRoute && s.puRoute.key,
+        s.mapAdminFocus && [s.mapAdminFocus.state, s.mapAdminFocus.lga, s.mapAdminFocus.ward].filter(Boolean).join('/'),
+      ].join('|');
+      if (this._mapThemeRef !== s.elecMapTheme || this._liveThemeRef !== s.liveMapTheme || this._mapSig !== mapSig) {
+        this._mapThemeRef = s.elecMapTheme;
+        this._liveThemeRef = s.liveMapTheme;
+        this._mapSig = mapSig;
+        if (s.section === 'Map') this.syncFullMap();
+        else if (s.section === 'Live Results') this.syncLiveMap();
+        else this.syncCountryMap();
+      }
+    }
+    if (s.section === 'Data' && !s.dataCatalog && !s.dataCatalogLoading && !this._catalogAsked) {
+      this._catalogAsked = true;
+      this.refreshDataCatalog();
+    }
+    if (s.section === 'Map' && !this._puDirAsked) {
+      this._puDirAsked = true;
+      this.loadPuDirectory();
+    }
+    if (s.section === 'Live Results' && !this._liveSubsAsked) {
+      this._liveSubsAsked = true;
+      this.loadLiveSubmissions();
+    }
+    if (s.ovOffice === 'gov' && !this._govYearsAsked) {
+      this._govYearsAsked = true;
+      (this.OFFICE_YEARS.gov || ['2026']).forEach((y)=>this.fetchGovStates(y));
     }
   }
 
@@ -4160,8 +4221,7 @@ class Component extends DCLogic {
       }
       qs.set('momentum', String((Number(this.state.anaMomentum) || 65) / 100));
       qs.set('retention', String((Number(this.state.anaRetention) || 25) / 100));
-      const data = await fetch('/api/election-results/analysis?' + qs.toString(), { cache: 'no-store' })
-        .then((r) => r.ok ? r.json() : null);
+      const data = await this.fetchMemo('/api/election-results/analysis?' + qs.toString());
       if (seq !== this._analysisSeq) return;
       if (data && data.ok) {
         const patch = {
@@ -4292,6 +4352,30 @@ class Component extends DCLogic {
   fmtM(n){ if(!n) return '0'; return (n/1e6).toFixed(1); }
   fmtInt(n){ return Number(n||0).toLocaleString(); }
 
+  choroUrl(office, year, state){
+    const q = new URLSearchParams({ office: office || 'pres', year: String(year || '2023') });
+    if ((office === 'gov' || office === 'pres') && state) q.set('state', state);
+    return '/api/election-results/choropleth?' + q.toString();
+  }
+  peekMemo(url){
+    const hit = this._memo && this._memo.get(url);
+    if (!hit || hit.data === undefined) return null;
+    return hit.data;
+  }
+  async fetchMemo(url){
+    this._memo = this._memo || new Map();
+    const hit = this._memo.get(url);
+    if (hit) return hit.data !== undefined ? hit.data : hit.promise;
+    const entry = { data: undefined, promise: null };
+    entry.promise = fetch(url).then((r)=> r.ok ? r.json() : null).then((data)=>{
+      if (data == null) this._memo.delete(url);
+      else entry.data = data;
+      return data;
+    }).catch(()=>{ this._memo.delete(url); return null; });
+    this._memo.set(url, entry);
+    return entry.promise;
+  }
+
   async fetchNgKpis(){
     const seq = (this._kpiSeq = (this._kpiSeq || 0) + 1);
     const { scope, ngState, ngLga, ngWard, ngPU, ovOffice, ovElecState, ovElecYear } = this.state;
@@ -4317,7 +4401,7 @@ class Component extends DCLogic {
 
   async loadRealData(){
     try {
-      const [popRes, ekitiRes, ngRes, elRes, ingest, popStatus, puDash, partyColors, refSummary, dataCatalog] = await Promise.all([
+      const [popRes, ekitiRes, ngRes, elRes, ingest, popStatus, puDash, partyColors, refSummary] = await Promise.all([
         fetch('/api/population-data').then(r=>r.ok?r.json():null).catch(()=>null),
         fetch('/api/election-results?state=Ekiti').then(r=>r.ok?r.json():null).catch(()=>null),
         fetch('/api/election-results?state=Nigeria').then(r=>r.ok?r.json():null).catch(()=>null),
@@ -4327,7 +4411,6 @@ class Component extends DCLogic {
         fetch('/api/polling-units-data').then(r=>r.ok?r.json():null).catch(()=>null),
         fetch('/api/party-colors').then(r=>r.ok?r.json():null).catch(()=>null),
         fetch('/api/v1/reference-summary').then(r=>r.ok?r.json():null).catch(()=>null),
-        fetch('/api/data-catalog').then(r=>r.ok?r.json():null).catch(()=>null),
       ]);
       if (partyColors) this.syncPartyPalette(partyColors);
       const states = popRes?.statePopulation || [];
@@ -4351,8 +4434,6 @@ class Component extends DCLogic {
         popStatus,
         puDash,
         puCoordCoverage: (refSummary && refSummary.pollingUnits && refSummary.pollingUnits.coordinateCoverage) || null,
-        dataCatalog: dataCatalog && dataCatalog.ok !== false ? dataCatalog : null,
-        dataCatalogLoading: false,
       }, ()=>this.loadLiveMapTheme());
     } catch(e){}
   }
@@ -4360,7 +4441,7 @@ class Component extends DCLogic {
   async refreshDataCatalog(){
     this.setState({ dataCatalogLoading: true });
     try {
-      const dataCatalog = await fetch('/api/data-catalog', { cache:'no-store' }).then(r=>r.ok?r.json():null);
+      const dataCatalog = await fetch('/api/data-catalog').then(r=>r.ok?r.json():null);
       this.setState({
         dataCatalog: dataCatalog && dataCatalog.ok !== false ? dataCatalog : null,
         dataCatalogLoading: false,
@@ -4423,8 +4504,7 @@ class Component extends DCLogic {
     const year = this.liveContestYear();
     const seq = (this._liveThemeSeq = (this._liveThemeSeq || 0) + 1);
     try {
-      const raw = await fetch('/api/election-results/choropleth?office=pres&year=' + encodeURIComponent(year))
-        .then(r=>r.ok?r.json():null);
+      const raw = await this.fetchMemo('/api/election-results/choropleth?office=pres&year=' + encodeURIComponent(year));
       if (seq !== this._liveThemeSeq) return;
       const built = raw && raw.ok ? this.buildMapTheme(raw, true) : null;
       // Keep prior-election choropleths off the Live map unless marked current for this cycle.
@@ -4443,6 +4523,23 @@ class Component extends DCLogic {
       this.mapEls[kind] = el;
       window.EIDMaps.attach(el, this.mapAttachCfg(kind));
     };
+  }
+  mapBinder(kind){
+    this._mapBinders = this._mapBinders || {};
+    if (!this._mapBinders[kind]) {
+      this._mapBinders[kind] = (el)=>{
+        if (!el || !window.EIDMaps) return;
+        this.mapEls = this.mapEls || {};
+        if (this.mapEls[kind] === el) return;
+        this.mapEls[kind] = el;
+        window.EIDMaps.attach(el, this.mapAttachCfg(kind));
+      };
+    }
+    return this._mapBinders[kind];
+  }
+  analysisBinder(){
+    if (!this._analysisBinder) this._analysisBinder = (el)=> this.bindAnalysisRoot(el);
+    return this._analysisBinder;
   }
   wardNamesMatch(a, b){
     const left = String(a || '').trim().toLowerCase();
@@ -4620,15 +4717,26 @@ class Component extends DCLogic {
       return;
     }
     const seq = (this._elecThemeSeq = (this._elecThemeSeq || 0) + 1);
-    const q = new URLSearchParams({ office: office || 'pres', year: String(year || '2023') });
-    if ((office === 'gov' || office === 'pres') && state) q.set('state', state);
+    this._elecBusy = true;
+    const officeIdEarly = office || 'pres';
+    if (officeIdEarly === 'gov' && state && window.EIDMaps && window.EIDMaps.flyToNamedState) {
+      const el = this.mapEls && this.mapEls.country;
+      if (el) {
+        if (window.EIDMaps.dropGovBlur) window.EIDMaps.dropGovBlur(el);
+        window.EIDMaps.flyToNamedState(el, state);
+        if (window.EIDMaps.prefetchStateLga) window.EIDMaps.prefetchStateLga(state);
+      }
+    }
     const prevTheme = this.state.elecMapTheme;
     const prevMeta = this.state.elecChoroMeta;
     try {
-      const raw = await fetch('/api/election-results/choropleth?' + q.toString()).then(r=>r.ok?r.json():null);
+      const raw = await this.fetchMemo(this.choroUrl(office || 'pres', year || '2023', (office === 'gov' || office === 'pres') ? state : null));
       if (seq !== this._elecThemeSeq) return;
       // Ignore stale responses after the user already switched state/year.
-      if ((office === 'gov' || office === 'pres') && state && raw && raw.ok && raw.state && raw.state !== state) return;
+      if ((office === 'gov' || office === 'pres') && state && raw && raw.ok && raw.state && raw.state !== state) {
+        this._elecBusy = false;
+        return;
+      }
       let data = raw && raw.ok ? raw : raw;
       // Fallback: build Senate/House state choropleth from Analysis seat archives when
       // choropleth API has not been restarted with NASS loaders yet.
@@ -4663,6 +4771,7 @@ class Component extends DCLogic {
         elecExpandedCand: null,
         layers: this.syncElectionLayers(officeId, st, !!(mapTheme && mapTheme.ok), mapTheme && mapTheme.level),
       }, ()=>{
+        if (seq === this._elecThemeSeq) this._elecBusy = false;
         if (seq !== this._elecThemeSeq) return;
         const el = this.mapEls && this.mapEls.country;
         if (el && window.EIDMaps && window.EIDMaps.flyToResultScope && mapTheme && mapTheme.ok) {
@@ -4689,7 +4798,7 @@ class Component extends DCLogic {
             }
           : null,
         elecExpandedCand: null,
-      }, ()=>this.syncCountryMap());
+      }, ()=>{ this._elecBusy = false; this.syncCountryMap(); });
     }
   }
   async loadNassThemeFromAnalysis(office, year){
@@ -4710,7 +4819,7 @@ class Component extends DCLogic {
     if (officeId !== 'sen' && officeId !== 'reps') return null;
     try {
       const q = new URLSearchParams({ office: officeId, year: yearId });
-      const bundle = await fetch('/api/election-results/analysis?' + q.toString()).then((r)=> r.ok ? r.json() : null);
+      const bundle = await this.fetchMemo('/api/election-results/analysis?' + q.toString());
       if (!bundle || !bundle.ok) return null;
       const districts = (bundle.geographic && bundle.geographic.units) || [];
       if (!districts.length) {
@@ -4805,6 +4914,7 @@ class Component extends DCLogic {
     if(this.state.scope !== 'ng') return;
     if(this.state.ngState){
       this._elecThemeSeq = (this._elecThemeSeq || 0) + 1;
+      this._elecBusy = false;
       this.setState({ elecMapTheme: null, elecChoroMeta: null, elecSelectedUnit: null }, ()=>this.syncCountryMap());
       return;
     }
@@ -4826,6 +4936,7 @@ class Component extends DCLogic {
           showEstimatedLga: true,
           layers,
         }, ()=>{
+          this._elecBusy = false;
           this.syncCountryMap();
           const el = this.mapEls && this.mapEls.country;
           if (el && window.EIDMaps && window.EIDMaps.flyToResultScope) {
@@ -4840,7 +4951,7 @@ class Component extends DCLogic {
           const next = this.govYearsForState(state);
           if (next.length && next[0] !== String(this.state.ovElecYear)) {
             this.setState({ ovElecYear: next[0] }, ()=>this.flyToElectionView());
-          }
+          } else this._elecBusy = false;
         });
         return;
       }
@@ -4892,8 +5003,6 @@ class Component extends DCLogic {
       ovOffice: 'gov',
       ovElecState: state,
       ovElecYear: year,
-      elecMapTheme: null,
-      elecChoroMeta: null,
       elecSelectedUnit: null,
       elecExpandedCand: null,
       showEstimatedLga: true,
@@ -5362,7 +5471,10 @@ class Component extends DCLogic {
       if (p.seatShare) return `${Number(p.seatShare).toFixed(1)}% seats · ${p.wins || p.seats || 0}`;
       return `${p.wins || 0} wins`;
     };
-    const reload = () => this.loadAnalysisBundle(true);
+    const reload = () => {
+      clearTimeout(this._anaFilterT);
+      this._anaFilterT = setTimeout(() => this.loadAnalysisBundle(true), 160);
+    };
     const demoAvailable = !!(demo && demo.available);
     const anaAdvanced = !!this.state.anaAdvanced;
     const LEGACY_TAB_MAP = {
@@ -6025,12 +6137,25 @@ class Component extends DCLogic {
       || String(choroMeta.storageYear || '') === String(yearVal)
       || String(choroMeta.electionYear || '') === String(yearVal)
     ));
-    const choroForYear = (choroMeta && choroMeta.ok && choroYearMatch
+    const metaOffice = choroMeta && (choroMeta.office || (choroMeta.mapMode === 'gov-coverage' ? 'gov' : ''));
+    const officeOk = !metaOffice || metaOffice === ovOffice;
+    const presNationalOk = ovOffice !== 'pres' || !!ovElecState || !choroMeta || choroMeta.level !== 'lga';
+    const choroForYear = (choroMeta && choroMeta.ok && choroYearMatch && officeOk && presNationalOk
       && (ovOffice !== 'gov' || !ovElecState || choroMeta.state === ovElecState)
-      // Presidential drill: only use the LGA pack for the selected state (never national state-level while drilled).
       && (ovOffice !== 'pres' || !ovElecState || choroMeta.state === ovElecState)
       && ((ovOffice !== 'sen' && ovOffice !== 'reps') || !choroMeta.level || choroMeta.level === 'state')
     ) ? choroMeta : null;
+    if (choroForYear) {
+      this._elecHold = { office: ovOffice, choro: choroForYear };
+    }
+    const heldRaw = (!choroForYear && this._elecBusy && this._elecHold && this._elecHold.office === ovOffice
+      && (ovOffice === 'gov' || ovOffice === 'sen' || ovOffice === 'reps'))
+      ? this._elecHold.choro
+      : null;
+    const heldChoro = (heldRaw && ovOffice === 'gov' && ovElecState && heldRaw.state && heldRaw.state !== ovElecState)
+      ? null
+      : heldRaw;
+    const panelChoro = choroForYear || heldChoro;
     const hasGovData = !!(ovOffice === 'gov' && ovElecState && yearVal && ((choroForYear && choroForYear.ok) || govYearPool.includes(yearVal)));
     const elecSelT = ovOffice === 'gov'
       ? { year:yearVal || '—', name:`${ovElecState || 'Select state'} Governorship`, status: hasGovData ? 'Result' : 'Pending', icon:'how_to_vote', meta: ovElecState ? (yearVal ? `${ovElecState} · ${yearVal}` : `${ovElecState} · pick a year`) : 'Choose a state to see available years' }
@@ -6052,6 +6177,8 @@ class Component extends DCLogic {
       ? `Presidential LGA results are not published for ${yearVal} (Stears coverage starts at 2023). Click a state on the map for statewide INEC totals.`
       : '';
     const govStateSelectWrap = govStatePrompt ? 'eid-gov-state-target' : '';
+    const govMapGate = !!(isNigeria && ovOffice === 'gov' && !ovElecState);
+    const govMapCanvasClass = govMapGate ? 'eid-map-canvas is-gov-blur' : 'eid-map-canvas';
     const elecYearStepLabel = elecNeedsState ? 'Step 3 · Year' : 'Step 2 · Year';
     const elecStateStepLabel = elecNeedsState ? 'Step 2 · State' : (hasPresLgaYear ? 'State (LGA drill)' : 'Step 2 · State');
     const elecStateEmptyLabel = elecNeedsState ? 'Select state…' : 'All states (national)';
@@ -6066,7 +6193,8 @@ class Component extends DCLogic {
         year,
         label: year,
         onClick:()=>{
-          const next = { ovElecYear: year, ovOffice, elecMapTheme: null, elecChoroMeta: null, elecSelectedUnit: null, elecExpandedCand: null, elecPresStateSnap: null, showEstimatedLga: true };
+          this._elecBusy = true;
+          const next = { ovElecYear: year, ovOffice, elecSelectedUnit: null, elecExpandedCand: null, elecPresStateSnap: null, showEstimatedLga: true };
           this.setState(next, ()=>{ this.fetchNgKpis(); this.flyToElectionView(); });
         },
         style:`height:30px;padding:0 11px;border:1px solid ${on?'var(--primary)':'var(--border)'};background:${on?'var(--primary-soft)':'transparent'};color:${on?'var(--text)':'var(--dim)'};border-radius:8px;font-family:inherit;font-size:12px;font-weight:${on?'600':'400'};cursor:pointer`,
@@ -6077,7 +6205,7 @@ class Component extends DCLogic {
       officeLabel: officeMeta.label,
       tagBg: elecSelT.status==='Upcoming'?'var(--up)':(elecSelT.status==='Pending'?'var(--mute)':'var(--primary)'),
     } : null;
-    const ngElec = isNigeria ? this.ngElection(elecYear, ovOffice, elecSelT && elecSelT.status==='Upcoming', choroForYear, ovElecState) : null;
+    const ngElec = isNigeria ? this.ngElection(elecYear, ovOffice, elecSelT && elecSelT.status==='Upcoming', panelChoro, ovElecState) : null;
     if(ngElec){
       if (!ngElec.panelTitle) ngElec.panelTitle = `${ngElec.label} · ${ngElec.year}`;
       if (!ngElec.winnerCaption) ngElec.winnerCaption = 'Winner';
@@ -6664,11 +6792,11 @@ class Component extends DCLogic {
     };
 
     return {
-      rootRef: el=>{ this.root = el; },
-      bindGlobalMap: this.bindMap('global'),
-      bindCountryMap: this.bindMap('country'),
-      bindFullMap: this.bindMap('full'),
-      bindLiveMap: this.bindMap('live'),
+      rootRef: (el)=>{ this.root = el; },
+      bindGlobalMap: this.mapBinder('global'),
+      bindCountryMap: this.mapBinder('country'),
+      bindFullMap: this.mapBinder('full'),
+      bindLiveMap: this.mapBinder('live'),
       zoomGlobalIn: ()=>this.zoomMap('global',1),
       zoomGlobalOut: ()=>this.zoomMap('global',-1),
       zoomCountryIn: ()=>this.zoomMap('country',1),
@@ -6705,7 +6833,7 @@ class Component extends DCLogic {
       ngPartySelectHint: (isNigeria || isGlobal) && !this.state.selParty,
       mapInfo, mapInfoRows, mapMarkers, hierarchy, electionsRows, electionTypes, candidates, partiesList, analysisMetrics, battlegrounds, datasets, datasetGroups, dataExplorer, liveFeat, liveStats, liveNews, aboutCards, aboutCoverage, aboutMethod, aboutRefs, adminIntegrations, anaData, puSearch,
       analysisUI,
-      bindAnalysisRoot: (el)=> this.bindAnalysisRoot(el),
+      bindAnalysisRoot: this.analysisBinder(),
       liveMapMode, liveLayerToggles,
       themeIcon: this.state.theme==='dark' ? 'light_mode' : 'dark_mode',
       toggleTheme: ()=> this.setState(s=>({theme: s.theme==='dark'?'light':'dark'})),
@@ -6729,15 +6857,18 @@ class Component extends DCLogic {
       elecNeedsState, elecShowState, govStateOptions, ovElecStateVal: ovElecState,
       elecCands: (ngElec && ngElec.candidates) || [],
       resultLegendTitle, resultLegendItems, elecMapSource,
-      elecYearStepLabel, elecStateStepLabel, elecStateEmptyLabel, govYearHint, govStatePrompt, govStateSelectWrap, presLgaPrompt, presNoLgaHint,
+      elecYearStepLabel, elecStateStepLabel, elecStateEmptyLabel, govYearHint, govStatePrompt, govStateSelectWrap, govMapGate, govMapCanvasClass, presLgaPrompt, presNoLgaHint,
       ngElec, ovOfficeVal:ovOffice,
       onOffice:(e)=>{
         const office = e.target.value || 'pres';
+        this._elecBusy = true;
         if (office === 'gov') {
+          const coverage = this.state.govCatalog ? this.buildGovCoverageTheme(this.state.govCatalog) : null;
           this.setState({
-            ovOffice: office, ovElecYear: null, ovElecState: null, elecMapTheme: null, elecChoroMeta: null,
+            ovOffice: office, ovElecYear: null, ovElecState: null,
             elecSelectedUnit: null, elecExpandedCand: null, elecPresStateSnap: null, showEstimatedLga: true,
-            layers: this.syncElectionLayers(office, null, false, null),
+            ...(coverage ? { elecMapTheme: coverage, elecChoroMeta: coverage } : {}),
+            layers: this.syncElectionLayers(office, null, !!(coverage && coverage.ok), coverage && coverage.level),
           }, ()=>{
             this.fetchNgKpis();
             this.fetchGovCatalog().then(()=> this.flyToElectionView());
@@ -6747,9 +6878,9 @@ class Component extends DCLogic {
         const officeYears = this.OFFICE_YEARS[office] || ['2023'];
         const nextYear = officeYears.includes(String(this.state.ovElecYear)) ? String(this.state.ovElecYear) : officeYears[0];
         this.setState({
-          ovOffice: office, ovElecYear: nextYear, ovElecState: null, elecMapTheme: null, elecChoroMeta: null,
+          ovOffice: office, ovElecYear: nextYear, ovElecState: null,
           elecSelectedUnit: null, elecExpandedCand: null, elecPresStateSnap: null, showEstimatedLga: true,
-          layers: this.syncElectionLayers(office, null, false, null),
+          layers: this.syncElectionLayers(office, null, !!(this.state.elecMapTheme && this.state.elecMapTheme.ok), this.state.elecMapTheme && this.state.elecMapTheme.level),
         }, ()=>{ this.fetchNgKpis(); this.flyToElectionView(); });
       },
       onElecState:(e)=>{
