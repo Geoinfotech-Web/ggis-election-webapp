@@ -2270,8 +2270,69 @@ function clearAnalysisCache() {
   cache = { at: 0, base: null, key: null, payload: null };
 }
 
+/**
+ * Return one Analysis sub-tab without dropping the cached full bundle.
+ * `part` omitted or `full` keeps the existing payload for other callers.
+ */
+function sliceAnalysisPayload(payload, part) {
+  if (!payload || !payload.ok) return payload;
+  const id = String(part || 'full').trim().toLowerCase();
+  if (!id || id === 'full' || id === 'all') return payload;
+  const geo = payload.geographic || {};
+  const shell = {
+    ok: true,
+    part: id,
+    generatedAt: payload.generatedAt,
+    partyColors: payload.partyColors,
+    offices: payload.offices,
+    states: payload.states,
+    allStates: payload.allStates,
+    regions: payload.regions,
+    filters: payload.filters,
+    govYearsByState: payload.govYearsByState,
+    availability: payload.availability,
+    summary: payload.summary,
+    metrics: payload.metrics,
+    geoFlags: {
+      hasLga: !!geo.hasLga,
+      mode: geo.mode || null,
+      mapHint: geo.mapHint || '',
+      focusParty: geo.focusParty || null,
+    },
+  };
+  if (id === 'shell' || id === 'overview') {
+    return { ...shell, drivers: payload.drivers, performance: payload.performance };
+  }
+  if (id === 'geography') {
+    return {
+      ...shell,
+      geographic: payload.geographic,
+      competitiveness: payload.competitiveness,
+      battlegrounds: payload.battlegrounds,
+    };
+  }
+  if (id === 'turnout') {
+    const history = payload.history || {};
+    return {
+      ...shell,
+      turnout: payload.turnout,
+      history: {
+        years: history.years,
+        turnoutTrend: history.turnoutTrend,
+      },
+    };
+  }
+  if (id === 'trends') {
+    return { ...shell, history: payload.history, prediction: payload.prediction };
+  }
+  if (id === 'demographics') return { ...shell, demographics: payload.demographics };
+  if (id === 'quality') return { ...shell, anomalies: payload.anomalies, sources: payload.sources };
+  return payload;
+}
+
 module.exports = {
   buildAnalysisBundle,
+  sliceAnalysisPayload,
   clearAnalysisCache,
   GEO_ZONES,
   NATIONAL_TURNOUT,

@@ -7,11 +7,11 @@
 <link rel="stylesheet" href="./vendor/leaflet/leaflet.css">
 <script src="./vendor/leaflet/leaflet.js"></script>
 <script src="./vendor/chart.js/chart.umd.min.js"></script>
-<script src="./js/eid-maps.js?v=20260928govzoom2"></script>
-<script src="./js/eid-analysis.js?v=20260928perf"></script>
+<script src="./js/eid-maps.js?v=20260928streets"></script>
+<script src="./js/eid-analysis.js?v=20260928tabs"></script>
 <script src="./js/eid-dashboard.js?v=20260916dash"></script>
 <script src="./js/eid-page-content.js?v=20260916pages"></script>
-<script src="./js/eid-data-explorer.js?v=20260917cat"></script>
+<script src="./js/eid-data-explorer.js?v=20260928rows"></script>
 <script src="./support.js?v=20260819c"></script>
 </head>
 <body>
@@ -2043,6 +2043,7 @@ a:hover{color:var(--primary)}
             </select>
           </label>
           <sc-if value="{{ dataExplorer.loading }}" hint-placeholder-val="{{ false }}"><span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--mute)"><span class="msi" style="font-size:16px;display:inline-block;animation:eidspin 1s linear infinite">progress_activity</span>Loading catalog…</span></sc-if>
+          <sc-if value="{{ dataExplorer.filling }}" hint-placeholder-val="{{ false }}"><span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--mute)">Loading more rows…</span></sc-if>
         </div>
         <sc-if value="{{ dataExplorer.hasGroups }}" hint-placeholder-val="{{ true }}">
           <div class="eid-data-jump">
@@ -2299,7 +2300,7 @@ class Component extends DCLogic {
     anaMomentum:65, anaRetention:25, anaSubTab:'overview', anaAdvanced:false,
     apiUrl:'', apiKey:'', apiStatus:'idle', uploads:[],
     layersOpen:false, basemapOpen:false,
-    dataQuery:'', dataOffice:'all', dataYear:'all', dataCategory:'all', dataCatalog:null, dataCatalogLoading:false, dataCatCollapsed:{},
+    dataQuery:'', dataOffice:'all', dataYear:'all', dataCategory:'all', dataCatalog:null, dataCatalogLoading:false, dataCatCollapsed:{}, dataShown:48,
     layers:{ state:true, lga:false, ward:false, polling:false, health:false },
     mapStudioViews:null,
     status:{ live:true, upcoming:true, recent:true, nodata:false } };
@@ -3810,14 +3811,17 @@ class Component extends DCLogic {
       const data = await res.json();
       const views = (data && data.views) || {};
       const patch = { mapStudioViews: views };
-      const overview = views.overview;
-      if (overview) {
-        if (overview.basemap) patch.basemap = overview.basemap;
-        if (overview.layers) {
+      const section = this.state.section;
+      const viewKey = section === 'Map' ? 'polling' : (section === 'Live Results' ? 'live' : 'overview');
+      const active = views[viewKey];
+      if (active) {
+        if (active.basemap) patch.basemap = active.basemap;
+        if (active.layers) {
           patch.layers = {
             state: false, lga: false, ward: false, polling: false, health: false,
-            ...overview.layers,
+            ...active.layers,
           };
+          if (viewKey === 'polling') patch.layers.state = false;
         }
       }
       this.setState(patch, () => {
@@ -4149,10 +4153,7 @@ class Component extends DCLogic {
       this._liveYearKey = liveYear;
       this.loadLiveMapTheme();
     }
-    if (s.section === 'Analysis') {
-      if (!s.analysisBundle && !s.analysisLoading) this.loadAnalysisBundle();
-      else this.queueAnalysisCharts();
-    }
+    if (s.section === 'Analysis') this.loadAnalysisBundle();
     if (s.view === 'app' && (s.section === 'Overview' || s.section === 'Map' || s.section === 'Live Results')) {
       const mapSig = [
         s.section, s.scope, s.basemap, JSON.stringify(s.layers || {}),
@@ -4169,6 +4170,9 @@ class Component extends DCLogic {
         else if (s.section === 'Live Results') this.syncLiveMap();
         else this.syncCountryMap();
       }
+    }
+    if (s.section === 'Data' && s.dataCatalog && (s.dataShown || 48) < (this._dataExplorerTotal || 0)) {
+      this.scheduleDataExplorerFill();
     }
     if (s.section === 'Data' && !s.dataCatalog && !s.dataCatalogLoading && !this._catalogAsked) {
       this._catalogAsked = true;
@@ -4194,8 +4198,16 @@ class Component extends DCLogic {
   }
 
   queueAnalysisCharts(){
-    if (this._analysisChartTimer) clearTimeout(this._analysisChartTimer);
-    this._analysisChartTimer = setTimeout(()=> this.syncAnalysisCharts(), 40);
+    const token = (this._analysisChartToken = (this._analysisChartToken || 0) + 1);
+    const run = () => {
+      if (token !== this._analysisChartToken) return;
+      this.syncAnalysisCharts();
+    };
+    if (typeof requestAnimationFrame === 'function') {
+      requestAnimationFrame(() => requestAnimationFrame(run));
+    } else {
+      setTimeout(run, 0);
+    }
   }
 
   syncAnalysisCharts(){
@@ -4203,16 +4215,92 @@ class Component extends DCLogic {
     const root = this._analysisRoot;
     const bundle = this.state.analysisBundle;
     if (!root || !bundle || !window.EIDAnalysis) return;
-    window.EIDAnalysis.render(root, bundle);
+    const tab = this.analysisPartForTab(this.state.anaSubTab);
+    window.EIDAnalysis.render(root, bundle, tab);
     if (window.EidPageContent) {
       try { window.EidPageContent.applyDomOverrides(this.state.scope, root); } catch (_) {}
     }
     if (window.EIDAnalysis.resizeAll) {
       requestAnimationFrame(() => {
         window.EIDAnalysis.resizeAll();
-        setTimeout(() => window.EIDAnalysis.resizeAll && window.EIDAnalysis.resizeAll(), 60);
       });
     }
+  }
+
+  analysisPartForTab(tab){
+    const legacy = {
+      drivers: 'overview',
+      performance: 'overview',
+      competition: 'geography',
+      history: 'trends',
+      outlook: 'trends',
+      notes: 'quality',
+    };
+    let id = legacy[tab] || tab || 'overview';
+    if (id === 'quality' && !this.state.anaAdvanced) id = 'overview';
+    const known = ['overview', 'geography', 'turnout', 'trends', 'demographics', 'quality'];
+    return known.includes(id) ? id : 'overview';
+  }
+
+  analysisRequestUrl(part){
+    const qs = new URLSearchParams();
+    qs.set('office', this.state.anaOffice || 'pres');
+    if (this.state.anaYear) qs.set('year', this.state.anaYear);
+    if (this.state.anaCompare) qs.set('compare', this.state.anaCompare);
+    if (this.state.anaParty && this.state.anaParty !== 'all') qs.set('party', this.state.anaParty);
+    if (this.state.anaRegion && this.state.anaRegion !== 'all') qs.set('region', this.state.anaRegion);
+    const office = this.state.anaOffice || 'pres';
+    if ((office === 'gov' || office === 'pres') && this.state.anaState && this.state.anaState !== 'all') {
+      qs.set('state', this.state.anaState);
+    }
+    qs.set('momentum', String((Number(this.state.anaMomentum) || 65) / 100));
+    qs.set('retention', String((Number(this.state.anaRetention) || 25) / 100));
+    qs.set('part', part || 'overview');
+    return '/api/election-results/analysis?' + qs.toString();
+  }
+
+  applyAnalysisPayload(data, url){
+    if (!data || !data.ok) {
+      if (this.state.analysisLoading) this.setState({ analysisLoading: false });
+      return;
+    }
+    this._appliedAnalysis = this._appliedAnalysis || new Set();
+    if (url && this._appliedAnalysis.has(url) && this.state.analysisBundle) {
+      this.queueAnalysisCharts();
+      return;
+    }
+    if (url) this._appliedAnalysis.add(url);
+    const prev = this.state.analysisBundle;
+    const sameFilters = !!(prev && prev.filters && data.filters
+      && JSON.stringify(prev.filters) === JSON.stringify(data.filters));
+    const next = sameFilters ? { ...prev, ...data } : data;
+    const patch = { analysisBundle: next, analysisLoading: false };
+    if (data.filters) {
+      if (!this.state.anaYear && data.filters.year) patch.anaYear = data.filters.year;
+      if (!this.state.anaCompare && data.filters.compare) patch.anaCompare = data.filters.compare;
+      const officeMeta = (data.offices || []).find((o) => o.id === (this.state.anaOffice || data.filters.office));
+      const years = officeMeta?.years || [];
+      if (this.state.anaYear && years.length && !years.includes(String(this.state.anaYear))) {
+        patch.anaYear = data.filters.year || '';
+        patch.anaCompare = data.filters.compare || '';
+      }
+      const officeId = this.state.anaOffice || data.filters.office || 'pres';
+      const hasPresLga = officeId === 'pres' && !!(
+        (data.geographic && data.geographic.hasLga) || (data.geoFlags && data.geoFlags.hasLga)
+      );
+      if (officeId !== 'gov' && !hasPresLga) patch.anaState = 'all';
+    }
+    if (patch.anaYear != null || patch.anaCompare != null || patch.anaState != null) {
+      const saved = { anaYear: this.state.anaYear, anaCompare: this.state.anaCompare, anaState: this.state.anaState };
+      if (patch.anaYear != null) this.state.anaYear = patch.anaYear;
+      if (patch.anaCompare != null) this.state.anaCompare = patch.anaCompare;
+      if (patch.anaState != null) this.state.anaState = patch.anaState;
+      this._appliedAnalysis.add(this.analysisRequestUrl(data.part || this.analysisPartForTab(this.state.anaSubTab)));
+      this.state.anaYear = saved.anaYear;
+      this.state.anaCompare = saved.anaCompare;
+      this.state.anaState = saved.anaState;
+    }
+    this.setState(patch, () => this.queueAnalysisCharts());
   }
 
   setAnaSubTab(id){
@@ -4221,7 +4309,7 @@ class Component extends DCLogic {
       this.queueAnalysisCharts();
       return;
     }
-    this.setState({ anaSubTab: tab }, () => this.queueAnalysisCharts());
+    this.setState({ anaSubTab: tab }, () => this.loadAnalysisBundle());
   }
 
   toggleAnaAdvanced(){
@@ -4234,56 +4322,35 @@ class Component extends DCLogic {
   }
 
   async loadAnalysisBundle(force){
-    if (this.state.analysisLoading && !force) return;
+    const part = this.analysisPartForTab(this.state.anaSubTab);
+    const url = this.analysisRequestUrl(part);
+    if (!force && this._appliedAnalysis && this._appliedAnalysis.has(url) && this.state.analysisBundle) {
+      this.queueAnalysisCharts();
+      return;
+    }
+    if (force) {
+      this._appliedAnalysis = this._appliedAnalysis || new Set();
+      this._appliedAnalysis.delete(url);
+      if (this._memo) this._memo.delete(url);
+    }
+    const cached = !force && this.peekMemo(url);
+    if (cached && cached.ok) {
+      this.applyAnalysisPayload(cached, url);
+      return;
+    }
+    if (this._analysisInflightUrl === url) return;
     const seq = (this._analysisSeq = (this._analysisSeq || 0) + 1);
-    this.setState({ analysisLoading: true });
+    this._analysisInflightUrl = url;
+    if (!this.state.analysisBundle) this.setState({ analysisLoading: true });
     try {
-      const qs = new URLSearchParams();
-      qs.set('office', this.state.anaOffice || 'pres');
-      if (this.state.anaYear) qs.set('year', this.state.anaYear);
-      if (this.state.anaCompare) qs.set('compare', this.state.anaCompare);
-      if (this.state.anaParty && this.state.anaParty !== 'all') qs.set('party', this.state.anaParty);
-      if (this.state.anaRegion && this.state.anaRegion !== 'all') qs.set('region', this.state.anaRegion);
-      if ((this.state.anaOffice || 'pres') === 'gov' && this.state.anaState && this.state.anaState !== 'all') {
-        qs.set('state', this.state.anaState);
-      }
-      if ((this.state.anaOffice || 'pres') === 'pres' && this.state.anaState && this.state.anaState !== 'all') {
-        qs.set('state', this.state.anaState);
-      }
-      qs.set('momentum', String((Number(this.state.anaMomentum) || 65) / 100));
-      qs.set('retention', String((Number(this.state.anaRetention) || 25) / 100));
-      const data = await this.fetchMemo('/api/election-results/analysis?' + qs.toString());
+      const data = await this.fetchMemo(url);
       if (seq !== this._analysisSeq) return;
-      if (data && data.ok) {
-        const patch = {
-          analysisBundle: data,
-          analysisLoading: false,
-        };
-        // Keep year/compare aligned with server resolution (esp. after office change clears them).
-        if (data.filters) {
-          if (!this.state.anaYear && data.filters.year) patch.anaYear = data.filters.year;
-          if (!this.state.anaCompare && data.filters.compare) patch.anaCompare = data.filters.compare;
-          // If client year is invalid for the new office, adopt server year.
-          const officeMeta = (data.offices || []).find((o) => o.id === (this.state.anaOffice || data.filters.office));
-          const years = officeMeta?.years || [];
-          if (this.state.anaYear && years.length && !years.includes(String(this.state.anaYear))) {
-            patch.anaYear = data.filters.year || '';
-            patch.anaCompare = data.filters.compare || '';
-          }
-          // Drop state selection when leaving offices that support state drill (gov + pres LGA years).
-          const officeId = this.state.anaOffice || data.filters.office || 'pres';
-          const hasPresLga = officeId === 'pres' && !!(data.geographic && data.geographic.hasLga);
-          if (officeId !== 'gov' && !hasPresLga) {
-            patch.anaState = 'all';
-          }
-        }
-        this.setState(patch, () => this.queueAnalysisCharts());
-      } else {
-        this.setState({ analysisLoading: false });
-      }
+      this.applyAnalysisPayload(data, url);
     } catch (e) {
       if (seq !== this._analysisSeq) return;
       this.setState({ analysisLoading: false });
+    } finally {
+      if (this._analysisInflightUrl === url) this._analysisInflightUrl = null;
     }
   }
 
@@ -4469,6 +4536,17 @@ class Component extends DCLogic {
     } catch(e){}
   }
 
+  scheduleDataExplorerFill(){
+    if (this._dataFillTimer) clearTimeout(this._dataFillTimer);
+    this._dataFillTimer = setTimeout(() => {
+      this._dataFillTimer = null;
+      if (this.state.section !== 'Data' || !this.state.dataCatalog) return;
+      const total = this._dataExplorerTotal || 0;
+      const cur = this.state.dataShown || 48;
+      if (cur >= total) return;
+      this.setState({ dataShown: Math.min(total, cur + 80) });
+    }, 32);
+  }
   async refreshDataCatalog(){
     this.setState({ dataCatalogLoading: true });
     try {
@@ -4476,6 +4554,7 @@ class Component extends DCLogic {
       this.setState({
         dataCatalog: dataCatalog && dataCatalog.ok !== false ? dataCatalog : null,
         dataCatalogLoading: false,
+        dataShown: 48,
       });
     } catch (e) {
       this.setState({ dataCatalogLoading: false });
@@ -5078,7 +5157,15 @@ class Component extends DCLogic {
       onClick:(e)=>{
         e.preventDefault();
         if(label==='Countries') this.openWelcome();
-        else if(label==='Map') this.setState({ view:'app', scope:'ng', section:'Map', ...this.mapStudioStatePatch('polling') });
+        else if(label==='Map') {
+          const patch = this.mapStudioStatePatch('polling');
+          patch.layers = {
+            lga: true, ward: false, polling: false, health: false,
+            ...(patch.layers || {}),
+            state: false,
+          };
+          this.setState({ view:'app', scope:'ng', section:'Map', ...patch });
+        }
         else if(label==='Live Results') this.setState({ view:'app', section:'Live Results', ...this.mapStudioStatePatch('live') }, ()=>this.syncLiveMap());
         else if(label==='Overview') this.setState({ view:'app', section:'Overview', ...this.mapStudioStatePatch('overview') });
         else if(label==='Analysis') this.setState({ view:'app', section:'Analysis' }, ()=> this.loadAnalysisBundle());
@@ -5449,7 +5536,7 @@ class Component extends DCLogic {
     const anaOfficeMeta = (analysisBundle?.offices || []).find((o) => o.id === anaOffice) || { id: anaOffice, label: anaOffice, years: [] };
     let anaOfficeYears = (anaOfficeMeta.years || []).slice().sort((a, b) => Number(a) - Number(b));
     const showStateFilter = anaOffice === 'gov'
-      || (anaOffice === 'pres' && !!(analysisBundle?.geographic?.hasLga));
+      || (anaOffice === 'pres' && !!((analysisBundle?.geographic && analysisBundle.geographic.hasLga) || (analysisBundle?.geoFlags && analysisBundle.geoFlags.hasLga)));
     const anaStateRaw = showStateFilter ? (this.state.anaState || resolvedFilters.state || 'all') : 'all';
     if (anaOffice === 'gov' && anaStateRaw && anaStateRaw !== 'all' && analysisBundle?.govYearsByState) {
       anaOfficeYears = (analysisBundle.govYearsByState[anaStateRaw] || []).map(String).sort((a, b) => Number(a) - Number(b));
@@ -5598,7 +5685,29 @@ class Component extends DCLogic {
       advancedClass: anaAdvanced ? 'eid-analysis-advanced is-on' : 'eid-analysis-advanced',
       advancedLabel: anaAdvanced ? 'Advanced on' : 'Advanced',
       onAdvanced: () => this.toggleAnaAdvanced(),
-      openMap: () => this.setState({ view: 'app', scope: 'ng', section: 'Map' }),
+      openMap: () => {
+        const office = this.state.anaOffice || this.state.ovOffice || 'pres';
+        const year = this.state.anaYear || this.state.ovElecYear || '2023';
+        const stateRaw = this.state.anaState;
+        const state = stateRaw && stateRaw !== 'all' ? stateRaw : null;
+        const scope = this.state.scope && this.state.scope !== 'global' ? this.state.scope : 'ng';
+        this.setState({
+          ...this.mapStudioStatePatch('overview'),
+          view: 'app',
+          scope,
+          section: 'Overview',
+          ovOffice: office,
+          ovElecYear: String(year),
+          ovElecState: (office === 'gov' || office === 'pres') ? state : null,
+          elecSelectedUnit: null,
+          ngState: null,
+          ngLga: null,
+          ngWard: null,
+          ngPU: null,
+        }, () => {
+          if (scope === 'ng') this.flyToElectionView();
+        });
+      },
       office: anaOffice,
       year: anaYear,
       compare: anaCompare,
@@ -5632,7 +5741,7 @@ class Component extends DCLogic {
       geoFlipMeta: anaCompare
         ? `${gained} gained · ${lost} lost for ${focusParty}`
         : 'select compare election for flips',
-      mapHint: geo.mapHint || 'Geographic tables and charts below; Leaflet choropleths remain on Map / Live Results.',
+      mapHint: geo.mapHint || analysisBundle?.geoFlags?.mapHint || 'Geographic tables and charts below; Leaflet choropleths remain on Overview.',
       geoRows: geoRows.length ? geoRows : [{ unit: '—', region: '—', winner: '—', color: 'var(--mute)', margin: '—', prev: '—', swing: '—', flip: '—' }],
       turnoutMeta: turnout.current != null
         ? (analysisBundle?.availability?.turnoutNational ? `National ${turnout.current}%` : `Proxy avg ${turnout.current}%`)
@@ -5778,7 +5887,8 @@ class Component extends DCLogic {
     };
 
     const popUpdated = this.state.popStatus?.modifiedTime ? new Date(this.state.popStatus.modifiedTime).toLocaleDateString() : 'Local file';
-    const catalog = this.state.dataCatalog;
+    const onDataPage = section === 'Data';
+    const catalog = onDataPage ? this.state.dataCatalog : null;
     const explorer = (typeof window !== 'undefined' && window.EidDataExplorer) ? window.EidDataExplorer : null;
     const catalogDatasets = (catalog && Array.isArray(catalog.datasets)) ? catalog.datasets : [];
     const countryScope = (this.state.scope === 'ng' || this.state.scope === 'global') ? this.state.scope : 'ng';
@@ -5807,7 +5917,7 @@ class Component extends DCLogic {
       : (datasets.length
         ? [{ id: 'other', label: 'Datasets', icon: 'database', count: datasets.length, countLabel: String(datasets.length), open: true, showRows: true, chevron: 'expand_less', rows: datasets }]
         : []);
-    const datasetGroups = rawGroups.map((g) => {
+    const preparedGroups = rawGroups.map((g) => {
       const catId = g.id;
       return {
         ...g,
@@ -5824,7 +5934,7 @@ class Component extends DCLogic {
             this.setState((s) => {
               const next = { ...(s.dataCatCollapsed || {}) };
               delete next[catId];
-              return { dataCatCollapsed: next };
+              return { dataCatCollapsed: next, dataShown: Math.max(s.dataShown || 48, 48) };
             }, () => {
               const el = document.getElementById('eid-data-cat-' + catId);
               if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -5836,26 +5946,32 @@ class Component extends DCLogic {
         },
       };
     });
+    const shownBudget = this.state.dataShown || 48;
+    const datasetGroups = (explorer && explorer.visibleGroups)
+      ? explorer.visibleGroups(preparedGroups, shownBudget)
+      : preparedGroups;
+    this._dataExplorerTotal = datasets.length;
     const dataExplorer = {
       query: this.state.dataQuery || '',
       office: this.state.dataOffice || 'all',
       year: this.state.dataYear || 'all',
       category: this.state.dataCategory || 'all',
-      loading: !!this.state.dataCatalogLoading,
-      empty: !this.state.dataCatalogLoading && datasets.length === 0,
+      loading: !!this.state.dataCatalogLoading && onDataPage,
+      empty: onDataPage && !this.state.dataCatalogLoading && datasets.length === 0,
       hasGroups: datasetGroups.length > 0,
+      filling: onDataPage && !this.state.dataCatalogLoading && datasets.length > datasetGroups.reduce((n, g) => n + ((g.rows && g.rows.length) || 0), 0),
       summary: catalog
         ? `${datasets.length} of ${catalog.count || catalogDatasets.length} public datasets · ${datasetGroups.length} categor${datasetGroups.length === 1 ? 'y' : 'ies'}`
-        : (this.state.dataCatalogLoading ? 'Loading catalog…' : 'Catalog unavailable — showing fallback links'),
+        : (onDataPage && this.state.dataCatalogLoading ? 'Loading catalog…' : (onDataPage ? 'Catalog unavailable — showing fallback links' : '')),
       officeOptions: [{ v:'all', l:'All offices' }].concat((catalog?.offices || Object.keys(officeLabels)).map(v=>({ v, l: officeLabels[v] || v }))),
       yearOptions: [{ v:'all', l:'All years' }].concat((catalog?.years || []).map(v=>({ v, l:String(v) }))),
       categoryOptions: [{ v:'all', l:'All categories' }].concat((catalog?.categories || Object.keys(catLabels)).map(v=>({ v, l: catLabels[v] || v }))),
       gated: Array.isArray(catalog?.gated) ? catalog.gated : [],
       hasGated: !!(catalog?.gated && catalog.gated.length),
-      onQuery: (e)=> this.setState({ dataQuery: e?.target?.value || '' }),
-      onOffice: (e)=> this.setState({ dataOffice: e?.target?.value || 'all' }),
-      onYear: (e)=> this.setState({ dataYear: e?.target?.value || 'all' }),
-      onCategory: (e)=> this.setState({ dataCategory: e?.target?.value || 'all' }),
+      onQuery: (e)=> this.setState({ dataQuery: e?.target?.value || '', dataShown: 48 }),
+      onOffice: (e)=> this.setState({ dataOffice: e?.target?.value || 'all', dataShown: 48 }),
+      onYear: (e)=> this.setState({ dataYear: e?.target?.value || 'all', dataShown: 48 }),
+      onCategory: (e)=> this.setState({ dataCategory: e?.target?.value || 'all', dataShown: 48 }),
     };
 
     const subsAll = this.state.submissions || [];
@@ -6873,8 +6989,8 @@ class Component extends DCLogic {
       zoomCountryOut: ()=>this.zoomMap('country',-1),
       zoomFullIn: ()=>this.zoomMap('full',1),
       zoomFullOut: ()=>this.zoomMap('full',-1),
-      basemapBtns: [this.basemapBtn('streets','Streets',true), this.basemapBtn('hybrid','Hybrid',true), this.basemapBtn('satellite','Satellite',true), this.basemapBtn('terrain','Terrain',true)],
-      mapBasemapBtns: [this.basemapBtn('streets','Streets'), this.basemapBtn('hybrid','Hybrid'), this.basemapBtn('satellite','Satellite'), this.basemapBtn('terrain','Terrain')],
+      basemapBtns: [this.basemapBtn('osm','OpenStreetMap',true), this.basemapBtn('streets','Streets',true), this.basemapBtn('hybrid','Hybrid',true), this.basemapBtn('satellite','Satellite',true), this.basemapBtn('terrain','Terrain',true)],
+      mapBasemapBtns: [this.basemapBtn('osm','OpenStreetMap'), this.basemapBtn('streets','Streets'), this.basemapBtn('hybrid','Hybrid'), this.basemapBtn('satellite','Satellite'), this.basemapBtn('terrain','Terrain')],
       isWelcome: view==='welcome',
       isApp: view==='app' && section!=='Admin',
       isOverviewGlobal: view==='app' && section==='Overview' && isGlobal,

@@ -10,6 +10,14 @@
     satellite: { url: "https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}", options: GOOGLE },
     streets: { url: "https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}", options: GOOGLE },
     terrain: { url: "https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}", options: GOOGLE },
+    osm: {
+      url: "https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png",
+      options: {
+        maxZoom: 20,
+        subdomains: "abc",
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles <a href="https://www.openstreetmap.fr/">OpenStreetMap France</a>',
+      },
+    },
     dark: {
       url: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
       options: { maxZoom: 20, subdomains: "abcd", attribution: "&copy; OpenStreetMap &copy; CARTO" },
@@ -147,6 +155,10 @@
     });
     map.createPane("grid3");
     map.getPane("grid3").style.zIndex = 450;
+    map.createPane("stateLines");
+    const stateLinesPane = map.getPane("stateLines");
+    stateLinesPane.style.zIndex = 470;
+    stateLinesPane.style.pointerEvents = "none";
     map.createPane("official");
     map.getPane("official").style.zIndex = 455;
     map.createPane("citizen");
@@ -504,21 +516,126 @@
   function styleForFeature(layerId, props, cfg, themeOverride) {
     const theme = themeOverride || (cfg && cfg.resultTheme);
     const base = STYLES[layerId] || STYLES.state;
-    if (!theme || !theme.units) return base;
-    const hit = resolveResultUnit(theme, layerId, props);
-    if (hit && hit.color) {
-      return {
-        color: '#ffffff',
-        weight: layerId === 'state' ? 1.4 : 1.1,
-        fillColor: hit.color,
-        fillOpacity: hit.fillOpacity != null ? hit.fillOpacity : (theme.level === layerId ? 0.78 : 0),
-        opacity: 0.95,
-      };
+    let style = base;
+    if (theme && theme.units) {
+      const hit = resolveResultUnit(theme, layerId, props);
+      if (hit && hit.color) {
+        style = {
+          color: '#ffffff',
+          weight: layerId === 'state' ? 1.4 : 1.1,
+          fillColor: hit.color,
+          fillOpacity: hit.fillOpacity != null ? hit.fillOpacity : (theme.level === layerId ? 0.78 : 0),
+          opacity: 0.95,
+        };
+      } else if (theme.level === layerId) {
+        style = { ...base, fillOpacity: 0.06, fillColor: '#94a3b8' };
+      }
     }
-    if (theme.level === layerId) {
-      return { ...base, fillOpacity: 0.06, fillColor: '#94a3b8' };
+    // State strokes live on one shared line layer so adjacent polygons are not drawn twice.
+    if (layerId === 'state') return { ...style, stroke: false, weight: 0, opacity: 0 };
+    return style;
+  }
+
+  function coordKey(coord) {
+    return Number(coord[0]).toFixed(5) + ',' + Number(coord[1]).toFixed(5);
+  }
+
+  function uniqueBoundaryFeature(data) {
+    if (!data || !data.features) return { type: 'FeatureCollection', features: [] };
+    if (data._eidLines) return data._eidLines;
+    const seen = new Set();
+    const lines = [];
+    const addRing = (ring) => {
+      if (!ring || ring.length < 2) return;
+      for (let i = 0; i < ring.length - 1; i++) {
+        const a = ring[i];
+        const b = ring[i + 1];
+        if (!a || !b || a.length < 2 || b.length < 2) continue;
+        const ak = coordKey(a);
+        const bk = coordKey(b);
+        if (ak === bk) continue;
+        const key = ak < bk ? ak + '|' + bk : bk + '|' + ak;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        lines.push([a, b]);
+      }
+    };
+    data.features.forEach((feat) => {
+      const geom = feat && feat.geometry;
+      if (!geom) return;
+      const polys = geom.type === 'Polygon' ? [geom.coordinates] : geom.type === 'MultiPolygon' ? geom.coordinates : [];
+      polys.forEach((poly) => { if (poly) poly.forEach(addRing); });
+    });
+    data._eidLines = {
+      type: 'FeatureCollection',
+      features: lines.length
+        ? [{ type: 'Feature', properties: {}, geometry: { type: 'MultiLineString', coordinates: lines } }]
+        : [],
+    };
+    return data._eidLines;
+  }
+
+  function stateLineStyle(themed) {
+    return themed
+      ? { color: '#ffffff', weight: 1.25, opacity: 0.95, lineJoin: 'round', lineCap: 'round' }
+      : { color: '#111111', weight: 1.6, opacity: 1, lineJoin: 'round', lineCap: 'round' };
+  }
+
+  function activeStateSource(inst) {
+    const src = inst && inst.overlaySource;
+    const drawn = inst && inst.overlays;
+    if (!src || !drawn) return null;
+    if (drawn.state && src.state) return src.state;
+    if (drawn['official-state'] && src['official-state']) return src['official-state'];
+    if (drawn['citizen-state'] && src['citizen-state']) return src['citizen-state'];
+    return null;
+  }
+
+  function paintStateOutline(inst) {
+    if (!inst || !inst.map) return;
+    const src = activeStateSource(inst);
+    if (!src || !src.features || !src.features.length) {
+      clearOverlay(inst, 'state-lines');
+      inst._stateLineSig = null;
+      inst._stateLineData = null;
+      return;
     }
-    return base;
+    const cfg = inst.cfg || {};
+    const themed = !!(
+      (cfg.resultTheme && cfg.resultTheme.units) ||
+      (cfg.citizenTheme && cfg.citizenTheme.units)
+    );
+    const lines = uniqueBoundaryFeature(src);
+    const count = (lines.features[0] && lines.features[0].geometry.coordinates.length) || 0;
+    const sig = (themed ? 't' : 'b') + ':' + count;
+    const existing = inst.overlays['state-lines'];
+    if (existing && inst._stateLineData === lines) {
+      if (inst._stateLineSig !== sig && typeof existing.setStyle === 'function') existing.setStyle(stateLineStyle(themed));
+      inst._stateLineSig = sig;
+      return;
+    }
+    clearOverlay(inst, 'state-lines');
+    if (!count) {
+      inst._stateLineSig = sig;
+      inst._stateLineData = lines;
+      return;
+    }
+    if (!inst.map.getPane('stateLines')) {
+      inst.map.createPane('stateLines');
+      const pane = inst.map.getPane('stateLines');
+      pane.style.zIndex = 470;
+      pane.style.pointerEvents = 'none';
+    }
+    const layer = global.L.geoJSON(lines, {
+      pane: 'stateLines',
+      interactive: false,
+      smoothFactor: 0,
+      style: stateLineStyle(themed),
+    });
+    layer.addTo(inst.map);
+    inst.overlays['state-lines'] = layer;
+    inst._stateLineSig = sig;
+    inst._stateLineData = lines;
   }
 
   function popupForFeature(layerId, props, cfg, themeOverride) {
@@ -585,6 +702,7 @@
     const kind = overlayKind(id);
     const layer = global.L.geoJSON(data, {
       pane,
+      smoothFactor: 0,
       style: (feat) => styleForFeature(kind, feat.properties, cfg, liveTheme(inst, theme)),
       pointToLayer: isPoint
         ? (feat, latlng) => {
@@ -738,6 +856,7 @@
     ['state', 'official-state', 'citizen-state', 'lga'].forEach((id) => {
       if (inst.overlays[id]) inst.overlayStyleSig[id] = sig + '|' + id;
     });
+    paintStateOutline(inst);
   }
 
   function lgaCollectionForState(data, state) {
@@ -796,6 +915,7 @@
         applyCompareClip(inst, inst.comparePct != null ? inst.comparePct : (inst.cfg.comparePct || 50));
       } else if (isLive) clearCompareClip(inst);
       if (isLive) paintCitizenMarkers(inst);
+      paintStateOutline(inst);
       return;
     }
 
@@ -910,6 +1030,7 @@
     else if (!inst.cfg.keepLocalPoints) clearOverlay(inst, 'polling');
 
     if (isLive) paintCitizenMarkers(inst);
+    paintStateOutline(inst);
   }
 
   function applyCompareClip(inst, pct) {

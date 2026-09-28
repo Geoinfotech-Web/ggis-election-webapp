@@ -527,11 +527,50 @@
    * @param {HTMLElement} root
    * @param {object} bundle
    */
-  function render(root, bundle) {
+  function paintTurnoutLine(canvas, history, t) {
+    if (!canvas) return;
+    const turnoutYears = (history.turnoutTrend || []).map((r) => r.year);
+    const turnoutVals = (history.turnoutTrend || []).map((r) => r.turnoutPct);
+    if (turnoutVals.some((v) => v != null)) {
+      clearEmpty(canvas);
+      upsertChart(canvas.id, canvas, {
+        type: 'line',
+        data: {
+          labels: turnoutYears,
+          datasets: [{
+            label: 'National turnout %',
+            data: turnoutVals,
+            borderColor: t.primary,
+            backgroundColor: t.primary,
+            tension: 0.3,
+            pointRadius: 4,
+            borderWidth: 2,
+          }],
+        },
+        options: baseOptions(t, { percent: true }),
+      });
+    } else {
+      emptyCanvas(canvas, t, 'National turnout series not available for this office');
+    }
+  }
+
+  /**
+   * Draw charts for the visible sub-tab only. Same canvas + same signature
+   * updates in place; charts for other tabs are left alone.
+   */
+  function render(root, bundle, tab) {
     if (!root || !bundle || !bundle.ok || !global.Chart) return;
+    const active = tab || 'overview';
     const t = themeColors(root);
     const canvasIds = Array.prototype.map.call(root.querySelectorAll('canvas[id]'), (c) => c.id).join(',');
-    const sig = canvasIds + '|' + t.text + '|' + t.primary + '|' + JSON.stringify(bundle.filters || {}) + '|' + String(bundle.generatedAt || bundle.updatedAt || '');
+    const sig = [
+      active,
+      canvasIds,
+      t.text,
+      t.primary,
+      JSON.stringify(bundle.filters || {}),
+      String(bundle.generatedAt || bundle.updatedAt || ''),
+    ].join('|');
     if (root._eidAnaSig === sig) return;
     root._eidAnaSig = sig;
     lastThemeKey = `${t.text}|${t.primary}|${t.border}`;
@@ -543,49 +582,30 @@
     const comp = bundle.competitiveness || {};
     const history = bundle.history || {};
 
-    groupedShareBars(root.querySelector('#anaChartPerfShare'), perf.voteShare, t);
-    deltaBars(root.querySelector('#anaChartPerfDelta'), perf.voteShare, t);
-    scatterSeatVote(root.querySelector('#anaChartSeatVote'), perf.seatVsVote, t);
-    regionBars(root.querySelector('#anaChartRegions'), geo.regions, t);
-    swingBars(root.querySelector('#anaChartSwing'), geo.units, geo.focusParty || perf.focusParty, t);
-    marginHist(root.querySelector('#anaChartMargins'), comp.distribution, t);
-    turnoutScatter(root.querySelector('#anaChartTurnoutSwing'), turnout.byUnit, t);
-    turnoutByUnitBars(root.querySelector('#anaChartTurnoutByUnit'), turnout.byUnit, t);
-
-    historyLines(root.querySelector('#anaChartHistory'), history.voteShareTrend, history.years, t, { percent: true });
-    historyLines(root.querySelector('#anaChartSeatHistory'), history.seatShareTrend, history.years, t, { percent: true });
-
-    const turnoutYears = (history.turnoutTrend || []).map((r) => r.year);
-    const turnoutVals = (history.turnoutTrend || []).map((r) => r.turnoutPct);
-    const turnoutCanvases = [
-      root.querySelector('#anaChartTurnoutTrend'),
-      root.querySelector('#anaChartTrendTurnout'),
-    ].filter(Boolean);
-    turnoutCanvases.forEach((turnoutCanvas) => {
-      if (turnoutVals.some((v) => v != null)) {
-        clearEmpty(turnoutCanvas);
-        upsertChart(turnoutCanvas.id, turnoutCanvas, {
-          type: 'line',
-          data: {
-            labels: turnoutYears,
-            datasets: [{
-              label: 'National turnout %',
-              data: turnoutVals,
-              borderColor: t.primary,
-              backgroundColor: t.primary,
-              tension: 0.3,
-              pointRadius: 4,
-              borderWidth: 2,
-            }],
-          },
-          options: baseOptions(t, { percent: true }),
-        });
-      } else {
-        emptyCanvas(turnoutCanvas, t, 'National turnout series not available for this office');
-      }
-    });
-
-    outlookBars(root.querySelector('#anaChartOutlook'), bundle.prediction?.partyMomentum, t);
+    if (active === 'overview') {
+      groupedShareBars(root.querySelector('#anaChartPerfShare'), perf.voteShare, t);
+      deltaBars(root.querySelector('#anaChartPerfDelta'), perf.voteShare, t);
+      scatterSeatVote(root.querySelector('#anaChartSeatVote'), perf.seatVsVote, t);
+      return;
+    }
+    if (active === 'geography') {
+      regionBars(root.querySelector('#anaChartRegions'), geo.regions, t);
+      swingBars(root.querySelector('#anaChartSwing'), geo.units, geo.focusParty || perf.focusParty, t);
+      marginHist(root.querySelector('#anaChartMargins'), comp.distribution, t);
+      return;
+    }
+    if (active === 'turnout') {
+      turnoutScatter(root.querySelector('#anaChartTurnoutSwing'), turnout.byUnit, t);
+      turnoutByUnitBars(root.querySelector('#anaChartTurnoutByUnit'), turnout.byUnit, t);
+      paintTurnoutLine(root.querySelector('#anaChartTurnoutTrend'), history, t);
+      return;
+    }
+    if (active === 'trends') {
+      historyLines(root.querySelector('#anaChartHistory'), history.voteShareTrend, history.years, t, { percent: true });
+      historyLines(root.querySelector('#anaChartSeatHistory'), history.seatShareTrend, history.years, t, { percent: true });
+      paintTurnoutLine(root.querySelector('#anaChartTrendTurnout'), history, t);
+      outlookBars(root.querySelector('#anaChartOutlook'), bundle.prediction?.partyMomentum, t);
+    }
   }
 
   function resizeAll() {

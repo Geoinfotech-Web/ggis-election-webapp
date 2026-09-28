@@ -17,9 +17,10 @@ const baseMaps = {
   openstreet: {
     label: 'OpenStreetMap',
     iconClass: 'map-view-icon-streets',
-    layer: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; OpenStreetMap contributors',
+    layer: L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+      maxZoom: 20,
+      subdomains: 'abc',
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles <a href="https://www.openstreetmap.fr/">OpenStreetMap France</a>',
       className: 'osm-base-map',
     }),
   },
@@ -743,9 +744,11 @@ function initializeAfricaLocatorMap() {
     tap: true,
   }).setView([3.5, 20], 2);
 
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
     maxZoom: 6,
     minZoom: 2,
+    subdomains: 'abc',
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles <a href="https://www.openstreetmap.fr/">OpenStreetMap France</a>',
     className: 'africa-locator-tiles',
   }).addTo(africaLocatorMap);
 

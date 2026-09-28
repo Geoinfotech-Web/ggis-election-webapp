@@ -61,13 +61,13 @@
     "polling-default": {
       "id": "polling-default",
       "name": "Polling units default",
-      "description": "Polling units map with state + LGA boundaries.",
+      "description": "Polling units map. State outlines start off; LGA boundaries stay available.",
       "published": true,
-      "basemap": "streets",
+      "basemap": "osm",
       "layerStack": [
         {
           "id": "state",
-          "enabled": true,
+          "enabled": false,
           "order": 0
         },
         {
@@ -108,7 +108,7 @@
       "name": "Live Results default",
       "description": "Live Results choropleth stage (state fills).",
       "published": true,
-      "basemap": "streets",
+      "basemap": "osm",
       "layerStack": [
         {
           "id": "state",

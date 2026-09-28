@@ -2,8 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const {
   DATA_DIR,
-  listAvailableDatasets,
+  STATIC_INDEX,
   isPublishableLegacyPayload,
+  isVerifiedGovMeta,
 } = require('../election-results-data');
 
 const OFFICE_LABELS = Object.freeze({
@@ -63,33 +64,34 @@ function readPublishable(rel) {
   }
 }
 
-function scanOfficeFolder(folder, office) {
-  const dir = path.join(DATA_DIR, folder);
-  if (!fs.existsSync(dir)) return [];
-  const rows = [];
-  for (const file of fs.readdirSync(dir)) {
-    if (!file.endsWith('.json')) continue;
-    const m = file.match(/^(.+)-(\d{4})(?:-lga)?\.json$/);
-    if (!m) continue;
-    const rel = path.join(folder, file).replace(/\\/g, '/');
-    const loaded = readPublishable(rel);
-    if (!loaded) continue;
-    const meta = loaded.payload.meta || {};
-    const year = String(meta.year || meta.electionDate?.slice?.(0, 4) || m[2]);
-    const state = meta.state || titleCaseState(m[1]);
-    const level = meta.level || (/-lga\.json$/i.test(file) ? 'lga' : 'state');
-    rows.push({
-      office: String(meta.office || office).toLowerCase(),
-      year,
-      state,
-      level,
-      file: rel,
-      title: meta.title || null,
-      updated: meta.updated || meta.electionDate || null,
-      source: meta.source || meta.attribution || 'Election archive',
-    });
-  }
-  return rows;
+function rowFromPublishable(rel, fallback, { verifiedGov = false, preferListed = false } = {}) {
+  const loaded = readPublishable(rel);
+  if (!loaded) return null;
+  const meta = loaded.payload.meta || {};
+  if (verifiedGov && !isVerifiedGovMeta(meta)) return null;
+  const base = fallback || {};
+  const listedFirst = preferListed || verifiedGov;
+  return {
+    office: String((listedFirst ? base.office || meta.office : meta.office || base.office) || 'pres').toLowerCase(),
+    year: String(listedFirst
+      ? (base.year || meta.year || meta.electionDate?.slice?.(0, 4) || '')
+      : (meta.year || meta.electionDate?.slice?.(0, 4) || base.year || '')),
+    state: listedFirst ? (base.state || meta.state || null) : (meta.state || base.state || null),
+    level: listedFirst
+      ? (base.level || meta.level || (/-lga\.json$/i.test(loaded.rel) ? 'lga' : 'state'))
+      : (meta.level || base.level || (/-lga\.json$/i.test(loaded.rel) ? 'lga' : 'state')),
+    file: loaded.rel,
+    title: meta.title || base.title || null,
+    updated: meta.updated || meta.electionDate || base.updated || null,
+    source: meta.source || meta.attribution || base.source || 'Election archive',
+  };
+}
+
+function pushCatalogFile(rows, seen, rel, fallback, opts) {
+  const row = rowFromPublishable(rel, fallback, opts);
+  if (!row?.file || seen.has(row.file)) return;
+  seen.add(row.file);
+  rows.push(row);
 }
 
 function resultDatasetId(row) {
@@ -103,30 +105,42 @@ function resultDatasetId(row) {
 function collectResultRows() {
   const seen = new Set();
   const rows = [];
-  const push = (row) => {
-    if (!row?.file || !fileExistsUnderData(row.file)) return;
-    const loaded = readPublishable(row.file);
-    if (!loaded) return;
-    const key = loaded.rel;
-    if (seen.has(key)) return;
-    seen.add(key);
-    const meta = loaded.payload.meta || {};
-    rows.push({
-      office: String(row.office || meta.office || 'pres').toLowerCase(),
-      year: String(row.year || meta.year || ''),
-      state: row.state || meta.state || null,
-      level: row.level || meta.level || 'state',
-      file: loaded.rel,
-      title: meta.title || row.title || null,
-      updated: meta.updated || meta.electionDate || row.updated || null,
-      source: meta.source || meta.attribution || row.source || 'Election archive',
-    });
-  };
 
-  for (const item of listAvailableDatasets()) push(item);
-  for (const row of scanOfficeFolder('house', 'reps')) push(row);
-  for (const row of scanOfficeFolder('senatorial', 'sen')) push(row);
-  for (const row of scanOfficeFolder('official', 'gov')) push(row);
+  for (const item of STATIC_INDEX) {
+    pushCatalogFile(rows, seen, item.file, item, { preferListed: true });
+  }
+
+  const govDir = path.join(DATA_DIR, 'gubernatorial');
+  if (fs.existsSync(govDir)) {
+    for (const file of fs.readdirSync(govDir)) {
+      if (!file.endsWith('.json')) continue;
+      const m = file.match(/^(.+)-(\d{4})\.json$/);
+      if (!m) continue;
+      const state = m[1].split('-').map((w) => (w.toLowerCase() === 'fct' ? 'FCT' : w.charAt(0).toUpperCase() + w.slice(1))).join(' ');
+      pushCatalogFile(rows, seen, path.join('gubernatorial', file).replace(/\\/g, '/'), {
+        office: 'gov',
+        year: m[2],
+        state,
+        level: 'state',
+      }, { verifiedGov: true });
+    }
+  }
+
+  for (const [folder, office] of [['house', 'reps'], ['senatorial', 'sen'], ['official', 'gov']]) {
+    const dir = path.join(DATA_DIR, folder);
+    if (!fs.existsSync(dir)) continue;
+    for (const file of fs.readdirSync(dir)) {
+      if (!file.endsWith('.json')) continue;
+      const m = file.match(/^(.+)-(\d{4})(?:-lga)?\.json$/);
+      if (!m) continue;
+      pushCatalogFile(rows, seen, path.join(folder, file).replace(/\\/g, '/'), {
+        office,
+        year: m[2],
+        state: titleCaseState(m[1]),
+        level: /-lga\.json$/i.test(file) ? 'lga' : 'state',
+      });
+    }
+  }
   return rows.sort((a, b) => {
     const oy = String(b.year).localeCompare(String(a.year));
     if (oy) return oy;
@@ -785,12 +799,63 @@ function withDownloadUrls(entry) {
 
 let _catalogCache = null;
 let _catalogCacheAt = 0;
-const CATALOG_CACHE_MS = 60_000;
+let _catalogStamp = '';
+const CATALOG_CACHE_MS = 10 * 60 * 1000;
+const CATALOG_DISK_CACHE = path.join(require('os').tmpdir(), 'eid-data-catalog-cache.json');
+
+function catalogStamp() {
+  const dirs = [
+    DATA_DIR,
+    path.join(DATA_DIR, 'gubernatorial'),
+    path.join(DATA_DIR, 'house'),
+    path.join(DATA_DIR, 'senatorial'),
+    path.join(DATA_DIR, 'official'),
+  ];
+  return dirs.map((dir) => {
+    try {
+      const stat = fs.statSync(dir);
+      const names = fs.readdirSync(dir).filter((name) => name.endsWith('.json'));
+      return `${stat.mtimeMs}:${names.length}`;
+    } catch {
+      return '0:0';
+    }
+  }).join('|');
+}
+
+function readDiskCatalog(stamp) {
+  try {
+    const saved = JSON.parse(fs.readFileSync(CATALOG_DISK_CACHE, 'utf8'));
+    if (saved && saved.stamp === stamp && saved.catalog && saved.catalog.ok && Array.isArray(saved.catalog.datasets)) {
+      return saved.catalog;
+    }
+  } catch {
+    /* cold start */
+  }
+  return null;
+}
+
+function writeDiskCatalog(stamp, catalog) {
+  try {
+    fs.writeFileSync(CATALOG_DISK_CACHE, JSON.stringify({ stamp, catalog }));
+  } catch {
+    /* cache is optional */
+  }
+}
 
 function buildDataCatalog({ force } = {}) {
   const now = Date.now();
-  if (!force && _catalogCache && (now - _catalogCacheAt) < CATALOG_CACHE_MS) {
+  const stamp = catalogStamp();
+  if (!force && _catalogCache && _catalogStamp === stamp && (now - _catalogCacheAt) < CATALOG_CACHE_MS) {
     return _catalogCache;
+  }
+  if (!force) {
+    const disk = readDiskCatalog(stamp);
+    if (disk) {
+      _catalogCache = disk;
+      _catalogStamp = stamp;
+      _catalogCacheAt = now;
+      return disk;
+    }
   }
   const datasets = [
     ...staticCatalogEntries(),
@@ -830,8 +895,16 @@ function buildDataCatalog({ force } = {}) {
     ],
   };
   _catalogCacheAt = now;
+  _catalogStamp = stamp;
+  writeDiskCatalog(stamp, _catalogCache);
   return _catalogCache;
 }
+
+setImmediate(() => {
+  try { buildDataCatalog(); } catch (err) {
+    console.warn('Data catalog warm failed:', err.message || err);
+  }
+});
 
 function findCatalogEntry(id) {
   const catalog = buildDataCatalog();

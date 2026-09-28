@@ -19,7 +19,7 @@ const MAP_CONFIGS_PATH = process.env.MAP_CONFIGS_PATH
   : path.join(__dirname, '..', 'data', 'map-configs.json');
 
 const VIEW_KEYS = ['overview', 'polling', 'live'];
-const BASEMAP_IDS = ['streets', 'hybrid', 'satellite', 'terrain', 'dark', 'light'];
+const BASEMAP_IDS = ['osm', 'streets', 'hybrid', 'satellite', 'terrain', 'dark', 'light'];
 const LAYER_IDS = ['state', 'lga', 'ward', 'polling', 'health'];
 const CHOROPLETH_THEMES = ['party-winner', 'turnout', 'none'];
 const ID_PATTERN = /^[a-z][a-z0-9-]{1,62}$/;
@@ -67,11 +67,11 @@ function defaultMaps() {
     'polling-default': {
       id: 'polling-default',
       name: 'Polling units default',
-      description: 'Polling units map with state + LGA boundaries.',
+      description: 'Polling units map. State outlines start off; LGA boundaries stay available.',
       published: true,
-      basemap: 'streets',
+      basemap: 'osm',
       layerStack: [
-        { id: 'state', enabled: true },
+        { id: 'state', enabled: false },
         { id: 'lga', enabled: true },
         { id: 'ward', enabled: false },
         { id: 'polling', enabled: false },
@@ -88,7 +88,7 @@ function defaultMaps() {
       name: 'Live Results default',
       description: 'Live Results choropleth stage (state fills).',
       published: true,
-      basemap: 'streets',
+      basemap: 'osm',
       layerStack: [
         { id: 'state', enabled: true },
         { id: 'lga', enabled: false },

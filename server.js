@@ -28,7 +28,7 @@ const {
   findCatalogEntry,
   buildDownload,
 } = require('./src/data-catalog');
-const { buildAnalysisBundle } = require('./election-analysis');
+const { buildAnalysisBundle, sliceAnalysisPayload } = require('./election-analysis');
 const {
   ensurePollingUnitsSeeded,
   ensureElectionResultsSeeded,
@@ -1882,7 +1882,7 @@ app.get('/api/election-results/analysis', (req, res) => {
       retentionWeight: req.query.retention != null ? Number(req.query.retention) : undefined,
       competitiveCutoff: req.query.cutoff != null ? Number(req.query.cutoff) : undefined,
     };
-    const payload = buildAnalysisBundle(filters);
+    const payload = sliceAnalysisPayload(buildAnalysisBundle(filters), req.query.part);
     res.setHeader('Cache-Control', 'public, max-age=60');
     return res.json(payload);
   } catch (error) {

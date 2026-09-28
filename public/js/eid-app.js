@@ -8,7 +8,7 @@
     light: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
     satellite: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
     terrain: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}",
-    streets: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+    streets: "https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png",
   };
 
   const state = {
@@ -127,7 +127,11 @@
     const zoom = options.zoom || 2;
     mapInstance = L.map(el, { zoomControl: false, attributionControl: true }).setView(center, zoom);
     const url = TILES[state.basemap] || TILES.dark;
-    tileLayer = L.tileLayer(url, { maxZoom: 19, attribution: "&copy; OpenStreetMap &copy; CARTO / Esri" }).addTo(mapInstance);
+    tileLayer = L.tileLayer(url, {
+      maxZoom: 20,
+      subdomains: "abc",
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles <a href="https://www.openstreetmap.fr/">OpenStreetMap France</a> / Esri',
+    }).addTo(mapInstance);
     (options.markers || []).forEach((m) => {
       const marker = L.circleMarker([m.lat, m.lng], {
         radius: 7,

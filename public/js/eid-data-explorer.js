@@ -162,6 +162,27 @@ window.EidDataExplorer = (function () {
     return groups;
   }
 
+  /**
+   * Keep category headers, but only the first `budget` rows of large groups.
+   * Small groups (and collapsed groups) stay intact so search and downloads
+   * still apply to the full filtered set once those rows are passed in.
+   */
+  function visibleGroups(groups, budget) {
+    let left = Math.max(24, Number(budget) || 24);
+    return (groups || []).map((group) => {
+      const all = group.rows || [];
+      if (!group.showRows) return { ...group, rows: [] };
+      if (all.length <= 24) return group;
+      const take = Math.min(all.length, left);
+      left -= take;
+      return {
+        ...group,
+        rows: all.slice(0, take),
+        showRows: take > 0,
+      };
+    });
+  }
+
   return {
     CATEGORY_ORDER,
     CATEGORY_LABELS,
@@ -169,6 +190,7 @@ window.EidDataExplorer = (function () {
     filterDatasets,
     toRows,
     groupByCategory,
+    visibleGroups,
     officeLabel,
   };
 })();
