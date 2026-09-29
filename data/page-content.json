@@ -1912,7 +1912,7 @@
           },
           {
             "id": "Map",
-            "label": "Polling units",
+            "label": "Regions",
             "visible": false,
             "order": 1,
             "live": false
@@ -1920,28 +1920,28 @@
           {
             "id": "Live Results",
             "label": "Live Results",
-            "visible": false,
+            "visible": true,
             "order": 2,
             "live": true
           },
           {
             "id": "Candidates",
             "label": "Candidates",
-            "visible": false,
+            "visible": true,
             "order": 3,
             "live": false
           },
           {
             "id": "Parties",
             "label": "Parties",
-            "visible": false,
+            "visible": true,
             "order": 4,
             "live": false
           },
           {
             "id": "Analysis",
             "label": "Analysis",
-            "visible": false,
+            "visible": true,
             "order": 5,
             "live": false
           },
@@ -2010,7 +2010,7 @@
           "headline": "",
           "subhead": "",
           "notes": "",
-          "comingSoonMessage": "Live results and KPIs for this country are not loaded yet. Nigeria is the live scope.",
+          "comingSoonMessage": "Ghana shows Electoral Commission results where a sourced pack is loaded. Other years stay empty.",
           "kpiCards": []
         },
         "widgets": [],
@@ -2025,13 +2025,13 @@
         ],
         "capabilities": {
           "liveData": false,
-          "maps": false,
-          "analysis": false,
-          "candidates": false,
-          "parties": false,
-          "liveResults": false,
+          "maps": true,
+          "analysis": true,
+          "candidates": true,
+          "parties": true,
+          "liveResults": true,
           "dataExplorer": false,
-          "comingSoon": true
+          "comingSoon": false
         },
         "links": {
           "dashboardOverview": true,

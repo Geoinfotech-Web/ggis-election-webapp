@@ -1,0 +1,1189 @@
+{
+  "pres": {
+    "2016": {
+      "meta": {
+        "office": "pres",
+        "year": "2016",
+        "level": "region",
+        "title": "2016 Presidential Election",
+        "round": "first",
+        "date": "2016-12-07",
+        "source": "By-region votes for Nana Akufo-Addo and John Dramani Mahama, sourced to the Electoral Commission on the Wikipedia 2016 election page. The ten regions then in use sum to 5,755,758 (NPP) and 4,751,188 (NDC). Areas created in 2019 are painted with the former parent region and labelled as such.",
+        "sourceUrl": "https://en.wikipedia.org/wiki/2016_Ghanaian_general_election",
+        "attribution": "Electoral Commission of Ghana, via the Wikipedia by-region table",
+        "updated": "2016-12-09",
+        "declaredWinner": "Nana Akufo-Addo",
+        "declaredParty": "NPP",
+        "validVotes": null,
+        "leadingTwo": 10506946
+      },
+      "candidates": [
+        {
+          "id": "NPP",
+          "name": "Nana Akufo-Addo",
+          "party": "NPP",
+          "votes": 5755758
+        },
+        {
+          "id": "NDC",
+          "name": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": 4751188
+        }
+      ],
+      "units": {
+        "Ahafo": {
+          "winner": "Nana Akufo-Addo",
+          "party": "NPP",
+          "parent": "Brong-Ahafo",
+          "note": "2016 votes were collated for the former Brong-Ahafo Region, which included this area. This is not a separate 2016 total.",
+          "votes": {
+            "NPP": 531147,
+            "NDC": 422789
+          }
+        },
+        "Ashanti": {
+          "winner": "Nana Akufo-Addo",
+          "party": "NPP",
+          "parent": "",
+          "note": "",
+          "votes": {
+            "NPP": 1640694,
+            "NDC": 503497
+          }
+        },
+        "Bono": {
+          "winner": "Nana Akufo-Addo",
+          "party": "NPP",
+          "parent": "Brong-Ahafo",
+          "note": "2016 votes were collated for the former Brong-Ahafo Region, which included this area. This is not a separate 2016 total.",
+          "votes": {
+            "NPP": 531147,
+            "NDC": 422789
+          }
+        },
+        "Bono East": {
+          "winner": "Nana Akufo-Addo",
+          "party": "NPP",
+          "parent": "Brong-Ahafo",
+          "note": "2016 votes were collated for the former Brong-Ahafo Region, which included this area. This is not a separate 2016 total.",
+          "votes": {
+            "NPP": 531147,
+            "NDC": 422789
+          }
+        },
+        "Central": {
+          "winner": "Nana Akufo-Addo",
+          "party": "NPP",
+          "parent": "",
+          "note": "",
+          "votes": {
+            "NPP": 496668,
+            "NDC": 405262
+          }
+        },
+        "Eastern": {
+          "winner": "Nana Akufo-Addo",
+          "party": "NPP",
+          "parent": "",
+          "note": "",
+          "votes": {
+            "NPP": 674240,
+            "NDC": 379675
+          }
+        },
+        "Greater Accra": {
+          "winner": "Nana Akufo-Addo",
+          "party": "NPP",
+          "parent": "",
+          "note": "",
+          "votes": {
+            "NPP": 1062157,
+            "NDC": 946048
+          }
+        },
+        "North East": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "parent": "Northern",
+          "note": "2016 votes were collated for the former Northern Region, which included this area. This is not a separate 2016 total.",
+          "votes": {
+            "NPP": 429375,
+            "NDC": 569853
+          }
+        },
+        "Northern": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "parent": "",
+          "note": "",
+          "votes": {
+            "NPP": 429375,
+            "NDC": 569853
+          }
+        },
+        "Oti": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "parent": "Volta",
+          "note": "2016 votes were collated for the former Volta Region, which included this area. This is not a separate 2016 total.",
+          "votes": {
+            "NPP": 135077,
+            "NDC": 629398
+          }
+        },
+        "Savannah": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "parent": "Northern",
+          "note": "2016 votes were collated for the former Northern Region, which included this area. This is not a separate 2016 total.",
+          "votes": {
+            "NPP": 429375,
+            "NDC": 569853
+          }
+        },
+        "Upper East": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "parent": "",
+          "note": "",
+          "votes": {
+            "NPP": 157398,
+            "NDC": 271796
+          }
+        },
+        "Upper West": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "parent": "",
+          "note": "",
+          "votes": {
+            "NPP": 102843,
+            "NDC": 167032
+          }
+        },
+        "Volta": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "parent": "",
+          "note": "",
+          "votes": {
+            "NPP": 135077,
+            "NDC": 629398
+          }
+        },
+        "Western": {
+          "winner": "Nana Akufo-Addo",
+          "party": "NPP",
+          "parent": "",
+          "note": "",
+          "votes": {
+            "NPP": 526159,
+            "NDC": 455838
+          }
+        },
+        "Western North": {
+          "winner": "Nana Akufo-Addo",
+          "party": "NPP",
+          "parent": "Western",
+          "note": "2016 votes were collated for the former Western Region, which included this area. This is not a separate 2016 total.",
+          "votes": {
+            "NPP": 526159,
+            "NDC": 455838
+          }
+        }
+      }
+    },
+    "2020": {
+      "meta": {
+        "office": "pres",
+        "year": "2020",
+        "level": "region",
+        "title": "2020 Presidential Election",
+        "round": "first",
+        "date": "2020-12-07",
+        "source": "16-region presidential table compiled by Wikipedia from Graphic Online and the Electoral Commission. The rows add to the table totals: Nana Akufo-Addo 6,730,587 and John Dramani Mahama 6,213,182. A separate EC announcement reported 6,730,413 and 6,214,889; this pack uses the regional table that reconciles internally, including Western North (Akufo-Addo 175,240, Mahama 196,556).",
+        "sourceUrl": "https://en.wikipedia.org/wiki/2020_Ghanaian_general_election",
+        "ecUrl": "https://ec.gov.gh/2020-presidential-election-results/",
+        "attribution": "Electoral Commission of Ghana, via the Wikipedia by-region table (Graphic Online / EC)",
+        "updated": "2020-12-09",
+        "declaredWinner": "Nana Akufo-Addo",
+        "declaredParty": "NPP",
+        "validVotes": 13119460
+      },
+      "candidates": [
+        {
+          "id": "NPP",
+          "name": "Nana Akufo-Addo",
+          "party": "NPP",
+          "votes": 6730587
+        },
+        {
+          "id": "NDC",
+          "name": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": 6213182
+        },
+        {
+          "id": "GUM",
+          "name": "Christian Kwabena Andrews",
+          "party": "GUM",
+          "votes": 105548
+        },
+        {
+          "id": "CPP",
+          "name": "Ivor Kobina Greenstreet",
+          "party": "CPP",
+          "votes": 12200
+        },
+        {
+          "id": "GFP",
+          "name": "Akua Donkor",
+          "party": "GFP",
+          "votes": 5574
+        },
+        {
+          "id": "GCPP",
+          "name": "Henry Herbert Lartey",
+          "party": "GCPP",
+          "votes": 3564
+        },
+        {
+          "id": "APC",
+          "name": "Hassan Ayariga",
+          "party": "APC",
+          "votes": 7138
+        },
+        {
+          "id": "LPG",
+          "name": "Percival Kofi Akpaloo",
+          "party": "LPG",
+          "votes": 7683
+        },
+        {
+          "id": "PNC",
+          "name": "David Asibi Ayindenaba Apasera",
+          "party": "PNC",
+          "votes": 10882
+        },
+        {
+          "id": "PPP",
+          "name": "Brigitte Dzogbenuku",
+          "party": "PPP",
+          "votes": 6849
+        },
+        {
+          "id": "NDP",
+          "name": "Nana Konadu Agyeman-Rawlings",
+          "party": "NDP",
+          "votes": 6549
+        },
+        {
+          "id": "IND-Walker",
+          "name": "Alfred Kwame Asiedu Walker",
+          "party": "IND",
+          "votes": 9704
+        }
+      ],
+      "units": {
+        "Ahafo": {
+          "winner": "Nana Akufo-Addo",
+          "party": "NPP",
+          "votes": {
+            "NPP": 145584,
+            "NDC": 116485,
+            "GUM": 1493,
+            "CPP": 194,
+            "GFP": 49,
+            "GCPP": 51,
+            "APC": 150,
+            "LPG": 113,
+            "PNC": 82,
+            "PPP": 52,
+            "NDP": 135,
+            "IND-Walker": 103
+          }
+        },
+        "Ashanti": {
+          "winner": "Nana Akufo-Addo",
+          "party": "NPP",
+          "votes": {
+            "NPP": 1795824,
+            "NDC": 653149,
+            "GUM": 12564,
+            "CPP": 1356,
+            "GFP": 593,
+            "GCPP": 304,
+            "APC": 482,
+            "LPG": 712,
+            "PNC": 444,
+            "PPP": 435,
+            "NDP": 476,
+            "IND-Walker": 952
+          }
+        },
+        "Bono": {
+          "winner": "Nana Akufo-Addo",
+          "party": "NPP",
+          "votes": {
+            "NPP": 292604,
+            "NDC": 203329,
+            "GUM": 4514,
+            "CPP": 338,
+            "GFP": 165,
+            "GCPP": 132,
+            "APC": 255,
+            "LPG": 216,
+            "PNC": 209,
+            "PPP": 214,
+            "NDP": 235,
+            "IND-Walker": 374
+          }
+        },
+        "Bono East": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": {
+            "NPP": 153341,
+            "NDC": 213694,
+            "GUM": 2923,
+            "CPP": 380,
+            "GFP": 143,
+            "GCPP": 153,
+            "APC": 409,
+            "LPG": 304,
+            "PNC": 231,
+            "PPP": 220,
+            "NDP": 210,
+            "IND-Walker": 400
+          }
+        },
+        "Central": {
+          "winner": "Nana Akufo-Addo",
+          "party": "NPP",
+          "votes": {
+            "NPP": 613804,
+            "NDC": 538829,
+            "GUM": 15160,
+            "CPP": 1117,
+            "GFP": 478,
+            "GCPP": 361,
+            "APC": 468,
+            "LPG": 586,
+            "PNC": 323,
+            "PPP": 1042,
+            "NDP": 467,
+            "IND-Walker": 804
+          }
+        },
+        "Eastern": {
+          "winner": "Nana Akufo-Addo",
+          "party": "NPP",
+          "votes": {
+            "NPP": 752061,
+            "NDC": 470999,
+            "GUM": 9819,
+            "CPP": 854,
+            "GFP": 379,
+            "GCPP": 211,
+            "APC": 466,
+            "LPG": 510,
+            "PNC": 278,
+            "PPP": 363,
+            "NDP": 358,
+            "IND-Walker": 642
+          }
+        },
+        "Greater Accra": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": {
+            "NPP": 1253179,
+            "NDC": 1326489,
+            "GUM": 16112,
+            "CPP": 1763,
+            "GFP": 767,
+            "GCPP": 231,
+            "APC": 628,
+            "LPG": 522,
+            "PNC": 401,
+            "PPP": 1220,
+            "NDP": 685,
+            "IND-Walker": 511
+          }
+        },
+        "Northern": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": {
+            "NPP": 409963,
+            "NDC": 476550,
+            "GUM": 3184,
+            "CPP": 1510,
+            "GFP": 394,
+            "GCPP": 438,
+            "APC": 900,
+            "LPG": 1281,
+            "PNC": 1209,
+            "PPP": 498,
+            "NDP": 545,
+            "IND-Walker": 1259
+          }
+        },
+        "North East": {
+          "winner": "Nana Akufo-Addo",
+          "party": "NPP",
+          "votes": {
+            "NPP": 122742,
+            "NDC": 112306,
+            "GUM": 952,
+            "CPP": 292,
+            "GFP": 324,
+            "GCPP": 198,
+            "APC": 376,
+            "LPG": 505,
+            "PNC": 579,
+            "PPP": 205,
+            "NDP": 322,
+            "IND-Walker": 322
+          }
+        },
+        "Oti": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": {
+            "NPP": 103865,
+            "NDC": 181021,
+            "GUM": 2459,
+            "CPP": 265,
+            "GFP": 200,
+            "GCPP": 97,
+            "APC": 195,
+            "LPG": 228,
+            "PNC": 371,
+            "PPP": 240,
+            "NDP": 263,
+            "IND-Walker": 282
+          }
+        },
+        "Savannah": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": {
+            "NPP": 80605,
+            "NDC": 144244,
+            "GUM": 1409,
+            "CPP": 503,
+            "GFP": 212,
+            "GCPP": 185,
+            "APC": 387,
+            "LPG": 322,
+            "PNC": 344,
+            "PPP": 160,
+            "NDP": 279,
+            "IND-Walker": 435
+          }
+        },
+        "Upper East": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": {
+            "NPP": 170340,
+            "NDC": 335502,
+            "GUM": 3100,
+            "CPP": 879,
+            "GFP": 832,
+            "GCPP": 359,
+            "APC": 919,
+            "LPG": 868,
+            "PNC": 2890,
+            "PPP": 685,
+            "NDP": 1017,
+            "IND-Walker": 1321
+          }
+        },
+        "Upper West": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": {
+            "NPP": 121230,
+            "NDC": 238972,
+            "GUM": 2240,
+            "CPP": 640,
+            "GFP": 360,
+            "GCPP": 354,
+            "APC": 487,
+            "LPG": 742,
+            "PNC": 2794,
+            "PPP": 328,
+            "NDP": 406,
+            "IND-Walker": 1094
+          }
+        },
+        "Volta": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": {
+            "NPP": 100481,
+            "NDC": 606508,
+            "GUM": 4679,
+            "CPP": 705,
+            "GFP": 180,
+            "GCPP": 158,
+            "APC": 406,
+            "LPG": 237,
+            "PNC": 220,
+            "PPP": 314,
+            "NDP": 617,
+            "IND-Walker": 442
+          }
+        },
+        "Western": {
+          "winner": "Nana Akufo-Addo",
+          "party": "NPP",
+          "votes": {
+            "NPP": 439724,
+            "NDC": 398549,
+            "GUM": 20638,
+            "CPP": 1143,
+            "GFP": 379,
+            "GCPP": 223,
+            "APC": 400,
+            "LPG": 367,
+            "PNC": 305,
+            "PPP": 787,
+            "NDP": 417,
+            "IND-Walker": 508
+          }
+        },
+        "Western North": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": {
+            "NPP": 175240,
+            "NDC": 196556,
+            "GUM": 4302,
+            "CPP": 261,
+            "GFP": 119,
+            "GCPP": 109,
+            "APC": 210,
+            "LPG": 170,
+            "PNC": 202,
+            "PPP": 86,
+            "NDP": 117,
+            "IND-Walker": 255
+          }
+        }
+      }
+    },
+    "2024": {
+      "meta": {
+        "office": "pres",
+        "year": "2024",
+        "level": "region",
+        "title": "2024 Presidential Election",
+        "round": "first",
+        "date": "2024-12-07",
+        "source": "Regional rows are the Wikipedia compilation of the Electoral Commission declaration. Added together they equal the national totals the EC chair announced: 11,191,422 valid votes, John Dramani Mahama 6,328,397 (56.55%), Mahamudu Bawumia 4,657,304 (41.61%). Daily Guide Network reported that declaration on 10 December 2024. The EC used 267 of 276 constituencies.",
+        "sourceUrl": "https://en.wikipedia.org/wiki/2024_Ghanaian_general_election",
+        "declarationUrl": "https://dailyguidenetwork.com/mahama-wins-2024-polls-with-56-55-ec/",
+        "ecUrl": "https://ec.gov.gh/2024-election-results/",
+        "attribution": "Electoral Commission of Ghana, via the Wikipedia regional table and the Daily Guide Network report of the EC declaration",
+        "updated": "2024-12-09",
+        "declaredWinner": "John Dramani Mahama",
+        "declaredParty": "NDC",
+        "validVotes": 11191422,
+        "rejected": 239109,
+        "cast": 11430531,
+        "register": 18774159,
+        "constituenciesInDeclaration": 267,
+        "constituenciesTotal": 276
+      },
+      "candidates": [
+        {
+          "id": "NDC",
+          "name": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": 6328397
+        },
+        {
+          "id": "NPP",
+          "name": "Mahamudu Bawumia",
+          "party": "NPP",
+          "votes": 4657304
+        },
+        {
+          "id": "IND-Bediako",
+          "name": "Nana Kwame Bediako",
+          "party": "IND",
+          "votes": 84478
+        },
+        {
+          "id": "IND-Kyerematen",
+          "name": "Alan John Kwadwo Kyerematen",
+          "party": "IND",
+          "votes": 31202
+        },
+        {
+          "id": "CPP",
+          "name": "Nana Frimpomaa Kumankuma",
+          "party": "CPP",
+          "votes": 23397
+        },
+        {
+          "id": "APC",
+          "name": "Hassan Ayariga",
+          "party": "APC",
+          "votes": 17461
+        },
+        {
+          "id": "GCPP",
+          "name": "Daniel Augustus Lartey",
+          "party": "GCPP",
+          "votes": 16673
+        },
+        {
+          "id": "GUM",
+          "name": "Christian Kwabena Andrews",
+          "party": "GUM",
+          "votes": 16461
+        },
+        {
+          "id": "LPG",
+          "name": "Kofi Akpaloo",
+          "party": "LPG",
+          "votes": 5219
+        },
+        {
+          "id": "NDP",
+          "name": "Mohammed Frimpong",
+          "party": "NDP",
+          "votes": 4413
+        },
+        {
+          "id": "IND-Koranteng",
+          "name": "Kofi Koranteng",
+          "party": "IND",
+          "votes": 3320
+        },
+        {
+          "id": "IND-Adu",
+          "name": "George Twum-Barimah-Adu",
+          "party": "IND",
+          "votes": 3097
+        }
+      ],
+      "units": {
+        "Ahafo": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": {
+            "NDC": 130106,
+            "NPP": 113851,
+            "IND-Bediako": 1731,
+            "IND-Kyerematen": 441,
+            "CPP": 349,
+            "APC": 367,
+            "GCPP": 357,
+            "GUM": 221,
+            "LPG": 70,
+            "NDP": 56,
+            "IND-Koranteng": 39,
+            "IND-Adu": 27
+          }
+        },
+        "Ashanti": {
+          "winner": "Mahamudu Bawumia",
+          "party": "NPP",
+          "votes": {
+            "NDC": 697076,
+            "NPP": 1366800,
+            "IND-Bediako": 23432,
+            "IND-Kyerematen": 8763,
+            "CPP": 2651,
+            "APC": 2077,
+            "GCPP": 1608,
+            "GUM": 2317,
+            "LPG": 524,
+            "NDP": 278,
+            "IND-Koranteng": 252,
+            "IND-Adu": 330
+          }
+        },
+        "Bono": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": {
+            "NDC": 235681,
+            "NPP": 192773,
+            "IND-Bediako": 5549,
+            "IND-Kyerematen": 832,
+            "CPP": 880,
+            "APC": 776,
+            "GCPP": 636,
+            "GUM": 719,
+            "LPG": 174,
+            "NDP": 271,
+            "IND-Koranteng": 96,
+            "IND-Adu": 99
+          }
+        },
+        "Bono East": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": {
+            "NDC": 216691,
+            "NPP": 124811,
+            "IND-Bediako": 1374,
+            "IND-Kyerematen": 665,
+            "CPP": 889,
+            "APC": 708,
+            "GCPP": 730,
+            "GUM": 614,
+            "LPG": 179,
+            "NDP": 131,
+            "IND-Koranteng": 138,
+            "IND-Adu": 110
+          }
+        },
+        "Central": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": {
+            "NDC": 562620,
+            "NPP": 382749,
+            "IND-Bediako": 9090,
+            "IND-Kyerematen": 2417,
+            "CPP": 2118,
+            "APC": 1318,
+            "GCPP": 1457,
+            "GUM": 2305,
+            "LPG": 489,
+            "NDP": 286,
+            "IND-Koranteng": 367,
+            "IND-Adu": 335
+          }
+        },
+        "Eastern": {
+          "winner": "Mahamudu Bawumia",
+          "party": "NPP",
+          "votes": {
+            "NDC": 453234,
+            "NPP": 493234,
+            "IND-Bediako": 6910,
+            "IND-Kyerematen": 1851,
+            "CPP": 1544,
+            "APC": 1118,
+            "GCPP": 1244,
+            "GUM": 1507,
+            "LPG": 344,
+            "NDP": 365,
+            "IND-Koranteng": 315,
+            "IND-Adu": 219
+          }
+        },
+        "Greater Accra": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": {
+            "NDC": 1260832,
+            "NPP": 681535,
+            "IND-Bediako": 19630,
+            "IND-Kyerematen": 6289,
+            "CPP": 2975,
+            "APC": 2102,
+            "GCPP": 758,
+            "GUM": 1773,
+            "LPG": 401,
+            "NDP": 223,
+            "IND-Koranteng": 290,
+            "IND-Adu": 271
+          }
+        },
+        "Northern": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": {
+            "NDC": 529456,
+            "NPP": 370928,
+            "IND-Bediako": 1305,
+            "IND-Kyerematen": 2624,
+            "CPP": 2154,
+            "APC": 2125,
+            "GCPP": 2825,
+            "GUM": 991,
+            "LPG": 719,
+            "NDP": 444,
+            "IND-Koranteng": 604,
+            "IND-Adu": 547
+          }
+        },
+        "North East": {
+          "winner": "Mahamudu Bawumia",
+          "party": "NPP",
+          "votes": {
+            "NDC": 111051,
+            "NPP": 134800,
+            "IND-Bediako": 203,
+            "IND-Kyerematen": 569,
+            "CPP": 396,
+            "APC": 354,
+            "GCPP": 1026,
+            "GUM": 245,
+            "LPG": 266,
+            "NDP": 155,
+            "IND-Koranteng": 132,
+            "IND-Adu": 154
+          }
+        },
+        "Oti": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": {
+            "NDC": 182470,
+            "NPP": 86489,
+            "IND-Bediako": 455,
+            "IND-Kyerematen": 620,
+            "CPP": 970,
+            "APC": 499,
+            "GCPP": 532,
+            "GUM": 380,
+            "LPG": 282,
+            "NDP": 111,
+            "IND-Koranteng": 87,
+            "IND-Adu": 75
+          }
+        },
+        "Savannah": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": {
+            "NDC": 134563,
+            "NPP": 56774,
+            "IND-Bediako": 256,
+            "IND-Kyerematen": 882,
+            "CPP": 621,
+            "APC": 511,
+            "GCPP": 569,
+            "GUM": 341,
+            "LPG": 163,
+            "NDP": 219,
+            "IND-Koranteng": 105,
+            "IND-Adu": 105
+          }
+        },
+        "Upper East": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": {
+            "NDC": 361597,
+            "NPP": 106700,
+            "IND-Bediako": 743,
+            "IND-Kyerematen": 1110,
+            "CPP": 1436,
+            "APC": 2202,
+            "GCPP": 1856,
+            "GUM": 547,
+            "LPG": 486,
+            "NDP": 387,
+            "IND-Koranteng": 247,
+            "IND-Adu": 215
+          }
+        },
+        "Upper West": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": {
+            "NDC": 242852,
+            "NPP": 89906,
+            "IND-Bediako": 613,
+            "IND-Kyerematen": 919,
+            "CPP": 1605,
+            "APC": 801,
+            "GCPP": 1251,
+            "GUM": 556,
+            "LPG": 293,
+            "NDP": 239,
+            "IND-Koranteng": 294,
+            "IND-Adu": 219
+          }
+        },
+        "Volta": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": {
+            "NDC": 584234,
+            "NPP": 56699,
+            "IND-Bediako": 1542,
+            "IND-Kyerematen": 1136,
+            "CPP": 1586,
+            "APC": 929,
+            "GCPP": 366,
+            "GUM": 372,
+            "LPG": 370,
+            "NDP": 929,
+            "IND-Koranteng": 93,
+            "IND-Adu": 98
+          }
+        },
+        "Western": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": {
+            "NDC": 423245,
+            "NPP": 275231,
+            "IND-Bediako": 9922,
+            "IND-Kyerematen": 1643,
+            "CPP": 2281,
+            "APC": 995,
+            "GCPP": 912,
+            "GUM": 2946,
+            "LPG": 324,
+            "NDP": 199,
+            "IND-Koranteng": 168,
+            "IND-Adu": 201
+          }
+        },
+        "Western North": {
+          "winner": "John Dramani Mahama",
+          "party": "NDC",
+          "votes": {
+            "NDC": 202689,
+            "NPP": 124024,
+            "IND-Bediako": 1723,
+            "IND-Kyerematen": 441,
+            "CPP": 942,
+            "APC": 579,
+            "GCPP": 546,
+            "GUM": 627,
+            "LPG": 135,
+            "NDP": 120,
+            "IND-Koranteng": 93,
+            "IND-Adu": 92
+          }
+        }
+      }
+    }
+  },
+  "parl": {
+    "2020": {
+      "meta": {
+        "office": "parl",
+        "year": "2020",
+        "level": "national",
+        "title": "2020 Parliamentary Election",
+        "source": "National seat totals for the 275-seat parliament. No regional seat pack is loaded.",
+        "sourceUrl": "https://en.wikipedia.org/wiki/2020_Ghanaian_general_election",
+        "attribution": "Wikipedia compilation of the 2020 parliamentary result: NPP 137, NDC 137, independent 1.",
+        "emptyMap": true
+      },
+      "seats": [
+        {
+          "party": "NPP",
+          "seats": 137
+        },
+        {
+          "party": "NDC",
+          "seats": 137
+        },
+        {
+          "party": "IND",
+          "seats": 1
+        }
+      ],
+      "totalSeats": 275,
+      "units": {}
+    },
+    "2024": {
+      "meta": {
+        "office": "parl",
+        "year": "2024",
+        "level": "region",
+        "title": "2024 Parliamentary Election",
+        "source": "GhanaWeb regional seat table (NDC 187, NPP 80, other 3, total 270). Six constituencies were still outstanding in that table. The national declaration remains NDC 184, NPP 88, independents 4, of 276. The map uses plurality of the published regional seats. North East is a 3–3 tie and is not coloured.",
+        "sourceUrl": "https://mobile.ghanaweb.com/elections/2024/parliamentary-results-tabular",
+        "attribution": "GhanaWeb parliamentary results by region. National seat declaration: Wikipedia compilation of the 2024 result.",
+        "nationalSourceUrl": "https://en.wikipedia.org/wiki/2024_Ghanaian_general_election",
+        "declaredSeatsNote": "National declaration: NDC 184, NPP 88, independents 4."
+      },
+      "seats": [
+        {
+          "party": "NDC",
+          "seats": 184
+        },
+        {
+          "party": "NPP",
+          "seats": 88
+        },
+        {
+          "party": "IND",
+          "seats": 4
+        }
+      ],
+      "totalSeats": 276,
+      "units": {
+        "Ashanti": {
+          "winner": "NPP",
+          "party": "NPP",
+          "votes": {
+            "NDC": 11,
+            "NPP": 35,
+            "IND": 0
+          },
+          "tie": false
+        },
+        "Central": {
+          "winner": "NDC",
+          "party": "NDC",
+          "votes": {
+            "NDC": 18,
+            "NPP": 4,
+            "IND": 1
+          },
+          "tie": false
+        },
+        "Eastern": {
+          "winner": "NPP",
+          "party": "NPP",
+          "votes": {
+            "NDC": 8,
+            "NPP": 23,
+            "IND": 1
+          },
+          "tie": false
+        },
+        "Greater Accra": {
+          "winner": "NDC",
+          "party": "NDC",
+          "votes": {
+            "NDC": 29,
+            "NPP": 3,
+            "IND": 0
+          },
+          "tie": false
+        },
+        "Northern": {
+          "winner": "NDC",
+          "party": "NDC",
+          "votes": {
+            "NDC": 10,
+            "NPP": 7,
+            "IND": 1
+          },
+          "tie": false
+        },
+        "Upper East": {
+          "winner": "NDC",
+          "party": "NDC",
+          "votes": {
+            "NDC": 15,
+            "NPP": 0,
+            "IND": 0
+          },
+          "tie": false
+        },
+        "Upper West": {
+          "winner": "NDC",
+          "party": "NDC",
+          "votes": {
+            "NDC": 11,
+            "NPP": 0,
+            "IND": 0
+          },
+          "tie": false
+        },
+        "Volta": {
+          "winner": "NDC",
+          "party": "NDC",
+          "votes": {
+            "NDC": 17,
+            "NPP": 0,
+            "IND": 0
+          },
+          "tie": false
+        },
+        "Western": {
+          "winner": "NDC",
+          "party": "NDC",
+          "votes": {
+            "NDC": 15,
+            "NPP": 2,
+            "IND": 0
+          },
+          "tie": false
+        },
+        "Oti": {
+          "winner": "NDC",
+          "party": "NDC",
+          "votes": {
+            "NDC": 9,
+            "NPP": 0,
+            "IND": 0
+          },
+          "tie": false
+        },
+        "Bono East": {
+          "winner": "NDC",
+          "party": "NDC",
+          "votes": {
+            "NDC": 10,
+            "NPP": 0,
+            "IND": 0
+          },
+          "tie": false
+        },
+        "Ahafo": {
+          "winner": "NDC",
+          "party": "NDC",
+          "votes": {
+            "NDC": 5,
+            "NPP": 1,
+            "IND": 0
+          },
+          "tie": false
+        },
+        "Bono": {
+          "winner": "NDC",
+          "party": "NDC",
+          "votes": {
+            "NDC": 11,
+            "NPP": 1,
+            "IND": 0
+          },
+          "tie": false
+        },
+        "North East": {
+          "winner": "Tie in the published table",
+          "party": "",
+          "votes": {
+            "NDC": 3,
+            "NPP": 3,
+            "IND": 0
+          },
+          "tie": true
+        },
+        "Savannah": {
+          "winner": "NDC",
+          "party": "NDC",
+          "votes": {
+            "NDC": 6,
+            "NPP": 1,
+            "IND": 0
+          },
+          "tie": false
+        },
+        "Western North": {
+          "winner": "NDC",
+          "party": "NDC",
+          "votes": {
+            "NDC": 9,
+            "NPP": 0,
+            "IND": 0
+          },
+          "tie": false
+        }
+      }
+    }
+  },
+  "local": {}
+}

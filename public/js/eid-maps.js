@@ -872,6 +872,94 @@
     return bag[key];
   }
 
+  function ghanaRegionName(props) {
+    const raw = (props && (props.shapeName || props.name)) || "";
+    return String(raw).replace(/\s+region$/i, "").trim();
+  }
+
+  function paintGhanaRegions(inst, data, selected, theme) {
+    clearOverlay(inst, "ghana");
+    if (!data || !data.features || !data.features.length) return;
+    const want = String(selected || "").toLowerCase();
+    const units = (theme && theme.ok && theme.units) || {};
+    const layer = global.L.geoJSON(data, {
+      pane: "grid3",
+      style: (feat) => {
+        const name = ghanaRegionName(feat.properties);
+        const on = !!(want && name.toLowerCase() === want);
+        const unit = units[name];
+        if (!unit) {
+          return {
+            stroke: true,
+            color: on ? "#0f766e" : "#155e75",
+            weight: on ? 2.6 : 1.15,
+            fill: true,
+            fillColor: on ? "#5eead4" : "#ccfbf1",
+            fillOpacity: on ? 0.62 : 0.35,
+          };
+        }
+        return {
+          stroke: true,
+          color: on ? "#0f172a" : "#ffffff",
+          weight: on ? 2.6 : 1.1,
+          fill: true,
+          fillColor: unit.color || "#94a3b8",
+          fillOpacity: on ? 0.92 : 0.78,
+        };
+      },
+      onEachFeature: (feat, lyr) => {
+        const name = ghanaRegionName(feat.properties);
+        const unit = units[name];
+        const tip = unit
+          ? (name + " — " + (unit.party || "result") + " plurality" + (unit.winner ? " · " + unit.winner : ""))
+          : name;
+        lyr.bindTooltip(tip, { sticky: true, direction: "top" });
+        lyr.on("click", () => {
+          const cb = inst.cfg && inst.cfg.onGhanaRegion;
+          if (typeof cb === "function") cb(name);
+        });
+      },
+    });
+    layer.addTo(inst.map);
+    inst.overlays.ghana = layer;
+    inst.overlaySource = inst.overlaySource || {};
+    inst.overlaySource.ghana = data;
+  }
+
+  function ghanaThemeKey(theme) {
+    if (!theme || !theme.ok || !theme.units) return "empty";
+    return Object.keys(theme.units).map((name) => name + ":" + (theme.units[name].party || "")).join(",");
+  }
+
+  async function refreshGhanaOverlays(el, inst) {
+    const region = (inst.cfg && inst.cfg.ghanaRegion) || "";
+    const year = (inst.cfg && inst.cfg.ghanaYear) || "";
+    const contest = (inst.cfg && inst.cfg.ghanaContest) || "";
+    const theme = inst.cfg && inst.cfg.ghanaTheme;
+    const key = "gh|" + region + "|" + contest + "|" + year + "|" + ghanaThemeKey(theme);
+    if (inst.overlayKey === key && inst.overlays.ghana && !inst._needsPaint) return;
+    inst.overlayKey = key;
+    inst._geomKey = key;
+    inst._needsPaint = false;
+    ["state", "official-state", "citizen-state", "lga", "ward", "health", "polling", "state-lines"].forEach((id) => {
+      clearOverlay(inst, id);
+    });
+    const data = await loadJson("/data/ghana-regions.geojson");
+    if (!inst.map || inst.overlayKey !== key) return;
+    paintGhanaRegions(inst, data, region, theme);
+    if (!inst._ghanaAttrib && inst.map.attributionControl) {
+      inst.map.attributionControl.addAttribution('Regions &copy; <a href="https://www.geoboundaries.org">geoBoundaries</a> / OpenStreetMap (CC BY-SA)');
+      inst._ghanaAttrib = true;
+    }
+    if (!inst._ghanaFitted && data && data.features) {
+      const bounds = boundsFromFeatures(data);
+      if (bounds) {
+        inst._ghanaFitted = true;
+        inst.map.fitBounds(bounds, { padding: [28, 28], animate: false });
+      }
+    }
+  }
+
   async function refreshOverlays(el) {
     const inst = store.get(el);
     if (!inst || !inst.map) return;
@@ -879,6 +967,10 @@
       inst._needsPaint = true;
       return;
     }
+    if (inst.cfg && inst.cfg.scope === "gh") {
+      return refreshGhanaOverlays(el, inst);
+    }
+    if (inst.overlays && inst.overlays.ghana) clearOverlay(inst, "ghana");
     const layers = inst.cfg.layers || {};
     const preferLocalOnly = !!inst.cfg.preferLocalOnly;
     const zoom = inst.map.getZoom();

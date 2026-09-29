@@ -78,6 +78,18 @@ function defaultAnalysisSubTabs() {
 function defaultCapabilities(code) {
   const isNg = code === 'ng';
   const isGlobal = code === 'global';
+  if (code === 'gh') {
+    return {
+      liveData: false,
+      maps: true,
+      analysis: true,
+      candidates: true,
+      parties: true,
+      liveResults: true,
+      dataExplorer: false,
+      comingSoon: false,
+    };
+  }
   return {
     liveData: isNg || isGlobal,
     maps: isNg,

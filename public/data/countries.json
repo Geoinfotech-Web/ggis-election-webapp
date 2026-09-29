@@ -9,5 +9,17 @@
     "boundaryUrl": "/data/boundaries/adm1.zip",
     "boundaryLevel": "adm1",
     "status": "configured"
+  },
+  {
+    "code": "GH",
+    "slug": "ghana",
+    "name": "Ghana",
+    "region": "West Africa",
+    "center": [7.95, -1.02],
+    "zoom": 7,
+    "boundaryUrl": "/data/ghana-regions.geojson",
+    "boundaryLevel": "adm1",
+    "status": "structure",
+    "note": "16 regions from geoBoundaries ADM1. No published election totals."
   }
 ]

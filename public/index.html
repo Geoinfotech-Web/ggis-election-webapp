@@ -7,10 +7,11 @@
 <link rel="stylesheet" href="./vendor/leaflet/leaflet.css">
 <script src="./vendor/leaflet/leaflet.js"></script>
 <script src="./vendor/chart.js/chart.umd.min.js"></script>
-<script src="./js/eid-maps.js?v=20260928streets"></script>
+<script src="./js/eid-maps.js?v=20260929ghmatch"></script>
+<script src="./js/eid-ghana.js?v=20260929ghmatch"></script>
 <script src="./js/eid-analysis.js?v=20260928tabs"></script>
 <script src="./js/eid-dashboard.js?v=20260916dash"></script>
-<script src="./js/eid-page-content.js?v=20260916pages"></script>
+<script src="./js/eid-page-content.js?v=20260929ghresults"></script>
 <script src="./js/eid-data-explorer.js?v=20260928rows"></script>
 <script src="./support.js?v=20260819c"></script>
 </head>
@@ -466,9 +467,9 @@ a:hover{color:var(--primary)}
     </div>
     <div class="eid-scroll" style="flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;align-items:center;padding:0 22px 40px">
       <div style="width:100%;max-width:1080px;text-align:center;padding:34px 0 30px">
-        <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;font-family:'IBM Plex Sans';font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);border:1px solid var(--border);border-radius:20px;padding:5px 13px"><span style="width:6px;height:6px;border-radius:50%;background:var(--good)"></span>Nigeria live · other countries coming soon</div>
+        <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;font-family:'IBM Plex Sans';font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);border:1px solid var(--border);border-radius:20px;padding:5px 13px"><span style="width:6px;height:6px;border-radius:50%;background:var(--good)"></span>Nigeria live · Ghana structure · other countries coming soon</div>
         <h1 style="margin:0 0 12px;font-size:clamp(30px,4.6vw,50px);font-weight:600;letter-spacing:-.03em;line-height:1.02">Explore elections through<br>data, geography and time</h1>
-        <p style="margin:0 auto 24px;font-size:15.5px;color:var(--dim);max-width:560px">Open Nigeria for live INEC-backed intelligence, or browse the global dashboard. Other countries are listed as coming soon.</p>
+        <p style="margin:0 auto 24px;font-size:15.5px;color:var(--dim);max-width:560px">Open Nigeria for live INEC-backed intelligence, Ghana for the Electoral Commission map, or browse the global dashboard. Other countries are listed as coming soon.</p>
         <div class="eid-welcome-cta" style="display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap">
           <button onClick="{{ openOverview }}" style="height:44px;padding:0 20px;display:inline-flex;align-items:center;gap:9px;border:none;border-radius:10px;background:var(--primary);color:var(--primary-ink);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer"><span class="msi" style="font-size:19px">travel_explore</span>Open global dashboard</button>
           <div style="position:relative;display:flex;align-items:center;width:min(320px,74vw)">
@@ -1053,6 +1054,406 @@ a:hover{color:var(--primary)}
     </div>
     </sc-if>
 
+    <!-- ── GHANA ── -->
+    <sc-if value="{{ isGhana }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden">
+      <div class="ov-header" style="flex:none;position:relative;display:flex;align-items:center;gap:16px;padding:14px 20px;border-bottom:1px solid var(--border);background:linear-gradient(90deg,var(--primary-soft),transparent 60%)">
+        <img class="eid-flag" ref="{{ country.flagRef }}" alt="Ghana flag" style="width:60px;height:40px;flex:none;box-shadow:0 2px 10px rgba(0,0,0,.4)">
+        <div style="flex:1;min-width:0">
+          <div style="display:flex;align-items:center;gap:9px;margin-bottom:4px"><span style="font-family:'IBM Plex Sans';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary)">Electoral Commission of Ghana</span><span style="width:4px;height:4px;border-radius:50%;background:var(--mute)"></span><span style="font-size:11.5px;color:var(--mute)">16 regions · Fourth Republic</span></div>
+          <h1 style="margin:0;font-size:23px;font-weight:600;letter-spacing:-.02em;line-height:1">Ghana</h1>
+        </div>
+        <div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:flex-end">
+          <span style="display:inline-flex;align-items:center;gap:7px;height:32px;padding:0 12px;border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--dim)"><span class="msi" style="font-size:15px;color:var(--up)">event_upcoming</span>Next general election · December 2028</span>
+          <span style="display:inline-flex;align-items:center;gap:7px;height:32px;padding:0 12px;border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--dim)"><span style="width:7px;height:7px;border-radius:50%;background:{{ gh.statusColor }}"></span>{{ gh.statusLabel }}</span>
+        </div>
+      </div>
+
+      <sc-if value="{{ gh.isOverview }}" hint-placeholder-val="{{ true }}">
+      <div class="eid-ov-kpis">
+        <sc-for list="{{ gh.kpis }}" as="k" hint-placeholder-count="4">
+          <div class="eid-ov-kpi">
+            <span class="msi">{{ k.icon }}</span>
+            <div class="eid-ov-kpi__meta">
+              <div class="eid-ov-kpi__label">{{ k.label }}</div>
+              <div class="eid-ov-kpi__row"><span class="eid-ov-kpi__value">{{ k.value }}</span><span class="eid-ov-kpi__unit">{{ k.unit }}</span></div>
+              <div class="eid-ov-kpi__cap">{{ k.caption }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div class="ov-work" style="flex:1;min-height:0;display:grid;grid-template-columns:minmax(220px,290px) minmax(0,1fr) minmax(250px,300px);gap:12px;padding:12px;overflow:hidden;align-items:stretch">
+        <aside class="eid-scroll ov-left" style="display:flex;flex-direction:column;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px">
+          <section style="border:1px solid var(--border2);border-radius:11px;overflow:hidden;background:var(--surface2)">
+            <div style="display:flex;align-items:center;gap:7px;padding:10px 11px;border-bottom:1px solid var(--border)">
+              <span class="msi" style="font-size:16px;color:var(--primary)">how_to_vote</span>
+              <div style="font-size:12px;font-weight:600;color:var(--text)">Contest</div>
+            </div>
+            <div style="padding:11px;display:flex;flex-direction:column;gap:11px">
+              <label style="display:flex;flex-direction:column;gap:6px">
+                <span style="font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)">Election</span>
+                <select value="{{ gh.contestVal }}" onChange="{{ gh.onContest }}" style="{{ selStyle }}">
+                  <sc-for list="{{ gh.offices }}" as="o" hint-placeholder-count="3"><option value="{{ o.v }}">{{ o.l }}</option></sc-for>
+                </select>
+              </label>
+              <sc-if value="{{ gh.hasYears }}" hint-placeholder-val="{{ true }}">
+              <div>
+                <div style="font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-bottom:6px">Electoral year</div>
+                <div style="display:flex;flex-wrap:wrap;gap:6px">
+                  <sc-for list="{{ gh.years }}" as="y" hint-placeholder-count="3">
+                    <button type="button" onClick="{{ y.onClick }}" style="{{ y.style }}">{{ y.label }}</button>
+                  </sc-for>
+                </div>
+              </div>
+              </sc-if>
+              <sc-if value="{{ gh.noYears }}" hint-placeholder-val="{{ false }}">
+              <div style="font-size:12px;color:var(--mute);line-height:1.4">Local assembly results are not archived yet. These elections are non-partisan and are held apart from the general election.</div>
+              </sc-if>
+              <div style="border:1px solid var(--border);border-radius:10px;padding:11px;background:var(--surface)">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><span style="font-family:'IBM Plex Sans';font-size:14px;font-weight:600;color:var(--text)">{{ gh.contestLabel }}</span><span style="font-size:9px;letter-spacing:.05em;text-transform:uppercase;color:var(--primary);background:var(--primary-soft);border-radius:4px;padding:2px 6px">{{ gh.contestKicker }}</span></div>
+                <div style="font-size:12.5px;color:var(--dim);line-height:1.45">{{ gh.contestRule }}</div>
+              </div>
+              <sc-if value="{{ gh.isPres }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <sc-for list="{{ gh.rounds }}" as="r" hint-placeholder-count="2">
+                  <div style="border:1px dashed var(--border2);border-radius:8px;padding:8px 10px">
+                    <div style="font-size:12px;font-weight:600;color:var(--text)">{{ r.label }}</div>
+                    <div style="font-size:11.5px;color:var(--mute);line-height:1.4;margin-top:3px">{{ r.body }}</div>
+                  </div>
+                </sc-for>
+              </div>
+              </sc-if>
+              <div style="font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)">Collation</div>
+              <sc-for list="{{ gh.steps }}" as="s" hint-placeholder-count="4">
+                <div style="display:flex;gap:8px;align-items:flex-start">
+                  <span style="width:7px;height:7px;border-radius:50%;background:var(--primary);flex:none;margin-top:5px"></span>
+                  <div><div style="font-size:12px;font-weight:600;color:var(--text)">{{ s.label }}</div><div style="font-size:11.5px;color:var(--mute);line-height:1.4">{{ s.body }}</div></div>
+                </div>
+              </sc-for>
+            </div>
+          </section>
+        </aside>
+        <main class="ov-main eid-map-stage" style="display:flex;flex-direction:column;min-height:0;height:100%;overflow:hidden">
+          <section style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;flex:1;min-height:0;height:100%">
+            <div style="position:relative;flex:1;min-height:0;overflow:hidden">
+              <div class="eid-leaflet" ref="{{ bindCountryMap }}"></div>
+              <div class="eid-map-ui" style="left:12px;bottom:12px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 12px;box-shadow:var(--shadow);min-width:168px;max-width:230px">
+                <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:7px">{{ gh.legendTitle }}</div>
+                <div style="font-size:11px;color:var(--dim);line-height:1.4;margin-bottom:8px">{{ gh.legendNote }}</div>
+                <sc-if value="{{ gh.hasMapResults }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-direction:column;gap:6px;font-size:11.5px;color:var(--dim)">
+                  <div style="display:flex;align-items:center;gap:8px"><span style="width:12px;height:8px;border-radius:2px;background:#003DA5"></span>NPP plurality</div>
+                  <div style="display:flex;align-items:center;gap:8px"><span style="width:12px;height:8px;border-radius:2px;background:#067647"></span>NDC plurality</div>
+                </div>
+                </sc-if>
+                <sc-if value="{{ gh.noMapResults }}" hint-placeholder-val="{{ true }}">
+                <div style="display:flex;flex-direction:column;gap:6px;font-size:11.5px;color:var(--dim)">
+                  <div style="display:flex;align-items:center;gap:8px"><span style="width:12px;height:8px;border-radius:2px;background:#ccfbf1;border:1px solid #155e75"></span>Uncoloured region</div>
+                  <div style="display:flex;align-items:center;gap:8px"><span style="width:12px;height:8px;border-radius:2px;background:#5eead4;border:1px solid #0f766e"></span>Selected region</div>
+                </div>
+                </sc-if>
+              </div>
+              <div class="eid-map-ui eid-map-stack" style="right:12px;bottom:12px">
+                <div style="display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border);border-radius:9px;overflow:hidden;box-shadow:var(--shadow)">
+                  <button type="button" onClick="{{ zoomCountryIn }}" class="eid-map-fab" style="box-shadow:none;border:none;border-radius:0;width:36px;height:34px"><span class="msi" style="font-size:18px">add</span></button>
+                  <button type="button" onClick="{{ zoomCountryOut }}" class="eid-map-fab" style="box-shadow:none;border:none;border-top:1px solid var(--border);border-radius:0;width:36px;height:34px"><span class="msi" style="font-size:18px">remove</span></button>
+                </div>
+                <div style="position:relative">
+                  <sc-if value="{{ basemapOpen }}" hint-placeholder-val="{{ false }}">
+                  <div style="position:absolute;right:0;bottom:44px;width:168px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:8px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px">
+                    <div style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);padding:0 4px 2px">Basemap</div>
+                    <sc-for list="{{ mapBasemapBtns }}" as="b" hint-placeholder-count="4">
+                      <button type="button" onClick="{{ b.onClick }}" style="{{ b.style }}">{{ b.label }}</button>
+                    </sc-for>
+                  </div>
+                  </sc-if>
+                  <button type="button" onClick="{{ toggleBasemapPanel }}" title="Basemap" class="eid-map-fab" style="{{ basemapFabStyle }}"><span class="msi" style="font-size:18px">map</span></button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+        <aside class="eid-scroll ov-aside-right" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden">
+          <div style="padding:12px 14px;border-bottom:1px solid var(--border)">
+            <div style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:4px">{{ gh.contestLabel }} · {{ gh.yearLabel }}</div>
+            <div style="font-size:14px;font-weight:600;color:var(--text)">{{ gh.panelTitle }}</div>
+            <div style="font-size:12px;color:var(--dim);line-height:1.45;margin-top:4px">{{ gh.panelBody }}</div>
+            <sc-if value="{{ gh.hasSource }}" hint-placeholder-val="{{ false }}">
+            <a href="{{ gh.sourceUrl }}" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:8px;font-size:11.5px;color:var(--primary)">{{ gh.sourceLabel }}</a>
+            </sc-if>
+          </div>
+          <sc-if value="{{ gh.hasRegion }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:10px 14px;border-bottom:1px solid var(--border);background:var(--primary-soft)">
+            <div style="font-size:13px;font-weight:600;color:var(--text)">{{ gh.regionName }}</div>
+            <div style="font-size:11.5px;color:var(--dim);margin-top:2px">Regional capital · {{ gh.regionCapital }}</div>
+            <sc-if value="{{ gh.hasBars }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:12px;font-weight:600;color:var(--text);margin-top:8px">{{ gh.regionParty }} plurality · {{ gh.regionWinner }}</div>
+            <div style="font-size:11px;color:var(--mute);margin-top:2px">{{ gh.regionLead }}</div>
+            </sc-if>
+            <sc-if value="{{ gh.noMapResults }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:11.5px;color:var(--mute);line-height:1.4;margin-top:6px">{{ gh.emptyMessage }}</div>
+            </sc-if>
+          </div>
+          </sc-if>
+          <sc-if value="{{ gh.hasBars }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:10px 14px;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:8px">
+            <sc-for list="{{ gh.bars }}" as="b" hint-placeholder-count="4">
+              <div>
+                <div style="display:flex;justify-content:space-between;gap:8px;font-size:11px;color:var(--dim);margin-bottom:3px"><span>{{ b.label }}</span><span>{{ b.votes }} · {{ b.share }}</span></div>
+                <div style="height:7px;border-radius:4px;background:var(--surface2);overflow:hidden"><span style="display:block;height:100%;width:{{ b.width }};background:{{ b.color }}"></span></div>
+              </div>
+            </sc-for>
+          </div>
+          </sc-if>
+          <sc-if value="{{ gh.noRegion }}" hint-placeholder-val="{{ true }}">
+          <div style="padding:10px 14px;border-bottom:1px solid var(--border);font-size:12px;color:var(--dim);line-height:1.45">Select a region on the map or in the list.</div>
+          </sc-if>
+          <div class="eid-scroll" style="flex:1;min-height:0;overflow-y:auto;padding:8px 10px 12px">
+            <div style="font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);padding:2px 4px 8px">16 regions</div>
+            <sc-for list="{{ gh.regions }}" as="r" hint-placeholder-count="6">
+              <button type="button" onClick="{{ r.onClick }}" style="{{ r.rowStyle }}">
+                <span style="width:8px;height:8px;border-radius:2px;flex:none;background:{{ r.swatch }};border:1px solid var(--border)"></span>
+                <span style="min-width:0;flex:1"><span style="display:block;font-size:12px;font-weight:600">{{ r.name }}</span><span style="display:block;font-size:10.5px;color:var(--mute)">{{ r.capital }}</span></span>
+              </button>
+            </sc-for>
+          </div>
+        </aside>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ gh.isLive }}" hint-placeholder-val="{{ false }}">
+      <div class="eid-page-shell" style="flex:1;min-height:0">
+        <div class="eid-page-root">
+          <div class="eid-page-head">
+            <div style="font-family:'IBM Plex Sans';font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);margin-bottom:6px">Ghana · Live results</div>
+            <h1 style="margin:0 0 8px;font-size:24px;font-weight:600;letter-spacing:-.02em">Declared results</h1>
+            <p style="margin:0;font-size:14px;color:var(--dim);line-height:1.55;max-width:70ch">This is the Electoral Commission declaration for the year you select. It is not a polling-station upload feed. Years without a sourced pack stay empty.</p>
+          </div>
+          <div class="eid-page-body eid-scroll" style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <sc-for list="{{ gh.contests }}" as="c" hint-placeholder-count="3">
+                <button type="button" onClick="{{ c.onClick }}" style="{{ c.style }}">{{ c.label }}</button>
+              </sc-for>
+            </div>
+            <sc-if value="{{ gh.hasYears }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <sc-for list="{{ gh.years }}" as="y" hint-placeholder-count="3">
+                <button type="button" onClick="{{ y.onClick }}" style="{{ y.style }}">{{ y.label }}</button>
+              </sc-for>
+            </div>
+            </sc-if>
+            <sc-if value="{{ gh.hasDeclaration }}" hint-placeholder-val="{{ false }}">
+            <section style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px">
+              <div style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);margin-bottom:6px">Declared · {{ gh.declaration.date }}</div>
+              <h2 style="margin:0 0 4px;font-size:22px;font-weight:600">{{ gh.declaration.winner }}</h2>
+              <div style="font-size:13px;color:var(--dim);margin-bottom:14px">{{ gh.declaration.party }} · {{ gh.declaration.votes }} votes · {{ gh.declaration.share }} of valid votes</div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px">
+                <div style="border:1px solid var(--border);border-radius:8px;padding:8px 10px"><div style="font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)">Valid votes</div><div style="font-size:16px;font-weight:600">{{ gh.declaration.valid }}</div></div>
+                <div style="border:1px solid var(--border);border-radius:8px;padding:8px 10px"><div style="font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)">Rejected</div><div style="font-size:16px;font-weight:600">{{ gh.declaration.rejected }}</div></div>
+                <div style="border:1px solid var(--border);border-radius:8px;padding:8px 10px"><div style="font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)">Cast</div><div style="font-size:16px;font-weight:600">{{ gh.declaration.cast }}</div></div>
+                <div style="border:1px solid var(--border);border-radius:8px;padding:8px 10px"><div style="font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)">Register</div><div style="font-size:16px;font-weight:600">{{ gh.declaration.register }}</div></div>
+                <div style="border:1px solid var(--border);border-radius:8px;padding:8px 10px"><div style="font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)">Turnout</div><div style="font-size:16px;font-weight:600">{{ gh.declaration.turnout }}</div></div>
+                <div style="border:1px solid var(--border);border-radius:8px;padding:8px 10px"><div style="font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)">Constituencies</div><div style="font-size:16px;font-weight:600">{{ gh.declaration.constituencies }}</div></div>
+              </div>
+              <sc-if value="{{ gh.hasSource }}" hint-placeholder-val="{{ false }}">
+              <a href="{{ gh.sourceUrl }}" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:12px;font-size:12.5px;color:var(--primary)">{{ gh.sourceLabel }}</a>
+              </sc-if>
+            </section>
+            </sc-if>
+            <sc-if value="{{ gh.hasSeats }}" hint-placeholder-val="{{ false }}">
+            <section style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px">
+              <div style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:8px">Parliament · {{ gh.seatTotalLabel }}</div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <sc-for list="{{ gh.seats }}" as="s" hint-placeholder-count="3">
+                  <div>
+                    <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px"><span>{{ s.party }}</span><span>{{ s.seats }} · {{ s.share }}</span></div>
+                    <div style="height:8px;border-radius:4px;background:var(--surface2);overflow:hidden"><span style="display:block;height:100%;width:{{ s.width }};background:{{ s.color }}"></span></div>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="font-size:12px;color:var(--mute);line-height:1.45;margin-top:10px">{{ gh.emptyMessage }}</div>
+            </section>
+            </sc-if>
+            <sc-if value="{{ gh.noMapResults }}" hint-placeholder-val="{{ false }}">
+            <sc-if value="{{ gh.noSeats }}" hint-placeholder-val="{{ false }}">
+            <section style="background:var(--surface);border:1px dashed var(--border2);border-radius:12px;padding:18px">
+              <div style="font-size:14px;font-weight:600;margin-bottom:6px">Nothing to declare for {{ gh.yearLabel }}</div>
+              <div style="font-size:13px;color:var(--dim);line-height:1.5">{{ gh.emptyMessage }}</div>
+            </section>
+            </sc-if>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ gh.isCandidates }}" hint-placeholder-val="{{ false }}">
+      <div class="eid-page-shell" style="flex:1;min-height:0">
+        <div class="eid-page-root">
+          <div class="eid-page-head">
+            <div style="font-family:'IBM Plex Sans';font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);margin-bottom:6px">Ghana · Candidates</div>
+            <h1 style="margin:0 0 8px;font-size:24px;font-weight:600;letter-spacing:-.02em">{{ gh.contestLabel }} · {{ gh.yearLabel }}</h1>
+            <p style="margin:0;font-size:14px;color:var(--dim);line-height:1.55;max-width:70ch">Presidential candidates appear only when a sourced national total is in the pack. Parliamentary constituency candidates and local-assembly candidates are not loaded.</p>
+          </div>
+          <div class="eid-page-body eid-scroll" style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <sc-for list="{{ gh.contests }}" as="c" hint-placeholder-count="3">
+                <button type="button" onClick="{{ c.onClick }}" style="{{ c.style }}">{{ c.label }}</button>
+              </sc-for>
+            </div>
+            <sc-if value="{{ gh.hasYears }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <sc-for list="{{ gh.years }}" as="y" hint-placeholder-count="3">
+                <button type="button" onClick="{{ y.onClick }}" style="{{ y.style }}">{{ y.label }}</button>
+              </sc-for>
+            </div>
+            </sc-if>
+            <sc-if value="{{ gh.hasCandidates }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <sc-for list="{{ gh.candidates }}" as="c" hint-placeholder-count="4">
+                <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 12px">
+                  <div style="display:flex;justify-content:space-between;gap:10px;align-items:baseline">
+                    <div><div style="font-size:13px;font-weight:600">{{ c.name }}</div><div style="font-size:11px;color:var(--mute)">{{ c.party }}</div></div>
+                    <div style="text-align:right;font-variant-numeric:tabular-nums"><div style="font-size:13px;font-weight:600">{{ c.votes }}</div><div style="font-size:11px;color:var(--mute)">{{ c.share }}</div></div>
+                  </div>
+                  <div style="height:6px;border-radius:4px;background:var(--surface2);overflow:hidden;margin-top:8px"><span style="display:block;height:100%;width:{{ c.width }};background:{{ c.color }}"></span></div>
+                </div>
+              </sc-for>
+            </div>
+            </sc-if>
+            <sc-if value="{{ gh.noCandidates }}" hint-placeholder-val="{{ true }}">
+            <section style="background:var(--surface);border:1px dashed var(--border2);border-radius:12px;padding:18px">
+              <div style="font-size:14px;font-weight:600;margin-bottom:6px">No candidate sheet for {{ gh.contestLabel }} {{ gh.yearLabel }}</div>
+              <div style="font-size:13px;color:var(--dim);line-height:1.5">{{ gh.emptyMessage }}</div>
+            </section>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ gh.isAnalysis }}" hint-placeholder-val="{{ false }}">
+      <div class="eid-page-shell" style="flex:1;min-height:0">
+        <div class="eid-page-root">
+          <div class="eid-page-head">
+            <div style="font-family:'IBM Plex Sans';font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);margin-bottom:6px">Ghana · Analysis</div>
+            <h1 style="margin:0 0 8px;font-size:24px;font-weight:600;letter-spacing:-.02em">{{ gh.contestLabel }} · {{ gh.yearLabel }}</h1>
+            <p style="margin:0;font-size:14px;color:var(--dim);line-height:1.55;max-width:72ch">Where a regional pack exists, each row is that party’s share of valid votes in the region. The map uses the same plurality. Years without a pack are left blank.</p>
+          </div>
+          <div class="eid-page-body eid-scroll" style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <sc-for list="{{ gh.contests }}" as="c" hint-placeholder-count="3">
+                <button type="button" onClick="{{ c.onClick }}" style="{{ c.style }}">{{ c.label }}</button>
+              </sc-for>
+            </div>
+            <sc-if value="{{ gh.hasYears }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <sc-for list="{{ gh.years }}" as="y" hint-placeholder-count="3">
+                <button type="button" onClick="{{ y.onClick }}" style="{{ y.style }}">{{ y.label }}</button>
+              </sc-for>
+            </div>
+            </sc-if>
+            <sc-if value="{{ gh.hasMapResults }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;gap:14px;font-size:11.5px;color:var(--dim)">
+              <span style="display:inline-flex;align-items:center;gap:6px"><span style="width:10px;height:8px;border-radius:2px;background:#067647"></span>NDC</span>
+              <span style="display:inline-flex;align-items:center;gap:6px"><span style="width:10px;height:8px;border-radius:2px;background:#003DA5"></span>NPP</span>
+              <span>Lead is the gap between those two shares.</span>
+            </div>
+            <sc-for list="{{ gh.analysisRows }}" as="r" hint-placeholder-count="6">
+              <button type="button" onClick="{{ r.onClick }}" style="{{ r.rowStyle }}">
+                <span><span style="display:block;font-size:12.5px;font-weight:600">{{ r.name }}</span><span style="display:block;font-size:10.5px;color:var(--mute)">{{ r.party }} · {{ r.winner }}</span></span>
+                <span style="display:flex;height:8px;border-radius:4px;overflow:hidden;background:var(--surface2)"><span style="display:block;height:100%;width:{{ r.ndcWidth }};background:#067647"></span><span style="display:block;height:100%;width:{{ r.nppWidth }};background:#003DA5"></span></span>
+                <span style="font-size:11px;text-align:right;font-variant-numeric:tabular-nums">{{ r.lead }}</span>
+              </button>
+            </sc-for>
+            </sc-if>
+            <sc-if value="{{ gh.hasSeats }}" hint-placeholder-val="{{ false }}">
+            <section style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px">
+              <div style="font-size:13px;font-weight:600;margin-bottom:8px">National seats · {{ gh.seatTotalLabel }}</div>
+              <sc-for list="{{ gh.seats }}" as="s" hint-placeholder-count="3">
+                <div style="margin-bottom:8px">
+                  <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px"><span>{{ s.party }}</span><span>{{ s.seats }}</span></div>
+                  <div style="height:8px;border-radius:4px;background:var(--surface2);overflow:hidden"><span style="display:block;height:100%;width:{{ s.width }};background:{{ s.color }}"></span></div>
+                </div>
+              </sc-for>
+              <div style="font-size:12.5px;color:var(--mute);line-height:1.45">{{ gh.emptyMessage }}</div>
+            </section>
+            </sc-if>
+            <sc-if value="{{ gh.noMapResults }}" hint-placeholder-val="{{ true }}">
+            <sc-if value="{{ gh.noSeats }}" hint-placeholder-val="{{ false }}">
+            <section style="background:var(--surface);border:1px dashed var(--border2);border-radius:12px;padding:18px">
+              <div style="font-size:14px;font-weight:600;margin-bottom:6px">No analysis for {{ gh.contestLabel }} {{ gh.yearLabel }}</div>
+              <div style="font-size:13px;color:var(--dim);line-height:1.5">{{ gh.emptyMessage }}</div>
+            </section>
+            </sc-if>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ gh.isParties }}" hint-placeholder-val="{{ false }}">
+      <div class="eid-page-shell" style="flex:1;min-height:0">
+        <div class="eid-page-root">
+          <div class="eid-page-head">
+            <div style="font-family:'IBM Plex Sans';font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);margin-bottom:6px">Ghana · Parties</div>
+            <h1 style="margin:0 0 8px;font-size:24px;font-weight:600;letter-spacing:-.02em">National parties</h1>
+            <p style="margin:0;font-size:14px;color:var(--dim);line-height:1.55;max-width:68ch">The Electoral Commission regulates parties that contest the presidency and Parliament. Local assembly elections are non-partisan. The figures below are the 2024 presidential share of valid votes and the 2024 parliamentary seats.</p>
+          </div>
+          <div class="eid-page-body eid-scroll" style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px">
+              <sc-for list="{{ gh.parties }}" as="p" hint-placeholder-count="2">
+                <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden">
+                  <div style="height:6px;background:{{ p.color }}"></div>
+                  <div style="padding:14px 15px">
+                    <div style="display:flex;gap:10px;align-items:center;margin-bottom:10px">
+                      <span style="width:36px;height:36px;border-radius:8px;background:{{ p.color }};display:grid;place-items:center;color:#fff;font-size:11px;font-weight:700">{{ p.abbr }}</span>
+                      <div><div style="font-weight:600">{{ p.name }}</div><div style="font-size:11.5px;color:var(--mute)">Symbol · {{ p.symbol }}</div></div>
+                    </div>
+                    <div style="display:flex;gap:8px;margin-bottom:10px">
+                      <div style="flex:1;border:1px solid var(--border);border-radius:8px;padding:8px 10px"><div style="font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)">{{ p.voteCaption }}</div><div style="font-size:16px;font-weight:600">{{ p.voteShare }}</div></div>
+                      <div style="flex:1;border:1px solid var(--border);border-radius:8px;padding:8px 10px"><div style="font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)">{{ p.seatCaption }}</div><div style="font-size:16px;font-weight:600">{{ p.seats }}</div></div>
+                    </div>
+                    <div style="font-size:12.5px;color:var(--dim);line-height:1.45">{{ p.note }}</div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+            <div style="font-size:12.5px;color:var(--mute);line-height:1.5">Other parties contest national elections. A full EC register and their results are not loaded here.</div>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ gh.isAbout }}" hint-placeholder-val="{{ false }}">
+      <div class="eid-page-shell" style="flex:1;min-height:0">
+        <div class="eid-page-root">
+          <div class="eid-page-head">
+            <div style="font-family:'IBM Plex Sans';font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);margin-bottom:6px">Ghana · About</div>
+            <h1 style="margin:0 0 8px;font-size:24px;font-weight:600;letter-spacing:-.02em">How Ghana is modelled</h1>
+            <p style="margin:0;font-size:14.5px;color:var(--dim);line-height:1.6;max-width:72ch">Nigeria is the live results country, with INEC collation down to polling unit. Ghana uses the same dashboard shell and a different electoral geography: regions, constituencies, a two-round presidency, and the Electoral Commission of Ghana.</p>
+          </div>
+          <div class="eid-page-body eid-scroll" style="display:flex;flex-direction:column;gap:14px">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px">
+              <sc-for list="{{ gh.aboutCards }}" as="a" hint-placeholder-count="4">
+                <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px"><span class="msi" style="font-size:22px;color:var(--primary)">{{ a.icon }}</span><h2 style="margin:9px 0 6px;font-size:14px;font-weight:600">{{ a.title }}</h2><p style="margin:0;font-size:12.5px;color:var(--dim);line-height:1.5">{{ a.body }}</p></div>
+              </sc-for>
+            </div>
+            <section class="eid-about-refs">
+              <h2>Sources</h2>
+              <ul>
+                <sc-for list="{{ gh.sources }}" as="r" hint-placeholder-count="3">
+                  <li><strong style="color:var(--text)">{{ r.label }}</strong> — {{ r.body }} <a href="{{ r.url }}" target="_blank" rel="noopener noreferrer">{{ r.linkLabel }}</a></li>
+                </sc-for>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+    </div>
+    </sc-if>
+
     <!-- ── COMING SOON (non-Nigeria country) ── -->
     <sc-if value="{{ isComingSoon }}" hint-placeholder-val="{{ false }}">
     <div style="flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:28px 18px">
@@ -1345,8 +1746,8 @@ a:hover{color:var(--primary)}
             <div style="min-width:0"><div style="font-size:14px;font-weight:600;color:var(--text)">Submit your result</div><div style="font-size:11px;color:var(--mute)">GPS-verified · appears live · admin reviews trust</div></div>
           </div>
           <div style="padding:15px 16px;display:flex;flex-direction:column;gap:11px">
-            <div style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)">1 · Identify your polling unit</div>
-            <select value="{{ sub.stateVal }}" onChange="{{ sub.onState }}" style="{{ selStyle }}"><option value="">Select state…</option><sc-for list="{{ sub.states }}" as="s" hint-placeholder-count="5"><option value="{{ s.name }}">{{ s.name }}</option></sc-for></select>
+            <div style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)">{{ sub.step1 }}</div>
+            <select value="{{ sub.stateVal }}" onChange="{{ sub.onState }}" style="{{ selStyle }}"><option value="">{{ sub.statePlaceholder }}</option><sc-for list="{{ sub.states }}" as="s" hint-placeholder-count="5"><option value="{{ s.name }}">{{ s.name }}</option></sc-for></select>
             <sc-if value="{{ sub.hasState }}" hint-placeholder-val="{{ false }}"><select value="{{ sub.lgaVal }}" onChange="{{ sub.onLga }}" style="{{ selStyle }}"><option value="">Select LGA…</option><sc-for list="{{ sub.lgas }}" as="l" hint-placeholder-count="2"><option value="{{ l.name }}">{{ l.name }}</option></sc-for></select></sc-if>
             <sc-if value="{{ sub.hasLga }}" hint-placeholder-val="{{ false }}"><select value="{{ sub.wardVal }}" onChange="{{ sub.onWard }}" style="{{ selStyle }}"><option value="">Select ward…</option><sc-for list="{{ sub.wards }}" as="w" hint-placeholder-count="3"><option value="{{ w.name }}">{{ w.name }}</option></sc-for></select></sc-if>
             <sc-if value="{{ sub.hasWard }}" hint-placeholder-val="{{ false }}"><select value="{{ sub.puVal }}" onChange="{{ sub.onPU }}" style="{{ selStyle }}"><option value="">Select polling unit…</option><sc-for list="{{ sub.puOpts }}" as="p" hint-placeholder-count="4"><option value="{{ p.value }}">{{ p.label }}</option></sc-for></select></sc-if>
@@ -1365,7 +1766,8 @@ a:hover{color:var(--primary)}
             <label style="border:1px dashed var(--border2);border-radius:9px;padding:14px;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;text-align:center" style-hover="border-color:var(--primary)">
               <span class="msi" style="font-size:22px;color:var(--primary)">add_photo_alternate</span>
               <span style="font-size:12px;color:var(--text);word-break:break-all">{{ sub.fileLabel }}</span>
-              <span style="font-size:10.5px;color:var(--mute)">Photo of the signed EC8A sheet</span>
+              <span style="font-size:10.5px;color:var(--mute)">{{ sub.sheetHint }}</span>
+              <sc-if value="{{ sub.hasFormNote }}" hint-placeholder-val="{{ false }}"><span style="font-size:10.5px;color:var(--dim);line-height:1.4">{{ sub.formNote }}</span></sc-if>
               <input type="file" accept="image/*" onChange="{{ sub.onFile }}" style="display:none">
             </label>
             <button onClick="{{ sub.submit }}" style="{{ sub.submitStyle }}"><span class="msi" style="font-size:17px">send</span>Submit result</button>
@@ -1472,7 +1874,7 @@ a:hover{color:var(--primary)}
               </div>
             </sc-if>
             <sc-if value="{{ liveFeat.emptyReturns }}" hint-placeholder-val="{{ false }}">
-              <div style="margin-top:12px;padding:10px 8px;text-align:center;font-size:12px;color:var(--dim)">No citizen returns yet. Upload an EC8A sheet to appear on the map.</div>
+              <div style="margin-top:12px;padding:10px 8px;text-align:center;font-size:12px;color:var(--dim)">{{ liveFeat.emptyReturnsText }}</div>
             </sc-if>
           </div>
         </section>
@@ -1480,7 +1882,7 @@ a:hover{color:var(--primary)}
         <aside class="live-news eid-scroll">
         <sc-if value="{{ liveNews.hasItems }}" hint-placeholder-val="{{ false }}">
         <section style="background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;height:100%">
-          <div style="display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--border)"><span class="msi" style="font-size:18px;color:var(--primary)">newspaper</span><h2 style="margin:0;font-size:13.5px;font-weight:600">Nigeria election news</h2></div>
+          <div style="display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--border)"><span class="msi" style="font-size:18px;color:var(--primary)">newspaper</span><h2 style="margin:0;font-size:13.5px;font-weight:600">{{ scopeLabel }} election news</h2></div>
           <div style="padding:8px 0">
             <sc-for list="{{ liveNews.items }}" as="n" hint-placeholder-count="3">
               <a href="{{ n.url }}" target="_blank" rel="noopener" style="display:block;padding:10px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:inherit" style-hover="background:var(--surface2)">
@@ -1493,7 +1895,7 @@ a:hover{color:var(--primary)}
         </sc-if>
         <sc-if value="{{ liveNews.empty }}" hint-placeholder-val="{{ true }}">
         <section style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span class="msi" style="font-size:18px;color:var(--primary)">newspaper</span><h2 style="margin:0;font-size:13.5px;font-weight:600">Nigeria election news</h2></div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><span class="msi" style="font-size:18px;color:var(--primary)">newspaper</span><h2 style="margin:0;font-size:13.5px;font-weight:600">{{ scopeLabel }} election news</h2></div>
           <p style="margin:0;font-size:13px;color:var(--dim);line-height:1.45">No headlines loaded yet. Declared archive sources remain available on Overview.</p>
         </section>
         </sc-if>
@@ -1633,7 +2035,7 @@ a:hover{color:var(--primary)}
                       <a href="{{ ngCandidateDetail.wiki }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--primary);text-decoration:none"><span class="msi" style="font-size:16px">open_in_new</span>Read more on Wikipedia</a>
                     </div>
                     </sc-if>
-                    <div style="padding:10px 15px;border-top:1px solid var(--border);font-size:10px;color:var(--mute);line-height:1.4">Profiles summarise public sources. Ballot names follow INEC’s final list for the selected year.</div>
+                    <div style="padding:10px 15px;border-top:1px solid var(--border);font-size:10px;color:var(--mute);line-height:1.4">{{ ngCandidateDetail.footer }}</div>
                   </section>
                   </sc-if>
                   <sc-if value="{{ ngCandidates.needPick }}" hint-placeholder-val="{{ false }}">
@@ -2287,7 +2689,7 @@ a:hover{color:var(--primary)}
 class Component extends DCLogic {
   state = { theme:(typeof localStorage!=='undefined' && localStorage.getItem('eid-theme')) || 'light', view:'welcome', scope:'global', section:'Overview', switcherOpen:false, mapSel:null, basemap:'streets',
     realPop:null, ekitiResult:null, nigeriaResult:null, pollPoints:[], puDir:{ states:[], lgas:[], wards:[], units:[] }, puSearchHits:[],
-    ngState:null, ngLga:null, ngWard:null, ngPU:null, ovElecYear:'2023', ovOffice:'pres', ovElecState:null, elecMapTheme:null, liveMapTheme:null, elecChoroMeta:null, elecSelectedUnit:null, elecExpandedCand:null, elecPresStateSnap:null, showEstimatedLga:true, govStatesByYear:{}, govCatalog:null, ngKpiRow:null, puLoading:null,
+    ngState:null, ngLga:null, ngWard:null, ngPU:null, ghContest:'pres', ghRegion:'', ghYear:'2024', ghPacksReady:0, ovElecYear:'2023', ovOffice:'pres', ovElecState:null, elecMapTheme:null, liveMapTheme:null, elecChoroMeta:null, elecSelectedUnit:null, elecExpandedCand:null, elecPresStateSnap:null, showEstimatedLga:true, govStatesByYear:{}, govCatalog:null, ngKpiRow:null, puLoading:null,
     electionsList:[], electionNews:[], ingestStatus:null, popStatus:null, puDash:null,
     subState:null, subLga:null, subWard:null, subPU:null, subCoords:null, subGeo:'idle', subFile:null, submissions:[], subSubmitError:null, subMineIds:[],
     liveCompareMode:'overlay', liveComparePct:50, liveShowOfficial:true, liveShowCitizen:true, citizenMapTheme:null, adminCsrf:null,
@@ -2310,7 +2712,7 @@ class Component extends DCLogic {
     light: {'--bg':'#f4f6f8','--surface':'#ffffff','--surface2':'#f0f2f5','--surface3':'#e8ecf1','--border':'#e4e8ed','--border2':'#d2d9e1','--text':'#161b22','--dim':'#5a636e','--mute':'#8b939d','--primary':'#1c8f86','--primary-ink':'#ffffff','--primary-soft':'rgba(28,143,134,.10)','--live':'#cf3f36','--live-ring':'rgba(207,63,54,.35)','--up':'#b57d1e','--good':'#2f9150','--grid':'rgba(22,30,42,.055)','--grid2':'rgba(22,30,42,.10)','--shadow':'0 1px 3px rgba(20,25,35,.09)'}
   };
 
-  PARTY = { APC:'#2f6fed', PDP:'#cf3a4e', LP:'#2fa84f', NNPP:'#7a53d1', ADC:'#d69a34', ADP:'#6b7280', AAC:'#0ea5a4', SDP:'#8b5cf6', Accord:'#94a3b8', AA:'#64748b', APM:'#f59e0b', APP:'#14b8a6', YPP:'#ec4899', ZLP:'#22c55e' };
+  PARTY = { APC:'#2f6fed', PDP:'#cf3a4e', LP:'#2fa84f', NNPP:'#7a53d1', ADC:'#d69a34', ADP:'#6b7280', AAC:'#0ea5a4', SDP:'#8b5cf6', Accord:'#94a3b8', AA:'#64748b', APM:'#f59e0b', APP:'#14b8a6', YPP:'#ec4899', ZLP:'#22c55e', NPP:'#003DA5', NDC:'#067647' };
   partyColor(abbr){
     const key = String(abbr || '').trim();
     if (!key || key === '—') return '#8b939d';
@@ -4129,7 +4531,19 @@ class Component extends DCLogic {
     else setTimeout(warm, 500);
     if (this.state.section === 'Analysis') this.loadAnalysisBundle();
     const hashTarget = String(location.hash || '').replace(/^#\/?/, '').toLowerCase();
-    if (hashTarget === 'admin') {
+    const ghHash = String(location.hash || '').match(/^#\/c\/gh(?:\/([^/?#]+))?/i);
+    if (ghHash) {
+      const raw = decodeURIComponent(ghHash[1] || 'Overview').replace(/-/g, ' ');
+      const ghSections = ['Overview', 'Parties', 'About', 'Live Results', 'Candidates', 'Analysis'];
+      const section = ghSections.find((n) => n.toLowerCase() === raw.toLowerCase()) || 'Overview';
+      this.setState({ view: 'app', scope: 'gh', section, switcherOpen: false }, () => {
+        if (window.EIDGhana && window.EIDGhana.load) {
+          window.EIDGhana.load().then(() => {
+            if (this.state.scope === 'gh') this.setState({ ghPacksReady: Date.now() });
+          });
+        }
+      });
+    } else if (hashTarget === 'admin') {
       this.ensureAdminCsrf();
       this.setState({ view: 'app', section: 'Admin' });
     }
@@ -4148,10 +4562,12 @@ class Component extends DCLogic {
     // Prefer polling-unit drill-down; otherwise governorship election state; else national.
     const key=[s.scope,s.ngState,s.ngLga,s.ngWard,s.ngPU,s.ovOffice,s.ovElecState,s.ovElecYear].join('|');
     if(this._kpiKey!==key){ this._kpiKey=key; this.fetchNgKpis(); }
-    const liveYear = this.liveContestYear();
-    if(this._liveYearKey !== liveYear){
-      this._liveYearKey = liveYear;
-      this.loadLiveMapTheme();
+    if (s.scope !== 'gh') {
+      const liveYear = this.liveContestYear();
+      if(this._liveYearKey !== liveYear){
+        this._liveYearKey = liveYear;
+        this.loadLiveMapTheme();
+      }
     }
     if (s.section === 'Analysis') this.loadAnalysisBundle();
     if (s.view === 'app' && (s.section === 'Overview' || s.section === 'Map' || s.section === 'Live Results')) {
@@ -4161,6 +4577,7 @@ class Component extends DCLogic {
         s.liveShowOfficial ? 1 : 0, s.liveShowCitizen ? 1 : 0,
         s.mapFocus && s.mapFocus.name, s.puRoute && s.puRoute.key,
         s.mapAdminFocus && [s.mapAdminFocus.state, s.mapAdminFocus.lga, s.mapAdminFocus.ward].filter(Boolean).join('/'),
+        s.ghRegion || '', s.ghYear || '', s.ghContest || '', s.ghPacksReady || 0,
       ].join('|');
       if (this._mapThemeRef !== s.elecMapTheme || this._liveThemeRef !== s.liveMapTheme || this._mapSig !== mapSig) {
         this._mapThemeRef = s.elecMapTheme;
@@ -4182,7 +4599,7 @@ class Component extends DCLogic {
       this._puDirAsked = true;
       this.loadPuDirectory();
     }
-    if (s.section === 'Live Results' && !this._liveSubsAsked) {
+    if (s.section === 'Live Results' && s.scope !== 'gh' && !this._liveSubsAsked) {
       this._liveSubsAsked = true;
       this.loadLiveSubmissions();
     }
@@ -4322,6 +4739,41 @@ class Component extends DCLogic {
   }
 
   async loadAnalysisBundle(force){
+    if (this.state.scope === 'gh') {
+      const bundle = window.EIDGhana && window.EIDGhana.analysisBundle
+        ? window.EIDGhana.analysisBundle(this.state)
+        : null;
+      const filters = (bundle && bundle.filters) || {};
+      const url = ['gh', this.state.ghPacksReady || 0, filters.office, filters.year, filters.compare, filters.party, filters.region, this.state.anaSubTab || ''].join('|');
+      if (!force && this._appliedAnalysis && this._appliedAnalysis.has(url) && this.state.analysisBundle && this.state.analysisBundle.filters && this.state.analysisBundle.filters.office) {
+        const prevOffice = this.state.analysisBundle.filters.office;
+        if (prevOffice === 'pres' || prevOffice === 'parl' || prevOffice === 'local') {
+          this.queueAnalysisCharts();
+          return;
+        }
+      }
+      if (bundle && bundle.ok) {
+        const officeYears = ((bundle.offices || []).find((row) => row.id === bundle.filters.office) || {}).years || [];
+        const yearOk = !this.state.anaYear || officeYears.map(String).includes(String(this.state.anaYear));
+        if (this.state.anaOffice !== bundle.filters.office || !yearOk) {
+          this.setState({
+            anaOffice: bundle.filters.office,
+            anaYear: bundle.filters.year,
+            anaCompare: bundle.filters.compare || '',
+          });
+        }
+        this.applyAnalysisPayload(bundle, url);
+      }       else if (this.state.analysisLoading) this.setState({ analysisLoading: false });
+      return;
+    }
+    const bundleOffices = (this.state.analysisBundle && this.state.analysisBundle.offices) || [];
+    const ghanaShaped = bundleOffices.some((row) => row.id === 'local' || row.id === 'parl');
+    if (ghanaShaped) {
+      const reset = { anaOffice: 'pres', anaYear: '2023', anaCompare: '2019', anaRegion: 'all', anaParty: 'all', anaState: 'all' };
+      const changed = Object.keys(reset).some((key) => String(this.state[key] || '') !== String(reset[key]));
+      Object.assign(this.state, reset);
+      if (changed) this.setState(reset);
+    }
     const part = this.analysisPartForTab(this.state.anaSubTab);
     const url = this.analysisRequestUrl(part);
     if (!force && this._appliedAnalysis && this._appliedAnalysis.has(url) && this.state.analysisBundle) {
@@ -4758,12 +5210,14 @@ class Component extends DCLogic {
     const isCountry = kind==='country';
     const hasAdmin = !!(this.state.mapAdminFocus && this.state.mapAdminFocus.state);
     const liveDefaultLayers = { state: true, lga: false, ward: false, polling: false, health: false };
-    const layers = kind==='live'
-      ? ((studio && studio.layers) || liveDefaultLayers)
-      : this.state.layers;
+    const layers = scope === 'gh'
+      ? { state: false, lga: false, ward: false, polling: false, health: false }
+      : (kind==='live'
+        ? ((studio && studio.layers) || liveDefaultLayers)
+        : this.state.layers);
     const extent = studio && studio.extent ? studio.extent : null;
     return {
-      scope: kind==='live' ? 'ng' : (scope==='global' ? 'global' : scope),
+      scope: scope === 'gh' ? 'gh' : (kind==='live' ? 'ng' : (scope==='global' ? 'global' : scope)),
       live: kind==='live',
       mapConfigId: studio && studio.id ? studio.id : null,
       basemap: this.state.basemap || (studio && studio.basemap) || 'streets',
@@ -4772,9 +5226,11 @@ class Component extends DCLogic {
       zoom: extent && extent.zoom != null ? extent.zoom : undefined,
       preferLocalOnly: studio ? studio.grid3Fallback === false : false,
       choroplethTheme: studio && studio.choroplethTheme ? studio.choroplethTheme : null,
-      resultTheme: kind==='live'
-        ? ((this.state.liveMapTheme && this.state.liveMapTheme.ok) ? this.state.liveMapTheme : null)
-        : (isFull ? null : ((this.state.elecMapTheme && this.state.elecMapTheme.ok) ? this.state.elecMapTheme : null)),
+      resultTheme: (scope === 'gh')
+        ? null
+        : ((scope === 'gh' || kind === 'live')
+        ? (kind === 'live' && this.state.liveMapTheme && this.state.liveMapTheme.ok ? this.state.liveMapTheme : null)
+        : (isFull ? null : ((this.state.elecMapTheme && this.state.elecMapTheme.ok) ? this.state.elecMapTheme : null))),
       citizenTheme,
       // Live Results compares official vs public as choropleths — no citizen point markers.
       citizenMarkers: [],
@@ -4784,6 +5240,17 @@ class Component extends DCLogic {
       showOfficial: kind==='live' ? this.state.liveShowOfficial !== false : true,
       showCitizen: kind==='live' ? this.state.liveShowCitizen !== false : true,
       onResultUnitClick: (name, unit, layerKind)=>this.onResultMapUnitClick(name, unit, layerKind),
+      ghanaRegion: scope === 'gh' ? (this.state.ghRegion || '') : '',
+      ghanaYear: scope === 'gh' ? (this.state.ghYear || '2024') : '',
+      ghanaContest: scope === 'gh' ? (this.state.ghContest || 'pres') : '',
+      ghanaTheme: (scope === 'gh' && window.EIDGhana && window.EIDGhana.theme)
+        ? (kind === 'live'
+          ? { ok: false, message: 'Awaiting official returns for the December 2028 general election.', units: {} }
+          : window.EIDGhana.theme(this.state.ghContest, this.state.ghYear))
+        : null,
+      onGhanaRegion: scope === 'gh' ? ((name) => {
+        this.setState((s) => ({ ghRegion: s.ghRegion === name ? '' : name }));
+      }) : null,
       markers: (kind==='global' || (isFull && scope==='global')) ? world : [],
       points: isFull ? (nearPts.length ? nearPts : wardPts) : [],
       user: isFull ? (this.state.anaCoords || this.state.puDistOrigin) : null,
@@ -5105,11 +5572,23 @@ class Component extends DCLogic {
         : `height:30px;border:1px solid ${on?'var(--border2)':'var(--border)'};background:${on?'var(--surface3)':'transparent'};color:${on?'var(--text)':'var(--dim)'};border-radius:7px;font-family:inherit;font-size:11.5px;cursor:pointer` };
   }
 
-  openWelcome(){ this.setState({view:'welcome', switcherOpen:false}); }
+  openWelcome(){
+    if (/^#\/c\/gh/i.test(location.hash || '')) location.hash = '';
+    this.setState({view:'welcome', switcherOpen:false});
+  }
   exitAdmin(){ this.setState({ section:'Overview' }); }
   selectScope(s){
     this.setState({view:'app', scope:s, section:'Overview', switcherOpen:false}, ()=>{
       if(s==='ng') this.flyToElectionView();
+      if(s==='gh') {
+        location.hash = '#/c/gh/Overview';
+        if (window.EIDGhana && window.EIDGhana.load) {
+          window.EIDGhana.load().then(() => {
+            if (this.state.scope === 'gh') this.setState({ ghPacksReady: Date.now() });
+          });
+        }
+      }
+      else if (/^#\/c\/gh/i.test(location.hash || '')) location.hash = '';
       this.loadPageContent(s);
     });
   }
@@ -5156,6 +5635,7 @@ class Component extends DCLogic {
     return { label: displayLabel || label, live: !!live, href:'#',
       onClick:(e)=>{
         e.preventDefault();
+        const onGhana = this.state.scope === 'gh';
         if(label==='Countries') this.openWelcome();
         else if(label==='Map') {
           const patch = this.mapStudioStatePatch('polling');
@@ -5166,10 +5646,17 @@ class Component extends DCLogic {
           };
           this.setState({ view:'app', scope:'ng', section:'Map', ...patch });
         }
-        else if(label==='Live Results') this.setState({ view:'app', section:'Live Results', ...this.mapStudioStatePatch('live') }, ()=>this.syncLiveMap());
+        else if(label==='Live Results') {
+          this.setState({ view:'app', section:'Live Results', ...this.mapStudioStatePatch('live') }, ()=>this.syncLiveMap());
+        }
         else if(label==='Overview') this.setState({ view:'app', section:'Overview', ...this.mapStudioStatePatch('overview') });
-        else if(label==='Analysis') this.setState({ view:'app', section:'Analysis' }, ()=> this.loadAnalysisBundle());
+        else if(label==='Analysis') {
+          this.setState({ view:'app', section:'Analysis' }, ()=> this.loadAnalysisBundle(this.state.scope === 'gh'));
+        }
         else this.setState({ view:'app', section:label });
+        if (onGhana && label !== 'Map' && label !== 'Countries') {
+          location.hash = '#/c/gh/' + encodeURIComponent(label);
+        }
       },
       style:`display:inline-flex;align-items:center;gap:6px;height:100%;padding:0 12px;text-decoration:none;font-size:12.5px;white-space:nowrap;cursor:pointer;color:${on?'var(--text)':'var(--dim)'};font-weight:${on?'600':'400'};box-shadow:${on?'inset 0 -2px 0 var(--primary)':'none'}` };
   }
@@ -5551,7 +6038,9 @@ class Component extends DCLogic {
     const compareOpts = anaOfficeYears.filter((y) => y !== anaYear).map((y) => ({ value: y, label: y }));
     if (!compareOpts.length && anaOfficeYears.length) compareOpts.push({ value: '', label: 'No prior cycle' });
     const anaCompare = this.state.anaCompare || resolvedFilters.compare || (compareOpts[0]?.value || '');
-    const partySet = new Set(['APC', 'PDP', 'LP', 'NNPP', 'APGA', 'ADC']);
+    const partySet = this.state.scope === 'gh'
+      ? new Set()
+      : new Set(['APC', 'PDP', 'LP', 'NNPP', 'APGA', 'ADC']);
     (analysisBundle?.performance?.voteShare || []).forEach((p) => partySet.add(p.party));
     (analysisBundle?.charts?.partyWins?.[anaOffice]?.parties || []).forEach((p) => partySet.add(p.party));
     const partyOpts = [{ value: 'all', label: 'Winner (auto)' }].concat(
@@ -5686,6 +6175,19 @@ class Component extends DCLogic {
       advancedLabel: anaAdvanced ? 'Advanced on' : 'Advanced',
       onAdvanced: () => this.toggleAnaAdvanced(),
       openMap: () => {
+        if (this.state.scope === 'gh') {
+          const office = ['pres', 'parl', 'local'].includes(this.state.anaOffice) ? this.state.anaOffice : 'pres';
+          const year = this.state.anaYear || '2024';
+          location.hash = '#/c/gh/Overview';
+          this.setState({
+            view: 'app',
+            scope: 'gh',
+            section: 'Overview',
+            ghContest: office,
+            ghYear: String(year),
+          });
+          return;
+        }
         const office = this.state.anaOffice || this.state.ovOffice || 'pres';
         const year = this.state.anaYear || this.state.ovElecYear || '2023';
         const stateRaw = this.state.anaState;
@@ -6087,6 +6589,7 @@ class Component extends DCLogic {
       reporting: String(approvedSubs.length),
       emptyRoster: roster.length === 0,
       emptyReturns: stateRows.length === 0 && pendingSubs.length === 0,
+      emptyReturnsText: 'No citizen returns yet. Upload an EC8A sheet to appear on the map.',
       hasPublicReturns: stateRows.length > 0,
       publicReturns: stateRows.slice(0,8).map(([name, count])=>({ name, score: String(count) })),
       cands: [],
@@ -6140,9 +6643,43 @@ class Component extends DCLogic {
           }
         })
       : { usedLayout:false, stats: liveStatsFallback, extras: [] };
-    const liveStats = dashLive.stats;
+    let liveStats = dashLive.stats;
+    if (scope === 'gh') {
+      liveFeat = {
+        ...liveFeat,
+        title: '2028 presidential race',
+        isLive: false,
+        isDeclared: false,
+        showDeclared: false,
+        showIdle: true,
+        officialBadge: 'Awaiting returns',
+        country: 'Ghana',
+        statusLabel: 'Idle',
+        statusLine: 'Awaiting official returns',
+        statusSub: 'Next general election · December 2028',
+        sourceNote: 'No 2028 flag-bearer roster is published yet',
+        mapCaption: 'Ghana · citizen reports: 0 · official returns: awaiting',
+        winnerLine: '',
+        hasWinner: false,
+        contestLabel: '2028 Presidential',
+        hasContest: false,
+        reporting: '0',
+        emptyRoster: true,
+        emptyReturns: true,
+        emptyReturnsText: 'No citizen returns yet. The December 2028 general election has not opened.',
+        hasPublicReturns: false,
+        publicReturns: [],
+        cands: [],
+      };
+      liveStats = [
+        { label:'Winner', value:'—', sub:'Awaiting official returns' },
+        { label:'Public reports', value:'0', sub:'0 pending' },
+        { label:'Approved', value:'0', sub:'0 regions' },
+        { label:'Official', value:'Awaiting', sub:'2028 cycle' },
+      ];
+    }
     const liveDashExtras = dashLive.extras || [];
-    liveFeat.reportBar = `display:block;height:100%;width:${Math.min(100, (approvedSubs.length||0)*10)}%;background:var(--good)`;
+    liveFeat.reportBar = `display:block;height:100%;width:${scope === 'gh' ? 0 : Math.min(100, (approvedSubs.length||0)*10)}%;background:var(--good)`;
     liveFeat.cands = (liveFeat.cands||[]).map(cd=>({ ...cd, bar:`display:block;height:100%;width:${cd.w}%;background:${cd.color}` }));
     const liveNewsItems = this.state.electionNews||[];
     const liveNews = { hasItems: liveNewsItems.length>0, empty: liveNewsItems.length===0, items: liveNewsItems };
@@ -6534,13 +7071,22 @@ class Component extends DCLogic {
     const subVerified = !!(subCoords && sP);
     const subDist = subCoords ? (8 + (Math.abs(Math.round(subCoords.lat*1000))%40)) : 0;
     const subCanSubmit = subVerified && !!this.state.subFile;
+    const ghLive = scope === 'gh';
     const sub = {
-      isNigeria,
-      notNigeria: !isNigeria,
-      states: ((dir.states && dir.states.length) ? dir.states : this.NG_ALL_STATES).map(s=>({ name:s })), lgas:subLgas.map(l=>({ name:l })), wards:subWards.map(w=>({ name:w })),
+      isNigeria: isNigeria || ghLive,
+      notNigeria: !(isNigeria || ghLive),
+      step1: ghLive ? '1 · Identify your region' : '1 · Identify your polling unit',
+      statePlaceholder: ghLive ? 'Select region…' : 'Select state…',
+      sheetHint: ghLive ? 'Photo of the signed result sheet' : 'Photo of the signed EC8A sheet',
+      hasFormNote: ghLive,
+      formNote: ghLive ? 'December 2028 is the next general election. The polling-station register is not loaded, so a sheet cannot be filed yet.' : '',
+      states: ghLive
+        ? ((window.EIDGhana && window.EIDGhana.REGIONS) || []).map(r=>({ name: r.name }))
+        : ((dir.states && dir.states.length) ? dir.states : this.NG_ALL_STATES).map(s=>({ name:s })),
+      lgas: ghLive ? [] : subLgas.map(l=>({ name:l })), wards: ghLive ? [] : subWards.map(w=>({ name:w })),
       puOpts:subPus.map(p=>({ value:p.name, label:[p.code, p.address||p.short||p.name].filter(Boolean).join(' · ') })),
       stateVal:sS||'', lgaVal:sL||'', wardVal:sW||'', puVal:sP||'',
-      hasState:!!sS, hasLga:!!sL, hasWard:!!sW,
+      hasState: ghLive ? false : !!sS, hasLga: ghLive ? false : !!sL, hasWard: ghLive ? false : !!sW,
       onState:(e)=>this.selSubState(e.target.value), onLga:(e)=>this.selSubLga(e.target.value),
       onWard:(e)=>this.selSubWard(e.target.value), onPU:(e)=>this.selSubPU(e.target.value),
       onFile:(e)=>this.onSubFile(e), capture:()=>this.captureLoc(), submit:()=>this.submitResult(),
@@ -6654,7 +7200,11 @@ class Component extends DCLogic {
 
     // ── Candidates & Parties (Nigeria / INEC) ──
     let ngCandidates=null, ngParties=null, ngPartyDetail=null, ngCandidateDetail=null;
-    if(isNigeria || isGlobal){
+    if (scope === 'gh' && window.EIDGhana && window.EIDGhana.candidatePage) {
+      const built = window.EIDGhana.candidatePage(this);
+      ngCandidates = built.ngCandidates;
+      ngCandidateDetail = built.ngCandidateDetail;
+    } else if(isNigeria || isGlobal){
       let cy=this.state.candYear||'2023', co=this.state.candOffice||'pres';
       if (co === 'pres' && !this.state.candCatalog) this.fetchCandidateCatalog();
       if (co === 'gov' && !this.state.govCandCatalog) this.fetchGovCandidateCatalog();
@@ -6841,6 +7391,7 @@ class Component extends DCLogic {
             ? `${Number(share).toFixed(1)}%${votes!=null ? ' · '+this.fmtInt(votes)+' votes' : ''}`
             : (votes!=null ? this.fmtInt(votes)+' votes' : null),
           close: ()=> this.selectCandidate(null),
+          footer: 'Profiles summarise public sources. Ballot names follow INEC’s final list for the selected year.',
         };
         if (!ngCandidateDetail.hasShare && votes != null) {
           ngCandidateDetail.hasShare = true;
@@ -6995,7 +7546,9 @@ class Component extends DCLogic {
       isApp: view==='app' && section!=='Admin',
       isOverviewGlobal: view==='app' && section==='Overview' && isGlobal,
       isOverviewCountry: view==='app' && section==='Overview' && isNigeria,
-      isComingSoon: view==='app' && section!=='Admin' && !isGlobal && (
+      isGhana: view==='app' && scope==='gh' && !!window.EIDGhana && (section==='Overview' || section==='Parties' || section==='About'),
+      gh: (scope==='gh' && window.EIDGhana) ? window.EIDGhana.view(this) : { isOverview:false, isParties:false, isAbout:false, isPres:false, isParl:false, isLocal:false, hasRegion:false, noRegion:true, kpis:[], contests:[], regions:[], rounds:[], steps:[], parties:[], sources:[], aboutCards:[], contestLabel:'', contestKicker:'', contestRule:'', unpublished:'', regionName:'', regionCapital:'' },
+      isComingSoon: view==='app' && section!=='Admin' && !isGlobal && scope!=='gh' && (
         window.EidPageContent
           ? !!window.EidPageContent.capabilities(this.state.scope).comingSoon
           : !isNigeria
@@ -7006,12 +7559,12 @@ class Component extends DCLogic {
       isSection: false,
       isMap: view==='app' && section==='Map' && isNigeria,
       isElections: view==='app' && section==='Elections' && (isGlobal || isNigeria),
-      isLive: view==='app' && section==='Live Results' && (isGlobal || isNigeria),
-      isCandidates: view==='app' && section==='Candidates' && (isGlobal || isNigeria),
+      isLive: view==='app' && section==='Live Results' && (isGlobal || isNigeria || scope==='gh'),
+      isCandidates: view==='app' && section==='Candidates' && (isGlobal || isNigeria || scope==='gh'),
       isParties: view==='app' && section==='Parties' && (isGlobal || isNigeria),
-      isAnalysis: view==='app' && section==='Analysis' && (isGlobal || isNigeria),
+      isAnalysis: view==='app' && section==='Analysis' && (isGlobal || isNigeria || scope==='gh'),
       isData: view==='app' && section==='Data' && (isGlobal || isNigeria),
-      isAbout: view==='app' && section==='About',
+      isAbout: view==='app' && section==='About' && scope!=='gh',
       isAdmin: view==='app' && section==='Admin',
       topKpis, overviewDashExtras: (typeof overviewDashExtras!=='undefined'?overviewDashExtras:[]), liveDashExtras: (typeof liveDashExtras!=='undefined'?liveDashExtras:[]), adminStats, adminData, ngCandidates, ngCandidateDetail, ngParties, ngPartyDetail,
       candGeneric: null,
@@ -7110,8 +7663,8 @@ class Component extends DCLogic {
 
       countryCards: this.ORDER.map(code=>{
         const cc = this.COUNTRIES[code]; const st = this.STATUS[cc.status];
-        return { name:cc.name, region:cc.region, flagRef:(el)=>{ if(el) el.src=this.flagSrc(code); }, color:cc.flag, elections:cc.elections, badge: code==='ng'?'Live':'Coming soon',
-          statusLabel: code==='ng'?'Live now':'Coming soon', statusColor: code==='ng'?st.color:'var(--mute)', onClick:()=>this.openCountry(code) };
+        return { name:cc.name, region:cc.region, flagRef:(el)=>{ if(el) el.src=this.flagSrc(code); }, color:cc.flag, elections:cc.elections, badge: code==='ng'?'Live':(code==='gh'?'Open':'Coming soon'),
+          statusLabel: code==='ng'?'Live now':(code==='gh'?'Results':'Coming soon'), statusColor: code==='ng'?st.color:(code==='gh'?'var(--primary)':'var(--mute)'), onClick:()=>this.openCountry(code) };
       }),
 
       nav: (window.EidPageContent

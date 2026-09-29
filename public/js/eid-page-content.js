@@ -64,10 +64,25 @@
     return Object.prototype.hasOwnProperty.call(cache, key) ? cache[key] : undefined;
   }
 
+  const GH_NAV = [
+    { id: 'Overview', label: 'Overview', live: false, order: 0 },
+    { id: 'Live Results', label: 'Live Results', live: false, order: 2 },
+    { id: 'Candidates', label: 'Candidates', live: false, order: 3 },
+    { id: 'Parties', label: 'Parties', live: false, order: 4 },
+    { id: 'Analysis', label: 'Analysis', live: false, order: 5 },
+    { id: 'About', label: 'About', live: false, order: 7 },
+  ];
+
   function capabilities(scope) {
     const published = getCached(scope);
     if (published && published.capabilities) return published.capabilities;
     const key = scopeKey(scope);
+    if (key === 'gh') {
+      return {
+        liveData: false, maps: true, analysis: true, candidates: true,
+        parties: true, liveResults: true, dataExplorer: false, comingSoon: false,
+      };
+    }
     if (key === 'ng') {
       return {
         liveData: true, maps: true, analysis: true, candidates: true,
@@ -88,9 +103,10 @@
 
   function navItems(scope, options) {
     const opts = options || {};
+    const key = scopeKey(scope);
+    if (key === 'gh') return GH_NAV.slice();
     const published = getCached(scope);
     const caps = capabilities(scope);
-    const key = scopeKey(scope);
     const source = (published && Array.isArray(published.nav) && published.nav.length)
       ? published.nav
       : DEFAULT_NAV;
