@@ -1,0 +1,65 @@
+{
+  "2023": {
+    "meta": {
+      "year": "2023",
+      "date": "2023-12-19",
+      "source": "Ghana News Agency report of the Shai-Osudoku district electoral officer: six candidates in the Natriku electoral area were elected unopposed after other nominees withdrew. The Electoral Commission recorded 18,755 assembly-member candidates and 47,502 unit-committee candidates nationwide (Graphic Online / GNA). Those national rolls are not in this file.",
+      "sourceUrl": "https://gna.org.gh/2023/12/assembly-member-unit-committee-members-at-natriku-electoral-area-in-shai-osudoku-district-elected-unopposed/",
+      "nationalCountUrl": "https://www.graphic.com.gh/news/general-news/ghana-news-66-000-contest-local-polls-today.html",
+      "loaded": 6,
+      "nationalAssemblyCandidates": 18755,
+      "nationalUnitCandidates": 47502,
+      "coverage": "Natriku electoral area, Shai-Osudoku District, only"
+    },
+    "candidates": [
+      {
+        "name": "Dordoe Ignatius Godfred",
+        "role": "Assembly member",
+        "area": "Natriku",
+        "district": "Shai-Osudoku",
+        "region": "Greater Accra",
+        "outcome": "Elected"
+      },
+      {
+        "name": "Amartey Alex Kasibia",
+        "role": "Unit committee",
+        "area": "Natriku",
+        "district": "Shai-Osudoku",
+        "region": "Greater Accra",
+        "outcome": "Elected"
+      },
+      {
+        "name": "Adodoadzi Ibrahim",
+        "role": "Unit committee",
+        "area": "Natriku",
+        "district": "Shai-Osudoku",
+        "region": "Greater Accra",
+        "outcome": "Elected"
+      },
+      {
+        "name": "Akorli Philip Kwaku",
+        "role": "Unit committee",
+        "area": "Natriku",
+        "district": "Shai-Osudoku",
+        "region": "Greater Accra",
+        "outcome": "Elected"
+      },
+      {
+        "name": "Hogoh William",
+        "role": "Unit committee",
+        "area": "Natriku",
+        "district": "Shai-Osudoku",
+        "region": "Greater Accra",
+        "outcome": "Elected"
+      },
+      {
+        "name": "Nyamedor Beatrice",
+        "role": "Unit committee",
+        "area": "Natriku",
+        "district": "Shai-Osudoku",
+        "region": "Greater Accra",
+        "outcome": "Elected"
+      }
+    ]
+  }
+}

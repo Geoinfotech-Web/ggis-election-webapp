@@ -1,0 +1,7309 @@
+{
+  "2020": {
+    "meta": {
+      "year": "2020",
+      "source": "English Wikipedia list of MPs elected in 2020. This is the elected members, not the full candidate field.",
+      "sourceUrl": "https://en.wikipedia.org/wiki/List_of_MPs_elected_in_the_2020_Ghanaian_general_election",
+      "loaded": 272,
+      "constituencyTotal": 275,
+      "coverage": "elected members only"
+    },
+    "candidates": [
+      {
+        "name": "Evans Bobie Opoku",
+        "party": "NPP",
+        "constituency": "Asunafo North",
+        "region": "Ahafo Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Eric Opoku",
+        "party": "NDC",
+        "constituency": "Asunafo South",
+        "region": "Ahafo Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Patrick Banor",
+        "party": "NPP",
+        "constituency": "Asutifi North",
+        "region": "Ahafo Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Collins Dauda",
+        "party": "NDC",
+        "constituency": "Asutifi South",
+        "region": "Ahafo Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Freda Prempeh",
+        "party": "NPP",
+        "constituency": "Tano North",
+        "region": "Ahafo Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Benjamin Yeboah Sekyere",
+        "party": "NPP",
+        "constituency": "Tano South",
+        "region": "Ahafo Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Alex Blankson",
+        "party": "NPP",
+        "constituency": "Adansi-Akrofuom",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kobina Tahir Hammond",
+        "party": "NPP",
+        "constituency": "Adansi-Asokwa",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "William Owuraku Aidoo",
+        "party": "NPP",
+        "constituency": "Afigya Kwabre South",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Mavis Nkansah Boadu",
+        "party": "NPP",
+        "constituency": "Afigya Sekyere East",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Suleman Adamu Sanid",
+        "party": "NPP",
+        "constituency": "Ahafo Ano North",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Francis Manu-Adabor",
+        "party": "NPP",
+        "constituency": "Ahafo Ano South East",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Johnson Kwaku Adu",
+        "party": "NPP",
+        "constituency": "Ahafo Ano South West",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwame Anyimadu - Antwi",
+        "party": "NPP",
+        "constituency": "Asante-Akim Central",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Andy Kwame Appiah-Kubi",
+        "party": "NPP",
+        "constituency": "Asante-Akim North",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwaku Asante-Boateng",
+        "party": "NPP",
+        "constituency": "Asante-Akim South",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Mubarak Mohammed Muntaka",
+        "party": "NDC",
+        "constituency": "Asawase",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Patricia Appiagyei",
+        "party": "NPP",
+        "constituency": "Asokwa",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kofi Amankwa-Manu",
+        "party": "NPP",
+        "constituency": "Atwima-Kwanwoma",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Isaac Kwame Asiamah",
+        "party": "NPP",
+        "constituency": "Atwima-Mponua",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Benito Owusu Bio",
+        "party": "NPP",
+        "constituency": "Atwima-Nwabiagya North",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Emmanuel Adjei Anhwere",
+        "party": "NPP",
+        "constituency": "Atwima-Nwabiagya South",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Francis Asenso -Boakye",
+        "party": "NPP",
+        "constituency": "Bantama",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Joseph Osei-Owusu",
+        "party": "NPP",
+        "constituency": "Bekwai",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Akwasi Darko Boateng",
+        "party": "NPP",
+        "constituency": "Bosome-Freho",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Yaw Osei Adutwum",
+        "party": "NPP",
+        "constituency": "Bosomtwe",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Nana Ayew Afriyie",
+        "party": "NPP",
+        "constituency": "Effiduase-Asokore",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Muhammad Bawah Braimah",
+        "party": "NDC",
+        "constituency": "Ejura-Sekyedumase",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Ama Pomaa Boateng",
+        "party": "NPP",
+        "constituency": "Juaben",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Philip Basoah",
+        "party": "NPP",
+        "constituency": "Kumawu",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Francisca Oteng Mensah",
+        "party": "NPP",
+        "constituency": "Kwabre East",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kingsley Nyarko",
+        "party": "NPP",
+        "constituency": "Kwadaso",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwaku Ampratwum-Sarpong",
+        "party": "NPP",
+        "constituency": "Mampong",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Akwasi Konadu",
+        "party": "NPP",
+        "constituency": "Manhyia North",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Matthew Opoku Prempeh",
+        "party": "NPP",
+        "constituency": "Manhyia South",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Frimpong Yaw Addo",
+        "party": "NPP",
+        "constituency": "Manso Edubia",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "George Kwabena Obeng Takyi",
+        "party": "NPP",
+        "constituency": "Manso Nkwanta",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Adams Abdul Salam",
+        "party": "NDC",
+        "constituency": "New Edubease",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Stephen Amoah",
+        "party": "NPP",
+        "constituency": "Nhyiaeso",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Adelaide Ntim",
+        "party": "NPP",
+        "constituency": "Nsuta-Kwamang-Beposo",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Patrick Boakye-Yiadom",
+        "party": "NPP",
+        "constituency": "Obuasi East",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwaku Agyemang Kwarteng",
+        "party": "NPP",
+        "constituency": "Obuasi West",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Emmanuel Akwasi Gyamfi",
+        "party": "NPP",
+        "constituency": "Odotobri",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Augustine Collins Ntim",
+        "party": "NPP",
+        "constituency": "Offinso North",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Isaac Yaw Opoku",
+        "party": "NPP",
+        "constituency": "Offinso South",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Emmanuel Marfo",
+        "party": "NPP",
+        "constituency": "Oforikrom",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Vincent Ekow Assafuah",
+        "party": "NPP",
+        "constituency": "Old Tafo",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Alex Adomako-Mensah",
+        "party": "NDC",
+        "constituency": "Sekyere Afram Plains",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Osei Kyei Mensah Bonsu",
+        "party": "NPP",
+        "constituency": "Suame",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Eugene Boakye Antwi",
+        "party": "NPP",
+        "constituency": "Subin",
+        "region": "Ashanti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Ahmed Ibrahim",
+        "party": "NDC",
+        "constituency": "Banda Ahenkro",
+        "region": "Bono Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Nelson Kyeremeh",
+        "party": "NPP",
+        "constituency": "Berekum East",
+        "region": "Bono Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwaku Agyenim-Boateng",
+        "party": "NPP",
+        "constituency": "Berekum West",
+        "region": "Bono Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwaku Agyeman-Manu",
+        "party": "NPP",
+        "constituency": "Dormaa Central",
+        "region": "Bono Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Paul Apreku Twum Barimah",
+        "party": "NPP",
+        "constituency": "Dormaa East",
+        "region": "Bono Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Vincent Oppong Asamoah",
+        "party": "NDC",
+        "constituency": "Dormaa West",
+        "region": "Bono Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Frederick Yaw Ahenkwah",
+        "party": "NDC",
+        "constituency": "Jaman North",
+        "region": "Bono Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Williams Okofo-Dateh",
+        "party": "NDC",
+        "constituency": "Jaman South",
+        "region": "Bono Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwasi Ameyaw Cheremeh",
+        "party": "NPP",
+        "constituency": "Sunyani East",
+        "region": "Bono Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Ignatius Baffour Awuah",
+        "party": "NPP",
+        "constituency": "Sunyani West",
+        "region": "Bono Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Adama Sulemana",
+        "party": "NDC",
+        "constituency": "Tain",
+        "region": "Bono Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Haruna Seidu",
+        "party": "NDC",
+        "constituency": "Wenchi",
+        "region": "Bono Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Sanja Nanja",
+        "party": "NDC",
+        "constituency": "Atebubu-Amantin",
+        "region": "Bono East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Joseph Kwame Kumah",
+        "party": "NDC",
+        "constituency": "Kintampo North",
+        "region": "Bono East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Alexander Gyan",
+        "party": "NPP",
+        "constituency": "Kintampo South",
+        "region": "Bono East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Joseph Kwasi Mensah",
+        "party": "NDC",
+        "constituency": "Nkoranza North",
+        "region": "Bono East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Emmanuel Kwadwo Agyekum",
+        "party": "NDC",
+        "constituency": "Nkoranza South",
+        "region": "Bono East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwabena Donkor",
+        "party": "NDC",
+        "constituency": "Pru East",
+        "region": "Bono East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Stephen Jalulah",
+        "party": "NPP",
+        "constituency": "Pru West",
+        "region": "Bono East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Dominic Napare",
+        "party": "NDC",
+        "constituency": "Sene East",
+        "region": "Bono East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwame Twumasi Ampofo",
+        "party": "NDC",
+        "constituency": "Sene West",
+        "region": "Bono East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Elizabeth Ofosu-Adjare",
+        "party": "NDC",
+        "constituency": "Techiman North",
+        "region": "Bono East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Martin Kwaku Adjei-Mensah Korsah",
+        "party": "NPP",
+        "constituency": "Techiman South",
+        "region": "Bono East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Elvis Morris Donkoh",
+        "party": "NPP",
+        "constituency": "Abura-Asebu-Kwamankese",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Queenstar Pokua Sawyerr",
+        "party": "NDC",
+        "constituency": "Agona East",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Cynthia Mamle Morrison",
+        "party": "NPP",
+        "constituency": "Agona West",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Cassiel Ato Baah Forson",
+        "party": "NDC",
+        "constituency": "Ajumako-Enyan-Essiam",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Alhassan Kobina Ghansah",
+        "party": "NDC",
+        "constituency": "Asikuma-Odoben-Brakwa",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kennedy Ohene Agyapong",
+        "party": "NPP",
+        "constituency": "Assin Central",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "James Gyakye Quayson",
+        "party": "NDC",
+        "constituency": "Assin North",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "|John Ntim Fordjour",
+        "party": "NPP",
+        "constituency": "Assin South",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Mavis Hawa Koomson",
+        "party": "NPP",
+        "constituency": "Awutu-Senya East",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Gizella Tetteh Agbotui",
+        "party": "NDC",
+        "constituency": "Awutu-Senya West",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwamena Minta Nyarku",
+        "party": "NDC",
+        "constituency": "Cape Coast North",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kweku George Ricketts-Hagan",
+        "party": "NDC",
+        "constituency": "Cape Coast South",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Alexander Afenyo-Markin",
+        "party": "NPP",
+        "constituency": "Effutu",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Abeiku Crentsil",
+        "party": "NDC",
+        "constituency": "Ekumfi",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Naana Eyiah Quansah",
+        "party": "NPP",
+        "constituency": "Gomoa Central",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Desmond De-Graft Paitoo",
+        "party": "NDC",
+        "constituency": "Gomoa East",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Richard Gyan Mensah",
+        "party": "NDC",
+        "constituency": "Gomoa West",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Bright Wireko Brobbey",
+        "party": "NPP",
+        "constituency": "Hemang Lower Denkyira",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Samuel Atta Mills",
+        "party": "NDC",
+        "constituency": "Komenda-Edina-Eguafo-Abirem",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Ophelia Hayford",
+        "party": "NPP",
+        "constituency": "Mfantseman",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "T.D. David Vondee",
+        "party": "NDC",
+        "constituency": "Twifo-Atii Morkwaa",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Festus Awuah Kwofie",
+        "party": "NPP",
+        "constituency": "Upper Denkyira East",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Daniel Ohene Darko",
+        "party": "NDC",
+        "constituency": "Upper Denkyira West",
+        "region": "Central Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Bryan Acheampong",
+        "party": "NPP",
+        "constituency": "Abetifi",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "John Frimpong Osei",
+        "party": "NPP",
+        "constituency": "Abirem",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Gifty Twum Ampofo",
+        "party": "NPP",
+        "constituency": "Abuakwa North",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Samuel Atta Akyea",
+        "party": "NPP",
+        "constituency": "Abuakwa South",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kofi Ahenkorah Marfo",
+        "party": "NPP",
+        "constituency": "Achiase",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Betty Crosby Mensah",
+        "party": "NDC",
+        "constituency": "Afram Plains North",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Joseph Appiah Boateng",
+        "party": "NDC",
+        "constituency": "Afram Plains South",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Alexander Akwasi Acquah",
+        "party": "NPP",
+        "constituency": "Akim Oda",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kennedy Osei Nyarko",
+        "party": "NPP",
+        "constituency": "Akim Swedru",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Nana Ama Dokua Asiamah Adjei",
+        "party": "NPP",
+        "constituency": "Akropong",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Osei Bonsu Amoah",
+        "party": "NPP",
+        "constituency": "Akwapim South",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Henry Yiadom Boakye",
+        "party": "NDC",
+        "constituency": "Akwatia",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "George Kwame Aboagye",
+        "party": "NPP",
+        "constituency": "Asene-Akroso-Manso",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Thomas Nyarko Ampem",
+        "party": "NDC",
+        "constituency": "Asuogyaman",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Abena Osei Asare",
+        "party": "NPP",
+        "constituency": "Atiwa East",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwesi Amoako Atta",
+        "party": "NPP",
+        "constituency": "Atiwa West",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Teddy Safori Addi",
+        "party": "NDC",
+        "constituency": "Ayensuano",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwabena Amankwa Asiamah",
+        "party": "NPP",
+        "constituency": "Fanteakwa North",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kofi Okyere-Agyekum",
+        "party": "NPP",
+        "constituency": "Fanteakwa South",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Alexander Agyare",
+        "party": "NPP",
+        "constituency": "Kade",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Ebenezer Okletey Terlabi",
+        "party": "NDC",
+        "constituency": "Lower Manya Krobo",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Charles Acheampong",
+        "party": "NPP",
+        "constituency": "Lower West Akim",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Davis Ansah Opoku",
+        "party": "NPP",
+        "constituency": "Mpraeso",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwasi Boateng Adjei",
+        "party": "NPP",
+        "constituency": "New Juaben North",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Michael Okyere Baafi",
+        "party": "NPP",
+        "constituency": "New Juaben South",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Joseph Frempong",
+        "party": "NPP",
+        "constituency": "Nkawkaw",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Frank Annoh-Dompreh",
+        "party": "NPP",
+        "constituency": "Nsawam Adoagyiri",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kojo Oppong-Nkrumah",
+        "party": "NPP",
+        "constituency": "Ofoase-Ayirebi",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Daniel Botwe",
+        "party": "NPP",
+        "constituency": "Okere",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwadjo Asante",
+        "party": "NPP",
+        "constituency": "Suhum",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Bismark Tetteh Nyarko",
+        "party": "NDC",
+        "constituency": "Upper Manya Krobo",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Frederick Obeng Adom",
+        "party": "NPP",
+        "constituency": "Upper West Akim",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Albert Tetteh Nyakotey",
+        "party": "NDC",
+        "constituency": "Yilo Krobo",
+        "region": "Eastern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Dan Abdul-latif",
+        "party": "NDC",
+        "constituency": "Ablekuma Central",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Sheila Bartels",
+        "party": "NPP",
+        "constituency": "Ablekuma North",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Alfred Okoe Vanderpuije",
+        "party": "NDC",
+        "constituency": "Ablekuma South",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Ursula G Owusu",
+        "party": "NPP",
+        "constituency": "Ablekuma West",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Comfort Doyoe Cudjoe-Ghansah",
+        "party": "NDC",
+        "constituency": "Ada",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Mohammed Adamu Ramadan",
+        "party": "NDC",
+        "constituency": "Adenta",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Akwasi Owusu Afrifa-Mensa",
+        "party": "NPP",
+        "constituency": "Amasaman",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Dickson Adomako Kissi",
+        "party": "NPP",
+        "constituency": "Anyaa-Sowutuom",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Ernest Henry Norgbey",
+        "party": "NDC",
+        "constituency": "Ashaiman",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Henry Quartey",
+        "party": "NPP",
+        "constituency": "Ayawaso Central",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Naser Toure Mahama",
+        "party": "NDC",
+        "constituency": "Ayawaso East",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Yussif Issaka Jajah",
+        "party": "NDC",
+        "constituency": "Ayawaso North",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Lydia Alhassan",
+        "party": "NPP",
+        "constituency": "Ayawaso West Wuogon",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Sylvester Tetteh",
+        "party": "NPP",
+        "constituency": "Bortianor-Ngleshie-Amanfro",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Rita Naa Odoley Sowah",
+        "party": "NDC",
+        "constituency": "Dade Kotopon",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Sarah Adwoa Safo",
+        "party": "NPP",
+        "constituency": "Dome Kwabenya",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Sophia Karen Edem Ackuaku",
+        "party": "NDC",
+        "constituency": "Domeabra-Obom",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Zanetor Agyeman-Rawlings",
+        "party": "NDC",
+        "constituency": "Korle Klottey",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Joseph Akuerteh Tettey",
+        "party": "NDC",
+        "constituency": "Kpone-Katamanso",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Agnes Naa Momo Lartey",
+        "party": "NDC",
+        "constituency": "Krowor",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Benjamin Narteh Ayiku",
+        "party": "NDC",
+        "constituency": "Ledzokuku",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Francis-Xavier Kojo Sosu",
+        "party": "NDC",
+        "constituency": "Madina",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Samuel George Nartey",
+        "party": "NDC",
+        "constituency": "Ningo-Prampram",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Edwin Nii Lante Vanderpuye",
+        "party": "NDC",
+        "constituency": "Odododiodio",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Patrick Yaw Boamah",
+        "party": "NPP",
+        "constituency": "Okaikwei Central",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Theresa Lardi Awuni",
+        "party": "NDC",
+        "constituency": "Okaikwei North",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Dakoa Newman",
+        "party": "NPP",
+        "constituency": "Okaikwei South",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Christian Corleytey Otuteye",
+        "party": "NDC",
+        "constituency": "Sege",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Linda Obenewaa Akweley Ocloo",
+        "party": "NDC",
+        "constituency": "Shai-Osudoku",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Yves Hanson-Nortey",
+        "party": "NPP",
+        "constituency": "Tema Central",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Isaac Ashai Odamtten",
+        "party": "NDC",
+        "constituency": "Tema East",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Carlos Kingsley Ahenkora",
+        "party": "NPP",
+        "constituency": "Tema West",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Moses Anim",
+        "party": "NPP",
+        "constituency": "Trobu",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Tina Gifty Naa Ayeley Mensah",
+        "party": "NPP",
+        "constituency": "Weija Gbawe",
+        "region": "Greater Accra Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Dominc Aduna Bingab Nitiwul",
+        "party": "NPP",
+        "constituency": "Bimbilla",
+        "region": "Northern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Alhassan Tampuli Sulemana",
+        "party": "NPP",
+        "constituency": "Gushegu",
+        "region": "Northern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Mohammed Amin Adam",
+        "party": "NPP",
+        "constituency": "Karaga",
+        "region": "Northern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Daniel Nsala Wakpal",
+        "party": "NDC",
+        "constituency": "Kpandai",
+        "region": "Northern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Hamza Adam",
+        "party": "NDC",
+        "constituency": "Kumbungu",
+        "region": "Northern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Musah Abdul-Aziz Ayaba",
+        "party": "NDC",
+        "constituency": "Mion",
+        "region": "Northern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Mohammed Hardi Tuferu",
+        "party": "NPP",
+        "constituency": "Nanton",
+        "region": "Northern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Joseph Bukari Nikpe",
+        "party": "NDC",
+        "constituency": "Saboba",
+        "region": "Northern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Alhassan Bashir Fuseini",
+        "party": "NDC",
+        "constituency": "Sagnarigu",
+        "region": "Northern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Jacob Iddriss Abdulai",
+        "party": "NDC",
+        "constituency": "Savelugu",
+        "region": "Northern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Ibrahim Murtala Muhammed",
+        "party": "NDC",
+        "constituency": "Tamale Central",
+        "region": "Northern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Suhuyini Alhassan Sayibu",
+        "party": "NDC",
+        "constituency": "Tamale North",
+        "region": "Northern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Haruna Iddrisu",
+        "party": "NDC",
+        "constituency": "Tamale South",
+        "region": "Northern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Thomas Mbomba",
+        "party": "NPP",
+        "constituency": "Tatale-Sanguli",
+        "region": "Northern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Habib Iddrisu",
+        "party": "NPP",
+        "constituency": "Tolon",
+        "region": "Northern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Abukari Dawuni",
+        "party": "NPP",
+        "constituency": "Wulensi",
+        "region": "Northern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Umar Farouk Aliu Mahama",
+        "party": "NPP",
+        "constituency": "Yendi",
+        "region": "Northern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "John Bennam Jabaah",
+        "party": "NPP",
+        "constituency": "Zabzugu",
+        "region": "Northern Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Abed-nego Bandim",
+        "party": "NDC",
+        "constituency": "Bunkpurugu",
+        "region": "North East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Abdul-Razak Tahidu",
+        "party": "NPP",
+        "constituency": "Chereponi",
+        "region": "North East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Issifu Seidu",
+        "party": "NDC",
+        "constituency": "Nalerigu Gambaga",
+        "region": "North East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Lariba Abudu",
+        "party": "NPP",
+        "constituency": "Walewale",
+        "region": "North East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Mustapha Ussif",
+        "party": "NPP",
+        "constituency": "Yagaba-Kubori (Walewale West)",
+        "region": "North East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Oscar Liwaal",
+        "party": "NPP",
+        "constituency": "Yunyoo",
+        "region": "North East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Yao Gomado",
+        "party": "NDC",
+        "constituency": "Akan",
+        "region": "Oti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwadwo Nyanpon Aboagye",
+        "party": "NDC",
+        "constituency": "Biakoye",
+        "region": "Oti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Iddie Kofi Adams",
+        "party": "NDC",
+        "constituency": "Buem",
+        "region": "Oti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Wisdom Gidisu",
+        "party": "NDC",
+        "constituency": "Krachi East",
+        "region": "Oti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Solomon Kuyon",
+        "party": "NDC",
+        "constituency": "Krachi Nchumuru",
+        "region": "Oti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Helen Adjoa Ntoso",
+        "party": "NDC",
+        "constituency": "Krachi West",
+        "region": "Oti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "John Kwabena Bless Oti",
+        "party": "NDC",
+        "constituency": "Nkwanta North",
+        "region": "Oti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Geoffrey Kini",
+        "party": "NDC",
+        "constituency": "Nkwanta South",
+        "region": "Oti Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Yusif Sulemana",
+        "party": "NDC",
+        "constituency": "Bole Bamboi",
+        "region": "Savannah Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Mahama Asei Seini",
+        "party": "NPP",
+        "constituency": "Daboya-Mankarigu",
+        "region": "Savannah Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Samuel Abu Jinapor",
+        "party": "NPP",
+        "constituency": "Damango",
+        "region": "Savannah Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Alhassan Abdallah Ididi",
+        "party": "NPP",
+        "constituency": "Salaga North",
+        "region": "Savannah Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Zuwera Mohammed Ibrahimah",
+        "party": "NDC",
+        "constituency": "Salaga South",
+        "region": "Savannah Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Andrew Dari Chiwetey",
+        "party": "NDC",
+        "constituency": "Sawla-Tuna-Kalba",
+        "region": "Savannah Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "John Abdulai Jinapor",
+        "party": "NDC",
+        "constituency": "Yapei-Kusawgu",
+        "region": "Savannah Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Mahama Ayariga",
+        "party": "NDC",
+        "constituency": "Bawku Central",
+        "region": "Upper East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Abdulai Abanga",
+        "party": "NPP",
+        "constituency": "Binduri",
+        "region": "Upper East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Isaac Adongo",
+        "party": "NDC",
+        "constituency": "Bolgatanga Central",
+        "region": "Upper East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Dominic Akuritinga Ayine",
+        "party": "NDC",
+        "constituency": "Bolgatanga East",
+        "region": "Upper East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Edward Abambire Bawa",
+        "party": "NDC",
+        "constituency": "Bongo",
+        "region": "Upper East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "James Agalga",
+        "party": "NDC",
+        "constituency": "Builsa North",
+        "region": "Upper East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Clement Apaak",
+        "party": "NDC",
+        "constituency": "Builsa South",
+        "region": "Upper East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Thomas Adda Dalu",
+        "party": "NDC",
+        "constituency": "Chiana-Paga",
+        "region": "Upper East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Akuka Albert Alalzuuga",
+        "party": "NDC",
+        "constituency": "Garu",
+        "region": "Upper East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Mark Kurt Nawaane",
+        "party": "NDC",
+        "constituency": "Nabdam",
+        "region": "Upper East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Sampson Tangombu Chiragia",
+        "party": "NDC",
+        "constituency": "Navrongo Central",
+        "region": "Upper East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Laadi Ayii Ayamba",
+        "party": "NDC",
+        "constituency": "Pusiga",
+        "region": "Upper East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Benson Tongo Baba",
+        "party": "NDC",
+        "constituency": "Talensi",
+        "region": "Upper East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Akanvariva Lydia Lamisi",
+        "party": "NDC",
+        "constituency": "Tempane",
+        "region": "Upper East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Cletus Apul Avoka",
+        "party": "NDC",
+        "constituency": "Zebilla",
+        "region": "Upper East Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Sebastian Sandaare",
+        "party": "NDC",
+        "constituency": "Daffiama-Bussie-Issa",
+        "region": "Upper West Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Cletus Seidu Dapilaah",
+        "party": "NDC",
+        "constituency": "Jirapa",
+        "region": "Upper West Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Bakye Yelviel Baligi",
+        "party": "NPP",
+        "constituency": "Lambussie",
+        "region": "Upper West Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Bede A. Zeideng",
+        "party": "NDC",
+        "constituency": "Lawra",
+        "region": "Upper West Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Sumah Anthony Mwinikaara",
+        "party": "NDC",
+        "constituency": "Nadowli Kaleo",
+        "region": "Upper West Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Ambrose Dery",
+        "party": "NPP",
+        "constituency": "Nandom",
+        "region": "Upper West Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Issahaku Amidu Chinnia",
+        "party": "NPP",
+        "constituency": "Sissala East",
+        "region": "Upper West Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Mohammed Adams Sukparu",
+        "party": "NDC",
+        "constituency": "Sissala West",
+        "region": "Upper West Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Abdul-Rashid Hassan Pelpuo",
+        "party": "NDC",
+        "constituency": "Wa Central",
+        "region": "Upper West Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Godfred Seidu Jasaw",
+        "party": "NDC",
+        "constituency": "Wa East",
+        "region": "Upper West Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Peter Lanchene Toobu",
+        "party": "NDC",
+        "constituency": "Wa West",
+        "region": "Upper West Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwame Governs Agbodza",
+        "party": "NDC",
+        "constituency": "Adaklu",
+        "region": "Volta Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Angela Oforiwaa Alorwu-Tay",
+        "party": "NDC",
+        "constituency": "Afadjato South",
+        "region": "Volta Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Charles Akwesi Agbeve",
+        "party": "NDC",
+        "constituency": "Agotime-Ziope",
+        "region": "Volta Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Peter Kwasi Nortsu-Kotoe",
+        "party": "NDC",
+        "constituency": "Akatsi North",
+        "region": "Volta Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Bernard Ahiafor",
+        "party": "NDC",
+        "constituency": "Akatsi South",
+        "region": "Volta Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Richard Kwame Sefe",
+        "party": "NDC",
+        "constituency": "Anlo",
+        "region": "Volta Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Alexander Roosevelt Hottordze",
+        "party": "NDC",
+        "constituency": "Central Tongu",
+        "region": "Volta Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Benjamin Komla Kpodo",
+        "party": "NDC",
+        "constituency": "Ho Central",
+        "region": "Volta Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Emmanuel Kwasi Bedzrah",
+        "party": "NDC",
+        "constituency": "Ho West",
+        "region": "Volta Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "John Peter Amewu",
+        "party": "NPP",
+        "constituency": "Hohoe",
+        "region": "Volta Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwame Dzudzorli Gakpey",
+        "party": "NDC",
+        "constituency": "Keta",
+        "region": "Volta Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "James Klutse Avedzi",
+        "party": "NDC",
+        "constituency": "Ketu North",
+        "region": "Volta Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Dzifa Gomashie",
+        "party": "NDC",
+        "constituency": "Ketu South",
+        "region": "Volta Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Adjoa Della Sowah",
+        "party": "NDC",
+        "constituency": "Kpando",
+        "region": "Volta Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Joycelyn Tetteh",
+        "party": "NDC",
+        "constituency": "North Dayi",
+        "region": "Volta Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Samuel Okudzeto Ablakwa",
+        "party": "NDC",
+        "constituency": "North Tongu",
+        "region": "Volta Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Rockson-Nelson Etse Dafeamekpor",
+        "party": "NDC",
+        "constituency": "South Dayi",
+        "region": "Volta Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Wisdom Kobena Mensah Woyome",
+        "party": "NDC",
+        "constituency": "South Tongu",
+        "region": "Volta Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Ebenezer Kojo Kum",
+        "party": "NPP",
+        "constituency": "Ahanta West",
+        "region": "Western Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Peter Yaw Kwakye Ackah",
+        "party": "NDC",
+        "constituency": "Amenfi Central",
+        "region": "Western Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Nicholas Amankwah",
+        "party": "NDC",
+        "constituency": "Amenfi East",
+        "region": "Western Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Eric Afful",
+        "party": "NDC",
+        "constituency": "Amenfi West",
+        "region": "Western Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Joseph Cudjoe",
+        "party": "NPP",
+        "constituency": "Effia",
+        "region": "Western Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Emmanuel Armah-Kofi Buah",
+        "party": "NDC",
+        "constituency": "Ellembelle",
+        "region": "Western Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Joe Ghartey",
+        "party": "NPP",
+        "constituency": "Essikado-Ketan",
+        "region": "Western Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kofi Arko Nokoe",
+        "party": "NDC",
+        "constituency": "Evalue-Ajomoro-Gwira",
+        "region": "Western Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Dorcas Affo-Toffey",
+        "party": "NDC",
+        "constituency": "Jomoro",
+        "region": "Western Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Prince Hamidu Armah",
+        "party": "NPP",
+        "constituency": "Kwesimintsim",
+        "region": "Western Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kobina Abbam Aboah Sanie",
+        "party": "NPP",
+        "constituency": "Mpohor",
+        "region": "Western Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Robert Wisdom Cudjoe",
+        "party": "NDC",
+        "constituency": "Prestea-Huni Valley",
+        "region": "Western Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Andrew Kofi Egyapa Mercer",
+        "party": "NPP",
+        "constituency": "Sekondi",
+        "region": "Western Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Samuel Erickson Abakah",
+        "party": "NPP",
+        "constituency": "Shama",
+        "region": "Western Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwabena Okyere Darko-Mensah",
+        "party": "NPP",
+        "constituency": "Takoradi",
+        "region": "Western Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "George Mireku Duker",
+        "party": "NPP",
+        "constituency": "Tarkwa-Nsuaem",
+        "region": "Western Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Isaac Adjei Mensah",
+        "party": "NDC",
+        "constituency": "Wassa East",
+        "region": "Western Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Oscar Ofori Larbi",
+        "party": "NDC",
+        "constituency": "Aowin",
+        "region": "Western North Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Richard Acheampong",
+        "party": "NDC",
+        "constituency": "Bia East",
+        "region": "Western North Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Augustine Tawiah",
+        "party": "NDC",
+        "constituency": "Bia West",
+        "region": "Western North Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Alfred Obeng Boateng",
+        "party": "NPP",
+        "constituency": "Bibiani-Anhwiaso-Bekwai",
+        "region": "Western North Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Sampson Ahi",
+        "party": "NDC",
+        "constituency": "Bodi",
+        "region": "Western North Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwabena Mintah Akandoh",
+        "party": "NDC",
+        "constituency": "Juabeso",
+        "region": "Western North Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Alex Tetteh Djornobuah",
+        "party": "NPP",
+        "constituency": "Sefwi-Akontombra",
+        "region": "Western North Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwaku Afriyie",
+        "party": "NPP",
+        "constituency": "Sefwi-Wiawso",
+        "region": "Western North Region",
+        "outcome": "Won"
+      },
+      {
+        "name": "Joseph Betino",
+        "party": "NDC",
+        "constituency": "Suaman",
+        "region": "Western North Region",
+        "outcome": "Won"
+      }
+    ]
+  },
+  "2024": {
+    "meta": {
+      "year": "2024",
+      "source": "Modern Ghana published list of 801 registered parliamentary candidates, 7 December 2024. This file contains every name the article tables yielded. The page repeats the heading UPPER EAST on the table that starts with Wa Central; those rows are stored as Upper West. Won is marked only where the name and constituency also match the English Wikipedia list of elected MPs.",
+      "sourceUrl": "https://www.modernghana.com/news/1363580/election2024-full-list-of-801-parliamentary-candidates.html",
+      "winnerSourceUrl": "https://en.wikipedia.org/wiki/List_of_MPs_elected_in_the_2024_Ghanaian_general_election",
+      "registered": 801,
+      "loaded": 768,
+      "constituencies": 275,
+      "constituencyTotal": 276,
+      "electedMatched": 233
+    },
+    "candidates": [
+      {
+        "name": "Sylvester M. Tetteh",
+        "party": "NPP",
+        "constituency": "Bortianor-Ngleshie Amanfro",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Okle Felix Akwetey",
+        "party": "NDC",
+        "constituency": "Bortianor-Ngleshie Amanfro",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Frank Mensah",
+        "party": "IND",
+        "constituency": "Bortianor-Ngleshie Amanfro",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mohammed Abdul-Wahab",
+        "party": "NPP",
+        "constituency": "Domeabra-Obom",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Isaac Awuku Yibor",
+        "party": "NDC",
+        "constituency": "Domeabra-Obom",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Jerry Ahmed Shaib",
+        "party": "NPP",
+        "constituency": "Weija-Gbawe",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Ofori Eric Kwaku",
+        "party": "LPG",
+        "constituency": "Weija-Gbawe",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Saviour Gbedze",
+        "party": "CPP",
+        "constituency": "Weija-Gbawe",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Felix Odartey Lamptey",
+        "party": "NDC",
+        "constituency": "Weija-Gbawe",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Obeng Fynn George",
+        "party": "APC",
+        "constituency": "Weija-Gbawe",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Emmanuel Tobbin",
+        "party": "NPP",
+        "constituency": "Anyaa-Sowutuom",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Allotey Emmanuel Adotey",
+        "party": "NDC",
+        "constituency": "Anyaa-Sowutuom",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Gloria Owusu",
+        "party": "NPP",
+        "constituency": "Trobu",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Oliver Gyepi-Garbrah",
+        "party": "LPG",
+        "constituency": "Trobu",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Sarfo Hammond Adu",
+        "party": "CPP",
+        "constituency": "Trobu",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "John Kofi Halm",
+        "party": "NDC",
+        "constituency": "Trobu",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Francis Ansah Tawiah",
+        "party": "APC",
+        "constituency": "Trobu",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Nana Agyenim Boateng",
+        "party": "IND",
+        "constituency": "Trobu",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Yahya Kassim Atta",
+        "party": "NPP",
+        "constituency": "Amasaman",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Sedem Kwaku Afenyo",
+        "party": "NDC",
+        "constituency": "Amasaman",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Jerry-Johnson Nii Armah Ashitey",
+        "party": "IND",
+        "constituency": "Amasaman",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Samuel Kwame Denoo",
+        "party": "IND",
+        "constituency": "Amasaman",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Michael Aaron Yaw Nii Nortey Oquaye",
+        "party": "NPP",
+        "constituency": "Dome/Kwabenya",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Akurugu Faustina Elikplim",
+        "party": "NDC",
+        "constituency": "Dome/Kwabenya",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Dora Nyarko",
+        "party": "PNC",
+        "constituency": "Dome/Kwabenya",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Remy Paa Kow Edmundson",
+        "party": "PPP",
+        "constituency": "Dome/Kwabenya",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Lamptey Robert",
+        "party": "NPP",
+        "constituency": "Madina",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Francis- Xavier Kojo Sosu",
+        "party": "NDC",
+        "constituency": "Madina",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Awal Mohammed",
+        "party": "IND",
+        "constituency": "Madina",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Zak Rahman",
+        "party": "NPP",
+        "constituency": "Ayawaso East",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mahama Naser Toure",
+        "party": "NDC",
+        "constituency": "Ayawaso East",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Sannie Ibrahim",
+        "party": "NPP",
+        "constituency": "Ayawaso North",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Yussif Issaka Jajah",
+        "party": "NDC",
+        "constituency": "Ayawaso North",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Henry Quartey",
+        "party": "NPP",
+        "constituency": "Ayawaso Central",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Charles Kwame Adams",
+        "party": "NDP",
+        "constituency": "Ayawaso Central",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Abdul Rauf Tongym Tubazu",
+        "party": "NDC",
+        "constituency": "Ayawaso Central",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Lydia Seyram Alhassan",
+        "party": "NPP",
+        "constituency": "Ayawaso West Wuogon",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "John Setor Dumelo",
+        "party": "NDC",
+        "constituency": "Ayawaso West Wuogon",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Abdul Rauf Abugri Mumuni",
+        "party": "IND",
+        "constituency": "Ayawaso West Wuogon",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Dakoa Newman",
+        "party": "NPP",
+        "constituency": "Okaikwei South",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ernest Adomako",
+        "party": "NDC",
+        "constituency": "Okaikwei South",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Samuel Sarbah Lartey",
+        "party": "NPP",
+        "constituency": "Ablekuma South",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Joseph Commey",
+        "party": "LGP",
+        "constituency": "Ablekuma South",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Alfred Okoe Vanderpuije",
+        "party": "NDC",
+        "constituency": "Ablekuma South",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "James Lankwei Lamptey",
+        "party": "IND",
+        "constituency": "Ablekuma South",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Sowah Abdul Mannaf",
+        "party": "NPP",
+        "constituency": "Odododiodio",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Richard Dzatei Abbey",
+        "party": "CPP",
+        "constituency": "Odododiodio",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Alfred Nii Kotey Ashie",
+        "party": "NDC",
+        "constituency": "Odododiodio",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Alfred Anettey Abbey",
+        "party": "PPP",
+        "constituency": "Odododiodio",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Patrick Yaw Boamah",
+        "party": "NPP",
+        "constituency": "Okaikwei Central",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Abdulai Abu Baba Abubakar Sadiq",
+        "party": "NDC",
+        "constituency": "Okaikwei Central",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Nana Ama Dokua Asiamah-Adjei",
+        "party": "NPP",
+        "constituency": "Okaikwei North",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Abdul Hamidu Ibrahim Futa",
+        "party": "CPP",
+        "constituency": "Okaikwei North",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Theresa Lardi Awuni",
+        "party": "NDC",
+        "constituency": "Okaikwei North",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Nana Akua Owusu Afriyieh",
+        "party": "NPP",
+        "constituency": "Ablekuma North",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ewurabena Aubynn",
+        "party": "NDC",
+        "constituency": "Ablekuma North",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Jefferson Kwamina Sackey",
+        "party": "NPP",
+        "constituency": "Ablekuma Central",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Abdul-Latif Dan",
+        "party": "NDC",
+        "constituency": "Ablekuma Central",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Ursula Gifty Owusu &ndash; Ekuful",
+        "party": "NPP",
+        "constituency": "Ablekuma West",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kweku Addo",
+        "party": "NDC",
+        "constituency": "Ablekuma West",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Valentino Nii Noi Nortey",
+        "party": "NPP",
+        "constituency": "Korle Klottey",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Zanetor Agyeman-Rawlings",
+        "party": "NDC",
+        "constituency": "Korle Klottey",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Joseph Kwashie Addo",
+        "party": "NPP",
+        "constituency": "Dadekotopon",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Rita Naa Odoley Sowah",
+        "party": "NDC",
+        "constituency": "Dadekotopon",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Abbey David Anertey",
+        "party": "IND",
+        "constituency": "Dadekotopon",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Vincent Sowah Odotei",
+        "party": "IND",
+        "constituency": "Dadekotopon",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Bernard Okoe Boye",
+        "party": "NPP",
+        "constituency": "Ledzokuku",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Lucky Mensah",
+        "party": "NDP",
+        "constituency": "Ledzokuku",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Tagoe Seth Nii Amartey",
+        "party": "CPP",
+        "constituency": "Ledzokuku",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ayiku Benjamin Narteh",
+        "party": "NDC",
+        "constituency": "Ledzokuku",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Tekpor Elliot Prosper Kwame",
+        "party": "IND",
+        "constituency": "Ledzokuku",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Emmanuel Laryea Odai",
+        "party": "NPP",
+        "constituency": "Krowor",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Azumah Courage Kwame Mensah",
+        "party": "NDP",
+        "constituency": "Krowor",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Agnes Naa Momo Lartey",
+        "party": "NDC",
+        "constituency": "Krowor",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Duke Afotey Mensah",
+        "party": "IND",
+        "constituency": "Krowor",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Charles Forson",
+        "party": "NPP",
+        "constituency": "Tema Central",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Ebi Bright",
+        "party": "NDC",
+        "constituency": "Tema Central",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Frederick Aniagyei",
+        "party": "IND",
+        "constituency": "Tema Central",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Yohane Amarh Ashitey",
+        "party": "NPP",
+        "constituency": "Tema East",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Odamtten Isaac Ashai",
+        "party": "NDC",
+        "constituency": "Tema East",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Denis Amfo Sefah",
+        "party": "NPP",
+        "constituency": "Tema West",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "James Enu",
+        "party": "NDC",
+        "constituency": "Tema West",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "William Ofosu Asante",
+        "party": "NPP",
+        "constituency": "Kpone Katamanso",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Joseph Akuerteh Tettey",
+        "party": "NDC",
+        "constituency": "Kpone Katamanso",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Agbane Samson",
+        "party": "PPP",
+        "constituency": "Kpone Katamanso",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Edward Amonkwaah Anang",
+        "party": "IND",
+        "constituency": "Kpone Katamanso",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Justice King Essiel",
+        "party": "NPP",
+        "constituency": "Ashaiman",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Heymann Emmanuel Kofi-Yesu",
+        "party": "LPG",
+        "constituency": "Ashaiman",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ernest Henry Norgbey",
+        "party": "NDC",
+        "constituency": "Ashaiman",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Mantey Emmanuel Felix",
+        "party": "PPP",
+        "constituency": "Ashaiman",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kudah Gadafi Adam",
+        "party": "IND",
+        "constituency": "Ashaiman",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Akosua Asaa Manu",
+        "party": "NPP",
+        "constituency": "Adentan",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Razak Al-Hassan",
+        "party": "CPP",
+        "constituency": "Adentan",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mohammed Adamu Ramadan",
+        "party": "NDC",
+        "constituency": "Adentan",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Hagar Asiedu",
+        "party": "IND",
+        "constituency": "Adentan",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Benjamin Nargeh",
+        "party": "NPP",
+        "constituency": "Shai-Osudoku",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Linda Obenewaa Akweley Ocloo",
+        "party": "NDC",
+        "constituency": "Shai-Osudoku",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Minimadey Isaac Gabriel Angmortey",
+        "party": "PPP",
+        "constituency": "Shai-Osudoku",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Gifty Hawa Hammond",
+        "party": "IND",
+        "constituency": "Shai-Osudoku",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Michael Tetteh-Eku",
+        "party": "NPP",
+        "constituency": "Ningo Prampram",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Samuel Nartey George",
+        "party": "NDC",
+        "constituency": "Ningo Prampram",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Frederick Forzie",
+        "party": "IND",
+        "constituency": "Ningo Prampram",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Evans Tetteh Nii Nartey",
+        "party": "IND",
+        "constituency": "Ningo Prampram",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Dodzie Numekevor",
+        "party": "NPP",
+        "constituency": "Sege",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Daniel Keshi Bessey",
+        "party": "NDC",
+        "constituency": "Sege",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Lasi Eunice",
+        "party": "IND",
+        "constituency": "Sege",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Suzette Naa Norley Dornukie Norteye",
+        "party": "NPP",
+        "constituency": "Ada",
+        "region": "Greater Accra",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Comfort Doyoe Cudjoe",
+        "party": "NDC",
+        "constituency": "Ada",
+        "region": "Greater Accra",
+        "outcome": "Won"
+      },
+      {
+        "name": "Pius Enam Hadzide",
+        "party": "NPP",
+        "constituency": "Asuogyaman",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Thomas Ampem Nyarko",
+        "party": "NDC",
+        "constituency": "Asuogyaman",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Simon Kweku Tetteh",
+        "party": "NPP",
+        "constituency": "Lower Manya Krobo",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ebenezer Okletey Terlabi",
+        "party": "NDC",
+        "constituency": "Lower Manya Krobo",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Joseph Tetteh",
+        "party": "NPP",
+        "constituency": "Upper Manya Krobo",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Bismark Tetteh Nyarko",
+        "party": "NDC",
+        "constituency": "Upper Manya Krobo",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Richard Twum Barimah Koranteng",
+        "party": "NPP",
+        "constituency": "Yilo Krobo",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Aseni Ebenzer Tetteh",
+        "party": "CPP",
+        "constituency": "Yilo Krobo",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Albert Tetteh Nyakotey",
+        "party": "NDC",
+        "constituency": "Yilo Krobo",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Michael Okyere Baafi",
+        "party": "NPP",
+        "constituency": "New Juaben South",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Offei Martin Otu",
+        "party": "NDC",
+        "constituency": "New Juaben South",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Appiah Evans",
+        "party": "IND",
+        "constituency": "New Juaben South",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Nana Osei-Adjei",
+        "party": "NPP",
+        "constituency": "New Juaben North",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Samuel Adongo",
+        "party": "NDC",
+        "constituency": "New Juaben North",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Emmanuel Ofosu Yeboah",
+        "party": "IND",
+        "constituency": "New Juaben North",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Samuel Awuku",
+        "party": "NPP",
+        "constituency": "Akropong",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "John Evans Kumordzi",
+        "party": "NDC",
+        "constituency": "Akropong",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Daniel Nana Addo-Kenneth",
+        "party": "NPP",
+        "constituency": "Okere",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Joseph Kwadwo Afari &ndash; Yeboah",
+        "party": "CPP",
+        "constituency": "Okere",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Prince Henry Anim &ndash; Owiredu",
+        "party": "NDC",
+        "constituency": "Okere",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Eric Yeboah Apeadu",
+        "party": "NPP",
+        "constituency": "Akuapem South",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Lawrencia Dziwornu",
+        "party": "NDC",
+        "constituency": "Akuapem South",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Annoh-Dompreh Frank",
+        "party": "NPP",
+        "constituency": "Nsawam-Adoagyiri",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Parick Tetteh",
+        "party": "GFP",
+        "constituency": "Nsawam-Adoagyiri",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Fummey Philibert Amenorpe",
+        "party": "NDC",
+        "constituency": "Nsawam-Adoagyiri",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Golo Kojo",
+        "party": "IND",
+        "constituency": "Nsawam-Adoagyiri",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mustapha Rasheed",
+        "party": "IND",
+        "constituency": "Nsawam-Adoagyiri",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Frank Aseidu Bekoe",
+        "party": "NPP",
+        "constituency": "Suhum",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Prince Addo",
+        "party": "NDC",
+        "constituency": "Suhum",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Emmanuel Dede Wiafe",
+        "party": "IND",
+        "constituency": "Suhum",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kwadjo Asante",
+        "party": "IND",
+        "constituency": "Suhum",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ida Adjoa Asiedu",
+        "party": "NPP",
+        "constituency": "Ayensuano",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Addi Safori Teddy",
+        "party": "NDC",
+        "constituency": "Ayensuano",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Abrokwa Aboagye Sintim",
+        "party": "IND",
+        "constituency": "Ayensuano",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Learned Obiri Ebenezer Yirenkyi",
+        "party": "IND",
+        "constituency": "Ayensuano",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Charles Acheampong",
+        "party": "NPP",
+        "constituency": "Lower West Akim",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Owen Kwame Frimpong",
+        "party": "NDC",
+        "constituency": "Lower West Akim",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Gifty Klenam",
+        "party": "IND",
+        "constituency": "Lower West Akim",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Frederick Obeng Adom",
+        "party": "NPP",
+        "constituency": "Upper West Akim",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Drah Emmanuel",
+        "party": "NDC",
+        "constituency": "Upper West Akim",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Alexander Akwasi Acquah",
+        "party": "NPP",
+        "constituency": "Akim Oda",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Jones Asante",
+        "party": "NDC",
+        "constituency": "Akim Oda",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "George Kwame Aboagye",
+        "party": "NPP",
+        "constituency": "Asene/Akroso/Manso",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Eric Ahinakwa",
+        "party": "NDC",
+        "constituency": "Asene/Akroso/Manso",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Osei Kennedy Nyarko",
+        "party": "NPP",
+        "constituency": "Akim Swedru",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Taaju Abdu Rahim",
+        "party": "NDC",
+        "constituency": "Akim Swedru",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kofi Ahenkorah Marfo",
+        "party": "NPP",
+        "constituency": "Achiase",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Samuel Owusu Brako",
+        "party": "NDC",
+        "constituency": "Achiase",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kojo Oppong Nkrumah",
+        "party": "NPP",
+        "constituency": "Ofoase/Ayirebi",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Alfred Osei-Poku",
+        "party": "NDC",
+        "constituency": "Ofoase/Ayirebi",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Agyare Alexander",
+        "party": "NPP",
+        "constituency": "Kade",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Emmanuel Kofi Nti",
+        "party": "NDC",
+        "constituency": "Kade",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ohemeng-Tinyase Kwabena",
+        "party": "IND",
+        "constituency": "Kade",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ernest Kumi",
+        "party": "NPP",
+        "constituency": "Akwatia",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Henry Yiadom Boakye",
+        "party": "NDC",
+        "constituency": "Akwatia",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Charles Asuako Owiredu",
+        "party": "NPP",
+        "constituency": "Abirem",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Nurudeen Fuseini",
+        "party": "NDC",
+        "constituency": "Abirem",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kingsley Agyemang",
+        "party": "NPP",
+        "constituency": "Abuakwa South",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Nana Adu Sarpong Addo-Aikins",
+        "party": "NDC",
+        "constituency": "Abuakwa South",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Add0-Frempong Nana Ampaw Kwame",
+        "party": "NPP",
+        "constituency": "Abuakwa North",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Charles Yeboah Darko",
+        "party": "NDC",
+        "constituency": "Abuakwa North",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Abena Osei-Asare",
+        "party": "NPP",
+        "constituency": "Atiwa East",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kenneth Agyare",
+        "party": "NDC",
+        "constituency": "Atiwa East",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Nana Adjei Kyerema",
+        "party": "IND",
+        "constituency": "Atiwa East",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Laurette Korkor Asante",
+        "party": "NPP",
+        "constituency": "Atiwa West",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Ofosuapea Dennis Owusu-Appiah",
+        "party": "NDC",
+        "constituency": "Atiwa West",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kwame Appiah Kodua",
+        "party": "NPP",
+        "constituency": "Fanteakwa North",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Apaw-Wiredu Haroun",
+        "party": "NDC",
+        "constituency": "Fanteakwa North",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Duke William Allen Kwame Amoako-Atta Ofori-Atta",
+        "party": "NPP",
+        "constituency": "Fanteakwa South",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kingsley Owusu Newman",
+        "party": "NDC",
+        "constituency": "Fanteakwa South",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Joseph Frempong",
+        "party": "NPP",
+        "constituency": "Nkawkaw",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Frederick Somuah Obeng",
+        "party": "NDC",
+        "constituency": "Nkawkaw",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Lawoey Benjimain Kwame Ansah",
+        "party": "IND",
+        "constituency": "Nkawkaw",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Davis Ansah Opoku",
+        "party": "NPP",
+        "constituency": "Mpraeso",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Ofosu-Asante Augustina",
+        "party": "GUM",
+        "constituency": "Mpraeso",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Osei Michael",
+        "party": "CPP",
+        "constituency": "Mpraeso",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Muhayadeen Adam Kaleem",
+        "party": "NDC",
+        "constituency": "Mpraeso",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Bryan Acheampong",
+        "party": "NPP",
+        "constituency": "Abetifi",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Addo Isaac Amoafo",
+        "party": "NDC",
+        "constituency": "Abetifi",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Asaimah K. Anim",
+        "party": "NPP",
+        "constituency": "Afram Plains North",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Agbakpe Hillary",
+        "party": "NDP",
+        "constituency": "Afram Plains North",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Betty Nana Efua Krosbi Mensah",
+        "party": "NDC",
+        "constituency": "Afram Plains North",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Worlase Kpeli",
+        "party": "IND",
+        "constituency": "Afram Plains North",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Jacob Zineyele",
+        "party": "NPP",
+        "constituency": "Afram Plains South",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Joseph Appiah Boateng",
+        "party": "NDC",
+        "constituency": "Afram Plains South",
+        "region": "Eastern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Iddrisu Seidu Ibn-Swalah",
+        "party": "PAG",
+        "constituency": "Afram Plains South",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Grace Nudonu Abra Adiepena",
+        "party": "IND",
+        "constituency": "Afram Plains South",
+        "region": "Eastern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Courage Hope Goldberg-Grimm Lekettey",
+        "party": "NPP",
+        "constituency": "Keta",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Yayra Kwashie Kwawu",
+        "party": "LPG",
+        "constituency": "Keta",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kwame Dzudzorli Gakpey",
+        "party": "NDC",
+        "constituency": "Keta",
+        "region": "Volta",
+        "outcome": "Won"
+      },
+      {
+        "name": "Dugah Stanley Courage",
+        "party": "IND",
+        "constituency": "Keta",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Seth Kwashie Yormewu",
+        "party": "NPP",
+        "constituency": "Anlo",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Richard Kwami Sefe",
+        "party": "NDC",
+        "constituency": "Anlo",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Samuel Wisdom Doe Haligah",
+        "party": "NPP",
+        "constituency": "Ketu South",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Abla Dzifa Gomashie",
+        "party": "NDC",
+        "constituency": "Ketu South",
+        "region": "Volta",
+        "outcome": "Won"
+      },
+      {
+        "name": "Amegbletor Enoch Kwabla",
+        "party": "NPP",
+        "constituency": "Ketu North",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Pascaline Kassah",
+        "party": "LPG",
+        "constituency": "Ketu North",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Hadzah Shelta Ziodofe Kwesi",
+        "party": "NDP",
+        "constituency": "Ketu North",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Eric Edem Agbana",
+        "party": "NDC",
+        "constituency": "Ketu North",
+        "region": "Volta",
+        "outcome": "Won"
+      },
+      {
+        "name": "Egos Mawuli Ocloo",
+        "party": "NPP",
+        "constituency": "Akatsi South",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Bernard Ahiafor",
+        "party": "NDC",
+        "constituency": "Akatsi South",
+        "region": "Volta",
+        "outcome": "Won"
+      },
+      {
+        "name": "Dzameshie Donald Brown",
+        "party": "PAG",
+        "constituency": "Akatsi South",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Simon Peter Kofi Ofosu",
+        "party": "NPP",
+        "constituency": "Akatsi North",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Peter Kwasi Nortsu-Kotoe",
+        "party": "NDC",
+        "constituency": "Akatsi North",
+        "region": "Volta",
+        "outcome": "Won"
+      },
+      {
+        "name": "Lady Elizabeth Segbenu Agah",
+        "party": "NPP",
+        "constituency": "South Tongu",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Maxwell Kwame Lukutor",
+        "party": "NDC",
+        "constituency": "South Tongu",
+        "region": "Volta",
+        "outcome": "Won"
+      },
+      {
+        "name": "Olivia Sosu Quarshie",
+        "party": "PAG",
+        "constituency": "South Tongu",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Godwin Ayikpa",
+        "party": "NPP",
+        "constituency": "Central Tongu",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Avudoahor Lawrencia Esenam",
+        "party": "LPG",
+        "constituency": "Central Tongu",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Akafua-Hotor Courage",
+        "party": "NDP",
+        "constituency": "Central Tongu",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Alexander Roosevelt Hottordze",
+        "party": "NDC",
+        "constituency": "Central Tongu",
+        "region": "Volta",
+        "outcome": "Won"
+      },
+      {
+        "name": "Dzramado Selorm Dramani",
+        "party": "IND",
+        "constituency": "Central Tongu",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "John Saviour Yaw Eleblu",
+        "party": "NPP",
+        "constituency": "North Tongu",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Samuel Okudzeto Ablakwa",
+        "party": "NDC",
+        "constituency": "North Tongu",
+        "region": "Volta",
+        "outcome": "Won"
+      },
+      {
+        "name": "Bright Kwame Nyatsikor",
+        "party": "NPP",
+        "constituency": "Adaklu",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Morti John Shadrack",
+        "party": "NDP",
+        "constituency": "Adaklu",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Agbodza Kwame Governs",
+        "party": "NDC",
+        "constituency": "Adaklu",
+        "region": "Volta",
+        "outcome": "Won"
+      },
+      {
+        "name": "Agbobli Kentle Seth",
+        "party": "NPP",
+        "constituency": "Agotime Ziope",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "John Tepe",
+        "party": "NDP",
+        "constituency": "Agotime Ziope",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Agbeve Charles Akwasi",
+        "party": "NDC",
+        "constituency": "Agotime Ziope",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Divine Richard Komla Bosson",
+        "party": "NPP",
+        "constituency": "Ho Central",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Nelson Kofi Vide",
+        "party": "NDP",
+        "constituency": "Ho Central",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Richmond Edem Kofi Kpotosu",
+        "party": "NDC",
+        "constituency": "Ho Central",
+        "region": "Volta",
+        "outcome": "Won"
+      },
+      {
+        "name": "Mawulorm Kwame Klutse",
+        "party": "IND",
+        "constituency": "Ho Central",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Eric Nick Yao Gonyuie",
+        "party": "NPP",
+        "constituency": "Ho West",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kukah Julius Jonathan",
+        "party": "NDP",
+        "constituency": "Ho West",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Emmanuel Kwasi Bedzrah",
+        "party": "NDC",
+        "constituency": "Ho West",
+        "region": "Volta",
+        "outcome": "Won"
+      },
+      {
+        "name": "Godwin Kwame Dadzawa",
+        "party": "NPP",
+        "constituency": "South Dayi",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Safo Rose",
+        "party": "LPG",
+        "constituency": "South Dayi",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Rockson-Nelson Etse Kwami Dafeamekpor",
+        "party": "NDC",
+        "constituency": "South Dayi",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Awalime David",
+        "party": "IND",
+        "constituency": "South Dayi",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Oklu Antoinette Abena",
+        "party": "NPP",
+        "constituency": "Kpando",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Sebastian Fred Deh",
+        "party": "NDC",
+        "constituency": "Kpando",
+        "region": "Volta",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kodzosika Samuel",
+        "party": "IND",
+        "constituency": "Kpando",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Edmund Attah Kudjoh",
+        "party": "NPP",
+        "constituency": "North Dayi",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Gloria Yayra Agbenorto",
+        "party": "LPG",
+        "constituency": "North Dayi",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Joycelyn Tetteh",
+        "party": "NDC",
+        "constituency": "North Dayi",
+        "region": "Volta",
+        "outcome": "Won"
+      },
+      {
+        "name": "John-Peter Amewu",
+        "party": "NPP",
+        "constituency": "Hohoe",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Esther Amevor",
+        "party": "NDP",
+        "constituency": "Hohoe",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Thomas Worlanyo Tsekpo",
+        "party": "NDC",
+        "constituency": "Hohoe",
+        "region": "Volta",
+        "outcome": "Won"
+      },
+      {
+        "name": "Stephen Dzidefo Adzraku",
+        "party": "PNC",
+        "constituency": "Hohoe",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Etornam James Flolu",
+        "party": "NPP",
+        "constituency": "Afadjato South",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Tegbey Tracy Semanu",
+        "party": "LPG",
+        "constituency": "Afadjato South",
+        "region": "Volta",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Frank Afriyie",
+        "party": "NDC",
+        "constituency": "Afadjato South",
+        "region": "Volta",
+        "outcome": "Won"
+      },
+      {
+        "name": "Paul Essien",
+        "party": "NPP",
+        "constituency": "Jomoro",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Nana Blay Mienzah",
+        "party": "CPP",
+        "constituency": "Jomoro",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Dorcas Toffey",
+        "party": "NDC",
+        "constituency": "Jomoro",
+        "region": "Western",
+        "outcome": "Won"
+      },
+      {
+        "name": "Nkrumah Samia Yaba Christina",
+        "party": "IND",
+        "constituency": "Jomoro",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kwasi Bonzoh",
+        "party": "NPP",
+        "constituency": "Ellembele",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Emmanuel Armah-Kofi Buah",
+        "party": "NDC",
+        "constituency": "Ellembele",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Asmah John Nkum",
+        "party": "PPP",
+        "constituency": "Ellembele",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Catherine Abelema Afeku",
+        "party": "NPP",
+        "constituency": "Evalue Ajomoro Gwira",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Nokoe Kofi Arko",
+        "party": "NDC",
+        "constituency": "Evalue Ajomoro Gwira",
+        "region": "Western",
+        "outcome": "Won"
+      },
+      {
+        "name": "Elisha Joshua Kabenlah",
+        "party": "IND",
+        "constituency": "Evalue Ajomoro Gwira",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Francis Eric Pobee",
+        "party": "NPP",
+        "constituency": "Ahanta West",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mavis Kuukua Bissue",
+        "party": "NDC",
+        "constituency": "Ahanta West",
+        "region": "Western",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwabena Okyere Darko-Mensah",
+        "party": "NPP",
+        "constituency": "Takoradi",
+        "region": "Western",
+        "outcome": "Won"
+      },
+      {
+        "name": "Faidoo Frederick Faustinus",
+        "party": "NDC",
+        "constituency": "Takoradi",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Charles Cromwell Nanabanyin Onuawonto Bissue",
+        "party": "NPP",
+        "constituency": "Essikado-Ketan",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Grace Ayensu-Danquah",
+        "party": "NDC",
+        "constituency": "Essikado-Ketan",
+        "region": "Western",
+        "outcome": "Won"
+      },
+      {
+        "name": "Andrew Kofi Egyapa Mercer",
+        "party": "NPP",
+        "constituency": "Sekondi",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Blay Nyameke Armah",
+        "party": "NDC",
+        "constituency": "Sekondi",
+        "region": "Western",
+        "outcome": "Won"
+      },
+      {
+        "name": "Isaac Boamah-Nyarko",
+        "party": "NPP",
+        "constituency": "Effia",
+        "region": "Western",
+        "outcome": "Won"
+      },
+      {
+        "name": "Abdul-Majeed Iddrisu Nassam",
+        "party": "NDC",
+        "constituency": "Effia",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Dr. Prince Hamidu Armah",
+        "party": "NPP",
+        "constituency": "Kwesimintsim",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Buckman Philip Fiifi",
+        "party": "NDC",
+        "constituency": "Kwesimintsim",
+        "region": "Western",
+        "outcome": "Won"
+      },
+      {
+        "name": "Joseph Mensah",
+        "party": "IND",
+        "constituency": "Kwesimintsim",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Isaac Kwamina Afful",
+        "party": "NPP",
+        "constituency": "Shama",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Emelia Arthur",
+        "party": "NDC",
+        "constituency": "Shama",
+        "region": "Western",
+        "outcome": "Won"
+      },
+      {
+        "name": "Mona Gertrude Effah",
+        "party": "NPP",
+        "constituency": "Wassa East",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Isaac Adjei Mensah",
+        "party": "NDC",
+        "constituency": "Wassa East",
+        "region": "Western",
+        "outcome": "Won"
+      },
+      {
+        "name": "John Kobina Abbam Aboah Sanie",
+        "party": "NPP",
+        "constituency": "Mpohor",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Theresa Kwaw",
+        "party": "LPG",
+        "constituency": "Mpohor",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Bentil Godfred Henry",
+        "party": "NDC",
+        "constituency": "Mpohor",
+        "region": "Western",
+        "outcome": "Won"
+      },
+      {
+        "name": "George Mireku Duker",
+        "party": "NPP",
+        "constituency": "Tarkwa Nsuaem",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Issa Salifu Taylor",
+        "party": "NDC",
+        "constituency": "Tarkwa Nsuaem",
+        "region": "Western",
+        "outcome": "Won"
+      },
+      {
+        "name": "Joy Joycelyn Andoh",
+        "party": "IND",
+        "constituency": "Tarkwa Nsuaem",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Barbara Oteng-Gyasi",
+        "party": "NPP",
+        "constituency": "Prestea Huni-Valley",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Robert Wisdom Cudjoe",
+        "party": "NDC",
+        "constituency": "Prestea Huni-Valley",
+        "region": "Western",
+        "outcome": "Won"
+      },
+      {
+        "name": "Hammond Eric Oduro",
+        "party": "IND",
+        "constituency": "Prestea Huni-Valley",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ernest Frimpong",
+        "party": "NPP",
+        "constituency": "Amenfi East",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Nicholas Amankwah",
+        "party": "NDC",
+        "constituency": "Amenfi East",
+        "region": "Western",
+        "outcome": "Won"
+      },
+      {
+        "name": "Albert Wiredu Arkoh",
+        "party": "NPP",
+        "constituency": "Amenfi Central",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Joana Gyan Cudjoe",
+        "party": "NDC",
+        "constituency": "Amenfi Central",
+        "region": "Western",
+        "outcome": "Won"
+      },
+      {
+        "name": "Peter Yaw Kwakye-Ackah",
+        "party": "IND",
+        "constituency": "Amenfi Central",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Dr Karl Mark Arhin",
+        "party": "IND",
+        "constituency": "Amenfi Central",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ignatius Kwasi Afrifa",
+        "party": "NPP",
+        "constituency": "Amenfi West",
+        "region": "Western",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Eric Afful",
+        "party": "NDC",
+        "constituency": "Amenfi West",
+        "region": "Western",
+        "outcome": "Won"
+      },
+      {
+        "name": "Dennis Percyval Quaicoe",
+        "party": "NPP",
+        "constituency": "Komenda Edina Eguafo Abrem",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Samuel Atta Mills",
+        "party": "NDC",
+        "constituency": "Komenda Edina Eguafo Abrem",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Emmanuel Kofi Duku",
+        "party": "PPP",
+        "constituency": "Komenda Edina Eguafo Abrem",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Arthur Ernest",
+        "party": "NPP",
+        "constituency": "Cape Coast South",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ricketts-Hagan George Kweku",
+        "party": "NDC",
+        "constituency": "Cape Coast South",
+        "region": "Central",
+        "outcome": "Won"
+      },
+      {
+        "name": "Manu Isaac",
+        "party": "IND",
+        "constituency": "Cape Coast South",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mensah Emmanuel Andoh Perry",
+        "party": "IND",
+        "constituency": "Cape Coast South",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ewusi Horace Ekow",
+        "party": "NPP",
+        "constituency": "Cape Coast North",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Nyarku Kwamena Minta",
+        "party": "NDC",
+        "constituency": "Cape Coast North",
+        "region": "Central",
+        "outcome": "Won"
+      },
+      {
+        "name": "Andoh Thomas",
+        "party": "PPP",
+        "constituency": "Cape Coast North",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Eric Kobina Nyanteh",
+        "party": "NPP",
+        "constituency": "Abura Asebu Kwamankese",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "John Annsmann-Ansah-Psalms",
+        "party": "GUM",
+        "constituency": "Abura Asebu Kwamankese",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Felix Kwakye Ofosu",
+        "party": "NDC",
+        "constituency": "Abura Asebu Kwamankese",
+        "region": "Central",
+        "outcome": "Won"
+      },
+      {
+        "name": "Ophelia Mensah",
+        "party": "NPP",
+        "constituency": "Mfantseman",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Arhin Ebenezer Prince",
+        "party": "NDC",
+        "constituency": "Mfantseman",
+        "region": "Central",
+        "outcome": "Won"
+      },
+      {
+        "name": "Stelfa Nana Adu Okumkom Donkor",
+        "party": "NPP",
+        "constituency": "Ekumfi",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kwainoe Ekow Othniel",
+        "party": "NDC",
+        "constituency": "Ekumfi",
+        "region": "Central",
+        "outcome": "Won"
+      },
+      {
+        "name": "Etuaful Rashid Kwesi",
+        "party": "NPP",
+        "constituency": "Ajumako Enyan Esiam",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Forson Cassiel Ato Baah",
+        "party": "NDC",
+        "constituency": "Ajumako Enyan Esiam",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Bismark Baisie Nkum",
+        "party": "NPP",
+        "constituency": "Gomoa West",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Richard Gyan-Mensah",
+        "party": "NDC",
+        "constituency": "Gomoa West",
+        "region": "Central",
+        "outcome": "Won"
+      },
+      {
+        "name": "Eyiah Naana",
+        "party": "NPP",
+        "constituency": "Gomoa Central",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Yawson Muhammed Naeem-Deen",
+        "party": "NDC",
+        "constituency": "Gomoa Central",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Obeng Kwame Asare",
+        "party": "IND",
+        "constituency": "Gomoa Central",
+        "region": "Central",
+        "outcome": "Won"
+      },
+      {
+        "name": "Asemanyi Kojo",
+        "party": "NPP",
+        "constituency": "Gomoa East",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Paitoo Desmond De-Graft",
+        "party": "NDC",
+        "constituency": "Gomoa East",
+        "region": "Central",
+        "outcome": "Won"
+      },
+      {
+        "name": "Issah Mohammed",
+        "party": "APC",
+        "constituency": "Gomoa East",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Alexander Afenyo-Markin",
+        "party": "NPP",
+        "constituency": "Effutu",
+        "region": "Central",
+        "outcome": "Won"
+      },
+      {
+        "name": "Annan James Kofi",
+        "party": "NDC",
+        "constituency": "Effutu",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Buabeng Louisa",
+        "party": "IND",
+        "constituency": "Effutu",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Arhin Eugene Kofi Bentum",
+        "party": "NPP",
+        "constituency": "Awutu Senya West",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Tetteh-Agbotui Gizella",
+        "party": "NDC",
+        "constituency": "Awutu Senya West",
+        "region": "Central",
+        "outcome": "Won"
+      },
+      {
+        "name": "Koomson Mavis Hawa",
+        "party": "NPP",
+        "constituency": "Awutu Senya East",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Phillis Naa Koryoo Okunor",
+        "party": "NDC",
+        "constituency": "Awutu Senya East",
+        "region": "Central",
+        "outcome": "Won"
+      },
+      {
+        "name": "Arthur Christopher",
+        "party": "NPP",
+        "constituency": "Agona West",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Dangbey Ernestina Ofori",
+        "party": "NDC",
+        "constituency": "Agona West",
+        "region": "Central",
+        "outcome": "Won"
+      },
+      {
+        "name": "Morrison Cynthia Mamle",
+        "party": "IND",
+        "constituency": "Agona West",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Asamoah Hannah",
+        "party": "NPP",
+        "constituency": "Agona East",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Essien Eric",
+        "party": "LPG",
+        "constituency": "Agona East",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Sawyerr Queenstar Pokuah",
+        "party": "NDC",
+        "constituency": "Agona East",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Winifred Abaidoo-Ayin",
+        "party": "NPP",
+        "constituency": "Asikuma Odoben Brakwa",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Precious Mawulorm Amevor",
+        "party": "GUM",
+        "constituency": "Asikuma Odoben Brakwa",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ghansah Alhassan Kobina",
+        "party": "NDC",
+        "constituency": "Asikuma Odoben Brakwa",
+        "region": "Central",
+        "outcome": "Won"
+      },
+      {
+        "name": "Anewu Godfred",
+        "party": "NPP",
+        "constituency": "Assin Central",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Migyimah Shaibu Nurein",
+        "party": "NDC",
+        "constituency": "Assin Central",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Opoku Charles",
+        "party": "NPP",
+        "constituency": "Assin North",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Quayson James Gyakye",
+        "party": "NDC",
+        "constituency": "Assin North",
+        "region": "Central",
+        "outcome": "Won"
+      },
+      {
+        "name": "Fordjour John Ntim",
+        "party": "NPP",
+        "constituency": "Assin South",
+        "region": "Central",
+        "outcome": "Won"
+      },
+      {
+        "name": "Baidoo Stephen Kofi",
+        "party": "NDC",
+        "constituency": "Assin South",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Damtse Joseph Kofi",
+        "party": "IND",
+        "constituency": "Assin South",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Dwamena Obeng Ebenezer",
+        "party": "NPP",
+        "constituency": "Twifo Atti Morkwa",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Donkoh Adowa",
+        "party": "GUM",
+        "constituency": "Twifo Atti Morkwa",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Vondee T.d. David",
+        "party": "NDC",
+        "constituency": "Twifo Atti Morkwa",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Lawrence Agyinsam",
+        "party": "NPP",
+        "constituency": "Hemang Lower Denkyira",
+        "region": "Central",
+        "outcome": "Won"
+      },
+      {
+        "name": "Sampson Kwame Owonna",
+        "party": "CPP",
+        "constituency": "Hemang Lower Denkyira",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Agyapong-Mensah Seth",
+        "party": "NDC",
+        "constituency": "Hemang Lower Denkyira",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Benjamin Bimpong Donkor",
+        "party": "IND",
+        "constituency": "Hemang Lower Denkyira",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Festus Awuah Kwofie",
+        "party": "NPP",
+        "constituency": "Upper Denkyira East",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ankomah Emelia",
+        "party": "NDC",
+        "constituency": "Upper Denkyira East",
+        "region": "Central",
+        "outcome": "Won"
+      },
+      {
+        "name": "Offin Amaniampong Owusu",
+        "party": "PNC",
+        "constituency": "Upper Denkyira East",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Rudolf Amoako-Gyampah",
+        "party": "NPP",
+        "constituency": "Upper Denkyira West",
+        "region": "Central",
+        "outcome": "Won"
+      },
+      {
+        "name": "Emmanuel Gadjo",
+        "party": "GUM",
+        "constituency": "Upper Denkyira West",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Darko Daniel Ohene",
+        "party": "NDC",
+        "constituency": "Upper Denkyira West",
+        "region": "Central",
+        "outcome": "Contested"
+      },
+      {
+        "name": "George Boahen Oduro",
+        "party": "NPP",
+        "constituency": "New Edubiase",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Abdul &ndash; Salam Adams",
+        "party": "NDC",
+        "constituency": "New Edubiase",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Alex Blankson",
+        "party": "NPP",
+        "constituency": "Akrofruom",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Joseph Azumah",
+        "party": "NDC",
+        "constituency": "Akrofruom",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Andrew Asiamah Amoako",
+        "party": "NPP",
+        "constituency": "Fomena",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ogbeh Charles Kofi",
+        "party": "NDC",
+        "constituency": "Fomena",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kobina Tahir Hammond",
+        "party": "NPP",
+        "constituency": "Adansi Asokwa",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mensah Abraham Justice",
+        "party": "CPP",
+        "constituency": "Adansi Asokwa",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Godwin Animli Dorgbadzi-Dorani",
+        "party": "NDC",
+        "constituency": "Adansi Asokwa",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Patrick Boakye-Yiadom",
+        "party": "NPP",
+        "constituency": "Obuasi East",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Samuel Aboagye",
+        "party": "NDC",
+        "constituency": "Obuasi East",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Adjei Owusu Afriyie",
+        "party": "IND",
+        "constituency": "Obuasi East",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kwaku Agyeman Kwarteng",
+        "party": "NPP",
+        "constituency": "Obuasi West",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Appiah Kannin Faustilove",
+        "party": "NDC",
+        "constituency": "Obuasi West",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Annin Kofi Appianin",
+        "party": "IND",
+        "constituency": "Obuasi West",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ralph Poku-Adusei",
+        "party": "NPP",
+        "constituency": "Bekwai",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Lovista Owusu",
+        "party": "LPG",
+        "constituency": "Bekwai",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Prempeh Junior Samuel",
+        "party": "NDC",
+        "constituency": "Bekwai",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Yahaya Nasiru",
+        "party": "PNC",
+        "constituency": "Bekwai",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kwasi Amofa-Agyemang",
+        "party": "IND",
+        "constituency": "Bekwai",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Nana Asafo-Adjei Ayeh",
+        "party": "NPP",
+        "constituency": "Bosome Freho",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Charles Appiah-Kubi",
+        "party": "NDC",
+        "constituency": "Bosome Freho",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Anthony Mmieh",
+        "party": "NPP",
+        "constituency": "Odotobri",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Emmanuel Obeng Agyemang",
+        "party": "NDC",
+        "constituency": "Odotobri",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Isaac Kofi Gyamfi",
+        "party": "IND",
+        "constituency": "Odotobri",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Tweneboa Kodua Fokuo",
+        "party": "NPP",
+        "constituency": "Manso Nkwanta",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Samuel Adjei",
+        "party": "NDC",
+        "constituency": "Manso Nkwanta",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Yaw Frimpong Addo",
+        "party": "NPP",
+        "constituency": "Amansie South",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Benjamin Marfo",
+        "party": "NDC",
+        "constituency": "Amansie South",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Selina Adom",
+        "party": "PNC",
+        "constituency": "Amansie South",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Shirley Kyei",
+        "party": "NPP",
+        "constituency": "Atwima Nwabiagya South",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Wisdom Osel Boamah",
+        "party": "NDC",
+        "constituency": "Atwima Nwabiagya South",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Frank Yeboah",
+        "party": "NPP",
+        "constituency": "Atwima Nwabiagya North",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Mba Zechariah Alenbilla",
+        "party": "NDC",
+        "constituency": "Atwima Nwabiagya North",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kandiire Joachim",
+        "party": "IND",
+        "constituency": "Atwima Nwabiagya North",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Emmanual Osei Gyamfi",
+        "party": "IND",
+        "constituency": "Atwima Nwabiagya North",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Seth Osei-Akoto",
+        "party": "NPP",
+        "constituency": "Atwima Mponua",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Stephen Yeboah",
+        "party": "NDC",
+        "constituency": "Atwima Mponua",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Yaw Osei Adutwum",
+        "party": "NPP",
+        "constituency": "Bosomtwe",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Adusei-Akwaboah Samuel",
+        "party": "LPG",
+        "constituency": "Bosomtwe",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Eric Osei Boateng",
+        "party": "CPP",
+        "constituency": "Bosomtwe",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Abdullah Hamidu",
+        "party": "NDC",
+        "constituency": "Bosomtwe",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kofi Amankwa-Manu",
+        "party": "NPP",
+        "constituency": "Atwima Kwanwoma",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Grace Agyemang Asamoah",
+        "party": "NDC",
+        "constituency": "Atwima Kwanwoma",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Obiba James Annan",
+        "party": "PNC",
+        "constituency": "Atwima Kwanwoma",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Francis Asenso-Boakye",
+        "party": "NPP",
+        "constituency": "Bantama",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Simeon Addai Dapaah",
+        "party": "NDC",
+        "constituency": "Bantama",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kingsley Nyarko",
+        "party": "NPP",
+        "constituency": "Kwadaso",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Eric Asibey",
+        "party": "NDC",
+        "constituency": "Kwadaso",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Adongo Akwasi David",
+        "party": "PNC",
+        "constituency": "Kwadaso",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Stephen Amoah",
+        "party": "NPP",
+        "constituency": "Nhyiaeso",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Joan Abunyewah",
+        "party": "LPG",
+        "constituency": "Nhyiaeso",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Faustina Bayor Dery",
+        "party": "NDC",
+        "constituency": "Nhyiaeso",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Nana Agyei Baffour Awuah",
+        "party": "NPP",
+        "constituency": "Manhyia South",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Marfo Kwaku",
+        "party": "LPG",
+        "constituency": "Manhyia South",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Rita Amonu Gyamfua Antwi",
+        "party": "NDC",
+        "constituency": "Manhyia South",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Akwasi Konadu",
+        "party": "NPP",
+        "constituency": "Manhyia North",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Hamza Swallah",
+        "party": "NDC",
+        "constituency": "Manhyia North",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Vincent Ekwow Assafuah",
+        "party": "NPP",
+        "constituency": "Old Tafo",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Obiri Yeboah Frank",
+        "party": "GFP",
+        "constituency": "Old Tafo",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Sahmudeen Mohammed Kamil",
+        "party": "NDC",
+        "constituency": "Old Tafo",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Daniel Kusi Aseidu",
+        "party": "IND",
+        "constituency": "Old Tafo",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "John Darko",
+        "party": "NPP",
+        "constituency": "Suame",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Frank Owusu Ansah",
+        "party": "NDC",
+        "constituency": "Suame",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mohammed Mubarak",
+        "party": "APC",
+        "constituency": "Suame",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kofi Obiri Yeboah",
+        "party": "NPP",
+        "constituency": "Subin",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Benedicta Kusi Afram",
+        "party": "LPG",
+        "constituency": "Subin",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Akwasi Agyekum Nana Denkyi",
+        "party": "NDC",
+        "constituency": "Subin",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Joseph Boakye &ndash; Danquah",
+        "party": "IND",
+        "constituency": "Subin",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Patricia Appiagyei",
+        "party": "NPP",
+        "constituency": "Asokwa",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Amoh Kamel",
+        "party": "NDC",
+        "constituency": "Asokwa",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Michael Kwasi Aidoo",
+        "party": "NPP",
+        "constituency": "Oforikrom",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Anwel Sadat Ahmed",
+        "party": "NDC",
+        "constituency": "Oforikrom",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Benjamin Afrane Amankwa",
+        "party": "IND",
+        "constituency": "Oforikrom",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Manaf Ibrahim",
+        "party": "NPP",
+        "constituency": "Asawase",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Naomi Nsor",
+        "party": "LPG",
+        "constituency": "Asawase",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Muntaka Mohammed-Mubarak",
+        "party": "NDC",
+        "constituency": "Asawase",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Issah Baba Kompo",
+        "party": "PPP",
+        "constituency": "Asawase",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Alhassan Rafik",
+        "party": "IND",
+        "constituency": "Asawase",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Onyina-Acheampong Akwasi Gyamfi",
+        "party": "NPP",
+        "constituency": "Kwabre East",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Bencha George",
+        "party": "GFP",
+        "constituency": "Kwabre East",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Joseph Amankwah",
+        "party": "NDC",
+        "constituency": "Kwabre East",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Lord Foster Adom Nyamekye",
+        "party": "IND",
+        "constituency": "Kwabre East",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Damata Ama Appianimaa Salam",
+        "party": "NPP",
+        "constituency": "Afigya Kwabre South",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Nuzagl Vivien Nyuzagla",
+        "party": "NDC",
+        "constituency": "Afigya Kwabre South",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Idahosah Bright Benson",
+        "party": "IND",
+        "constituency": "Afigya Kwabre South",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ofori Daniel",
+        "party": "IND",
+        "constituency": "Afigya Kwabre South",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Abdul Wahab Diyal Wilhak",
+        "party": "IND",
+        "constituency": "Afigya Kwabre South",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Collins Adomako-Mensah",
+        "party": "NPP",
+        "constituency": "Afigya Kwabre North",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Emmanuel Jackson Agumah",
+        "party": "NDC",
+        "constituency": "Afigya Kwabre North",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kwabena Boateng",
+        "party": "NPP",
+        "constituency": "Ejisu",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Osei Esther",
+        "party": "CPP",
+        "constituency": "Ejisu",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Jerryne Asante",
+        "party": "NDC",
+        "constituency": "Ejisu",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Okai Kwanin",
+        "party": "IND",
+        "constituency": "Ejisu",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "George Gyapah",
+        "party": "IND",
+        "constituency": "Ejisu",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Fredua Agyemang Joseph",
+        "party": "IND",
+        "constituency": "Ejisu",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Francis Kwabena Berepong Owusu-Akyaw",
+        "party": "NPP",
+        "constituency": "Juaben",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Eunice Ohenewaa Ansu",
+        "party": "NDC",
+        "constituency": "Juaben",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kwaku Asante-Boateng",
+        "party": "NPP",
+        "constituency": "Asante Akim South",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Maame Sarfoah Appiah",
+        "party": "NDC",
+        "constituency": "Asante Akim South",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kwame Anyimadu-Antwi",
+        "party": "NPP",
+        "constituency": "Asante Akim Central",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Isaac Dzameshie",
+        "party": "GFP",
+        "constituency": "Asante Akim Central",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ebenezer Ekow Aidoo",
+        "party": "NDC",
+        "constituency": "Asante Akim Central",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Richard Adu Darko",
+        "party": "IND",
+        "constituency": "Asante Akim Central",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Andy Kwame Appiah-Kubi",
+        "party": "NPP",
+        "constituency": "Asante Akim North",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kofi Asamoah",
+        "party": "NDC",
+        "constituency": "Asante Akim North",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ohene Kwame Frimpong",
+        "party": "IND",
+        "constituency": "Asante Akim North",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Nana Ayew Afriye",
+        "party": "NPP",
+        "constituency": "Efiduase/Asokore",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Raymond Opoku Agyeman",
+        "party": "NDC",
+        "constituency": "Efiduase/Asokore",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ernest Yaw Anim",
+        "party": "NPP",
+        "constituency": "Kumawu",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwasi Amankwaa",
+        "party": "NDC",
+        "constituency": "Kumawu",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "George Akom",
+        "party": "NPP",
+        "constituency": "Sekyere Afram Plains",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Nasira Afrah Gyekye",
+        "party": "NDC",
+        "constituency": "Sekyere Afram Plains",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Adelaide Ntim",
+        "party": "NPP",
+        "constituency": "Nsuta/Kwamang/Beposo",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Ofori Attah Aboagye",
+        "party": "NDC",
+        "constituency": "Nsuta/Kwamang/Beposo",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kwankye Aaron Prosper",
+        "party": "IND",
+        "constituency": "Nsuta/Kwamang/Beposo",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kwaku Ampratwum-Sarpong",
+        "party": "NPP",
+        "constituency": "Mampong",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Yakubu Issifu",
+        "party": "NDC",
+        "constituency": "Mampong",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Sarkodie Peter Abum",
+        "party": "IND",
+        "constituency": "Mampong",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Gifty Ndoma",
+        "party": "NPP",
+        "constituency": "Ejura Sekyedumase",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Muhammad Bawah Braimah",
+        "party": "NDC",
+        "constituency": "Ejura Sekyedumase",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Mavis Nkansah-Boadu",
+        "party": "NPP",
+        "constituency": "Afigya Sekyere East",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Twumasi Evans Amoh",
+        "party": "NDC",
+        "constituency": "Afigya Sekyere East",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Isaac Yaw Opoku",
+        "party": "NPP",
+        "constituency": "Offinso South",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Asare Bediako Vincent",
+        "party": "NDC",
+        "constituency": "Offinso South",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Fred Kyei Asamoah",
+        "party": "NPP",
+        "constituency": "Offinso North",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Ceasar Acheampong Ofosu",
+        "party": "NDC",
+        "constituency": "Offinso North",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Abdul Nasir Deen",
+        "party": "PNC",
+        "constituency": "Offinso North",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Osei Mensah Dapaah Elvis",
+        "party": "NPP",
+        "constituency": "Ahafo Ano South West",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Sedik Abubakar",
+        "party": "NDC",
+        "constituency": "Ahafo Ano South West",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Frederick Acheampong",
+        "party": "NPP",
+        "constituency": "Ahafo Ano South East",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Yakubu Mohammed",
+        "party": "NDC",
+        "constituency": "Ahafo Ano South East",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Eric Nana Agyemang-Prempeh",
+        "party": "NPP",
+        "constituency": "Ahafo Ano North",
+        "region": "Ashanti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwasi Adusei",
+        "party": "NDC",
+        "constituency": "Ahafo Ano North",
+        "region": "Ashanti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Daniel Kwame Gariba",
+        "party": "NPP",
+        "constituency": "Builsa South",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Clement Abas Apaak",
+        "party": "NDC",
+        "constituency": "Builsa South",
+        "region": "Upper East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Seidu Christopher Akanzeboka",
+        "party": "PNC",
+        "constituency": "Builsa South",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Alonsi Thomas Kofi",
+        "party": "NPP",
+        "constituency": "Builsa North",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Agalga James",
+        "party": "NDC",
+        "constituency": "Builsa North",
+        "region": "Upper East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Asuok Joseph Ransford",
+        "party": "PNC",
+        "constituency": "Builsa North",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Abdallah Otito Werseh Achuliwor",
+        "party": "NPP",
+        "constituency": "Navrongo Central",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Simon Akibange Aworigo",
+        "party": "NDC",
+        "constituency": "Navrongo Central",
+        "region": "Upper East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Robert Apechira Aloo",
+        "party": "NPP",
+        "constituency": "Chiana-Paga",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Nikyema Billa Alamzy",
+        "party": "NDC",
+        "constituency": "Chiana-Paga",
+        "region": "Upper East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Elvis Atia Awonekai",
+        "party": "NPP",
+        "constituency": "Bolgatanga Central",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Adongo Isaac",
+        "party": "NDC",
+        "constituency": "Bolgatanga Central",
+        "region": "Upper East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Akunlibe Peter A.",
+        "party": "PNC",
+        "constituency": "Bolgatanga Central",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mathew Silas Amoah",
+        "party": "NPP",
+        "constituency": "Bolgatanga East",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Dominic Akuritinga Ayine",
+        "party": "NDC",
+        "constituency": "Bolgatanga East",
+        "region": "Upper East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Atiah Edwin",
+        "party": "PAG",
+        "constituency": "Bolgatanga East",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Diana Aduko Aburiya",
+        "party": "NPP",
+        "constituency": "Bongo",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Charles Bawaduah",
+        "party": "NDC",
+        "constituency": "Bongo",
+        "region": "Upper East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Alibo Robert Ayinenaba",
+        "party": "NPP",
+        "constituency": "Talensi",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Daniel Dung Mahama",
+        "party": "NDC",
+        "constituency": "Talensi",
+        "region": "Upper East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Dr. Michael Wombeogo",
+        "party": "PNC",
+        "constituency": "Talensi",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ndanbon Charles Taleog",
+        "party": "NPP",
+        "constituency": "Nabdam",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Dr. Mark Kurt Nawaane",
+        "party": "NDC",
+        "constituency": "Nabdam",
+        "region": "Upper East",
+        "outcome": "Won"
+      },
+      {
+        "name": "John Kingsley Krugu",
+        "party": "NPP",
+        "constituency": "Zebilla",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ebenezer Alumire Ndebilla",
+        "party": "NDC",
+        "constituency": "Zebilla",
+        "region": "Upper East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Patience Akparipoka Ndebugre",
+        "party": "IND",
+        "constituency": "Zebilla",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Agobiri Paul Alale",
+        "party": "NPP",
+        "constituency": "Bawku Central",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mahama Ayariga",
+        "party": "NDC",
+        "constituency": "Bawku Central",
+        "region": "Upper East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Anaba Emmanuel",
+        "party": "APC",
+        "constituency": "Bawku Central",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Abdul-Wahab Hanan",
+        "party": "NPP",
+        "constituency": "Pusiga",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Laadi Ayii Ayamba",
+        "party": "NDC",
+        "constituency": "Pusiga",
+        "region": "Upper East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Anaba Simon Paul",
+        "party": "APC",
+        "constituency": "Pusiga",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Azumah Georgina Lardi",
+        "party": "NPP",
+        "constituency": "Garu",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Anabah Thomas Winsum",
+        "party": "NDC",
+        "constituency": "Garu",
+        "region": "Upper East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Joseph Dindiok Kpemka",
+        "party": "NPP",
+        "constituency": "Tempane",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Lydia Lamisi Akanvariba",
+        "party": "NDC",
+        "constituency": "Tempane",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Abanga Abdulai",
+        "party": "NPP",
+        "constituency": "Binduri",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mahmoud Issifu",
+        "party": "NDC",
+        "constituency": "Binduri",
+        "region": "Upper East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Amadu Alale",
+        "party": "APC",
+        "constituency": "Binduri",
+        "region": "Upper East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Humu Awudu",
+        "party": "NPP",
+        "constituency": "Wa Central",
+        "region": "Upper West",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Abdul-Rashid Hassan Pelpuo",
+        "party": "NDC",
+        "constituency": "Wa Central",
+        "region": "Upper West",
+        "outcome": "Won"
+      },
+      {
+        "name": "Yakubu Zakaria",
+        "party": "PNC",
+        "constituency": "Wa Central",
+        "region": "Upper West",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Rasheed Saeed",
+        "party": "IND",
+        "constituency": "Wa Central",
+        "region": "Upper West",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Saatiri James Kpir-Faatey",
+        "party": "NPP",
+        "constituency": "Wa West",
+        "region": "Upper West",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Peter Lanchene Toobu",
+        "party": "NDC",
+        "constituency": "Wa West",
+        "region": "Upper West",
+        "outcome": "Won"
+      },
+      {
+        "name": "Bayong Francis Mwina",
+        "party": "PNC",
+        "constituency": "Wa West",
+        "region": "Upper West",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ewurah Suleman Kandia Mahama",
+        "party": "NPP",
+        "constituency": "Wa East",
+        "region": "Upper West",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Godfred Seidu Jasaw&rsquo;",
+        "party": "NDC",
+        "constituency": "Wa East",
+        "region": "Upper West",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kambotuu Francis Xavier",
+        "party": "NPP",
+        "constituency": "Nadowli/Kaleo",
+        "region": "Upper West",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Sumah Anthony Mwinkaara",
+        "party": "NDC",
+        "constituency": "Nadowli/Kaleo",
+        "region": "Upper West",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Nadi Imoro Sanda",
+        "party": "NPP",
+        "constituency": "Daffiama-Bussie-Issa",
+        "region": "Upper West",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Sebastian Ngmenenso Sandaare",
+        "party": "NDC",
+        "constituency": "Daffiama-Bussie-Issa",
+        "region": "Upper West",
+        "outcome": "Won"
+      },
+      {
+        "name": "Aisha Salifu",
+        "party": "NPP",
+        "constituency": "Jirapa",
+        "region": "Upper West",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Cletus Seidu Dapilah",
+        "party": "NDC",
+        "constituency": "Jirapa",
+        "region": "Upper West",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Bright Bakye Yelviel Baligi",
+        "party": "NPP",
+        "constituency": "Lambussie",
+        "region": "Upper West",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mohammed Imuran",
+        "party": "LPG",
+        "constituency": "Lambussie",
+        "region": "Upper West",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Titus Kofi Beyuo",
+        "party": "NDC",
+        "constituency": "Lambussie",
+        "region": "Upper West",
+        "outcome": "Won"
+      },
+      {
+        "name": "Jacob Domekakpier Dery",
+        "party": "NPP",
+        "constituency": "Lawra",
+        "region": "Upper West",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Bede Anwataazumo Ziedeng",
+        "party": "NDC",
+        "constituency": "Lawra",
+        "region": "Upper West",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Dabuo Baanaah Joseph",
+        "party": "IND",
+        "constituency": "Lawra",
+        "region": "Upper West",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ambrose Dery",
+        "party": "NPP",
+        "constituency": "Nandom",
+        "region": "Upper West",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Nyine-Kakone Delle Stella Saabedaar",
+        "party": "GUM",
+        "constituency": "Nandom",
+        "region": "Upper West",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Richard Kuuire",
+        "party": "NDC",
+        "constituency": "Nandom",
+        "region": "Upper West",
+        "outcome": "Won"
+      },
+      {
+        "name": "Salifu Naliwie Baluwie",
+        "party": "NPP",
+        "constituency": "Sissala West",
+        "region": "Upper West",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mohammed Adams Sukparu",
+        "party": "NDC",
+        "constituency": "Sissala West",
+        "region": "Upper West",
+        "outcome": "Won"
+      },
+      {
+        "name": "Yussif Shaibu",
+        "party": "PNC",
+        "constituency": "Sissala West",
+        "region": "Upper West",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Issahaku Amidu Chinnia",
+        "party": "NPP",
+        "constituency": "Sissala East",
+        "region": "Upper West",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mohammed Issah Bataglia",
+        "party": "NDC",
+        "constituency": "Sissala East",
+        "region": "Upper West",
+        "outcome": "Won"
+      },
+      {
+        "name": "Matthew Nyindam",
+        "party": "NPP",
+        "constituency": "Kpandai",
+        "region": "Northern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Daniel Nsala Wakpal",
+        "party": "NDC",
+        "constituency": "Kpandai",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Donkor Eric Nipani",
+        "party": "APC",
+        "constituency": "Kpandai",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Nitiwul Bingab Aduna Dominic",
+        "party": "NPP",
+        "constituency": "Bimbilla",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Joseph Kwabena Manboah-Rockson",
+        "party": "NDC",
+        "constituency": "Bimbilla",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Attah Suale",
+        "party": "PPP",
+        "constituency": "Bimbilla",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kamil Bamanpong",
+        "party": "IND",
+        "constituency": "Bimbilla",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Haruna Abdulai",
+        "party": "NPP",
+        "constituency": "Wulensi",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Dawuni Abukari",
+        "party": "NDC",
+        "constituency": "Wulensi",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Nandaya Yaw Stanley",
+        "party": "IND",
+        "constituency": "Wulensi",
+        "region": "Northern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Fawaz Aliu",
+        "party": "NPP",
+        "constituency": "Zabzugu",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Alhassan Umar",
+        "party": "NDC",
+        "constituency": "Zabzugu",
+        "region": "Northern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Obori Bunakpabine Solomon",
+        "party": "IND",
+        "constituency": "Zabzugu",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mbomba Thomas",
+        "party": "NPP",
+        "constituency": "Tatale-Sanguli",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ntebe Ayo William",
+        "party": "NDC",
+        "constituency": "Tatale-Sanguli",
+        "region": "Northern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Umar Farouk Aliu Mahama",
+        "party": "NPP",
+        "constituency": "Yendi",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Abdul-Fatawu Alhassan",
+        "party": "NDC",
+        "constituency": "Yendi",
+        "region": "Northern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Independent",
+        "party": "IND",
+        "constituency": "Hussein Abdul-Karim",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Musah Abdul-Aziz Ayaba",
+        "party": "NPP",
+        "constituency": "Mion",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Misbahu Mahama Adams",
+        "party": "NDC",
+        "constituency": "Mion",
+        "region": "Northern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Bintin Charles Binipom",
+        "party": "NPP",
+        "constituency": "Saboba",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Bukari Nikpe Joseph",
+        "party": "NDC",
+        "constituency": "Saboba",
+        "region": "Northern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Emmanuel Mawanye Kotin",
+        "party": "IND",
+        "constituency": "Saboba",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Yajabun Janwol Samson",
+        "party": "IND",
+        "constituency": "Saboba",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Alhassan Tampuli Sulemana",
+        "party": "NPP",
+        "constituency": "Gushegu",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mohammed Yussif Malimali",
+        "party": "NDC",
+        "constituency": "Gushegu",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mohammed Amin Adam",
+        "party": "NPP",
+        "constituency": "Karaga",
+        "region": "Northern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Alhassan Sualihu Dandaawa",
+        "party": "NDC",
+        "constituency": "Karaga",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Abdul Aziz Fatahiya",
+        "party": "NPP",
+        "constituency": "Savelugu",
+        "region": "Northern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Abdulai Jacob Iddriss",
+        "party": "NDC",
+        "constituency": "Savelugu",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Haruna Zakaria",
+        "party": "PNC",
+        "constituency": "Savelugu",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mohammed Hardi Tufeiru",
+        "party": "NPP",
+        "constituency": "Nanton",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mohammed Sherif Abdul-Khaliq",
+        "party": "NDC",
+        "constituency": "Nanton",
+        "region": "Northern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Fuseini Musah",
+        "party": "NPP",
+        "constituency": "Tamale South",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kassim Abdul Jalilu",
+        "party": "CPP",
+        "constituency": "Tamale South",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Iddrisu Haruna",
+        "party": "NDC",
+        "constituency": "Tamale South",
+        "region": "Northern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Sualisu Imoro Nabila",
+        "party": "PNC",
+        "constituency": "Tamale South",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Haashimiyu Yahaya",
+        "party": "IND",
+        "constituency": "Tamale South",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Sulemana Salifu",
+        "party": "NPP",
+        "constituency": "Tamale Central",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ibrahim Murtala Muhammed",
+        "party": "NDC",
+        "constituency": "Tamale Central",
+        "region": "Northern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Felicia Tettey",
+        "party": "NPP",
+        "constituency": "Sagnarigu",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Atta Issah",
+        "party": "NDC",
+        "constituency": "Sagnarigu",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Abdul-Rahaman Alidu",
+        "party": "NPP",
+        "constituency": "Tamale North",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Alhassan Sayibu Suhuyini",
+        "party": "NDC",
+        "constituency": "Tamale North",
+        "region": "Northern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Hudu Fauziya",
+        "party": "IND",
+        "constituency": "Tamale North",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Iddrisu Habib",
+        "party": "NPP",
+        "constituency": "Tolon",
+        "region": "Northern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Osman Tahidu Damba",
+        "party": "NDC",
+        "constituency": "Tolon",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Abdul-Salam Hamza Fataw",
+        "party": "NPP",
+        "constituency": "Kumbungu",
+        "region": "Northern",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Hamza Adam",
+        "party": "NDC",
+        "constituency": "Kumbungu",
+        "region": "Northern",
+        "outcome": "Won"
+      },
+      {
+        "name": "Ali Maiga Halidu",
+        "party": "NPP",
+        "constituency": "Dormaa West",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Vincent Oppong Asamoah",
+        "party": "NDC",
+        "constituency": "Dormaa West",
+        "region": "Bono",
+        "outcome": "Won"
+      },
+      {
+        "name": "Umar Yusif",
+        "party": "IND",
+        "constituency": "Dormaa West",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kwaku Agyeman-Manu",
+        "party": "NPP",
+        "constituency": "Dormaa Central",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Jochee Uroy Edem",
+        "party": "GCPP",
+        "constituency": "Dormaa Central",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Eric Kwaku Yeboah",
+        "party": "NDP",
+        "constituency": "Dormaa Central",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "John Kwame Adu Jack",
+        "party": "NDC",
+        "constituency": "Dormaa Central",
+        "region": "Bono",
+        "outcome": "Won"
+      },
+      {
+        "name": "Paul Apereku Twum-Barimah",
+        "party": "NPP",
+        "constituency": "Dormaa East",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Owusuah Rachel Amma",
+        "party": "NDC",
+        "constituency": "Dormaa East",
+        "region": "Bono",
+        "outcome": "Won"
+      },
+      {
+        "name": "Emmanuel Twih Gyabaah",
+        "party": "IND",
+        "constituency": "Dormaa East",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Nelson Kyeremeh",
+        "party": "NPP",
+        "constituency": "Berekum East",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ampaabeng Kyeremeh Simon",
+        "party": "NDC",
+        "constituency": "Berekum East",
+        "region": "Bono",
+        "outcome": "Won"
+      },
+      {
+        "name": "Baifi Abigail",
+        "party": "PNC",
+        "constituency": "Berekum East",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Adarkwa Blessing Emmanuel Kwame",
+        "party": "PAG",
+        "constituency": "Berekum East",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kwaku Agyenim-Boateng",
+        "party": "NPP",
+        "constituency": "Berekum West",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Dickson Kyere-Duah",
+        "party": "NDC",
+        "constituency": "Berekum West",
+        "region": "Bono",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kwadwo Damoah",
+        "party": "NPP",
+        "constituency": "Jaman South",
+        "region": "Bono",
+        "outcome": "Won"
+      },
+      {
+        "name": "Bediako Joyce Asare",
+        "party": "NDP",
+        "constituency": "Jaman South",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Okofo-Dateh Williams",
+        "party": "NDC",
+        "constituency": "Jaman South",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Enock Nyarko",
+        "party": "NPP",
+        "constituency": "Jaman North",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ahenkwah Frederick Yaw",
+        "party": "NDC",
+        "constituency": "Jaman North",
+        "region": "Bono",
+        "outcome": "Won"
+      },
+      {
+        "name": "Martin Kwame Antwi",
+        "party": "IND",
+        "constituency": "Jaman North",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Joe Danquah",
+        "party": "NPP",
+        "constituency": "Banda",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Paul Nyankamago",
+        "party": "GCPP",
+        "constituency": "Banda",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Yeboah Abbrey",
+        "party": "NDP",
+        "constituency": "Banda",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ibrahim Ahmed",
+        "party": "NDC",
+        "constituency": "Banda",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Isaac K. Annorhene",
+        "party": "IND",
+        "constituency": "Banda",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ababio Alexandeer",
+        "party": "NPP",
+        "constituency": "Tain",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Sah Job Kwabena",
+        "party": "NDP",
+        "constituency": "Tain",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Adama Sulemana",
+        "party": "NDC",
+        "constituency": "Tain",
+        "region": "Bono",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kojo Frempong",
+        "party": "NPP",
+        "constituency": "Wenchi",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Haruna Seidu",
+        "party": "NDC",
+        "constituency": "Wenchi",
+        "region": "Bono",
+        "outcome": "Won"
+      },
+      {
+        "name": "David Kusi",
+        "party": "IND",
+        "constituency": "Wenchi",
+        "region": "Bono",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Martin Kwaku Adjei-Mensah Korsah",
+        "party": "NPP",
+        "constituency": "Techiman South",
+        "region": "Bono East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Christophper Beyere Baasongti",
+        "party": "NDC",
+        "constituency": "Techiman South",
+        "region": "Bono East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Donkor Moses",
+        "party": "PPP",
+        "constituency": "Techiman South",
+        "region": "Bono East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Boyoung Iddris",
+        "party": "IND",
+        "constituency": "Techiman South",
+        "region": "Bono East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Isaac Baffoe Ameyaw",
+        "party": "NPP",
+        "constituency": "Kintampo North",
+        "region": "Bono East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Joseph Kwame Kumah",
+        "party": "NDC",
+        "constituency": "Kintampo North",
+        "region": "Bono East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Buare Kojo",
+        "party": "IND",
+        "constituency": "Kintampo North",
+        "region": "Bono East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Alexander Gyan",
+        "party": "NPP",
+        "constituency": "Kintampo South",
+        "region": "Bono East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Felicia Adjei",
+        "party": "NDC",
+        "constituency": "Kintampo South",
+        "region": "Bono East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Jacqueline Boatemaa Bonsu",
+        "party": "NPP",
+        "constituency": "Nkoranza North",
+        "region": "Bono East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Boahene Clement",
+        "party": "LPG",
+        "constituency": "Nkoranza North",
+        "region": "Bono East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mensah Kwasi Joseph",
+        "party": "NDC",
+        "constituency": "Nkoranza North",
+        "region": "Bono East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Charles Owusu",
+        "party": "IND",
+        "constituency": "Nkoranza North",
+        "region": "Bono East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Harriet Kyeremanteng Oppong",
+        "party": "NPP",
+        "constituency": "Nkoranza South",
+        "region": "Bono East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Sabastine Gaata",
+        "party": "LPG",
+        "constituency": "Nkoranza South",
+        "region": "Bono East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Emmanuel Kwadwo Agyekum",
+        "party": "NDC",
+        "constituency": "Nkoranza South",
+        "region": "Bono East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Florence Ampour",
+        "party": "PNC",
+        "constituency": "Nkoranza South",
+        "region": "Bono East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Baduon Dimmie Issah Abu",
+        "party": "NPP",
+        "constituency": "Atebubu/Amantin",
+        "region": "Bono East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Sanja Nanja",
+        "party": "NDC",
+        "constituency": "Atebubu/Amantin",
+        "region": "Bono East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Hennaa Kwaku Abraham",
+        "party": "PPP",
+        "constituency": "Atebubu/Amantin",
+        "region": "Bono East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Stephen Pambiin Jalulah",
+        "party": "NPP",
+        "constituency": "Pru West",
+        "region": "Bono East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Emmanuel Kofi Ntekuni",
+        "party": "NDC",
+        "constituency": "Pru West",
+        "region": "Bono East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Apetorgbor Yussif Appeh",
+        "party": "NPP",
+        "constituency": "Pru East",
+        "region": "Bono East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Emmanuel Kwaku Boam",
+        "party": "NDC",
+        "constituency": "Pru East",
+        "region": "Bono East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Felix Nimako",
+        "party": "IND",
+        "constituency": "Pru East",
+        "region": "Bono East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Joseph Kumah Mackay",
+        "party": "NPP",
+        "constituency": "Sene West",
+        "region": "Bono East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kwame Twumasi Ampofo",
+        "party": "NDC",
+        "constituency": "Sene West",
+        "region": "Bono East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Wudonyim Kofi Ibrahim",
+        "party": "NPP",
+        "constituency": "Sene East",
+        "region": "Bono East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Napare Dominic",
+        "party": "NDC",
+        "constituency": "Sene East",
+        "region": "Bono East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Martin Oti Gyarko",
+        "party": "NPP",
+        "constituency": "Techiman North",
+        "region": "Bono East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Elizabeth Ofosu- Adjare",
+        "party": "NDC",
+        "constituency": "Techiman North",
+        "region": "Bono East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Frank Asare",
+        "party": "IND",
+        "constituency": "Techiman North",
+        "region": "Bono East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Richard Kwadwo Adjei",
+        "party": "NPP",
+        "constituency": "Buem",
+        "region": "Oti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Adams Iddie Kofi",
+        "party": "NDC",
+        "constituency": "Buem",
+        "region": "Oti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Frank Yirenkyi",
+        "party": "NPP",
+        "constituency": "Biakoye",
+        "region": "Oti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Paul Kwasi Demends",
+        "party": "LPG",
+        "constituency": "Biakoye",
+        "region": "Oti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Jean-Marie Formadi",
+        "party": "NDC",
+        "constituency": "Biakoye",
+        "region": "Oti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Tassah Mustapha Tassah",
+        "party": "NPP",
+        "constituency": "Akan",
+        "region": "Oti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Aforla Yawa Mary",
+        "party": "LPG",
+        "constituency": "Akan",
+        "region": "Oti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Gomado, Yao",
+        "party": "NDC",
+        "constituency": "Akan",
+        "region": "Oti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Michael Yaw Gyato",
+        "party": "NPP",
+        "constituency": "Krachi East",
+        "region": "Oti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Nelson Kofi Djabab",
+        "party": "NDC",
+        "constituency": "Krachi East",
+        "region": "Oti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Justice Mensah Amankwa",
+        "party": "NPP",
+        "constituency": "Krachi West",
+        "region": "Oti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Charles Bisi Gyamgbuja",
+        "party": "LPG",
+        "constituency": "Krachi West",
+        "region": "Oti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Helen Adjoa Ntoso",
+        "party": "NDC",
+        "constituency": "Krachi West",
+        "region": "Oti",
+        "outcome": "Won"
+      },
+      {
+        "name": "James Mamudu",
+        "party": "NPP",
+        "constituency": "Krachi Nchumuru",
+        "region": "Oti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ntana Richmond Uwumborbin",
+        "party": "LPG",
+        "constituency": "Krachi Nchumuru",
+        "region": "Oti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Solomon Kuyon",
+        "party": "NDC",
+        "constituency": "Krachi Nchumuru",
+        "region": "Oti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Sherifa Selina Sekyere-Tijani",
+        "party": "NPP",
+        "constituency": "Nkwanta South",
+        "region": "Oti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Nakpatun Obayety Noah",
+        "party": "LPG",
+        "constituency": "Nkwanta South",
+        "region": "Oti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Geoffrey Kini",
+        "party": "NDC",
+        "constituency": "Nkwanta South",
+        "region": "Oti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Benjamin Munyum Nador",
+        "party": "NPP",
+        "constituency": "Nkwanta North",
+        "region": "Oti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Gabriel Kwabena Donkor",
+        "party": "LPG",
+        "constituency": "Nkwanta North",
+        "region": "Oti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "John Kwabena Bless Oti",
+        "party": "NDC",
+        "constituency": "Nkwanta North",
+        "region": "Oti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Oduro Aikens Kofi Yeboah",
+        "party": "IND",
+        "constituency": "Nkwanta North",
+        "region": "Oti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Michael Osibo",
+        "party": "NPP",
+        "constituency": "Guan",
+        "region": "Oti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Sekor Sussie",
+        "party": "NDP",
+        "constituency": "Guan",
+        "region": "Oti",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Agbenyo Fred Kwesi",
+        "party": "NDC",
+        "constituency": "Guan",
+        "region": "Oti",
+        "outcome": "Won"
+      },
+      {
+        "name": "Frank Aduse Poku",
+        "party": "NPP",
+        "constituency": "Asunafo South",
+        "region": "Ahafo",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Opoku Eric",
+        "party": "NDC",
+        "constituency": "Asunafo South",
+        "region": "Ahafo",
+        "outcome": "Won"
+      },
+      {
+        "name": "Evans Opoku Bobie",
+        "party": "NPP",
+        "constituency": "Asunafo North",
+        "region": "Ahafo",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mohammed Haruna",
+        "party": "NDC",
+        "constituency": "Asunafo North",
+        "region": "Ahafo",
+        "outcome": "Won"
+      },
+      {
+        "name": "Yaw Owusu-Brempong",
+        "party": "NPP",
+        "constituency": "Asutifi South",
+        "region": "Ahafo",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Andrews Kofi Ahiamata",
+        "party": "NDP",
+        "constituency": "Asutifi South",
+        "region": "Ahafo",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Collins Dauda",
+        "party": "NDC",
+        "constituency": "Asutifi South",
+        "region": "Ahafo",
+        "outcome": "Won"
+      },
+      {
+        "name": "Patrick Banor",
+        "party": "NPP",
+        "constituency": "Asutifi North",
+        "region": "Ahafo",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ebenezer Kwaku Addo",
+        "party": "NDP",
+        "constituency": "Asutifi North",
+        "region": "Ahafo",
+        "outcome": "Won"
+      },
+      {
+        "name": "Hon. Dr. Benjamin Yeboah Sekyere",
+        "party": "NPP",
+        "constituency": "Tano South",
+        "region": "Ahafo",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Charles Asiedu",
+        "party": "NDC",
+        "constituency": "Tano South",
+        "region": "Ahafo",
+        "outcome": "Won"
+      },
+      {
+        "name": "Kofi Nti Christopher",
+        "party": "IND",
+        "constituency": "Tano South",
+        "region": "Ahafo",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Dr. Gideon Boako",
+        "party": "NPP",
+        "constituency": "Tano North",
+        "region": "Ahafo",
+        "outcome": "Won"
+      },
+      {
+        "name": "Pius Opoku Sampson",
+        "party": "NDC",
+        "constituency": "Tano North",
+        "region": "Ahafo",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mahama Tiah Abdul-Kabiru",
+        "party": "NPP",
+        "constituency": "Walewale",
+        "region": "North East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Abubakari Abdallah",
+        "party": "NDC",
+        "constituency": "Walewale",
+        "region": "North East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mustapha Ussif",
+        "party": "NPP",
+        "constituency": "Yagaba-Kubori",
+        "region": "North East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Musah Sibiri Amidu",
+        "party": "NDC",
+        "constituency": "Yagaba-Kubori",
+        "region": "North East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Mumuni Muhammed",
+        "party": "NPP",
+        "constituency": "Nalerigu/ Gambaga",
+        "region": "North East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Issifu Seidu",
+        "party": "NDC",
+        "constituency": "Nalerigu/ Gambaga",
+        "region": "North East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Seidu Tia Karim",
+        "party": "PNC",
+        "constituency": "Nalerigu/ Gambaga",
+        "region": "North East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Solomon Namliit Boar",
+        "party": "NPP",
+        "constituency": "Bunkpurugu",
+        "region": "North East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Bandim Abed-Nego Azumah",
+        "party": "NDC",
+        "constituency": "Bunkpurugu",
+        "region": "North East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Liwaal Oscar",
+        "party": "NPP",
+        "constituency": "Yunyoo",
+        "region": "North East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Alhassan Sulemana",
+        "party": "NDC",
+        "constituency": "Yunyoo",
+        "region": "North East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Tahidu Abdul-Razak",
+        "party": "NPP",
+        "constituency": "Chereponi",
+        "region": "North East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Seidu Alhassan Alajor",
+        "party": "NDC",
+        "constituency": "Chereponi",
+        "region": "North East",
+        "outcome": "Won"
+      },
+      {
+        "name": "Eugene Tamado Koffikan Bashiru",
+        "party": "PNC",
+        "constituency": "Chereponi",
+        "region": "North East",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Raphael Kumah Abolasom",
+        "party": "NPP",
+        "constituency": "Bole-Bamboi",
+        "region": "Savannah",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Yusif Sulemana",
+        "party": "NDC",
+        "constituency": "Bole-Bamboi",
+        "region": "Savannah",
+        "outcome": "Won"
+      },
+      {
+        "name": "Sankara Kuubeneem Ankaara",
+        "party": "NPP",
+        "constituency": "Sawla-Tuna-Kalba",
+        "region": "Savannah",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Chiwitey Andrew Dari",
+        "party": "NDC",
+        "constituency": "Sawla-Tuna-Kalba",
+        "region": "Savannah",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Jinapor Samuel Abdulai",
+        "party": "NPP",
+        "constituency": "Damongo",
+        "region": "Savannah",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Adam Mutawakilu",
+        "party": "NDC",
+        "constituency": "Damongo",
+        "region": "Savannah",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Saaka Baba Moses",
+        "party": "IND",
+        "constituency": "Damongo",
+        "region": "Savannah",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Samuel Yeyu Tika",
+        "party": "NPP",
+        "constituency": "Daboya/Mankarigu",
+        "region": "Savannah",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Shaibu Mahama",
+        "party": "NDC",
+        "constituency": "Daboya/Mankarigu",
+        "region": "Savannah",
+        "outcome": "Won"
+      },
+      {
+        "name": "Amadu Zakria",
+        "party": "NPP",
+        "constituency": "Yapei/Kusawgu",
+        "region": "Savannah",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Awudu Adam",
+        "party": "GUM",
+        "constituency": "Yapei/Kusawgu",
+        "region": "Savannah",
+        "outcome": "Contested"
+      },
+      {
+        "name": "John Abdulai Jinapor",
+        "party": "NDC",
+        "constituency": "Yapei/Kusawgu",
+        "region": "Savannah",
+        "outcome": "Won"
+      },
+      {
+        "name": "Salifu Adam Braimah",
+        "party": "NPP",
+        "constituency": "Salaga South",
+        "region": "Savannah",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Zuwera Mohammed Ibrahimah",
+        "party": "NDC",
+        "constituency": "Salaga South",
+        "region": "Savannah",
+        "outcome": "Won"
+      },
+      {
+        "name": "Abraham Mbido Bagyim",
+        "party": "IND",
+        "constituency": "Salaga South",
+        "region": "Savannah",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Geoffrey Ayidzoe Razak",
+        "party": "IND",
+        "constituency": "Salaga South",
+        "region": "Savannah",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Alhassan Abdallah Iddi",
+        "party": "NPP",
+        "constituency": "Salaga North",
+        "region": "Savannah",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Alhassan Mumuni",
+        "party": "NDC",
+        "constituency": "Salaga North",
+        "region": "Savannah",
+        "outcome": "Won"
+      },
+      {
+        "name": "Abanga Yakubu Fusani",
+        "party": "NPP",
+        "constituency": "Aowin",
+        "region": "Western North",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Oscar Ofori Larbi",
+        "party": "NDC",
+        "constituency": "Aowin",
+        "region": "Western North",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Addy Frederick",
+        "party": "NPP",
+        "constituency": "Suaman",
+        "region": "Western North",
+        "outcome": "Won"
+      },
+      {
+        "name": "John Asare",
+        "party": "LPG",
+        "constituency": "Suaman",
+        "region": "Western North",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Joseph Betino",
+        "party": "NDC",
+        "constituency": "Suaman",
+        "region": "Western North",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Alfred Obeng-Boateng",
+        "party": "NPP",
+        "constituency": "Bibiani-Anhwiaso-Bekwai",
+        "region": "Western North",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Bright Asamoah Brefo",
+        "party": "NDC",
+        "constituency": "Bibiani-Anhwiaso-Bekwai",
+        "region": "Western North",
+        "outcome": "Won"
+      },
+      {
+        "name": "Festus Bumakama Agyapong",
+        "party": "NPP",
+        "constituency": "Sefwi Wiawso",
+        "region": "Western North",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Afful Kofi Benteh",
+        "party": "NDC",
+        "constituency": "Sefwi Wiawso",
+        "region": "Western North",
+        "outcome": "Won"
+      },
+      {
+        "name": "Ababio Veronica",
+        "party": "IND",
+        "constituency": "Sefwi Wiawso",
+        "region": "Western North",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Djornobuah Alex Tetteh",
+        "party": "NPP",
+        "constituency": "Sefwi Akontombra",
+        "region": "Western North",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Pious Kwame Nkuah",
+        "party": "NDC",
+        "constituency": "Sefwi Akontombra",
+        "region": "Western North",
+        "outcome": "Won"
+      },
+      {
+        "name": "Alexander Ampaabeng",
+        "party": "NPP",
+        "constituency": "Juaboso",
+        "region": "Western North",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Oppong Ernestina",
+        "party": "CPP",
+        "constituency": "Juaboso",
+        "region": "Western North",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Kwabena Mintah Akandoh",
+        "party": "NDC",
+        "constituency": "Juaboso",
+        "region": "Western North",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Andoh Nicholas",
+        "party": "NPP",
+        "constituency": "Bodi",
+        "region": "Western North",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ahi Sampson",
+        "party": "NDC",
+        "constituency": "Bodi",
+        "region": "Western North",
+        "outcome": "Won"
+      },
+      {
+        "name": "Bernard Gyebi Blay",
+        "party": "NPP",
+        "constituency": "Bia West",
+        "region": "Western North",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Tanko Mustapha Amadu",
+        "party": "NDC",
+        "constituency": "Bia West",
+        "region": "Western North",
+        "outcome": "Won"
+      },
+      {
+        "name": "Nicholas Kupog Yayin",
+        "party": "NPP",
+        "constituency": "Bia East",
+        "region": "Western North",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Richard Acheampong",
+        "party": "NDC",
+        "constituency": "Bia East",
+        "region": "Western North",
+        "outcome": "Won"
+      }
+    ]
+  }
+}

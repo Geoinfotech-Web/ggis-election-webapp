@@ -45,7 +45,7 @@
   const YEARS = {
     pres: ["2024", "2020", "2016"],
     parl: ["2024", "2020"],
-    local: [],
+    local: ["2023"],
   };
 
   const PARTIES = [
@@ -94,21 +94,37 @@
   ];
 
   let PACKS = null;
+  let PARL = null;
+  let LOCALCAND = null;
+  let PROFILES = null;
+  let PRES_EXTRA = null;
   let PACKS_PROMISE = null;
 
   function load() {
-    if (PACKS) return Promise.resolve(PACKS);
+    if (PACKS && PARL && LOCALCAND && PROFILES) return Promise.resolve(PACKS);
     if (!PACKS_PROMISE) {
-      PACKS_PROMISE = fetch("/data/ghana/packs.json", { cache: "no-store" })
-        .then((res) => (res.ok ? res.json() : null))
-        .then((data) => {
-          PACKS = data || { pres: {}, parl: {} };
-          return PACKS;
-        })
-        .catch(() => {
-          PACKS = { pres: {}, parl: {} };
-          return PACKS;
-        });
+      const read = (url) => fetch(url, { cache: "no-store" }).then((res) => (res.ok ? res.json() : null)).catch(() => null);
+      PACKS_PROMISE = Promise.all([
+        read("/data/ghana/packs.json"),
+        read("/data/ghana/parliamentary.json"),
+        read("/data/ghana/local-candidates.json"),
+        read("/data/ghana/profiles.json"),
+        read("/data/ghana/presidential.json"),
+      ]).then((parts) => {
+        PACKS = parts[0] || { pres: {}, parl: {} };
+        PARL = parts[1] || {};
+        LOCALCAND = parts[2] || {};
+        PROFILES = (parts[3] && parts[3].profiles) || {};
+        PRES_EXTRA = parts[4] || {};
+        return PACKS;
+      }).catch(() => {
+        PACKS = PACKS || { pres: {}, parl: {} };
+        PARL = PARL || {};
+        LOCALCAND = LOCALCAND || {};
+        PROFILES = PROFILES || {};
+        PRES_EXTRA = PRES_EXTRA || {};
+        return PACKS;
+      });
     }
     return PACKS_PROMISE;
   }
@@ -527,8 +543,101 @@
           color: partyColor(c.party),
         });
       });
+      const extraBlock = PRES_EXTRA && PRES_EXTRA[year];
+      ((extraBlock && extraBlock.added) || []).forEach((c) => {
+        if (rows.some((row) => row.year === year && normKey(row.name) === normKey(c.name))) return;
+        rows.push({
+          year: year,
+          name: c.name,
+          abbr: c.party,
+          party: partyName(c.party),
+          votes: Number(c.votes) || 0,
+          valid: 0,
+          note: "Contested",
+          color: partyColor(c.party),
+          runningMate: c.runningMate || null,
+          nationalNote: (extraBlock.meta && extraBlock.meta.source) || "",
+        });
+      });
     });
     return rows;
+  }
+
+  function normKey(name) {
+    return String(name || "").toLowerCase().replace(/[^a-z]/g, "");
+  }
+
+  function nameTokens(name) {
+    const drop = { dr: 1, hon: 1, alhaji: 1, mr: 1, mrs: 1, ms: 1 };
+    return String(name || "").toLowerCase().replace(/[^a-z\s]/g, " ").split(/\s+/).filter((w) => w && !drop[w]);
+  }
+
+  function profileFor(name) {
+    const profiles = PROFILES || {};
+    const want = normKey(name);
+    const keys = Object.keys(profiles);
+    const exact = keys.find((key) => normKey(key) === want || normKey(profiles[key].name) === want);
+    if (exact) return profiles[exact];
+    const contained = keys.find((key) => {
+      const got = normKey(key);
+      return got.length > 8 && want.length > 8 && (want.indexOf(got) >= 0 || got.indexOf(want) >= 0);
+    });
+    if (contained) return profiles[contained];
+    const wantTokens = nameTokens(name);
+    const overlap = keys.find((key) => {
+      const got = nameTokens(profiles[key].name || key);
+      if (wantTokens.length < 2 || got.length < 2) return false;
+      const set = new Set(got);
+      const hit = wantTokens.filter((word) => set.has(word)).length;
+      return hit >= Math.min(wantTokens.length, got.length) && hit >= 2;
+    });
+    return overlap ? profiles[overlap] : null;
+  }
+
+  function initialsOf(name) {
+    return String(name || "").split(/\s+/).map((w) => w[0]).filter(Boolean).slice(0, 2).join("").toUpperCase();
+  }
+
+  function parlRows(year) {
+    const block = (PARL && PARL[year]) || null;
+    const list = (block && block.candidates) || [];
+    return {
+      meta: (block && block.meta) || null,
+      rows: list.map((c) => ({
+        year: year,
+        name: c.name,
+        abbr: c.party,
+        party: partyName(c.party),
+        note: c.outcome === "Won" ? "Won" : "Contested",
+        color: partyColor(c.party),
+        region: c.region || "",
+        constituency: c.constituency || "",
+        subtitle: [c.constituency, c.region].filter(Boolean).join(" · "),
+        votes: null,
+      })),
+    };
+  }
+
+  function localRows(year) {
+    const block = (LOCALCAND && LOCALCAND[year]) || null;
+    const list = (block && block.candidates) || [];
+    return {
+      meta: (block && block.meta) || null,
+      rows: list.map((c) => ({
+        year: year,
+        name: c.name,
+        abbr: c.role === "Unit committee" ? "UC" : "AM",
+        party: c.role || "Non-partisan",
+        note: c.outcome || "Elected",
+        color: "#64748b",
+        region: c.region || "",
+        constituency: c.area || "",
+        subtitle: [c.area, c.district, c.region].filter(Boolean).join(" · "),
+        votes: null,
+        role: c.role || "",
+        district: c.district || "",
+      })),
+    };
   }
 
   function candidatePage(app) {
@@ -545,7 +654,19 @@
     const officeLabel = (offices.find((o) => o.v === co) || offices[0]).l;
     const outcomeFilter = state.candOutcome || null;
     const partyFilter = state.candParty || null;
-    const all = co === "pres" ? presBallots().filter((row) => row.year === cy) : [];
+    const loaded = co === "pres"
+      ? { meta: null, rows: presBallots().filter((row) => row.year === cy) }
+      : (co === "parl" ? parlRows(cy) : localRows(cy));
+    const all = loaded.rows;
+    const regionNames = [];
+    const regionSeen = {};
+    all.forEach((row) => {
+      if (!row.region || regionSeen[row.region]) return;
+      regionSeen[row.region] = true;
+      regionNames.push(row.region);
+    });
+    regionNames.sort((a, b) => a.localeCompare(b));
+    const regionFilter = regionNames.indexOf(state.candGovState) >= 0 ? state.candGovState : "";
     const partyOptions = [];
     const seen = {};
     all.forEach((row) => {
@@ -555,99 +676,148 @@
     });
     partyOptions.sort((a, b) => a.v.localeCompare(b.v));
     let shown = all.slice();
-    if (outcomeFilter) shown = shown.filter((row) => row.note.toLowerCase() === outcomeFilter || (outcomeFilter === "won" && row.note === "Won") || (outcomeFilter === "runner-up" && row.note === "Runner-up") || (outcomeFilter === "contested" && row.note === "Contested"));
+    if (regionFilter) shown = shown.filter((row) => row.region === regionFilter);
+    if (outcomeFilter) {
+      shown = shown.filter((row) => {
+        const note = String(row.note || "").toLowerCase();
+        if (outcomeFilter === "won" || outcomeFilter === "elected") return note === "won" || note === "elected";
+        if (outcomeFilter === "runner-up") return note === "runner-up";
+        if (outcomeFilter === "contested") return note === "contested";
+        return note === outcomeFilter;
+      });
+    }
     if (partyFilter) shown = shown.filter((row) => row.abbr === partyFilter);
     const sel = state.selCandidate;
+    const meta = loaded.meta || {};
+    let coverage = "";
+    if (co === "parl" && cy === "2024") {
+      coverage = (meta.loaded || all.length) + " named candidates parsed from the Modern Ghana list (the article says " + (meta.registered || 801) + " were registered). " + (meta.constituencies || "—") + " of " + (meta.constituencyTotal || 276) + " constituencies. Won is marked for " + (meta.electedMatched || "—") + " of the elected MPs on the Wikipedia list.";
+    } else if (co === "parl" && cy === "2020") {
+      coverage = (meta.loaded || all.length) + " elected members. The full 2020 candidate field is not in this file.";
+    } else if (co === "local") {
+      coverage = (meta.loaded || all.length) + " elected names from Natriku, Shai-Osudoku. The Commission recorded " + (meta.nationalAssemblyCandidates || "18,755") + " assembly-member candidates and " + (meta.nationalUnitCandidates || "47,502") + " unit-committee candidates nationwide. That roll is not loaded.";
+    } else if (co === "pres" && cy === "2016") {
+      coverage = "Five candidates beyond the regional NPP and NDC sheet are included from the national EC workbook cited on the 2016 election page. The map still uses the regional sheet.";
+    }
     const emptyHint = co === "parl"
-      ? "Parliamentary candidate names are not in this pack. Regional seat counts for 2024 are on the overview map."
+      ? "No parliamentary names are loaded for this year."
       : (co === "local"
-        ? "Local assembly elections are non-partisan. No party candidate list is loaded."
+        ? "No local assembly names are loaded for this year."
         : "No presidential candidates are loaded for this year.");
+    const hidePhoto = (e) => { if (e && e.target) e.target.style.display = "none"; };
     const ngCandidates = {
       years: yearList,
       yearVal: cy,
-      onYear: (e) => app.setState({ candYear: e.target.value, candParty: null, selCandidate: null }),
+      onYear: (e) => app.setState({ candYear: e.target.value, candParty: null, candGovState: null, selCandidate: null }),
       offices: offices,
       officeVal: co,
       onOffice: (e) => {
         const next = e.target.value;
         const years = YEARS[next] || [];
         const nextYear = years.indexOf(String(state.candYear)) >= 0 ? String(state.candYear) : (years[0] || "");
-        app.setState({ candOffice: next, candYear: nextYear, candOutcome: null, candParty: null, selCandidate: null });
+        app.setState({ candOffice: next, candYear: nextYear, candOutcome: null, candParty: null, candGovState: null, selCandidate: null });
       },
-      showStateFilter: false,
+      showStateFilter: co === "parl" || co === "local",
+      stateFilterLabel: "Region",
+      stateAllLabel: "All regions",
+      stateVal: regionFilter,
+      stateOptions: regionNames,
+      onState: (e) => app.setState({ candGovState: e.target.value || null, selCandidate: null }),
       showDistrictFilter: false,
       showPartyFilter: partyOptions.length > 0,
       outcomeVal: outcomeFilter || "",
-      outcomeOptions: [
-        { v: "", l: "All outcomes" },
-        { v: "won", l: "Winners" },
-        { v: "runner-up", l: "Runner-up" },
-        { v: "contested", l: "Contested" },
-      ],
+      outcomeOptions: co === "local"
+        ? [{ v: "", l: "All outcomes" }, { v: "elected", l: "Elected" }]
+        : [
+          { v: "", l: "All outcomes" },
+          { v: "won", l: "Winners" },
+          { v: "runner-up", l: "Runner-up" },
+          { v: "contested", l: "Contested" },
+        ],
       onOutcome: (e) => app.setState({ candOutcome: e.target.value || null, selCandidate: null }),
       partyVal: partyFilter || "",
       partyOptions: partyOptions,
       onParty: (e) => app.setState({ candParty: e.target.value || null, selCandidate: null }),
-      resetFilters: () => app.setState({ candYear: "2024", candOffice: "pres", candOutcome: null, candParty: null, selCandidate: null }),
-      title: [cy, officeLabel, outcomeFilter, partyFilter].filter(Boolean).join(" · "),
+      resetFilters: () => app.setState({ candYear: "2024", candOffice: "pres", candOutcome: null, candParty: null, candGovState: null, selCandidate: null }),
+      title: [cy, officeLabel].filter(Boolean).join(" · "),
       count: shown.length,
       empty: all.length === 0,
       hasList: all.length > 0,
       emptyHint: emptyHint,
+      hasCoverage: !!coverage,
+      coverage: coverage,
       filterEmpty: all.length > 0 && shown.length === 0,
       needPick: shown.length > 0 && !sel,
       list: shown.map((row) => {
-        const active = !!(sel && sel.name === row.name && sel.party === row.abbr);
+        const active = !!(sel && sel.name === row.name && (sel.district || "") === (row.constituency || "") && String(sel.year || "") === String(row.year));
+        const photo = co === "pres" ? (profileFor(row.name) || {}).photo : null;
         return {
           name: row.name,
           abbr: row.abbr,
           party: row.party,
           note: row.note,
           color: row.color,
-          subtitle: "",
-          initials: row.name.split(/\s+/).map((w) => w[0]).filter(Boolean).slice(0, 2).join("").toUpperCase(),
-          hasPhoto: false,
-          noPhoto: true,
-          onClick: () => app.selectCandidate({ name: row.name, abbr: row.abbr, party: row.abbr, year: row.year }),
+          subtitle: row.subtitle || "",
+          initials: initialsOf(row.name),
+          hasPhoto: !!photo,
+          noPhoto: !photo,
+          photo: photo || "",
+          onPhotoError: hidePhoto,
+          onClick: () => app.selectCandidate({ name: row.name, abbr: row.abbr, party: row.abbr, year: row.year, district: row.constituency || "", state: row.region || "", office: co }),
           cardStyle: "display:block;width:100%;background:var(--surface);border:1px solid " + (active ? "var(--primary)" : "var(--border)") + ";border-radius:12px;padding:0;cursor:pointer;font-family:inherit;text-align:left;box-shadow:" + (active ? "0 0 0 1px var(--primary)" : "none"),
         };
       }),
     };
     let ngCandidateDetail = null;
-    if (sel && co === "pres" && all.length) {
-      const entry = all.find((row) => row.name === sel.name && row.abbr === (sel.party || sel.abbr)) || null;
+    if (sel && all.length) {
+      const entry = all.find((row) => row.name === sel.name && (row.constituency || "") === (sel.district || "") && row.abbr === (sel.party || sel.abbr)) || all.find((row) => row.name === sel.name) || null;
       if (entry) {
-        const history = presBallots().filter((row) => row.name === entry.name).map((row) => ({
-          year: row.year,
-          title: row.abbr + " · Presidential",
-          detail: fmt(row.votes) + " votes" + (row.note === "Won" ? " · declared winner" : ""),
-        }));
+        const profile = co === "pres" ? profileFor(entry.name) : null;
+        const history = co === "pres"
+          ? presBallots().filter((row) => normKey(row.name) === normKey(entry.name)).map((row) => ({
+            year: row.year,
+            title: row.abbr + " · Presidential",
+            detail: fmt(row.votes) + " votes" + (row.note === "Won" ? " · declared winner" : (row.note === "Runner-up" ? " · runner-up" : "")),
+          }))
+          : [{
+            year: entry.year,
+            title: entry.constituency || entry.party,
+            detail: entry.note + (entry.region ? " · " + entry.region : ""),
+          }];
         const share = entry.valid ? sharePct(entry.votes, entry.valid) : null;
+        const bioParas = profile && Array.isArray(profile.biography) ? profile.biography.filter(Boolean) : [];
+        const shortBio = co === "pres"
+          ? (entry.name + " was the " + entry.party + " presidential candidate in " + entry.year + ". The loaded result records " + fmt(entry.votes) + " votes. No further biography is stored.")
+          : (entry.name + " is listed for " + entry.year + (entry.constituency ? (" · " + entry.constituency) : "") + (entry.region ? (" · " + entry.region) : "") + " · " + entry.party + ". Only the published name, party or role, place and year are stored.");
         ngCandidateDetail = {
           name: entry.name,
           fullName: entry.name,
-          initials: entry.name.split(/\s+/).map((w) => w[0]).filter(Boolean).slice(0, 2).join("").toUpperCase(),
+          initials: initialsOf(entry.name),
           color: entry.color,
           partyLabel: entry.abbr + " · " + entry.party,
           year: entry.year,
           outcome: entry.note,
-          runningMate: null,
-          summary: entry.name + " was the " + entry.party + " presidential candidate in " + entry.year + ".",
-          biography: [{ text: "The loaded result pack records " + fmt(entry.votes) + " votes" + (entry.valid ? (" out of " + fmt(entry.valid) + " valid votes") : " on the two-candidate regional sheet") + ". No further biography is stored." }],
-          hasBio: true,
+          runningMate: entry.runningMate || null,
+          summary: (profile && profile.summary) || shortBio,
+          biography: bioParas.map((text) => ({ text: text })),
+          hasBio: bioParas.length > 0,
           history: history,
           hasHistory: history.length > 0,
           roles: [],
           hasRoles: false,
-          hasPhoto: false,
-          noPhoto: true,
-          photo: null,
-          wiki: null,
-          hasShare: entry.votes != null,
+          hasPhoto: !!(profile && profile.photo),
+          noPhoto: !(profile && profile.photo),
+          photo: (profile && profile.photo) || "",
+          onPhotoError: hidePhoto,
+          wiki: (profile && profile.wiki) || null,
+          hasShare: entry.votes != null && co === "pres",
           shareLabel: (share != null ? (share.toFixed(1) + "% · ") : "") + fmt(entry.votes) + " votes",
           close: () => app.selectCandidate(null),
-          footer: "Profiles summarise the loaded Ghana result packs. No photograph is stored for these candidates.",
+          footer: profile
+            ? ((profile.photoCredit ? (profile.photoCredit + ". ") : "No lead image on the Wikipedia page. ") + (profile.source || ""))
+            : (co === "pres"
+              ? ((entry.nationalNote ? entry.nationalNote + " " : "") + "No separate biography is stored for this candidate.")
+              : ((meta.source || "Name, party and place only.") + (meta.sourceUrl ? (" " + meta.sourceUrl) : ""))),
         };
       }
     }
@@ -750,7 +920,7 @@
       return { party: party, color: partyColor(party), voteShare: votes.currentShare, seatShare: Math.round(seats * 10) / 10 };
     }).filter(Boolean);
     const meta = (pack && pack.meta) || {};
-    const focusParty = partyFilter || meta.declaredParty || (voteShare[0] && voteShare[0].party) || "NDC";
+    const focusParty = partyFilter || meta.declaredParty || (voteShare[0] && voteShare[0].party) || (office === "local" ? "—" : "NDC");
     let units = geoRows(office, year);
     if (regionFilter) units = units.filter((row) => row.name === regionFilter);
     const prevUnits = compare ? geoRows(office, compare) : [];
@@ -802,12 +972,32 @@
     }));
     return {
       ok: true,
+      scope: "gh",
       generatedAt: String(state.ghPacksReady || year),
       filters: { office: office, year: year, compare: compare, party: partyFilter || "all", region: regionFilter || "all" },
       offices: offices,
       regions: REGIONS.map((region) => region.name),
       partyColors: { NPP: "#003DA5", NDC: "#067647", IND: "#64748b" },
-      summary: { narrative: narrative },
+      summary: {
+        narrative: narrative,
+        kpis: [
+          { icon: "emoji_events", label: "Declared", value: meta.declaredParty || "—", unit: year || "", color: "var(--up)", caption: meta.declaredWinner || "No national declaration" },
+          { icon: "map", label: "Regions in view", value: String(geographicUnits.length), unit: "", color: "var(--primary)", caption: regionFilter || "Ghana regions" },
+          { icon: "groups", label: "Focus party", value: focusParty || "—", unit: "", color: "var(--dim)", caption: compare ? (year + " vs " + compare) : year },
+          { icon: "how_to_vote", label: "Turnout", value: (meta.cast && meta.register) ? (Math.round((1000 * meta.cast) / meta.register) / 10).toFixed(1) : "—", unit: (meta.cast && meta.register) ? "%" : "", color: "var(--mute)", caption: "National, where the pack has it" },
+        ],
+      },
+      battlegrounds: geographicUnits
+        .filter((row) => row.marginPct != null)
+        .slice()
+        .sort((a, b) => a.marginPct - b.marginPct)
+        .slice(0, 6)
+        .map((row) => ({
+          name: row.state,
+          swing: focusParty + " " + (row.focusShare != null ? row.focusShare.toFixed(1) + "%" : "—"),
+          margin: row.marginPct.toFixed(1) + " pt margin",
+          color: partyColor(row.winnerParty),
+        })),
       drivers: [
         { icon: "emoji_events", title: "Declared", text: meta.declaredWinner || "No national declaration in this pack", value: meta.declaredParty || "—", unit: "" },
         { icon: "map", title: "Units in view", text: regionFilter || "All regions", value: String(geographicUnits.length), unit: "" },
@@ -854,5 +1044,46 @@
     };
   }
 
-  global.EIDGhana = { REGIONS, CONTESTS, PARTIES, YEARS, load, theme, partyColor, view, candidatePage, analysisBundle };
+  function dataCatalog(state) {
+    const q = String((state && state.dataQuery) || "").trim().toLowerCase();
+    const office = state && state.dataOffice && state.dataOffice !== "all" ? String(state.dataOffice) : "";
+    const year = state && state.dataYear && state.dataYear !== "all" ? String(state.dataYear) : "";
+    const category = state && state.dataCategory && state.dataCategory !== "all" ? String(state.dataCategory) : "";
+    const parl2024 = (PARL && PARL["2024"] && PARL["2024"].meta) || {};
+    const localMeta = (LOCALCAND && LOCALCAND["2023"] && LOCALCAND["2023"].meta) || {};
+    const datasets = [
+      { id: "gh-pres-2024", name: "Presidential results 2024", type: "Regional", fmt: "JSON", icon: "how_to_vote", coverage: "16 regions", source: "Electoral Commission declaration, via the 2024 election page", updated: "2024-12-10", category: "results", office: "pres", year: "2024", notes: "Regional plurality and the separate national declared winner.", downloads: { json: "/data/ghana/packs.json" } },
+      { id: "gh-pres-2020", name: "Presidential results 2020", type: "Regional", fmt: "JSON", icon: "how_to_vote", coverage: "16 regions", source: "Electoral Commission, via the 2020 election page", updated: "2020-12-09", category: "results", office: "pres", year: "2020", notes: "In the same packs file as the other presidential years.", downloads: { json: "/data/ghana/packs.json" } },
+      { id: "gh-pres-2016", name: "Presidential results 2016", type: "Regional", fmt: "JSON", icon: "how_to_vote", coverage: "10 regions then in use", source: "Electoral Commission, via the 2016 election page", updated: "2016-12-09", category: "results", office: "pres", year: "2016", notes: "NPP and NDC by former region. Successor areas carry the parent total.", downloads: { json: "/data/ghana/packs.json" } },
+      { id: "gh-pres-2016-added", name: "2016 other presidential candidates", type: "National", fmt: "JSON", icon: "person", coverage: "5 candidates beyond the regional sheet", source: "EC workbook cited on the 2016 election page", updated: "2016-12-09", category: "candidates", office: "pres", year: "2016", notes: "National totals for PPP, CPP, PNC, NDP and the independent. Not painted on the map.", downloads: { json: "/data/ghana/presidential.json" } },
+      { id: "gh-profiles", name: "Presidential biographies", type: "Text", fmt: "JSON", icon: "menu_book", coverage: "Wikipedia lead sections where a page exists", source: "English Wikipedia", updated: "2026-09-29", category: "candidates", office: "pres", year: "", notes: "Photographs are Wikimedia Commons file paths when the page has a lead image.", downloads: { json: "/data/ghana/profiles.json" } },
+      { id: "gh-parl-2024-seats", name: "Parliamentary seats 2024", type: "Regional", fmt: "JSON", icon: "account_balance", coverage: "16 regions · 276 seats", source: "Published regional seat table in the parliamentary pack", updated: "2024", category: "results", office: "parl", year: "2024", notes: "Seat counts, not constituency ballots.", downloads: { json: "/data/ghana/packs.json" } },
+      { id: "gh-parl-2020-seats", name: "Parliamentary seats 2020", type: "National", fmt: "JSON", icon: "account_balance", coverage: "275 seats", source: "National seat totals", updated: "2020", category: "results", office: "parl", year: "2020", notes: "National seats only. The map is not coloured.", downloads: { json: "/data/ghana/packs.json" } },
+      { id: "gh-parl-cands-2024", name: "Parliamentary candidates 2024", type: "Constituency", fmt: "JSON", icon: "groups", coverage: (parl2024.loaded || "—") + " names · " + (parl2024.constituencies || "—") + " of 276 constituencies", source: "Modern Ghana, 7 Dec 2024", updated: "2024-12-07", category: "candidates", office: "parl", year: "2024", notes: "The article says 801 candidates were registered. Won matches the Wikipedia elected-MP list only.", downloads: { json: "/data/ghana/parliamentary.json" } },
+      { id: "gh-parl-cands-2020", name: "Elected MPs 2020", type: "Constituency", fmt: "JSON", icon: "groups", coverage: "Elected members only", source: "English Wikipedia list of MPs elected in 2020", updated: "2020", category: "candidates", office: "parl", year: "2020", notes: "Defeated 2020 candidates are not in this file.", downloads: { json: "/data/ghana/parliamentary.json" } },
+      { id: "gh-local-2023", name: "Local assembly names 2023", type: "Electoral area", fmt: "JSON", icon: "location_city", coverage: "Natriku, Shai-Osudoku only", source: "Ghana News Agency, 20 Dec 2023", updated: "2023-12-20", category: "candidates", office: "local", year: "2023", notes: "Six unopposed names. National roll: " + (localMeta.nationalAssemblyCandidates || 18755) + " assembly and " + (localMeta.nationalUnitCandidates || 47502) + " unit-committee candidates.", downloads: { json: "/data/ghana/local-candidates.json" } },
+      { id: "gh-regions", name: "Ghana regions", type: "Polygon", fmt: "GeoJSON", icon: "map", coverage: "16 regions", source: "geoBoundaries GHA ADM1", updated: "Current", category: "geography", office: "", year: "", notes: "CC BY-SA. Used by the Ghana canvas map.", downloads: { json: "/data/ghana-regions.geojson" } },
+    ];
+    const filtered = datasets.filter((row) => {
+      if (office && row.office !== office) return false;
+      if (year && String(row.year || "") !== year) return false;
+      if (category && row.category !== category) return false;
+      if (!q) return true;
+      return [row.name, row.coverage, row.source, row.notes, row.office, row.year].join(" ").toLowerCase().indexOf(q) >= 0;
+    });
+    return {
+      datasets: filtered,
+      count: datasets.length,
+      offices: ["pres", "parl", "local"],
+      years: ["2024", "2023", "2020", "2016"],
+      categories: ["results", "candidates", "geography"],
+      officeLabels: { pres: "Presidential", parl: "Parliamentary", local: "Local assemblies" },
+      gated: [
+        { name: "National local-assembly roll, 2023", reason: "The Electoral Commission recorded 18,755 assembly-member candidates and 47,502 unit-committee candidates. A complete name list is not published in this dashboard." },
+        { name: "Polling-station register", reason: "The full polling-station register is not in the Ghana packs." },
+      ],
+    };
+  }
+
+  global.EIDGhana = { REGIONS, CONTESTS, PARTIES, YEARS, load, theme, partyColor, view, candidatePage, analysisBundle, dataCatalog };
 })(window);

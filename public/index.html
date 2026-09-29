@@ -8,10 +8,10 @@
 <script src="./vendor/leaflet/leaflet.js"></script>
 <script src="./vendor/chart.js/chart.umd.min.js"></script>
 <script src="./js/eid-maps.js?v=20260929ghmatch"></script>
-<script src="./js/eid-ghana.js?v=20260929ghmatch"></script>
+<script src="./js/eid-ghana.js?v=20260929ghcands2"></script>
 <script src="./js/eid-analysis.js?v=20260928tabs"></script>
 <script src="./js/eid-dashboard.js?v=20260916dash"></script>
-<script src="./js/eid-page-content.js?v=20260929ghresults"></script>
+<script src="./js/eid-page-content.js?v=20260929ghcands"></script>
 <script src="./js/eid-data-explorer.js?v=20260928rows"></script>
 <script src="./support.js?v=20260819c"></script>
 </head>
@@ -1931,8 +1931,8 @@ a:hover{color:var(--primary)}
             </label>
             <sc-if value="{{ ngCandidates.showStateFilter }}" hint-placeholder-val="{{ false }}">
             <label style="display:flex;flex-direction:column;gap:6px">
-              <span style="font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute)">State</span>
-              <select value="{{ ngCandidates.stateVal }}" onChange="{{ ngCandidates.onState }}" style="{{ selStyle }}"><option value="">All states</option><sc-for list="{{ ngCandidates.stateOptions }}" as="s" hint-placeholder-count="6"><option value="{{ s }}">{{ s }}</option></sc-for></select>
+              <span style="font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute)">{{ ngCandidates.stateFilterLabel }}</span>
+              <select value="{{ ngCandidates.stateVal }}" onChange="{{ ngCandidates.onState }}" style="{{ selStyle }}"><option value="">{{ ngCandidates.stateAllLabel }}</option><sc-for list="{{ ngCandidates.stateOptions }}" as="s" hint-placeholder-count="6"><option value="{{ s }}">{{ s }}</option></sc-for></select>
             </label>
             </sc-if>
             <sc-if value="{{ ngCandidates.showDistrictFilter }}" hint-placeholder-val="{{ false }}">
@@ -1959,6 +1959,9 @@ a:hover{color:var(--primary)}
             </sc-if>
             <sc-if value="{{ ngCandidates.hasList }}" hint-placeholder-val="{{ false }}">
               <div style="flex:none;font-size:11.5px;color:var(--mute);margin-bottom:10px">{{ ngCandidates.title }} · {{ ngCandidates.count }} candidates · tap a card for biography</div>
+              <sc-if value="{{ ngCandidates.hasCoverage }}" hint-placeholder-val="{{ false }}">
+                <div style="flex:none;font-size:12px;line-height:1.45;color:var(--dim);margin:-2px 0 12px;max-width:720px">{{ ngCandidates.coverage }}</div>
+              </sc-if>
               <sc-if value="{{ ngCandidates.filterEmpty }}" hint-placeholder-val="{{ false }}">
                 <div style="flex:none;padding:22px;border:1px dashed var(--border2);border-radius:12px;text-align:center;font-size:13px;color:var(--dim);margin-bottom:10px">No candidates match these filters. Try All outcomes, All parties, or another year.</div>
               </sc-if>
@@ -4534,7 +4537,7 @@ class Component extends DCLogic {
     const ghHash = String(location.hash || '').match(/^#\/c\/gh(?:\/([^/?#]+))?/i);
     if (ghHash) {
       const raw = decodeURIComponent(ghHash[1] || 'Overview').replace(/-/g, ' ');
-      const ghSections = ['Overview', 'Parties', 'About', 'Live Results', 'Candidates', 'Analysis'];
+      const ghSections = ['Overview', 'Parties', 'About', 'Live Results', 'Candidates', 'Analysis', 'Data'];
       const section = ghSections.find((n) => n.toLowerCase() === raw.toLowerCase()) || 'Overview';
       this.setState({ view: 'app', scope: 'gh', section, switcherOpen: false }, () => {
         if (window.EIDGhana && window.EIDGhana.load) {
@@ -4591,7 +4594,7 @@ class Component extends DCLogic {
     if (s.section === 'Data' && s.dataCatalog && (s.dataShown || 48) < (this._dataExplorerTotal || 0)) {
       this.scheduleDataExplorerFill();
     }
-    if (s.section === 'Data' && !s.dataCatalog && !s.dataCatalogLoading && !this._catalogAsked) {
+    if (s.section === 'Data' && s.scope !== 'gh' && !s.dataCatalog && !s.dataCatalogLoading && !this._catalogAsked) {
       this._catalogAsked = true;
       this.refreshDataCatalog();
     }
@@ -4745,23 +4748,25 @@ class Component extends DCLogic {
         : null;
       const filters = (bundle && bundle.filters) || {};
       const url = ['gh', this.state.ghPacksReady || 0, filters.office, filters.year, filters.compare, filters.party, filters.region, this.state.anaSubTab || ''].join('|');
-      if (!force && this._appliedAnalysis && this._appliedAnalysis.has(url) && this.state.analysisBundle && this.state.analysisBundle.filters && this.state.analysisBundle.filters.office) {
-        const prevOffice = this.state.analysisBundle.filters.office;
-        if (prevOffice === 'pres' || prevOffice === 'parl' || prevOffice === 'local') {
-          this.queueAnalysisCharts();
-          return;
-        }
+      if (!force && this._appliedAnalysis && this._appliedAnalysis.has(url) && this.state.analysisBundle && this.state.analysisBundle.scope === 'gh') {
+        this.queueAnalysisCharts();
+        return;
       }
       if (bundle && bundle.ok) {
         const officeYears = ((bundle.offices || []).find((row) => row.id === bundle.filters.office) || {}).years || [];
         const yearOk = !this.state.anaYear || officeYears.map(String).includes(String(this.state.anaYear));
+        const parties = new Set(((bundle.performance && bundle.performance.voteShare) || []).map((row) => row.party));
+        const regions = new Set((bundle.regions || []).concat(['all', 'Brong-Ahafo']));
+        const patch = {};
         if (this.state.anaOffice !== bundle.filters.office || !yearOk) {
-          this.setState({
-            anaOffice: bundle.filters.office,
-            anaYear: bundle.filters.year,
-            anaCompare: bundle.filters.compare || '',
-          });
+          patch.anaOffice = bundle.filters.office;
+          patch.anaYear = bundle.filters.year;
+          patch.anaCompare = bundle.filters.compare || '';
         }
+        if (this.state.anaParty && this.state.anaParty !== 'all' && !parties.has(this.state.anaParty)) patch.anaParty = 'all';
+        if (this.state.anaRegion && this.state.anaRegion !== 'all' && !regions.has(this.state.anaRegion)) patch.anaRegion = 'all';
+        if (this.state.anaState && this.state.anaState !== 'all') patch.anaState = 'all';
+        if (Object.keys(patch).length) this.setState(patch);
         this.applyAnalysisPayload(bundle, url);
       }       else if (this.state.analysisLoading) this.setState({ analysisLoading: false });
       return;
@@ -5998,23 +6003,38 @@ class Component extends DCLogic {
       const total = sorted.reduce((a,c)=>a+Number(c.votes||0),0) || 1;
       return ((Number(sorted[0].votes)-Number(sorted[1].votes))/total*100).toFixed(1);
     })();
-    const analysisBundle = this.state.analysisBundle;
+    const analysisBundle = (scope === 'gh' && this.state.analysisBundle && this.state.analysisBundle.scope === 'gh')
+      ? this.state.analysisBundle
+      : (scope === 'gh' ? null : this.state.analysisBundle);
     const resolvedFilters = analysisBundle?.filters || {};
-    const analysisMetrics = (analysisBundle && analysisBundle.summary && analysisBundle.summary.kpis && analysisBundle.summary.kpis.length)
-      ? analysisBundle.summary.kpis.map((m) => ({ ...m, caption: m.caption || '' }))
-      : (analysisBundle && analysisBundle.metrics && analysisBundle.metrics.length)
-        ? analysisBundle.metrics
-        : [
+    const nigeriaFallbackMetrics = [
       {icon:'inventory_2',label:'Avg PVC collection',value: avgPvc?avgPvc.toFixed(1):'—',unit:'%',color:'var(--good)',caption:''},
       {icon:'where_to_vote',label:'Polling units',value: puSummary.totalPollingUnits? Number(puSummary.totalPollingUnits).toLocaleString():'—',unit:'',color:'var(--primary)',caption:''},
       {icon:'density_medium',label:'PU per 100k people',value: puSummary.nationalPollingUnitsPer100k!=null? String(puSummary.nationalPollingUnitsPer100k):'—',unit:'',color:'var(--dim)',caption:''},
       {icon:'emoji_events',label:'Ekiti 2026 margin',value: ekMargin||'—',unit: ekMargin?'pts':'',color:'var(--up)',caption:''},
     ];
-    const battlegrounds = ((analysisBundle && analysisBundle.battlegrounds && analysisBundle.battlegrounds.length)
-      ? analysisBundle.battlegrounds
-      : pvcRows.slice(0,6).map(s=>({
-      name:s.state, swing: Number(s.pvcCollectionRate||0).toFixed(1)+'% PVC', margin: this.fmtInt(s.collectedPVCs||s.pvcCollected||0)+' collected', color:'var(--primary)',
-    }))).slice();
+    const ghanaFallbackMetrics = [
+      {icon:'map',label:'Regions',value:'16',unit:'',color:'var(--primary)',caption:'Current regional boundaries'},
+      {icon:'how_to_vote',label:'Presidential years',value:'3',unit:'',color:'var(--up)',caption:'2016, 2020, 2024'},
+      {icon:'account_balance',label:'Parliament',value:'276',unit:'seats',color:'var(--dim)',caption:'2024 constituencies'},
+      {icon:'inventory_2',label:'Local assemblies',value:'—',unit:'',color:'var(--mute)',caption:'Non-partisan · not archived'},
+    ];
+    const analysisMetrics = (scope === 'gh')
+      ? ((analysisBundle && analysisBundle.summary && analysisBundle.summary.kpis && analysisBundle.summary.kpis.length)
+        ? analysisBundle.summary.kpis.map((m) => ({ ...m, caption: m.caption || '' }))
+        : ghanaFallbackMetrics)
+      : ((analysisBundle && analysisBundle.summary && analysisBundle.summary.kpis && analysisBundle.summary.kpis.length)
+        ? analysisBundle.summary.kpis.map((m) => ({ ...m, caption: m.caption || '' }))
+        : (analysisBundle && analysisBundle.metrics && analysisBundle.metrics.length)
+          ? analysisBundle.metrics
+          : nigeriaFallbackMetrics);
+    const battlegrounds = (scope === 'gh')
+      ? (((analysisBundle && analysisBundle.battlegrounds) || []).slice())
+      : (((analysisBundle && analysisBundle.battlegrounds && analysisBundle.battlegrounds.length)
+        ? analysisBundle.battlegrounds
+        : pvcRows.slice(0,6).map(s=>({
+        name:s.state, swing: Number(s.pvcCollectionRate||0).toFixed(1)+'% PVC', margin: this.fmtInt(s.collectedPVCs||s.pvcCollected||0)+' collected', color:'var(--primary)',
+      }))).slice());
     if(!battlegrounds.length){
       battlegrounds.push({ name:'Needs election archives', swing:'—', margin:'Open Analysis after data loads', color:'var(--mute)' });
     }
@@ -6022,8 +6042,8 @@ class Component extends DCLogic {
     const anaOffice = this.state.anaOffice || resolvedFilters.office || 'pres';
     const anaOfficeMeta = (analysisBundle?.offices || []).find((o) => o.id === anaOffice) || { id: anaOffice, label: anaOffice, years: [] };
     let anaOfficeYears = (anaOfficeMeta.years || []).slice().sort((a, b) => Number(a) - Number(b));
-    const showStateFilter = anaOffice === 'gov'
-      || (anaOffice === 'pres' && !!((analysisBundle?.geographic && analysisBundle.geographic.hasLga) || (analysisBundle?.geoFlags && analysisBundle.geoFlags.hasLga)));
+    const showStateFilter = scope !== 'gh' && (anaOffice === 'gov'
+      || (anaOffice === 'pres' && !!((analysisBundle?.geographic && analysisBundle.geographic.hasLga) || (analysisBundle?.geoFlags && analysisBundle.geoFlags.hasLga))));
     const anaStateRaw = showStateFilter ? (this.state.anaState || resolvedFilters.state || 'all') : 'all';
     if (anaOffice === 'gov' && anaStateRaw && anaStateRaw !== 'all' && analysisBundle?.govYearsByState) {
       anaOfficeYears = (analysisBundle.govYearsByState[anaStateRaw] || []).map(String).sort((a, b) => Number(a) - Number(b));
@@ -6043,12 +6063,22 @@ class Component extends DCLogic {
       : new Set(['APC', 'PDP', 'LP', 'NNPP', 'APGA', 'ADC']);
     (analysisBundle?.performance?.voteShare || []).forEach((p) => partySet.add(p.party));
     (analysisBundle?.charts?.partyWins?.[anaOffice]?.parties || []).forEach((p) => partySet.add(p.party));
+    if (scope === 'gh') {
+      const bundleOffice = analysisBundle?.filters?.office;
+      if (bundleOffice !== 'pres' && bundleOffice !== 'parl' && bundleOffice !== 'local') partySet.clear();
+    }
     const partyOpts = [{ value: 'all', label: 'Winner (auto)' }].concat(
       [...partySet].map((p) => ({ value: p, label: p }))
     );
-    const regionOpts = [{ value: 'all', label: 'All regions' }].concat(
-      (analysisBundle?.regions || []).map((r) => ({ value: r, label: r }))
-    );
+    const ghRegionNames = (scope === 'gh' && window.EIDGhana && window.EIDGhana.REGIONS)
+      ? window.EIDGhana.REGIONS.map((r) => r.name)
+      : [];
+    const ghRegionSet = new Set(ghRegionNames.concat(['Brong-Ahafo']));
+    const regionOpts = scope === 'gh'
+      ? [{ value: 'all', label: 'All regions' }].concat(ghRegionNames.map((name) => ({ value: name, label: name })))
+      : [{ value: 'all', label: 'All regions' }].concat(
+        (analysisBundle?.regions || []).map((r) => ({ value: r, label: r }))
+      );
     // Year options for the dropdown; keep the current selection visible even if empty for this year.
     const yearStateNames = analysisBundle?.states || [];
     const catalogStates = analysisBundle?.allStates || yearStateNames;
@@ -6067,16 +6097,19 @@ class Component extends DCLogic {
     const comp = analysisBundle?.competitiveness || {};
     const hist = analysisBundle?.history || {};
     const demo = analysisBundle?.demographics || {};
-    const focusParty = perf.focusParty || geo.focusParty || 'APC';
-    const strong = perf.strongest || [];
-    const weak = perf.weakest || [];
+    const focusParty = perf.focusParty || geo.focusParty || (scope === 'gh' ? 'NDC' : 'APC');
+    const strong = (scope === 'gh' ? (perf.strongest || []).filter((row) => ghRegionSet.has(row.state)) : (perf.strongest || []));
+    const weak = (scope === 'gh' ? (perf.weakest || []).filter((row) => ghRegionSet.has(row.state)) : (perf.weakest || []));
     const rankRows = Array.from({ length: Math.max(strong.length, weak.length, 1) }, (_, i) => ({
       strongState: strong[i]?.state || '—',
       strongShare: strong[i] ? `${Number(strong[i].share).toFixed(1)}%` : '—',
       weakState: weak[i]?.state || '—',
       weakShare: weak[i] ? `${Number(weak[i].share).toFixed(1)}%` : '—',
     })).slice(0, 8);
-    const geoRows = (geo.units || []).slice(0, 80).map((u) => ({
+    const geoUnitRows = (scope === 'gh')
+      ? (geo.units || []).filter((u) => ghRegionSet.has(u.state) || ghRegionSet.has(u.name) || ghRegionSet.has(u.region))
+      : (geo.units || []);
+    const geoRows = geoUnitRows.slice(0, 80).map((u) => ({
       unit: u.state || u.district || '—',
       region: u.region || '—',
       winner: u.winnerParty || '—',
@@ -6390,21 +6423,26 @@ class Component extends DCLogic {
 
     const popUpdated = this.state.popStatus?.modifiedTime ? new Date(this.state.popStatus.modifiedTime).toLocaleDateString() : 'Local file';
     const onDataPage = section === 'Data';
-    const catalog = onDataPage ? this.state.dataCatalog : null;
+    const ghanaData = (scope === 'gh' && onDataPage && window.EIDGhana && window.EIDGhana.dataCatalog)
+      ? window.EIDGhana.dataCatalog(this.state)
+      : null;
+    const catalog = ghanaData || (onDataPage ? this.state.dataCatalog : null);
     const explorer = (typeof window !== 'undefined' && window.EidDataExplorer) ? window.EidDataExplorer : null;
     const catalogDatasets = (catalog && Array.isArray(catalog.datasets)) ? catalog.datasets : [];
     const countryScope = (this.state.scope === 'ng' || this.state.scope === 'global') ? this.state.scope : 'ng';
-    const filteredCatalog = explorer
-      ? explorer.filterDatasets(catalogDatasets, {
-          query: this.state.dataQuery,
-          office: this.state.dataOffice,
-          year: this.state.dataYear,
-          category: this.state.dataCategory,
-          country: countryScope === 'global' ? '' : 'ng',
-        })
-      : catalogDatasets;
+    const filteredCatalog = ghanaData
+      ? catalogDatasets
+      : (explorer
+        ? explorer.filterDatasets(catalogDatasets, {
+            query: this.state.dataQuery,
+            office: this.state.dataOffice,
+            year: this.state.dataYear,
+            category: this.state.dataCategory,
+            country: countryScope === 'global' ? '' : 'ng',
+          })
+        : catalogDatasets);
     let datasets = explorer ? explorer.toRows(filteredCatalog, catalog?.officeLabels) : [];
-    if (!datasets.length && !catalog && !this.state.dataCatalogLoading) {
+    if (!ghanaData && !datasets.length && !catalog && !this.state.dataCatalogLoading) {
       datasets = [
         {name:'Population / PVC',type:'Tabular',fmt:'JSON',icon:'bar_chart', href:'/api/population-data', action:'Open', coverage:'Nigeria states + FCT', source:'population-pvc-data.json', updated:popUpdated, hasJson:true, hasCsv:false, jsonHref:'/api/population-data', csvHref:'', notes:'', hasNotes:false, category:'reference'},
         {name:'Polling units GeoJSON',type:'Point',fmt:'GeoJSON',icon:'location_on', href:'/api/polling-units.geojson', action:'Download', coverage:'INEC PU CSV', source:'Nigeria_polling_units.csv', updated:popUpdated, hasJson:true, hasCsv:false, jsonHref:'/api/polling-units.geojson', csvHref:'', notes:'', hasNotes:false, category:'geography'},
@@ -7293,6 +7331,8 @@ class Component extends DCLogic {
           });
         },
         showStateFilter: co==='gov' || co==='sen' || co==='reps',
+        stateFilterLabel: 'State',
+        stateAllLabel: 'All states',
         showDistrictFilter: (co==='sen' || co==='reps') && !!this.state.candGovState && districtOptions.length>0,
         showPartyFilter: partyOptionsBase.length > 0 && (co==='sen' || co==='reps' || co==='gov' || co==='pres'),
         districtLabel: co==='sen' ? 'Senatorial district' : 'Federal constituency',
@@ -7563,7 +7603,7 @@ class Component extends DCLogic {
       isCandidates: view==='app' && section==='Candidates' && (isGlobal || isNigeria || scope==='gh'),
       isParties: view==='app' && section==='Parties' && (isGlobal || isNigeria),
       isAnalysis: view==='app' && section==='Analysis' && (isGlobal || isNigeria || scope==='gh'),
-      isData: view==='app' && section==='Data' && (isGlobal || isNigeria),
+      isData: view==='app' && section==='Data' && (isGlobal || isNigeria || scope==='gh'),
       isAbout: view==='app' && section==='About' && scope!=='gh',
       isAdmin: view==='app' && section==='Admin',
       topKpis, overviewDashExtras: (typeof overviewDashExtras!=='undefined'?overviewDashExtras:[]), liveDashExtras: (typeof liveDashExtras!=='undefined'?liveDashExtras:[]), adminStats, adminData, ngCandidates, ngCandidateDetail, ngParties, ngPartyDetail,

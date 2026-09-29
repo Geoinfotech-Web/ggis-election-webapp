@@ -1,0 +1,47 @@
+{
+  "2016": {
+    "meta": {
+      "year": "2016",
+      "source": "English Wikipedia election-results template for the 2016 presidential election, citing the Electoral Commission workbook. Nana Akufo-Addo and John Dramani Mahama remain on the regional pack. That pack’s NDC regional sum is 4,751,188; the national template records 4,771,188 for Mahama and is not copied over the regional sheet.",
+      "sourceUrl": "https://en.wikipedia.org/wiki/2016_Ghanaian_general_election",
+      "workbook": "https://web.archive.org/web/20200527133248/https://s3-us-west-2.amazonaws.com/ecgovgh-public/downloads/2016-Presidential-Results_national-consitutuency.xlsb"
+    },
+    "added": [
+      {
+        "name": "Paa Kwesi Nduom",
+        "party": "PPP",
+        "votes": 106092,
+        "runningMate": "Brigitte Dzogbenuku",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Ivor Greenstreet",
+        "party": "CPP",
+        "votes": 25552,
+        "runningMate": "Gabby Nsiah Nketiah",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Edward Mahama",
+        "party": "PNC",
+        "votes": 22298,
+        "runningMate": "Emmanuel Anyidoho",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Nana Konadu Agyeman Rawlings",
+        "party": "NDP",
+        "votes": 16935,
+        "runningMate": "Kojo Mensah Sosu",
+        "outcome": "Contested"
+      },
+      {
+        "name": "Jacob Osei Yeboah",
+        "party": "IND",
+        "votes": 15911,
+        "runningMate": "Daniel Wilson Torto",
+        "outcome": "Contested"
+      }
+    ]
+  }
+}

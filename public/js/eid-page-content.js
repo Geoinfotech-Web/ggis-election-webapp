@@ -70,6 +70,7 @@
     { id: 'Candidates', label: 'Candidates', live: false, order: 3 },
     { id: 'Parties', label: 'Parties', live: false, order: 4 },
     { id: 'Analysis', label: 'Analysis', live: false, order: 5 },
+    { id: 'Data', label: 'Data', live: false, order: 6 },
     { id: 'About', label: 'About', live: false, order: 7 },
   ];
 
@@ -80,7 +81,7 @@
     if (key === 'gh') {
       return {
         liveData: false, maps: true, analysis: true, candidates: true,
-        parties: true, liveResults: true, dataExplorer: false, comingSoon: false,
+        parties: true, liveResults: true, dataExplorer: true, comingSoon: false,
       };
     }
     if (key === 'ng') {
