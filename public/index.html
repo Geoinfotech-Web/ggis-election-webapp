@@ -3414,16 +3414,21 @@ class Component extends DCLogic {
           won: choro.winner && (cd.party===choro.winner.party || cd.name===choro.winner.name),
           wonUnits,
           statesWon: wonUnits.length,
-          unitsLabel: wonUnits.length ? `${wonUnits.length} LGA${wonUnits.length===1?'':'s'}${choro.estimated?' (est.)':''}` : null,
+          // Show "0 LGAs" for candidates who lead no LGA so a party with votes
+          // but no colour on the map reads as leading nowhere, not missing.
+          unitsLabel: wonUnits.length ? `${wonUnits.length} LGA${wonUnits.length===1?'':'s'}${choro.estimated?' (est.)':''}` : '0 LGAs',
         };
       });
-      const sourceLine = choro.collated
+      const sourceLine = (choro.collated
         ? 'Statewide + official LGA collation'
         : (choro.estimated
           ? (this.state.showEstimatedLga
             ? 'Statewide: sourced INEC totals · LGA map estimated (PVC-proportional)'
             : 'Statewide: sourced INEC totals · LGA map hidden (estimated only)')
-          : 'Statewide sourced result');
+          : 'Statewide sourced result'))
+        // The map shades each LGA by its leading party, so a runner-up with
+        // votes but no LGA lead (e.g. shown as "0 LGAs") has no colour on it.
+        + (choro.level === 'lga' ? ' · each LGA shaded by its leading party' : '');
       const lgaRows = (choro.level === 'lga') ? this.buildLgaBrowseRows(choro.units, colorOf) : [];
       return pack(rows, {
         govLevel: choro.level || 'lga',
@@ -3519,7 +3524,7 @@ class Component extends DCLogic {
             name:r[0], party, votes, share: 0,
             won: false,
             statesWon: wonUnits.length,
-            unitsLabel: wonUnits.length ? `${wonUnits.length} LGA${wonUnits.length===1?'':'s'}` : null,
+            unitsLabel: wonUnits.length ? `${wonUnits.length} LGA${wonUnits.length===1?'':'s'}` : '0 LGAs',
             wonUnits,
           };
         });
