@@ -153,6 +153,10 @@
       fadeAnimation: false,
       markerZoomAnimation: false,
     });
+    map.createPane("stateFill");
+    const stateFillPane = map.getPane("stateFill");
+    stateFillPane.style.zIndex = 445;
+    stateFillPane.style.pointerEvents = "none";
     map.createPane("grid3");
     map.getPane("grid3").style.zIndex = 450;
     map.createPane("stateLines");
@@ -567,7 +571,7 @@
         // No result for this unit (e.g. an LGA with no vote count): fill it a
         // visible neutral grey so the parent state reads as complete instead of
         // showing transparent gaps, while staying distinct from party colors.
-        style = { ...base, fillColor: '#cbd5e1', fillOpacity: 0.55, opacity: 0.95, weight: base.weight };
+        style = { ...base, fillColor: '#94a3b8', fillOpacity: 0.72, opacity: 0.95, weight: base.weight };
       }
     }
     // State strokes live on one shared line layer so adjacent polygons are not drawn twice.
@@ -1042,6 +1046,18 @@
     inst._needsPaint = false;
     if (styleOnly) {
       restyleDrawn(inst);
+      // Geometry is unchanged (e.g. a year switch) but the winning party and so
+      // the gap-fill colour may differ — repaint the void fill to match.
+      if (inst._stateGapFill && lgaState && theme && theme.level === 'lga') {
+        const lgaSource = inst.overlaySource && inst.overlaySource.lga;
+        if (lgaSource) {
+          const stateFc = await queryLocalAdmin('state', lgaState);
+          if (inst.overlayKey !== key) return;
+          if (stateFc && stateFc.features && stateFc.features.length) paintStateGapFill(inst, stateFc, lgaSource, theme);
+        }
+      } else if (!lgaState || !theme || theme.level !== 'lga') {
+        clearStateGapFill(inst);
+      }
       if (isLive && compareMode === 'compare') {
         applyCompareClip(inst, inst.comparePct != null ? inst.comparePct : (inst.cfg.comparePct || 50));
       } else if (isLive) clearCompareClip(inst);
@@ -1147,9 +1163,24 @@
       clearOverlay(inst, 'citizen-state');
     }
 
-    if (needLga && lgaState) paintStateLga(inst, lgaState, lgaData, theme);
-    else if (needLga) paintOverlay(inst, 'lga', lgaData, false);
-    else clearOverlay(inst, 'lga');
+    if (needLga && lgaState) {
+      paintStateLga(inst, lgaState, lgaData, theme);
+      // Back the LGA choropleth with a gap fill so interior voids (e.g. the
+      // Lagos Lagoon) take the surrounding party colour instead of showing the
+      // basemap through a hole in the state.
+      if (theme && theme.level === 'lga' && lgaData && lgaData.features && lgaData.features.length) {
+        let stateFc = await queryLocalAdmin('state', lgaState);
+        if (inst.overlayKey !== key) return;
+        if (stateFc && stateFc.features && stateFc.features.length) paintStateGapFill(inst, stateFc, lgaData, theme);
+        else clearStateGapFill(inst);
+      } else clearStateGapFill(inst);
+    } else if (needLga) {
+      paintOverlay(inst, 'lga', lgaData, false);
+      clearStateGapFill(inst);
+    } else {
+      clearOverlay(inst, 'lga');
+      clearStateGapFill(inst);
+    }
 
     if (needWard) paintOverlay(inst, 'ward', wardData, false);
     else clearOverlay(inst, 'ward');
@@ -1401,6 +1432,73 @@
     inst._lgaDrawnKey = null;
     inst.overlayKey = null;
     inst._geomKey = null;
+  }
+
+  // Outer rings of a polygon/multipolygon geometry.
+  function outerRingsOf(geom) {
+    const rings = [];
+    if (!geom) return rings;
+    if (geom.type === 'Polygon') {
+      if (geom.coordinates && geom.coordinates[0] && geom.coordinates[0].length) rings.push(geom.coordinates[0]);
+    } else if (geom.type === 'MultiPolygon') {
+      (geom.coordinates || []).forEach((poly) => {
+        if (poly && poly[0] && poly[0].length) rings.push(poly[0]);
+      });
+    }
+    return rings;
+  }
+
+  // Colour that covers the most LGAs in the theme — used to fill interior voids
+  // (lagoons, inter-LGA gaps) with the party that surrounds them.
+  function dominantUnitColor(theme) {
+    if (!theme || !theme.units) return null;
+    const tally = {};
+    Object.keys(theme.units).forEach((k) => {
+      const u = theme.units[k];
+      if (u && u.color) tally[u.color] = (tally[u.color] || 0) + 1;
+    });
+    let best = null;
+    let max = -1;
+    Object.keys(tally).forEach((c) => { if (tally[c] > max) { max = tally[c]; best = c; } });
+    return best;
+  }
+
+  function clearStateGapFill(inst) {
+    if (inst && inst._stateGapFill) {
+      try { inst.map.removeLayer(inst._stateGapFill); } catch (e) { /* noop */ }
+      inst._stateGapFill = null;
+    }
+  }
+
+  // Fill the voids inside a state that no LGA polygon covers — chiefly open
+  // water such as the Lagos Lagoon — so the state reads as one solid body.
+  // One multi-ring polygon (state outline + every LGA ring) drawn with the
+  // even-odd fill rule fills only the gaps: a point inside the state but inside
+  // no LGA is covered by an odd number of rings, while a point inside an LGA is
+  // covered by an even number and stays clear, so the LGA colours are untouched.
+  function paintStateGapFill(inst, stateFc, lgaData, theme) {
+    clearStateGapFill(inst);
+    if (!inst || !inst.map) return;
+    if (!theme || theme.level !== 'lga') return;
+    if (!stateFc || !stateFc.features || !stateFc.features.length) return;
+    if (!lgaData || !lgaData.features || !lgaData.features.length) return;
+    const rings = [];
+    stateFc.features.forEach((f) => outerRingsOf(f.geometry).forEach((r) => rings.push(r)));
+    if (!rings.length) return;
+    lgaData.features.forEach((f) => outerRingsOf(f.geometry).forEach((r) => rings.push(r)));
+    const feature = {
+      type: 'Feature',
+      properties: {},
+      geometry: { type: 'MultiPolygon', coordinates: rings.map((r) => [r]) },
+    };
+    const color = dominantUnitColor(theme) || '#94a3b8';
+    const layer = global.L.geoJSON(feature, {
+      pane: 'stateFill',
+      interactive: false,
+      style: { stroke: false, weight: 0, fill: true, fillColor: color, fillOpacity: 0.72, fillRule: 'evenodd' },
+    });
+    layer.addTo(inst.map);
+    inst._stateGapFill = layer;
   }
 
   function paintStateLga(inst, stateName, data, theme) {

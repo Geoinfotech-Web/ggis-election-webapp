@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="./vendor/leaflet/leaflet.css">
 <script src="./vendor/leaflet/leaflet.js"></script>
 <script src="./vendor/chart.js/chart.umd.min.js"></script>
-<script src="./js/eid-maps.js?v=20261005govfill"></script>
+<script src="./js/eid-maps.js?v=20261005govfill2"></script>
 <script src="./js/eid-ghana.js?v=20260930trendb"></script>
 <script src="./js/eid-analysis.js?v=20260928tabs"></script>
 <script src="./js/eid-dashboard.js?v=20260916dash"></script>
@@ -7086,7 +7086,7 @@ class Component extends DCLogic {
         }))
         : choroMap.legend.map(p=>({ label:`${p.name || p.party} (${p.party}) · ${p.count} ${choroMap.level==='lga'?'LGAs':'states'}${choroMap.mapMode==='estimated-lga'?' · est.':''}`, swatch:`width:14px;height:14px;border-radius:3px;background:${p.color};flex:none` }))
           // LGAs with no vote count are filled neutral grey on the map; label that so they read as "no data", not a result.
-          .concat(choroMap.level==='lga' ? [{ label:'No data', swatch:'width:14px;height:14px;border-radius:3px;background:#cbd5e1;opacity:.75;flex:none' }] : []))
+          .concat(choroMap.level==='lga' ? [{ label:'No data', swatch:'width:14px;height:14px;border-radius:3px;background:#94a3b8;opacity:.85;flex:none' }] : []))
       : boundaryLegend;
     const elecMapSource = (choroMap && choroMap.ok && govCoverageMap)
       ? `Select a state · ${Object.values(choroMap.units || {}).filter(u=>u && u.coverage).length} with governorship archive`
