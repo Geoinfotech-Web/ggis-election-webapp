@@ -885,11 +885,11 @@
     let year = String(state.anaYear || years[0] || "");
     if (years.indexOf(year) < 0) year = years[0] || "";
     let compare = state.anaCompare == null ? "" : String(state.anaCompare);
-    if (!compare && state.anaCompare == null) {
-      const older = years.filter((y) => Number(y) < Number(year));
+    if (!compare) {
+      const older = years.filter((y) => Number(y) < Number(year)).sort((a, b) => Number(b) - Number(a));
       compare = older[0] || "";
     }
-    if (compare === year || years.indexOf(compare) < 0) compare = "";
+    if (compare === year || (compare && years.indexOf(compare) < 0)) compare = "";
     const partyFilter = state.anaParty && state.anaParty !== "all" ? state.anaParty : "";
     const regionFilter = state.anaRegion && state.anaRegion !== "all" ? state.anaRegion : "";
     const pack = packFor(office, year);
@@ -952,24 +952,41 @@
       : (office === "parl"
         ? (year + " parliamentary figures use the loaded seat pack. " + (meta.source || ""))
         : (declared + " Regional colour is plurality of valid votes. " + (year === "2016" ? "The 2016 sheet is the ten regions of that election." : "")));
-    const trendYears = (YEARS.pres || []).slice().sort();
+    const trendYears = office === "local"
+      ? []
+      : ((office === "parl" ? YEARS.parl : YEARS.pres) || []).slice().sort();
     const trendParties = ["NDC", "NPP"];
-    const voteShareTrend = trendParties.map((party) => ({
+    const shareAt = (contest, y, party) => {
+      const hit = nationalRows(packFor(contest, y)).find((row) => row.party === party);
+      return hit && hit.share != null ? Math.round(hit.share * 10) / 10 : null;
+    };
+    const voteShareTrend = office === "pres" ? trendParties.map((party) => ({
       party: party,
       color: partyColor(party),
-      values: trendYears.map((y) => {
-        const hit = nationalRows(packFor("pres", y)).find((row) => row.party === party);
-        return hit && hit.share != null ? Math.round(hit.share * 10) / 10 : null;
-      }),
-    }));
-    const seatShareTrend = trendParties.map((party) => ({
+      values: trendYears.map((y) => shareAt("pres", y, party)),
+    })) : [];
+    const seatShareTrend = office === "local" ? [] : trendParties.map((party) => ({
       party: party,
       color: partyColor(party),
-      values: trendYears.map((y) => {
-        const hit = nationalRows(packFor("parl", y)).find((row) => row.party === party);
-        return hit && hit.share != null ? Math.round(hit.share * 10) / 10 : null;
-      }),
+      values: trendYears.map((y) => shareAt("parl", y, party)),
     }));
+    const cycleParties = (contest, y) => {
+      const units = geoRows(contest, y);
+      return nationalRows(packFor(contest, y)).map((row) => {
+        const share = row.share != null ? Math.round(row.share * 10) / 10 : 0;
+        const regionWins = units.filter((unit) => unit.unit && unit.unit.party === row.party).length;
+        if (contest === "parl") {
+          return { party: row.party, color: partyColor(row.party), seatShare: share, seats: row.seats || 0, wins: row.seats || 0 };
+        }
+        return { party: row.party, color: partyColor(row.party), voteShare: share, votes: row.votes || 0, wins: regionWins };
+      }).filter((row) => (row.voteShare || row.seatShare) > 0).sort((a, b) => (b.voteShare || b.seatShare) - (a.voteShare || a.seatShare)).slice(0, 6);
+    };
+    const turnoutTrend = (YEARS.pres || []).slice().sort().map((y) => {
+      const row = (packFor("pres", y) && packFor("pres", y).meta) || {};
+      const cast = Number(row.cast);
+      const register = Number(row.register);
+      return { year: y, turnoutPct: (cast > 0 && register > 0) ? Math.round((1000 * cast) / register) / 10 : null };
+    }).filter((row) => row.turnoutPct != null);
     return {
       ok: true,
       scope: "gh",
@@ -1032,7 +1049,16 @@
         years: trendYears,
         voteShareTrend: voteShareTrend,
         seatShareTrend: seatShareTrend,
-        turnout: [],
+        turnoutTrend: office === "pres" ? turnoutTrend : [],
+        compareSideBySide: {
+          current: { year: year, parties: cycleParties(office, year) },
+          previous: { year: compare, parties: compare ? cycleParties(office, compare) : [] },
+        },
+        realignmentNote: office === "pres"
+          ? "National vote share for NDC and NPP, from the presidential packs for 2016, 2020 and 2024."
+          : (office === "parl"
+            ? "No national parliamentary vote series is loaded. Seat share uses the 2020 and 2024 seat packs."
+            : "Local assembly vote totals are not archived, so there is no national vote series."),
       },
       demographics: { available: false },
       prediction: {},
