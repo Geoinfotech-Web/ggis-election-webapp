@@ -355,6 +355,42 @@
       atakunmosaeast: 'Atakumosa East',
       atakunmosawest: 'Atakumosa West',
       ayedade: 'Ayedaade',
+      // GRID3 boundary name ↔ Electoral Commission result spelling.
+      // Boundary polygons whose names differ from the result LGA key, so the
+      // vote colour lands on the right LGA instead of a neutral "no data" fill.
+      obinwga: 'Obingwa', // Abia
+      osisiomangwa: 'Osisioma', // Abia
+      girei: 'Gire 1', // Adamawa
+      ihiala: 'Ihala', // Anambra
+      yenegoa: 'Yenagoa', // Bayelsa
+      maiduguri: 'Maiduguri M. C.', // Borno
+      iguegben: 'Igueben', // Edo
+      uhunmwonde: 'Uhunmwode', // Edo
+      adoekiti: 'Ado', // Ekiti
+      shomgom: 'Shongom', // Gombe
+      yamaltudeba: 'Yalmaltu/ Deba', // Gombe
+      ezinihitte: 'Ezinihitte Mbaise', // Imo
+      mbatoli: 'Mbaitoli', // Imo
+      biriniwa: 'Birniwa', // Jigawa
+      kirikasama: 'Kirika Samma', // Jigawa
+      malumfashi: 'Malufashi', // Katsina
+      aleiro: 'Aliero', // Kebbi
+      bagudu: 'Bagudo', // Kebbi
+      arewadandi: 'Arewa', // Kebbi
+      kogi: 'Kogi . K. K.', // Kogi
+      mopamuro: 'Mopa Moro', // Kogi
+      ogorimagongo: 'Ogori Mangogo', // Kogi
+      pategi: 'Patigi', // Kwara
+      nasarawaegon: 'Nasarawa Eggon', // Nasarawa
+      edati: 'Edatti', // Niger
+      shagamu: 'Sagamu', // Ogun
+      yewanorth: 'Egbado North', // Ogun
+      yewasouth: 'Egbado South', // Ogun
+      ileshaeast: 'Ilesa East', // Osun
+      ileshawest: 'Ilesa West', // Osun
+      barkinladi: 'Barikin Ladi', // Plateau
+      sabonbirni: 'S/Birni', // Sokoto
+      birninmagajikiyaw: 'Birnin Magaji', // Zamfara
     };
     if (aliases[key]) return aliases[key];
     return String(name || '').trim();
@@ -528,7 +564,10 @@
           opacity: 0.95,
         };
       } else if (theme.level === layerId) {
-        style = { ...base, fillOpacity: 0.06, fillColor: '#94a3b8' };
+        // No result for this unit (e.g. an LGA with no vote count): fill it a
+        // visible neutral grey so the parent state reads as complete instead of
+        // showing transparent gaps, while staying distinct from party colors.
+        style = { ...base, fillColor: '#cbd5e1', fillOpacity: 0.55, opacity: 0.95, weight: base.weight };
       }
     }
     // State strokes live on one shared line layer so adjacent polygons are not drawn twice.
