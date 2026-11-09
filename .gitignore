@@ -3,7 +3,6 @@ node_modules/
 
 # environments
 .venv/
-.env
 .tools
 
 # secrets — DO NOT COMMIT
@@ -63,3 +62,4 @@ public/data/*-source.html
 public/data/.backups/
 Election Dashboard/
 tmp/
+config.bat
